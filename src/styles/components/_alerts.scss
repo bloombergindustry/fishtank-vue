@@ -1,0 +1,58 @@
+.ft-alert {
+  padding: $baseline * 3;
+  position: relative;
+  border-color: $color-black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.ft-alert__icon {
+  position: absolute;
+
+  svg {
+    height: $baseline * 8;
+    width: $baseline * 8;
+  }
+
+  &+ .ft-alert__content {
+    margin-left: $baseline * 11;
+  }
+}
+
+.ft-alert__content {
+  @include font-base-sm();
+  margin-left: $baseline * 3;
+}
+
+.ft-alert__heading {
+  @include font-base-lg();
+  font-weight: $fontweight-semi;
+  margin-bottom: $baseline * 2;
+}
+
+.ft-alert--error {
+  background-color: $color-error-lightest;
+  border-color: $color-error;
+
+  .ft-alert__icon {
+    color: $color-error;
+  }
+}
+
+.ft-alert--info {
+  background-color: $color-selection-lightest;
+  border-color: $color-selection;
+
+  .ft-alert__icon {
+    color: $color-selection;
+  }
+}
+
+.ft-alert--success {
+  background-color: $color-action-lightest;
+  border-color: $color-action-lighter;
+
+  .ft-alert__icon {
+    color: $color-action-lighter;
+  }
+}

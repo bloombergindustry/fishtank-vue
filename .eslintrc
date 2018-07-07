@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:vue/recommended",
+    "@vue/prettier",
+    "@vue/typescript"
+  ], 
+  "rules": {
+    "prettier/prettier": ["warning", {
+      "semi": false
+    }],
+    "semi": ["warn", "never"]
+  }
+}

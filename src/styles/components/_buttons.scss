@@ -1,0 +1,122 @@
+.ft-button {
+  @include font-base-lg();
+  font-family: $font-primary;
+  font-weight: $fontweight-semi;
+
+  padding: $baseline * 2 $baseline * 4;
+  height: $baseline * 10;
+  box-sizing: border-box;
+
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+
+  &:active,
+  &:hover {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.ft-button--block {
+  display: block;
+  width: 100%;
+}
+
+@mixin button-box-shadow($color) {
+  box-shadow: inset 0 -1px 0 1px rgba(black, 0.1),
+              inset 0 1px 0 1px rgba(white, 0.1),
+              0 8px 8px -8px rgba($color, 0.5),
+              0 10px 15px -8px rgba(black, 0.2);
+
+  &:disabled {
+    box-shadow: none;
+  }
+}
+
+.ft-button--primary {
+  background-color: $color-action;
+  border-color: $color-action-darkest;
+  color: $color-white;
+
+  @include button-box-shadow($color-action);
+
+  &:hover {
+    background-color: $color-action-lighter;
+  }
+
+  &:active {
+    background-color: $color-action-darker;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background-color: $color-action;
+    }
+  }
+}
+
+.ft-button--secondary {
+  background-color: $color-gray-lightest;
+  border-color: $color-gray-lighter;
+  color: $color-black;
+  font-weight: 400;
+
+  box-shadow: inset 0 -1px 0 1px rgba(0,0,0,0.1),
+              inset 0 1px 0 1px rgba(255,255,255,0.1),
+              0 0 1px -2px rgba(237,242,245,0.5),
+              0 1px 3px -2px rgba(0,0,0,0.15);
+
+  &:hover {
+    background-color: $color-secondary-lighter;
+  }
+
+  &:active {
+    background-color: $color-secondary-darker;
+  }
+
+  &:disabled {
+    color: $color-gray-lighter;
+    border-color: $color-gray-lighter;
+    background-color: $color-secondary;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+  }
+}
+
+.ft-button--destructive {
+  background-color: $color-error;
+  border-color: $color-error-darkest;
+  color: $color-white;
+
+  @include button-box-shadow($color-error);
+
+  &:hover {
+    background-color: $color-error-lighter;
+  }
+
+  &:active {
+    background-color: $color-error-darker;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background-color: $color-error;
+    }
+  }
+}

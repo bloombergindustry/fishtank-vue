@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "mocha",
+      "chai"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "dev/**/*.ts",
+    "dev/**/*.vue",
+    "stories/**/*.ts",
+    "tests/**/*.ts",
+    "types/**/*.d.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files":[
+    "vue-shim.d.ts"
+  ]
+}

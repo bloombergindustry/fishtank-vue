@@ -1,0 +1,9 @@
+@import '~@fishtank/colors/dist/index';
+@import '~@fishtank/type/dist/index';
+@import '~@fishtank/space/dist/index';
+$font-primary: open sans, arial, sans-serif;
+$font-accent: avenir next, avenir, helvetica neue, helvetica, arial, sans-serif;
+
+$color-selection: $color-selected;
+$color-selection-lighter: $color-selected-lighter;
+$color-selection-lightest: $color-selected-lightest;

@@ -1,0 +1,13 @@
+src/
+build/
+tests/
+public/
+.vscode/
+tsconfig*
+vue.config.js
+rollup.config.js
+yarn.lock
+.babelrc
+.rpt2_cache/
+config/
+dev/

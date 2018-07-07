@@ -1,0 +1,51 @@
+.ft-card__container {
+  box-sizing: border-box;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+}
+
+.ft-card__brand-stripe {
+  border-radius: 2px 2px 0 0;
+  height: 4px;
+}
+
+.ft-card__brand-stripe + .ft-card__container {
+  .ft-card__heading {
+    border-radius: 0;
+  }
+
+  .ft-card__body {
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+.ft-card__heading {
+  border: 1px solid $color-gray-lighter;
+  border-radius: 2px 2px 0 0;
+  padding: $baseline * 3;
+  background-color: $color-gray-lightest;
+  font-size: $fontsize-base-lg;
+  line-height: $lineheight-base-lg;
+  font-family: $font-primary;
+  font-weight: $fontweight-semi;
+}
+
+.ft-card__body {
+  padding: $baseline * 3;
+  border-radius: 2px;
+  background-color: $color-white;
+  border: 1px solid $color-gray-lighter;
+}
+
+.ft-card__heading + .ft-card__body {
+  border-top: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+// Should be removed once grid is in place
+.ft-card + .ft-card {
+  margin-top: $baseline * 6;
+}
