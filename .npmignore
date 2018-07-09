@@ -11,3 +11,4 @@ yarn.lock
 .rpt2_cache/
 config/
 dev/
+.github/
