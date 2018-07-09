@@ -6,7 +6,7 @@
   "author": "Fishtank Design System <agile_fishtank@bna.com>",
   "scripts": {
     "clean": "rimraf dist/",
-    "dev":"yarn run serve",
+    "dev": "yarn run serve",
     "serve": "vue-cli-service serve --open",
     "build": "yarn run clean && yarn build:esm && yarn build:cjs && yarn build:ts-types && yarn build:css",
     "build:rollup": "yarn rollup -c",

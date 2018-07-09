@@ -102,41 +102,5 @@ export default Vue.extend({
       return getchecked
     }
   }
-  // extends: BaseInput,
-  // props: {
-  //   disabled:{
-  //     type:[String, Boolean],
-  //     default:false
-  //   },
-  //   label:{
-  //     type:String,
-  //     default:"",
-  //     required:true
-  //   },
-  //   id: {
-  //     type:String,
-  //     default:"",
-  //     required:true
-  //   },
-  //   value: {
-  //     default:"",
-  //     required:true,
-  //     type:[String, Number, Boolean, Array, Object, Number],
-  //   },
-  //   val: {
-  //     type:[String, Number, Boolean, Array, Object, Number],
-  //     default:"",
-  //     required:false
-  //   }  
-  // },
-  // computed: {
-  //   isChecked: function(){
-  //     let getchecked:any = this.value
-  //     if (Array.isArray(this.value)){
-  //       getchecked = this.value.indexOf(this.val) >= 0
-  //     }
-  //     return getchecked
-  //   }
-  // }
 })
 </script>
