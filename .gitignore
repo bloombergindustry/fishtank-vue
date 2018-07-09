@@ -26,3 +26,5 @@ lib-esm/
 lib/
 types/
 .rpt2_cache/
+
+package-lock.json
