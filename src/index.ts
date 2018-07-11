@@ -15,4 +15,6 @@ export { default as InputText } from "./components/InputText.vue"
 export { default as Modal } from "./components/Modal.vue"
 export { default as DialogBox } from "./components/DialogBox.vue"
 
+export { default as Tag } from "./components/Tag.vue"
+
 import './styles.scss'

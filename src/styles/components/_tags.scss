@@ -1,0 +1,57 @@
+@import "./node_modules/@fishtank/colors/dist/index.scss";
+@import "./node_modules/@fishtank/space/dist/index.scss";
+@import "./node_modules/@fishtank/type/dist/index.scss";
+[class^="tag--"] {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    font-family: $font-primary;
+    border-radius: 6px;
+    font-size: $fontsize-base-md;
+    font-weight: $fontweight-semi;
+    padding: $baseline $baseline*2;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tag-container {
+    padding: 0px;
+    vertical-align: bottom;
+}
+
+.tag--active,
+.tag--removeable {
+    color: $color-white;
+    background-color: $color-selected;
+    border: 1px solid $color-selected;
+}
+
+.tag--active:hover,
+.tag--removeable:hover {
+    color: $color-white;
+    background-color: $color-selected-lighter;
+    border: 1px solid $color-selected-lighter;
+}
+
+.tag--inactive {
+    color: $color-gray;
+    background-color: $color-gray-lightest;
+    border: 1px solid $color-gray-lighter;
+}
+
+.tag--inactive:hover {
+    color: $color-black;
+    background-color: $color-secondary-lighter;
+    border: 1px solid $color-gray-lighter;
+}
+
+.tag--disabled,
+.tag--removeable--disabled {
+    color: $color-gray-lighter;
+    background-color: $color-gray-lightest;
+    border: 1px solid $color-gray-lighter;
+}

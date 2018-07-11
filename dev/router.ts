@@ -17,6 +17,10 @@ export default new Router({
     {
       path: '/modals',
       component: () => import("./views/Modals.vue")
+    },
+    {
+      path: '/tags',
+      component: () => import("./views/Tags.vue")
     }
   ]
 })
