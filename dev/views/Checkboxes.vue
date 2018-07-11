@@ -36,12 +36,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { InputCheckbox } from '@/index'
-import { BaseInput } from '@/index'
 
 export default Vue.extend({
   components:{
     InputCheckbox,
-    BaseInput
   },
   data(){
     return {
