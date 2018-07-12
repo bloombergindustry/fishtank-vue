@@ -4,10 +4,12 @@
 [class^="tag--"] {
     display: inline-block;
     cursor: pointer;
-    text-align: center;
+    vertical-align: middle;
     font-family: $font-primary;
     border-radius: 6px;
+    position: relative;
     font-size: $fontsize-base-md;
+    margin: 0px;
     font-weight: $fontweight-semi;
     padding: $baseline $baseline*2;
     -webkit-touch-callout: none;
@@ -18,12 +20,35 @@
     user-select: none;
 }
 
-.tag-container {
+.tag--text {
     padding: 0px;
-    vertical-align: bottom;
+    margin: 0px;
 }
 
-.tag--active,
+.tags--heading {
+    font-size: $fontsize-heading-sm;
+}
+
+.tags--text {
+    font-family: $font-primary;
+    font-size: $fontsize-base-md;
+    font-weight: $fontweight-semi;
+}
+
+.tag-close-icon {
+    vertical-align: middle;
+    padding: 0px;
+    margin-left: $baseline*2;
+    margin-right: -$baseline*2;
+    position: relative;
+}
+
+.tag--active {
+    color: $color-white;
+    background-color: $color-selected;
+    border: 1px solid $color-selected;
+}
+
 .tag--removeable {
     color: $color-white;
     background-color: $color-selected;

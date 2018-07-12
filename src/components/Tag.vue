@@ -1,16 +1,17 @@
 <template>
-  <div @click="changeState()"
+  <span @click="changeState()"
      :class= classes()
   >
-    <span class="tag-container">{{text}} <CloseIcon v-if="close"></CloseIcon></span> 
-  </div>
+    <p class="tag--text">{{text}}</p>
+    <CloseIcon @click="deleteTag()" class="tag-close-icon" v-if="close"/>
+  </span>
 </template>
 
 <script lang="ts">
   import Vue from "vue"
   import { CloseSml24 as CloseIcon} from "@fishtank/icons-vue"
 
-  export default {
+  export default Vue.extend({
     name: 'Tag',
     components:{
       CloseIcon
@@ -29,43 +30,43 @@
         default: false
       }
     },
-    data () {
+    data: function () {
       return {
         activeState: true
       }
+    },
+    computed: {
+       isActive: function () { return this.activeState },
+       isDisabled: function() { return this.disabled },
+       isRemoveable: function() { return this.close }
     },
     methods: {
       changeState() {
         if(!this.close){
           this.activeState = !(this.activeState);
+          this.$emit('change', this.activeState);
         }
       },
-      isActive(){
-        return this.activeState;
-      },
-      isDisabled(){
-        return this.disabled;
-      },
-      isRemoveable(){
-        return this.close;
-      },
       classes(){
-        if(this.isDisabled()){
-           if(this.isRemoveable()){
+        if(this.isDisabled){
+           if(this.isRemoveable){
               return 'tag--removeable--disabled';
            }else{
             return 'tag--disabled';
            }
-        }else if(this.isRemoveable()){
+        }else if(this.isRemoveable){
           return 'tag--removeable';
-        }else if(this.isActive()){
+        }else if(this.isActive){
           return 'tag--active';
         }else{
           return 'tag--inactive';
         }
+      },
+      deleteTag(){
+        this.$emit('delete',this.text)
       }
     }
-  }
+  })
 </script>
 
 <style lang="scss">

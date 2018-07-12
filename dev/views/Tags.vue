@@ -1,21 +1,21 @@
 <template>
   <body>
     <div>
-      <h1>Binary Tags</h1>
+      <h1 class="tags--heading">Binary Tags</h1>
         <span>
-          <p><Tag text="Label"></Tag> Active/Inactive and hover functionality </p>
+          <p class="tags--text"><Tag text="Label"></Tag> Active/Inactive and hover functionality </p>
         </span>
         <span>
-          <p> <Tag text="Label" disabled></Tag> Disabled</p>
+          <p class="tags--text"> <Tag text="Label" disabled></Tag> Disabled</p>
         </span>
     </div>
     <div>
-      <h1>Removeable Tags </h1>
+      <h1 class="tags--heading">Removeable Tags </h1>
       <span>
-        <p> <Tag text="Label" close></Tag> Only active state, with hover functionality</p>
+        <p class="tags--text"> <Tag text="Label" close></Tag> Only active state, with hover functionality</p>
       </span>
       <span>
-        <p> <Tag text="Label" close disabled></Tag> Disabled</p>
+        <p class="tags--text"> <Tag text="Label" close disabled></Tag> Disabled</p>
       </span>
     </div>
   </body>
