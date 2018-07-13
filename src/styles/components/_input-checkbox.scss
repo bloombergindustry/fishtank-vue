@@ -7,15 +7,6 @@
     opacity: 0;
     z-index: 1;
     margin: 0px;
-    & + .ft-input-checkbox__checkbox{
-      color: $color-gray;
-      position: absolute;
-      top: 0;
-      & + span {
-        position: relative;
-        top: -7px;
-      }
-    }
     &:hover, &:focus {
       & + .ft-input-checkbox__checkbox {
         color: $color-black;
@@ -41,6 +32,15 @@
     padding-top: 4px;
     &__label{
       margin: 0px;
+    }
+  }
+  .ft-input-checkbox__checkbox{
+    color: $color-gray;
+    position: absolute;
+    top: 0;
+    & + span {
+      position: relative;
+      top: -7px;
     }
   }
   .ft-input-checkbox__label {

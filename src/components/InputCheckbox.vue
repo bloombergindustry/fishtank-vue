@@ -69,11 +69,32 @@ export default Vue.extend({
       type:[String, Number, Boolean, Array, Object, Number],
       default:"",
       required:false
-    } 
+    }
   },
   data(){
     return {
-      checkProxy:false
+      checkProxy:false,
+      groupChecked: false,
+      isInCheckboxGroup:false
+    }
+  },
+  inject: {
+    checkboxGroup: {
+      default : {
+        register() {},
+        unregister() {},
+        EventBus(){}
+      }
+    }
+  },
+  mounted(){
+    if (this.checkboxGroup !== undefined){
+      this.checkboxGroup.register(this)
+    }
+  },
+  destroyed() {
+    if (this.checkboxGroup!== undefined){
+      this.checkboxGroup.unregister(this)
     }
   },
   computed: {
@@ -101,6 +122,18 @@ export default Vue.extend({
       }
       return getchecked
     }
+  },
+  created(){
+    this.checkboxGroup.EventBus.$on("updateState", (state:Boolean)=>{
+      console.log("this.checkboxGroup.EventBus", state, this)
+      if (state){
+        if (this.value.indexOf(this.val) < 0){
+          this.value.push(this.val)
+        }
+      } else {
+        this.value.splice(this.value.indexOf(this.val), 1)
+      }
+    })
   }
 })
 </script>
