@@ -28,3 +28,4 @@ types/
 .rpt2_cache/
 
 package-lock.json
+yarn.lock
