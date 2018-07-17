@@ -46,7 +46,7 @@
     id="gammeThree" val="gammeThree"
     v-model="arrTwo"
     label="Multi Checkbox One" ref="nestedCheckbox"/>
-    
+    <p> thing</p>
     </NestedInputCheckbox>  
   </section>
 </template>

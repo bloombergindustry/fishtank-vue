@@ -17,12 +17,13 @@
           </div>
         </label>
     </div>
-    <div class="nested">
-      <!-- <slot></slot> -->
-    </div>
   </section>
 </template>
 <script lang="ts">
+  export interface NestedChildren {
+    child:Vue
+  }
+  import {CheckboxGroup} from 'types'
   import Vue from "vue"
   //Consider this for recusively building a tree of components
   //https://vuejsdevelopers.com/2017/10/23/vue-js-tree-menu-recursive-components/
@@ -31,8 +32,9 @@
     CheckboxUnselected24 as AddIconCheckboxUnselected,
     CheckboxPartial24 as AddIconCheckboxPartial
     } from '@fishtank/icons-vue'
+import { Component } from 'vue-router/types/router';
 
-  export default {
+  export default Vue.extend({ 
     props: {
       values:[String, Number, Object, Array],
       value: {
@@ -51,33 +53,16 @@
     },
     data: function(){
       return {
-        checkboxGroupModel:[],
-        checkboxGroupLength:0,
-        someSelected:false,
-        children:[],
+        children: <NestedChildren[]>[],
         EventBus: new Vue()
       }
     },
     provide: function(){
-      const checkboxGroup = {
+      const checkboxGroup:CheckboxGroup = {
         register: this.register,
         unregister: this.unregister,
-        areNoneChecked:this.areNoneChecked,
-        isNestedCheckbox:true,
         EventBus: this.EventBus
       }
-      Object.defineProperty(checkboxGroup, 'checkboxGroupModel',{
-        enumerable : true,
-        get: () => this.checkboxGroupModel
-      })
-      Object.defineProperty(checkboxGroup, 'checkboxGroupLength',{
-        enumerable : true,
-        get: () => this.checkboxGroupModel
-      })
-      Object.defineProperty(checkboxGroup, 'allSelected',{
-        enumerable : true,
-        get: () => this.allSelected
-      })
       return {checkboxGroup}
     },
     components:{
@@ -88,6 +73,7 @@
     methods:{
       register(checkbox:any) {
         this.children.push(checkbox);
+        console.log(this.$slots)
       },
       unregister(checkbox:any) {
         let index = this.children.indexOf(checkbox);
@@ -95,7 +81,7 @@
           this.children.splice(index, 1);
         }
       },  
-      areNoneChecked(){
+      areNoneChecked() {
         console.log("this", this)
         let state = false;
         if (this.allChecked){
@@ -111,21 +97,16 @@
       }
     },
     computed:{
-      allChecked: {
-        get: function(){
-          return (this.children.length === this.value.length)
-        }
+      allChecked: function(): boolean {
+        // console.log(this.$slots)
+        return (this.children.length === this.value.length)
       },
-      someChecked: {
-        get: function(){
-          return ((0 < this.value.length) && (this.value.length< this.children.length))
-        }
+      someChecked: function(): boolean {
+        return ((0 < this.value.length) && (this.value.length< this.children.length))
       },
-      noneChecked:{
-        get: function(){
-          return (this.value.length===0)
-        }
+      noneChecked: function(): boolean {
+        return (this.value.length===0)
       }
     }
-  }
+  })
 </script>

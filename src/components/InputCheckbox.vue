@@ -34,6 +34,7 @@
 
 <script lang="ts">
 import Vue from "vue"
+import {CheckboxGroup} from 'types'
 
 import { 
   CheckboxSelected24 as CheckboxSelected, 
@@ -80,20 +81,21 @@ export default Vue.extend({
   },
   inject: {
     checkboxGroup: {
-      default : {
-        register() {},
-        unregister() {},
-        EventBus(){}
+      default: <CheckboxGroup> () =>{
+        register();
+        unregister();
+        EventBus();
       }
     }
   },
   mounted(){
     if (this.checkboxGroup !== undefined){
+      // console.log("child", this)
       this.checkboxGroup.register(this)
     }
   },
   destroyed() {
-    if (this.checkboxGroup!== undefined){
+    if (this.checkboxGroup !== undefined){
       this.checkboxGroup.unregister(this)
     }
   },
