@@ -1,9 +1,9 @@
 <template>
   <span @click="changeState()"
-     :class= classes()
+        :class= classes()
   >
-    <p class="tag--text">{{text}}</p>
-    <CloseIcon @click="deleteTag()" class="tag-close-icon" v-if="close"/>
+    <p class="tag--text">{{ text }}</p>
+    <CloseIcon @click="removeTag()" class="tag-close-icon" v-if="close"/>
   </span>
 </template>
 
@@ -28,7 +28,7 @@
       close:{
         type: Boolean,
         default: false
-      }
+      },
     },
     data: function () {
       return {
@@ -62,8 +62,8 @@
           return 'tag--inactive';
         }
       },
-      deleteTag(){
-        this.$emit('delete',this.text)
+      removeTag(){
+        this.$emit('removetag',this.index)
       }
     }
   })

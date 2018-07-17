@@ -35,7 +35,8 @@
     font-weight: $fontweight-semi;
 }
 
-.tag-close-icon {
+.tag-close-icon,
+.tag-expand-icon {
     vertical-align: middle;
     padding: 0px;
     margin-left: $baseline*2;
@@ -43,7 +44,8 @@
     position: relative;
 }
 
-.tag--active {
+.tag--active,
+.tag--multiselect--active {
     color: $color-white;
     background-color: $color-selected;
     border: 1px solid $color-selected;
@@ -56,27 +58,44 @@
 }
 
 .tag--active:hover,
-.tag--removeable:hover {
+.tag--removeable:hover,
+.tag--multiselect--active:hover {
     color: $color-white;
     background-color: $color-selected-lighter;
     border: 1px solid $color-selected-lighter;
 }
 
-.tag--inactive {
+.tag--inactive,
+.tag--multiselect--inactive {
     color: $color-gray;
     background-color: $color-gray-lightest;
     border: 1px solid $color-gray-lighter;
 }
 
-.tag--inactive:hover {
+.tag--inactive:hover,
+.tag--multiselect--inactive:hover {
     color: $color-black;
     background-color: $color-secondary-lighter;
     border: 1px solid $color-gray-lighter;
 }
 
 .tag--disabled,
-.tag--removeable--disabled {
+.tag--removeable--disabled,
+.tag--multiselect--disabled {
     color: $color-gray-lighter;
     background-color: $color-gray-lightest;
     border: 1px solid $color-gray-lighter;
+}
+
+.multiselect-options-inactive {
+    display: none;
+}
+
+.multiselect-options-active label {
+    display: block;
+}
+
+.input-tag-container {
+    margin-right: $baseline*2;
+    padding-bottom: $baseline*2;
 }

@@ -16,5 +16,7 @@ export { default as Modal } from "./components/Modal.vue"
 export { default as DialogBox } from "./components/DialogBox.vue"
 
 export { default as Tag } from "./components/Tag.vue"
+export { default as MultiSelectTag } from "./components/MultiSelectTag.vue"
+export { default as InputTagRemove } from "./components/InputTagRemove.vue"
 
 import './styles.scss'
