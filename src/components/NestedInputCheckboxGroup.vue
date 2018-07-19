@@ -38,7 +38,6 @@ import { Component } from 'vue-router/types/router';
 
   export default Vue.extend({ 
     props: {
-      values:[String, Number, Object, Array],
       value: {
         default:"",
         required:true,
