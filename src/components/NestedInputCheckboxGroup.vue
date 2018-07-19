@@ -56,7 +56,7 @@ import { Component } from 'vue-router/types/router';
       return {
         children: <NestedChildren[]>[],
         EventBus: new Vue(),
-        childCount:0,
+        childCount:<number>0,
       }
     },
     provide: function(){
@@ -83,7 +83,7 @@ import { Component } from 'vue-router/types/router';
     methods:{
       register(checkbox:any) {
         this.children.push(checkbox);
-        console.log(this.$slots)
+        console.log(this.children)
       },
       unregister(checkbox:any) {
         let index = this.children.indexOf(checkbox);
@@ -91,9 +91,9 @@ import { Component } from 'vue-router/types/router';
           this.children.splice(index, 1);
         }
       },  
-      areNoneChecked() {
+      areNoneChecked():void {
         console.log("this", this)
-        let state = false;
+        let state:boolean = false;
         if (this.allChecked){
           console.log("all checked")
         } else if (this.someChecked){
@@ -108,7 +108,6 @@ import { Component } from 'vue-router/types/router';
     },
     computed:{
       allChecked: function(): boolean {
-        // console.log(this.$slots)
         return (this.children.length === this.value.length)
       },
       someChecked: function(): boolean {

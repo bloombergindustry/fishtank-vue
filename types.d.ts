@@ -1,7 +1,8 @@
 import Vue from 'Vue'
+import VueComponent from 'Vue'
 
 export interface CheckboxGroup {
-  children:any
+  children:any[]
   childCount:number
   register(checkbox:any):void
   unregister(checkbox:any):void
