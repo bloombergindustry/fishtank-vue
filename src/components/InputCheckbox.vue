@@ -16,11 +16,11 @@
         v-on="listeners">
       <CheckboxSelected 
         v-if="isChecked"
-        class="ft-input-checkbox__checkbox ft-svg-selected"
+        class="ft-input-checkbox__checkbox"
       />
       <CheckboxUnselected 
-        v-else
-        class="ft-input-checkbox__checkbox ft-svg-unselected"
+        v-if="!isChecked"
+        class="ft-input-checkbox__checkbox"
       />
       <div
         v-if="label" 
@@ -38,7 +38,7 @@ import {CheckboxGroup} from 'types'
 
 import { 
   CheckboxSelected24 as CheckboxSelected, 
-  CheckboxUnselected24 as CheckboxUnselected 
+  CheckboxUnselected24 as CheckboxUnselected
 } from "@fishtank/icons-vue"
 
 export default Vue.extend({
@@ -75,28 +75,6 @@ export default Vue.extend({
   data(){
     return {
       checkProxy:false,
-      groupChecked: false,
-      isInCheckboxGroup:false
-    }
-  },
-  inject: {
-    checkboxGroup: {
-      default: <CheckboxGroup> () =>{
-        register();
-        unregister();
-        EventBus();
-      }
-    }
-  },
-  mounted(){
-    if (this.checkboxGroup !== undefined){
-      // console.log("child", this)
-      this.checkboxGroup.register(this)
-    }
-  },
-  destroyed() {
-    if (this.checkboxGroup !== undefined){
-      this.checkboxGroup.unregister(this)
     }
   },
   computed: {
@@ -117,25 +95,13 @@ export default Vue.extend({
         return this.value
       }
     },
-      isChecked: function(){
+    isChecked: function(){
       let getchecked:any = this.value
       if (Array.isArray(this.value)){
         getchecked = this.value.indexOf(this.val) >= 0
       }
       return getchecked
     }
-  },
-  created(){
-    this.checkboxGroup.EventBus.$on("updateState", (state:Boolean)=>{
-      console.log("this.checkboxGroup.EventBus", state, this)
-      if (state){
-        if (this.value.indexOf(this.val) < 0){
-          this.value.push(this.val)
-        }
-      } else {
-        this.value.splice(this.value.indexOf(this.val), 1)
-      }
-    })
   }
 })
 </script>

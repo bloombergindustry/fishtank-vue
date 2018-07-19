@@ -1,69 +1,27 @@
 @import "./node_modules/@fishtank/colors/dist/index.scss";
-.ft-nested-checkbox > .ft-input-checkbox-label {
-  font-size:14px;
-  padding-left: 16px;
-  top: 0px;
-  position: absolute;
-  top:3px;
-  color: $color-gray-dark;
-}
-.ft-nested-checkbox {
-  width: 100%; 
-  height: 32px;
+
+.ft-nested-checkbox__label{
   position: relative;
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
-.ft-nested-checkbox .label-content{
-    padding-left:32px;
-    padding-top: 2px;
-  }
-.ft-nested-checkbox > .ft-input-checkbox-label input{
-  width:100%;
-  height: 100%;
-  position: absolute;
+.ft-nested-checkbox__input{
   opacity: 0;
-  z-index: 1;
-  margin: 0px;
-}
-.ft-nested-checkbox .ft-nested-checkbox-wrap {
   position: absolute;
+  display: inline-block;
+  width:100%;
 }
-.nested{
-  padding-left:36px;
+.ft-nested-checkbox__icon {
+  display: inline;
+  position: absolute;
+  top:0px
 }
-.ft-nested-checkbox {
-  > .ft-input-checkbox-label {
-    color: $color-gray-dark;
-  }
-  .ft-nested-checkbox-wrap > svg {
-    fill:$color-gray;
-  }
-  .ft-nested-checkbox-wrap.someChecked > svg, .ft-nested-checkbox-wrap.allChecked > svg{
-    fill:$color-selected;
-  }
-  &:hover, &:active {
-    > .ft-input-checkbox-label{
-      color: $color-black;
-    }
-    .ft-nested-checkbox-wrap > svg{
-      fill:$color-black;
-    }
-    .ft-nested-checkbox-wrap.someChecked > svg, .ft-nested-checkbox-wrap.allChecked > svg{
-      fill:$color-selected-lighter;
-    }
-  }
-  input:checked{
-    + .ft-input-checkbox-wrap > svg{
-      fill:$color-selected
-    }
-  }
-  &:hover input:checked, &:active input:checked {
-    + .ft-input-checkbox-wrap > svg{
-      fill:$color-selected-lighter  
-    }
-  }
-  input:disabled,  &:hover input:disabled:checked,  &:active input:disabled:checked{
-    + .ft-input-checkbox-wrap svg{
-      fill:$color-disabled
-    }
-  }
+.ft-nested-checkbox__label-content {
+  display: inline-block;
+  padding-left: 32px;
+  padding-top: 4px;
+}
+.ft-nested-checkbox__wrap{
+  padding-left: 28px;
 }

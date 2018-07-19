@@ -1,6 +1,6 @@
 <template>
   <section>
-    <!-- <InputCheckbox 
+    <InputCheckbox 
     id="single"
     label="Single Checkbox"
     v-model="val"/>
@@ -29,25 +29,46 @@
     disabled="true" 
     v-model="arr" 
     label="Multi Checkbox Three"/>
-    <p>Arr: [{{arr}}]</p> -->
+    <p>Arr: [{{arr}}]</p>
 
-    <NestedInputCheckbox v-model="arrTwo" label="test checkbox group">
-      <InputCheckbox 
-    id="alphaTwo" val="alphaTwo"
-    v-model="arrTwo"
-    label="Multi Checkbox One" ref="nestedCheckbox"/>
+    <NestedInputCheckboxGroup v-model="arrTwo" label="test checkbox group">
+      <NestedInputCheckbox 
+      id="alphaTwo" val="alphaTwo"
+      v-model="arrTwo"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
 
-    <InputCheckbox 
-    id="betaTwo" val="albetaTwopha"
-    v-model="arrTwo"
-    label="Multi Checkbox One" ref="nestedCheckbox"/>
+      <NestedInputCheckbox 
+      id="betaTwo" val="albetaTwopha"
+      v-model="arrTwo"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
 
-    <InputCheckbox 
-    id="gammeThree" val="gammeThree"
-    v-model="arrTwo"
-    label="Multi Checkbox One" ref="nestedCheckbox"/>
-    <p> thing</p>
-    </NestedInputCheckbox>  
+      <NestedInputCheckbox 
+      id="gammeThree" val="gammeThree"
+      v-model="arrTwo"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
+      <p> thing</p>
+    </NestedInputCheckboxGroup>  
+
+
+    <NestedInputCheckboxGroup v-model="arrThree" label="test checkbox group">
+      <NestedInputCheckbox 
+      id="alphaTwo" val="alphaTwo"
+      v-model="arrThree"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
+
+      <NestedInputCheckbox 
+      id="betaTwo" val="albetaTwopha"
+      v-model="arrThree"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
+
+      <NestedInputCheckbox 
+      id="gammeThree" val="gammeThree"
+      v-model="arrThree"
+      label="Multi Checkbox One" ref="nestedCheckbox"/>
+      <p> thing</p>
+    </NestedInputCheckboxGroup>  
+
+
   </section>
 </template>
 
@@ -55,19 +76,22 @@
 import Vue from 'vue'
 import { 
   InputCheckbox,
-  NestedInputCheckbox
+  NestedInputCheckbox,
+  NestedInputCheckboxGroup
   } from '@/index'
 
 export default Vue.extend({
   components:{
     InputCheckbox,
-    NestedInputCheckbox
+    NestedInputCheckbox,
+    NestedInputCheckboxGroup
   },
   data(){
     return {
       val:false,
       arr:['epsilon'],
       arrTwo:[],
+      arrThree:[],
       baseVal:false,
       baseArr:[]
     }

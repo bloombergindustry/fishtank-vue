@@ -13,6 +13,9 @@ export { default as Card } from "./components/Card.vue"
 export { default as InputCheckbox } from "./components/InputCheckbox.vue"
 export { default as NestedInputCheckbox } from "./components/NestedInputCheckbox.vue"
 
+export { default as NestedInputCheckboxGroup } from "./components/NestedInputCheckboxGroup.vue"
+
+
 export { default as InputText } from "./components/InputText.vue"
 
 export { default as Modal } from "./components/Modal.vue"
