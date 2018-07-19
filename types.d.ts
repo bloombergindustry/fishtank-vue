@@ -7,3 +7,10 @@ export interface CheckboxGroup {
   unregister(checkbox:any):void
   EventBus:Vue
 }
+
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    checkboxGroup:CheckboxGroup
+  }
+}
