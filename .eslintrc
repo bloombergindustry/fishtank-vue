@@ -4,7 +4,11 @@
     "plugin:vue/recommended",
     "@vue/prettier",
     "@vue/typescript"
-  ], 
+  ],
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module"
+  }, 
   "rules": {
     "prettier/prettier": ["warning", {
       "semi": false

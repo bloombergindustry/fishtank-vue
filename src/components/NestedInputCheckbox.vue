@@ -70,7 +70,7 @@ export default Vue.extend({
     value: {
       default:"",
       required:true,
-      type:[String, Number, Boolean, Array, Object, Number],
+      type:[String, Number, Boolean, Array, Object, Number]
     },
     val: {
       type:[String, Number, Boolean, Array, Object, Number],
@@ -80,21 +80,10 @@ export default Vue.extend({
   },
   data(){
     return {
-      checkProxy:<boolean>false,
+      checkProxy:false
     }
   },
   inject: ["checkboxGroup"],
-  mounted(){
-    if (this.checkboxGroup !== undefined){
-      this.checkboxGroup.register(this)
-      this.checkboxGroup.childCount++
-    }
-  },
-  destroyed() {
-    if (this.checkboxGroup !== undefined){
-      this.checkboxGroup.unregister(this)
-    }
-  },
   computed: {
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -121,15 +110,21 @@ export default Vue.extend({
       return getchecked
     },
     areSomeChecked: function():boolean{
-      return (0 < this.value.length && this.value.length < this.checkboxGroup.childCount);
+      return (0 < this.value.length && this.value.length < this.checkboxGroup.childCount) 
     },
     areAllChecked:function():boolean{
       return (0 < this.value.length && this.value.length === this.checkboxGroup.childCount)
     }
   },
+  mounted(){
+    this.checkboxGroup.register(this)
+    this.checkboxGroup.childCount++
+  },
+  destroyed() {
+    this.checkboxGroup.unregister(this)
+  },
   created(){
     this.checkboxGroup.EventBus.$on("updateState", (state:Boolean):void=>{
-      console.log("this.checkboxGroup.EventBus", state, this)
       if (state){
         if (this.value.indexOf(this.val) < 0){
           this.value.push(this.val)

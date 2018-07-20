@@ -25,6 +25,7 @@
   export interface NestedChildren {
     child:Vue
   }
+
   import {CheckboxGroup} from 'types'
   import Vue from "vue"
   //Consider this for recusively building a tree of components
@@ -52,9 +53,9 @@ import { Component } from 'vue-router/types/router';
         default:null
       },
     },
-    data: function(){
+    data(){
       return {
-        children: <NestedChildren[]>[],
+        children:<NestedChildren[]>[],
         EventBus: new Vue(),
         childCount:<number>0,
       }
@@ -68,7 +69,7 @@ import { Component } from 'vue-router/types/router';
         EventBus: this.EventBus
       }
 
-      Object.defineProperty(checkboxGroup, 'childCount',{
+      Object.defineProperty(checkboxGroup, 'childCount',{ 
         enumerable : true,
         get: () => this.childCount,
         set: (val) => this.childCount = val
@@ -83,7 +84,6 @@ import { Component } from 'vue-router/types/router';
     methods:{
       register(checkbox:any) {
         this.children.push(checkbox);
-        console.log(this.children)
       },
       unregister(checkbox:any) {
         let index = this.children.indexOf(checkbox);
@@ -92,15 +92,11 @@ import { Component } from 'vue-router/types/router';
         }
       },  
       areNoneChecked():void {
-        console.log("this", this)
         let state:boolean = false;
         if (this.allChecked){
-          console.log("all checked")
         } else if (this.someChecked){
-          console.log("some checked")
           state = true
         } else{
-          console.log("none checked")
           state = true
         }
         this.EventBus.$emit('updateState', state);

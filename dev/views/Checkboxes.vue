@@ -1,70 +1,74 @@
 <template>
   <section>
     <InputCheckbox 
-    id="single"
-    label="Single Checkbox"
-    v-model="val"/>
+      id="single"
+      label="Single Checkbox"
+      v-model="val"/>
     <hr>
     <InputCheckbox 
-    id="alpha" val="alpha"
-    v-model="arr"
-    label="Multi Checkbox One"/>
+      id="alpha" val="alpha"
+      v-model="arr"
+      label="Multi Checkbox One"/>
     <InputCheckbox 
-    id="beta"
-    val="beta"
-    v-model="arr" 
-    disabled="true"
-    label="Multi Checkbox Two">
+      id="beta"
+      val="beta"
+      v-model="arr" 
+      disabled="true"
+      label="Multi Checkbox Two">
       <slot>
         <p>Test slot content</p>
       </slot>
     </InputCheckbox>
     <InputCheckbox 
-    id="gamma" val="gamma" 
-    v-model="arr" 
-    label="Multi Checkbox Three"/>
+      id="gamma"
+      v-model="arr" 
+      val="gamma" 
+      label="Multi Checkbox Three"/>
     <InputCheckbox 
-    id="epsilon" 
-    val="epsilon" 
-    disabled="true" 
-    v-model="arr" 
-    label="Multi Checkbox Three"/>
+      id="epsilon" 
+      v-model="arr"
+      val="epsilon" 
+      disabled="true"  
+      label="Multi Checkbox Three"/>
     <p>Arr: [{{arr}}]</p>
 
     <NestedInputCheckboxGroup v-model="arrTwo" label="test checkbox group">
       <NestedInputCheckbox 
-      id="alphaTwo" val="alphaTwo"
-      v-model="arrTwo"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="alphaTwo"
+        v-model="arrTwo"
+        val="alphaTwo"
+        label="Multi Checkbox One"/>
 
       <NestedInputCheckbox 
-      id="betaTwo" val="albetaTwopha"
-      v-model="arrTwo"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="betaTwo"
+        v-model="arrTwo"
+        val="albetaTwopha"
+        label="Multi Checkbox One"/>
 
       <NestedInputCheckbox 
-      id="gammeThree" val="gammeThree"
-      v-model="arrTwo"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="gammeThree"
+        v-model="arrTwo"
+        val="gammeThree"
+        label="Multi Checkbox One"/>
       <p> thing</p>
     </NestedInputCheckboxGroup>  
 
 
     <NestedInputCheckboxGroup v-model="arrThree" label="test checkbox group">
       <NestedInputCheckbox 
-      id="alphaTwo" val="alphaTwo"
-      v-model="arrThree"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="alphaTwo" val="alphaTwo"
+        v-model="arrThree"
+        label="Multi Checkbox One"/>
 
       <NestedInputCheckbox 
-      id="betaTwo" val="albetaTwopha"
-      v-model="arrThree"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="betaTwo" val="albetaTwopha"
+        v-model="arrThree"
+        label="Multi Checkbox One"/>
 
       <NestedInputCheckbox 
-      id="gammeThree" val="gammeThree"
-      v-model="arrThree"
-      label="Multi Checkbox One" ref="nestedCheckbox"/>
+        id="gammeThree" val="gammeThree"
+        v-model="arrThree"
+        label="Multi Checkbox One"/>
       <p> thing</p>
     </NestedInputCheckboxGroup>  
 

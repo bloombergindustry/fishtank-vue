@@ -11,7 +11,7 @@ import {
 
 import Vue from '*.vue'
 
-describe("InputCheckbox", () => {
+describe("NestedInputCheckboxGroup", () => {
   let propsData : any = {}
   let slots : any = {}
   let components: any = {}
@@ -30,13 +30,16 @@ describe("InputCheckbox", () => {
 
   describe('Basic Usage', () => {
     beforeEach(() => {
-      propsData.value = ""
+      propsData.value = ["beta"]
       propsData.name = "New Name"
       propsData.label = "New Label"
-
-      // propsData.children = []
-      // propsData.EventBus = new Vue()
-      // propsData.childCount = 0
     })
+    
+    it('sets the initial input value, while bound to an array', () => {
+      const wrapper = mountInput()
+      let input = wrapper.find('input')
+      expect(wrapper.vm.$props.value).to.eql([ "beta"])
+    })
+    
   })
 })
