@@ -4,9 +4,19 @@
       <label class="ft-nested-checkbox__label">
         <input class="ft-nested-checkbox__input" type='checkbox' :checked="allChecked" @click="areNoneChecked">
         <div class="ft-nested-checkbox__icon" :class="{someChecked: someChecked, allChecked: allChecked}">
-          <AddIconCheckboxPartial v-if="!allChecked && someChecked" class="ft-checkbox-selected"/>
-          <AddIconCheckboxSelected v-if="allChecked" class="ft-checkbox-selected"/>
-          <AddIconCheckboxUnselected v-if="noneChecked"/>
+          <transition-group name="scale">
+            <AddIconCheckboxPartial 
+            v-if="!allChecked && someChecked" 
+            key="selected-partial"
+            class="ft-checkbox-selected"/>
+            <AddIconCheckboxSelected 
+            v-if="allChecked" 
+            key="selected"
+            class="ft-checkbox-selected"/>
+            <AddIconCheckboxUnselected 
+            v-if="noneChecked"
+            key="unselected"/>
+          </transition-group>
         </div>
         <div class="ft-nested-checkbox__label-content">
           <span>

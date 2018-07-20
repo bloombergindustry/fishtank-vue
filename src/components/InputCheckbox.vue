@@ -14,14 +14,18 @@
         class="ft-input-checkbox__native" 
         type="checkbox"
         v-on="listeners">
-      <CheckboxSelected 
-        v-if="isChecked"
-        class="ft-input-checkbox__checkbox"
-      />
-      <CheckboxUnselected 
-        v-if="!isChecked"
-        class="ft-input-checkbox__checkbox"
-      />
+      <transition-group name="scale">
+        <CheckboxSelected 
+          v-if="isChecked"
+          key="selected"
+          class="ft-input-checkbox__checkbox"
+        />
+        <CheckboxUnselected 
+          v-if="!isChecked"
+          key="unselected"
+          class="ft-input-checkbox__checkbox"
+        />
+      </transition-group>
       <div
         v-if="label" 
         class="ft-input-checkbox__label-content">

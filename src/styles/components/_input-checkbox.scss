@@ -15,17 +15,17 @@
   z-index: 1;
   margin: 0px;
   &:hover, &:focus {
-    & + .ft-input-checkbox__checkbox {
+    & + span .ft-input-checkbox__checkbox {
       color: $color-black;
     }
   }
   &:checked{
-    & + .ft-input-checkbox__checkbox{
+    & + span .ft-input-checkbox__checkbox{
       color:$color-selected;
     }
   }
   &:checked {
-    &:hover+ .ft-input-checkbox__checkbox{
+    &:hover + span .ft-input-checkbox__checkbox{
       color:$color-selected-lighter;
     }
   }
@@ -53,3 +53,17 @@
 .ft-input-checkbox__label {
   @include font-base-sm();
 }
+
+.scale-enter-active{
+  transition: transform .2s, opacity .2s, delay .2s;
+}
+.scale-leave-active{
+  transition: transform .2s, opacity .2s;
+}
+.scale-enter, .scale-leave-to{
+  transform: scale(0.0);
+  opacity: 0.0;
+  position:absolute;
+  left:0;
+  top:0;
+} 
