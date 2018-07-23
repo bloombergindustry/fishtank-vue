@@ -8,7 +8,7 @@ Fish Tank VueJS Component library
 npm install @fishtank/fishtank-vue
 ```
 
-##Usage
+## Usage
 
 [TODO]
 
