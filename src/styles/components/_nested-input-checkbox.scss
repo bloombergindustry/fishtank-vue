@@ -3,25 +3,56 @@
 .ft-nested-checkbox__label{
   position: relative;
   display: block;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: $fontsize-base-md; 
+  line-height:$lineheight-base-md; 
+  letter-spacing: $letterspacing-base-md;
+  color:$color-gray-dark;
+  &:hover {
+    color: $color-black;
+  }
+  input:disabled ~ .ft-input-checkbox__label-content{
+    color: $color-disabled;
+  }
 }
 .ft-nested-checkbox__input{
   opacity: 0;
   position: absolute;
   display: inline-block;
   width:100%;
+  height: 100%;
+  &:hover + .ft-nested-checkbox__icon span {
+      color:$color-black;
+  }
+  &:checked + .ft-nested-checkbox__icon span {
+      color:$color-selected;
+  }
+  &:checked {
+    &:hover + .ft-nested-checkbox__icon span .ft-checkbox-selected{
+      color:$color-selected-darkest;
+    }
+  }
+  + .ft-nested-checkbox__icon.someChecked span .ft-checkbox-selected{
+    color:$color-selected;
+  }
+  &:hover + .ft-nested-checkbox__icon.someChecked span .ft-checkbox-selected{
+    color:$color-selected-darkest;
+  }
 }
 .ft-nested-checkbox__icon {
   display: inline;
   position: absolute;
-  top:0px
+  top:4px;
+  color:$color-gray;
+  .scale-leave-to{
+    position:absolute;
+    top:0px; 
+  }
 }
 .ft-nested-checkbox__label-content {
   display: inline-block;
-  padding-left: 32px;
-  padding-top: 4px;
+  padding-left: $baseline*9; 
+  margin: 6px 0; 
 }
 .ft-nested-checkbox__wrap{
-  padding-left: 28px;
+  padding-left: $baseline*9; 
 }
