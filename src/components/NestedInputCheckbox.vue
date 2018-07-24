@@ -15,8 +15,13 @@
         type="checkbox"
         v-on="listeners">
       <transition-group name="scale">
-        <CheckboxSelected 
-          v-if="isChecked"
+        <CheckboxSelectedOpen
+          v-if="isChecked && areAllChecked"
+          key="selected-open"
+          class="ft-input-checkbox__checkbox"
+        />
+        <CheckboxSelected
+          v-if="isChecked && areSomeChecked"
           key="selected"
           class="ft-input-checkbox__checkbox"
         />
@@ -42,13 +47,15 @@ import {CheckboxGroup} from 'types'
 
 import { 
   CheckboxSelected24 as CheckboxSelected, 
-  CheckboxUnselected24 as CheckboxUnselected
+  CheckboxUnselected24 as CheckboxUnselected,
+  CheckboxSelectedO24 as CheckboxSelectedOpen
 } from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {
     CheckboxSelected,
-    CheckboxUnselected
+    CheckboxUnselected,
+    CheckboxSelectedOpen
   },
   props: {
     disabled:{
@@ -68,7 +75,7 @@ export default Vue.extend({
     value: {
       default:"",
       required:true,
-      type:[String, Number, Boolean, Array, Object, Number],
+      type:[String, Number, Boolean, Array, Object, Number]
     },
     val: {
       type:[String, Number, Boolean, Array, Object, Number],
@@ -78,9 +85,10 @@ export default Vue.extend({
   },
   data(){
     return {
-      checkProxy:false,
+      checkProxy:false
     }
   },
+  inject: ["checkboxGroup"],
   computed: {
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -99,13 +107,37 @@ export default Vue.extend({
         return this.value
       }
     },
-    isChecked: function(){
+    isChecked: function():boolean{
       let getchecked:any = this.value
       if (Array.isArray(this.value)){
         getchecked = this.value.indexOf(this.val) >= 0
       }
       return getchecked
+    },
+    areSomeChecked: function():boolean{
+      return (0 < this.value.length && this.value.length < this.checkboxGroup.childCount) 
+    },
+    areAllChecked:function():boolean{
+      return (0 < this.value.length && this.value.length === this.checkboxGroup.childCount)
     }
+  },
+  mounted(){
+    this.checkboxGroup.register(this)
+    this.checkboxGroup.childCount++
+  },
+  destroyed() {
+    this.checkboxGroup.unregister(this)
+  },
+  created(){
+    this.checkboxGroup.EventBus.$on("updateState", (state:Boolean):void=>{
+      if (state){
+        if (this.value.indexOf(this.val) < 0){
+          this.value.push(this.val)
+        }
+      } else {
+        this.value.splice(this.value.indexOf(this.val), 1)
+      }
+    })
   }
 })
 </script>

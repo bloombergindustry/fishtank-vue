@@ -1,49 +1,72 @@
 .ft-input-checkbox {
   position: relative;
-  .ft-input-checkbox__native {
-    width:100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    z-index: 1;
-    margin: 0px;
-    & + .ft-input-checkbox__checkbox{
-      color: $color-gray;
-      position: absolute;
-      top: 0;
-      & + span {
-        position: relative;
-        top: -7px;
-      }
-    }
-    &:hover, &:focus {
-      & + .ft-input-checkbox__checkbox {
-        color: $color-black;
-      }
-    }
-    &:checked{
-      & + .ft-input-checkbox__checkbox{
-        color:$color-selected;
-      }
-    }
-    &:checked {
-      &:hover+ .ft-input-checkbox__checkbox{
-        color:$color-selected-lighter;
-      }
-    }
-    &:disabled + .ft-input-checkbox__checkbox, &:hover:disabled + .ft-input-checkbox__checkbox{
-      color:$color-disabled;
-    }
-  }
-  .ft-input-checkbox__label-content{
-    display: inline-block;
-    padding-left: 32px;
-    padding-top: 4px;
-    &__label{
-      margin: 0px;
-    }
-  }
-  .ft-input-checkbox__label {
-    @include font-base-sm();
-  } 
 }
+.ft-input-checkbox__native {
+  width:100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  &:hover {
+    & + span .ft-input-checkbox__checkbox {
+      color: $color-black;
+    }
+  }
+  &:checked{
+    & + span .ft-input-checkbox__checkbox{
+      color:$color-selected;
+    }
+  }
+  &:checked {
+    &:hover + span .ft-input-checkbox__checkbox{
+      color:$color-selected-darkest;
+    }
+  }
+  &:disabled + span .ft-input-checkbox__checkbox, &:hover:disabled + span .ft-input-checkbox__checkbox{
+    color:$color-disabled;
+  }
+}
+.ft-input-checkbox__label-content{
+  display: inline-block;
+  padding-left: $baseline*9;
+  &__label{
+    margin: 6px 0;
+  }
+}
+.ft-input-checkbox__checkbox{
+  color: $color-gray;
+  position: absolute;
+  top: 4px; 
+  & + span {
+    position: relative;
+  }
+}
+.ft-input-checkbox__label {
+  @include font-base-md();
+  font-family: $font-primary;
+  font-weight:$fontweight-regular;
+  font-size: $fontsize-base-md;
+  line-height:$lineheight-base-md;
+  letter-spacing: $letterspacing-base-md;
+  color:$color-gray-dark;
+  &:hover, &:focus {
+    color: $color-black;
+  }
+  input:disabled ~ .ft-input-checkbox__label-content{
+    color: $color-disabled;
+  }
+}
+
+.scale-enter-active{
+  transition: transform .3s, opacity .3s, delay .3s;
+}
+.scale-leave-active{
+  transition: transform .3s, opacity .3s;
+}
+.scale-enter, .scale-leave-to{
+  transform: scale(0.0);
+  opacity: 0.0;
+  position:absolute;
+  left:0;
+  top:4px; 
+} 

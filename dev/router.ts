@@ -17,6 +17,10 @@ export default new Router({
     {
       path: '/modals',
       component: () => import("./views/Modals.vue")
+    },
+    {
+      path: '/checkboxes',
+      component: () => import("./views/Checkboxes.vue")
     }
   ]
 })
