@@ -9,9 +9,11 @@
     border-radius: 6px;
     position: relative;
     font-size: $fontsize-base-md;
+    line-height: $lineheight-base-md;
+    letter-spacing: $letterspacing-base-md;
     margin: 0px;
     font-weight: $fontweight-semi;
-    padding: $baseline $baseline*2;
+    padding: 2px $baseline*2 3px $baseline*2;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -35,13 +37,33 @@
     font-weight: $fontweight-semi;
 }
 
-.tag-close-icon,
+.tag-close-icon {
+    vertical-align: middle;
+    padding: 0px;
+    margin-left: $baseline;
+    margin-right: -$baseline*2;
+    position: relative;
+}
+
 .tag-expand-icon {
     vertical-align: middle;
     padding: 0px;
-    margin-left: $baseline*2;
-    margin-right: -$baseline*2;
+    margin-left: $baseline;
+    margin-right: -$baseline*3;
+    top:-1px;
+    left:-$baseline;
     position: relative;
+}
+
+.tag--removeable,
+.tag--removeable--disabled {
+    padding: 1px $baseline*2 1px $baseline*2;
+}
+
+.tag--multiselect--active,
+.tag--multiselect--inactive,
+.tag--multiselect--disabled {
+    padding: 2px $baseline*2 0 $baseline*2;
 }
 
 .tag--active,
@@ -82,7 +104,7 @@
 .tag--disabled,
 .tag--removeable--disabled,
 .tag--multiselect--disabled {
-    color: $color-gray-lighter;
+    color: $color-disabled;
     background-color: $color-gray-lightest;
     border: 1px solid $color-gray-lighter;
 }
