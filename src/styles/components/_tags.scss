@@ -22,6 +22,37 @@
     user-select: none;
 }
 
+.list-fade-item {
+    margin-right: $baseline*2;
+}
+
+.list-fade-enter-active {
+    animation: fade 1s;
+}
+
+.list-fade-leave-active {
+    animation: fade 1s reverse;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        width: auto;
+        opacity: 1;
+    }
+}
+
+// .list-fade-enter,
+// .list-fade-leave-to {
+//     opacity: 0;
+// }
+// .list-fade-enter-to,
+// .list-fade-leave {
+//     opacity: 1;
+// }
 .tag--text {
     padding: 0px;
     margin: 0px;
@@ -43,6 +74,7 @@
     margin-left: $baseline;
     margin-right: -$baseline*2;
     position: relative;
+    transition: all .6s;
 }
 
 .tag-expand-icon {
@@ -129,9 +161,4 @@
 
 .multiselect-options-active label {
     display: block;
-}
-
-.input-tag-container {
-    margin-right: $baseline*2;
-    padding-bottom: $baseline*2;
 }

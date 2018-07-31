@@ -1,9 +1,11 @@
 <template>
   <div class = "input-tag-remove" >
-    <span v-for="(tag, index) in innerTags" :key="index" class="input-tag-container">
+    <transition-group name="list-fade">
+    <span v-for="(tag, index) in innerTags" :key="index" class="list-fade-item">
       <Tag :text = tag close v-on:removetag="remove(index)"> </Tag>
     </span>
-
+    </transition-group>
+    <hr>
     <InputText
       type                     = "text"
       v-model                  = "newTag"

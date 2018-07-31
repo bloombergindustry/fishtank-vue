@@ -2,7 +2,7 @@
   <div :class="[isDisabled ? 'tag--multiselect--disabled': (isActive ? 'tag--multiselect--active' : 'tag--multiselect--inactive')]">
     <span @click="showOptions()">
       <p class="tag--text">
-        {{ this.message }} <ChevronDownIcon :class="[dropdownState? 'tag-expand-icon' : 'tag-collapse-icon']" /> 
+        {{ this.message }} <ChevronDownIcon :class="[isDisabled ? 'tag-collapse-icon' : (dropdownState? 'tag-expand-icon' : 'tag-collapse-icon')]" /> 
       </p>
     </span>
     <div :class="[ dropdownState ? 'multiselect-options-active' : 'multiselect-options-inactive']">
