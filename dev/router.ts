@@ -17,6 +17,10 @@ export default new Router({
     {
       path: '/modals',
       component: () => import("./views/Modals.vue")
+    },
+    {
+      path: '/radios',
+      component: () => import("./views/Radios.vue")
     }
   ]
 })

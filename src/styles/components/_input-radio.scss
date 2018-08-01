@@ -1,0 +1,91 @@
+.fishtank-radio{
+  @import url(https://assets.bwbx.io/font-service/css/OpenSans-Regular/font-face.css);
+  font-family: 'OpenSans-Regular', sans-serif;
+  position: relative;
+  padding-left:32px;
+}
+.fishtank-radio__input{
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+.fishtank-radio__icon{
+  transition: all 0.25s ease;
+  display:inline-block;
+  width:12px;
+  height:12px;
+  background-color: transparent;
+  content:"";
+  // border:2px solid white;
+  border: 2px solid $color-gray;
+  border-radius:50%;
+  position: absolute;
+  left:0px;
+  top: 3px;
+}
+.fishtank-radio__input:checked + .fishtank-radio__icon{
+  &:after{
+    content:"";
+    width: 6px;
+    height: 6px;
+    background-color: $color-selected;
+    border:1px solid $color-selected;
+    border-radius: 50%;
+    display: inline-block;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+  }
+}
+.fishtank-radio__label{
+  color:$color-gray-dark;
+}
+.fishtank-radio__input:hover, .fishtank-radio__input:active {
+  & + .fishtank-radio__icon{
+    border:2px solid $color-black;
+    & + .fishtank-radio__label{
+      color:$color-black;
+    }
+  }
+  
+}
+.fishtank-radio__input:disabled + .fishtank-radio__icon{
+  border:2px solid $color-disabled;
+  &:after {
+    content:"";
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+    border:1px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+  }
+  & + .fishtank-radio__label{
+    color:$color-disabled;
+  }
+}
+.fishtank-radio__input:checked:disabled + .fishtank-radio__icon{
+  border:2px solid $color-disabled;
+  &:after {
+    content:"";
+    width: 6px;
+    height: 6px;
+    background-color: $color-disabled;
+    border:1px solid $color-disabled;
+    border-radius: 50%;
+    display: inline-block;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+  }
+  & + .fishtank-radio__label{
+    color:$color-disabled;
+  }
+}

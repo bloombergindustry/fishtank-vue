@@ -11,6 +11,7 @@ export { default as ButtonDestructive } from "./components/ButtonDestructive.vue
 
 export { default as Card } from "./components/Card.vue"
 export { default as InputCheckbox } from "./components/InputCheckbox.vue"
+export { default as InputRadio } from "./components/InputRadio.vue"
 export { default as InputText } from "./components/InputText.vue"
 
 export { default as Modal } from "./components/Modal.vue"
