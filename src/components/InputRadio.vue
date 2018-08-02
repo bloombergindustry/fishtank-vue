@@ -12,7 +12,9 @@
         type="radio" 
         @change="updateFtRadio">
       <div class="fishtank-radio__icon"/>
-      {{ label }}
+      <div class="fishtank-radio__label-content">
+        {{ label }}
+      </div>
     </label>
   </div>
 </template>
