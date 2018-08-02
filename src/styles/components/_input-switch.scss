@@ -1,10 +1,13 @@
 .ft-switch .ft-input-checkbox-label {
-    font-size:14px;
+    font-size: $fontsize-base-md;
+    line-height: $lineheight-base-md;
     position: relative;
+    font-family: $font-primary;
   }
   .ft-switch {
     width: 100%; 
     position: relative;
+    padding: 6px 0;
   }
   .ft-switch input{
     width:100%;
@@ -16,14 +19,12 @@
     width: 100%;
     height: 100%;
   }
-
   .ft-switch {
-    margin-bottom:7px;
     > label {
       top: 0px;
       color: $color-gray-dark;
     }
-    &:hover, &:active {
+    &:hover {
       > label{
         color: $color-black;
       }
@@ -32,14 +33,17 @@
       width: 33px;
       height: 18px;
       background-color:$color-gray-light;
-      border-radius: 14px;
-      border:2px solid $color-gray;
+      border-radius: 10px;
+      border:1px solid $color-gray;
       float: right;
+    }
+    input:disabled ~ .label-content{
+      color: $color-disabled;
     }
   }
   .ft-switch input:disabled + .ft-input-checkbox-wrap{
     background-color:$color-secondary;
-    border:1px solid $color-gray-lighter;
+    border:1px solid $color-disabled;
   }
   .ft-switch .ft-input-checkbox-target{
     background-color: $color-secondary;
@@ -54,7 +58,7 @@
   }
   .ft-switch input:disabled + .ft-input-checkbox-wrap .ft-input-checkbox-target{
     background-color: $color-secondary;
-    border: 1px solid $color-gray-lighter;
+    border: 1px solid $color-disabled;
     box-shadow: none; 
   }
   .ft-switch .ft-input-checkbox-target:after{
@@ -76,17 +80,23 @@
     }
   }
   .ft-switch input:disabled + .ft-input-checkbox-wrap .ft-input-checkbox-target:after {
-    background-color: $color-gray-lighter;
+    background-color: $color-disabled;
   }
+
+.ft-switch input:disabled:checked + .ft-input-checkbox-wrap {
+    background-color:$color-secondary;
+    border:1px solid $color-disabled;
+  }
+
   .ft-switch input:checked + .ft-input-checkbox-wrap{
-     background-color:$color-selected;
-     border:2px solid $color-selected;
+    background-color:$color-selected;
+    border:1px solid $color-selected-darkest;
   }
   .ft-switch input + .ft-input-checkbox-wrap .ft-input-checkbox-target {
     transform: translateX(0px);
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
   }
   .ft-switch input:checked + .ft-input-checkbox-wrap .ft-input-checkbox-target {
     transform: translateX(17px);
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
   }
