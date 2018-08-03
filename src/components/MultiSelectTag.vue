@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   import Vue from "vue"
   import { ChevronSmlDown24 as ChevronDownIcon } from "@fishtank/icons-vue"
 

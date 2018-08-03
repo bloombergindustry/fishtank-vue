@@ -3,7 +3,7 @@
         :class= classes()
   >
     <p class="tag--text">{{ text }}</p>
-    <CloseIcon @click="removeTag()" class="tag-close-icon" v-if="close"/>
+    <CloseIcon @click="removeTag(text)" class="tag-close-icon" v-if="close"/>
   </span>
 </template>
 
@@ -62,8 +62,8 @@
           return 'tag--inactive';
         }
       },
-      removeTag(){
-        this.$emit('removetag',this.index)
+      removeTag(tag: String){
+        this.$emit('removetag',tag)
       }
     }
   })
