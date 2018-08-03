@@ -3,19 +3,19 @@
     <div>
       <h1 class="tags--heading">Binary Tags</h1>
       <span>
-        <p class="tags--text"><Tag text="Label"/> Active/Inactive and hover functionality </p>
+        <p class="tags--text"><Tag label="Label"/> Active/Inactive and hover functionality </p>
       </span>
       <span>
-        <p class="tags--text"> <Tag text="Label" disabled/> Disabled</p>
+        <p class="tags--text"> <Tag label="Label" disabled/> Disabled</p>
       </span>
     </div>
     <div>
       <h1 class="tags--heading">Removeable Tags </h1>
       <span>
-        <p class="tags--text"> <Tag text="Label" close/> Only active state, with hover functionality</p>
+        <p class="tags--text"> <Tag label="Label" close/> Only active state, with hover functionality</p>
       </span>
       <span>
-        <p class="tags--text"> <Tag text="Label" close disabled/> Disabled</p>
+        <p class="tags--text"> <Tag label="Label" close disabled/> Disabled</p>
       </span>
     </div>
     <div>

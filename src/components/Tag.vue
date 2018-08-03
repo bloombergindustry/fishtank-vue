@@ -2,8 +2,8 @@
   <span @click="changeState()"
         :class= classes()
   >
-    <p class="tag--text">{{ text }}</p>
-    <CloseIcon @click="removeTag(text)" class="tag-close-icon" v-if="close"/>
+    <p class="tag--text">{{ label }}</p>
+    <CloseIcon @click="removeTag(label)" class="tag-close-icon" v-if="close"/>
   </span>
 </template>
 
@@ -17,7 +17,7 @@
       CloseIcon
     },
     props:{
-      text:{
+      label:{
         type: String,
         default: "Sample Text"
       },
