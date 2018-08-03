@@ -17,6 +17,10 @@ export default new Router({
     {
       path: '/modals',
       component: () => import("./views/Modals.vue")
+    },
+    {
+      path: '/buttons',
+      component: () => import("./views/Buttons.vue")
     }
   ]
 })
