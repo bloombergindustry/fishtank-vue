@@ -27,6 +27,7 @@
     &:hover {
       > label{
         color: $color-black;
+        cursor: pointer;
       }
     }
     .ft-input-checkbox-wrap {
@@ -39,6 +40,7 @@
     }
     input:disabled ~ .label-content{
       color: $color-disabled;
+      cursor: default;
     }
   }
   .ft-switch input:disabled + .ft-input-checkbox-wrap{
