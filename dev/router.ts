@@ -21,6 +21,10 @@ export default new Router({
     {
       path: '/switches',
       component: () => import("./views/Switches.vue")
+    },
+    {
+      path: '/tags',
+      component: () => import("./views/Tags.vue")
     }
   ]
 })
