@@ -14,6 +14,10 @@
   height: 100%;
   left: 0;
   top: 0;
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
 }
 .fishtank-radio__icon{
   transition: all 0.3s ease;
