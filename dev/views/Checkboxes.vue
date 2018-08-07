@@ -39,7 +39,7 @@ import { InputCheckbox } from '@/index'
 
 export default Vue.extend({
   components:{
-    InputCheckbox,
+    InputCheckbox
   },
   data(){
     return {
