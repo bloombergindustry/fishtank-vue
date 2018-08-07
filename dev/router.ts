@@ -19,6 +19,10 @@ export default new Router({
       component: () => import("./views/Modals.vue")
     },
     {
+      path: '/buttons',
+      component: () => import("./views/Buttons.vue")
+    }
+    ,{
       path: '/radios',
       component: () => import("./views/Radios.vue")
     },
