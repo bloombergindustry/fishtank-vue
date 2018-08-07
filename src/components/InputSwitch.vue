@@ -24,6 +24,15 @@
   </div>
 </template>
 <script lang="ts">
+
+function handleFirstTab(e) {
+    if (e.keyCode === 9) { // tab key, user is a keyboard user
+        document.body.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+    }
+}
+window.addEventListener('keydown', handleFirstTab);
+
 import Vue, { VNode }from 'vue'
 export default Vue.extend({
   name:"FtSwitch",
