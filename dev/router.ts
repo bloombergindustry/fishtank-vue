@@ -35,10 +35,6 @@ export default new Router({
       component: () => import("./views/Tags.vue")
     },
     {
-      path: '/checkboxtree',
-      component: () => import("./views/CheckboxTreeExample.vue")
-    },
-    {
       path: '/inputtext',
       component: () => import("./views/InputText.vue")
     }
