@@ -7,6 +7,7 @@ Fish Tank VueJS Component Module
 ``` sh
 npm install @fishtank/fishtank-vue
 ```
+
 ## Available Components
 
 * Card - Card Style Layout Component
@@ -26,6 +27,7 @@ import { Card } from @fishtank/fishtank-vue
 ```
 ### CommonJS Module
 [TODO] - CommonJS import method, using require()
+
 
 ## Contributing
 

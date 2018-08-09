@@ -8,11 +8,19 @@ export { default as ButtonPrimary } from "./components/ButtonPrimary.vue"
 export { default as ButtonSecondary } from "./components/ButtonSecondary.vue"
 export { default as ButtonDestructive } from "./components/ButtonDestructive.vue"
 
-export { default as Card } from "./components/Card.vue"
 
+export { default as Card } from "./components/Card.vue"
+export { default as InputCheckbox } from "./components/InputCheckbox.vue"
+
+export { default as InputRadio } from "./components/InputRadio.vue"
+export { default as InputSwitch } from "./components/InputSwitch.vue"
 export { default as InputText } from "./components/InputText.vue"
 
 export { default as Modal } from "./components/Modal.vue"
 export { default as DialogBox } from "./components/DialogBox.vue"
+
+export { default as Tag } from "./components/Tag.vue"
+export { default as MultiSelectTag } from "./components/MultiSelectTag.vue"
+export { default as InputTagRemove } from "./components/InputTagRemove.vue"
 
 import './styles.scss'
