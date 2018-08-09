@@ -1,6 +1,6 @@
 # Fishtank Vue
 
-Fish Tank VueJS Component library
+Fish Tank VueJS Component Module
 
 ## Installation
 
@@ -8,10 +8,26 @@ Fish Tank VueJS Component library
 npm install @fishtank/fishtank-vue
 ```
 
+## Available Components
+
+* Card - Card Style Layout Component
+* Modal - Modal Component
+* Buttons - Form Button Elements
+  * Primary
+  * Secondary
+  * Destructive
+
 ## Usage
 
+### ESM Module
 
-[TODO]
+Import the component
+``` js
+import { Card } from @fishtank/fishtank-vue
+```
+### CommonJS Module
+[TODO] - CommonJS import method, using require()
+
 
 ## Contributing
 
