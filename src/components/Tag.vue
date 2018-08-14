@@ -1,9 +1,14 @@
 <template>
-  <span @click="changeState()"
-        :class= classes()
+  <span
+    :class= "classes"
+    @click="changeState()"
   >
-    <p class="tag--text">{{ label }}</p>
-    <CloseIcon @click="removeTag(label)" class="tag-close-icon" v-if="close"/>
+    <p 
+      class="tag--text">{{ label }}</p>
+    <CloseIcon 
+      v-if="close" 
+      class="tag-close-icon" 
+      @click="removeTag(label)"/>
   </span>
 </template>
 
@@ -15,6 +20,10 @@
     name: 'Tag',
     components:{
       CloseIcon
+    },
+    model:{
+      prop: 'checked',
+      event:'change'
     },
     props:{
       label:{
@@ -29,6 +38,10 @@
         type: Boolean,
         default: false
       },
+      checked:{
+        type:Boolean,
+        default:false
+      }
     },
     data: function () {
       return {
@@ -38,29 +51,27 @@
     computed: {
        isActive: function () { return this.activeState },
        isDisabled: function() { return this.disabled },
-       isRemoveable: function() { return this.close }
+       isRemoveable: function() { return this.close },
+       classes(){
+        if(this.isDisabled){
+           if(this.isRemoveable){
+              return 'tag--removeable--disabled'
+           }else{
+            return 'tag--disabled'
+           }
+        }else if(this.isRemoveable){
+          return 'tag--removeable'
+        }else if(this.isActive){
+          return 'tag--active'
+        }else{
+          return 'tag--inactive'
+        }
+      }
     },
     methods: {
       changeState() {
-        if(!this.close){
-          this.activeState = !(this.activeState);
-          this.$emit('change', this.activeState);
-        }
-      },
-      classes(){
-        if(this.isDisabled){
-           if(this.isRemoveable){
-              return 'tag--removeable--disabled';
-           }else{
-            return 'tag--disabled';
-           }
-        }else if(this.isRemoveable){
-          return 'tag--removeable';
-        }else if(this.isActive){
-          return 'tag--active';
-        }else{
-          return 'tag--inactive';
-        }
+        this.activeState = !(this.activeState)
+        this.$emit('change', this.activeState)
       },
       removeTag(tag: String){
         this.$emit('removetag',tag)
@@ -68,8 +79,3 @@
     }
   })
 </script>
-
-<style lang="scss">
-  @import "./src/styles/components/_tags";
-
-</style>
