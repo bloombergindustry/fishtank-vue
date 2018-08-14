@@ -21,7 +21,6 @@
   import Vue from "vue"
   import InputText from "./InputText.vue"
   import Tag from "./Tag.vue"
-  import TagRemoveMixin from "@/util/tagRemoveMixin.js"
   export default {
     name: 'InputTagRemove',
     components:{

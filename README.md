@@ -16,18 +16,44 @@ npm install @fishtank/fishtank-vue
   * Primary
   * Secondary
   * Destructive
+* Radio
+* Switch
+* Text Input
 
 ## Usage
 
 ### ESM Module
 
-Import the component
+Import the component from the library module
 ``` js
 import { Card } from @fishtank/fishtank-vue
+
+extend default {
+  components:{
+    Card
+  }
+}
 ```
 ### CommonJS Module
-[TODO] - CommonJS import method, using require()
+Import the component library module, and reference the desired component
 
+``` js
+const fishtank = require(“@fishtank-vue”)
+
+extend default {
+  components:{
+    fishtank.Card
+  }
+}
+```
+
+### Component CSS
+
+Fishtank-vue provides styles as:
+  * _dist/fishtank-vue.css_: a single CSS file of all component styles
+  * _dist/styles_: component specific stylesheets
+
+Import the full library, or per component styles, into your project as necessary.
 
 ## Contributing
 
