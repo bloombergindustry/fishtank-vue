@@ -17,6 +17,7 @@
     "test": "vue-cli-service test:unit --require tests/setup.js",
     "e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
+    "release": "standard-version",
     "prepublish": "yarn build"
   },
   "publishConfig": {
@@ -31,11 +32,10 @@
   },
   "dependencies": {
     "@fishtank/icons-vue": ">= 3.5.0",
-    "tslib": ">= 1.9.0"
+    "tslib": ">= 1.9.0",
+    "vue-popperjs": "1.5.0"
   },
   "devDependencies": {
-    "core-js": "2.5.7",
-    "vue-svg-component-runtime": "1.0.1",
     "@babel/core": "7.0.0-beta.49",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.49",
     "@fishtank/colors": "latest",
@@ -83,6 +83,7 @@
     "sinon": "4.4.8",
     "sinon-chai": "3.0.0",
     "source-map": "0.7.2",
+    "standard-version": "4.4.0",
     "style-loader": "0.20.3",
     "svg-sprite-loader": "3.7.3",
     "typescript": "2.9.1",

@@ -27,11 +27,11 @@
 }
 
 .list-fade-enter-active {
-    animation: fade 1s;
+    animation: fade 0.125s;
 }
 
 .list-fade-leave-active {
-    animation: fade 1s reverse;
+    animation: fade 0.125s reverse;
 }
 
 @keyframes fade {
