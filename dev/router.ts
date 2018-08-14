@@ -33,6 +33,11 @@ export default new Router({
     {
       path: '/tags',
       component: () => import("./views/Tags.vue")
+    },
+    {
+      path: '/inputtext',
+      component: () => import("./views/InputText.vue")
     }
+    
   ]
 })
