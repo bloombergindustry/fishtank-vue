@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from "vue"
 
-function handleFirstTab(e) {
+function handleFirstTab(e:KeyboardEvent) {
   if (e.keyCode === 9) {
     document.body.classList.add('user-is-tabbing');
     
