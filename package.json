@@ -32,16 +32,10 @@
   },
   "dependencies": {
     "@fishtank/icons-vue": ">= 3.5.0",
-<<<<<<< HEAD
     "tslib": ">= 1.9.0",
     "vue-popperjs": "1.5.0"
-=======
-    "tslib": ">= 1.9.0"
->>>>>>> Move fishtank icons & tslib into deps section
   },
   "devDependencies": {
-    "core-js": "2.5.7",
-    "vue-svg-component-runtime": "1.0.1",
     "@babel/core": "7.0.0-beta.49",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.49",
     "@fishtank/colors": "latest",
