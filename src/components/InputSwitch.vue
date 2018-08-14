@@ -25,13 +25,13 @@
 </template>
 <script lang="ts">
 
-function handleFirstTab(e) {
+function handleFirstTab(e:KeyboardEvent) {
     if (e.keyCode === 9) { // tab key, user is a keyboard user
-        document.body.classList.add('user-is-tabbing');
-        window.removeEventListener('keydown', handleFirstTab);
+        document.body.classList.add('user-is-tabbing')
+        window.removeEventListener('keydown', handleFirstTab)
     }
 }
-window.addEventListener('keydown', handleFirstTab);
+window.addEventListener('keydown', handleFirstTab)
 
 import Vue, { VNode }from 'vue'
 export default Vue.extend({
@@ -112,19 +112,8 @@ export default Vue.extend({
       }
     }
   },
-  mounted(){
-    // this.isInCheckboxGroup = this.checkboxGroup.checkboxGroupModel !== undefined ? true : false
-    // if (this.isInCheckboxGroup){
-    //   this.checkboxGroup.register(this)
-    // }
-  },
-  destroyed() {
-    // if (this.isInCheckboxGroup){
-    //   this.checkboxGroup.unregister(this)
-    // }
-  },
   methods:{
-    updateFtCheck(event){
+    updateFtCheck(event:any){
       let isChecked = event.target.checked
       if (this.modelValue instanceof Array) {
           if (isChecked) {
