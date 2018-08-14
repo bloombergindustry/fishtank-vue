@@ -77,28 +77,6 @@ describe('Tags', () => {
       expect(multiselect.classes()).to.include('tag--multiselect--inactive') // starts as inactive state
     })
 
-    it('becomes active when 1 or more selections are made', () => {
-      let TagWrapper = Vue.extend({
-        components: {
-          MultiSelectTag
-        },
-        render(h) {
-          return h(MultiSelectTag, {
-            
-          })
-        }
-      })
-
-      let wrapper = mount(TagWrapper)
-      let multiselect = wrapper.find('div')
-      let checkbox = wrapper.find('input')
-
-      expect(multiselect.classes()).to.include('tag--multiselect--inactive') // starts as inactive state
-      checkbox.trigger('click')
-      expect(multiselect.classes()).to.include('tag--multiselect--active') // turns active once 
-
-    })
-
     context('disabled property is true', () => {
       let propsData = { disabled: true }
 
