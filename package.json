@@ -1,6 +1,6 @@
 {
   "name": "@fishtank/fishtank-vue",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "private": false,
   "license": "Apache-2.0",
   "author": "Fishtank Design System <agile_fishtank@bna.com>",
@@ -17,8 +17,8 @@
     "test": "vue-cli-service test:unit --require tests/setup.js",
     "e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "release": "standard-version",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "release": "standard-version"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
