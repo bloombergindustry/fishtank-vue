@@ -10,7 +10,7 @@
         :checked ="shouldBeChecked" 
         class="fishtank-radio__input" 
         type="radio" 
-        @change="updateFtRadio">
+        v-on="listeners">
       <div class="fishtank-radio__icon"/>
       <div class="fishtank-radio__label-content">
         {{ label }}
@@ -57,13 +57,17 @@ export default Vue.extend({
   computed:{
     shouldBeChecked():Boolean{
       return this.value === this.modelValue
+    },
+    listeners(): Record<string, Function | Function[]> {
+      return {
+        ...this.$listeners,
+        change: ($event: MouseEvent) => {
+          if (this.disabled) return 
+          this.$emit("change", this.value)
+        }
+      }
     }
-  },
-  methods:{
-    updateFtRadio():void{
-      this.$emit('change', this.value)
-    }
-  },
+  }
 })
 </script>
 

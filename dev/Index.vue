@@ -8,6 +8,7 @@
       <li><a href="#/modals">Modals</a></li>
       <li><a href="#/cards">Cards</a></li>
       <li><a href="#/tags">Tags</a></li>
+      <li><a href="#/inputtext">Input Text</a></li>
     </ul>
   </section>
 </template>

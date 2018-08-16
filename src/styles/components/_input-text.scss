@@ -20,30 +20,39 @@
 .ft-input-text__input {
   width: 100%;
   height: $baseline * 10;
-  padding: $baseline * 3;
-  padding-right: $baseline * 9;
+  padding-left: $baseline * 3;
+  padding-right: $baseline * 10;
   box-sizing: border-box;
   font-family: $font-primary;
+  font-weight: $fontweight-regular;
+  line-height: $lineheight-base-lg;
+  letter-spacing: $letterspacing-base-lg;
   border: $color-gray-lighter 1px solid;
+  color: $color-black;
+  border-radius: 2px;
 
-  @include font-base-md();
+  @include font-base-lg();
 
   &:focus {
-    outline: $color-selection 2px solid;
+    outline: $color-selected 2px solid;
   }
 
   &:disabled {
     background-color: $color-secondary;
-    color: $color-gray-lighter;
+    color: $color-disabled;
   }
 
   @include placeholder() {
     color: $color-gray-lighter;
+    font-style: italic;
   }
 }
-
-.ft-input-text__left-icon + .ft-input-text__input {
-  padding-left: $baseline * 9;
+input[type=number]{
+  text-align:right;
+  padding-right:$baseline*3;
+}
+.ft-input-text__left-icon ~ .ft-input-text__input {
+  padding-left: $baseline*11;
 }
 
 .ft-input-text__input-wrapper {
@@ -56,8 +65,8 @@
   top: $baseline * 2;
 
   svg {
-    width: $baseline * 6;
-    height: $baseline * 6;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -70,11 +79,12 @@
 }
 
 .ft-input-text__label {
-  right: $baseline * 2;
   text-transform: uppercase;
   font-weight: $fontweight-semi;
-  font-family: $font-accent;
-  padding-bottom: $baseline;
+  font-family: $font-primary;
+  line-height: $lineheight-base-md;
+  letter-spacing: $letterspacing-base-md;
+  color: $color-black;
 
   @include font-base-md();
 }
@@ -93,17 +103,32 @@
 }
 
 .ft-input-text {
-  padding-bottom: $baseline * 4;
+  padding-bottom: $baseline * 6;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .ft-input-text--error {
-  color: $color-error;
-
   .ft-input-text__input {
     border-color: $color-error;
+    color: $color-error;
   }
 
   .ft-input-text__error-text {
-    margin-top: $baseline * 1;
+    margin-top: $baseline;
+    color: $color-error;
+    font-size: $fontsize-base-md;
+    letter-spacing: $letterspacing-base-md;
+    line-height: $lineheight-base-md;
+    font-weight: $fontweight-regular;
+    font-family: $font-primary;
+  }
+
+  .ft-input-text__label {
+    color: $color-error;
   }
 }

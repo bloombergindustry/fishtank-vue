@@ -1,19 +1,18 @@
 <template>
   <div class = "input-tag-remove" >
     <transition-group name="list-fade">
-    <span v-for="(tag, index) in innerTags" :key="index" class="list-fade-item">
-      <Tag :text = tag close v-on:removetag="remove(index)"> </Tag>
-    </span>
+      <span 
+        v-for="(tag, index) in innerTags" 
+        :key="index" 
+        class="list-fade-item">
+        <Tag 
+          :text = "tag" 
+          :label="tag"
+          close 
+          @removetag="remove(index)"/>
+      </span>
     </transition-group>
-    <hr>
-    <InputText
-      type                     = "text"
-      v-model                  = "newTag"
-      v-on:keydown.delete.stop = "removeLastTag"
-      v-on:keyup.enter         = "addTag"
-      v-on:keydown.tab         = "addTag"
-      class                    = "new-tag"
-    />
+    
     
   </div>
 </template>
@@ -22,12 +21,15 @@
   import Vue from "vue"
   import InputText from "./InputText.vue"
   import Tag from "./Tag.vue"
-
   export default {
     name: 'InputTagRemove',
     components:{
       InputText,
       Tag
+    },
+    model:{
+      prop:"multiVals",
+      events:"updateTags"
     },
     props:{
       value:{
@@ -42,6 +44,10 @@
         type:[String,Object, Number,Boolean],
         default: ""
       },
+      multiVals:{
+        type:Array,
+        default:()=>[]
+      }
     },
     data(){
       return {
@@ -68,11 +74,7 @@
       removeLastTag () {
         if (this.newTag) { return }
           this.innerTags.pop()
-      },
-    },
+      }
+    }
   }
 </script>
-
-<style lang="scss">
-  @import "./src/styles/components/_tags";
-</style>

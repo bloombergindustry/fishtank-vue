@@ -30,6 +30,7 @@
   line-height: $lineheight-base-lg;
   font-family: $font-primary;
   font-weight: $fontweight-semi;
+  letter-spacing: $letterspacing-base-lg;
 }
 
 .ft-card__body {
@@ -45,7 +46,6 @@
   border-top-left-radius: 0;
 }
 
-// Should be removed once grid is in place
 .ft-card + .ft-card {
   margin-top: $baseline * 6;
 }
