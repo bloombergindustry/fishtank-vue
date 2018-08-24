@@ -6,7 +6,7 @@
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
-    <div><ButtonGradient>Button Gradient</ButtonGradient></div>
+    <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
 
     
@@ -23,6 +23,13 @@ export default Vue.extend({
     ButtonSecondary,
     ButtonDestructive,
     ButtonGradient
+  },
+  data: function(){
+    return{
+      colorStart : "#0018AB",
+      colorEnd : "#9933CC",
+      colorDirection: "to right"
+    }
   }
 })
 </script>

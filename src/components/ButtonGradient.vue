@@ -1,5 +1,5 @@
 <template>
-  <a class="ft-button--wrapper" href="#">
+  <a class="ft-button--wrapper" href="#" :style="returnGradientStyle">
   <BaseButton 
     v-bind="$attrs"
     class="ft-button--gradient"
@@ -19,5 +19,16 @@ export default Vue.extend({
   components: {
     BaseButton
   },
+  props:{
+    gradientStart :{type:String, required:true},
+    gradientEnd :{type:String, required:true},
+    colorDirection :{type:String, required:false,default:"to right"}
+
+  },   
+  computed:{
+    returnGradientStyle(){
+      return `background-image: linear-gradient(${this.colorDirection}, ${this.gradientStart}, ${this.gradientEnd} );`
+    }
+  }
 })
 </script>

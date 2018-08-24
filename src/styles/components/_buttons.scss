@@ -145,19 +145,15 @@ body.user-is-tabbing button:focus {
     }
   }
 }
+
 .ft-button--wrapper{
-  padding: 2px 2px 2px 2px;
-  background-image: linear-gradient(to right, #0018AB , #9933CC );
+  padding: 2px ;
   border-radius: 4px;
   box-sizing: border-box;
-  display: block;
-  margin: 0 auto;
-  /*-webkit-border-image: -webkit-linear-gradient(to right, #0018AB , #9933CC ) 5;
-  -moz-border-image: -moz-linear-gradient(to right, #0018AB , #9933CC ) 5;
-  -o-border-image: -o-linear-gradient(to right, #0018AB , #9933CC ) 5;*/
+  display: inline-block;
 }
 .ft-button--gradient {
-  border: none;
+  border:none;
   background-color: $color-white;
   color: $color-gray;
 
@@ -174,7 +170,6 @@ body.user-is-tabbing button:focus {
     }
   }
 }
-
 
 .hvr-grow {
     display: inline-block;
