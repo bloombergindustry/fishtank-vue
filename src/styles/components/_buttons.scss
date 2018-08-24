@@ -146,6 +146,32 @@ body.user-is-tabbing button:focus {
   }
 }
 
+.ft-button--white {
+  background-color: $color-white;
+  border-color: $color-gray-lightest;
+  color: $color-gray;
+
+  @include button-box-shadow($color-white);
+
+  &:hover {
+    color: $color-black;
+  }
+
+  &:active {
+    background-color: $color-gray-lightest;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background-color: $color-disabled;
+      color: $color-gray-lighter;
+    }
+  }
+}
+
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
