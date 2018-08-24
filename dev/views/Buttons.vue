@@ -6,19 +6,23 @@
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
+    <div><ButtonGradient>Button Gradient</ButtonGradient></div>
+    <br>
+
     
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive } from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonGradient } from '@/index'
 
 export default Vue.extend({
   components: {
     ButtonPrimary,
     ButtonSecondary,
-    ButtonDestructive
+    ButtonDestructive,
+    ButtonGradient
   }
 })
 </script>
