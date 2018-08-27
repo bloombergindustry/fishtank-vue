@@ -6,19 +6,21 @@
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
-    
+    <div><ButtonOutline>Button Outline</ButtonOutline></div>
+    <br>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive } from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline } from '@/index'
 
 export default Vue.extend({
   components: {
     ButtonPrimary,
     ButtonSecondary,
-    ButtonDestructive
+    ButtonDestructive,
+    ButtonOutline
   }
 })
 </script>
