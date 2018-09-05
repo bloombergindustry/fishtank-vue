@@ -146,6 +146,28 @@ body.user-is-tabbing button:focus {
   }
 }
 
+.ft-button--wrapper{
+  padding: 2px ;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.ft-button--gradient {
+  border:none;
+  background-color: $color-white;
+  color: $color-gray;
+
+  &:hover {
+    background: transparent;
+    color: $color-white;
+  }
+  &:disabled {
+    opacity: 0.4;
+    &:hover {
+      background-color: $color-gray;
+    }
+  }
+}
 .ft-button--outline {
   background-color: none;
   border-color: $color-gray;
@@ -156,7 +178,6 @@ body.user-is-tabbing button:focus {
     color: $color-white;
     background-color: $color-gray;
   }
-  
   &:disabled {
     opacity: 0.4;
 
