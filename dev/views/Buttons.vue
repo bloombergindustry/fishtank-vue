@@ -6,22 +6,23 @@
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
+    <div><ButtonOutline>Button Outline</ButtonOutline></div>
+    <br>
     <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
-
-    
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonGradient } from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient } from '@/index'
 
 export default Vue.extend({
   components: {
     ButtonPrimary,
     ButtonSecondary,
     ButtonDestructive,
+    ButtonOutline,
     ButtonGradient
   },
   data: function(){
