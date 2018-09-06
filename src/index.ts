@@ -8,6 +8,8 @@ export { default as ButtonPrimary } from "./components/ButtonPrimary.vue"
 export { default as ButtonSecondary } from "./components/ButtonSecondary.vue"
 export { default as ButtonDestructive } from "./components/ButtonDestructive.vue"
 export { default as ButtonWhite } from "./components/ButtonWhite.vue"
+export { default as ButtonOutline} from "./components/ButtonOutline.vue"
+export { default as ButtonGradient } from "./components/ButtonGradient.vue"
 
 
 export { default as Card } from "./components/Card.vue"
