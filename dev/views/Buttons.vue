@@ -1,7 +1,8 @@
 <template>
   <div>
-    <ButtonPrimary :block="true">Button Primary</ButtonPrimary>
     <div><ButtonPrimary>Button Primary</ButtonPrimary></div>
+    <br>
+    <ButtonPrimary :block="true">Button Primary</ButtonPrimary>
     <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
     <br>

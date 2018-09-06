@@ -1,12 +1,14 @@
 <template>
-  <a class="ft-button--wrapper" href="#" :style="returnGradientStyle">
-  <BaseButton 
-    v-bind="$attrs"
-    class="ft-button--gradient"
-    v-on="$listeners"
-  >
-    <slot/>
-  </BaseButton>
+  <a 
+    :style="returnGradientStyle" 
+    class="ft-button--wrapper">
+    <BaseButton 
+      v-bind="$attrs"
+      class="ft-button--gradient"
+      v-on="$listeners"
+    >
+      <slot/>
+    </BaseButton>
   </a>
 </template>
 
@@ -26,7 +28,7 @@ export default Vue.extend({
 
   },   
   computed:{
-    returnGradientStyle(){
+    returnGradientStyle(): String{
       return `background-image: linear-gradient(${this.colorDirection}, ${this.gradientStart}, ${this.gradientEnd} );`
     }
   }
