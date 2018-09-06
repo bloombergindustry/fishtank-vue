@@ -35,6 +35,7 @@ Adding actions:
 |block|Boolean|Changes Button to full width block element|false|
 
 _Gradient Button Props_
+
 |Name|Type|Description|Required|
 |---|---|---|---|
 |gradientStart|String|Start Color of Gradient|true|
