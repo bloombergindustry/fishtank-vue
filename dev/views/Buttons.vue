@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ButtonPrimary :block="true">Button Primary</ButtonPrimary>
     <div><ButtonPrimary>Button Primary</ButtonPrimary></div>
     <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
@@ -7,11 +8,20 @@
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
 
-   <div><ButtonOutline>Button Outline</ButtonOutline></div>
+    <div><ButtonOutline>Button Outline</ButtonOutline></div>
     <br>
-    <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <div><ButtonGradient 
+      :color-direction="colorDirection" 
+      :gradient-start="colorStart" 
+      :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <br>
+    <div><ButtonGradient 
+      :color-direction="colorDirection" 
+      gradient-start="red"
+      gradient-end="yellow" >Button Gradient</ButtonGradient></div>
     <br>
     <div><ButtonWhite>Button White</ButtonWhite></div>
+    <br>
   </div>
 </template>
 
