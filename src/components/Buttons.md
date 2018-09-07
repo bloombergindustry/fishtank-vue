@@ -93,7 +93,7 @@ _The following props apply only to Gradient Button_
   <tr>
     <td>gradientEnd</td>
     <td>String (Hex color, or valid CSS color)</td>
-    <td>Start Color of Gradient</td>
+    <td>End Color of Gradient</td>
     <td>true</td>
     <td>undefined</td>
   </tr>
@@ -103,9 +103,5 @@ _The following props apply only to Gradient Button_
     <td>Horizontal direction of gradient</td>
     <td>false</td>
     <td> "to-right"</td>
-  </tr>
-  <tr>
-    <td colspan=5>
-    </td>
   </tr>
 </table>
