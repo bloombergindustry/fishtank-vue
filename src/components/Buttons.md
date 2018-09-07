@@ -38,13 +38,13 @@ import {
 
 In your template:
 
-```html
+```xml
 <ButtonPrimary>Button Primary</ButtonPrimary>
 ```
 
 Adding actions:
 
-```html
+```xml
 <ButtonPrimary 
   @click="handleClick"
   >Button Primary</ButtonPrimary>
@@ -52,9 +52,9 @@ Adding actions:
 
 ## Props
 
-_These props apply to all buttons_
+_The following props apply to all buttons_
 
-```html
+```xml
 <ButtonPrimary
   :disabled="falsyVariable"
   :block="truthyVariable"
@@ -66,9 +66,9 @@ _These props apply to all buttons_
 |block|Boolean|Changes Button to full width block element|false| false|
 
 
-_These props apply only to Gradient Button_
+_The following props apply only to Gradient Button_
 
-```html
+```xml
 <ButtonGradient
   :gradientStart="true"
   :gradientEnd="true"
@@ -109,6 +109,3 @@ _These props apply only to Gradient Button_
     </td>
   </tr>
 </table>
-
-
-_
