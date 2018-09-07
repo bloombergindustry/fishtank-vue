@@ -2,25 +2,25 @@
 
   - Primary
 
-    ![alt text](https://github.com/bakpa79/fishtank-vue/raw/docs/buttonsmd/assets/ft-button-primary.png "Button Primary")
+    <img src="../../assets/ft-button-primary.png" width="20%" alt="Fish Tank Primary Button">
   - Secondary
 
-    ![alt text](https://github.com/bakpa79/fishtank-vue/raw/docs/buttonsmd/assets/ft-button-secondary.png "Button Secondary")
+    <img src="../../assets/ft-button-secondary.png" width="20%" alt="Fish Tank Secondary Button">
   - Destructive
 
-    ![alt text](../../assets/ft-button-destructive.png "Button Destructive")
+    <img src="../../assets/ft-button-destructive.png" width="20%" alt="Fish Tank Destructive Button">
   - Outline
 
-    ![alt text](../../assets/ft-button-outline.png "Button Outline")
+    <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
   - Gradient
 
-    ![alt text](../../assets/ft-button-gradient.png "Button Gradient")
+    <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
   - White
 
-    ![alt text](../../assets/ft-button-white.png "Button White")
+    <img src="../../assets/ft-button-white.png" width="20%" alt="Fish Tank White Button">
   - Button Primary with Block property
 
-    ![alt text](../../assets/ft-button-primary-block.png "Button White")
+    <img src="../../assets/ft-button-primary-block.png" width="50%" alt="Block Style Fish Tank Primary Button">
 
 ## Usage
 
