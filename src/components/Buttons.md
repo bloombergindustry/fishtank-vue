@@ -18,7 +18,7 @@
   - White
 
     <img src="../../assets/ft-button-white.png" width="20%" alt="Fish Tank White Button">
-  - Button Primary with Block property
+  - Button Primary with _block_ property
 
     <img src="../../assets/ft-button-primary-block.png" width="50%" alt="Block Style Fish Tank Primary Button">
 
@@ -70,8 +70,8 @@ _The following props apply only to Gradient Button_
 
 ```xml
 <ButtonGradient
-  :gradientStart="true"
-  :gradientEnd="true"
+  :gradientStart="startingHexColorVariable"
+  :gradientEnd="endingHexColorVariable"
   :colorDirection="to-right"
   >Button Primary</ButtonGradient>
 ```
