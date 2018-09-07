@@ -1,3 +1,3 @@
 # Fishtank Components
 
-[Buttons](./buttons.md)
+[Buttons](../Buttons.md)
