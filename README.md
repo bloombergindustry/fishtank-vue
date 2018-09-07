@@ -12,7 +12,7 @@ npm install @fishtank/fishtank-vue
 
 * Card - Card Style Layout Component
 * Modal - Modal Component
-* Buttons - Form Button Elements
+* Buttons - Form Button Elements - [Buttons ReadMe](src/components/Buttons.md)
   * Primary
   * Secondary
   * Destructive
