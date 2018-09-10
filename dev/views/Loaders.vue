@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="display: table;">
-      <h1>themes</h1>
+    <div style="display: table; text-align: right;">
+      <h1 style="text-align: left;">themes</h1>
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle;">bgov (default)</div>
         <div style="display: table-cell;">
@@ -40,7 +40,7 @@
           />
         </div>
       </div>
-      <h1>sizes</h1>
+      <h1 style="text-align: left;">sizes</h1>
       <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle;">small</div>
         <div style="display: table-cell;">

@@ -2,12 +2,9 @@
   circle.ft-spinner-base{
     fill: none;
     stroke: #C5CACD;
-    // stroke-width: 6;
   }
   circle.ft-spinner-gradient{
     fill: none;
-    // stroke-width: 6;
-    // stroke-dasharray: 50;
     stroke-linecap: round;
     transform: rotate(0deg);
     transform-origin: center center;
@@ -16,11 +13,11 @@
   //sizes
   &.ft-spinner--small{
     circle.ft-spinner-base, circle.ft-spinner-gradient{
-      r: 10px;
+      r: 8px;
       stroke-width: 4;
     }
     circle.ft-spinner-gradient{
-      stroke-dasharray: 30;
+      stroke-dasharray: 26;
     }
   }
   &.ft-spinner--medium{
