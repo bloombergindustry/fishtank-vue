@@ -1,0 +1,51 @@
+.ft-spinner{
+  circle.ft-spinner-base{
+    fill: none;
+    stroke: #C5CACD;
+    stroke-width: 6;
+  }
+  circle.ft-spinner-gradient{
+    fill: none;
+    stroke-width: 6;
+    stroke-dasharray: 50;
+    stroke-linecap: round;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    animation: loading .75s linear infinite;
+  }
+  &.bgov-loader-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#bgov-loader-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-bgov-navy;
+      }
+      stop.stop-class-2{
+        stop-color: $color-bgov-purple;
+      }
+    }
+  }
+  &.blaw-loader-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#blaw-loader-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-blaw-blue;
+      }
+      stop.stop-class-2{
+        stop-color: $color-blaw-blue;
+      }
+    }
+  }
+  
+  @keyframes loading{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+}
