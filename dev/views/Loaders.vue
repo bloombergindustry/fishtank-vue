@@ -1,17 +1,68 @@
 <template>
-  <div style="display: table;">
-    <div style="display: table-row;">
-      <div style="display: table-cell; vertical-align: middle;">default (bgov)</div>
-      <div style="display: table-cell;">
-        <spinner/>
+  <div>
+    <div style="display: table;">
+      <h1>themes</h1>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">bgov (default)</div>
+        <div style="display: table-cell;">
+          <spinner/>
+        </div>
       </div>
-    </div>
-    <div style="display: table-row;">
-      <div style="display: table-cell; vertical-align: middle;">blaw theme</div>
-      <div style="display: table-cell;">
-        <spinner
-          theme="blaw"
-        />
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">blaw</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="blaw"
+          />
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">notification-1</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="notification-1"
+          />
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">notification-2</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="notification-2"
+          />
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">notification-3</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="notification-3"
+          />
+        </div>
+      </div>
+      <h1>sizes</h1>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">small</div>
+        <div style="display: table-cell;">
+          <spinner
+            size="small"
+          />
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">medium (default)</div>
+        <div style="display: table-cell;">
+          <spinner
+          />
+        </div>
+      </div>
+      <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">large</div>
+        <div style="display: table-cell;">
+          <spinner
+            size="large"
+          />
+        </div>
       </div>
     </div>
   </div>
