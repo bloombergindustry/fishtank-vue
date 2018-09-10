@@ -9,7 +9,43 @@
       I am a plain card
     </Card>
     ```
+  - Card with heading
 
+    <img src="../../assets/ft-card-heading.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <Card heading="I am a card heading">
+      I am card content
+    </Card>
+    ```
+
+  - Card with heading ad custom background
+
+    <img src="../../assets/ft-card-custom-background.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <Card>
+      <div
+        slot="heading"
+        slot-scope="{ headerClass }"
+        :class="headerClass"
+        class="custom-heading"
+      >
+        Heading with custom background
+      </div>
+      I am card content
+    </Card>
+    ```
+  
+  - Branded Card
+
+    <img src="../../assets/ft-card-branded.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <Card branded="card-sample-brand-class">
+      I am a branded card
+    </Card>
+    ```
 ## Usage
 
 To import into your component
@@ -20,45 +56,8 @@ import {
 }  from '@fishtank/fishtank-vue'
 ```
 
-In your template:
-
-<!-- ```xml
-<ButtonPrimary>Button Primary</ButtonPrimary>
-``` -->
-
-Adding actions:
-
-<!-- ```xml
-<ButtonPrimary 
-  @click="handleClick"
-  >Button Primary</ButtonPrimary>
-``` -->
-
 ## Props
 
-<!-- _The following props apply to all buttons_
-
-```xml
-<ButtonPrimary
-  :disabled="falsyVariable"
-  :block="truthyVariable"
-  >Button Primary</ButtonPrimary>
-```
-|Name|Type|Description|Required|Default|
-|---|---|---|---|---|
-|disabled|Boolean|Specify if button should be disabled|false| false|
-|block|Boolean|Changes Button to full width block element|false| false|
-
-
-_The following props apply only to Gradient Button_
-
-```xml
-<ButtonGradient
-  :gradientStart="startingHexColorVariable"
-  :gradientEnd="endingHexColorVariable"
-  :colorDirection="to-right"
-  >Button Primary</ButtonGradient>
-```
 <table>
   <thead>
     <th>Name</th>
@@ -68,24 +67,17 @@ _The following props apply only to Gradient Button_
     <th>Default</th>
   </thead>
   <tr>
-    <td>gradientStart</td>
+    <td>heading</td>
     <td>String (Hex color, or valid CSS color)</td>
     <td>Start Color of Gradient</td>
     <td>true</td>
     <td>undefined</td>
   </tr>
   <tr>
-    <td>gradientEnd</td>
+    <td>branded</td>
     <td>String (Hex color, or valid CSS color)</td>
     <td>End Color of Gradient</td>
     <td>true</td>
     <td>undefined</td>
   </tr>
-  <tr>
-    <td>colorDirection</td>
-    <td>String ("to-right" or "to-left")</td>
-    <td>Horizontal direction of gradient</td>
-    <td>false</td>
-    <td> "to-right"</td>
-  </tr>
-</table> -->
+</table>
