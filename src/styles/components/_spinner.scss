@@ -1,0 +1,116 @@
+.ft-spinner{
+  circle.ft-spinner-base{
+    fill: none;
+    stroke: #C5CACD;
+  }
+  circle.ft-spinner-gradient{
+    fill: none;
+    stroke-linecap: round;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    animation: loading .75s linear infinite;
+  }
+  //sizes
+  &.ft-spinner--small{
+    circle.ft-spinner-base, circle.ft-spinner-gradient{
+      r: 8px;
+      stroke-width: 4;
+    }
+    circle.ft-spinner-gradient{
+      stroke-dasharray: 26;
+    }
+  }
+  &.ft-spinner--medium{
+    circle.ft-spinner-base, circle.ft-spinner-gradient{
+      r: 15px;
+      stroke-width: 6;
+    }
+    circle.ft-spinner-gradient{
+      stroke-dasharray: 50;
+    }
+  }
+  &.ft-spinner--large{
+    circle.ft-spinner-base, circle.ft-spinner-gradient{
+      r: 30px;
+      stroke-width: 12;
+    }
+    circle.ft-spinner-gradient{
+      stroke-dasharray: 100;
+    }
+  }
+  //colors
+  &.ft-spinner--bgov-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#ft-spinner--bgov-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-bgov-navy;
+      }
+      stop.stop-class-2{
+        stop-color: $color-bgov-purple;
+      }
+    }
+  }
+  &.ft-spinner--blaw-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#ft-spinner--blaw-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-blaw-blue;
+      }
+      stop.stop-class-2{
+        stop-color: $color-blaw-blue;
+      }
+    }
+  }
+  &.ft-spinner--notification-1-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#ft-spinner--notification-1-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-notification-1;
+      }
+      stop.stop-class-2{
+        stop-color: $color-notification-1;
+      }
+    }
+  }
+  &.ft-spinner--notification-2-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#ft-spinner--notification-2-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-notification-2;
+      }
+      stop.stop-class-2{
+        stop-color: $color-notification-2;
+      }
+    }
+  }
+  &.ft-spinner--notification-3-gradient{
+    circle.ft-spinner-gradient{
+      stroke: url(#ft-spinner--notification-3-gradient);
+    }
+    linearGradient{
+      stop.stop-class-1{
+        stop-color: $color-notification-3;
+      }
+      stop.stop-class-2{
+        stop-color: $color-notification-3;
+      }
+    }
+  }
+  
+  @keyframes loading{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+}

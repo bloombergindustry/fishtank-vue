@@ -26,4 +26,6 @@ export { default as Tag } from "./components/Tag.vue"
 export { default as InputTagRemove } from "./components/InputTagRemove.vue"
 export { default as MultiSelectTag } from "./components/MultiSelectTag.vue"
 
+export { default as FishTankSpinner } from "./components/FishTankSpinner.vue"
+
 import './styles.scss'
