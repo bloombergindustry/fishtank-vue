@@ -8,13 +8,18 @@
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
-
     <div><ButtonOutline>Button Outline</ButtonOutline></div>
     <br>
     <div><ButtonGradient 
       :color-direction="colorDirection" 
       :gradient-start="colorStart" 
       :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <br>
+    <div><ButtonGradient 
+      :color-direction="colorDirection" 
+      :gradient-start="colorStart" 
+      :gradient-end="colorEnd" 
+      :block="true">Button Gradient</ButtonGradient></div> 
     <br>
     <div><ButtonGradient 
       :color-direction="colorDirection" 
