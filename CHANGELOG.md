@@ -36,7 +36,6 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="0.3.1"></a>
 ## 0.3.1 (2018-08-16)
 
-
 ### Bug Fixes
 
 * added .github folder to npm ignore ([d946d83](https://github.com/bloombergbna/fishtank-vue/commit/d946d83))

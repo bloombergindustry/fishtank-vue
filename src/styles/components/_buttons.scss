@@ -146,6 +146,71 @@ body.user-is-tabbing button:focus {
   }
 }
 
+.ft-button--wrapper{
+  padding: 2px ;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.ft-button--white {
+  background-color: $color-white;
+  border-color: $color-gray-lightest;
+  color: $color-gray;
+
+  @include button-box-shadow($color-white);
+
+  &:hover {
+    color: $color-black;
+  }
+
+  &:active {
+    background-color: $color-gray-lightest;
+    box-shadow: none;
+  }
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background-color: $color-disabled;
+      color: $color-gray-lighter;
+    }
+  }
+}
+.ft-button--gradient {
+  border:none;
+  background-color: $color-white;
+  color: $color-gray;
+
+  &:hover {
+    background: transparent;
+    color: $color-white;
+  }
+  &:disabled {
+    opacity: 0.4;
+    &:hover {
+      background-color: $color-gray;
+    }
+  }
+}
+.ft-button--outline {
+  background-color: none;
+  border-color: $color-gray;
+  border-width: 2px;
+  color: $color-gray;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray;
+  }
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background-color: none;
+    }
+  }
+}
+
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;

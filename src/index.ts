@@ -7,6 +7,9 @@ export { default as BaseButton } from "./components/BaseButton.vue"
 export { default as ButtonPrimary } from "./components/ButtonPrimary.vue"
 export { default as ButtonSecondary } from "./components/ButtonSecondary.vue"
 export { default as ButtonDestructive } from "./components/ButtonDestructive.vue"
+export { default as ButtonWhite } from "./components/ButtonWhite.vue"
+export { default as ButtonOutline} from "./components/ButtonOutline.vue"
+export { default as ButtonGradient } from "./components/ButtonGradient.vue"
 
 
 export { default as Card } from "./components/Card.vue"
@@ -22,5 +25,7 @@ export { default as DialogBox } from "./components/DialogBox.vue"
 export { default as Tag } from "./components/Tag.vue"
 export { default as InputTagRemove } from "./components/InputTagRemove.vue"
 export { default as MultiSelectTag } from "./components/MultiSelectTag.vue"
+
+export { default as FishTankSpinner } from "./components/FishTankSpinner.vue"
 
 import './styles.scss'
