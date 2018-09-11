@@ -26,6 +26,8 @@
       gradient-start="red"
       gradient-end="yellow" >Button Gradient</ButtonGradient></div>
     <br>
+    <div><ButtonGradient  >Button Gradient</ButtonGradient></div>
+    <br>
     <div><ButtonWhite>Button White</ButtonWhite></div>
     <br>
   </div>

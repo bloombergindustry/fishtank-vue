@@ -8,7 +8,9 @@ import {
   ButtonPrimary,
   ButtonSecondary,
   ButtonDestructive,
+  ButtonGradient,
 } from "@/index"
+import { doesNotThrow } from 'assert'
 
 describe('Buttons', () => {
   describe('BaseButton', () => {
@@ -86,7 +88,7 @@ describe('Buttons', () => {
   ;[
     ButtonPrimary,
     ButtonSecondary,
-    ButtonDestructive
+    ButtonDestructive,
   ].forEach(Button => {
     let buttonName: string = (Button as any).options.name
 
@@ -134,4 +136,104 @@ describe('Buttons', () => {
       })
     })
   })
+
+  ;[
+    ButtonGradient,
+  ].forEach(Button => {
+    let buttonName: string = (Button as any).options.name
+
+    describe(buttonName, () => {
+      it('shows the provided content', () =>{
+        let wrapper = mount(Button,{
+          slots: {
+            default: 'The Button Text'
+          }
+        })
+
+        expect(wrapper.text()).to.equal('The Button Text')
+      })
+
+      it('adds the modifier class to the base button component', () =>{
+        let wrapper = mount(Button)
+        let base = wrapper.find("a").find(BaseButton)
+
+        let expectedClass = `ft-button--${kebabCase(buttonName.replace(/^Button/, ''))}`
+        expect(base.classes()).to.include(expectedClass)
+      })
+
+      it('delegates events to the base button class', () => {
+        let clickHandler = spy()
+        let wrapper = mount(Button, {
+          listeners: {
+            click: clickHandler
+          }
+        })
+        let base = wrapper.find(BaseButton)
+        base.trigger('click')
+
+        sinon.assert.called(clickHandler)
+      })
+
+      it('passes all attribute bindings down to base button', () => {
+        let wrapper = mount(Button, {
+          attrs: {
+            disabled: true
+          }
+        })
+        let base = wrapper.find(BaseButton)
+
+        expect(base.classes()).to.include('ft-button--disabled')
+      })
+    })
+    describe('ButtonGradient',() =>{
+
+      it('Takes is required props and appropiate value', () => {
+        let props = { gradientStart: "#000" , gradientEnd: "#fff", colorDirection: "to right" }
+  
+        let start = props.gradientStart
+        let end = props.gradientEnd
+        let direction = props.colorDirection
+    
+        expect(start).to.be.eql("#000")
+        expect(start).to.include('#')
+    
+        expect(end).to.be.eql("#fff")
+        expect(end).to.include('#')
+  
+        expect(direction).to.include('to')
+      })
+      it('Undefined required props are undefined', () =>{
+        let props = { gradientStart: undefined , gradientEnd: undefined, colorDirection: "to right" }
+  
+        let start = props.gradientStart
+        let end = props.gradientEnd
+        let direction = props.colorDirection
+    
+        expect(start).to.be.eql(undefined)
+    
+        expect(end).to.be.eql(undefined)
+  
+        expect(direction).to.include('to')
+      })
+  
+  
+    })  
+    describe(buttonName, () => {
+
+
+      it("Mounts gradient button and checks if it contains the background image style attribute with a linear gradient. " ,() =>{
+        let wrapper = mount(Button)
+        let gradientwrap = wrapper.find("a")
+        expect(gradientwrap. hasStyle("background-image", "linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));"))
+  
+      })
+      
+  
+    })
+  })
+  
+  
+   
+
+
 })
