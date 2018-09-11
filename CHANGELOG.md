@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/bloombergbna/fishtank-vue/compare/v0.3.2...v0.4.0) (2018-09-11)
+
+
+### Features
+
+* added vue component gradient button ([bf0dc6c](https://github.com/bloombergbna/fishtank-vue/commit/bf0dc6c))
+* Added vue component Outline button, made supporting file changes ([#28](https://github.com/bloombergbna/fishtank-vue/issues/28)) ([150bc43](https://github.com/bloombergbna/fishtank-vue/commit/150bc43))
+* Added White Button Vue Component, made the appropiate file changes to support the white button vue component in Buttons.vue, index.ts, and _buttons.scss. Created file components/ButtonWhite.vue -Amirah ([5c60022](https://github.com/bloombergbna/fishtank-vue/commit/5c60022))
+* Button Gradient Unit Test and minor changes to Button Gradient component as required of the unit test(changes should not be rolled back as they will run errors in test environment, the component itself continues to run as intended ([58e2ba1](https://github.com/bloombergbna/fishtank-vue/commit/58e2ba1))
+* edited gradient button component to take in props for end color, start color, and gradient direction ([29f6ac6](https://github.com/bloombergbna/fishtank-vue/commit/29f6ac6))
+* made changes to unit test. Added to test to check gradient button for passed style, linear gradient. ([7610382](https://github.com/bloombergbna/fishtank-vue/commit/7610382))
+
+
+
+<a name="0.3.1"></a>
+## 0.3.1 (2018-08-16)
+
+
+
 <a name="0.3.2"></a>
 ## 0.3.2 (2018-08-16)
 
