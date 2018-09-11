@@ -45,7 +45,7 @@
         <div style="display: table-cell; vertical-align: middle;">small</div>
         <div style="display: table-cell;">
           <spinner
-            size="small"
+            size="small" alpha
           />
         </div>
       </div>
@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Spinner } from '@/index'
+import { FishTankSpinner as Spinner } from '@/index'
 
 export default Vue.extend({
   components: {

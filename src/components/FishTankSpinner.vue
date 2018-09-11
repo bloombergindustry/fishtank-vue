@@ -18,7 +18,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Spinner',
+  name: 'FishTankSpinner',
   data () {
     return{
       gradientClass: "ft-spinner--" + this.theme + "-gradient",
@@ -28,11 +28,13 @@ export default Vue.extend({
   props: {
     theme: {
       type:String,
-      default:"bgov"
+      default:"bgov",
+      required:true
     },
     size: {
       type:String,
-      default: "medium"
+      default: "medium",
+      required:true
     }
   }
 })
