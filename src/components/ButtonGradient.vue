@@ -20,15 +20,21 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    gradientStart :{type:String, required:true},
-    gradientEnd :{type:String, required:true},
+    gradientStart :{type:String, required:true, default:"#000000"},
+    gradientEnd :{type:String, required:true, default:"#000000"},
     colorDirection :{type:String, required:false,default:"to right"}
 
   },   
   computed:{
-    returnGradientStyle(){
-      return `background-image: linear-gradient(${this.colorDirection}, ${this.gradientStart}, ${this.gradientEnd} );`
+    returnGradientStyle(): string {
+      const colorDirection = this.colorDirection === undefined? "to right" : this.colorDirection
+      const gradientStart = this.gradientStart === undefined? "#000000" : this.gradientStart
+      const gradientEnd = this.gradientEnd === undefined? "#000000" : this.gradientEnd
+
+      return `background-image: linear-gradient(${colorDirection}, ${gradientStart}, ${gradientEnd} );`
+      
     }
   }
 })
+
 </script>
