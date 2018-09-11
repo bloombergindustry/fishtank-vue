@@ -185,41 +185,55 @@ describe('Buttons', () => {
         expect(base.classes()).to.include('ft-button--disabled')
       })
     })
-  })
+    describe('ButtonGradient',() =>{
+
+      it('Takes is required props and appropiate value', () => {
+        let props = { gradientStart: "#000" , gradientEnd: "#fff", colorDirection: "to right" }
   
-  describe('ButtonGradient',() =>{
-
-    it('Takes is required props and appropiate value', () => {
-      let props = { gradientStart: "#000" , gradientEnd: "#fff", colorDirection: "to right" }
-
-      let start = props.gradientStart
-      let end = props.gradientEnd
-      let direction = props.colorDirection
-  
-      expect(start).to.be.eql("#000")
-      expect(start).to.include('#')
-  
-      expect(end).to.be.eql("#fff")
-      expect(end).to.include('#')
-
-      expect(direction).to.include('to')
-    })
-    it('Undefined required props are undefined', () =>{
-      let props = { gradientStart: undefined , gradientEnd: undefined, colorDirection: "to right" }
-
-      let start = props.gradientStart
-      let end = props.gradientEnd
-      let direction = props.colorDirection
-  
-      expect(start).to.be.eql(undefined)
-  
-      expect(end).to.be.eql(undefined)
-
-      expect(direction).to.include('to')
-
-
-    })
+        let start = props.gradientStart
+        let end = props.gradientEnd
+        let direction = props.colorDirection
     
+        expect(start).to.be.eql("#000")
+        expect(start).to.include('#')
+    
+        expect(end).to.be.eql("#fff")
+        expect(end).to.include('#')
+  
+        expect(direction).to.include('to')
+      })
+      it('Undefined required props are undefined', () =>{
+        let props = { gradientStart: undefined , gradientEnd: undefined, colorDirection: "to right" }
+  
+        let start = props.gradientStart
+        let end = props.gradientEnd
+        let direction = props.colorDirection
+    
+        expect(start).to.be.eql(undefined)
+    
+        expect(end).to.be.eql(undefined)
+  
+        expect(direction).to.include('to')
+      })
+  
+  
+    })  
+    describe(buttonName, () => {
+
+
+      it("Mounts gradient button and checks if it contains the background image style attribute with a linear gradient. " ,() =>{
+        let wrapper = mount(Button)
+        let gradientwrap = wrapper.find("a")
+        expect(gradientwrap. hasStyle("background-image", "linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));"))
+  
+      })
+      
+  
+    })
   })
+  
+  
    
+
+
 })

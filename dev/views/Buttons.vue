@@ -7,6 +7,8 @@
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
     <br>
     <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <div><ButtonGradient  >Button Gradient</ButtonGradient></div>
+
     <br>
 
     

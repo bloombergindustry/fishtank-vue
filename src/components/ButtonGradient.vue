@@ -27,11 +27,9 @@ export default Vue.extend({
   },   
   computed:{
     returnGradientStyle(): string {
-      const colorDirection = this.colorDirection === undefined? "to right" : this.colorDirection
-      const gradientStart = this.gradientStart === undefined? "#000000" : this.gradientStart
-      const gradientEnd = this.gradientEnd === undefined? "#000000" : this.gradientEnd
+      
 
-      return `background-image: linear-gradient(${colorDirection}, ${gradientStart}, ${gradientEnd} );`
+      return `background-image: linear-gradient(${this.colorDirection}, ${this.gradientStart}, ${this.gradientEnd} );`
       
     }
   }
