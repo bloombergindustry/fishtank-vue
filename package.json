@@ -1,6 +1,6 @@
 {
   "name": "@fishtank/fishtank-vue",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": false,
   "license": "Apache-2.0",
   "author": "Fishtank Design System <agile_fishtank@bna.com>",
@@ -24,8 +24,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/bloombergbna/fishtank-vue.git"
+    "type": "git",
+    "url": "https://github.com/bloombergbna/fishtank-vue.git"
   },
   "main": "dist/fishtank-vue.common.js",
   "module": "dist/fishtank-vue.esm.js",
