@@ -101,7 +101,7 @@ import {
   <tr>
     <td>size</td>
     <td>String</td>
-    <td>Component Size: small | medium | large/td>
+    <td>Component Size: small | medium | large</td>
     <td>true</td>
     <td>null</td>
   </tr>
