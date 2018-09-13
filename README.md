@@ -17,7 +17,8 @@ npm install @fishtank/fishtank-vue
   * Secondary
   * Destructive
 * [Radios](src/components/Radios.md)
-* Switch
+* [Switches](src/components/Switches.md)
+* [Loaders](src/components/Loaders.md)
 * Text Input
 
 ## Usage

@@ -48,7 +48,6 @@ export default Vue.extend({
         ...this.$listeners,
         click: ($event: MouseEvent) => {
           if (this.disabled) return
-
           this.$emit("click", $event)
         }
       }
