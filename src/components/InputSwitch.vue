@@ -75,7 +75,9 @@ export default Vue.extend({
   computed: {
     shouldBeChecked():any {
       if (this.modelValue instanceof Array) {
-        return this.modelValue.includes(this.value)
+        let res = false
+        if(this.modelValue.indexOf(this.value) >= 0) res = !res
+        return res
       }
       return this.modelValue === this.trueValue
     },
