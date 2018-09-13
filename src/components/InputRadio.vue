@@ -1,11 +1,11 @@
 <template>
   <div class="fishtank-radio">
     <label 
-      :for="id" 
+      :for="(id !==null? id: labelId)"
       class="fishtank-radio__label">
       <input 
         :disabled="disabled" 
-        :id="id" 
+        :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
         class="fishtank-radio__input" 
@@ -66,7 +66,10 @@ export default Vue.extend({
           this.$emit("change", this.value)
         }
       }
-    }
+    },
+    labelId(): string {
+      return `ft-radio-${(this as any)._uid}`
+    },
   }
 })
 </script>

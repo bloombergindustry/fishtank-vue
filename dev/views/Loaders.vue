@@ -3,9 +3,11 @@
     <div style="display: table; text-align: right;">
       <h1 style="text-align: left;">themes</h1>
       <div style="display: table-row;">
-        <div style="display: table-cell; vertical-align: middle;">bgov (default)</div>
+        <div style="display: table-cell; vertical-align: middle;">bgov </div>
         <div style="display: table-cell;">
-          <spinner/>
+          <spinner 
+            theme="bgov" 
+            size="medium"/>
         </div>
       </div>
       <div style="display: table-row;">
@@ -13,6 +15,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="blaw"
+            size="medium"
           />
         </div>
       </div>
@@ -21,6 +24,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-1"
+            size="medium"
           />
         </div>
       </div>
@@ -29,6 +33,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-2"
+            size="medium"
           />
         </div>
       </div>
@@ -37,6 +42,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-3"
+            size="medium"
           />
         </div>
       </div>
@@ -45,14 +51,18 @@
         <div style="display: table-cell; vertical-align: middle;">small</div>
         <div style="display: table-cell;">
           <spinner
-            size="small" alpha
+            theme="bgov"
+            size="small" 
+            alpha
           />
         </div>
       </div>
       <div style="display: table-row;">
-        <div style="display: table-cell; vertical-align: middle;">medium (default)</div>
+        <div style="display: table-cell; vertical-align: middle;">medium </div>
         <div style="display: table-cell;">
           <spinner
+            theme="bgov"
+            size="medium" 
           />
         </div>
       </div>
@@ -60,6 +70,7 @@
         <div style="display: table-cell; vertical-align: middle;">large</div>
         <div style="display: table-cell;">
           <spinner
+            theme="bgov"
             size="large"
           />
         </div>

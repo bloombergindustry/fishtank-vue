@@ -2,13 +2,13 @@
   <div  
     class="ft-switch">
     <label 
-      :for="id" 
+      :for="(id !==null? id: labelId)"
       class="ft-input-checkbox-label">
       <input 
-        :id="id" 
+        :id="(id !==null? id: labelId)" 
         :disabled="disabled"
-        :value="val"
-        v-model="checked"
+        :checked="shouldBeChecked"
+        :value="value"
         type="checkbox" 
         v-on="listeners">
       <div class="ft-input-checkbox-wrap">
@@ -40,91 +40,75 @@ export default Vue.extend({
     prop: 'modelValue',
     event: 'change'
   },
-  props:{
-    value: {
-      default:"",
-      required:true,
-      type:[String, Number, Boolean, Array, Object, Number],
-    },
+  props: {
     disabled:{
-      type:[String , Boolean],
-      default:false,
-      required:false
+      type:Boolean,
+      required:false,
+      default:false
     },
-    modelValue:{
-      type:Object,
-      default:()=>{}
+    value: {
+      default:null,
+      type: [String, Boolean, Object, Array, Number],
     },
-    label:{
-      type:String,
-      default:"Please provide a label",
-      required:true
+    modelValue: {
+      type:[String, Boolean, Object, Array, Number],
+      default: false
+    },
+    label: {
+      type: String,
+      required: true
     },
     id:{
       type:String,
-      default:null
-    },
-    trueValue:{
-      type:Boolean,
-      default:true
-    },
-    falseValue:{
-      type:Boolean,
-      default:false
-    },
-    inherited:{
-      type:Boolean,
-      default:false,
+      default:null,
       required:false
     },
-    val: {
-      type:[String, Number, Boolean, Array, Object, Number],
-      default:"",
-      required:true
-    } 
-  },
-  data(){
-    return {
-      checkProxy:false
+    trueValue: {
+      default: true,
+      type:[String, Boolean, Object, Array, Number]
+    },
+    falseValue: {
+      default: false,
+      type:[String, Boolean, Object, Array, Number]
     }
   },
-  inject: {
-    checkboxGroup: {
-      default : ()=>{}
-    }
-  },
-  computed:{
+  computed: {
+    shouldBeChecked():any {
+      if (this.modelValue instanceof Array) {
+        return this.modelValue.includes(this.value)
+      }
+      return this.modelValue === this.trueValue
+    },
     listeners(): Record<string, Function | Function[]> {
       return {
         ...this.$listeners,
         change: ($event: MouseEvent) => {
           if (this.disabled) return 
-          this.$emit("input", this.checkProxy)
+          this.updateInput($event)
         }
       }
     },
-    checked: {
-      set:function(val:any){
-        this.checkProxy = val
-      },
-      get: function(): Record<string, boolean | number | Function | Function[]>{
-        return this.value
-      }
-    }
+    labelId(): string {
+      return `ft-switch-${(this as any)._uid}`
+    },
   },
-  methods:{
-    updateFtCheck(event:any){
+  methods: {
+    updateInput(event:any) {
       let isChecked = event.target.checked
+
       if (this.modelValue instanceof Array) {
-          if (isChecked) {
-            this.modelValue.push(this.value)
-          } else {
-            this.modelValue.splice(this.modelValue.indexOf(this.value), 1) 
-          }
-          this.$emit('input', this.modelValue)
+        let newValue = [...this.modelValue]
+
+        if (isChecked) {
+          newValue.push(this.value)
         } else {
-          this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+          newValue.splice(newValue.indexOf(this.value), 1)
         }
+
+        this.$emit('change', newValue)
+      } else {
+        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+      }
     }
   }
 })
