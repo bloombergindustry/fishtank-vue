@@ -18,6 +18,7 @@
       disabled
       value="beta" 
       label="beta"/>
+    {{ val }}
   </section>
 </template>
 

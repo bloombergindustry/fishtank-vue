@@ -3,11 +3,12 @@
     :class="value ? 'ft-input-checkbox--checked' : 'ft-input-checkbox--unchecked'"
     class="ft-input-checkbox"
   >
-    <label 
+    <label
+      :for="(id !==null? id: labelId)"
       class="ft-input-checkbox__label"
     >
       <input 
-        :id="id" 
+        :id="(id !==null? id: labelId)" 
         :disabled="disabled"
         :value="val"
         v-model="checked"
@@ -100,7 +101,10 @@ export default Vue.extend({
         getchecked = this.value.indexOf(this.val) >= 0
       }
       return getchecked
-    }
+    },
+    labelId(): string {
+      return `ft-checkbox-${(this as any)._uid}`
+    },
   }
 })
 </script>
