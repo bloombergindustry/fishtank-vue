@@ -37,7 +37,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'FishTankSpinner',
+  name: 'FishTankLoaderSpinner',
   props: {
     theme: {
       type:String,

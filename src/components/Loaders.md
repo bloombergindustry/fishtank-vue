@@ -32,7 +32,7 @@
 
     notification-2
 
-    <img src="../../assets/ft-loader-spinner-notification-2" width="50%" alt="Fish Tank Spinner Loader">
+    <img src="../../assets/ft-loader-spinner-notification-2.png" width="50%" alt="Fish Tank Spinner Loader">
 
     ```xml
     <spinner theme="blaw" size="medium"/>
@@ -40,7 +40,7 @@
 
     notification-3
 
-    <img src="../../assets/ft-loader-spinner-notification-3" width="50%" alt="Fish Tank Spinner Loader">
+    <img src="../../assets/ft-loader-spinner-notification-3.png" width="50%" alt="Fish Tank Spinner Loader">
 
     ```xml
     <spinner theme="blaw" size="medium"/>
@@ -77,7 +77,7 @@ To import into your component
 
 ```js
 import { 
-  Switch 
+  FishTankLoaderSpinner 
 }  from '@fishtank/fishtank-vue'
 ```
 
