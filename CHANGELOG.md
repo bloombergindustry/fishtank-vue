@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v1.1.0-beta.0...v1.1.0) (2018-09-14)
+
+
+
 <a name="1.1.0-beta.0"></a>
 # [1.1.0-beta.0](https://github.com/bloombergbna/fishtank-vue/compare/v0.4.1...v1.1.0-beta.0) (2018-09-13)
 
