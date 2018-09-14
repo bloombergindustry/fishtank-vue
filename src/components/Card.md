@@ -19,7 +19,7 @@
     </Card>
     ```
 
-  - Card with heading ad custom background
+  - Card with heading and custom background
 
     <img src="../../assets/ft-card-custom-background.png" width="50%" alt="Fish Tank Plain Card">
     
