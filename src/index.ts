@@ -26,6 +26,38 @@ export { default as Tag } from "./components/Tag.vue"
 export { default as InputTagRemove } from "./components/InputTagRemove.vue"
 export { default as MultiSelectTag } from "./components/MultiSelectTag.vue"
 
-export { default as FishTankSpinner } from "./components/FishTankSpinner.vue"
+export { default as FishTankSpinner } from "./components/FishTankLoaderSpinner.vue"
+
+
+//Todo - Remove exports above and retain only rebranded exports below
+export { default as FishTankBaseAlert } from "./components/BaseAlert.vue"
+export { default as FishTankAlertError } from "./components/AlertError.vue"
+export { default as FishTankAlertInfo } from "./components/AlertInfo.vue"
+export { default as FishTankAlertSuccess } from "./components/AlertSuccess.vue"
+
+export { default as FishTankBaseButton } from "./components/BaseButton.vue"
+export { default as FishTankButtonPrimary } from "./components/ButtonPrimary.vue"
+export { default as FishTankButtonSecondary } from "./components/ButtonSecondary.vue"
+export { default as FishTankButtonDestructive } from "./components/ButtonDestructive.vue"
+export { default as FishTankButtonWhite } from "./components/ButtonWhite.vue"
+export { default as FishTankButtonOutline} from "./components/ButtonOutline.vue"
+export { default as FishTankButtonGradient } from "./components/ButtonGradient.vue"
+
+
+export { default as FishTankCard } from "./components/Card.vue"
+export { default as FishTankCheckbox } from "./components/InputCheckbox.vue"
+
+export { default as FishTankRadio } from "./components/InputRadio.vue"
+export { default as FishTankSwitch } from "./components/InputSwitch.vue"
+export { default as FishTankTextInput } from "./components/InputText.vue"
+
+export { default as FishTankModal } from "./components/Modal.vue"
+export { default as FishTankDialogBox } from "./components/DialogBox.vue"
+
+export { default as FishTankTag } from "./components/Tag.vue"
+export { default as FishTankTagRemove } from "./components/InputTagRemove.vue"
+export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
+
+export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
 
 import './styles.scss'

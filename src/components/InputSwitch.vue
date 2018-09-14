@@ -35,7 +35,7 @@ window.addEventListener('keydown', handleFirstTab)
 
 import Vue, { VNode }from 'vue'
 export default Vue.extend({
-  name:"FtSwitch",
+  name:"FishTankSwitch",
   model: {
     prop: 'modelValue',
     event: 'change'
