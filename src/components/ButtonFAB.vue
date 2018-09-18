@@ -1,12 +1,12 @@
 <template>
   <div class="ft-button--fab-wrapper">
 
-  <BaseButton v-bind="$attrs" v-on="$listeners" class="ft-button--fab">
+  <BaseButton v-bind="$attrs" v-on="$listeners" class="ft-button--fab" :style="returnPrimaryFabColor">
     <p> <slot/> </p>
   </BaseButton>
 
   <ul>
-   <li v-for="fablink in fabOption">
+   <li v-for="fablink in fabOption" :style="returnSecondaryFabColor" >
    <a href="#"> {{fablink.icon}} </a>
    <p>{{fablink.text}} </p>
    </li>                                                                   
@@ -24,9 +24,18 @@ export default Vue.extend({
   components: {
     BaseButton
   },
-  props:['fabOption'],   
+  props:{
+    fabOption : String,
+    fabColorPrimary : String,
+    fabColorSecondary: String,
+    },   
   computed:{
-    
+    returnPrimaryFabColor(): string {
+      return `background:  ${this.fabColorPrimary} ;`
+    },
+    returnSecondaryFabColor(): string {
+      return `background:  ${this.fabColorSecondary} ;`
+    }
   }
 })
 

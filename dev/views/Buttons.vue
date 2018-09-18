@@ -13,7 +13,7 @@
     <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
 
-    <div><ButtonFAB v-bind:fab-option="fabLinks" >+</ButtonFAB></div>
+    <div><ButtonFAB v-bind:fab-option="fabLinks" :fab-color-primary="fabPrimaryColor" :fab-color-secondary="fabSecondaryColor"> + </ButtonFAB></div>
     <br>
 
     
@@ -48,6 +48,8 @@ export default Vue.extend({
         {icon: '2', text: 'Twitter'},
         {icon: '3', text: 'Instagram'},
       ],
+      fabPrimaryColor: '#EA60A7',
+      fabSecondaryColor: '#0D9DDB',
     }
   },
   
