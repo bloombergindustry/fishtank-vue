@@ -229,6 +229,11 @@ body.user-is-tabbing button:focus {
     bottom: 70px;
     opacity: 1;
   }
+  &:hover ul li p{
+      right: 70px;
+      opacity: 1;
+      transition: 1.2s ease-in;
+  }
 
   p, a{
     text-decoration: none;
@@ -256,6 +261,7 @@ body.user-is-tabbing button:focus {
     height: 50px;
     border-radius: 50%;
     margin-bottom: 12px;
+    position: relative;
 
     font-size: 2em;
 
@@ -278,6 +284,22 @@ body.user-is-tabbing button:focus {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    p{
+      opacity: 0;
+      color: $color-black;
+      font-size: 0.5em;
+      position: absolute;
+      z-index: 499;
+      right: 0px;
+      top: -12px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      text-align: left;
     }
   }
 }

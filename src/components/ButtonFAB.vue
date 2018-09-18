@@ -8,6 +8,7 @@
   <ul>
    <li v-for="fablink in fabOption">
    <a href="#"> {{fablink.icon}} </a>
+   <p>{{fablink.text}} </p>
    </li>                                                                   
   </ul>
 

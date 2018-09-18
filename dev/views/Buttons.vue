@@ -13,12 +13,7 @@
     <div><ButtonGradient :color-direction="colorDirection" :gradient-start="colorStart" :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
 
-    <div>
-      <ButtonFAB v-bind:fab-option="fabLinks" > 
-        +
-         
-      </ButtonFAB></div>
-
+    <div><ButtonFAB v-bind:fab-option="fabLinks" >+</ButtonFAB></div>
     <br>
 
     
@@ -49,9 +44,9 @@ export default Vue.extend({
 
       //Relevant to ButtonFAB
       fabLinks:[
-        {icon: '1'},
-        {icon: '2'},
-        {icon: '3'},
+        {icon: '1', text: 'Facebook'},
+        {icon: '2', text: 'Twitter'},
+        {icon: '3', text: 'Instagram'},
       ],
     }
   },
