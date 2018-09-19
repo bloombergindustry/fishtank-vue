@@ -233,6 +233,17 @@ body.user-is-tabbing button:focus {
   }
 }
 
+.ft-button--outline-small{
+  height: 24px;
+  border-width: 1px;
+  padding: 1px 8px 2px 8px;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-align: center;
+}
+
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;

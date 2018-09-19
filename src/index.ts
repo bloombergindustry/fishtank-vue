@@ -11,6 +11,8 @@ export { default as ButtonWhite } from "./components/ButtonWhite.vue"
 export { default as ButtonOutline} from "./components/ButtonOutline.vue"
 export { default as ButtonGradient } from "./components/ButtonGradient.vue"
 export { default as ButtonOutlineDark} from "./components/ButtonOutlineDark.vue"
+export { default as ButtonOutlineSmall} from "./components/ButtonOutlineSmall.vue"
+export { default as ButtonOutlineDarkSmall} from "./components/ButtonOutlineDarkSmall.vue"
 
 
 

@@ -8,6 +8,8 @@
     <br>
     <div><ButtonOutline>Button Outline</ButtonOutline></div>
     <br>
+    <div><ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall></div>
+    <br>
     <div><ButtonGradient 
       :color-direction="colorDirection" 
       :gradient-start="colorStart" 
@@ -22,6 +24,8 @@
 
       <div><ButtonOutlineDark> Button Outline Dark </ButtonOutlineDark></div>
       <br>
+      <div><ButtonOutlineDarkSmall> Button Outline Dark Small </ButtonOutlineDarkSmall></div>
+      <br>
     </div>
   </div>
 </template>
@@ -29,7 +33,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineDark, ButtonGradient , ButtonWhite} from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineSmall, ButtonOutlineDark, ButtonOutlineDarkSmall, ButtonGradient , ButtonWhite} from '@/index'
 
 export default Vue.extend({
   components: {
@@ -40,6 +44,8 @@ export default Vue.extend({
     ButtonOutline,
     ButtonGradient,
     ButtonOutlineDark,
+    ButtonOutlineSmall,
+    ButtonOutlineDarkSmall,
   },
   data: function(){
     return{
