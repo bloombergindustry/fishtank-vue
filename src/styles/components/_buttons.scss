@@ -211,6 +211,55 @@ body.user-is-tabbing button:focus {
   }
 }
 
+
+/*********************************************************/
+/************ Button Feature Label Styles ****************/
+
+.ft-button--feature-label{
+  padding: 0px ;
+  margin: 0px;
+  height: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 4px;
+  color: $color-gray;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &:hover{
+    color: $color-black;
+    background-color: $color-gray-lightest;
+  }
+  &:active{
+    color: $color-black;
+    background-color: $color-secondary-darker;
+  }
+  &:disabled{
+    color: $color-gray-lighter;
+    background: transparent;
+  }
+
+  p{
+    margin:  0px;
+    padding: 0px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    line-height: 20px;
+  }
+  
+  
+}
+
+
+/*********************************************************/
+
+
+
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
