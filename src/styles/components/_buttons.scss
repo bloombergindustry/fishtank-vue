@@ -210,8 +210,7 @@ body.user-is-tabbing button:focus {
     }
   }
 }
-/*******************************************************/
-/*************** FAB BUTTON STYLES ************/
+
 .ft-button--fab-wrapper{
   position: fixed;
   right: 50px;
@@ -303,6 +302,7 @@ body.user-is-tabbing button:focus {
     }
   }
 }
+
 .ft-button--fab{
   background-color: black;
   border-color: transparent;
@@ -323,22 +323,6 @@ body.user-is-tabbing button:focus {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*******************************************************/
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
