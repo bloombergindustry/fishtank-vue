@@ -2,8 +2,6 @@
   <div>
     <div><ButtonPrimary>Button Primary</ButtonPrimary></div>
     <br>
-    <ButtonPrimary :block="true">Button Primary</ButtonPrimary>
-    <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
     <br>
     <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
@@ -15,28 +13,23 @@
       :gradient-start="colorStart" 
       :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
-    <div><ButtonGradient 
-      :color-direction="colorDirection" 
-      :gradient-start="colorStart" 
-      :gradient-end="colorEnd" 
-      :block="true">Button Gradient</ButtonGradient></div> 
-    <br>
-    <div><ButtonGradient 
-      :color-direction="colorDirection" 
-      gradient-start="red"
-      gradient-end="yellow" >Button Gradient</ButtonGradient></div>
-    <br>
-    <div><ButtonGradient  >Button Gradient</ButtonGradient></div>
-    <br>
     <div><ButtonWhite>Button White</ButtonWhite></div>
     <br>
+
+    <div style="background: #292e31;  padding: 12px; border-radius: 10px; display: inline-block;">
+      <h2 style="color: #fff; text-align: center;" > For Dark Backgrounds </h2>
+      <br>
+
+      <div><ButtonOutlineDark> Button Outline Dark </ButtonOutlineDark></div>
+      <br>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient , ButtonWhite} from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineDark, ButtonGradient , ButtonWhite} from '@/index'
 
 export default Vue.extend({
   components: {
@@ -45,7 +38,8 @@ export default Vue.extend({
     ButtonDestructive,
     ButtonWhite,
     ButtonOutline,
-    ButtonGradient
+    ButtonGradient,
+    ButtonOutlineDark,
   },
   data: function(){
     return{
