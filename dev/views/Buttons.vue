@@ -43,13 +43,14 @@ export default Vue.extend({
       colorDirection: "to right",
 
       //Relevant to ButtonFAB
-      fabLinks:[
-        {icon: '1', text: 'Facebook'},
-        {icon: '2', text: 'Twitter'},
-        {icon: '3', text: 'Instagram'},
-      ],
       fabPrimaryColor: '#EA60A7',
       fabSecondaryColor: '#0D9DDB',
+      fabLinks:[
+        {icon: '1', text: 'Twitter', link: 'https://twitter.com/'},
+        {icon: '2', text: 'Facebook', link: 'https://www.facebook.com'},
+        {icon: '3', text: 'Instagram', link: 'https://www.instagram.com'},
+      ],
+      
     }
   },
   

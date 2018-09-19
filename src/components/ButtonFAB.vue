@@ -7,7 +7,7 @@
 
   <ul>
    <li v-for="fablink in fabOption" :style="returnSecondaryFabColor" >
-   <a href="#"> {{fablink.icon}} </a>
+   <a :href="fablink.link" > {{fablink.icon}} </a>
    <p>{{fablink.text}} </p>
    </li>                                                                   
   </ul>
@@ -25,7 +25,7 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    fabOption : String,
+    fabOption: String,
     fabColorPrimary : String,
     fabColorSecondary: String,
     },   
@@ -35,7 +35,7 @@ export default Vue.extend({
     },
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`
-    }
+    },
   }
 })
 
