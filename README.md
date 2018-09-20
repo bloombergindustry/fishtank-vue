@@ -13,9 +13,6 @@ npm install @fishtank/fishtank-vue
 * [Cards](src/components/Card.md)
 * Modals - Modal Component
 * [Buttons](src/components/Buttons.md)
-  * Primary
-  * Secondary
-  * Destructive
 * [Radios](src/components/Radios.md)
 * [Switches](src/components/Switches.md)
 * [Loaders](src/components/Loaders.md)
