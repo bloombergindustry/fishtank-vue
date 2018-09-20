@@ -5,4 +5,5 @@
 ## [Radios](./Radios.md)
 ## [Switches](./Switches.md)
 ## [Loaders](./Loaders.md)
+## [Text Inputs](./InputText.md)
 ## [Checkboxes](./Checkboxes.md)
