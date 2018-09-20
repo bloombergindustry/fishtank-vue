@@ -19,6 +19,9 @@
     &:hover, &:focus {
       & + .ft-input-checkbox__checkbox {
         color: $color-black;
+        &.ft-input-checkbox__checkbox__enabled{
+          color:$color-selected;
+        }
       }
     }
     &:checked{
@@ -45,5 +48,27 @@
   }
   .ft-input-checkbox__label {
     @include font-base-sm();
-  } 
+  }
+  .ft-input-checkbox__checkbox__disabled{
+    color:$color-disabled;
+  }
+  .ft-input-checkbox__checkbox__enabled{
+    color:$color-selected;
+  }
+}
+$ft-input-checkbox-time:0.2s;
+.ft-transition-scale-enter-active {
+  position: absolute;
+  transition: transform $ft-input-checkbox-time, opacity $ft-input-checkbox-time, delay $ft-input-checkbox-time;
+}
+.ft-transition-scale-leave-active {
+  position: absolute;
+  transition: transform $ft-input-checkbox-time, opacity $ft-input-checkbox-time;
+}
+.ft-transition-scale-enter, .ft-transition-scale-leave-to {
+  transform: scale(0);
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 4px;
 }

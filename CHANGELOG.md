@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v1.1.0...v2.0.0) (2018-09-20)
+
+
+### Documentation
+
+* Added example images for InputText docs. ([a6ca8e4](https://github.com/bloombergbna/fishtank-vue/commit/a6ca8e4))
+
+
+### Features
+
+* refactored Checkbox ([fb11849](https://github.com/bloombergbna/fishtank-vue/commit/fb11849))
+
+
+* Merge pull request #48 from bakpa79/docs/input-text ([ef64817](https://github.com/bloombergbna/fishtank-vue/commit/ef64817)), closes [#48](https://github.com/bloombergbna/fishtank-vue/issues/48)
+
+
+### BREAKING CHANGES
+
+* Changed bindings in InputCheckbox. use only v-model to bind to model data/variable. Value is now similar to input element value
+* Changed bindings in InputCheckbox. use only v-model to bind to model data/variable. Value is now similar to input element value
+* refactored binding props for checkboxes
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v1.1.0-beta.0...v1.1.0) (2018-09-14)
 

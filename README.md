@@ -20,7 +20,7 @@ npm install @fishtank/fishtank-vue
 * [Switches](src/components/Switches.md)
 * [Loaders](src/components/Loaders.md)
 * Text Input
-
+* [Checkboxes](src/components/Checkboxes.md)
 ## Usage
 
 ### ESM Module

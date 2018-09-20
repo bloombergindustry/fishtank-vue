@@ -10,19 +10,25 @@
       <input 
         :id="(id !==null? id: labelId)" 
         :disabled="disabled"
-        :value="val"
-        v-model="checked"
+        :checked="isChecked"
+        :value="value"
         class="ft-input-checkbox__native" 
         type="checkbox"
         v-on="listeners">
-      <CheckboxSelected 
-        v-if="isChecked"
-        class="ft-input-checkbox__checkbox ft-svg-selected"
-      />
-      <CheckboxUnselected 
-        v-else
-        class="ft-input-checkbox__checkbox ft-svg-unselected"
-      />
+      <transition name="ft-transition-scale">
+        <CheckboxSelected 
+          v-if="isChecked"
+          :key="`{$labelId}+'-ft-svg-selected'`"
+          :class="returnEnabledDisabled"
+          class="ft-input-checkbox__checkbox ft-svg-selected"
+        />
+        <CheckboxUnselected 
+          v-if="!isChecked"
+          :key="`{$labelId}+'-ft-svg-unselected'`"
+          :class="returnEnabledDisabled"
+          class="ft-input-checkbox__checkbox ft-svg-unselected"
+        />
+      </transition>
       <div
         v-if="label" 
         class="ft-input-checkbox__label-content">
@@ -42,35 +48,46 @@ import {
 } from "@fishtank/icons-vue"
 
 export default Vue.extend({
+  name:"FishTankCheckbox",
   components: {
     CheckboxSelected,
     CheckboxUnselected
   },
+  model: {
+    prop: 'modelValue',
+    event: 'change'
+  },
   props: {
     disabled:{
-      type:[String, Boolean],
+      type:Boolean,
+      required:false,
       default:false
     },
-    label:{
-      type:String,
-      default:"",
-      required:true
-    },
-    id: {
-      type:String,
-      default:"",
-      required:true
-    },
     value: {
-      default:"",
-      required:true,
-      type:[String, Number, Boolean, Array, Object, Number],
+      default:null,
+      type: [String, Boolean, Object, Array, Number],
     },
-    val: {
-      type:[String, Number, Boolean, Array, Object, Number],
-      default:"",
+    modelValue: {
+      type:[String, Boolean, Object, Array, Number],
+      default: false
+    },
+    label: {
+      type: String,
+      required: true
+    },
+    id:{
+      type:String,
+      default:null,
       required:false
-    } 
+    },
+    trueValue: {
+      default: true,
+      type:[String, Boolean, Object, Array, Number]
+    },
+    falseValue: {
+      default: false,
+      type:[String, Boolean, Object, Array, Number]
+    }
   },
   data(){
     return {
@@ -83,7 +100,7 @@ export default Vue.extend({
         ...this.$listeners,
         change: ($event: MouseEvent) => {
           if (this.disabled) return 
-          this.$emit("input", this.checkProxy)
+          this.updateInput($event)
         }
       }
     },
@@ -95,16 +112,39 @@ export default Vue.extend({
         return this.value
       }
     },
-      isChecked: function(){
-      let getchecked:any = this.value
-      if (Array.isArray(this.value)){
-        getchecked = this.value.indexOf(this.val) >= 0
+    isChecked: function(){
+      if (this.modelValue instanceof Array) {
+        let res = false
+        if(this.modelValue.indexOf(this.value) >= 0) res = !res
+        return res
       }
-      return getchecked
+      return this.modelValue === this.trueValue
     },
     labelId(): string {
       return `ft-checkbox-${(this as any)._uid}`
     },
+    returnEnabledDisabled(): string {
+    return this.disabled ? "ft-input-checkbox__checkbox__disabled" : "ft-input-checkbox__checkbox__enabled"
+    }
+  },
+  methods:{
+    updateInput(event:any) {
+      let isChecked = event.target.checked
+
+      if (this.modelValue instanceof Array) {
+        let newValue = [...this.modelValue]
+
+        if (isChecked) {
+          newValue.push(this.value)
+        } else {
+          newValue.splice(newValue.indexOf(this.value), 1)
+        }
+
+        this.$emit('change', newValue)
+      } else {
+        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+      }
+    }
   }
 })
 </script>
