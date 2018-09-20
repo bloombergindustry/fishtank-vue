@@ -89,7 +89,7 @@ import {
   <tr>
     <td>error</td>
     <td>String</td>
-    <td>Error state message. _If not null, then error state is active, and the value is the error message_</td>
+    <td>Error state message. <i>If not null, then error state is active, and the value is the error message</i></td>
     <td>false</td>
     <td>null</td>
   </tr>
