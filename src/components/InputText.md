@@ -1,14 +1,48 @@
 # Fish Tank Text Input
 
-  - Plain Card
+  - Plain Text Input
 
     <img src="../../assets/ft-input-text.png" width="50%" alt="Fish Tank Plain Card">
     
     ```xml
-    <InputText
+    <FishTankTextInput
       :value="val"
       label="Text Input Type"
       type="text"/>
+    ```
+  
+  - Password Input
+
+    <img src="../../assets/ft-input-text-password.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <FishTankTextInput
+      :value="val"
+      label="Password Input Type"
+      type="password"/>
+    ```
+  
+  - Number Input
+
+    <img src="../../assets/ft-input-text-number.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <FishTankTextInput
+      :value="val"
+      label="Number Input Type"
+      type="number"/>
+    ```
+
+  - Text Input Error State
+  
+    <img src="../../assets/ft-input-text-error.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <FishTankTextInput
+      :value="val"
+      label="Input Error Example"
+      type="number"
+      error="Error Message"/>
     ```
   
 ## Usage
@@ -17,11 +51,11 @@ To import into your component
 
 ```js
 import { 
-  InputText 
+  FishTankTextInput 
 }  from '@fishtank/fishtank-vue'
 ```
 
-<!-- ## Props
+## Props
 
 <table>
   <thead>
@@ -32,17 +66,31 @@ import {
     <th>Default</th>
   </thead>
   <tr>
-    <td>heading</td>
-    <td>String (Hex color, or valid CSS color)</td>
-    <td>Start Color of Gradient</td>
-    <td>true</td>
+    <td>value</td>
+    <td>String</td>
+    <td>Text entered into input element</td>
+    <td>false</td>
+    <td>null</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>String</td>
+    <td>Input text label</td>
+    <td>false</td>
     <td>undefined</td>
   </tr>
   <tr>
-    <td>branded</td>
-    <td>String (Hex color, or valid CSS color)</td>
-    <td>End Color of Gradient</td>
-    <td>true</td>
-    <td>undefined</td>
+    <td>type</td>
+    <td>String</td>
+    <td>Input type ("text", "password", "email", "search", "number", "tel", "url")</td>
+    <td>false</td>
+    <td>"text"</td>
   </tr>
-</table> -->
+  <tr>
+    <td>error</td>
+    <td>String</td>
+    <td>Error state message. _If not null, then error state is active, and the value is the error message_</td>
+    <td>false</td>
+    <td>null</td>
+  </tr>
+</table>
