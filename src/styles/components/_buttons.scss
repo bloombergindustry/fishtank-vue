@@ -203,10 +203,32 @@ body.user-is-tabbing button:focus {
     background-color: $color-gray;
   }
   &:disabled {
-    opacity: 0.4;
+    color: $color-gray-lighter;
+    border-color: $color-gray-lighter;
 
     &:hover {
-      background-color: none;
+      background-color: transparent;
+
+    }
+  }
+}
+
+.ft-button--outline-dark {
+  background-color: transparent;
+  border-color: $color-white;
+  border-width: 2px;
+  color: $color-white;
+
+  &:hover {
+    color: $color-gray-dark;
+    background-color: $color-white;
+  }
+  &:disabled {
+    color: $color-gray-dark;
+    border-color: $color-gray-dark;
+
+    &:hover{
+      background-color: transparent;
     }
   }
 }
