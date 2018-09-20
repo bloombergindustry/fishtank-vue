@@ -57,15 +57,15 @@
   }
 }
 $ft-input-checkbox-time:0.2s;
-.scale-enter-active {
+.ft-transition-scale-enter-active {
   position: absolute;
   transition: transform $ft-input-checkbox-time, opacity $ft-input-checkbox-time, delay $ft-input-checkbox-time;
 }
-.scale-leave-active {
+.ft-transition-scale-leave-active {
   position: absolute;
   transition: transform $ft-input-checkbox-time, opacity $ft-input-checkbox-time;
 }
-.scale-enter, .scale-leave-to {
+.ft-transition-scale-enter, .ft-transition-scale-leave-to {
   transform: scale(0);
   opacity: 0;
   position: absolute;
