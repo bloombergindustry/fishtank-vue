@@ -32,7 +32,7 @@
         Set as Home
       </template>
       <div slot="footerRight">
-        <ButtonSecondary disabled>Close</ButtonSecondary>
+        <!-- <ButtonSecondary disabled>Close</ButtonSecondary> -->
         <ButtonPrimary disabled>Search</ButtonPrimary>
       </div>
     </Modal>

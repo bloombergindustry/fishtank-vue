@@ -11,13 +11,15 @@ npm install @fishtank/fishtank-vue
 ## [Available Components](src/components/Readme.md)
 
 * [Cards](src/components/Card.md)
-* Modals - Modal Component
+* [Modals](src/components/Modals.md)
 * [Buttons](src/components/Buttons.md)
 * [Radios](src/components/Radios.md)
 * [Switches](src/components/Switches.md)
 * [Loaders](src/components/Loaders.md)
 * [Text Input](src/components/InputText.md)
 * [Checkboxes](src/components/Checkboxes.md)
+* [Tags](src/components/Tags.md)
+
 ## Usage
 
 ### ESM Module
