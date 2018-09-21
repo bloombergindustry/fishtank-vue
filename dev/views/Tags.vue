@@ -69,9 +69,11 @@
     </div>
     <div>
       <h1 class="tags--heading">InputBox with Removeable Tags</h1>
-      <InputTagRemove 
-        v-model="tags" 
-        :tags="tags"/>
+      <template v-for="( tagInstance, index) in tags">
+        <InputTagRemove
+          :key="index"
+          :label="tagInstance"/>
+      </template>
     </div>
 
   </body>
