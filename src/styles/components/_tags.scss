@@ -1,6 +1,13 @@
 @import "./node_modules/@fishtank/colors/dist/index.scss";
 @import "./node_modules/@fishtank/space/dist/index.scss";
 @import "./node_modules/@fishtank/type/dist/index.scss";
+
+body.user-is-tabbing {
+   .ft-input-tag,  .ft-input-tag-remove {
+      box-shadow: 0 0 0 2px $color-selected;
+  }
+}
+
 [class^="tag--"] {
     display: inline-block;
     cursor: pointer;

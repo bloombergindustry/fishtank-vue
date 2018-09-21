@@ -1,9 +1,10 @@
 <template>
-  <span class = "input-tag-remove" >
+  <span class = "ft-input-tag-remove" >
     <transition name="list-fade">
-      <Tag 
-        :text = "label" 
-        :label="label"
+      <Tag
+        :text = "label"
+        :label="label" 
+        aria-checked
         close 
         v-on="listeners"/>
     </transition>
@@ -11,10 +12,19 @@
 </template>
 
 <script lang="ts">
+
+  function handleFirstTab(e:KeyboardEvent) {
+      if (e.keyCode === 9) { // tab key, user is a keyboard user
+          document.body.classList.add('user-is-tabbing')
+          window.removeEventListener('keydown', handleFirstTab)
+      }
+  }
+  window.addEventListener('keydown', handleFirstTab)
+
   import Vue from "vue"
   import InputText from "./InputText.vue"
   import Tag from "./Tag.vue"
-  export default {
+  export default Vue.extend({
     name: 'InputTagRemove',
     components:{
       InputText,
@@ -64,5 +74,5 @@
       }
     },
   },
-}
+})
 </script>

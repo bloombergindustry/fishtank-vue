@@ -1,6 +1,8 @@
 <template>
   <span
     :class= "classes"
+    tabindex="0"
+    role="button" 
     @click="changeState()"
   >
     <p 
@@ -41,6 +43,11 @@
       checked:{
         type:Boolean,
         default:false
+      },
+      tabIndex:{
+        default:0,
+        required:false,
+        type:Number
       }
     },
     data: function () {

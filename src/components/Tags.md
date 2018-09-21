@@ -31,14 +31,14 @@
       disabled/>
     ```
   
-  <!-- - Removable Tag
+  - Removable Tag
 
     <img src="../../assets/ft-tag-removable.png" width="10%" alt="Fish Tank Tag">
     
     ```xml
-    <InputTagRemove 
-        v-model="tags"/>
-    ``` -->
+    <FishTankTagRemove 
+        :label="label"/>
+    ```
   
 ## Usage
 
@@ -46,7 +46,8 @@ To import into your component
 
 ```js
 import { 
-  Card 
+  FishTankTag,
+  FishTankTagRemove,  
 }  from '@fishtank/fishtank-vue'
 ```
 
@@ -69,9 +70,9 @@ import {
   </tr>
   <tr>
     <td>disabled</td>
-    <td>String (Hex color, or valid CSS color)</td>
-    <td>End Color of Gradient</td>
-    <td>true</td>
-    <td>undefined</td>
+    <td>Boolean</td>
+    <td>Disable Tag</td>
+    <td>false</td>
+    <td>false</td>
   </tr>
 </table>
