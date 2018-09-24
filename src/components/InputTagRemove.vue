@@ -4,7 +4,6 @@
       <Tag
         :text = "label"
         :label="label" 
-        aria-checked
         close 
         v-on="listeners"/>
     </transition>
