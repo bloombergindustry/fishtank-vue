@@ -3,7 +3,7 @@
 @import "./node_modules/@fishtank/type/dist/index.scss";
 
 body.user-is-tabbing {
-   .ft-input-tag,  .ft-input-tag-remove {
+   .ft-tag,  .ft-tag-remove {
       box-shadow: 0 0 0 2px $color-selected;
   }
 }
@@ -40,26 +40,6 @@ body.user-is-tabbing {
 .list-fade-leave-active {
     animation: fade 0.125s reverse;
 }
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-        width: 0;
-    }
-    100% {
-        width: auto;
-        opacity: 1;
-    }
-}
-
-// .list-fade-enter,
-// .list-fade-leave-to {
-//     opacity: 0;
-// }
-// .list-fade-enter-to,
-// .list-fade-leave {
-//     opacity: 1;
-// }
 .tag--text {
     padding: 0px;
     margin: 0px;
@@ -81,7 +61,6 @@ body.user-is-tabbing {
     margin-left: $baseline;
     margin-right: -$baseline*2;
     position: relative;
-    transition: all .6s;
 }
 
 .tag-expand-icon {

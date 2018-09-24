@@ -75,4 +75,18 @@ import {
     <td>false</td>
     <td>false</td>
   </tr>
+  <tr>
+    <td>remove</td>
+    <td>Boolean</td>
+    <td>Show remove icon</td>
+    <td>false</td>
+    <td>false</td>
+  </tr>
+  <tr>
+    <td>multi-select</td>
+    <td>Boolean</td>
+    <td>Show multi-select icon</td>
+    <td>false</td>
+    <td>false</td>
+  </tr>
 </table>
