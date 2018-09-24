@@ -67,4 +67,7 @@ export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.v
 
 export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
 
+export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
+export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
+
 import './styles.scss'

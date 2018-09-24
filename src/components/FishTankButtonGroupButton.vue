@@ -1,20 +1,14 @@
 <template>
-  <div class="fishtank-radio">
+  <div>
     <label 
-      :for="(id !==null? id: labelId)"
-      class="fishtank-radio__label">
+      :for="(id !==null? id: labelId)">
       <input 
-        :disabled="disabled" 
-        :id="(id !==null? id: labelId)"  
+        :id="(id !==null? id: labelId)" 
         :value="value" 
         :checked ="shouldBeChecked" 
-        class="fishtank-radio__input" 
         type="radio" 
-        v-on="listeners">
-      <div class="fishtank-radio__icon"/>
-      <div class="fishtank-radio__label-content">
-        {{ label }}
-      </div>
+        name="">
+      {{ label }}
     </label>
   </div>
 </template>
@@ -26,6 +20,7 @@ export default Vue.extend({
     prop: 'modelValue',
     event: 'change'
   },
+  inject: ['modelValue'],
   props:{
     value:{
       type:[String,Boolean,Object,Number], 
@@ -67,10 +62,8 @@ export default Vue.extend({
       }
     },
     labelId(): string {
-      return `ft-radio-${(this as any)._uid}`
+      return `ft-button-group-button-${(this as any)._uid}`
     },
   }
 })
 </script>
-
-
