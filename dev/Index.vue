@@ -10,6 +10,7 @@
       <li><a href="#/tags">Tags</a></li>
       <li><a href="#/inputtext">Input Text</a></li>
       <li><a href="#/loaders">Spinning Loader</a></li>
+      <li><a href="#/buttongroup">Button Group</a></li>
     </ul>
   </section>
 </template>

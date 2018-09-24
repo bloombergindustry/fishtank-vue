@@ -45,6 +45,10 @@ export default new Router({
     {
       path: '/checkboxes',
       component: () => import("./views/Checkboxes.vue")
+    },
+    {
+      path: '/buttongroup',
+      component: () => import("./views/ButtonGroup.vue")
     }
     
   ]
