@@ -22,7 +22,8 @@
     <br>
     <div>
       <ButtonFeatureLabel> 
-        <template slot="lable">Label here</template>
+        <template slot="icon"> <Alert24/> </template>
+        <template slot="lable"> Button Feature Label</template>
       </ButtonFeatureLabel>
     </div>
     <br>
@@ -33,8 +34,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Alert24 } from "@fishtank/icons-vue"
+
 import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel} from '@/index'
+
+//desired Icons to be used must be individually imported here and listed in componenets to be used for the Feature Buttons
+import { Alert24 } from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {

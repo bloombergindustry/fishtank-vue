@@ -4,8 +4,10 @@
     class="ft-button--feature-label"
     v-on="$listeners"
   >
-    <ButtonFeatureIcon>  </ButtonFeatureIcon>
+
+    <ButtonFeatureIcon> <slot name="icon"></slot> </ButtonFeatureIcon>
     <p> <slot name="lable" /></p>
+
   </BaseButton>
 </template>
 
