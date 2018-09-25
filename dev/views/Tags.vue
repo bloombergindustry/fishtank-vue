@@ -4,28 +4,29 @@
       <h1 class="tags--heading">Binary Tags</h1>
       <span>
         <p class="tags--text">
-          <Tag 
+          <FishTankTag 
             v-model="tagOne"
             label="Label"/> Active/Inactive and hover functionality </p>
       </span>
       <span>
-        <p class="tags--text"> <Tag 
-          v-model="tagTwo"
-          label="Label" 
-          disabled/> Disabled</p>
+        <p class="tags--text"> 
+          <FishTankTag 
+            v-model="tagTwo"
+            label="Label" 
+            disabled/> Disabled</p>
       </span>
     </div>
     <div>
       <h1 class="tags--heading">Removeable Tags </h1>
       <span>
         <p class="tags--text"> 
-          <Tag 
+          <FishTankTag 
             label="Label" 
             close/> Only active state, with hover functionality</p>
       </span>
       <span>
         <p class="tags--text"> 
-          <Tag 
+          <FishTankTag 
             label="Label" 
             close 
             disabled/> Disabled</p>
@@ -34,44 +35,44 @@
     <div>
       <h1 class="tags--heading">Multi-Tags</h1>
       <p class="tags--text"> Inactive with no values populated</p>
-      <MultiSelectTag 
-        :options="newOptions" 
-        v-model="emptyArray"
-        :dropdown="false"
-        :plurallabels="['committee','committees']" 
-      />
     </div>
     <div>
       <h1 class="tags--heading">Multi-Tags</h1>
       <p class="tags--text"> Active with values populated</p>
-      <MultiSelectTag 
-        :options="newOptions" 
-        v-model="selectedOptions"
-        :dropdown="false"
-      />
     </div>
-    <br>
+    <!-- <br> -->
     <div>
-      <p class="tags--text"> Active with Dropdown [WIP]</p>
-      <MultiSelectTag 
+      <!-- <p class="tags--text"> Active with Dropdown [WIP]</p> -->
+      <!-- <MultiSelectTag 
         :options="newOptions"
         v-model="selectedOptions"
       > 
         <Tag 
           v-for="(option, index) in newOptions" 
           :key="index"
-          :label="option" 
-          close 
+          :label="option"  
         />
-      </MultiSelectTag>  
+      </MultiSelectTag>   -->
+      <FishTankTag
+        v-model="multiToggle"
+        label="Multi-select Tag Label"
+        multiselect/>
       <p class="tags--text">Disabled</p>
-      <MultiSelectTag disabled/>
+      <FishTankTag
+        v-model="multiToggle"
+        label="Multi-select Tag Label"
+        multiselect
+        disabled/>
     </div>
     <div>
       <h1 class="tags--heading">InputBox with Removeable Tags</h1>
-      <InputTagRemove 
-        v-model="tags" 
-        :tags="tags"/>
+      <template v-for="( tagInstance, index) in tags">
+        <FishTankTag
+          :key="index"
+          :v-model="tagInstance"
+          :label="tagInstance.tagVal"
+          close/>
+      </template>
     </div>
 
   </body>
@@ -79,13 +80,13 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { Tag, MultiSelectTag, InputText , InputTagRemove} from "@/index"
+import { FishTankTag, MultiSelectTag, InputText , InputTagRemove} from "@/index"
 
 
 
 export default Vue.extend({
   components: {
-    Tag,
+    FishTankTag,
     MultiSelectTag,
     InputTagRemove,
     InputText 
@@ -98,7 +99,8 @@ export default Vue.extend({
       emptyArray:[],
       selectedOptions: ["Different", {value:null}, ["ArrayValue"]],
       newTag:"",
-      tags:["tag1", "tag2", "tag3"]
+      tags:[{tagVal:"tag1", tagTing:"ting"},{tagVal:"tag2"},{tagVal:"tag3"},],
+      multiToggle:false
     }
   }
 })

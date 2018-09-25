@@ -15,7 +15,7 @@
         class="ft-input-checkbox__native" 
         type="checkbox"
         v-on="listeners">
-      <transition name="scale">
+      <transition name="ft-transition-scale">
         <CheckboxSelected 
           v-if="isChecked"
           :key="`{$labelId}+'-ft-svg-selected'`"

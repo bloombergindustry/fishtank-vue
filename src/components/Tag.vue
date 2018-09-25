@@ -1,25 +1,32 @@
 <template>
   <span
-    :class= "classes"
-    @click="changeState()"
+    :class= "[activeClasses, disabledClasses]"
+    :tabindex="disabled ? -1 : 0"
+    role="button" 
+    @click="changeState(label)"
   >
-    <p 
-      class="tag--text">{{ label }}</p>
+    <p class="tag--text">{{ label }}</p>
     <CloseIcon 
       v-if="close" 
-      class="tag-close-icon" 
-      @click="removeTag(label)"/>
+      class="tag-close-icon" />
+    <ChevronDownIcon 
+      v-if="multiselect" 
+      :class="[disabled ? 'tag-collapse-icon' : (dropdownState? 'tag-expand-icon' : 'tag-collapse-icon')]" /> 
   </span>
 </template>
 
 <script lang="ts">
   import Vue from "vue"
-  import { CloseSml24 as CloseIcon} from "@fishtank/icons-vue"
+  import { 
+    CloseSml24 as CloseIcon,
+    ChevronSmlDown24 as ChevronDownIcon
+  } from "@fishtank/icons-vue"
 
   export default Vue.extend({
     name: 'Tag',
     components:{
-      CloseIcon
+      CloseIcon,
+      ChevronDownIcon
     },
     model:{
       prop: 'checked',
@@ -40,41 +47,53 @@
       },
       checked:{
         type:Boolean,
+        default:true
+      },
+      multiselect:{
+        type:Boolean,
         default:false
+      },
+      tabIndex:{
+        default:0,
+        required:false,
+        type:Number
       }
     },
     data: function () {
       return {
-        activeState: true
+        activeState: this.checked,
+        dropdownState: false
       }
     },
     computed: {
-       isActive: function () { return this.activeState },
-       isDisabled: function() { return this.disabled },
-       isRemoveable: function() { return this.close },
-       classes(){
-        if(this.isDisabled){
-           if(this.isRemoveable){
-              return 'tag--removeable--disabled'
-           }else{
-            return 'tag--disabled'
-           }
-        }else if(this.isRemoveable){
-          return 'tag--removeable'
-        }else if(this.isActive){
-          return 'tag--active'
-        }else{
-          return 'tag--inactive'
-        }
+      disabledClasses: function(){
+        return this.disabled? `tag-${this.close ? '-removeable-' : ''}-disabled`:null
+      },
+      activeClasses: function(){
+        if (this.disabled) return
+        return this.activeState ? 'tag--active' : 'tag--inactive'
       }
     },
     methods: {
-      changeState() {
+      changeState(tag:String):void{
+        if (this.disabled) return
         this.activeState = !(this.activeState)
-        this.$emit('change', this.activeState)
+        if (this.multiselect){
+          this.showOptions()
+        }
+        if (this.close){
+          this.$emit('remove-tag', tag)
+        } else {
+          this.$emit('change-tag', {state:this.activeState, label:tag})
+        }
       },
       removeTag(tag: String){
-        this.$emit('removetag',tag)
+        if (this.disabled) return
+        this.$emit('remove-tag',{tag: tag, model: this})
+      },
+      showOptions(){
+        if (this.disabled) return
+         this.dropdownState = !(this.dropdownState)  
       }
     }
   })
