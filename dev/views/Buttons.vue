@@ -63,7 +63,7 @@ export default Vue.extend({
     ButtonWhite,
     ButtonGradient,
     Alert24,
-    ButtonFAB
+    ButtonFAB,
     ButtonFeatureLabel,
     ButtonFeatureIcon,
     ButtonOutlineDark,
