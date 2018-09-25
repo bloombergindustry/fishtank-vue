@@ -37,14 +37,15 @@
       <div><ButtonOutlineDarkSmall> Button Outline Dark Small </ButtonOutlineDarkSmall></div>
       <br>
     </div>
+   
+    <div><ButtonFAB v-bind:fab-option="fabLinks" :fab-color-primary="fabPrimaryColor" :fab-color-secondary="fabSecondaryColor"> + </ButtonFAB></div>
+    <br>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
-
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineSmall, ButtonOutlineDark, ButtonOutlineDarkSmall, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel} from '@/index'
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineSmall, ButtonOutlineDark, ButtonOutlineDarkSmall, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel, ButtonFAB} from '@/index'
 
 /*desired Icons to be used must be individually imported here and listed in export
 componenets to be used for the Feature Buttons */
@@ -58,10 +59,11 @@ export default Vue.extend({
     ButtonPrimary,
     ButtonSecondary,
     ButtonDestructive,
-    ButtonWhite,
     ButtonOutline,
+    ButtonWhite,
     ButtonGradient,
-    Alert24
+    Alert24,
+    ButtonFAB
     ButtonFeatureLabel,
     ButtonFeatureIcon,
     ButtonOutlineDark,
@@ -71,13 +73,25 @@ export default Vue.extend({
 
   data: function(){
     return{
-
+      //Relevant to ButtonGradient
       colorStart : "#0018AB",
       colorEnd : "#9933CC",
       colorDirection: "to right",
-
+      //Relevant to ButtonFAB
+      fabPrimaryColor: '#EA60A7',
+      fabSecondaryColor: '#0D9DDB',
+      fabLinks:[
+        {icon: '1', text: 'Twitter', link: 'https://twitter.com/'},
+        {icon: '2', text: 'Facebook', link: 'https://www.facebook.com'},
+        {icon: '3', text: 'Instagram', link: 'https://www.instagram.com'},
+      ],
     }
-  }
+  },
+  
+
+
+
+
 })
 </script>
 

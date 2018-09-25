@@ -10,6 +10,7 @@ export { default as ButtonDestructive } from "./components/ButtonDestructive.vue
 export { default as ButtonWhite } from "./components/ButtonWhite.vue"
 export { default as ButtonOutline} from "./components/ButtonOutline.vue"
 export { default as ButtonGradient } from "./components/ButtonGradient.vue"
+export { default as ButtonFAB } from "./components/ButtonFAB.vue"
 
 export { default as ButtonFeatureLabel } from "./components/ButtonFeatureLabel.vue"
 export { default as ButtonFeatureIcon } from "./components/ButtonFeatureIcon.vue"
