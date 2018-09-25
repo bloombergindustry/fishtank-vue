@@ -13,17 +13,28 @@
       :gradient-start="colorStart" 
       :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
-    <div><ButtonWhite>Button White</ButtonWhite></div>
+    <div><ButtonWhite>Button White User</ButtonWhite></div>
     <br>
-    <div><ButtonFeatureLabel> Button Feature with label </ButtonFeatureLabel></div>
+
+    <div><ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon></div>
+
+
     <br>
+    <div>
+      <ButtonFeatureLabel> 
+        <template slot="lable">Label here</template>
+      </ButtonFeatureLabel>
+    </div>
+    <br>
+
+
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient , ButtonWhite, ButtonFeatureLabel} from '@/index'
+import { Alert24 } from "@fishtank/icons-vue"
+import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel} from '@/index'
 
 export default Vue.extend({
   components: {
@@ -34,12 +45,16 @@ export default Vue.extend({
     ButtonOutline,
     ButtonGradient,
     ButtonFeatureLabel,
+    ButtonFeatureIcon,
+    Alert24
   },
   data: function(){
     return{
       colorStart : "#0018AB",
       colorEnd : "#9933CC",
-      colorDirection: "to right"
+      colorDirection: "to right",
+
+      iconType : "<User24/>",
     }
   }
 })

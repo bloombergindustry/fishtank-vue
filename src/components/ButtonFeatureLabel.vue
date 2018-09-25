@@ -4,15 +4,16 @@
     class="ft-button--feature-label"
     v-on="$listeners"
   >
-    <CalendarIcon/>
-    <p> <slot/></p>
+    <ButtonFeatureIcon>  </ButtonFeatureIcon>
+    <p> <slot name="lable" /></p>
   </BaseButton>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import { Calendar24 as CalendarIcon} from "@fishtank/icons-vue"
 import BaseButton from "./BaseButton.vue"
+
+import ButtonFeatureIcon from "./ButtonFeatureIcon.vue"
 
 
 
@@ -20,7 +21,7 @@ export default Vue.extend({
   name: "ButtonFeatureLabel",
   components: {
     BaseButton,
-    CalendarIcon,
+    ButtonFeatureIcon,
   }
 })
 </script>

@@ -11,6 +11,7 @@ export { default as ButtonWhite } from "./components/ButtonWhite.vue"
 export { default as ButtonOutline} from "./components/ButtonOutline.vue"
 export { default as ButtonGradient } from "./components/ButtonGradient.vue"
 export { default as ButtonFeatureLabel } from "./components/ButtonFeatureLabel.vue"
+export { default as ButtonFeatureIcon } from "./components/ButtonFeatureIcon.vue"
 
 
 export { default as Card } from "./components/Card.vue"
@@ -62,4 +63,3 @@ export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.v
 export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
 
 import './styles.scss'
-import { Calendar24 as CalendarIcon} from "@fishtank/icons-vue"
