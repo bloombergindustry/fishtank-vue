@@ -5,8 +5,13 @@
     v-on="$listeners"
   >
 
-    <ButtonFeatureIcon> <slot name="icon"></slot> </ButtonFeatureIcon>
-    <p> <slot name="lable" /></p>
+    <ButtonFeatureIcon> 
+      <slot name="icon"></slot> 
+    </ButtonFeatureIcon>
+
+    <p> 
+      <slot name="label" />
+    </p>
 
   </BaseButton>
 </template>
@@ -16,8 +21,6 @@ import Vue from "vue"
 import BaseButton from "./BaseButton.vue"
 
 import ButtonFeatureIcon from "./ButtonFeatureIcon.vue"
-
-
 
 export default Vue.extend({
   name: "ButtonFeatureLabel",

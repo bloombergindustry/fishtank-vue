@@ -23,7 +23,7 @@
     <div>
       <ButtonFeatureLabel> 
         <template slot="icon"> <Alert24/> </template>
-        <template slot="lable"> Button Feature Label</template>
+        <template slot="label"> Button Feature Label</template>
       </ButtonFeatureLabel>
     </div>
     <br>
@@ -37,11 +37,14 @@ import Vue from 'vue'
 
 import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel} from '@/index'
 
-//desired Icons to be used must be individually imported here and listed in componenets to be used for the Feature Buttons
+/*desired Icons to be used must be individually imported here and listed in export
+componenets to be used for the Feature Buttons */
+
 import { Alert24 } from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {
+    //imported buttons
     ButtonPrimary,
     ButtonSecondary,
     ButtonDestructive,
@@ -50,15 +53,19 @@ export default Vue.extend({
     ButtonGradient,
     ButtonFeatureLabel,
     ButtonFeatureIcon,
+
+    //imported icons
     Alert24
+
   },
+
   data: function(){
     return{
+
       colorStart : "#0018AB",
       colorEnd : "#9933CC",
       colorDirection: "to right",
 
-      iconType : "<User24/>",
     }
   }
 })

@@ -4,7 +4,9 @@
     class="ft-button--feature-label"
     v-on="$listeners"
   >
+
     <slot></slot>
+
   </BaseButton>
 
 </template>
@@ -116,9 +118,6 @@ import {
   Scales32, ScalesHistory32, SecSearch32, SecureNetwork32, Shield32, Shutter32,
   Spotlight32, ToolsDesign32, ToolsLabor32
 } from "@fishtank/icons-vue"
-
-
-
 
 export default Vue.extend({
   name: "ButtonFeatureIcon",
