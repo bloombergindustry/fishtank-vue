@@ -6,7 +6,7 @@
   >
 
     <ButtonFeatureIcon> 
-      <slot name="icon"></slot> 
+      <slot name="icon"/> 
     </ButtonFeatureIcon>
 
     <p> 

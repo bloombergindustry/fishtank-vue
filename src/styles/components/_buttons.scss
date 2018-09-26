@@ -259,7 +259,7 @@ body.user-is-tabbing button:focus {
   }
 
   li{
-    background: grey;
+    background: $color-gray;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -306,8 +306,6 @@ body.user-is-tabbing button:focus {
     }
   }
 }
-/*********************************************************/
-/************ Button Feature Label Styles ****************/
 
 .ft-button--feature-label{
   padding: 0px ;

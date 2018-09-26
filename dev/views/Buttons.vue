@@ -15,11 +15,13 @@
 
     <div><ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon></div>
     <br>
+
     <div><ButtonGradient 
       :color-direction="colorDirection" 
       :gradient-start="colorStart" 
       :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
     <br>
+
     <div>
       <ButtonFeatureLabel> 
         <template slot="icon"> <Alert24/> </template>
@@ -34,12 +36,22 @@
 
       <div><ButtonOutlineDark> Button Outline Dark </ButtonOutlineDark></div>
       <br>
+
       <div><ButtonOutlineDarkSmall> Button Outline Dark Small </ButtonOutlineDarkSmall></div>
       <br>
+
     </div>
    
-    <div><ButtonFAB v-bind:fab-option="fabLinks" :fab-color-primary="fabPrimaryColor" :fab-color-secondary="fabSecondaryColor"> + </ButtonFAB></div>
+    <div>
+      <ButtonFAB 
+        :fab-option="fabLinks" 
+        :fab-color-primary="fabPrimaryColor" 
+        :fab-color-secondary="fabSecondaryColor">
+        !
+      </ButtonFAB>
+    </div>
     <br>
+
   </div>
 </template>
 
@@ -81,7 +93,7 @@ export default Vue.extend({
       fabPrimaryColor: '#EA60A7',
       fabSecondaryColor: '#0D9DDB',
       fabLinks:[
-        {icon: '1', text: 'Twitter', link: 'https://twitter.com/'},
+        {icon: '1', text: 'Twitter', link: 'https://www.twitter.com/'},
         {icon: '2', text: 'Facebook', link: 'https://www.facebook.com'},
         {icon: '3', text: 'Instagram', link: 'https://www.instagram.com'},
       ],

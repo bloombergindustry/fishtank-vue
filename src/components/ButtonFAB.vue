@@ -1,16 +1,25 @@
 <template>
   <div class="ft-button--fab-wrapper">
 
-  <BaseButton v-bind="$attrs" v-on="$listeners" class="ft-button--fab" :style="returnPrimaryFabColor">
-    <p> <slot/> </p>
-  </BaseButton>
+    <BaseButton 
+      v-bind="$attrs"
+      :style="returnPrimaryFabColor"
+      class="ft-button--fab"
+      v-on="$listeners">
 
-  <ul>
-   <li v-for="fablink in fabOption" :style="returnSecondaryFabColor" >
-   <a :href="fablink.link" > {{fablink.icon}} </a>
-   <p>{{fablink.text}} </p>
-   </li>                                                                   
-  </ul>
+      <p> <slot/> </p>
+    </BaseButton>
+
+    <ul>
+      <li 
+        v-for="fablink in fabOption" 
+        :style="returnSecondaryFabColor" >
+
+        <a :href="fablink.link" > {{ fablink.icon }} </a>
+        <p>{{ fablink.text }} </p>
+
+      </li>                                                                   
+    </ul>
 
   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 </template>
@@ -25,9 +34,9 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    fabOption: String,
-    fabColorPrimary : String,
-    fabColorSecondary: String,
+    fabOption :{type: String, required:true, default: "!"},
+    fabColorPrimary :{type: String, required:true, default: "#292E31"},
+    fabColorSecondary :{type: String, required:true, default: "#777C7F"},
     },   
   computed:{
     returnPrimaryFabColor(): string {

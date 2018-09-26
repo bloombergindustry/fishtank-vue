@@ -5,7 +5,7 @@
     v-on="$listeners"
   >
 
-    <slot></slot>
+    <slot/>
 
   </BaseButton>
 
