@@ -1,14 +1,21 @@
 <template>
-  <div>
+  <div 
+    :class="[{'ft-buttongroup__button--active':shouldBeChecked},'ft-buttongroup__button']">
     <label 
-      :for="(id !==null? id: labelId)">
+      :for="(id !==null? id: labelId)"
+      class="ft-buttongroup__button__label ft-baseButton">
       <input 
-        :id="(id !==null? id: labelId)" 
+        :disabled="disabled" 
+        :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
+        class="ft-buttongroup__button__input" 
         type="radio" 
-        name="">
-      {{ label }}
+        v-on="listeners">
+      <div class="ft-buttongroup__button__icon"/>
+      <div class="ft-buttongroup__button__label-content">
+        {{ label }}
+      </div>
     </label>
   </div>
 </template>
@@ -20,7 +27,6 @@ export default Vue.extend({
     prop: 'modelValue',
     event: 'change'
   },
-  inject: ['modelValue'],
   props:{
     value:{
       type:[String,Boolean,Object,Number], 

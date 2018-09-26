@@ -1,0 +1,24 @@
+.ft-buttongroup{
+  display: flex;
+  width: 100%;
+}
+.ft-buttongroup__button {
+  flex: 1 0 0;
+  background-color:$color-secondary;
+  text-align: center;
+}
+.ft-buttongroup__button__input{
+  opacity: 0;
+}
+.ft-buttongroup__button__label{
+  position: relative;
+  display: block;
+  height: 100%;
+}
+.ft-buttongroup__button__input{
+  position: absolute;
+}
+.ft-buttongroup__button--active{
+ color:$color-white;
+ background-color: $color-selected-darkest; 
+}
