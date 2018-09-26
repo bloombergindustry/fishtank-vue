@@ -1,20 +1,16 @@
 <template>
   <div 
-    :class="[{'ft-small':small}]">
+    :class="[{'ft-small':small}, 'ft-buttongroup']">
     <slot/>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import { setTimeout } from 'timers';
 export default Vue.extend({
   model:{
     prop: 'modelValue',
     event:'change'
-  },
-  provide () {
-    return {
-      ["modelValue"]: this.modelValue
-    }
   },
   props:{
     small:{
@@ -27,6 +23,6 @@ export default Vue.extend({
       default: "",
       require:true
     },
-  }
+  },
 })
 </script>

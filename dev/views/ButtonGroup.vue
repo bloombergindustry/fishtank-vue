@@ -1,19 +1,19 @@
 <template>
   <div>
-    <FishTankButtonGroup v-model="bgValue">
-      <FishTankBGButton 
+    <FishTankButtonGroup>
+      <FishTankBGButton
         v-model="bgValue"
         value="All"
         label="All"/>
-      <FishTankBGButton 
+      <FishTankBGButton
         v-model="bgValue"
         value="Members"
         label="Members"/>
-      <FishTankBGButton 
-        v-model="bgValue"
+      <FishTankBGButton
+        v-model="bgValue" 
         value="Staff"
         label="Staff"/>
-      <FishTankBGButton 
+      <FishTankBGButton
         v-model="bgValue"
         value="Agency"
         label="Agency"/>
@@ -31,7 +31,8 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from '@/index'
+import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from '@/index';
+
 export default Vue.extend({
   components:{
     FishTankButtonGroup,
@@ -39,7 +40,7 @@ export default Vue.extend({
   },
   data: function(){
     return {
-      bgValue:"All"
+      bgValue:"Members"
     }
   }
 })
