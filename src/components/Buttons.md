@@ -39,7 +39,7 @@ In your template:
     ```xml
       <ButtonDestructive>Button Primary</ButtonDestructive>
     ```
-
+ 
   - Outline
 
     <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
