@@ -12,7 +12,8 @@ import {
   ButtonOutline,
   ButtonOutlineSmall, 
   ButtonGradient , 
-  ButtonWhite }  from '@fishtank/fishtank-vue'
+  ButtonWhite,
+  ButtonOutlineDark, }  from '@fishtank/fishtank-vue'
 ```
 
 In your template:
@@ -65,6 +66,16 @@ In your template:
 
     ```xml
       <ButtonOutlineDark>Button Outline Dark</ButtonOutlineDark>
+    ```
+
+    - Outline Dark Small
+
+    ( For use on Dark Backgrounds )
+
+    <img src="../../assets/ft-button-outline-dark-small.png" width="20%" alt="Fish Tank Outline Dark Small Button">
+
+    ```xml
+      <ButtonOutlineDarkSmall>Button Outline Dark</ButtonOutlineDarkSmall>
     ```
 
   - White
