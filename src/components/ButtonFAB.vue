@@ -11,12 +11,13 @@
     </BaseButton>
 
     <ul>
-      <li 
+      <li
         v-for="fablink in fabOption" 
         :style="returnSecondaryFabColor" >
 
         <a :href="fablink.link" > {{ fablink.icon }} </a>
-        <p>{{ fablink.text }} </p>
+
+        <p> {{ fablink.text }} </p>
 
       </li>                                                                   
     </ul>
