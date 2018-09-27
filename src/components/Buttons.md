@@ -7,7 +7,7 @@
 
 ## Usage
 
-To import into your component
+**To import button components**
 
 ```js
 import { 
@@ -21,7 +21,8 @@ import {
   ButtonOutlineDark,
   ButtonOutlineDarkSmall, }  from '@fishtank/fishtank-vue'
 ```
-To import icons for your component
+
+**To import icons for your components**
 
 *Desired icons must be individually imported from '@fishtank/icons-vue' **and** listed among exported components or they will not render.* Icons must be referenced using **camel case** not kebab. *e.g. MobileInactive24*  
 
@@ -29,13 +30,14 @@ To import icons for your component
   import { Alert24 } from "@fishtank/icons-vue"
 ```
 
-To export your custom Vue components
+
+**To export your custom Vue components**
 
   1. Under components, list each type of button and icon that will be used.
   2. Under data, you will return your prop values to the button components
     1. e.g. color, color direction, links, and text.
 
-e.g.
+*e.g.*
 ```js
   export default Vue.extend({
 
