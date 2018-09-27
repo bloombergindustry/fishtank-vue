@@ -1,5 +1,10 @@
 # Fish Tank Buttons
 
+### Table Of Contents
+- [Usage](#usage)
+- [Components](#components)
+- [Props](#props)
+
 ## Usage
 
 To import into your component
@@ -13,8 +18,11 @@ import {
   ButtonOutlineSmall, 
   ButtonGradient , 
   ButtonWhite,
-  ButtonOutlineDark, }  from '@fishtank/fishtank-vue'
+  ButtonOutlineDark,
+  ButtonOutlineDarkSmall, }  from '@fishtank/fishtank-vue'
 ```
+
+## Components
 
 In your template:
 
@@ -68,7 +76,7 @@ In your template:
       <ButtonOutlineDark>Button Outline Dark</ButtonOutlineDark>
     ```
 
-    - Outline Dark Small
+  - Outline Dark Small
 
     ( For use on Dark Backgrounds )
 
