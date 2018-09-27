@@ -50,14 +50,17 @@ In your template:
     ```
 
   - Outline Small
-    <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Small Button">
+
+    <img src="../../assets/ft-button-outline-small.png" width="20%" alt="Fish Tank Outline Small Button">
 
     ```xml
       <ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall>
     ```
 
   - Outline Dark
-    For Dark Backgrounds
+
+    ( For use on Dark Backgrounds )
+
     <img src="../../assets/ft-button-outline-dark.png" width="20%" alt="Fish Tank Outline Dark Button">
 
     ```xml
