@@ -13,9 +13,12 @@
   - [White Button](#white-button)
   - [Button Primary with _block_ property](#button-primary-with-block-property)
   - [Gradient Button](#gradient-button)
-  - [Feature Button with Label](#feature-button-with-label)
+    - [Gradient Button Props](#gradient-button-props)
+  - [Feature Button Icon](#feature-button-icon)
+  - [Feature Button Icon with Label](#feature-button-icon-with-label)
 
-- [Props](#props)
+- [Adding Actions](#adding-actions:)
+- [Universal Props](#universal-props)
 
 # Usage
 
@@ -32,7 +35,8 @@ import {
   ButtonWhite,
   ButtonOutlineDark,
   ButtonOutlineDarkSmall,
-  ButtonFeatureLabel }  from '@fishtank/fishtank-vue'
+  ButtonFeatureIcon,
+  ButtonFeatureLabel, }  from '@fishtank/fishtank-vue'
 ```
 
 **To import icons for your components**
@@ -154,8 +158,7 @@ In your template:
     <ButtonPrimary 
       :block="true">Button Primary</ButtonPrimary>
   ```
-
-
+  
   ## Gradient Button
 
   <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
@@ -169,8 +172,34 @@ In your template:
       :colorDirection="to-right"
       >Button Primary</ButtonGradient>
   ```
+  #### Gradient Button Props
 
-  ## Feature Button With Label
+  |Name|Type|Description|Required|Default|
+  |---|---|---|---|---|
+  |gradientStart|String(Hex color, or valid CSS color)|Start Color of Gradient|true|undefined|
+  |gradientEnd|String(Hex color, or valid CSS color)|End Color of Gradient|true|undefined|
+  |colorDirection|String("to-right" or "to-left")|Horizontal Direction of Gradient|false|undefined|
+
+
+ ## Feature Button Icon
+
+  <img src="../../assets/ft-button-feature-icon.png" width="4%" alt="Fish Tank Feature Button Icon">
+
+  This button type utilizes slots and will require 4 things of you:
+  1. Import desired icons from **@fishtank/icons-vue**.
+  2. Declare them under **:components** in your **export default Vue.extend()** class.
+  3. Refer icons in all cases using camel case.
+    a. Do it like this. *'AnAwesomeIcon24'* **(Heroes do this)**
+    b. Never like this, *'an_awesome_icon_24' or 'an-awesome-icon-24'. **(Only Villians do that.)**
+  4. Refer to icon with self closing tags within component. *e.g. '< AnAwesomeIcon24 />'*
+
+  This button simply needs you to reference the desired icon using camel case and self closing brackets within the components.
+
+  ```xml
+    <ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon>
+  ```
+
+  ## Feature Button Icon With Label
 
   <img src="../../assets/ft-button-feature-label.png" width="20%" alt="Fish Tank Feature Button with Label">
 
@@ -191,7 +220,7 @@ In your template:
     </ButtonFeatureLabel>
   ```
 
-Adding actions:
+# Adding actions:
 
 ```xml
 <ButtonPrimary 
@@ -199,7 +228,7 @@ Adding actions:
   >Button Primary</ButtonPrimary>
 ```
 
-## Props
+# Universal Props
 
 _The following props apply to all buttons_
 
@@ -213,46 +242,3 @@ _The following props apply to all buttons_
 |---|---|---|---|---|
 |disabled|Boolean|Specify if button should be disabled|false| false|
 |block|Boolean|Changes Button to full width block element|false| false|
-
-
-_The following props apply only to Gradient Button_
-
-```xml
-    <ButtonGradient
-      :gradientStart="startingHexColorVariable"
-      :gradientEnd="endingHexColorVariable"
-      :colorDirection="to-right"
-      >Button Primary</ButtonGradient>
-```
-
-
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Required</th>
-    <th>Default</th>
-  </thead>
-  <tr>
-    <td>gradientStart</td>
-    <td>String (Hex color, or valid CSS color)</td>
-    <td>Start Color of Gradient</td>
-    <td>true</td>
-    <td>undefined</td>
-  </tr>
-  <tr>
-    <td>gradientEnd</td>
-    <td>String (Hex color, or valid CSS color)</td>
-    <td>End Color of Gradient</td>
-    <td>true</td>
-    <td>undefined</td>
-  </tr>
-  <tr>
-    <td>colorDirection</td>
-    <td>String ("to-right" or "to-left")</td>
-    <td>Horizontal direction of gradient</td>
-    <td>false</td>
-    <td> "to-right"</td>
-  </tr>
-</table>
