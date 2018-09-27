@@ -98,6 +98,43 @@ In your **export default Vue.extend ( )** class :
 
   })
 ```
+To import icons for your component
+
+*Desired icons must be individually imported from '@fishtank/icons-vue' **and** listed among exported components or they will not render.* Icons must be referenced using **camel case** not kebab. *e.g. MobileInactive24*  
+
+```js
+  import { Alert24 } from "@fishtank/icons-vue"
+```
+
+To export your custom Vue components
+
+  1. Under components, list each type of button and icon that will be used.
+  2. Under data, you will return your prop values to the button components
+    1. e.g. color, color direction, links, and text.
+
+e.g.
+```js
+  export default Vue.extend({
+
+    components:{
+      //imported buttons that will be used
+      ButtonFeatureLabel,
+      ButtonGradient,
+      //imported icons that will be referenced in button components
+      Alert24,
+    },
+
+    data: function(){
+      return{
+        //prop values that are sent to components
+        colorStart : "#0018AB",
+        colorEnd : "9933CC",
+        colorDirection : "to right",
+      }
+    },
+
+  })
+```
 
 &nbsp; 
 
