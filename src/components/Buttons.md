@@ -13,6 +13,7 @@
   - [White Button](#white-button)
   - [Button Primary with _block_ property](#button-primary-with-block-property)
   - [Gradient Button](#gradient-button)
+  - [Feature Button with Lable](#feature-button-with-label)
 
 - [Props](#props)
 
@@ -30,7 +31,8 @@ import {
   ButtonGradient , 
   ButtonWhite,
   ButtonOutlineDark,
-  ButtonOutlineDarkSmall, }  from '@fishtank/fishtank-vue'
+  ButtonOutlineDarkSmall,
+  ButtonFeatureLabel }  from '@fishtank/fishtank-vue'
 ```
 
 **To import icons for your components**
@@ -78,93 +80,105 @@ In your template:
 
   ## Primary Button
 
-    <img src="../../assets/ft-button-primary.png" width="20%" alt="Fish Tank Primary Button">
+  <img src="../../assets/ft-button-primary.png" width="20%" alt="Fish Tank Primary Button">
 
-    ```xml
+  ```xml
       <ButtonPrimary>Button Primary</ButtonPrimary>
-    ```
+  ```
 
   ## Secondary Button
 
-    <img src="../../assets/ft-button-secondary.png" width="20%" alt="Fish Tank Secondary Button">
+  <img src="../../assets/ft-button-secondary.png" width="20%" alt="Fish Tank Secondary Button">
 
-    ```xml
+  ```xml
       <ButtonSecondary>Button Primary</ButtonSecondary>
-    ```
+  ```
 
   ## Destructive Button
 
-    <img src="../../assets/ft-button-destructive.png" width="20%" alt="Fish Tank Destructive Button">
+  <img src="../../assets/ft-button-destructive.png" width="20%" alt="Fish Tank Destructive Button">
 
-    ```xml
+  ```xml
       <ButtonDestructive>Button Primary</ButtonDestructive>
-    ```
+  ```
  
   ## Outline Button
 
-    <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
+  <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
 
-    ```xml
+  ```xml
       <ButtonOutline>Button Primary</ButtonOutline>
-    ```
+  ```
 
   ## Outline Small Button
 
-    <img src="../../assets/ft-button-outline-small.png" width="20%" alt="Fish Tank Outline Small Button">
+  <img src="../../assets/ft-button-outline-small.png" width="20%" alt="Fish Tank Outline Small Button">
 
-    ```xml
+  ```xml
       <ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall>
-    ```
+  ```
 
   ## Outline Dark Button
 
-    ( For use on Dark Backgrounds )
+  ( For use on Dark Backgrounds )
 
-    <img src="../../assets/ft-button-outline-dark.png" width="20%" alt="Fish Tank Outline Dark Button">
+  <img src="../../assets/ft-button-outline-dark.png" width="20%" alt="Fish Tank Outline Dark Button">
 
-    ```xml
+  ```xml
       <ButtonOutlineDark>Button Outline Dark</ButtonOutlineDark>
-    ```
+  ```
 
   ## Outline Dark Small Button
 
-    ( For use on Dark Backgrounds )
+  ( For use on Dark Backgrounds )
 
-    <img src="../../assets/ft-button-outline-dark-small.png" width="20%" alt="Fish Tank Outline Dark Small Button">
+  <img src="../../assets/ft-button-outline-dark-small.png" width="20%" alt="Fish Tank Outline Dark Small Button">
 
-    ```xml
+  ```xml
       <ButtonOutlineDarkSmall>Button Outline Dark</ButtonOutlineDarkSmall>
-    ```
+  ```
 
   ## White Button
 
-    <img src="../../assets/ft-button-white.png" width="20%" alt="Fish Tank White Button">
+  <img src="../../assets/ft-button-white.png" width="20%" alt="Fish Tank White Button">
 
-    ```xml
+  ```xml
       <ButtonWhite>Button Primary</ButtonWhite>
-    ```
+  ```
 
   ## Button Primary with _block_ property 
 
-    <img src="../../assets/ft-button-primary-block.png" width="50%" alt="Block Style Fish Tank Primary Button">
+  <img src="../../assets/ft-button-primary-block.png" width="50%" alt="Block Style Fish Tank Primary Button">
 
-    ```xml
+  ```xml
     <ButtonPrimary 
       :block="true">Button Primary</ButtonPrimary>
-    ```
+  ```
 
 
   ## Gradient Button
 
-    <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
+  <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
 
-    ```xml
+  ```xml
     <ButtonGradient
       :gradientStart="startingHexColorVariable"
       :gradientEnd="endingHexColorVariable"
       :colorDirection="to-right"
       >Button Primary</ButtonGradient>
-    ```
+  ```
+
+  ## Feature Button With Label
+
+  <img src="../../assets/ft-button-feature-label.png" width="20%" alt="Fish Tank Feature Button with Label">
+
+  ```xml
+    <ButtonGradient
+      :gradientStart="startingHexColorVariable"
+      :gradientEnd="endingHexColorVariable"
+      :colorDirection="to-right"
+      >Button Primary</ButtonGradient>
+  ```
 
 Adding actions:
 
