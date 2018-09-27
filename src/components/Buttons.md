@@ -9,7 +9,8 @@ import {
   ButtonPrimary,
   ButtonSecondary,
   ButtonDestructive, 
-  ButtonOutline, 
+  ButtonOutline,
+  ButtonOutlineSmall, 
   ButtonGradient , 
   ButtonWhite }  from '@fishtank/fishtank-vue'
 ```
@@ -46,6 +47,21 @@ In your template:
 
     ```xml
       <ButtonOutline>Button Primary</ButtonOutline>
+    ```
+
+  - Outline Small
+    <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Small Button">
+
+    ```xml
+      <ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall>
+    ```
+
+  - Outline Dark
+    For Dark Backgrounds
+    <img src="../../assets/ft-button-outline-dark.png" width="20%" alt="Fish Tank Outline Dark Button">
+
+    ```xml
+      <ButtonOutlineDark>Button Outline Dark</ButtonOutlineDark>
     ```
 
   - White
