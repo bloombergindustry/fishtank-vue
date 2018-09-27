@@ -13,7 +13,7 @@
   - [White Button](#white-button)
   - [Button Primary with _block_ property](#button-primary-with-block-property)
   - [Gradient Button](#gradient-button)
-  - [Feature Button with Lable](#feature-button-with-label)
+  - [Feature Button with Label](#feature-button-with-label)
 
 - [Props](#props)
 
@@ -160,6 +160,8 @@ In your template:
 
   <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
 
+  This button takes in three *required* props **:gradientStart**, **:gradientEnd**, and **:colorDirection**. Return values into these props using a return function in **:data** within your **export default Vue.extend()** class. See [Section](#usage). 
+
   ```xml
     <ButtonGradient
       :gradientStart="startingHexColorVariable"
@@ -172,12 +174,21 @@ In your template:
 
   <img src="../../assets/ft-button-feature-label.png" width="20%" alt="Fish Tank Feature Button with Label">
 
+  This button type utilizes slots and will require 4 things of you:
+  1. Import desired icons from **@fishtank/icons-vue**.
+  2. Declare them under **:components** in your **export default Vue.extend()** class.
+  3. Refer icons in all cases using camel case.
+    a. Do it like this. *'AnAwesomeIcon24'* **(Heroes do this)**
+    b. Never like this, *'an_awesome_icon_24' or 'an-awesome-icon-24'. **(Only Villians do that.)**
+  4. Refer to icon with self closing tags within component. *e.g. '< AnAwesomeIcon24 />'*
+
+  This button takes in two required slots that are referenced using the '< template >' tags. The first is the '< template >' that takes in the attribute slot name 'icon'. Between this template tag is where you will insert your 24x24 icon of choice, after you have imported it from '@fishtank/icons-vue'. Remember to reference your icon using self closing tags. The second '< template >' tag takes in a slot named 'label', where you enter the buttons label text.
+
   ```xml
-    <ButtonGradient
-      :gradientStart="startingHexColorVariable"
-      :gradientEnd="endingHexColorVariable"
-      :colorDirection="to-right"
-      >Button Primary</ButtonGradient>
+    <ButtonFeatureLabel> 
+        <template slot="icon"> <Alert24/> </template>
+        <template slot="label"> Button Feature Label</template>
+    </ButtonFeatureLabel>
   ```
 
 Adding actions:
