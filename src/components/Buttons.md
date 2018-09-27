@@ -3,9 +3,20 @@
 ### Table Of Contents
 - [Usage](#usage)
 - [Components](#components)
+  * [Primary](#primary button)
+  * [Secondary](#secondary button)
+  * [Destructive](#destructive button)
+  * [Outline](#outline button)
+  * [Outline Small](#outline small button)
+  * [Outline Dark](#outline dark button)
+  * [Outline Dark Small](#outline dark small button)
+  * [White](#white button)
+  * [Button Primary with _block_ property](#button primary with _block_ property)
+  * [Gradient](#gradient button)
+
 - [Props](#props)
 
-## Usage
+# Usage
 
 **To import button components**
 
@@ -61,11 +72,11 @@ import {
   })
 ```
 
-## Components
+# Components
 
 In your template:
 
-  - Primary
+  ## Primary Button
 
     <img src="../../assets/ft-button-primary.png" width="20%" alt="Fish Tank Primary Button">
 
@@ -73,7 +84,7 @@ In your template:
       <ButtonPrimary>Button Primary</ButtonPrimary>
     ```
 
-  - Secondary
+  ## Secondary Button
 
     <img src="../../assets/ft-button-secondary.png" width="20%" alt="Fish Tank Secondary Button">
 
@@ -81,7 +92,7 @@ In your template:
       <ButtonSecondary>Button Primary</ButtonSecondary>
     ```
 
-  - Destructive
+  ## Destructive Button
 
     <img src="../../assets/ft-button-destructive.png" width="20%" alt="Fish Tank Destructive Button">
 
@@ -89,7 +100,7 @@ In your template:
       <ButtonDestructive>Button Primary</ButtonDestructive>
     ```
  
-  - Outline
+  ## Outline Button
 
     <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
 
@@ -97,7 +108,7 @@ In your template:
       <ButtonOutline>Button Primary</ButtonOutline>
     ```
 
-  - Outline Small
+  ## Outline Small Button
 
     <img src="../../assets/ft-button-outline-small.png" width="20%" alt="Fish Tank Outline Small Button">
 
@@ -105,7 +116,7 @@ In your template:
       <ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall>
     ```
 
-  - Outline Dark
+  ## Outline Dark Button
 
     ( For use on Dark Backgrounds )
 
@@ -115,7 +126,7 @@ In your template:
       <ButtonOutlineDark>Button Outline Dark</ButtonOutlineDark>
     ```
 
-  - Outline Dark Small
+  ## Outline Dark Small Button
 
     ( For use on Dark Backgrounds )
 
@@ -125,7 +136,7 @@ In your template:
       <ButtonOutlineDarkSmall>Button Outline Dark</ButtonOutlineDarkSmall>
     ```
 
-  - White
+  ## White Button
 
     <img src="../../assets/ft-button-white.png" width="20%" alt="Fish Tank White Button">
 
@@ -133,7 +144,7 @@ In your template:
       <ButtonWhite>Button Primary</ButtonWhite>
     ```
 
-  - Button Primary with _block_ property
+  ## Button Primary with _block_ property 
 
     <img src="../../assets/ft-button-primary-block.png" width="50%" alt="Block Style Fish Tank Primary Button">
 
@@ -143,7 +154,7 @@ In your template:
     ```
 
 
-  - Gradient
+  ## Gradient Button
 
     <img src="../../assets/ft-button-gradient.png" width="20%" alt="Fish Tank Gradient Button">
 
