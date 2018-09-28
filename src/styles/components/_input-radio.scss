@@ -1,11 +1,11 @@
-.fishtank-radio{
+.ft-radio{
   font-family: $font-primary;
   position: relative;
   padding-left: $baseline*9;
   padding-top: 6px;
   padding-bottom: 6px;
 }
-.fishtank-radio__input{
+.ft-radio__input{
   opacity: 0;
   margin: 0;
   position: absolute;
@@ -19,7 +19,7 @@
     cursor: default;
   }
 }
-.fishtank-radio__icon{
+.ft-radio__icon{
   transition: all 0.3s ease;
   display:inline-block;
   width:12px;
@@ -32,7 +32,7 @@
   left: 4px;
   top: 8px;
 }
-.fishtank-radio__input + .fishtank-radio__icon{
+.ft-radio__input + .ft-radio__icon{
   &:after{
     content:"";
     width: 6px;
@@ -48,18 +48,18 @@
     transition: transform .3s cubic-bezier(.5,.1,.3,1.5);
   }
 }
-.fishtank-radio__input:checked + .fishtank-radio__icon{
+.ft-radio__input:checked + .ft-radio__icon{
   &:after{
     transform: scale(1.0);
   }
 }
-.fishtank-radio__input:hover + .fishtank-radio__icon{
+.ft-radio__input:hover + .ft-radio__icon{
   &:after{
     background-color: $color-selected-darker;
     border:1px solid $color-selected-darker;
   }
 }
-.fishtank-radio__label{
+.ft-radio__label{
   color: $color-gray-dark;
   font-size: $fontsize-base-md;
   line-height: $lineheight-base-md;
@@ -69,21 +69,21 @@
     color:$color-black;
   }
 }
-.fishtank-radio__input:hover {
-  & + .fishtank-radio__icon{
+.ft-radio__input:hover {
+  & + .ft-radio__icon{
     border:2px solid $color-black;
   }
 }
-.fishtank-radio__input:disabled + .fishtank-radio__icon{
+.ft-radio__input:disabled + .ft-radio__icon{
   border:2px solid $color-disabled;
 }
-.fishtank-radio__input:checked:disabled + .fishtank-radio__icon{
+.ft-radio__input:checked:disabled + .ft-radio__icon{
   border:2px solid $color-disabled;
   &:after {
     background-color: $color-disabled;
     border:1px solid $color-disabled;
   }
 }
-.fishtank-radio__input:disabled ~ .fishtank-radio__label-content{
+.ft-radio__input:disabled ~ .ft-radio__label-content{
   color:$color-disabled;
 }

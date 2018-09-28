@@ -1,14 +1,14 @@
 body.user-is-tabbing button:focus {
   box-shadow: 0 0 0 2px $color-selected;
 }
-
+.ft-baseButton{
+  @include baseButton();
+}
+.ft-baseButtonSm{
+  @include baseButtonSm();
+}
 .ft-button {
-  @include font-base-lg();
-  font-family: $font-primary;
-  font-weight: $fontweight-semi;
-
-  padding: 7px 11px 9px 11px;
-  height: $baseline*10;
+  @include baseButton();
   box-sizing: border-box;
 
   border-radius: 2px;
@@ -391,7 +391,7 @@ body.user-is-tabbing button:focus {
   border-width: 1px;
   padding: 1px 8px 2px 8px;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1px;
   text-align: center;
