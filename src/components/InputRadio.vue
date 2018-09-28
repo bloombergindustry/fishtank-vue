@@ -1,18 +1,18 @@
 <template>
-  <div class="fishtank-radio">
+  <div class="ft-radio">
     <label 
       :for="(id !==null? id: labelId)"
-      class="fishtank-radio__label">
+      class="ft-radio__label">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        class="fishtank-radio__input" 
+        class="ft-radio__input" 
         type="radio" 
         v-on="listeners">
-      <div class="fishtank-radio__icon"/>
-      <div class="fishtank-radio__label-content">
+      <div class="ft-radio__icon"/>
+      <div class="ft-radio__label-content">
         {{ label }}
       </div>
     </label>
@@ -20,8 +20,11 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-
+import a11y from '@/util/a11y'
 export default Vue.extend({
+  mixins: [
+    a11y,
+  ],
   model: {
     prop: 'modelValue',
     event: 'change'

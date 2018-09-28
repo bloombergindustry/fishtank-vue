@@ -4,6 +4,9 @@ body.user-is-tabbing button:focus {
 .ft-baseButton{
   @include baseButton();
 }
+.ft-baseButtonSm{
+  @include baseButtonSm();
+}
 .ft-button {
   @include baseButton();
   box-sizing: border-box;
@@ -388,7 +391,7 @@ body.user-is-tabbing button:focus {
   border-width: 1px;
   padding: 1px 8px 2px 8px;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1px;
   text-align: center;

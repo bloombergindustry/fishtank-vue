@@ -1,24 +1,77 @@
+.ft-buttongroup--is-focused ,.ft-buttongroup__button--is-focused {
+  box-shadow: 0 0 0 2px $color-selected;
+}
+
 .ft-buttongroup{
   display: flex;
   width: 100%;
+  color: $color-gray-dark;
+  font-weight: $fontweight-regular;
+  justify-content: space-between;
+  // border: 1px solid $color-gray-lighter;
+  box-sizing: border-box;
 }
 .ft-buttongroup__button {
   flex: 1 0 0;
-  background-color:$color-secondary;
   text-align: center;
+  box-sizing: border-box;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 0px;
+  border-style: solid;
+  border-color: $color-gray-lighter;
+  background-color:$color-secondary;
+  transition: all 0.10s ease;
+  overflow: hidden;
+  &:first-of-type{
+    border-radius: 2px 0px 0px 2px;
+  }
+  &:last-of-type{
+    border-right-width: 1px;
+    border-radius: 0 2px 2px 0;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $color-secondary-lighter;
+    color: $color-black;
+  }
+}
+.ft-buttongroup__button--disabled {
+  color: $color-disabled;
+  &:hover{
+    cursor:default;
+    color: $color-disabled;
+  }
+}
+.ft-buttongroup__button--small{
+  &:first-of-type{
+    border-radius: 4px 0px 0px 4px;
+  }
+  &:last-of-type{
+    border-right-width: 1px;
+    border-radius: 0 4px 4px 0;
+  }
 }
 .ft-buttongroup__button__input{
   opacity: 0;
 }
 .ft-buttongroup__button__label{
   position: relative;
-  display: block;
+  display: inline-block;
   height: 100%;
+}
+.ft-buttongroup__button__label-content--small{
+  font-size:0.875rem;
 }
 .ft-buttongroup__button__input{
   position: absolute;
 }
-.ft-buttongroup__button--active{
- color:$color-white;
- background-color: $color-selected-darkest; 
+.ft-buttongroup__button--active, .ft-buttongroup__button--active:hover{
+  color:$color-white;
+  background-color: $color-selected-darkest; 
+  border-color: $color-selected-darkest; 
+}
+.ft-baseButton--small{
+  padding:4px 8px;
 }

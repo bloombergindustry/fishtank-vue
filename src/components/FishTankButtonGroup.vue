@@ -1,16 +1,40 @@
 <template>
-  <div 
-    :class="[{'ft-small':small}, 'ft-buttongroup']">
+  <div
+    :id="(id !==null? id: labelId)"
+    :aria-labelledby="'ft-buttongroup'+(id !==null? id: labelId)" 
+    :class="[ 'ft-buttongroup',{'ft-buttongroup__small':small}, {'ft-buttongroup--is-focused':isFocused}]"
+    tabindex="0">
     <slot/>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { setTimeout } from 'timers';
+import a11y from '@/util/a11y'
+
 export default Vue.extend({
+  mixins:[
+    a11y
+  ],
   model:{
     prop: 'modelValue',
     event:'change'
+  },
+  provide: function(){
+    const fishtankButtonGroupShared = {}
+
+    Object.defineProperty(fishtankButtonGroupShared, 'isSmall', {
+       enumerable: true,
+       get: () => this.isSmall,
+       set: (val)=> this.isSmall = val
+    })
+
+    Object.defineProperty(fishtankButtonGroupShared, 'isFocused', {
+       enumerable: true,
+       get: () => this.isFocused,
+       set: (val)=> this.isFocused = val
+    })
+
+    return {fishtankButtonGroupShared}
   },
   props:{
     small:{
@@ -23,6 +47,22 @@ export default Vue.extend({
       default: "",
       require:true
     },
+    id:{
+      type:String,
+      default:null,
+      required:false
+    },
   },
+  data: function(){
+    return {
+      isSmall:this.small,
+      isFocused:false
+    }
+  },
+  computed:{
+    labelId(): string {
+      return `ft-button-group-button-${(this as any)._uid}`
+    },
+  }
 })
 </script>
