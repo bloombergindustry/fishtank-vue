@@ -25,17 +25,13 @@
 </template>
 <script lang="ts">
 
-function handleFirstTab(e:KeyboardEvent) {
-    if (e.keyCode === 9) { // tab key, user is a keyboard user
-        document.body.classList.add('user-is-tabbing')
-        window.removeEventListener('keydown', handleFirstTab)
-    }
-}
-window.addEventListener('keydown', handleFirstTab)
-
 import Vue, { VNode }from 'vue'
+import a11y from '@/util/a11y'
 export default Vue.extend({
   name:"FishTankSwitch",
+  mixins: [
+    a11y,
+  ],
   model: {
     prop: 'modelValue',
     event: 'change'
