@@ -21,8 +21,9 @@
   - [Feature Button Icon with Label](#feature-button-icon-with-label)
   - [FAB Button](#fab-button-beta)
     - [FAB Button Props](#fab-button-props)
+    - [An Explanation of FAB Button Props](#an-explanation-of-button-props)
 
-- [Adding Actions](#adding-actions:)
+- [Adding Actions](#adding-actions)
 - [Universal Props](#universal-props)
 
 # Usage
@@ -98,7 +99,7 @@ import {
 
 &nbsp; 
 
-See [Usage](#usage) to for steps on how to enable button components for usage in your template. The following sub-sections describe each button component and their props. In Addition to props unique to each button component there are [universal props](#universal-props) that apply to each button ( *with the exception of the FAB Button that is still in beta* ) . There are also [actions](#adding-actions) that can be added to each button component . 
+See [Usage](#usage) to for steps on how to enable button components for usage in your template. The following sub-sections describe each button component and their props. In Addition to the props unique to each button component there are [universal props](#universal-props) that apply to each button ( *with the exception of the FAB Button that is still in beta* ) . There are also [actions](#adding-actions) that can be added to each button component . 
 
 *See the [Table of Contents](#table-of-contents) to jump directly to the section you need.
 
@@ -146,6 +147,8 @@ See [Usage](#usage) to for steps on how to enable button components for usage in
   &nbsp; 
  
   ## Outline Button
+
+  &nbsp; 
 
   <img src="../../assets/ft-button-outline.png" width="20%" alt="Fish Tank Outline Button">
 
@@ -331,11 +334,7 @@ See [Usage](#usage) to for steps on how to enable button components for usage in
 
   &nbsp;
 
-  <img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-  <img src="../../assets/ft-button-fab-hover-state-no-labels.png" width="11%" alt="Fish Tank FAB Button Hover State"/>
-  &nbsp; &nbsp; 
-  <img src="../../assets/ft-button-fab-hover-state-with-labels.png" width="20%" alt="Fish Tank FAB Button Hover State with Labels"/>
+  <img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state-no-labels.png" width="11%" alt="Fish Tank FAB Button Hover State"/>&nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state-with-labels.png" width="20%" alt="Fish Tank FAB Button Hover State with Labels"/>
   
   *Default State* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State (**no labels**)* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Hover State(**labels**)*
   
@@ -365,7 +364,7 @@ See [Usage](#usage) to for steps on how to enable button components for usage in
 
   &nbsp;
 
-  **An Explanation Of Button Props**
+  ##### An Explanation Of Button Props
 
   After adding your FAB Button to your vue file following the steps under the ['Usage Section'](#usage), you will have to assign props values in the **data:** return function of your Vue class.
 
