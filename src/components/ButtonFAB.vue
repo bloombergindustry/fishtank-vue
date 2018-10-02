@@ -5,12 +5,13 @@
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
       class="ft-button--fab"
-      v-on="$listeners">
+      v-on="$listeners"> 
 
-      <p> <slot/> </p>
+      <slot name="mainIcon"> </slot> 
     </BaseButton>
 
     <ul>
+      <!--- Commented out for Experimentation
       <li
         v-for="fablink in fabOption" 
         :style="returnSecondaryFabColor" >
@@ -19,7 +20,22 @@
 
         <p> {{ fablink.text }} </p>
 
-      </li>                                                                   
+      </li> 
+      End of Commented out section ---> 
+
+      <li
+        :style="returnSecondaryFabColor"> 
+        <slot name="option1"> </slot> 
+      </li>
+      <li
+        :style="returnSecondaryFabColor">
+        <slot name="option2"> </slot> 
+      </li>
+      <li
+        :style="returnSecondaryFabColor"> 
+        <slot name="option3"> </slot> 
+      </li>
+
     </ul>
 
   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
@@ -36,12 +52,14 @@ export default Vue.extend({
   },
   props:{
     fabOption :{type: String, required:true, default: "!"},
-    fabColorPrimary :{type: String, required:true, default: "#292E31"},
+    fabColorPrimaryStart :{type: String, required:true, default: "#0018AB"},
+    fabColorPrimaryEnd :{type: String, required:true, default: "#9933CC"},
     fabColorSecondary :{type: String, required:true, default: "#777C7F"},
     },   
   computed:{
     returnPrimaryFabColor(): string {
-      return `background:  ${this.fabColorPrimary} ;`
+      return `background-image:  linear-gradient( to right, ${ this.fabColorPrimaryStart }, ${ this.fabColorPrimaryEnd } ); 
+      border-image:  linear-gradient( to right, ${ this.fabColorPrimaryStart }, ${ this.fabColorPrimaryEnd } 100% ) 1% ; `
     },
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`
