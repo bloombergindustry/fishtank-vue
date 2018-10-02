@@ -6,18 +6,19 @@
     <label 
       :for="(id !==null? id: labelId)"
       
-      :class="['ft-buttongroup__button__label', 'ft-baseButton', {'ft-baseButton--small':fishtankButtonGroupShared.isSmall}]">
+      :class="['ft-buttongroup__button__label', {'ft-baseButton--small':fishtankButtonGroupShared.isSmall}]">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
+        :tabindex="shouldBeChecked ? 0 : -1"
         class="ft-buttongroup__button__input" 
         type="radio" 
         v-on="listeners"
         @focus="fishtankButtonGroupShared.isFocused = true"
         @blur="fishtankButtonGroupShared.isFocused = false">
-      <div class="ft-buttongroup__button__icon"/>
+      <!-- <div class="ft-buttongroup__button__icon"/> -->
       <div :class="['ft-buttongroup__button__label-content', {'ft-buttongroup__button__label-content--small':fishtankButtonGroupShared.isSmall}]">
         {{ label }}
       </div>

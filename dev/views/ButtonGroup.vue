@@ -81,7 +81,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from '@/index';
+import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from '@/index'
 
 export default Vue.extend({
   components:{
