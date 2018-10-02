@@ -44,14 +44,19 @@
    
     <div>
       <ButtonFAB 
-        :fab-option="fabLinks" 
         :fab-color-primary-start="fabPrimaryColorStart"
         :fab-color-primary-end="fabPrimaryColorEnd" 
-        :fab-color-secondary="fabSecondaryColor">
+        :fab-color-secondary="fabSecondaryColor"
+        :option-one-link="fabLink1"
+        :option-two-link="fabLink2"
+        :option-three-link="fabLink3">
+
         <template slot="mainIcon"> <More32/>  </template>
+
         <template slot="option1"> <ArchiveEmail24/> </template>
         <template slot="option2"> <FlagO24/> </template>
         <template slot="option3"> <Help24/>  </template>
+
       </ButtonFAB>
     </div>
     <br>
@@ -112,19 +117,21 @@ export default Vue.extend({
 
   data: function(){
     return{
+
       //Relevant to ButtonGradient
       colorStart : "#0018AB",
       colorEnd : "#9933CC",
       colorDirection: "to right",
+
       //Relevant to ButtonFAB
       fabPrimaryColorStart: '#0018AB',
       fabPrimaryColorEnd: '#9933CC',
       fabSecondaryColor: '#17509F',
-      fabLinks:[
-        {icon: '1', text: 'Twitter', link: 'https://www.twitter.com/'},
-        {icon: '2', text: 'Facebook', link: 'https://www.facebook.com'},
-        {icon: '3', text: 'Instagram', link: 'https://www.instagram.com'},
-      ],
+
+      fabLink1 : 'https://twitter.com/',
+      fabLink2 : 'https://facebook.com/',
+      fabLink3 : 'https://instagram.com/',
+
     }
   },
   
