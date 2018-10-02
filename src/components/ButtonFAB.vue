@@ -56,12 +56,12 @@ export default Vue.extend({
     optionOneLink :{type: String, required:true, default:" "},
     optionTwoLink :{type: String, required:true, default:" "},
     optionThreeLink :{type: String, required:true, default:" "},
-    
+
     },   
   computed:{
     returnPrimaryFabColor(): string {
-      return `background-image:  linear-gradient( to right, ${ this.fabColorPrimaryStart }, ${ this.fabColorPrimaryEnd } ); 
-      border-image:  linear-gradient( to right, ${ this.fabColorPrimaryStart }, ${ this.fabColorPrimaryEnd } 100% ) 1% ; `
+      return `background-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0%, ${ this.fabColorPrimaryEnd } 100% ); 
+      border-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0% , ${ this.fabColorPrimaryEnd } 100% ) 1% ; `
     },
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`

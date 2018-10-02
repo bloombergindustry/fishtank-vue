@@ -232,8 +232,8 @@ body.user-is-tabbing button:focus {
     z-index: 50;
     background-color: $color-black;
     border-image: transparent;
-    width: 70px;
-    height: 70px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     font-size: 6em;
     display: flex;
@@ -244,7 +244,7 @@ body.user-is-tabbing button:focus {
     transition: all 1s ease-in-out;
   
     &:hover{
-      transform: scale(1.25);
+      transform: scale(1.5);
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
   }
@@ -255,7 +255,7 @@ body.user-is-tabbing button:focus {
 
   &:hover ul{
     transition: 0.5s ease-in;
-    bottom: 70px;
+    bottom: 50px;
     opacity: 1;
   }
   &:hover ul li p{
@@ -287,8 +287,8 @@ body.user-is-tabbing button:focus {
 
   li{
     background: $color-gray;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-bottom: 12px;
     position: relative;
@@ -304,7 +304,7 @@ body.user-is-tabbing button:focus {
 
     &:hover{
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      transform: scale(1.15);
+      transform: scale(1.25);
     }
 
     svg{
