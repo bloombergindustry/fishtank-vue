@@ -1,9 +1,9 @@
 <template>
   <div
     :id="(id !==null? id: labelId)"
-    :aria-labelledby="'ft-buttongroup'+(id !==null? id: labelId)" 
+    :aria-labelledby="(id !==null? id: labelId)" 
     :class="[ 'ft-buttongroup',{'ft-buttongroup__small':small}, {'ft-buttongroup--is-focused':isFocused}]"
-    tabindex="0">
+    role="radiogroup">
     <slot/>
   </div>
 </template>
