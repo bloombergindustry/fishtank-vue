@@ -6,12 +6,12 @@
   display: flex;
   width: 100%;
   color: $color-gray-dark;
-  font-weight: $fontweight-regular;
   justify-content: space-between;
-  // border: 1px solid $color-gray-lighter;
   box-sizing: border-box;
+
 }
 .ft-buttongroup__button {
+  cursor: pointer;
   flex: 1 0 0;
   text-align: center;
   box-sizing: border-box;
@@ -22,7 +22,7 @@
   border-style: solid;
   border-color: $color-gray-lighter;
   background-color:$color-secondary;
-  transition: all 0.10s ease;
+  /*transition: all 0.1s ease;*/
   overflow: hidden;
   &:first-of-type{
     border-radius: 2px 0px 0px 2px;
@@ -36,6 +36,8 @@
     background-color: $color-secondary-lighter;
     color: $color-black;
   }
+  padding: 0 12px 0 12px;
+    height:40px;
 }
 .ft-buttongroup__button--disabled {
   color: $color-disabled;
@@ -45,6 +47,7 @@
   }
 }
 .ft-buttongroup__button--small{
+  height: 28px;
   &:first-of-type{
     border-radius: 4px 0px 0px 4px;
   }
@@ -60,18 +63,28 @@
   position: relative;
   display: inline-block;
   height: 100%;
+  font-weight: $fontweight-regular;
+  font-size: $fontsize-base-lg;
+  line-height: $lineheight-base-lg;
+  letter-spacing: $letterspacing-base-lg;
+  font-family: $font-primary;
+  padding: 7px $baseline*3 9px $baseline*3;
+  cursor: pointer;
 }
 .ft-buttongroup__button__label-content--small{
-  font-size:0.875rem;
+  font-size:$fontsize-base-md;
+  font-weight: $fontweight-semi;
+  line-height: $lineheight-base-md;
+  letter-spacing: $letterspacing-base-md;
 }
 .ft-buttongroup__button__input{
   position: absolute;
 }
 .ft-buttongroup__button--active, .ft-buttongroup__button--active:hover{
   color:$color-white;
-  background-color: $color-selected-darkest; 
+  background-color: $color-selected; 
   border-color: $color-selected-darkest; 
 }
 .ft-baseButton--small{
-  padding:4px 8px;
+  padding:3px $baseline*2 5px $baseline*2;
 }
