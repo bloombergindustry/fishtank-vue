@@ -44,6 +44,7 @@
   &:hover{
     cursor:default;
     color: $color-disabled;
+    background-color:$color-secondary;
   }
 }
 .ft-buttongroup__button--small{
