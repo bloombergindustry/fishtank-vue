@@ -11,30 +11,27 @@
     </BaseButton>
 
     <ul>
-      <!--- Commented out for Experimentation
-      <li
-        v-for="fablink in fabOption" 
-        :style="returnSecondaryFabColor" >
 
-        <a :href="fablink.link" > {{ fablink.icon }} </a>
+      <a :href="optionOneLink">
+        <li
+          :style="returnSecondaryFabColor"> 
+          <slot name="option1"> </slot> 
+        </li>
+      </a>
 
-        <p> {{ fablink.text }} </p>
+      <a :href="optionTwoLink">
+        <li
+          :style="returnSecondaryFabColor">
+          <slot name="option2"> </slot> 
+        </li>
+      </a>
 
-      </li> 
-      End of Commented out section ---> 
-
-      <li
-        :style="returnSecondaryFabColor"> 
-        <slot name="option1"> </slot> 
-      </li>
-      <li
-        :style="returnSecondaryFabColor">
-        <slot name="option2"> </slot> 
-      </li>
-      <li
-        :style="returnSecondaryFabColor"> 
-        <slot name="option3"> </slot> 
-      </li>
+      <a :href="optionThreeLink">
+        <li
+          :style="returnSecondaryFabColor"> 
+          <slot name="option3"> </slot> 
+        </li>
+      </a>
 
     </ul>
 
@@ -51,10 +48,15 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    fabOption :{type: String, required:true, default: "!"},
+
     fabColorPrimaryStart :{type: String, required:true, default: "#0018AB"},
     fabColorPrimaryEnd :{type: String, required:true, default: "#9933CC"},
     fabColorSecondary :{type: String, required:true, default: "#777C7F"},
+
+    optionOneLink :{type: String, required:true, default:" "},
+    optionTwoLink :{type: String, required:true, default:" "},
+    optionThreeLink :{type: String, required:true, default:" "},
+    
     },   
   computed:{
     returnPrimaryFabColor(): string {
