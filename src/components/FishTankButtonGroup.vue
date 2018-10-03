@@ -2,7 +2,7 @@
   <div
     :id="(id !==null? id: labelId)"
     :aria-labelledby="(id !==null? id: labelId)" 
-    :class="[ 'ft-buttongroup',{'ft-buttongroup__small':small}, {'ft-buttongroup--is-focused':isFocused}]"
+    :class="[ 'ft-buttongroup',{'ft-buttongroup--small':small}, {'ft-buttongroup--is-focused':isFocused}]"
     role="radiogroup">
     <slot/>
   </div>
