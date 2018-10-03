@@ -7,7 +7,7 @@ import {
 } from "@/index"
 import { doesNotThrow } from 'assert'
 
-describe("F ishTankButtonGroup", () => {
+describe("FishTankButtonGroup", () => {
   let propsData : any = {}
   let slots : any = {}
 
@@ -40,7 +40,7 @@ describe("F ishTankButtonGroup", () => {
     it('renders the small buttongroup', () => {
       const wrapper = mountBGroup()
       let bgroup = wrapper.find('.ft-buttongroup').element as HTMLElement
-      expect(bgroup.classList.contains('ft-buttongroup__small')).to.be.true
+      expect(bgroup.classList.contains('ft-buttongroup--small')).to.be.true
     })
   })
 })
