@@ -1,6 +1,13 @@
 @import "./node_modules/@fishtank/colors/dist/index.scss";
 @import "./node_modules/@fishtank/space/dist/index.scss";
 @import "./node_modules/@fishtank/type/dist/index.scss";
+
+body.user-is-tabbing {
+   .ft-tag,  .ft-tag-remove {
+      box-shadow: 0 0 0 2px $color-selected;
+  }
+}
+
 [class^="tag--"] {
     display: inline-block;
     cursor: pointer;
@@ -33,26 +40,6 @@
 .list-fade-leave-active {
     animation: fade 0.125s reverse;
 }
-
-@keyframes fade {
-    0% {
-        opacity: 0;
-        width: 0;
-    }
-    100% {
-        width: auto;
-        opacity: 1;
-    }
-}
-
-// .list-fade-enter,
-// .list-fade-leave-to {
-//     opacity: 0;
-// }
-// .list-fade-enter-to,
-// .list-fade-leave {
-//     opacity: 1;
-// }
 .tag--text {
     padding: 0px;
     margin: 0px;
@@ -74,7 +61,6 @@
     margin-left: $baseline;
     margin-right: -$baseline*2;
     position: relative;
-    transition: all .6s;
 }
 
 .tag-expand-icon {

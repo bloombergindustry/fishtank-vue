@@ -32,7 +32,7 @@
       <div
         v-if="label" 
         class="ft-input-checkbox__label-content">
-        <p class="ft-input-checkbox__label-content__label">{{ label }}</p>
+        <div class="ft-input-checkbox__label-content__label">{{ label }}</div>
         <slot/>
       </div>
     </label>

@@ -1,14 +1,14 @@
 body.user-is-tabbing button:focus {
   box-shadow: 0 0 0 2px $color-selected;
 }
-
+.ft-baseButton{
+  @include baseButton();
+}
+.ft-baseButtonSm{
+  @include baseButtonSm();
+}
 .ft-button {
-  @include font-base-lg();
-  font-family: $font-primary;
-  font-weight: $fontweight-semi;
-
-  padding: 7px 11px 9px 11px;
-  height: $baseline*10;
+  @include baseButton();
   box-sizing: border-box;
 
   border-radius: 2px;
@@ -203,13 +203,210 @@ body.user-is-tabbing button:focus {
     background-color: $color-gray;
   }
   &:disabled {
-    opacity: 0.4;
+    color: $color-gray-lighter;
+    border-color: $color-gray-lighter;
 
     &:hover {
-      background-color: none;
+      background-color: transparent;
+
     }
   }
 }
+
+.ft-button--fab-wrapper{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 49;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  border-color: $color-action;
+  background-color: none;
+  text-align: center;
+
+  .ft-button--fab{
+    position: relative;
+    z-index: 50;
+    background-color: $color-black;
+    border-image: transparent;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
+    transition: all 1s ease-in-out;
+  
+    &:hover{
+      transform: scale(1.5);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  svg{
+    fill : $color-white;
+  }
+
+  &:hover ul{
+    transition: 0.5s ease-in;
+    bottom: 50px;
+    opacity: 1;
+  }
+  &:hover ul li p{
+      right: 70px;
+      opacity: 1;
+      transition: 1s ease-in;
+  }
+
+  p, a{
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  ul{
+    opacity: 0;
+    list-style-type: none;
+    padding: 0px;
+    width: 100%;
+    position: absolute;
+    z-index: 49;
+    bottom: 0px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+  }
+
+  li{
+    background: $color-gray;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    position: relative;
+
+    font-size: 2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all .5s ease-in-out;
+
+    &:hover{
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      transform: scale(1.25);
+    }
+
+    svg{
+      align-self: center;
+    }
+
+    a{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p{
+      opacity: 0;
+      color: $color-black;
+      font-size: 0.5em;
+      position: absolute;
+      z-index: 499;
+      right: 0px;
+      top: -12px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      text-align: left;
+    }
+  }
+}
+
+.ft-button--feature-label{
+  padding: 0px ;
+  margin: 0px;
+  height: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 4px;
+  color: $color-gray;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &:hover{
+    color: $color-black;
+    background-color: $color-gray-lightest;
+  }
+  &:active{
+    color: $color-black;
+    background-color: $color-secondary-darker;
+  }
+  &:disabled{
+    color: $color-gray-lighter;
+    background: transparent;
+  }
+
+  p{
+    margin:  0px;
+    padding: 0px 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    line-height: 20px;
+  }
+  
+  
+}
+
+.ft-button--outline-dark {
+  background-color: transparent;
+  border-color: $color-white;
+  border-width: 2px;
+  color: $color-white;
+
+  &:hover {
+    color: $color-gray-dark;
+    background-color: $color-white;
+  }
+  &:disabled {
+    color: $color-gray-dark;
+    border-color: $color-gray-dark;
+
+    &:hover{
+      background-color: transparent;
+    }
+  }
+}
+
+
+.ft-button--outline-small{
+  height: 24px;
+  border-width: 1px;
+  padding: 1px 8px 2px 8px;
+  line-height: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-align: center;
+}
+
 
 .hvr-grow {
     display: inline-block;

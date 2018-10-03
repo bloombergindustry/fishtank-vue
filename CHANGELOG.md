@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v2.0.0...v3.0.0) (2018-10-03)
+
+
+### Features
+
+* Created button group component ([b42913f](https://github.com/bloombergbna/fishtank-vue/commit/b42913f))
+* Fish Tank Button Group component ([5ea0d3b](https://github.com/bloombergbna/fishtank-vue/commit/5ea0d3b))
+* Heavy refactor of removeable tags ([3868223](https://github.com/bloombergbna/fishtank-vue/commit/3868223))
+* moved accessibility global class script into an external mixin. ([ec7fab4](https://github.com/bloombergbna/fishtank-vue/commit/ec7fab4))
+* refactor of original tag supporting refactor work on removable tags. ([5787bc3](https://github.com/bloombergbna/fishtank-vue/commit/5787bc3))
+* Unit tests for Button group, and button group button ([909c466](https://github.com/bloombergbna/fishtank-vue/commit/909c466))
+
+
+### BREAKING CHANGES
+
+* update to model binding structure of removeable tags
+docs: Created documentation for tags
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v1.1.0...v2.0.0) (2018-09-20)
 
