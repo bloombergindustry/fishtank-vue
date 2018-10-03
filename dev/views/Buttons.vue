@@ -44,6 +44,7 @@
    
     <div>
       <ButtonFAB 
+
         :fab-color-primary-start="fabPrimaryColorStart"
         :fab-color-primary-end="fabPrimaryColorEnd" 
         :fab-color-secondary="fabSecondaryColor"
@@ -56,7 +57,6 @@
         <template slot="option1"> <ArchiveEmail24/> </template>
         <template slot="option2"> <FlagO24/> </template>
         <template slot="option3"> <Help24/>  </template>
-
       </ButtonFAB>
     </div>
     <br>
@@ -124,6 +124,7 @@ export default Vue.extend({
       colorDirection: "to right",
 
       //Relevant to ButtonFAB
+
       fabPrimaryColorStart: '#0018AB',
       fabPrimaryColorEnd: '#9933CC',
       fabSecondaryColor: '#17509F',
@@ -131,7 +132,6 @@ export default Vue.extend({
       fabLink1 : 'https://twitter.com/',
       fabLink2 : 'https://facebook.com/',
       fabLink3 : 'https://instagram.com/',
-
     }
   },
   

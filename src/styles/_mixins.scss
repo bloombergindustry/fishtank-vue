@@ -85,3 +85,21 @@ $breakpoint-small-min: 480px;
     @content;
   }
 }
+
+@mixin baseButton {
+  @include font-base-lg();
+  font-family: $font-primary;
+  font-weight: $fontweight-semi;
+
+  padding: 7px 11px 9px 11px;
+  height: $baseline*10;
+}
+
+@mixin baseButtonSm {
+  @include font-base-sm();
+  font-family: $font-primary;
+  font-weight: $fontweight-semi;
+
+  padding: 7px 11px 9px 11px;
+  height: $baseline*10;
+}
