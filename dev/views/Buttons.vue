@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div><ButtonPrimary>Button Primary</ButtonPrimary></div>
+    <div><ButtonPrimary>Button Primary</ButtonPrimary></div> 
     <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
     <br>
@@ -44,10 +44,19 @@
    
     <div>
       <ButtonFAB 
-        :fab-option="fabLinks" 
-        :fab-color-primary="fabPrimaryColor" 
-        :fab-color-secondary="fabSecondaryColor">
-        !
+
+        :fab-color-primary-start="fabPrimaryColorStart"
+        :fab-color-primary-end="fabPrimaryColorEnd" 
+        :fab-color-secondary="fabSecondaryColor"
+        :option-one-link="fabLink1"
+        :option-two-link="fabLink2"
+        :option-three-link="fabLink3">
+
+        <template slot="mainIcon"> <More32/>  </template>
+
+        <template slot="option1"> <ArchiveEmail24/> </template>
+        <template slot="option2"> <FlagO24/> </template>
+        <template slot="option3"> <Help24/>  </template>
       </ButtonFAB>
     </div>
     <br>
@@ -57,12 +66,31 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ButtonPrimary,ButtonSecondary,ButtonDestructive, ButtonOutline, ButtonOutlineSmall, ButtonOutlineDark, ButtonOutlineDarkSmall, ButtonGradient , ButtonWhite, ButtonFeatureIcon, ButtonFeatureLabel, ButtonFAB} from '@/index'
+import { 
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonDestructive, 
+  ButtonOutline, 
+  ButtonOutlineSmall, 
+  ButtonOutlineDark, 
+  ButtonOutlineDarkSmall,
+  ButtonGradient , 
+  ButtonWhite, 
+  ButtonFeatureIcon, 
+  ButtonFeatureLabel, 
+  ButtonFAB
+} from '@/index'
 
 /*desired Icons to be used must be individually imported here and listed in export
 componenets to be used for the Feature Buttons */
 
-import { Alert24 } from "@fishtank/icons-vue"
+import { 
+  Alert24, 
+  ArchiveEmail24, 
+  FlagO24, 
+  Help24, 
+  More32 
+  } from "@fishtank/icons-vue"
 
 
 export default Vue.extend({
@@ -75,6 +103,10 @@ export default Vue.extend({
     ButtonWhite,
     ButtonGradient,
     Alert24,
+    More32,
+    ArchiveEmail24, 
+    FlagO24, 
+    Help24,
     ButtonFAB,
     ButtonFeatureLabel,
     ButtonFeatureIcon,
@@ -85,18 +117,21 @@ export default Vue.extend({
 
   data: function(){
     return{
+
       //Relevant to ButtonGradient
       colorStart : "#0018AB",
       colorEnd : "#9933CC",
       colorDirection: "to right",
+
       //Relevant to ButtonFAB
-      fabPrimaryColor: '#EA60A7',
-      fabSecondaryColor: '#0D9DDB',
-      fabLinks:[
-        {icon: '1', text: 'Twitter', link: 'https://www.twitter.com/'},
-        {icon: '2', text: 'Facebook', link: 'https://www.facebook.com'},
-        {icon: '3', text: 'Instagram', link: 'https://www.instagram.com'},
-      ],
+
+      fabPrimaryColorStart: '#0018AB',
+      fabPrimaryColorEnd: '#9933CC',
+      fabSecondaryColor: '#17509F',
+
+      fabLink1 : 'https://twitter.com/',
+      fabLink2 : 'https://facebook.com/',
+      fabLink3 : 'https://instagram.com/',
     }
   },
   

@@ -1,16 +1,39 @@
 <template>
   <div class="ft-button--fab-wrapper">
 
-  <BaseButton v-bind="$attrs" v-on="$listeners" class="ft-button--fab" :style="returnPrimaryFabColor">
-    <p> <slot/> </p>
-  </BaseButton>
+    <BaseButton 
+      v-bind="$attrs"
+      :style="returnPrimaryFabColor"
+      class="ft-button--fab"
+      v-on="$listeners"> 
 
-  <ul>
-   <li v-for="fablink in fabOption" :style="returnSecondaryFabColor" >
-   <a :href="fablink.link" > {{fablink.icon}} </a>
-   <p>{{fablink.text}} </p>
-   </li>                                                                   
-  </ul>
+      <slot name="mainIcon"> </slot> 
+    </BaseButton>
+
+    <ul>
+
+      <a :href="optionOneLink">
+        <li
+          :style="returnSecondaryFabColor"> 
+          <slot name="option1"> </slot> 
+        </li>
+      </a>
+
+      <a :href="optionTwoLink">
+        <li
+          :style="returnSecondaryFabColor">
+          <slot name="option2"> </slot> 
+        </li>
+      </a>
+
+      <a :href="optionThreeLink">
+        <li
+          :style="returnSecondaryFabColor"> 
+          <slot name="option3"> </slot> 
+        </li>
+      </a>
+
+    </ul>
 
   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 </template>
@@ -25,13 +48,20 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    fabOption: String,
-    fabColorPrimary : String,
-    fabColorSecondary: String,
+
+    fabColorPrimaryStart :{type: String, required:true, default: "#0018AB"},
+    fabColorPrimaryEnd :{type: String, required:true, default: "#9933CC"},
+    fabColorSecondary :{type: String, required:true, default: "#777C7F"},
+
+    optionOneLink :{type: String, required:true, default:" "},
+    optionTwoLink :{type: String, required:true, default:" "},
+    optionThreeLink :{type: String, required:true, default:" "},
+
     },   
   computed:{
     returnPrimaryFabColor(): string {
-      return `background:  ${this.fabColorPrimary} ;`
+      return `background-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0%, ${ this.fabColorPrimaryEnd } 100% ); 
+      border-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0% , ${ this.fabColorPrimaryEnd } 100% ) 1% ; `
     },
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`
