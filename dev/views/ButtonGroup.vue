@@ -13,60 +13,19 @@
         v-model="bgValue" 
         value="Staff"
         label="Staff"/>
-      <FishTankBGButton
-        v-model="bgValue"
-        value="Agency"
-        label="Agency"/>
-      <FishTankBGButton 
-        v-model="bgValue"
-        value="Lobbyist"
-        label="Lobbyist"/>
-      <FishTankBGButton 
-        v-model="bgValue"
-        value="Contractors"
-        label="Contractors"
-        disabled/>
     </FishTankButtonGroup>
     <br>
     <FishTankButtonGroup small>
       <FishTankBGButton
-        v-model="bgValue"
+        v-model="bgValueAltBeta"
         value="All"
         label="All"/>
       <FishTankBGButton
-        v-model="bgValue"
+        v-model="bgValueAltBeta"
         value="Members"
         label="Members"/>
       <FishTankBGButton
-        v-model="bgValue" 
-        value="Staff"
-        label="Staff"/>
-      <FishTankBGButton
-        v-model="bgValue"
-        value="Agency"
-        label="Agency"/>
-      <FishTankBGButton 
-        v-model="bgValue"
-        value="Lobbyist"
-        label="Lobbyist"/>
-      <FishTankBGButton 
-        v-model="bgValue"
-        value="Contractors"
-        label="Contractors"
-        disabled/>
-    </FishTankButtonGroup>
-    <br>
-    <FishTankButtonGroup>
-      <FishTankBGButton
-        v-model="bgValueAlt"
-        value="All"
-        label="All"/>
-      <FishTankBGButton
-        v-model="bgValueAlt"
-        value="Members"
-        label="Members"/>
-      <FishTankBGButton
-        v-model="bgValueAlt" 
+        v-model="bgValueAltBeta" 
         value="Staff"
         label="Staff"/>
     </FishTankButtonGroup>
@@ -90,9 +49,8 @@ export default Vue.extend({
   },
   data: function(){
     return {
-      bgValue:"Lobbyist",
-      bgValueAltBeta:"All",
-      bgValueAlt:"Staff"
+      bgValue:"All",
+      bgValueAltBeta:"Members",
     }
   }
 })

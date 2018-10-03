@@ -463,7 +463,3 @@ Actions applicable to all button components.
 |block|Boolean|Changes Button to full width block element|false| false|
 
  ###### See [Usage](#usage) section for an explanation on how to enable button components in your template.
-
-&nbsp;
-
-###### Fish Tank Vue Button Components Documentation Provided By - [@AmirahChamble](https://github.com/AmirahChamble) .
