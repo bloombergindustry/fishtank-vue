@@ -13,6 +13,7 @@ npm install @fishtank/fishtank-vue
 * [Cards](src/components/Card.md)
 * [Modals](src/components/Modals.md)
 * [Buttons](src/components/Buttons.md)
+* [Button Group](src/components/ButtonGroup.md)
 * [Radios](src/components/Radios.md)
 * [Switches](src/components/Switches.md)
 * [Loaders](src/components/Loaders.md)

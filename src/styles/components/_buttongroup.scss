@@ -1,7 +1,11 @@
 .ft-buttongroup--is-focused ,.ft-buttongroup__button--is-focused {
   box-shadow: 0 0 0 2px $color-selected;
+  border-radius: 2px;
 }
 
+.ft-buttongroup__button--small.ft-buttongroup--is-focused{
+  border-radius: 4px;
+}
 .ft-buttongroup{
   display: flex;
   width: 100%;
