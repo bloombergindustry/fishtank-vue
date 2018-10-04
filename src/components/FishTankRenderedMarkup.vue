@@ -28,7 +28,6 @@ export default Vue.extend({
   },
   methods:{
     getrenderedMarkup: function():string{
-      console.log(this)
       let markup = '<h1>Test</h1>'
       this.$slots.default.forEach(slot =>{
         if (slot !== undefined){
