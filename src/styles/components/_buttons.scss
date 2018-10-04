@@ -191,6 +191,10 @@ body.user-is-tabbing button:focus {
       background-color: $color-gray;
     }
   }
+  &:active {
+    background-color:rgba(0,0,0,0.3);
+    border-color: rgba(0,0,0,0.3);
+  }
 }
 .ft-button--outline {
   background-color: none;
@@ -210,6 +214,10 @@ body.user-is-tabbing button:focus {
       background-color: transparent;
 
     }
+  }
+  &:active {
+    background-color: $color-gray-dark;
+    border-color: $color-gray-dark;
   }
 }
 
@@ -238,12 +246,12 @@ body.user-is-tabbing button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
-    transition: all 1s ease-in-out;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
   
     &:hover{
-      transform: scale(1.5);
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      transform: scale(1.15);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
     }
   }
   
@@ -252,14 +260,15 @@ body.user-is-tabbing button:focus {
   }
 
   &:hover ul{
-    transition: 0.5s ease-in;
+    transition: 0.3s;
     bottom: 50px;
     opacity: 1;
+
   }
   &:hover ul li p{
       right: 70px;
       opacity: 1;
-      transition: 1s ease-in;
+      transition: 0.3s ease-in;
   }
 
   p, a{
@@ -275,12 +284,13 @@ body.user-is-tabbing button:focus {
     position: absolute;
     z-index: 49;
     bottom: 0px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
+    padding-bottom: 12px;
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.15s ease-in-out;
   }
 
   li{
@@ -297,12 +307,12 @@ body.user-is-tabbing button:focus {
     flex-direction: column;
     justify-content: center;
     align-self: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all .5s ease-in-out;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
 
     &:hover{
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      transform: scale(1.25);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+      transform: scale(1.15);
     }
 
     svg{
@@ -349,10 +359,12 @@ body.user-is-tabbing button:focus {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   &:hover{
     color: $color-black;
     background-color: $color-gray-lightest;
+    svg {
+      fill: $color-black;
+    }
   }
   &:active{
     color: $color-black;
@@ -392,6 +404,10 @@ body.user-is-tabbing button:focus {
     &:hover{
       background-color: transparent;
     }
+  }
+  &:active {
+    background-color: $color-secondary-darker;
+    border-color: $color-secondary-darker;
   }
 }
 
