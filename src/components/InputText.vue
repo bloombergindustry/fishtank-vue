@@ -28,16 +28,35 @@
         <slot name="leftIcon"/>
       </span>
 
-      <input
-        ref="input"
-        :type="type"
-        :value="value"
-        :id="labelId"
-        v-bind="$attrs"
-        class="ft-input-text__input"
-        v-on="listeners"
-      >
-
+      <template v-if="type === 'textarea'">
+        <textarea
+          ref="input"
+          :type="type"
+          :value="value"
+          v-model="textAreaModel"
+          :id="labelId"
+          :style="{height:textAreafalseHeight + 'px', overflow:'visible', minHeight:minheight+'px', maxHeight:maxheight+'px'}"
+          v-bind="$attrs"
+          class="ft-input-text__input"
+          @keyup.enter="getFalseHeight"
+          v-on="listeners"/>
+      </template>
+      <template v-else>
+        <input
+          ref="input"
+          :type="type"
+          :value="value"
+          :id="labelId"
+          v-bind="$attrs"
+          class="ft-input-text__input"
+          v-on="listeners">
+      </template>
+      <div 
+        v-if="type === 'textarea'"
+        ref="falseTextarea" 
+        class="falseTextarea">
+        {{ textAreaModel }}
+      </div>
       <span
         v-if="showRightIcon"
         class="ft-input-text__right-icon"
@@ -64,6 +83,7 @@
 </template>
 
 <script lang="ts">
+
 import Vue from "vue"
 import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
 
@@ -83,6 +103,21 @@ export default Vue.extend({
       type: String,
       default: undefined
     },
+    id:{
+      type:String,
+      default:null,
+      required:false
+    },
+    maxheight:{
+      type:Number,
+      default:null,
+      required:false
+    },
+    minheight:{
+      type:Number,
+      default:null,
+      required:false
+    },
     type: {
       required: false,
       default: "text",
@@ -90,6 +125,7 @@ export default Vue.extend({
       validator: (value: string) => {
         const textTypes = [
           "text",
+          "textarea",
           "password",
           "email",
           "search",
@@ -120,6 +156,12 @@ export default Vue.extend({
       }
     }
   },
+  data:function(){
+    return {
+      textAreaModel:"",
+      textAreafalseHeight:51,
+      }
+  },
   computed: {
     labelId(): string {
       return `ft-input-${(this as any)._uid}`
@@ -145,11 +187,12 @@ export default Vue.extend({
           this.updateValue($event.target.value)
         }
       }
-    }
+    },
   },
   methods: {
     updateValue(value: string | undefined) {
       this.$emit("input", value)
+      this.getFalseHeight()
     },
     clearText() {
       this.updateValue(undefined)
@@ -157,7 +200,28 @@ export default Vue.extend({
     },
     focusElement(element: HTMLElement) {
       element.focus()
+    },
+    getFalseHeight(): void{
+      if (this.$refs.falseTextarea !== undefined) {
+        this.textAreafalseHeight = this.$refs.falseTextarea.clientHeight > 51 ? this.$refs.falseTextarea.clientHeight+10 : 51
+      }
+      
     }
   }
 })
 </script>
+
+<style lang="scss">
+.falseTextarea{
+  visibility: hidden;
+  padding-bottom: 15px;
+  position: absolute;
+  left: -999999px;
+  white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+textarea{
+   overflow: auto;
+}
+</style>
