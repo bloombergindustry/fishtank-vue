@@ -23,6 +23,10 @@
       label="Input Error Example"
       type="number"
       error="Error Message"/>
+    <InputText
+      :value="val"
+      label="Text Input Type"
+      type="textarea"/>
     <!-- <InputText
       :value="val"
       label="Telephone Input Type"
