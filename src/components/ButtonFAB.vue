@@ -7,29 +7,24 @@
       class="ft-button--fab"
       v-on="$listeners"> 
 
-      <slot name="mainIcon"> </slot> 
+      <slot name="mainIcon"/> 
     </BaseButton>
 
-    <ul>
+    <ul v-if="optionsAvailable">
 
-      <a :href="optionOneLink">
-        <li
-          :style="returnSecondaryFabColor"> 
-          <slot name="option1"> </slot> 
+      <a 
+        :href="optionOneLink">
+        <li :style="returnSecondaryFabColor" > 
+
+          <slot name="option1"/> 
         </li>
       </a>
 
-      <a :href="optionTwoLink">
+      <a 
+        :href="optionTwoLink">
         <li
-          :style="returnSecondaryFabColor">
-          <slot name="option2"> </slot> 
-        </li>
-      </a>
-
-      <a :href="optionThreeLink">
-        <li
-          :style="returnSecondaryFabColor"> 
-          <slot name="option3"> </slot> 
+          :style="returnSecondaryFabColor" >
+          <slot name="option2"/> 
         </li>
       </a>
 
@@ -48,10 +43,13 @@ export default Vue.extend({
     BaseButton
   },
   props:{
+    optionsAvailable: {type: Boolean, required:true, default: false },
 
     fabColorPrimaryStart :{type: String, required:true, default: "#0018AB"},
     fabColorPrimaryEnd :{type: String, required:true, default: "#9933CC"},
     fabColorSecondary :{type: String, required:true, default: "#777C7F"},
+
+  
 
     optionOneLink :{type: String, required:true, default:" "},
     optionTwoLink :{type: String, required:true, default:" "},
