@@ -11,6 +11,7 @@
       <li><a href="#/inputtext">Input Text</a></li>
       <li><a href="#/loaders">Spinning Loader</a></li>
       <li><a href="#/buttongroup">Button Group</a></li>
+      <li><a href="#/contentloaders">Content Loaders</a></li>
     </ul>
   </section>
 </template>
