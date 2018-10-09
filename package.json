@@ -35,7 +35,7 @@
     "vue": ">= 2.5.0"
   },
   "dependencies": {
-    "@fishtank/icons-vue": ">= 3.5.0",
+    "@fishtank/icons-vue": ">= 3.8.0",
     "tslib": ">= 1.9.0",
     "vue-popperjs": "1.5.0"
   },
