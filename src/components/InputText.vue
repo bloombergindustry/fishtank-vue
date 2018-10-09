@@ -206,7 +206,6 @@ export default Vue.extend({
       if (this.$refs.falseTextarea !== undefined) {
         this.textAreafalseHeight = this.$refs.falseTextarea.clientHeight > 51 ? this.$refs.falseTextarea.clientHeight+10 : 51
       }
-      
     }
   }
 })
