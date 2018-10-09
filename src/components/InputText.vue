@@ -159,7 +159,11 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
+<<<<<<< HEAD
       textAreafalseHeight:51,
+=======
+      textAreafalseHeight:"100px",
+>>>>>>> fdcaa6f4912f9ac0dc1e1a5c4cb79fcd3e2cadc4
       }
   },
   computed: {
@@ -191,6 +195,7 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
+      this.getFalseHeight()
       this.$emit("input", value)
       this.getFalseHeight()
     },
@@ -202,10 +207,14 @@ export default Vue.extend({
       element.focus()
     },
     getFalseHeight(): void{
+<<<<<<< HEAD
       if (this.$refs.falseTextarea !== undefined) {
         this.textAreafalseHeight = this.$refs.falseTextarea.clientHeight > 51 ? this.$refs.falseTextarea.clientHeight+10 : 51
       }
       
+=======
+      this.textAreafalseHeight = this.$refs.falseTextarea !== undefined ? this.$refs.falseTextarea.clientHeight+'px' : '40px'
+>>>>>>> fdcaa6f4912f9ac0dc1e1a5c4cb79fcd3e2cadc4
     }
   }
 })
@@ -214,10 +223,16 @@ export default Vue.extend({
 <style lang="scss">
 .falseTextarea{
   visibility: hidden;
+<<<<<<< HEAD
   padding-bottom: 15px;
   position: absolute;
   left: -999999px;
   white-space: pre-line;
+=======
+  position: absolute;
+  left: -999999px;
+  white-space: pre-wrap;
+>>>>>>> fdcaa6f4912f9ac0dc1e1a5c4cb79fcd3e2cadc4
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
