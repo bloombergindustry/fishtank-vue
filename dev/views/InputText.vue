@@ -27,7 +27,12 @@
       :minheight="75"
       :maxheight="170"
       :value="val"
-      label="Text Input Type"
+      label="TextArea Input Type - Max Height 170px"
+      type="textarea"/>
+    
+    <InputText
+      :value="val"
+      label="TextArea Input Type - No Max Height"
       type="textarea"/>
     <!-- <InputText
       :value="val"

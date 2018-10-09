@@ -35,8 +35,9 @@
           :value="value"
           v-model="textAreaModel"
           :id="labelId"
-          :style="{height:textAreafalseHeight + 'px', overflow:'visible', minHeight:minheight+'px', maxHeight:maxheight+'px'}"
+          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null)}"
           v-bind="$attrs"
+          :rows="calcedTextAreafalseHeight"
           class="ft-input-text__input"
           @keyup.enter="getFalseHeight"
           v-on="listeners"/>
@@ -55,7 +56,7 @@
         v-if="type === 'textarea'"
         ref="falseTextarea" 
         class="falseTextarea">
-        {{ textAreaModel }}
+        &nbsp;{{ textAreaModel }}
       </div>
       <span
         v-if="showRightIcon"
@@ -118,6 +119,11 @@ export default Vue.extend({
       default:null,
       required:false
     },
+    resize:{
+      type:Boolean,
+      default:false,
+      required:false
+    },
     type: {
       required: false,
       default: "text",
@@ -161,6 +167,7 @@ export default Vue.extend({
     return {
       textAreaModel:"",
       textAreafalseHeight:51,
+      calcedTextAreafalseHeight:1
       }
   },
   computed: {
@@ -204,11 +211,18 @@ export default Vue.extend({
       element.focus()
     },
     getFalseHeight(): void{
-      if (this.$refs.falseTextarea !== undefined) {
-        this.textAreafalseHeight = this.$refs.falseTextarea.clientHeight > 51 ? this.$refs.falseTextarea.clientHeight+10 : 51
+      if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+        return
       }
+      if (this.$refs.falseTextarea !== undefined) {
+        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight > 51 ? (this.$refs.falseTextarea as HTMLDivElement).clientHeight+10 : 51
+      }
+<<<<<<< HEAD
       
     }
+=======
+    },
+>>>>>>> --amend
   }
 })
 </script>
@@ -222,6 +236,7 @@ export default Vue.extend({
   white-space: pre-line;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  transition:all 2500ms ease-in-out;
 }
 textarea{
    overflow: auto;
