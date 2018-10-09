@@ -191,6 +191,7 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
+      this.getFalseHeight()
       this.$emit("input", value)
       this.getFalseHeight()
     },
