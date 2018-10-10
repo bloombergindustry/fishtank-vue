@@ -24,7 +24,6 @@
       type="number"
       error="Error Message"/>
     <InputText
-      :minheight="75"
       :maxheight="170"
       :value="val"
       label="TextArea Input Type - Max Height 170px"
