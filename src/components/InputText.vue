@@ -38,7 +38,7 @@
           :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
           :rows="calcedTextAreafalseHeight"
-          class="ft-input-text__input"
+          class="ft-input-text__input ft-input-text__input__textarea"
           @keyup="getFalseHeight"
           @keydown.delete="getFalseHeight"
           @keydown.ctrl.86="getFalseHeight"
@@ -58,7 +58,7 @@
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        class="falseTextarea">
+        class="ft-false-text-area">
         &nbsp;{{ textAreaModel }}
       </p>
       <span
@@ -96,11 +96,19 @@ export default Vue.extend({
     CloseIcon: CloseIcon
   },
   inheritAttrs: false,
+  model:{
+    prop:'modelValue',
+    event: 'input'
+  },
   props: {
     value: {
       required: false,
       type: String,
       default: ""
+    },
+    modelValue: {
+      type:[String, Boolean, Object, Array, Number],
+      default: false
     },
     label: {
       required: false,
@@ -227,25 +235,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-.falseTextarea{
-  visibility: hidden;
-  font-size:1rem;
-  padding-bottom: 15px;
-  position: absolute;
-  left: -999999px;
-  margin: 0px;
-  padding-bottom:0px;
-  padding:0px;
-  background: lightblue;
-  display: inline-block;
-  white-space:pre-line;
-  word-wrap: break-word;
-}
-textarea{
-   overflow: auto;
-   transition:all 250ms ease-in-out;
-   padding:6px 1px 1px 1px;
-}
-</style>
