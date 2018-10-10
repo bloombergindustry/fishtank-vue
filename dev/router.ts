@@ -49,6 +49,10 @@ export default new Router({
     {
       path: '/buttongroup',
       component: () => import("./views/ButtonGroup.vue")
+    },
+    {
+      path: '/contentloaders',
+      component: () => import("./views/ContentLoaders.vue")
     }
     
   ]
