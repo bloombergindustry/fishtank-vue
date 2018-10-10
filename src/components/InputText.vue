@@ -35,11 +35,14 @@
           :value="value"
           v-model="textAreaModel"
           :id="labelId"
-          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null)}"
+          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
           :rows="calcedTextAreafalseHeight"
           class="ft-input-text__input"
-          @keyup.enter="getFalseHeight"
+          @keyup="getFalseHeight"
+          @keydown.delete="getFalseHeight"
+          @keydown.ctrl.86="getFalseHeight"
+          @cut="getFalseHeight"
           v-on="listeners"/>
       </template>
       <template v-else>
@@ -52,12 +55,12 @@
           class="ft-input-text__input"
           v-on="listeners">
       </template>
-      <div 
+      <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
         class="falseTextarea">
         &nbsp;{{ textAreaModel }}
-      </div>
+      </p>
       <span
         v-if="showRightIcon"
         class="ft-input-text__right-icon"
@@ -166,8 +169,9 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
-      textAreafalseHeight:51,
-      calcedTextAreafalseHeight:1
+      textAreafalseHeight:24,
+      calcedTextAreafalseHeight:1,
+      scrollOn:false
       }
   },
   computed: {
@@ -175,17 +179,17 @@ export default Vue.extend({
       return `ft-input-${(this as any)._uid}`
     },
     showRightIcon(): boolean {
-      return !!this.$slots.rightIcon || (this.value && this.value.length > 0)
+      return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
     errorMessage(): string | undefined {
-      if (!this.error) {
+      if (!(this as any).error) {
         return undefined
       }
 
-      if (typeof this.error === "string") {
-        return this.error
-      } else if (this.error.fullMessage) {
-        return this.error.fullMessage
+      if (typeof (this as any).error === "string") {
+        return (this as any).error
+      } else if ((this as any).error.fullMessage) {
+        return (this as any).error.fullMessage
       } else { return undefined }
     },
     listeners(): Record<string, Function | Function[]> {
@@ -199,9 +203,9 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
-      this.getFalseHeight()
+      // this.getFalseHeight()
       this.$emit("input", value)
-      this.getFalseHeight()
+      // this.getFalseHeight()
     },
     clearText() {
       this.updateValue(undefined)
@@ -212,10 +216,12 @@ export default Vue.extend({
     },
     getFalseHeight(): void{
       if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+        if (!this.scrollOn) this.scrollOn = true
         return
       }
       if (this.$refs.falseTextarea !== undefined) {
-        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight > 51 ? (this.$refs.falseTextarea as HTMLDivElement).clientHeight+10 : 51
+        if (this.scrollOn) this.scrollOn = false
+        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
       }
 <<<<<<< HEAD
       
@@ -230,15 +236,21 @@ export default Vue.extend({
 <style lang="scss">
 .falseTextarea{
   visibility: hidden;
+  font-size:1rem;
   padding-bottom: 15px;
   position: absolute;
   left: -999999px;
-  white-space: pre-line;
+  margin: 0px;
+  padding-bottom:0px;
+  padding:0px;
+  background: lightblue;
+  display: inline-block;
+  white-space:pre-line;
   word-wrap: break-word;
-  overflow-wrap: break-word;
-  transition:all 2500ms ease-in-out;
 }
 textarea{
    overflow: auto;
+   transition:all 250ms ease-in-out;
+   padding:6px 1px 1px 1px;
 }
 </style>

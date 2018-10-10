@@ -29,11 +29,10 @@
       :value="val"
       label="TextArea Input Type - Max Height 170px"
       type="textarea"/>
-    
-    <InputText
+    <!-- <InputText
       :value="val"
       label="TextArea Input Type - No Max Height"
-      type="textarea"/>
+      type="textarea"/> -->
     <!-- <InputText
       :value="val"
       label="Telephone Input Type"
