@@ -43,7 +43,7 @@ describe("InputText", () => {
     })
 
     context('when input type is provided', () => {
-      const validTypes = [ "text", "password", "email", "search", "number", "tel", "url" ]
+      const validTypes = [ "text", "password", "email", "search", "number", "tel", "url", "textarea" ]
 
       validTypes.forEach(type => {
         context(`when the type is "${type}"`, () => {
