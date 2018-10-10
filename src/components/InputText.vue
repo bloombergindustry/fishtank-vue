@@ -223,12 +223,7 @@ export default Vue.extend({
         if (this.scrollOn) this.scrollOn = false
         this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
       }
-<<<<<<< HEAD
-      
-    }
-=======
     },
->>>>>>> --amend
   }
 })
 </script>
