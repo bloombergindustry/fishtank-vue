@@ -28,16 +28,39 @@
         <slot name="leftIcon"/>
       </span>
 
-      <input
-        ref="input"
-        :type="type"
-        :value="value"
-        :id="labelId"
-        v-bind="$attrs"
-        class="ft-input-text__input"
-        v-on="listeners"
-      >
-
+      <template v-if="type === 'textarea'">
+        <textarea
+          ref="input"
+          :type="type"
+          :value="value"
+          v-model="textAreaModel"
+          :id="labelId"
+          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
+          v-bind="$attrs"
+          :rows="calcedTextAreafalseHeight"
+          class="ft-input-text__input ft-input-text__input__textarea"
+          @keyup="getFalseHeight"
+          @keydown.delete="getFalseHeight"
+          @keydown.ctrl.86="getFalseHeight"
+          @cut="getFalseHeight"
+          v-on="listeners"/>
+      </template>
+      <template v-else>
+        <input
+          ref="input"
+          :type="type"
+          :value="value"
+          :id="labelId"
+          v-bind="$attrs"
+          class="ft-input-text__input"
+          v-on="listeners">
+      </template>
+      <p 
+        v-if="type === 'textarea'"
+        ref="falseTextarea" 
+        class="ft-false-text-area">
+        &nbsp;{{ textAreaModel }}
+      </p>
       <span
         v-if="showRightIcon"
         class="ft-input-text__right-icon"
@@ -64,6 +87,7 @@
 </template>
 
 <script lang="ts">
+
 import Vue from "vue"
 import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
 
@@ -72,16 +96,44 @@ export default Vue.extend({
     CloseIcon: CloseIcon
   },
   inheritAttrs: false,
+  model:{
+    prop:'modelValue',
+    event: 'input'
+  },
   props: {
     value: {
       required: false,
       type: String,
       default: ""
     },
+    modelValue: {
+      type:[String, Boolean, Object, Array, Number],
+      default: false
+    },
     label: {
       required: false,
       type: String,
       default: undefined
+    },
+    id:{
+      type:String,
+      default:null,
+      required:false
+    },
+    maxheight:{
+      type:Number,
+      default:null,
+      required:false
+    },
+    minheight:{
+      type:Number,
+      default:null,
+      required:false
+    },
+    resize:{
+      type:Boolean,
+      default:false,
+      required:false
     },
     type: {
       required: false,
@@ -90,6 +142,7 @@ export default Vue.extend({
       validator: (value: string) => {
         const textTypes = [
           "text",
+          "textarea",
           "password",
           "email",
           "search",
@@ -121,22 +174,30 @@ export default Vue.extend({
       }
     }
   },
+  data:function(){
+    return {
+      textAreaModel:"",
+      textAreafalseHeight:24,
+      calcedTextAreafalseHeight:1,
+      scrollOn:false
+      }
+  },
   computed: {
     labelId(): string {
       return `ft-input-${(this as any)._uid}`
     },
     showRightIcon(): boolean {
-      return !!this.$slots.rightIcon || (this.value && this.value.length > 0)
+      return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
     errorMessage(): string | undefined {
-      if (!this.error) {
+      if (!(this as any).error) {
         return undefined
       }
 
-      if (typeof this.error === "string") {
-        return this.error
-      } else if (this.error.fullMessage) {
-        return this.error.fullMessage
+      if (typeof (this as any).error === "string") {
+        return (this as any).error
+      } else if ((this as any).error.fullMessage) {
+        return (this as any).error.fullMessage
       } else { return undefined }
     },
     listeners(): Record<string, Function | Function[]> {
@@ -146,11 +207,13 @@ export default Vue.extend({
           this.updateValue($event.target.value)
         }
       }
-    }
+    },
   },
   methods: {
     updateValue(value: string | undefined) {
+      // this.getFalseHeight()
       this.$emit("input", value)
+      // this.getFalseHeight()
     },
     clearText() {
       this.updateValue(undefined)
@@ -158,7 +221,17 @@ export default Vue.extend({
     },
     focusElement(element: HTMLElement) {
       element.focus()
-    }
+    },
+    getFalseHeight(): void{
+      if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+        if (!this.scrollOn) this.scrollOn = true
+        return
+      }
+      if (this.$refs.falseTextarea !== undefined) {
+        if (this.scrollOn) this.scrollOn = false
+        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+      }
+    },
   }
 })
 </script>

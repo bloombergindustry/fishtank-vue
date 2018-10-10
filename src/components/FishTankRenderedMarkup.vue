@@ -13,7 +13,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import 'prismjs'
-import 'prismjs/themes/prism.css'
 import Prism from 'vue-prism-component'
 
 interface MySlot extends Node {
@@ -45,10 +44,4 @@ export default Vue.extend({
   }, 
 })
 </script>
-
-<style>
-  .ft-rendered-markup code {
-    white-space: pre-wrap;
-  }
-</style>
 
