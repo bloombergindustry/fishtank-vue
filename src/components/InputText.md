@@ -51,10 +51,10 @@
     
     ```xml
     <FishTankTextInput
+      :maxheight="170"
       :value="val"
-      label="Input Error Example"
-      type="number"
-      error="Error Message"/>
+      label="TextArea Input Type - Max Height 170px"
+      type="textarea"/>
     
   
 ## Usage
