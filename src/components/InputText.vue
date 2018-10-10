@@ -125,11 +125,6 @@ export default Vue.extend({
       default:null,
       required:false
     },
-    minheight:{
-      type:Number,
-      default:null,
-      required:false
-    },
     resize:{
       type:Boolean,
       default:false,

@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "private": false,
   "license": "Apache-2.0",
-  "author": "Fishtank Design System <agile_fishtank@bna.com>",
+  "author": "Fish Tank Design System <agile_fishtank@bna.com>",
   "scripts": {
     "clean": "rimraf dist/",
     "dev": "yarn run serve",
