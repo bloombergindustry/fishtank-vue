@@ -1,13 +1,13 @@
 <template>
 
   <ContentLoader
-		:height="92"
-		:width="400"
-		:speed="2"
-		primary-color="#f3f3f3"
-		secondary-color="#ecebeb"
-	>
-	<rect 
+    :height="92"
+    :width="400"
+    :speed="2"
+    primary-color="#f3f3f3"
+    secondary-color="#ecebeb"
+  >
+    <rect 
       x="0" 
       y="12" 
       rx="4" 
@@ -15,7 +15,7 @@
       width="191" 
       height="12" 
     /> 
-	<rect 
+    <rect 
       x="0" 
       y="40" 
       rx="5" 
@@ -23,7 +23,7 @@
       width="400" 
       height="16" 
     /> 
-	<rect 
+    <rect 
       x="270" 
       y="12" 
       rx="4" 
@@ -31,7 +31,7 @@
       width="132" 
       height="12" 
     /> 
-	<rect 
+    <rect 
       x="0" 
       y="64" 
       rx="5" 
@@ -47,7 +47,7 @@
       width="400" 
       height="1" 
     />
-	</ContentLoader>
+  </ContentLoader>
 
 </template>
 <script lang="ts">
