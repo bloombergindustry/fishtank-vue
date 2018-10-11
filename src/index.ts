@@ -70,4 +70,6 @@ export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpi
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 
+export { default as ContentLoaderAlertList } from "./components/ContentLoaderAlertList.vue"
+
 import './styles.scss'

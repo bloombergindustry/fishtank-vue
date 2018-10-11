@@ -1,46 +1,26 @@
 <template>
+  <div>
+    <div><h1> Page Loader </h1></div>
+    <div 
+      style="width : 400px;
+      height: 600px;  
+      border: 2px solid #292e31;
+      border-radius: 4px;
+      overflow: scroll;"
+    >
+      <ContentLoaderAlertList/>
 
-<div 
-  style="width : 400px;  
- 
-  ">
-
-  <ContentLoader
-		:height="92"
-		:width="400"
-		:speed="2"
-		primaryColor="#f3f3f3"
-		secondaryColor="#ecebeb"
-	>
-		<rect x="0" y="12" rx="4" ry="0" width="191" height="12" /> 
-		<rect x="0" y="40" rx="5" ry="0" width="400" height="16" /> 
-		<rect x="270" y="12" rx="4" ry="0" width="132" height="12" /> 
-		<rect x="0" y="64" rx="5" ry="0" width="364" height="16" />
-    <rect x="0" y="91" rx="5" ry="0" width="400" height="1" />
-	</ContentLoader>
-  <ContentLoader
-		:height="92"
-		:width="400"
-		:speed="2"
-		primaryColor="#f3f3f3"
-		secondaryColor="#ecebeb"
-	>
-		<rect x="0" y="12" rx="4" ry="0" width="191" height="12" /> 
-		<rect x="0" y="40" rx="5" ry="0" width="400" height="16" /> 
-		<rect x="270" y="12" rx="4" ry="0" width="132" height="12" /> 
-		<rect x="0" y="64" rx="5" ry="0" width="364" height="16" />
-    <rect x="0" y="91" rx="5" ry="0" width="400" height="1" />
-	</ContentLoader>
-
-</div>
+    </div>
+  </div>
 </template>
+
 <script lang="ts">
-import { ContentLoader } from "vue-content-loader"
 import Vue from 'vue'
+import {ContentLoaderAlertList} from '@/index'
 
 export default Vue.extend({
   components:{
-    ContentLoader
+    ContentLoaderAlertList
   },
   
 })
