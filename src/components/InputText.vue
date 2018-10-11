@@ -29,6 +29,8 @@
       </span>
 
       <template v-if="type === 'textarea'">
+        /* eslint-disable */
+        <!--eslint-disable-->
         <textarea
           ref="input"
           :type="type"
@@ -43,7 +45,8 @@
           @keydown.delete="getFalseHeight"
           @keydown.ctrl.86="getFalseHeight"
           @cut="getFalseHeight"
-          v-on="listeners"/>
+          v-on="listeners"/></textarea>
+        <!--eslint-enable-->
       </template>
       <template v-else>
         <input
@@ -206,9 +209,7 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
-      // this.getFalseHeight()
       this.$emit("input", value)
-      // this.getFalseHeight()
     },
     clearText() {
       this.updateValue(undefined)
