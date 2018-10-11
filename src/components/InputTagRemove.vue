@@ -41,7 +41,7 @@
       label:{
         type:String,
         default:null,
-        require
+        required:true
       },
       disabled:{
         type:Boolean,

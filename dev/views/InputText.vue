@@ -4,6 +4,12 @@
       :value="val"
       label="Text Input Type"
       type="text"/>
+    <FishTankRenderedMarkup>
+      <InputText
+        :value="val"
+        label="Text Input Type"
+        type="text"/>
+    </FishTankRenderedMarkup>
     <InputText
       :value="val"
       label="Password Input Type"
@@ -17,6 +23,15 @@
       label="Input Error Example"
       type="number"
       error="Error Message"/>
+    <InputText
+      :maxheight="170"
+      :value="val"
+      label="TextArea Input Type - Max Height 170px"
+      type="textarea"/>
+    <!-- <InputText
+      :value="val"
+      label="TextArea Input Type - No Max Height"
+      type="textarea"/> -->
     <!-- <InputText
       :value="val"
       label="Telephone Input Type"
@@ -39,11 +54,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText } from '@/index'
+import { InputText, FishTankRenderedMarkup } from '@/index'
 
 export default Vue.extend({
   components:{
     InputText,
+    FishTankRenderedMarkup
   },
   data(){
     return {

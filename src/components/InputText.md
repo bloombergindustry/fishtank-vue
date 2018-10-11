@@ -45,6 +45,18 @@
       error="Error Message"/>
     ```
   
+  - Textarea Input
+  
+    <img src="../../assets/ft-input-text-textarea.png" width="50%" alt="Fish Tank Plain Card">
+    
+    ```xml
+    <FishTankTextInput
+      :maxheight="170"
+      :value="val"
+      label="TextArea Input Type - Max Height 170px"
+      type="textarea"/>
+    
+  
 ## Usage
 
 To import into your component
@@ -56,6 +68,8 @@ import {
 ```
 
 ## Props
+
+### Universal Props
 
 <table>
   <thead>
@@ -92,5 +106,31 @@ import {
     <td>Error state message. <i>If not null, then error state is active, and the value is the error message</i></td>
     <td>false</td>
     <td>null</td>
+  </tr>
+</table>
+
+### Textarea Props
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Required</th>
+    <th>Default</th>
+  </thead>
+  <tr>
+    <td>maxheight</td>
+    <td>Number</td>
+    <td>Miximum height of the textarea; content taller than the max height trigger the overflow:scroll property</td>
+    <td>false</td>
+    <td>null</td>
+  </tr>
+  <tr>
+    <td>resize</td>
+    <td>Boolean</td>
+    <td>Resize property on the textarea</td>
+    <td>false</td>
+    <td>false</td>
   </tr>
 </table>

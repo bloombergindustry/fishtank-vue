@@ -132,3 +132,23 @@ input::-webkit-inner-spin-button {
     color: $color-error;
   }
 }
+.ft-false-text-area{
+  visibility: hidden;
+  font-size:1rem;
+  padding-bottom: 15px;
+  position: absolute;
+  left: -999999px;
+  margin: 0px;
+  padding-bottom:0px;
+  padding:0px;
+  background: lightblue;
+  display: inline-block;
+  white-space:pre-line;
+  word-wrap: break-word;
+}
+.ft-input-text__input__textarea{
+   overflow: auto;
+   transition:height 100ms ease-in-out;
+   padding-top:6px;
+   padding-bottom:1px;
+}
