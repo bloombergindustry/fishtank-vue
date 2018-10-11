@@ -47,8 +47,8 @@
         class="screen-container"
       >
         <ContentLoaderAlertResult/>
-        <div class="footer"></div>
-        <div class="nav"></div>
+        <div class="footer"/>
+        <div class="nav"/>
       </div>
     </div>
 
@@ -57,8 +57,8 @@
       <div 
         class="screen-container"
       >
-        <div class="footer"></div>
-        <div class="nav"></div>
+        <div class="footer"/>
+        <div class="nav"/>
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>

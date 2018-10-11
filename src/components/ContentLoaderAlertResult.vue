@@ -40,7 +40,7 @@
       width="258" 
       height="36" 
     />
-     <rect 
+    <rect 
       x="0" 
       y="204" 
       rx="5" 
