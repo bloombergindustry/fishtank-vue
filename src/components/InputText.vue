@@ -29,7 +29,6 @@
       </span>
 
       <template v-if="type === 'textarea'">
-        /* eslint-disable */
         <!--eslint-disable-->
         <textarea
           ref="input"
