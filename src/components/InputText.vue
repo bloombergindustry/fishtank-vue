@@ -30,6 +30,7 @@
 
       <template v-if="type === 'textarea'">
         /* eslint-disable */
+        <!--eslint-disable-->
         <textarea
           ref="input"
           :type="type"
@@ -44,8 +45,8 @@
           @keydown.delete="getFalseHeight"
           @keydown.ctrl.86="getFalseHeight"
           @cut="getFalseHeight"
-          v-on="listeners"></textarea>/>
-        /* eslint-enable */
+          v-on="listeners"/></textarea>
+        <!--eslint-enable-->
       </template>
       <template v-else>
         <input
