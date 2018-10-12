@@ -1,0 +1,154 @@
+<template>
+
+  <ContentLoader
+    :height="600"
+    :width="340"
+    :speed="2"
+    primary-color="#f3f3f3"
+    secondary-color="#ecebeb"
+  >
+    
+    <rect 
+      x="0" 
+      y="12" 
+      rx="5" 
+      ry="0" 
+      width="170" 
+      height="24" 
+    />
+    <rect 
+      x="0" 
+      y="48" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="36" 
+    /> 
+    <rect 
+      x="0" 
+      y="96" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="36" 
+    />
+    <rect 
+      x="0" 
+      y="144" 
+      rx="5" 
+      ry="0" 
+      width="257" 
+      height="36" 
+    />
+    <rect 
+      x="0" 
+      y="216" 
+      rx="5" 
+      ry="0" 
+      width="170" 
+      height="40" 
+    /> 
+    <rect 
+      x="0" 
+      y="272" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    />
+    <rect 
+      x="0" 
+      y="296" 
+      rx="5" 
+      ry="0" 
+      width="320" 
+      height="16" 
+    />
+    <rect 
+      x="0" 
+      y="320" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    />
+    <rect 
+      x="0" 
+      y="344" 
+      rx="5" 
+      ry="0" 
+      width="320" 
+      height="16" 
+    />
+    <rect 
+      x="0" 
+      y="368" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    /> 
+    <rect 
+      x="0" 
+      y="420" 
+      rx="5" 
+      ry="0" 
+      width="171" 
+      height="40" 
+    /> 
+    <rect 
+      x="0" 
+      y="476" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    /> 
+    <rect 
+      x="0" 
+      y="500" 
+      rx="5" 
+      ry="0" 
+      width="320" 
+      height="16" 
+    /> 
+    <rect 
+      x="0" 
+      y="524" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    />
+    <rect 
+      x="0" 
+      y="548" 
+      rx="5" 
+      ry="0" 
+      width="320" 
+      height="16" 
+    />  
+    <rect 
+      x="0" 
+      y="572" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="16" 
+    />  
+    
+    
+  </ContentLoader>
+
+</template>
+<script lang="ts">
+import { ContentLoader } from "vue-content-loader"
+import Vue from 'vue'
+
+export default Vue.extend({
+  components:{
+    ContentLoader
+  },
+  
+})
+</script>

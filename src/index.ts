@@ -72,5 +72,7 @@ export { default as FishTankButtonGroupButton } from "./components/FishTankButto
 
 export { default as ContentLoaderAlertList } from "./components/ContentLoaderAlertList.vue"
 export { default as ContentLoaderAlertResult } from "./components/ContentLoaderAlertResult.vue"
+export { default as ContentLoaderCalendarResult } from "./components/ContentLoaderCalendarResult.vue"
+export { default as ContentLoaderCommiteeResult } from "./components/ContentLoaderCommiteeResult.vue"
 
 import './styles.scss'

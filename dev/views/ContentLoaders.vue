@@ -14,13 +14,13 @@
     border-radius: 12px;
     overflow: scroll;
     margin: 24px;
-    padding-top: 90px;
+    padding-top: 80px;
     position: relative;
   }
   .nav{
     width: 100%;
     height: 80px;
-    background:#EDF2F5;
+    background:#9EA3A6;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -28,7 +28,7 @@
   .footer{
     width: 100%;
     height: 80px;
-    background:#EDF2F5;
+    background:#9EA3A6;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -66,6 +66,30 @@
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>
+        
+        
+      </div>
+    </div>
+
+    <div>
+      <div><h1> Calendar Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderCalendarResult/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
+    <div>
+      <div><h1> Commitee Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderCommiteeResult/>
+        <div class="footer"/>
+        <div class="nav"/>
       </div>
     </div>
 
@@ -73,16 +97,26 @@
 
   
 
+  
+
 </template>
 
 <script lang="ts">
+
 import Vue from 'vue'
-import {ContentLoaderAlertList, ContentLoaderAlertResult} from '@/index'
+
+import {
+  ContentLoaderAlertList,
+  ContentLoaderAlertResult, 
+  ContentLoaderCalendarResult,
+  ContentLoaderCommiteeResult} from '@/index'
 
 export default Vue.extend({
   components:{
     ContentLoaderAlertList,
-    ContentLoaderAlertResult
+    ContentLoaderAlertResult,
+    ContentLoaderCalendarResult,
+    ContentLoaderCommiteeResult
   },
 
 })
