@@ -4,6 +4,7 @@
     display: flex; 
     flex-direction: row;
     justify-content: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     text-align: center;
     }
@@ -16,6 +17,9 @@
     margin: 24px;
     padding-top: 80px;
     position: relative;
+  }
+  div h1{
+    width: 340px;
   }
   .nav{
     width: 100%;
@@ -131,7 +135,41 @@
       </div>
     </div>
 
+    <div>
+      <div><h1> Members Of Congress List Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressList/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
+    <div>
+      <div><h1> Members Of Congress Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderMembersOfCongressList/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
   </div>
+
+  </div>
+
+  
 
  
 
@@ -152,7 +190,8 @@ import {
   ContentLoaderCommiteeResult,
   ContentLoaderDirectoriesResult,
   ContentLoaderLegislationList,
-  ContentLoaderLegislationResult} from '@/index'
+  ContentLoaderLegislationResult,
+  ContentLoaderMembersOfCongressList} from '@/index'
 
 export default Vue.extend({
   components:{
@@ -162,7 +201,8 @@ export default Vue.extend({
     ContentLoaderCommiteeResult,
     ContentLoaderDirectoriesResult,
     ContentLoaderLegislationList,
-    ContentLoaderLegislationResult
+    ContentLoaderLegislationResult,
+    ContentLoaderMembersOfCongressList
   },
 
 })

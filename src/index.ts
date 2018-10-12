@@ -77,5 +77,7 @@ export { default as ContentLoaderCommiteeResult } from "./components/ContentLoad
 export { default as ContentLoaderDirectoriesResult } from "./components/ContentLoaderDirectoriesResult.vue"
 export { default as ContentLoaderLegislationList } from "./components/ContentLoaderLegislationList.vue"
 export { default as ContentLoaderLegislationResult } from "./components/ContentLoaderLegislationResult.vue"
+export { default as ContentLoaderMembersOfCongressList } from "./components/ContentLoaderMembersOfCongressList.vue"
+export { default as ContentLoaderMembersOfCongressResult } from "./components/ContentLoaderMembersOfCongressResult.vue"
 
 import './styles.scss'
