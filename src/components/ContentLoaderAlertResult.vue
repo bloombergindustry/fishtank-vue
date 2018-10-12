@@ -1,7 +1,7 @@
 <template>
 
   <ContentLoader
-    :height="550"
+    :height="544"
     :width="340"
     :speed="2"
     primary-color="#f3f3f3"

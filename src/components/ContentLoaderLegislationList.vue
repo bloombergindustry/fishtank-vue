@@ -1,7 +1,7 @@
 <template>
 
   <ContentLoader
-    :height="504"
+    :height="107"
     :width="340"
     :speed="2"
     primary-color="#f3f3f3"
@@ -10,38 +10,47 @@
     
     <rect 
       x="0" 
-      y="0" 
+      y="12" 
       rx="5" 
       ry="0" 
-      width="400" 
-      height="108" 
+      width="85" 
+      height="20" 
     />
 
     <rect 
       x="0" 
-      y="132" 
+      y="40" 
       rx="5" 
       ry="0" 
-      width="400" 
-      height="108" 
+      width="257" 
+      height="16" 
     />
 
     <rect 
       x="0" 
-      y="264" 
+      y="60" 
       rx="5" 
       ry="0" 
-      width="400" 
-      height="108" 
+      width="171" 
+      height="16" 
     />
 
     <rect 
       x="0" 
-      y="396" 
+      y="80" 
       rx="5" 
       ry="0" 
       width="400" 
-      height="108" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="106" 
+      rx="5" 
+      ry="0" 
+      width="400" 
+      height="1" 
     />
 
   </ContentLoader>

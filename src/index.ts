@@ -75,5 +75,7 @@ export { default as ContentLoaderAlertResult } from "./components/ContentLoaderA
 export { default as ContentLoaderCalendarResult } from "./components/ContentLoaderCalendarResult.vue"
 export { default as ContentLoaderCommiteeResult } from "./components/ContentLoaderCommiteeResult.vue"
 export { default as ContentLoaderDirectoriesResult } from "./components/ContentLoaderDirectoriesResult.vue"
+export { default as ContentLoaderLegislationList } from "./components/ContentLoaderLegislationList.vue"
+export { default as ContentLoaderLegislationResult } from "./components/ContentLoaderLegislationResult.vue"
 
 import './styles.scss'

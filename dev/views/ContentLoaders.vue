@@ -41,16 +41,7 @@
     class="page-container"
   >
 
-    <div>
-      <div><h1> Alert Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <ContentLoaderAlertResult/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
+    
 
     <div>
       <div><h1> Alert List Loader </h1></div>
@@ -65,9 +56,18 @@
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>
         <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        
-        
+        <ContentLoaderAlertList/>  
+      </div>
+    </div>
+
+    <div>
+      <div><h1> Alert Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderAlertResult/>
+        <div class="footer"/>
+        <div class="nav"/>
       </div>
     </div>
 
@@ -104,7 +104,36 @@
       </div>
     </div>
 
+    <div>
+      <div><h1> Legislation List Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderLegislationList/>
+        <ContentLoaderLegislationList/>
+        <ContentLoaderLegislationList/>
+        <ContentLoaderLegislationList/>
+        <ContentLoaderLegislationList/>
+        <ContentLoaderLegislationList/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
+    <div>
+      <div><h1> Legislation Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderLegislationResult/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
   </div>
+
+ 
 
   
 
@@ -121,7 +150,9 @@ import {
   ContentLoaderAlertResult, 
   ContentLoaderCalendarResult,
   ContentLoaderCommiteeResult,
-  ContentLoaderDirectoriesResult} from '@/index'
+  ContentLoaderDirectoriesResult,
+  ContentLoaderLegislationList,
+  ContentLoaderLegislationResult} from '@/index'
 
 export default Vue.extend({
   components:{
@@ -129,7 +160,9 @@ export default Vue.extend({
     ContentLoaderAlertResult,
     ContentLoaderCalendarResult,
     ContentLoaderCommiteeResult,
-    ContentLoaderDirectoriesResult
+    ContentLoaderDirectoriesResult,
+    ContentLoaderLegislationList,
+    ContentLoaderLegislationResult
   },
 
 })
