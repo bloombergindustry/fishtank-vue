@@ -93,6 +93,17 @@
       </div>
     </div>
 
+    <div>
+      <div><h1> Directories Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderDirectoriesResult/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
   </div>
 
   
@@ -109,14 +120,16 @@ import {
   ContentLoaderAlertList,
   ContentLoaderAlertResult, 
   ContentLoaderCalendarResult,
-  ContentLoaderCommiteeResult} from '@/index'
+  ContentLoaderCommiteeResult,
+  ContentLoaderDirectoriesResult} from '@/index'
 
 export default Vue.extend({
   components:{
     ContentLoaderAlertList,
     ContentLoaderAlertResult,
     ContentLoaderCalendarResult,
-    ContentLoaderCommiteeResult
+    ContentLoaderCommiteeResult,
+    ContentLoaderDirectoriesResult
   },
 
 })
