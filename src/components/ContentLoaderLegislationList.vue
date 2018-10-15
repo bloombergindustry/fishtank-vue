@@ -40,7 +40,7 @@
       y="80" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     />
 
@@ -49,7 +49,7 @@
       y="106" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="1" 
     />
 

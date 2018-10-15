@@ -2,7 +2,7 @@
 
   <ContentLoader
     :height="504"
-    :width="340"
+    :width="400"
     :speed="2"
     primary-color="#f3f3f3"
     secondary-color="#ecebeb"

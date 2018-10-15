@@ -13,7 +13,7 @@
       y="0" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="78" 
     />
 
@@ -67,7 +67,7 @@
       y="196" 
       rx="5" 
       ry="0" 
-      width="70" 
+      width="51" 
       height="16" 
     />
 
@@ -112,7 +112,7 @@
       y="284" 
       rx="5" 
       ry="0" 
-      width="70" 
+      width="51" 
       height="16" 
     />
 
@@ -175,7 +175,7 @@
       y="430" 
       rx="5" 
       ry="0" 
-      width="70" 
+      width="51" 
       height="16" 
     />
 
@@ -211,7 +211,7 @@
       y="482" 
       rx="5" 
       ry="0" 
-      width="70" 
+      width="51" 
       height="16" 
     />
 

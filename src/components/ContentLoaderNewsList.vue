@@ -1,7 +1,7 @@
 <template>
 
   <ContentLoader
-    :height="544"
+    :height="240"
     :width="340"
     :speed="2"
     primary-color="#f3f3f3"
@@ -13,155 +13,102 @@
       y="12" 
       rx="5" 
       ry="0" 
-      width="170" 
-      height="16" 
-    /> 
-    <rect 
-      x="0" 
-      y="36" 
-      rx="5" 
-      ry="0" 
       width="340" 
-      height="36" 
+      height="24" 
     />
+
     <rect 
       x="0" 
-      y="84" 
+      y="40" 
       rx="5" 
       ry="0" 
-      width="340" 
-      height="36" 
+      width="257" 
+      height="24" 
     />
+
     <rect 
       x="0" 
-      y="132" 
+      y="76" 
       rx="5" 
       ry="0" 
-      width="258" 
-      height="36" 
-    />
-    <rect 
-      x="0" 
-      y="204" 
-      rx="5" 
-      ry="0" 
-      width="150" 
+      width="171" 
       height="12" 
     />
+
     <rect 
       x="0" 
-      y="220" 
+      y="92" 
       rx="5" 
       ry="0" 
-      width="150" 
+      width="171" 
       height="12" 
     />
+
     <rect 
       x="0" 
-      y="236" 
-      rx="5" 
-      ry="0" 
-      width="150" 
-      height="12" 
-    />
-    <rect 
-      x="0" 
-      y="268" 
+      y="116" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="292" 
-      rx="5" 
-      ry="0" 
-      width="320" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="316" 
-      rx="5" 
-      ry="0" 
-      width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="340" 
-      rx="5" 
-      ry="0" 
-      width="320" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="364" 
-      rx="5" 
-      ry="0" 
-      width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="386" 
-      rx="5" 
-      ry="0" 
-      width="320" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="410" 
-      rx="5" 
-      ry="0" 
-      width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="434" 
-      rx="5" 
-      ry="0" 
-      width="320" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="456" 
-      rx="5" 
-      ry="0" 
-      width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="480" 
-      rx="5" 
-      ry="0" 
-      width="320" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="504" 
-      rx="5" 
-      ry="0" 
-      width="340" 
-      height="16" 
-    />
-    <rect 
-      x="0" 
-      y="528" 
-      rx="5" 
-      ry="0" 
-      width="320" 
       height="16" 
     />
 
-    
+    <rect 
+      x="0" 
+      y="140" 
+      rx="5" 
+      ry="0" 
+      width="325" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="164" 
+      rx="5" 
+      ry="0" 
+      width="340" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="188" 
+      rx="5" 
+      ry="0" 
+      width="325" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="212" 
+      rx="5" 
+      ry="0" 
+      width="340" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="212" 
+      rx="5" 
+      ry="0" 
+      width="340" 
+      height="16" 
+    />
+
+    <rect 
+      x="0" 
+      y="239" 
+      rx="5" 
+      ry="0" 
+      width="340" 
+      height="1" 
+    />
+  
+
+
   </ContentLoader>
 
 </template>

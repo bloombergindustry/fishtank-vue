@@ -40,7 +40,7 @@
       y="24" 
       rx="5" 
       ry="0" 
-      width="76" 
+      width="60" 
       height="16" 
     />
 

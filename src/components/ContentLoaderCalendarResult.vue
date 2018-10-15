@@ -21,7 +21,7 @@
       y="48" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="36" 
     /> 
     <rect 
@@ -29,7 +29,7 @@
       y="96" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="36" 
     />
     <rect 
@@ -53,7 +53,7 @@
       y="272" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     />
     <rect 
@@ -69,7 +69,7 @@
       y="320" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     />
     <rect 
@@ -85,7 +85,7 @@
       y="368" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     /> 
     <rect 
@@ -101,7 +101,7 @@
       y="476" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     /> 
     <rect 
@@ -117,7 +117,7 @@
       y="524" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     />
     <rect 
@@ -133,7 +133,7 @@
       y="572" 
       rx="5" 
       ry="0" 
-      width="400" 
+      width="340" 
       height="16" 
     />  
     

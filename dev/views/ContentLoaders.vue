@@ -13,9 +13,9 @@
     height: 600px;  
     border: 4px solid #292e31;
     border-radius: 12px;
-    overflow: scroll;
     margin: 24px;
     padding-top: 80px;
+    overflow: hidden;
     position: relative;
   }
   div h1{
@@ -159,7 +159,20 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderMembersOfCongressList/>
+        <ContentLoaderMembersOfCongressResult/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
+    <div>
+      <div><h1> News List Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderNewsList/>
+        <ContentLoaderNewsList/>
+        <ContentLoaderNewsList/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -167,7 +180,7 @@
 
   </div>
 
-  </div>
+
 
   
 
@@ -191,7 +204,9 @@ import {
   ContentLoaderDirectoriesResult,
   ContentLoaderLegislationList,
   ContentLoaderLegislationResult,
-  ContentLoaderMembersOfCongressList} from '@/index'
+  ContentLoaderMembersOfCongressList,
+  ContentLoaderMembersOfCongressResult,
+  ContentLoaderNewsList} from '@/index'
 
 export default Vue.extend({
   components:{
@@ -202,7 +217,9 @@ export default Vue.extend({
     ContentLoaderDirectoriesResult,
     ContentLoaderLegislationList,
     ContentLoaderLegislationResult,
-    ContentLoaderMembersOfCongressList
+    ContentLoaderMembersOfCongressList,
+    ContentLoaderMembersOfCongressResult,
+    ContentLoaderNewsList
   },
 
 })
