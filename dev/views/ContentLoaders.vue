@@ -189,6 +189,17 @@
       </div>
     </div>
 
+    <div>
+      <div><h1> Profile Result Loader </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderProfileResult/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
   </div>
 
 
@@ -218,7 +229,8 @@ import {
   ContentLoaderMembersOfCongressList,
   ContentLoaderMembersOfCongressResult,
   ContentLoaderNewsList,
-  ContentLoaderNewsResult} from '@/index'
+  ContentLoaderNewsResult,
+  ContentLoaderProfileResult} from '@/index'
 
 export default Vue.extend({
   components:{
@@ -232,7 +244,8 @@ export default Vue.extend({
     ContentLoaderMembersOfCongressList,
     ContentLoaderMembersOfCongressResult,
     ContentLoaderNewsList,
-    ContentLoaderNewsResult
+    ContentLoaderNewsResult,
+    ContentLoaderProfileResult
   },
 
 })
