@@ -3,15 +3,15 @@
     width: 100vw;
     display: flex; 
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     flex-wrap: wrap;
     text-align: center;
     }
   .screen-container{
     width : 300px;
-    height: 600px;  
-    border: 4px solid #292e31;
+    height: 500px;  
+    border: 6px solid #292e31;
     border-radius: 12px;
     margin: 24px;
     padding-top: 80px;
@@ -24,7 +24,7 @@
   .nav{
     width: 100%;
     height: 80px;
-    background:#9EA3A6;
+    background:#292e31;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -32,7 +32,7 @@
   .footer{
     width: 100%;
     height: 80px;
-    background:#9EA3A6;
+    background:#292e31;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -44,8 +44,6 @@
   <div
     class="page-container"
   >
-
-    
 
     <div>
       <div><h1> Alert List Loader </h1></div>
@@ -213,16 +211,6 @@
 
   </div>
 
-
-
-  
-
- 
-
-  
-
-  
-
 </template>
 
 <script lang="ts">
@@ -243,7 +231,7 @@ import {
   ContentLoaderNewsResult,
   ContentLoaderProfileResult,
   ContentLoaderStaffersList
-  } from '@/index'
+} from '@/index'
 
 export default Vue.extend({
   components:{
