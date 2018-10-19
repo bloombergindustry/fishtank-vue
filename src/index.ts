@@ -72,5 +72,7 @@ export { default as FishTankButtonGroupButton } from "./components/FishTankButto
 
 export { default as FishTankRenderedMarkup } from "./components/FishTankRenderedMarkup.vue"
 
+export { default as FishTankTreeSelect } from "@fishtank/vue-treeselect/dist/vue-treeselect.js"
+
 
 import './styles.scss'
