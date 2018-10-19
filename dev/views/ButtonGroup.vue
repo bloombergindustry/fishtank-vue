@@ -45,7 +45,7 @@ import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from
 export default Vue.extend({
   components:{
     FishTankButtonGroup,
-    FishTankBGButton
+    FishTankBGButton,
   },
   data: function(){
     return {
