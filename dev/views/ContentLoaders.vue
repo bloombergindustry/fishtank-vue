@@ -209,6 +209,17 @@
       </div>
     </div>
 
+    <div>
+      <div><h1> Test </h1></div>
+      <div 
+        class="screen-container"
+      >
+        <ContentLoaderStaffersList/>
+        <div class="footer"/>
+        <div class="nav"/>
+      </div>
+    </div>
+
   </div>
 
 </template>
