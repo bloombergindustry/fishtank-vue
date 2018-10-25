@@ -209,17 +209,24 @@
     </div>
 
     <div>
-      <div><h1> Test </h1></div>
+      <div>
+        <h1> Customized Loader</h1>
+        <h1>(No Theme)</h1>
+      </div>
       <div 
         class="screen-container"
       >
-        <LoaderContent>
+        <LoaderContent
+          :loaderHeight = "100"
+          :loaderWidth = "400"
+          >
+          
           <rect 
             x="0" 
             y="12" 
             rx="5" 
             ry="0" 
-            width="141" 
+            width="400" 
             height="24" 
           />
 
@@ -233,7 +240,7 @@
           />
 
         </LoaderContent>
-        
+
         <div class="footer"/>
         <div class="nav"/>
       </div>

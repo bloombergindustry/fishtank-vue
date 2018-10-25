@@ -1558,8 +1558,8 @@
 
   <ContentLoader
     v-else
-    :height="92"
-    :width="400"
+    :height="loaderHeight"
+    :width="loaderWidth"
     :speed="2"
     primary-color="#f3f3f3"
     secondary-color="#ecebeb"
@@ -1581,6 +1581,16 @@ export default Vue.extend({
     theme:{
       type: String,
       default : null,
+      required: false
+    },
+    loaderHeight:{
+      type: String,
+      default : null,
+      required: true
+    },
+    loaderWidth:{
+      type: String,
+      default : "400",
       required: false
     }
   }
