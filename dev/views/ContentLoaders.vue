@@ -52,13 +52,13 @@
       >
         <div class="footer"/>
         <div class="nav"/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>
-        <ContentLoaderAlertList/>  
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>
+        <LoaderContent theme="AlertList"/>  
       </div>
     </div>
 
@@ -67,7 +67,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderAlertResult/>
+        <LoaderContent theme="AlertResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -78,7 +78,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderCalendarResult/>
+        <LoaderContent theme="CalendarResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -89,7 +89,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderCommiteeResult/>
+        <LoaderContent theme="CommiteeResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -100,7 +100,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderDirectoriesResult/>
+        <LoaderContent theme="DirectoriesResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -111,12 +111,12 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderLegislationList/>
-        <ContentLoaderLegislationList/>
-        <ContentLoaderLegislationList/>
-        <ContentLoaderLegislationList/>
-        <ContentLoaderLegislationList/>
-        <ContentLoaderLegislationList/>
+        <LoaderContent theme="LegislationList"/>
+        <LoaderContent theme="LegislationList"/>
+        <LoaderContent theme="LegislationList"/>
+        <LoaderContent theme="LegislationList"/>
+        <LoaderContent theme="LegislationList"/>
+        <LoaderContent theme="LegislationList"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -127,7 +127,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderLegislationResult/>
+        <LoaderContent theme="LegislationResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -138,15 +138,15 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
-        <ContentLoaderMembersOfCongressList/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
+        <LoaderContent theme="MembersOfCongressList"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -157,7 +157,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderMembersOfCongressResult/>
+        <LoaderContent theme="MembersOfCongressResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -168,9 +168,8 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderNewsList/>
-        <ContentLoaderNewsList/>
-        <ContentLoaderNewsList/>
+        <LoaderContent theme="NewsList"/>
+        <LoaderContent theme="NewsList"/>        
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -181,7 +180,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderNewsResult/>
+        <LoaderContent theme="NewsResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -192,7 +191,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderProfileResult/>
+        <LoaderContent theme="ProfileResult"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -203,7 +202,7 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderStaffersList/>
+        <LoaderContent theme="StaffersList"/>
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -214,7 +213,27 @@
       <div 
         class="screen-container"
       >
-        <ContentLoaderStaffersList/>
+        <LoaderContent>
+          <rect 
+            x="0" 
+            y="12" 
+            rx="5" 
+            ry="0" 
+            width="141" 
+            height="24" 
+          />
+
+          <rect 
+            x="0" 
+            y="42" 
+            rx="5" 
+            ry="0" 
+            width="156" 
+            height="18" 
+          />
+
+        </LoaderContent>
+        
         <div class="footer"/>
         <div class="nav"/>
       </div>
@@ -228,37 +247,13 @@
 
 import Vue from 'vue'
 
-import {
-  ContentLoaderAlertList,
-  ContentLoaderAlertResult, 
-  ContentLoaderCalendarResult,
-  ContentLoaderCommiteeResult,
-  ContentLoaderDirectoriesResult,
-  ContentLoaderLegislationList,
-  ContentLoaderLegislationResult,
-  ContentLoaderMembersOfCongressList,
-  ContentLoaderMembersOfCongressResult,
-  ContentLoaderNewsList,
-  ContentLoaderNewsResult,
-  ContentLoaderProfileResult,
-  ContentLoaderStaffersList
+import { 
+  LoaderContent
 } from '@/index'
 
 export default Vue.extend({
   components:{
-    ContentLoaderAlertList,
-    ContentLoaderAlertResult,
-    ContentLoaderCalendarResult,
-    ContentLoaderCommiteeResult,
-    ContentLoaderDirectoriesResult,
-    ContentLoaderLegislationList,
-    ContentLoaderLegislationResult,
-    ContentLoaderMembersOfCongressList,
-    ContentLoaderMembersOfCongressResult,
-    ContentLoaderNewsList,
-    ContentLoaderNewsResult,
-    ContentLoaderProfileResult,
-    ContentLoaderStaffersList
+    LoaderContent
   },
 
 })

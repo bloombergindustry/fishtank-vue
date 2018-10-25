@@ -70,18 +70,6 @@ export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpi
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 
-export { default as ContentLoaderAlertList } from "./components/ContentLoaderAlertList.vue"
-export { default as ContentLoaderAlertResult } from "./components/ContentLoaderAlertResult.vue"
-export { default as ContentLoaderCalendarResult } from "./components/ContentLoaderCalendarResult.vue"
-export { default as ContentLoaderCommiteeResult } from "./components/ContentLoaderCommiteeResult.vue"
-export { default as ContentLoaderDirectoriesResult } from "./components/ContentLoaderDirectoriesResult.vue"
-export { default as ContentLoaderLegislationList } from "./components/ContentLoaderLegislationList.vue"
-export { default as ContentLoaderLegislationResult } from "./components/ContentLoaderLegislationResult.vue"
-export { default as ContentLoaderMembersOfCongressList } from "./components/ContentLoaderMembersOfCongressList.vue"
-export { default as ContentLoaderMembersOfCongressResult } from "./components/ContentLoaderMembersOfCongressResult.vue"
-export { default as ContentLoaderNewsList } from "./components/ContentLoaderNewsList.vue"
-export { default as ContentLoaderNewsResult } from "./components/ContentLoaderNewsResult.vue"
-export { default as ContentLoaderProfileResult } from "./components/ContentLoaderProfileResult.vue"
-export { default as ContentLoaderStaffersList } from "./components/ContentLoaderStaffersList.vue"
+export { default as LoaderContent } from "./components/FishTankLoaderContent.vue"
 
 import './styles.scss'
