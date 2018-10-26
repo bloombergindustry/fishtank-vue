@@ -217,10 +217,13 @@
         class="screen-container"
       >
         <LoaderContent
-          :loaderHeight = "100"
-          :loaderWidth = "400"
-          >
-          
+          loader-height = "100"
+          loader-width = "400"
+          loader-speed = "1.5"
+          loader-primary-color = "#0018Ab"
+          loader-secondary-color = "#9933CC"
+        >
+
           <rect 
             x="0" 
             y="12" 

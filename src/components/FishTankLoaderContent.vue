@@ -4,9 +4,9 @@
     v-if="theme === 'AlertList'"
     :height="92"
     :width="400"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     <rect 
       x="0" 
@@ -55,9 +55,9 @@
     v-else-if="theme === 'AlertResult'"
     :height="544"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -220,9 +220,9 @@
     v-else-if="theme === 'CalendarResult'"
     :height="588"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -361,9 +361,9 @@
     v-else-if="theme === 'CommiteeResult'"
     :height="498"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -579,9 +579,9 @@
     v-else-if="theme === 'DirectoriesResult'"
     :height="504"
     :width="400"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -626,9 +626,9 @@
     v-else-if="theme === 'LegislationList'"
     :height="107"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -682,9 +682,9 @@
     v-else-if="theme === 'LegislationResult'"
     :height="528"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -828,9 +828,9 @@
     v-else-if="theme === 'MembersOfCongressList'"
     :height="64"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -875,9 +875,9 @@
     v-else-if="theme === 'MembersOfCongressResult'"
     :height="530"
     :width="400"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -958,9 +958,9 @@
     v-else-if="theme === 'NewsList'"
     :height="240"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -1068,9 +1068,9 @@
     v-else-if="theme === 'NewsResult'"
     :height="528"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -1250,9 +1250,9 @@
     v-else-if="theme === 'ProfileResult'"
     :height="508"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -1396,9 +1396,9 @@
     v-else-if="theme === 'StaffersList'"
     :height="540"
     :width="340"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color= loaderPrimaryColor
+    :secondary-color="loaderSecondaryColor"
   >
     
     <rect 
@@ -1560,14 +1560,18 @@
     v-else
     :height="loaderHeight"
     :width="loaderWidth"
-    :speed="2"
-    primary-color="#f3f3f3"
-    secondary-color="#ecebeb"
+    :speed="loaderSpeed"
+    :primary-color="loaderPrimaryColor"
+    :secondary-color="loaderSecondaryColor"
   >
     <slot/> 
   </ContentLoader>
 </template>
-
+<!-- 
+  Last Steps:
+    Hook up speed, primary-color, and, secondary-color to vars in props
+    for future quick changes for content loader.
+-->
 
 <script lang="ts">
 import { ContentLoader } from "vue-content-loader"
@@ -1592,7 +1596,23 @@ export default Vue.extend({
       type: String,
       default : "400",
       required: false
+    },
+    loaderSpeed:{
+      type: String,
+      default: "2",
+      required: false
+    },
+    loaderPrimaryColor:{
+      type: String,
+      default: "#f3f3f3",
+      required: false
+    },
+    loaderSecondaryColor:{
+      type: String,
+      default: "#ecebeb",
+      required: false
     }
+
   }
   
 })
