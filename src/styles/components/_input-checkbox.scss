@@ -12,7 +12,10 @@
   display: flex;
 }
 .ft-input-checkbox__checkbox{
+<<<<<<< HEAD
   margin-top: 4px;
+=======
+>>>>>>> d00ff3dd7110375204c3d36c24942a5002be7610
   position: relative;
   width:24px;
   height: 24px;
@@ -37,7 +40,11 @@
   line-height:$lineheight-base-md;
   letter-spacing: $letterspacing-base-md;
   color:$color-gray-dark;
+<<<<<<< HEAD
   padding-left: $baseline*3;
+=======
+  padding-left: $baseline*9;
+>>>>>>> d00ff3dd7110375204c3d36c24942a5002be7610
   &__label{
     margin: 6px 0;
   }
