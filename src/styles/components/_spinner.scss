@@ -104,6 +104,15 @@
       }
     }
   }
+  &.ft-spinner--align-center {
+    text-align: center;
+  }
+  &.ft-spinner--align-left {
+    text-align: left;
+  }
+  &.ft-spinner--align-right {
+    text-align: right;
+  }
   
   @keyframes loading{
     from{
