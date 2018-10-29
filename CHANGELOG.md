@@ -2,6 +2,68 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0-beta.0"></a>
+# [3.3.0-beta.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.2.0-beta.0...v3.3.0-beta.0) (2018-10-19)
+
+
+
+<a name="3.2.0-beta.0"></a>
+# [3.2.0-beta.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.2.0...v3.2.0-beta.0) (2018-10-19)
+
+
+### Bug Fixes
+
+* minor styling changes to text area component ([ed9ccf9](https://github.com/bloombergbna/fishtank-vue/commit/ed9ccf9))
+
+
+### Features
+
+* updated package.json to reference fishtank vue-treeselect ([287402a](https://github.com/bloombergbna/fishtank-vue/commit/287402a))
+
+
+
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/bloombergbna/fishtank-vue/compare/v3.1.0...v3.1.1) (2018-10-11)
+
+
+### Bug Fixes
+
+* Remove eslint comment typo ([803ab7a](https://github.com/bloombergbna/fishtank-vue/commit/803ab7a))
+
+
+
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.1.0...v3.2.0) (2018-10-15)
+
+
+
+<a name="3.2.1"></a>
+## [3.2.1](https://github.com/bloombergbna/fishtank-vue/compare/v3.1.0...v3.2.1) (2018-10-15)
+
+
+
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/bloombergbna/fishtank-vue/compare/v3.1.0...v3.1.1) (2018-10-15)
+
+### Bug Fixes
+
+* Remove eslint comment typo ([803ab7a](https://github.com/bloombergbna/fishtank-vue/commit/803ab7a))
+
+
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.0.0...v3.1.0) (2018-10-11)
+
+
+### Features
+
+* Added FishTankRenderedMarkup component powered by PrismJS ([9ff6ac2](https://github.com/bloombergbna/fishtank-vue/commit/9ff6ac2))
+* Created FishTankTextAreaInput ([8f0fc38](https://github.com/bloombergbna/fishtank-vue/commit/8f0fc38))
+* Created FishTankTextAreaInput ([74adc74](https://github.com/bloombergbna/fishtank-vue/commit/74adc74))
+* Created FishTankTextAreaInput ([3464a80](https://github.com/bloombergbna/fishtank-vue/commit/3464a80))
+* Created FishTankTextAreaInput ([fdcaa6f](https://github.com/bloombergbna/fishtank-vue/commit/fdcaa6f))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v2.0.0...v3.0.0) (2018-10-03)
 

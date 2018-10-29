@@ -1,7 +1,7 @@
-# Fishtank Components
+# Fish Tank Components
 
 ## [Buttons](./Buttons.md)
-## [Buttons](./ButtonGroup.md)
+## [Button Group](./ButtonGroup.md)
 ## [Cards](./Card.md)
 ## [Radios](./Radios.md)
 ## [Switches](./Switches.md)

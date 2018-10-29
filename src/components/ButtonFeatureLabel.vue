@@ -5,8 +5,9 @@
     v-on="$listeners"
   >
 
-    <slot name="icon"/> 
-    
+    <ButtonFeatureIcon> 
+      <slot name="icon"/> 
+    </ButtonFeatureIcon>
     <p> 
       <slot name="label" />
     </p>

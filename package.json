@@ -1,9 +1,9 @@
 {
   "name": "@fishtank/fishtank-vue",
-  "version": "3.0.0",
+  "version": "3.3.0-beta.0",
   "private": false,
   "license": "Apache-2.0",
-  "author": "Fishtank Design System <agile_fishtank@bna.com>",
+  "author": "Fish Tank Design System <agile_fishtank@bna.com>",
   "scripts": {
     "clean": "rimraf dist/",
     "dev": "yarn run serve",
@@ -35,9 +35,11 @@
     "vue": ">= 2.5.0"
   },
   "dependencies": {
-    "@fishtank/icons-vue": ">= 3.5.0",
+    "@fishtank/icons-vue": ">= 3.8.0",
+    "prismjs": "1.15.0",
     "tslib": ">= 1.9.0",
-    "vue-popperjs": "1.5.0"
+    "vue-popperjs": "1.5.0",
+    "vue-prism-component": "1.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.49",
