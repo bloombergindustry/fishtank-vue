@@ -8,7 +8,6 @@
     <ButtonFeatureIcon> 
       <slot name="icon"/> 
     </ButtonFeatureIcon>
-
     <p> 
       <slot name="label" />
     </p>
