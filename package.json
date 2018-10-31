@@ -42,6 +42,7 @@
     "vue-prism-component": "1.0.1"
   },
   "devDependencies": {
+    "@fishtank/vue-treeselect": "0.0.37",
     "@babel/core": "7.0.0-beta.49",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.49",
     "@fishtank/colors": "3.0.6",
