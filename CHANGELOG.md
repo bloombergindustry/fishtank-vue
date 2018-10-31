@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.3.0-beta.0...v3.3.0) (2018-10-31)
+
+
+### Bug Fixes
+
+* added focus state style for radio buttons ([baf2605](https://github.com/bloombergbna/fishtank-vue/commit/baf2605))
+* Refactor of input checkbox styles ([7d5565e](https://github.com/bloombergbna/fishtank-vue/commit/7d5565e))
+* Refactor of input checkbox styles ([d00ff3d](https://github.com/bloombergbna/fishtank-vue/commit/d00ff3d))
+
+
+### Features
+
+* Add align class to ft-loader-spinner;  ([5317c3d](https://github.com/bloombergbna/fishtank-vue/commit/5317c3d)), closes [#86](https://github.com/bloombergbna/fishtank-vue/issues/86)
+* added Alert Result Loader ([0b31539](https://github.com/bloombergbna/fishtank-vue/commit/0b31539))
+* added AlertList content loader to list of components, and updated index.ts and ContentLoaders.vue files. ([7936471](https://github.com/bloombergbna/fishtank-vue/commit/7936471))
+* added animation speed, primary color, and secondary colors to all themes for content loader, so component is fully customizable, all of these added props are not required and have standard default values ([1e09df0](https://github.com/bloombergbna/fishtank-vue/commit/1e09df0))
+* added Commitee Result Loader ([5b37f5c](https://github.com/bloombergbna/fishtank-vue/commit/5b37f5c))
+* added congressional staffers list content loader component ([648bc15](https://github.com/bloombergbna/fishtank-vue/commit/648bc15))
+* added Directories Result Loader ([b6ce428](https://github.com/bloombergbna/fishtank-vue/commit/b6ce428))
+* added Legislative Result Content Shader Component ([f6a119e](https://github.com/bloombergbna/fishtank-vue/commit/f6a119e))
+* added Members of Congress Content Loader Component ([aa71c77](https://github.com/bloombergbna/fishtank-vue/commit/aa71c77))
+* added News List Content Loader Component. Made some sizing adjustments to other content loader components ([4879f33](https://github.com/bloombergbna/fishtank-vue/commit/4879f33))
+* added News Result Content Loader Componenet ([411f69f](https://github.com/bloombergbna/fishtank-vue/commit/411f69f))
+* added Profile Result Content Loader Component ([a9a087b](https://github.com/bloombergbna/fishtank-vue/commit/a9a087b))
+* added props to customizable content loader, so devs can alter width and height ([6373743](https://github.com/bloombergbna/fishtank-vue/commit/6373743))
+* Created button group component ([873f551](https://github.com/bloombergbna/fishtank-vue/commit/873f551))
+* Fish Tank Button Group component ([f092c83](https://github.com/bloombergbna/fishtank-vue/commit/f092c83))
+* made changes in attempt to address type check console errors for ContentLoader Component's loaderHeight, loaderWidths, and Speed props. ([22dd111](https://github.com/bloombergbna/fishtank-vue/commit/22dd111))
+* minor change to page loader ([6973f77](https://github.com/bloombergbna/fishtank-vue/commit/6973f77))
+* moved accessibility global class script into an external mixin. ([92f2728](https://github.com/bloombergbna/fishtank-vue/commit/92f2728))
+* removed compiler error by declaring module vue-content-loader in vue-shim.d.ts ([894ffe6](https://github.com/bloombergbna/fishtank-vue/commit/894ffe6))
+* removed compiler errors for Alert Result loader ([27f383d](https://github.com/bloombergbna/fishtank-vue/commit/27f383d))
+* removed format errors for Content Loader Alert list component ([0f0af36](https://github.com/bloombergbna/fishtank-vue/commit/0f0af36))
+* Unit tests for Button group, and button group button ([19c6b83](https://github.com/bloombergbna/fishtank-vue/commit/19c6b83))
+* updated Content Loader, turned all Content Loader Prefabs and made them accessible by passing in themes into the new Loader Content component. Next steps will be to make default width and required health props available for devs when they make their own custom loaders ([5436e18](https://github.com/bloombergbna/fishtank-vue/commit/5436e18))
+
+
+
 <a name="3.3.0-beta.0"></a>
 # [3.3.0-beta.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.2.0-beta.0...v3.3.0-beta.0) (2018-10-19)
 
