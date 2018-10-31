@@ -62,6 +62,7 @@ export { default as FishTankModal } from "./components/Modal.vue"
 export { default as FishTankDialogBox } from "./components/DialogBox.vue"
 
 export { default as FishTankTag } from "./components/Tag.vue"
+export { default as FishTankTagRef } from "./components/FishTankTag.vue"
 export { default as FishTankTagRemove } from "./components/InputTagRemove.vue"
 export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
 

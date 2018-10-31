@@ -1,6 +1,12 @@
 <template>
   <body>
     <div>
+
+      <FishTankTagRef
+        v-model="tagOne"
+        label="FishTankTagRef"/>
+
+      <hr>
       <h1 class="tags--heading">Binary Tags</h1>
       <span>
         <p class="tags--text">
@@ -80,7 +86,7 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { FishTankTag, MultiSelectTag, InputText , InputTagRemove} from "@/index"
+import { FishTankTag, MultiSelectTag, InputText , InputTagRemove, FishTankTagRef} from "@/index"
 
 
 
@@ -89,7 +95,8 @@ export default Vue.extend({
     FishTankTag,
     MultiSelectTag,
     InputTagRemove,
-    InputText 
+    InputText,
+    FishTankTagRef
   },
   data () {
     return{
