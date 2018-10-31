@@ -1,5 +1,12 @@
 <template>
   <div>
+    <p>Fishtank's Vue-treeselect component is located in a seperate 
+      <a 
+        href="https://www.npmjs.com/package/@fishtank/vue-treeselect" 
+        target="_blank" >NPM module</a>, and 
+      <a 
+        href="https://github.com/bloombergbna/fishtank-vue-treeselect" 
+        target="_blank">git repo</a> </p>
     <FishTankTreeSelect
       :options="treeArr"
       :max-height="null"
@@ -12,7 +19,8 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import {FishTankTreeSelect} from '@/index'
+import {FishTankTreeSelect} from '@fishtank/vue-treeselect'
+import '@fishtank/vue-treeselect/dist/vue-treeselect.css'
 
 export default Vue.extend({
   components:{
