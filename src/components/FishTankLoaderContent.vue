@@ -5,7 +5,7 @@
     :height="92"
     :width="400"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     <rect 
@@ -56,7 +56,7 @@
     :height="544"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -221,7 +221,7 @@
     :height="588"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -362,7 +362,7 @@
     :height="498"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -580,7 +580,7 @@
     :height="504"
     :width="400"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -627,7 +627,7 @@
     :height="107"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -683,7 +683,7 @@
     :height="528"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -829,7 +829,7 @@
     :height="64"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -876,7 +876,7 @@
     :height="530"
     :width="400"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -959,7 +959,7 @@
     :height="240"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -1069,7 +1069,7 @@
     :height="528"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -1251,7 +1251,7 @@
     :height="508"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -1397,7 +1397,7 @@
     :height="540"
     :width="340"
     :speed="loaderSpeed"
-    :primary-color= loaderPrimaryColor
+    :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
     
@@ -1558,8 +1558,8 @@
 
   <ContentLoader
     v-else
-    :height="loaderHeight"
-    :width="loaderWidth"
+    :loader-height ="height"
+    :loader-width ="width"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
@@ -1588,18 +1588,18 @@ export default Vue.extend({
       required: false
     },
     loaderHeight:{
-      type: String,
+      type: Number,
       default : null,
       required: true
     },
     loaderWidth:{
-      type: String,
-      default : "400",
+      type: Number,
+      default : 400,
       required: false
     },
     loaderSpeed:{
-      type: String,
-      default: "2",
+      type: Number,
+      default: 2,
       required: false
     },
     loaderPrimaryColor:{

@@ -53,12 +53,7 @@
         <div class="footer"/>
         <div class="nav"/>
         <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>
-        <LoaderContent theme="AlertList"/>  
+        
       </div>
     </div>
 
