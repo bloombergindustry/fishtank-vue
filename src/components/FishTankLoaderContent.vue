@@ -1558,21 +1558,15 @@
 
   <ContentLoader
     v-else
-    :loader-height ="height"
-    :loader-width ="width"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
+    :width ="loaderWidth" 
+    :height ="loaderHeight" 
   >
     <slot/> 
   </ContentLoader>
 </template>
-<!-- 
-  Last Steps:
-    Hook up speed, primary-color, and, secondary-color to vars in props
-    for future quick changes for content loader.
--->
-
 <script lang="ts">
 import { ContentLoader } from "vue-content-loader"
 import Vue from 'vue'
@@ -1590,7 +1584,7 @@ export default Vue.extend({
     loaderHeight:{
       type: Number,
       default : null,
-      required: true
+      required: false //set this to false, because it's not provided with the themed
     },
     loaderWidth:{
       type: Number,
