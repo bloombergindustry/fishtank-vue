@@ -1,6 +1,6 @@
 <template>
   <div 
-    :class="value ? 'ft-input-checkbox--checked' : 'ft-input-checkbox--unchecked'"
+    :class="[value ? 'ft-input-checkbox--checked' : 'ft-input-checkbox--unchecked', {'ft-input-checkbox__disabled':disabled}]"
     class="ft-input-checkbox"
   >
     <label
@@ -15,20 +15,22 @@
         class="ft-input-checkbox__native" 
         type="checkbox"
         v-on="listeners">
-      <transition name="ft-transition-scale">
-        <CheckboxSelected 
-          v-if="isChecked"
-          :key="`{$labelId}+'-ft-svg-selected'`"
-          :class="returnEnabledDisabled"
-          class="ft-input-checkbox__checkbox ft-svg-selected"
-        />
-        <CheckboxUnselected 
-          v-if="!isChecked"
-          :key="`{$labelId}+'-ft-svg-unselected'`"
-          :class="returnEnabledDisabled"
-          class="ft-input-checkbox__checkbox ft-svg-unselected"
-        />
-      </transition>
+      <div class="ft-input-checkbox__checkbox">
+        <transition name="ft-transition-scale">
+          <CheckboxSelected 
+            v-if="isChecked"
+            :key="`{$labelId}+'-ft-svg-selected'`"
+            :class="returnEnabledDisabled"
+            class="ft-svg-selected"
+          />
+          <CheckboxUnselected 
+            v-if="!isChecked"
+            :key="`{$labelId}+'-ft-svg-unselected'`"
+            :class="returnEnabledDisabled"
+            class="ft-svg-unselected"
+          />
+        </transition>
+      </div>
       <div
         v-if="label" 
         class="ft-input-checkbox__label-content">

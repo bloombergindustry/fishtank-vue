@@ -44,7 +44,6 @@
    
     <div>
       <ButtonFAB 
-
         :fab-color-primary-start="fabPrimaryColorStart"
         :fab-color-primary-end="fabPrimaryColorEnd" 
         :fab-color-secondary="fabSecondaryColor"
