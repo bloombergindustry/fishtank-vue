@@ -1,7 +1,7 @@
 .ft-spinner{
   circle.ft-spinner-base{
     fill: none;
-    stroke: #C5CACD;
+    stroke: transparent;
   }
   circle.ft-spinner-gradient{
     fill: none;
@@ -103,6 +103,15 @@
         stop-color: $color-notification-3;
       }
     }
+  }
+  &.ft-spinner--align-center {
+    text-align: center;
+  }
+  &.ft-spinner--align-left {
+    text-align: left;
+  }
+  &.ft-spinner--align-right {
+    text-align: right;
   }
   
   @keyframes loading{

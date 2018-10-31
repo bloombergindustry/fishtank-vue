@@ -71,5 +71,6 @@ export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 
 export { default as LoaderContent } from "./components/FishTankLoaderContent.vue"
+export { default as FishTankRenderedMarkup } from "./components/FishTankRenderedMarkup.vue"
 
 import './styles.scss'
