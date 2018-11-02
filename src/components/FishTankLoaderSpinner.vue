@@ -1,7 +1,7 @@
 
 <template>
   <div 
-    :class="[gradientClass, spinnerSize]" 
+    :class="[gradientClass, spinnerSize, alignClass]" 
     class="ft-spinner">
     <svg 
       height="100" 
@@ -32,7 +32,7 @@
     </svg>
   </div>
 </template>
-
+  
 <script>
 import Vue from 'vue'
 
@@ -48,17 +48,20 @@ export default Vue.extend({
       type:String,
       default: "medium",
       required:true
+    },
+    align: {
+      type:String,
+      default: "center",
+      required: false
     }
   },
   data () {
-    return{
-      // gradientClass: "ft-spinner--" + this.theme + "-gradient",
-      // spinnerSize: "ft-spinner--" + this.size
-    }
+    return{}
   },
   computed:{
     gradientClass: function(){ return "ft-spinner--" + this.theme + "-gradient"},
-    spinnerSize: function(){ return "ft-spinner--" + this.size}
+    spinnerSize: function(){ return "ft-spinner--" + this.size},
+    alignClass: function() { return "ft-spinner--align-" + this.align}
   }
 })
 </script>
