@@ -1,265 +1,143 @@
-<style>
-  .page-container{
-    width: 100vw;
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    text-align: center;
-    }
-  .screen-container{
-    width : 300px;
-    height: 500px;  
-    border: 6px solid #292e31;
-    border-radius: 12px;
-    margin: 24px;
-    padding-top: 80px;
-    overflow: hidden;
-    position: relative;
-  }
-  div h1{
-    width: 340px;
-  }
-  .nav{
-    width: 100%;
-    height: 80px;
-    background:#292e31;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
-  .footer{
-    width: 100%;
-    height: 80px;
-    background:#292e31;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-  }
-</style>
-
 <template>
+  <div>
+    <div><ButtonPrimary>Button Primary</ButtonPrimary></div> 
+    <br>
+    <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
+    <br>
+    <div><ButtonDestructive>Button Destructive</ButtonDestructive></div>
+    <br>
+    <div><ButtonOutline>Button Outline</ButtonOutline></div>
+    <br>
+    <div><ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall></div>
+    <br>
+    <div><ButtonWhite>Button White User</ButtonWhite></div>
+    <br>
 
-  <div
-    class="page-container"
-  >
+    <div><ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon></div>
+    <br>
 
-    <div>
-      <div><h1> Alert List Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <div class="footer"/>
-        <div class="nav"/>
-        <LoaderContent theme="AlertList"/>
-        
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Alert Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="AlertResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
+    <div><ButtonGradient 
+      :color-direction="colorDirection" 
+      :gradient-start="colorStart" 
+      :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <br>
 
     <div>
-      <div><h1> Calendar Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="CalendarResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
+      <ButtonFeatureLabel> 
+        <template slot="icon"> <Alert24/> </template>
+        <template slot="label"> Button Feature Label</template>
+      </ButtonFeatureLabel>
     </div>
+    <br>
 
+    <div style="background: #292e31;  padding: 12px; border-radius: 10px; display: inline-block;">
+      <h2 style="color: #fff; text-align: center;" > For Dark Backgrounds </h2>
+      <br>
+
+      <div><ButtonOutlineDark> Button Outline Dark </ButtonOutlineDark></div>
+      <br>
+
+      <div><ButtonOutlineDarkSmall> Button Outline Dark Small </ButtonOutlineDarkSmall></div>
+      <br>
+
+    </div>
+   
     <div>
-      <div><h1> Commitee Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="CommiteeResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
+      <ButtonFAB 
+
+        :fab-color-primary-start="fabPrimaryColorStart"
+        :fab-color-primary-end="fabPrimaryColorEnd" 
+        :fab-color-secondary="fabSecondaryColor"
+        :option-one-link="fabLink1"
+        :option-two-link="fabLink2"
+        :option-three-link="fabLink3">
+
+        <template slot="mainIcon"> <More32/>  </template>
+
+        <template slot="option1"> <ArchiveEmail24/> </template>
+        <template slot="option2"> <FlagO24/> </template>
+        <template slot="option3"> <Help24/>  </template>
+      </ButtonFAB>
     </div>
-
-    <div>
-      <div><h1> Directories Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="DirectoriesResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Legislation List Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="LegislationList"/>
-        <LoaderContent theme="LegislationList"/>
-        <LoaderContent theme="LegislationList"/>
-        <LoaderContent theme="LegislationList"/>
-        <LoaderContent theme="LegislationList"/>
-        <LoaderContent theme="LegislationList"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Legislation Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="LegislationResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Members Of Congress List Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <LoaderContent theme="MembersOfCongressList"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Members Of Congress Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="MembersOfCongressResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> News List Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="NewsList"/>
-        <LoaderContent theme="NewsList"/>        
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> News Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="NewsResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Profile Result Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="ProfileResult"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div><h1> Congressional Staffers List Loader </h1></div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent theme="StaffersList"/>
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
-
-    <div>
-      <div>
-        <h1> Customized Loader</h1>
-        <h1>(No Theme)</h1>
-      </div>
-      <div 
-        class="screen-container"
-      >
-        <LoaderContent
-          :loader-height = "100" 
-          :loader-width = "400"
-          :loader-speed = "1.5"
-          loader-primary-color = "#0018Ab" 
-          loader-secondary-color = "#9933CC"
-        >
-
-          <rect 
-            x="0" 
-            y="12" 
-            rx="5" 
-            ry="0" 
-            width="400" 
-            height="24" 
-          />
-
-          <rect 
-            x="0" 
-            y="42" 
-            rx="5" 
-            ry="0" 
-            width="156" 
-            height="18" 
-          />
-
-        </LoaderContent>
-
-        <div class="footer"/>
-        <div class="nav"/>
-      </div>
-    </div>
+    <br>
 
   </div>
-
 </template>
 
 <script lang="ts">
-
 import Vue from 'vue'
-
 import { 
-  LoaderContent
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonDestructive, 
+  ButtonOutline, 
+  ButtonOutlineSmall, 
+  ButtonOutlineDark, 
+  ButtonOutlineDarkSmall,
+  ButtonGradient , 
+  ButtonWhite, 
+  ButtonFeatureIcon, 
+  ButtonFeatureLabel, 
+  ButtonFAB
 } from '@/index'
 
+/*desired Icons to be used must be individually imported here and listed in export
+componenets to be used for the Feature Buttons */
+
+import { 
+  Alert24, 
+  ArchiveEmail24, 
+  FlagO24, 
+  Help24, 
+  More32 
+  } from "@fishtank/icons-vue"
+
+
 export default Vue.extend({
-  components:{
-    LoaderContent
+  components: {
+    //imported buttons
+    ButtonPrimary,
+    ButtonSecondary,
+    ButtonDestructive,
+    ButtonOutline,
+    ButtonWhite,
+    ButtonGradient,
+    Alert24,
+    More32,
+    ArchiveEmail24, 
+    FlagO24, 
+    Help24,
+    ButtonFAB,
+    ButtonFeatureLabel,
+    ButtonFeatureIcon,
+    ButtonOutlineDark,
+    ButtonOutlineSmall,
+    ButtonOutlineDarkSmall,
   },
+
+  data: function(){
+    return{
+
+      //Relevant to ButtonGradient
+      colorStart : "#0018AB",
+      colorEnd : "#9933CC",
+      colorDirection: "to right",
+
+      //Relevant to ButtonFAB
+
+      fabPrimaryColorStart: '#0018AB',
+      fabPrimaryColorEnd: '#9933CC',
+      fabSecondaryColor: '#17509F',
+
+      fabLink1 : 'https://twitter.com/',
+      fabLink2 : 'https://facebook.com/',
+      fabLink3 : 'https://instagram.com/',
+    }
+  },
+  
+
+
+
 
 })
 </script>

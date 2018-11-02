@@ -10,7 +10,7 @@
     <br>
     <div><ButtonOutlineSmall>Button Outline Small</ButtonOutlineSmall></div>
     <br>
-    <div><ButtonWhite>Button White User</ButtonWhite></div>
+    <div><ButtonWhite>Button White</ButtonWhite></div>
     <br>
 
     <div><ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon></div>
@@ -47,15 +47,15 @@
         :fab-color-primary-start="fabPrimaryColorStart"
         :fab-color-primary-end="fabPrimaryColorEnd" 
         :fab-color-secondary="fabSecondaryColor"
+        :options-available="fabOptionsPresent"
         :option-one-link="fabLink1"
         :option-two-link="fabLink2"
         :option-three-link="fabLink3">
 
-        <template slot="mainIcon"> <More32/>  </template>
+        <template slot="mainIcon"> <Add32/>  </template>
 
-        <template slot="option1"> <ArchiveEmail24/> </template>
-        <template slot="option2"> <FlagO24/> </template>
-        <template slot="option3"> <Help24/>  </template>
+        <template slot="option1"> <Twitter24/> </template>
+        <template slot="option2"> <Facebook24/> </template>
       </ButtonFAB>
     </div>
     <br>
@@ -84,11 +84,11 @@ import {
 componenets to be used for the Feature Buttons */
 
 import { 
+  Add32,  
   Alert24, 
-  ArchiveEmail24, 
-  FlagO24, 
-  Help24, 
-  More32 
+  Twitter24,
+  Facebook24, 
+  FlagO24,
   } from "@fishtank/icons-vue"
 
 
@@ -101,11 +101,10 @@ export default Vue.extend({
     ButtonOutline,
     ButtonWhite,
     ButtonGradient,
+    Add32,
     Alert24,
-    More32,
-    ArchiveEmail24, 
-    FlagO24, 
-    Help24,
+    Twitter24, 
+    Facebook24, 
     ButtonFAB,
     ButtonFeatureLabel,
     ButtonFeatureIcon,
@@ -127,7 +126,7 @@ export default Vue.extend({
       fabPrimaryColorStart: '#0018AB',
       fabPrimaryColorEnd: '#9933CC',
       fabSecondaryColor: '#17509F',
-
+      fabOptionsPresent : false,
       fabLink1 : 'https://twitter.com/',
       fabLink2 : 'https://facebook.com/',
       fabLink3 : 'https://instagram.com/',
