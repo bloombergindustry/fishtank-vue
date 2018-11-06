@@ -1,6 +1,7 @@
-@import '~@fishtank/colors/dist/index';
-@import '~@fishtank/type/dist/index';
-@import '~@fishtank/space/dist/index';
+//Updated to relative linking to node_modules to support import into css_Modules
+@import '../../node_modules/@fishtank/colors/dist/index';
+@import '../../node_modules/@fishtank/type/dist/index';
+@import '../../node_modules/@fishtank/space/dist/index';
 
 $font-primary: open sans, arial, sans-serif;
 $font-accent: avenir next, avenir, helvetica neue, helvetica, arial, sans-serif;
