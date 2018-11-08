@@ -3,21 +3,25 @@
     <InputRadio 
       v-model="val"
       value="alpha" 
-      label="alpha"/>
+      label="alpha"
+      name="alpha"/>
     <InputRadio 
       v-model="val" 
       disabled
       value="alpha" 
-      label="alpha"/>
+      label="alpha"
+      name="alpha"/>
     <InputRadio 
       v-model="val"
       value="beta" 
-      label="beta"/>
+      label="beta"
+      name="beta"/>
     <InputRadio 
       v-model="val"
       disabled
       value="beta" 
-      label="beta"/>
+      label="beta"
+      name="beta"/>
     {{ val }}
   </section>
 </template>
