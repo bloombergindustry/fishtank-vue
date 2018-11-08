@@ -21,8 +21,11 @@
             <div
               v-if="$slots.headingIcon"
               class="ft-modal__heading-icon-wrapper"
+              tabindex="-1"
             >
-              <div class="ft-modal__heading-icon">
+              <div 
+                class="ft-modal__heading-icon" 
+                tabindex="-1">
                 <slot name="headingIcon"/>
               </div>
             </div>
