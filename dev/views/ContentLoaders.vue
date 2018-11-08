@@ -253,7 +253,11 @@
 import Vue from 'vue'
 
 import { 
+<<<<<<< HEAD
   FishTankLoaderContent as LoaderContent
+=======
+  LoaderContent
+>>>>>>> feat: first iteration of content loaders documentation
 } from '@/index'
 
 export default Vue.extend({

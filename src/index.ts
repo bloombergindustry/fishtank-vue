@@ -51,9 +51,6 @@ export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpi
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
-<<<<<<< HEAD
-=======
 export { default as FishTankPropsDoc } from "./components/FishTankPropsDoc.vue"
->>>>>>> feat: added token, introduction, and description custom content blocks, fishtank propsdoc component to filter and display props object
 
 import './styles.scss'
