@@ -1,25 +1,27 @@
 <template>
   <div 
     slot-scope="slotProps"
-    :class="[{'ft-buttongroup__button--active':shouldBeChecked},{'ft-buttongroup__button--disabled':disabled},'ft-buttongroup__button',{'ft-buttongroup__button--small':fishtankButtonGroupShared.isSmall},]" 
-    role="radio">
+    :class="[{'ft-buttongroup__button--active':shouldBeChecked},{'ft-buttongroup__button--disabled':disabled},'ft-buttongroup__button',{'ft-buttongroup__button--small':fishtankButtonGroupShared.isSmall},]">
     <label 
       :for="(id !==null? id: labelId)"
-      
-      :class="['ft-buttongroup__button__label', {'ft-baseButton--small':fishtankButtonGroupShared.isSmall}]">
+      :tabindex="shouldBeChecked ? 0 : -1"
+      :class="['ft-buttongroup__button__label', {'ft-baseButton--small':fishtankButtonGroupShared.isSmall}]"
+      @focus="setFocusInput()">
       <input 
+        ref="input"
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        :tabindex="shouldBeChecked ? getId : -1"
+        :tabindex="shouldBeChecked ? 0 : -1" 
         class="ft-buttongroup__button__input" 
-        type="radio" 
+        type="radio"
         v-on="listeners"
         @focus="fishtankButtonGroupShared.isFocused = true"
         @blur="fishtankButtonGroupShared.isFocused = false">
       <!-- <div class="ft-buttongroup__button__icon"/> -->
-      <div :class="['ft-buttongroup__button__label-content', {'ft-buttongroup__button__label-content--small':fishtankButtonGroupShared.isSmall}]">
+      <div 
+        :class="['ft-buttongroup__button__label-content', {'ft-buttongroup__button__label-content--small':fishtankButtonGroupShared.isSmall}]">
         {{ label }}
       </div>
     </label>
@@ -63,6 +65,11 @@ export default Vue.extend({
       default:null,
       required:false
     },
+    name:{
+      type:String,
+      default:"",
+      required:true
+    },
     fishtankButtonGroupShared:{
       type:Object,
       default:()=>{},
@@ -95,5 +102,10 @@ export default Vue.extend({
       return (this as any)._uid
     }
   },
+  methods:{
+    setFocusInput: function(){
+      (this.$refs.input as HTMLInputElement).focus()
+    }
+  }
 })
 </script>

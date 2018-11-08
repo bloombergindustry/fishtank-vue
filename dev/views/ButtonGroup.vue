@@ -4,30 +4,36 @@
       <FishTankBGButton
         v-model="bgValue"
         value="All"
-        label="All"/>
+        label="All"
+        name="options"/>
       <FishTankBGButton
         v-model="bgValue"
         value="Members"
-        label="Members"/>
+        label="Members"
+        name="options"/>
       <FishTankBGButton
         v-model="bgValue" 
         value="Staff"
-        label="Staff"/>
+        label="Staff"
+        name="options"/>
     </FishTankButtonGroup>
     <br>
     <FishTankButtonGroup small>
       <FishTankBGButton
         v-model="bgValueAltBeta"
         value="All"
-        label="All"/>
+        label="All"
+        name="options2"/>
       <FishTankBGButton
         v-model="bgValueAltBeta"
         value="Members"
-        label="Members"/>
+        label="Members"
+        name="options2"/>
       <FishTankBGButton
         v-model="bgValueAltBeta" 
         value="Staff"
-        label="Staff"/>
+        label="Staff"
+        name="options2"/>
     </FishTankButtonGroup>
 
     <div v-if="bgValue ==='All'"> All Tab</div>
