@@ -134,20 +134,21 @@ input::-webkit-inner-spin-button {
 }
 .ft-false-text-area{
   visibility: hidden;
-  font-size:$fontsize-base-lg;
+  font-size:1rem;
+  padding-bottom: 15px;
   position: absolute;
   left: -999999px;
   margin: 0px;
   padding-bottom:0px;
+  padding:0px;
   background: lightblue;
   display: inline-block;
   white-space:pre-line;
   word-wrap: break-word;
-  line-height:$lineheight-base-lg;
 }
 .ft-input-text__input__textarea{
    overflow: auto;
-   transition:height 150ms ease-in-out;
-   padding-top:7px;
+   transition:all 250ms ease-in-out;
+   padding-top:6px;
    padding-bottom:1px;
 }
