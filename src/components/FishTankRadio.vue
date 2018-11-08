@@ -54,6 +54,11 @@ export default Vue.extend({
       type:String,
       default:null,
       required:false
+    },
+    name:{
+      type:String,
+      default:"",
+      required:true
     }
   },
   computed:{
