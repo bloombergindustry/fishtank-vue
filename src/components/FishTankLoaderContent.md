@@ -2,11 +2,14 @@
 
 &nbsp; 
 
-### Table Of Contents
+## Table Of Contents
+
+&nbsp;
 
 - [Usage](#usage)
     - [How to Import Content Loader Component](#how-to-import-content-loader-component)
     - [How to Export Content Loader Component](#how-to-export-content-loader-component)
+
 - [The Content Loader Component](#the-content-loader-component)
     - [Alert List Theme ](#alert-list-theme)
     - [Alert Result Theme ](#alert-result-theme)
@@ -21,6 +24,11 @@
     - [News Result Theme](#news-result-theme)
     - [Profile Result Theme](#profile-result-theme)
     - [Congressional Staffers List Theme](#congressional-staffers-list-theme)
+    - [Custom Content Loader](#custom-content-loader)
+
+- [The Content Loader's Props](#the-content-loaders-props)
+
+&nbsp;
 
 # Usage
 See the examples below to learn how to import and export your Content Loader Component.
@@ -54,6 +62,10 @@ export default Vue.extend({
 
 &nbsp;
 
+ ### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
+
+&nbsp;
+
 # The Content Loader Component
 
 &nbsp;
@@ -75,7 +87,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="AlertList"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -90,7 +104,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="AlertResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -105,7 +121,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="CalendarResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -120,7 +138,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="CommiteeResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -135,7 +155,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="DirectoriesResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -150,7 +172,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="LegislationList"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -165,7 +189,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="LegislationResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -180,7 +206,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="MembersOfCongressList"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -195,7 +223,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="MembersOfCongressResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -210,7 +240,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="NewsList"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -225,7 +257,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="NewsResult"/>
 ```
-##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
+##### See [Usage](#usage) section for an explanation on how to enable this component in your template. 
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -240,7 +274,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="ProfileResult"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -255,7 +291,9 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 ```xml
     <LoaderContent theme="StaffersList"/>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
 
 &nbsp;
 
@@ -264,6 +302,12 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 &nbsp;
 
 <img src="../../assets/ft-loader-content-customized.png" width="40%" alt="Fish Tank Customizable Content Loader">
+
+&nbsp;
+
+To customize the Content Loader component, simply add svg shape elements within the ```<LoaderContent> </LoaderContent> ``` tags. You will also need to declare the width and height of the content loader svg using the ```:loader-height``` and ```:loader-width``` props. You can change the gradient colors using the ```loader-primary-color``` and ```loader-secondary-color``` props. 
+
+The gradient color props belong the Content Loader's Universal Props and apply to all themes as well as the custom component. To see a full list of these props and their applicability see [Content Loader Props](#content-loader-props)
 
 &nbsp;
 
@@ -296,9 +340,45 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
         </LoaderContent>
 ```
+#### See [The Content Loader's Props](#the-content-loaders-props) for a complete list of available props that can be used to customize your Content Loader or adjust themes.
 ##### See [Usage](#usage) section for an explanation on how to enable this component in your template.
+ ### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
+
+&nbsp;
+
+# The Content Loader's Props
 
 
+*The following props apply to the Content Loader Component regardless of enabled theme* .
+
+&nbsp;
+
+##### Example of Implementation
+
+```xml
+    <LoaderContent 
+        :loader-height = "100" 
+        :loader-width = "400"
+        :loader-speed = "1.5"
+        loader-primary-color = "#0018Ab" 
+        loader-secondary-color = "#9933CC"
+        theme="DirectoriesResult"
+    />
+```
+&nbsp;
+
+ ##### List of Available Props
+|Name|Type|Description|Required|Default|
+|---|---|---|---|---|
+|theme|String|Specify pre-made loader content theme |false| null|
+|loader-primary-color|String|Determines gradient start value |false| #f3f3f3|
+|loader-secondary-color|String|Determines gradient end value |false| #ecebeb|
+|:loader-height|Number|Determines height of Content Loader SVG |false| null|
+|:loader-width|Number|Determines width of Content Loader SVG |false| 400|
+|:loader-speed|Number|Determines speed of loader animation |false| 2 (seconds)|
 
 
-## Props
+&nbsp;
+
+ ##### See [Usage](#usage) section for an explanation on how to enable the Content Loader component in your template.
+ ### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
