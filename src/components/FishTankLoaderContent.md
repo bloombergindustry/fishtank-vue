@@ -165,7 +165,7 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
 &nbsp;
 
-<img src="../../assets/ft-loader-content-Legislation-list.png" width="40%" alt="Fish Tank Legislation List Content Loader" >
+<img src="../../assets/ft-loader-content-legislation-list.png" width="40%" alt="Fish Tank Legislation List Content Loader" >
 
 &nbsp;
 
@@ -182,7 +182,7 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
 &nbsp;
 
-<img src="../../assets/ft-loader-content-Legislation-result.png" width="40%" alt="Fish Tank Legislation Result Content Loader" >
+<img src="../../assets/ft-loader-content-legislation-result.png" width="40%" alt="Fish Tank Legislation Result Content Loader" >
 
 &nbsp;
 
