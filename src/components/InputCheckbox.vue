@@ -14,8 +14,11 @@
         :value="value"
         class="ft-input-checkbox__native" 
         type="checkbox"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
         v-on="listeners">
-      <div class="ft-input-checkbox__checkbox">
+      <div 
+        :class="['ft-input-checkbox__checkbox', {'focused': isFocused}]">
         <transition name="ft-transition-scale">
           <CheckboxSelected 
             v-if="isChecked"
@@ -93,7 +96,8 @@ export default Vue.extend({
   },
   data(){
     return {
-      checkProxy:false
+      checkProxy:false,
+      isFocused:false
     }
   },
   computed: {
@@ -150,3 +154,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/variables';
+  body.user-is-tabbing {
+    .focused {
+      box-shadow: 0 0 0 2px $color-selected;
+    }
+  }
+</style>
+

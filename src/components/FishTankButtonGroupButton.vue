@@ -12,7 +12,7 @@
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        :tabindex="shouldBeChecked ? 0 : -1"
+        :tabindex="shouldBeChecked ? getId : -1"
         class="ft-buttongroup__button__input" 
         type="radio" 
         v-on="listeners"
@@ -91,6 +91,9 @@ export default Vue.extend({
     labelId(): string {
       return `ft-button-group-button-${(this as any)._uid}`
     },
+    getId(){
+      return (this as any)._uid
+    }
   },
 })
 </script>

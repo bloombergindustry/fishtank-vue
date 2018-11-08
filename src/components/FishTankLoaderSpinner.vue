@@ -2,7 +2,9 @@
 <template>
   <div 
     :class="[gradientClass, spinnerSize, alignClass]" 
-    class="ft-spinner">
+    class="ft-spinner"
+    role="alert" 
+    aria-busy="true">
     <svg 
       height="100" 
       width="100">
