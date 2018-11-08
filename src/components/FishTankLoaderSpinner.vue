@@ -2,7 +2,9 @@
 <template>
   <div 
     :class="[gradientClass, spinnerSize, alignClass]" 
-    class="ft-spinner">
+    :aria-busy="busy"
+    class="ft-spinner" 
+    role="alert">
     <svg 
       height="100" 
       width="100">
@@ -53,6 +55,11 @@ export default Vue.extend({
       type:String,
       default: "center",
       required: false
+    },
+    busy:{
+      type:Boolean,
+      default:true,
+      required:false
     }
   },
   data () {
