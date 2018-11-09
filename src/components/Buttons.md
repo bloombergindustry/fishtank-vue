@@ -22,9 +22,9 @@
     - [Gradient Button Props](#gradient-button-props)
   - [Feature Button Icon](#feature-button-icon)
   - [Feature Button Icon with Label](#feature-button-icon-with-label)
-  - [FAB Button](#fab-button-beta)
-    - [An Explanation of FAB Button Props](#an-explanation-of-the-fab-button-props-and-icons)
-    - [FAB Button Props](#fab-button-props)
+  - [F A B ( Floating Action Button )](#f-a-b-(-floating-action-button-))
+    - [An Explanation of FAB Button Props, Icons, and Slots](#an-explanation-of-the-fab-button-props-icons-and-slots)
+    - [The FAB Button Props](#the-fab-button-props)
 
 - [Adding Button Actions](#adding-actions)
 - [Universal Button Props](#universal-props)
@@ -392,15 +392,15 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
   &nbsp; 
 
-  ## FAB Button
+  ## F A B ( Floating Action Button )
 
   
 
   &nbsp;
 
-  &nbsp; &nbsp; &nbsp;<img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state.png" width="11%" alt="Fish Tank FAB Button Hover State"/>
+  &nbsp; &nbsp; &nbsp;<img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state.png" width="11%" alt="Fish Tank FAB Button Hover State"/>
   
-  &nbsp; &nbsp; *Default State* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State* 
+  &nbsp; &nbsp; *Default State* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State (optional)* 
   
   &nbsp;
 
@@ -424,11 +424,11 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
   &nbsp;
 
 
-  #### An Explanation Of The FAB Button Props And Icons
+  #### An Explanation of the FAB Button Props, Icons, and Slots
 
-  The FAB Button takes in six props, the first three are strings that take in valid css colors and hex values. With ```:fab-color-primary-start``` determining the start gradient color of the main FAB button, ```:fab-color-primary-end``` determining the end gradient color, and ```:fab-color-secondary``` being the solid background color of the two FAB button options. The optional sub-buttons on the FAB are only available if the boolean prop ```:options-available``` is set to true, it's set to false by default. The final two props are strings where you can pass URL's / paths for each of the FAB's optional sub-bottons, which render in ascending order. These props are ```:option-one-link``` and ```:option-two-link```.
+  The FAB Button takes in six props, the first three are strings that take in valid css colors and hex values. With ```:fab-color-primary-start``` determining the start gradient color of the main FAB button, ```:fab-color-primary-end``` determining the end gradient color, and ```:fab-color-secondary``` being the solid background color of the two FAB button options. The optional sub-buttons on the FAB are only available if the boolean prop ```:options-available``` is set to true, it is set to false by default. The final two props are strings where you can pass URL's / paths for each of the FAB's optional sub-buttons, which render in ascending order. These props are ```:option-one-link``` and ```:option-two-link``` .
 
-  Assigning Icons to each button is as simple as creating ```<template></template>``` tags within the ```<ButtonFAB></ButtonFAB>``` element, and then passing your desired icons through the ```<template></template>``` tags after specifying the appropiate slot it will belong to. For instance, icons passed into any template with slot named 'mainIcon' will appear/belong to the main FAB button.
+  Assigning Icons to each button is as simple as creating ```<template></template>``` tags within the ```<ButtonFAB></ButtonFAB>``` element, and then passing your desired icons through the ```<template></template>``` tags after specifying the appropiate slot it will belong to. For instance, icons passed into any template with a slot named 'mainIcon' will appear/belong to the main FAB button.
 
   eg.
   ```xml
@@ -449,23 +449,20 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
   &nbsp;
 
-  *For Instruction on how to import Fish Tank Icons for use in this component, see the ' [How to Import Icons for Button Components](#to-import-icons-for-your-components) ' section.*
+  *For Instructions on how to import Fish Tank Icons for use in this component, see the ' [How to Import Icons for Button Components](#to-import-icons-for-your-components) ' section.*
 
   &nbsp;
 
-  #### FAB Button Props
+  #### The FAB Button Props
 
   |Name|Type|Description|Required|Default|
   |---|---|---|---|---|
-  |fabColorPrimary | String ( Hex color, or valid css color ) | Color of FAB main button| false | #292e31 |
-  |fabColorSecondary | String ( Hex color, or valid css color ) | Color of FAB option buttons| false | #777C7F |
-  |fabOption | Array ( Takes in three sub-props ) | Array of FAB option buttons| false | Null|
-  |fabOption.icon | String ( Character ) or Icon *( **Beta** )* | Takes in either a string character or icon| false| Null |
-  |fabOption.text | String ( Descriptive Label ) | Descriptive text label for option button | fasle| Null |
-  |fabOption.links | String ( URL Link ) | URL/Link for FAB option button | false | Null |
-
-  &nbsp;
-
+  |:fab-color-primary-start | String ( Hex color, or valid css color ) | Start color of main button gradient| true | #0018AB |
+  |:fab-color-primary-end | String ( Hex color, or valid css color ) | End color of main button gradient| true | #9933CC |
+  |:fab-secondary | String ( Hex color, or valid css color ) | Color of FAB sub-buttons | true | #777C7F |
+  |:options-available | Boolean | Enables presence of FAB sub-buttons| true | false |
+  |:options-one-link | String ( URL Link / path ) | Link text for first sub-button option| true | " " |
+  |:options-two-link | String ( URL Link / path ) | Link text for second sub-button option| true | " " |
 
   &nbsp;
 
