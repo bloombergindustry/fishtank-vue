@@ -72,9 +72,11 @@ export default Vue.extend({
 
 The Content Loader component is a fully customizable animated svg placeholder for loading content. It comes ready to use with 13 pre-made themes with customizable props such as colors, animation speeds, heights, and widths. In addition to the pre-made themes, users have the option to fully customize their own content loader and use it to create unique svg loaders by adding their own custom shapes.
 
-See [Usage](#usage) for steps on how to enable button components for usage in your template. The following sub-sections describe each of the content loader component's themes, how to customize your own theme, and the component's props.
+Below is a list of the Content Loader's different themes and how to call them using the ```theme``` property.
 
-See [Props](#the-content-loaders-props) to see all the available props for the content loader component.
+_See [Usage](#usage) for steps on how to enable button components for usage in your template. The following sub-sections describe each of the content loader component's themes, how to customize your own theme, and the component's props._
+
+_See [Props](#the-content-loaders-props) to see all the available props for the content loader component._
 
 &nbsp;
 
