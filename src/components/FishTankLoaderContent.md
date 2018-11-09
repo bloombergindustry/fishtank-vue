@@ -313,7 +313,7 @@ _See [Props](#the-content-loaders-props) to see all the available props for the 
 
 &nbsp;
 
-To customize the Content Loader component, simply add svg shape elements within the ```<LoaderContent> </LoaderContent> ``` tags. You will also need to declare the width and height of the content loader svg using the ```:loader-height``` and ```:loader-width``` props. You can change the gradient colors using the ```loader-primary-color``` and ```loader-secondary-color``` props. 
+To customize the Content Loader component, simply add SVG shape elements within the ```<LoaderContent> </LoaderContent> ``` tags. You will also need to declare the width and height of the Content Loader SVG using the ```:loader-height``` and ```:loader-width``` props. You can change the gradient colors using the ```loader-primary-color``` and ```loader-secondary-color``` props. 
 
 The gradient color props belong the Content Loader's Universal Props and apply to all themes as well as the custom component. To see a full list of these props and their applicability see [Content Loader Props](#content-loader-props)
 
