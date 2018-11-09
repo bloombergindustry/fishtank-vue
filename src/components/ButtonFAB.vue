@@ -43,16 +43,35 @@ export default Vue.extend({
     BaseButton
   },
   props:{
-    optionsAvailable: {type: Boolean, required:true, default: false },
+    optionsAvailable: {
+      type: Boolean, 
+      required:true, 
+      default: false },
 
-    fabColorPrimaryStart :{type: String, required:true, default: "#0018AB"},
-    fabColorPrimaryEnd :{type: String, required:true, default: "#9933CC"},
-    fabColorSecondary :{type: String, required:true, default: "#777C7F"},
+    fabColorPrimaryStart :{
+      type: String, 
+      required:true, 
+      default: "#0018AB"},
 
-  
+    fabColorPrimaryEnd :{
+      type: String, 
+      required:true, 
+      default: "#9933CC"},
 
-    optionOneLink :{type: String, required:true, default:" "},
-    optionTwoLink :{type: String, required:true, default:" "},
+    fabColorSecondary :{
+      type: String, 
+      required:true, 
+      default: "#777C7F"},
+
+    optionOneLink :{
+      type: String, 
+      required:true, 
+      default:" "},
+
+    optionTwoLink :{
+      type: String, 
+      required:true, 
+      default:" "},
 
     },   
   computed:{
