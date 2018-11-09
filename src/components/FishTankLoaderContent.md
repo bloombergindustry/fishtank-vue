@@ -74,6 +74,12 @@ The Content Loader component is a fully customizable animated svg placeholder fo
 
 See [Usage](#usage) for steps on how to enable button components for usage in your template. The following sub-sections describe each of the content loader component's themes, how to customize your own theme, and the component's props.
 
+See [Props](#the-content-loaders-props) to see all the available props for the content loader component.
+
+&nbsp;
+
+### Click [here](#table-of-contents) to return to the ' Table Of Contents ' 
+
 &nbsp;
 
 ## Alert List Theme
