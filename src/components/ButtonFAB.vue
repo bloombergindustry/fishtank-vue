@@ -53,7 +53,6 @@ export default Vue.extend({
 
     optionOneLink :{type: String, required:true, default:" "},
     optionTwoLink :{type: String, required:true, default:" "},
-    optionThreeLink :{type: String, required:true, default:" "},
 
     },   
   computed:{
