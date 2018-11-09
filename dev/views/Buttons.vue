@@ -50,7 +50,7 @@
         :options-available="fabOptionsPresent"
         :option-one-link="fabLink1"
         :option-two-link="fabLink2"
-        :option-three-link="fabLink3">
+      >
 
         <template slot="mainIcon"> <Add32/>  </template>
 
@@ -126,10 +126,9 @@ export default Vue.extend({
       fabPrimaryColorStart: '#0018AB',
       fabPrimaryColorEnd: '#9933CC',
       fabSecondaryColor: '#17509F',
-      fabOptionsPresent : false,
+      fabOptionsPresent : true,
       fabLink1 : 'https://twitter.com/',
       fabLink2 : 'https://facebook.com/',
-      fabLink3 : 'https://instagram.com/',
     }
   },
   
