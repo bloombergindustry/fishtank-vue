@@ -36,15 +36,17 @@
           :value="value"
           v-model="textAreaModel"
           :id="labelId"
-          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
+          :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
-          :rows="calcedTextAreafalseHeight"
           class="ft-input-text__input ft-input-text__input__textarea"
-          @keyup="getFalseHeight"
+          @keypress="getFalseHeight"
           @keydown.delete="getFalseHeight"
-          @keydown.ctrl.86="getFalseHeight"
-          @cut="getFalseHeight"
-          v-on="listeners"/></textarea>
+          @keyup.91.90="getFalseHeight"
+          @keyup.91.86="getFalseHeight"
+          @keyup.91.88="getFalseHeight"
+          @keyup.enter="getFalseHeight"
+          @keyup.delete="getFalseHeight"
+          v-on="listeners"/>
         <!--eslint-enable-->
       </template>
       <template v-else>
@@ -174,9 +176,9 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
-      textAreafalseHeight:24,
-      calcedTextAreafalseHeight:1,
-      scrollOn:false
+      textAreafalseHeight:44,
+      scrollOn:false,
+      trackFalseHeight:0
       }
   },
   computed: {
@@ -218,14 +220,16 @@ export default Vue.extend({
       element.focus()
     },
     getFalseHeight(): void{
-      if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
-        if (!this.scrollOn) this.scrollOn = true
-        return
-      }
-      if (this.$refs.falseTextarea !== undefined) {
-        if (this.scrollOn) this.scrollOn = false
-        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
-      }
+      this.$nextTick(()=>{
+        if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+          if (!this.scrollOn) this.scrollOn = true
+          return
+        }
+        if (this.$refs.falseTextarea !== undefined) {
+          if (this.scrollOn) this.scrollOn = false
+          this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+        }
+      })
     },
   }
 })
