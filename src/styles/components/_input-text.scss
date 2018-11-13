@@ -132,23 +132,27 @@ input::-webkit-inner-spin-button {
     color: $color-error;
   }
 }
+.ft-input-text__input__textarea{
+  overflow: auto;
+  transition:all 250ms ease-in-out;
+  padding-top:6px;
+  padding-bottom:1px;
+  min-height:2.5rem;
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
+}
 .ft-false-text-area{
+  min-height:2.5rem;
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
   visibility: hidden;
   font-size:1rem;
-  padding-bottom: 15px;
-  position: absolute;
-  left: -999999px;
   margin: 0px;
-  padding-bottom:0px;
-  padding:0px;
+  position: absolute;
+  top: 0;
   background: lightblue;
-  display: inline-block;
+  display: block;
   white-space:pre-line;
   word-wrap: break-word;
-}
-.ft-input-text__input__textarea{
-   overflow: auto;
-   transition:all 250ms ease-in-out;
-   padding-top:6px;
-   padding-bottom:1px;
+  width:calc(100% - 3.25rem)
 }
