@@ -51,6 +51,7 @@ import {
   CheckboxSelected24 as CheckboxSelected, 
   CheckboxUnselected24 as CheckboxUnselected 
 } from "@fishtank/icons-vue"
+import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name:"FishTankCheckbox",
@@ -58,6 +59,9 @@ export default Vue.extend({
     CheckboxSelected,
     CheckboxUnselected
   },
+  mixins: [
+    a11y,
+  ],
   model: {
     prop: 'modelValue',
     event: 'change'
