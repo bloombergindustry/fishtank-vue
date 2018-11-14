@@ -46,6 +46,8 @@
           @keyup.91.88="getFalseHeight"
           @keyup.enter="getFalseHeight"
           @keyup.delete="getFalseHeight"
+          @paste="getFalseHeight"
+          @cut="getFalseHeight"
           v-on="listeners"/>
         <!--eslint-enable-->
       </template>
@@ -94,6 +96,7 @@
 
 import Vue from "vue"
 import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
+import { setTimeout } from 'timers'
 
 export default Vue.extend({
   components: {
@@ -219,17 +222,21 @@ export default Vue.extend({
     focusElement(element: HTMLElement) {
       element.focus()
     },
-    getFalseHeight(): void{
-      this.$nextTick(()=>{
-        if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
-          if (!this.scrollOn) this.scrollOn = true
-          return
-        }
-        if (this.$refs.falseTextarea !== undefined) {
-          if (this.scrollOn) this.scrollOn = false
-          this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
-        }
-      })
+    getFalseHeight(e:ClipboardEvent): void{
+      setTimeout(()=>{
+          this.$nextTick(()=>{
+            if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+              this.textAreafalseHeight = this.$props.maxheight
+              if (!this.scrollOn) this.scrollOn = true
+              return
+            }
+            if (this.$refs.falseTextarea !== undefined) {
+              if (this.scrollOn) this.scrollOn = false
+              this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+            }
+            (this.$refs.input as HTMLFontElement).focus()
+          })
+        }, 100)
     },
   }
 })
