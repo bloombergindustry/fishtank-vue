@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue, { CreateElement, VNode } from 'vue'
-import Modal from './Modal.vue'
+import {Modal} from '@/index'
 
 export default Vue.extend({
   components: {
