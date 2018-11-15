@@ -45,11 +45,12 @@ export { default as FishTankTextInput } from "./components/FishTankTextInput.vue
 export { default as FishTankModal } from "./components/FishTankModal.vue"
 export { default as FishTankDialogBox } from "./components/FishTankDialogBox.vue"
 export { default as FishTankTag } from "./components/FishTankTag.vue"
-export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
+// export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
+// Multi-select tag needs to be rebuilt
 export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
-export { default as LoaderContent } from "./components/FishTankLoaderContent.vue"
+export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
 export { default as FishTankRenderedMarkup } from "./components/FishTankRenderedMarkup.vue"
 
 import './styles.scss'
