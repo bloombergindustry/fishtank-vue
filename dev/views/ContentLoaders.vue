@@ -253,7 +253,7 @@
 import Vue from 'vue'
 
 import { 
-  LoaderContent
+  FishTankLoaderContent as LoaderContent
 } from '@/index'
 
 export default Vue.extend({
