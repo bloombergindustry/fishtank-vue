@@ -48,7 +48,7 @@
           @keyup.delete="getFalseHeight"
           @paste="getFalseHeight"
           @cut="getFalseHeight"
-          v-on="listeners"/>
+          v-on="listeners"></textarea>
         <!--eslint-enable-->
       </template>
       <template v-else>
@@ -96,11 +96,10 @@
 
 import Vue from "vue"
 import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
-import { setTimeout } from 'timers'
 
 export default Vue.extend({
   components: {
-    CloseIcon: CloseIcon
+    CloseIcon: CloseIcon,
   },
   inheritAttrs: false,
   model:{
