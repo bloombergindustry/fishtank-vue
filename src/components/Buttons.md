@@ -22,9 +22,9 @@
     - [Gradient Button Props](#gradient-button-props)
   - [Feature Button Icon](#feature-button-icon)
   - [Feature Button Icon with Label](#feature-button-icon-with-label)
-  - [FAB Button](#fab-button-beta)
-    - [FAB Button Props](#fab-button-props)
-    - [An Explanation of FAB Button Props](#an-explanation-of-the-fab-button-props)
+  - [F A B ( Floating Action Button )](#f-a-b-(-floating-action-button-))
+    - [An Explanation of FAB Button Props, Icons, and Slots](#an-explanation-of-the-fab-button-props-icons-and-slots)
+    - [The FAB Button Props](#the-fab-button-props)
 
 - [Adding Button Actions](#adding-actions)
 - [Universal Button Props](#universal-props)
@@ -76,6 +76,43 @@ In your **export default Vue.extend ( )** class :
 &nbsp; 
 
 *e.g.*
+```js
+  export default Vue.extend({
+
+    components:{
+      //imported buttons that will be used
+      ButtonFeatureLabel,
+      ButtonGradient,
+      //imported icons that will be referenced in button components
+      Alert24,
+    },
+
+    data: function(){
+      return{
+        //prop values that are sent to components
+        colorStart : "#0018AB",
+        colorEnd : "9933CC",
+        colorDirection : "to right",
+      }
+    },
+
+  })
+```
+To import icons for your component
+
+*Desired icons must be individually imported from '@fishtank/icons-vue' **and** listed among exported components or they will not render.* Icons must be referenced using **camel case** not kebab. *e.g. MobileInactive24*  
+
+```js
+  import { Alert24 } from "@fishtank/icons-vue"
+```
+
+To export your custom Vue components
+
+  1. Under components, list each type of button and icon that will be used.
+  2. Under data, you will return your prop values to the button components
+    1. e.g. color, color direction, links, and text.
+
+e.g.
 ```js
   export default Vue.extend({
 
@@ -355,78 +392,83 @@ See [Usage](#usage) for steps on how to enable button components for usage in yo
 
   &nbsp; 
 
-  ## FAB Button *(Beta)*
+  ## F A B ( Floating Action Button )
 
-  * **Important** : *This button is currently in Beta, meaning that its props and dependencies will be constantly changing. Until its official release we do not reccomend its use in production, as it will break with updates. Team Fish Tank will keep this documentation up-to-date with information about new and changed props and dependencies.*
-  * **Warning** : *Icons in FAB Button may break in Beta.*
-  * **Notification** : Gradient color options for FAB Button coming in next update.
+  
 
   &nbsp;
 
-  <img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state-no-labels.png" width="11%" alt="Fish Tank FAB Button Hover State"/>&nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state-with-labels.png" width="20%" alt="Fish Tank FAB Button Hover State with Labels"/>
+  &nbsp; &nbsp; &nbsp;<img src="../../assets/ft-button-fab-default-state.png" width="10%" alt="Fish Tank FAB Button Default State"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="../../assets/ft-button-fab-hover-state.png" width="11%" alt="Fish Tank FAB Button Hover State"/>
   
-  *Default State* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State ( **no labels** )* &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State( **labels** )*
+  &nbsp; &nbsp; *Default State* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  *Hover State (optional)* 
   
   &nbsp;
 
   ```xml
       <ButtonFAB 
-        :fabOption="ObjectArray" 
-        :fabColorPrimary="VarColorPrimary" 
-        :fabColorSecondary="VarColorSecondary">
-        !   <!--FAB String Character or Icon can be inserted here.-->
+        :fab-color-primary-start="#0018AB"
+        :fab-color-primary-end="#9933CC" 
+        :fab-color-secondary="#17509F"
+        :options-available="true"
+        :option-one-link="https://twitter.com/"
+        :option-two-link="https://facebook.com/"
+      >
+
+        <template slot="mainIcon"> <Add32/>  </template>
+        <template slot="option1"> <Twitter24/> </template>
+        <template slot="option2"> <Facebook24/> </template>
+
       </ButtonFAB>
   ```
 
   &nbsp;
 
-  #### FAB Button Props
+
+  #### An Explanation of the FAB Button Props, Icons, and Slots
+
+  The FAB Button takes in six props, the first three are strings that take in valid css colors and hex values. With ```:fab-color-primary-start``` determining the start gradient color of the main FAB button, ```:fab-color-primary-end``` determining the end gradient color, and ```:fab-color-secondary``` being the solid background color of the two FAB button options. The optional sub-buttons on the FAB are only available if the boolean prop ```:options-available``` is set to true, it is set to false by default. The final two props are strings where you can pass URL's / paths for each of the FAB's optional sub-buttons, which render in ascending order. These props are ```:option-one-link``` and ```:option-two-link``` .
+
+  Assigning Icons to each button is as simple as creating ```<template></template>``` tags within the ```<ButtonFAB></ButtonFAB>``` element, and then passing your desired icons through the ```<template></template>``` tags after specifying the appropiate slot it will belong to. For instance, icons passed into any template with a slot named 'mainIcon' will appear/belong to the main FAB button.
+
+  eg.
+  ```xml
+  <template slot="mainIcon"> <Add32/> </template>
+  ```
+  Icons passed into any template with a slot named 'option1' will appear as the first FAB sub-button's icon. This is the sub-button nearest the main FAB button.
+
+  eg.
+  ```xml
+  <template slot="option1"> <Twitter24/> <template>
+  ```
+  Lastly, icons passed into any template with a slot named 'option2' will appear as the second FAB sub-button's icon. This is the sub-button furthest from the main FAB button.
+
+  eg.
+  ```xml
+  <template slot="option2"> <Facebook24/> </template>
+  ```
+
+  &nbsp;
+
+  *For Instructions on how to import Fish Tank Icons for use in this component, see the ' [How to Import Icons for Button Components](#to-import-icons-for-your-components) ' section.*
+
+  &nbsp;
+
+  #### The FAB Button Props
 
   |Name|Type|Description|Required|Default|
   |---|---|---|---|---|
-  |fabColorPrimary | String ( Hex color, or valid css color ) | Color of FAB main button| false | #292e31 |
-  |fabColorSecondary | String ( Hex color, or valid css color ) | Color of FAB option buttons| false | #777C7F |
-  |fabOption | Array ( Takes in three sub-props ) | Array of FAB option buttons| false | Null|
-  |fabOption.icon | String ( Character ) or Icon *( **Beta** )* | Takes in either a string character or icon| false| Null |
-  |fabOption.text | String ( Descriptive Label ) | Descriptive text label for option button | fasle| Null |
-  |fabOption.links | String ( URL Link ) | URL/Link for FAB option button | false | Null |
+  |:fab-color-primary-start | String ( Hex color, or valid css color ) | Start color of main button gradient| true | #0018AB |
+  |:fab-color-primary-end | String ( Hex color, or valid css color ) | End color of main button gradient| true | #9933CC |
+  |:fab-secondary | String ( Hex color, or valid css color ) | Color of FAB sub-buttons | true | #777C7F |
+  |:options-available | Boolean | Enables presence of FAB sub-buttons| true | false |
+  |:options-one-link | String ( URL Link / path ) | Link text for first sub-button option| true | " " |
+  |:options-two-link | String ( URL Link / path ) | Link text for second sub-button option| true | " " |
 
   &nbsp;
 
-  ##### An Explanation Of The FAB Button Props
-
-  After adding your FAB Button to your Vue file, following the steps under the [Usage](#usage) Section you will have to assign FAB props values in a **data:** return function in your **export default Vue.extend( )** class.
-
-  The FAB Button takes in three props, the first two are strings ( Hex Colors or valid css colors ) that will determine the color of the FAB Button ( **fabColorPrimary** ) and that of it's mini FAB option buttons ( **fabColorSecondary** ) . The Third prop ( **fabOption** ) is an object array, where each object takes in three values/sub-props called icon ( **fabOption.icon** ) , text ( **fabOption.text** ) , and link ( **fabOption.link** ) . *Currently, there is no limit to how many instances of the FAB mini button that can be passed into the array. We recommend no more than four instances per FAB Button .* 
-
-  &nbsp;
-
-  *See the example below on returning prop values into a FAB Button Component .*
-
-  ```js
-    export default Vue.extend({
-
-      // ...
-
-      data: function(){
-        return{
-
-          // ...
-
-          // Prop values for FAB Button
-          VarColorPrimary : ' #EA60A7 ',
-          VarColorSecondary : ' #0D9DDB ',
-          ObjectArray : [
-            { icon: ' 1 ', text: ' Twitter ', link: ' https://www.twitter.com/ ' },
-            { icon: ' 2 ', text: ' Facebok ', link: ' https://www.facebook.com/ ' },
-            { icon: ' 3 ', text: ' Instagram ', link: 'https://www.instagram.com/ ' },
-          ],
-        }
-      }
-    })
-
-  ```
   ###### See [Usage](#usage) section for an explanation on how to enable this button component in your template.
+
+  &nbsp;
   
 # Adding actions:
 

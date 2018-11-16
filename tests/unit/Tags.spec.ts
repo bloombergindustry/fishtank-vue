@@ -2,7 +2,7 @@
 import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallow, mount } from "@vue/test-utils"
-import {Tag, MultiSelectTag} from "@/index"
+import {Tag} from "@/index"
 
 
 import Vue from "vue"
@@ -55,38 +55,6 @@ describe('Tags', () => {
 
         tag.trigger('click')
         expect(tag.classes()).to.include('tag--disabled')
-    })
-  }),
-
-  describe('MultiSelectTag', () => {
-    it('starts as inactive with 0 selections', () => {
-      let TagWrapper = Vue.extend({
-        components: {
-          MultiSelectTag
-        },
-        render(h) {
-          return h(MultiSelectTag, {
-            
-          })
-        }
-      })
-
-      let wrapper = mount(TagWrapper)
-      let multiselect = wrapper.find('div')
-
-      expect(multiselect.classes()).to.include('tag--multiselect--inactive') // starts as inactive state
-    })
-
-    context('disabled property is true', () => {
-      let propsData = { disabled: true }
-
-      it('has a disabled class', () => {
-        let wrapper = mount(MultiSelectTag, { propsData })
-        let multiselect = wrapper.find('div')
-
-        expect(multiselect.classes()).to.include('tag--multiselect--disabled')
-      })
-
     })
   })
 })

@@ -2,46 +2,48 @@
   <body>
     <div>
       <h1 class="tags--heading">Binary Tags</h1>
-      <span>
-        <p class="tags--text">
-          <FishTankTag 
-            v-model="tagOne"
-            label="Label"/> Active/Inactive and hover functionality </p>
-      </span>
-      <span>
-        <p class="tags--text"> 
-          <FishTankTag 
-            v-model="tagTwo"
-            label="Label" 
-            disabled/> Disabled</p>
-      </span>
-    </div>
-    <div>
-      <h1 class="tags--heading">Removeable Tags </h1>
-      <span>
-        <p class="tags--text"> 
-          <FishTankTag 
-            label="Label" 
-            close/> Only active state, with hover functionality</p>
-      </span>
-      <span>
-        <p class="tags--text"> 
-          <FishTankTag 
-            label="Label" 
-            close 
-            disabled/> Disabled</p>
-      </span>
-    </div>
-    <div>
-      <h1 class="tags--heading">Multi-Tags</h1>
-      <p class="tags--text"> Inactive with no values populated</p>
-    </div>
-    <div>
-      <h1 class="tags--heading">Multi-Tags</h1>
-      <p class="tags--text"> Active with values populated</p>
-    </div>
-    <!-- <br> -->
-    <div>
+      <FishTankTag
+        v-model="tagOne"
+        label="Binary Tags"/> &nbsp; | &nbsp;
+      <span>Tag Value: {{ tagOne }}</span>
+      <h2>Documentation for Tags</h2> 
+      <div v-html="docs"/>
+      <br>
+      <br>
+      <FishTankTag
+        v-model="tagOne"
+        :disabled="true"
+        label="Binary Tags - Active &amp; Disabled"/> &nbsp; | &nbsp; <span>Tag Value: {{ tagOne }}</span>
+      <br>
+      <br>
+      <FishTankTag
+        v-model="tagTwo" 
+        label="Binary Tags"/>&nbsp; | &nbsp; <span>Tag Value: {{ tagTwo }}</span>
+      <br>
+      <br>
+      <FishTankTag
+        v-model="tagTwo"
+        :disabled="true"
+        label="Binary Tags - Inactive &amp; Disabled"/> &nbsp; | &nbsp; <span>Tag Value: {{ tagTwo }}</span>
+      <br>
+      <br>
+      <template>
+        <FishTankTag
+          v-for="(option, index) in newOptions"
+          :key="index"
+          v-model="option.val"
+          label="Tag"
+          removable/> 
+      </template>
+      <br>
+      <br>
+      <FishTankTag
+        v-model="tagTwo" 
+        label="Binary Tags">
+        <Flag24/>
+      </FishTankTag> &nbsp; | &nbsp; <span>Tag Value: {{ tagTwo }}</span>
+      <hr>
+      
       <!-- <p class="tags--text"> Active with Dropdown [WIP]</p> -->
       <!-- <MultiSelectTag 
         :options="newOptions"
@@ -53,7 +55,7 @@
           :label="option"  
         />
       </MultiSelectTag>   -->
-      <FishTankTag
+      <!-- <FishTankTag
         v-model="multiToggle"
         label="Multi-select Tag Label"
         multiselect/>
@@ -63,16 +65,7 @@
         label="Multi-select Tag Label"
         multiselect
         disabled/>
-    </div>
-    <div>
-      <h1 class="tags--heading">InputBox with Removeable Tags</h1>
-      <template v-for="( tagInstance, index) in tags">
-        <FishTankTag
-          :key="index"
-          :v-model="tagInstance"
-          :label="tagInstance.tagVal"
-          close/>
-      </template>
+    </div>-->
     </div>
 
   </body>
@@ -80,27 +73,26 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { FishTankTag, MultiSelectTag, InputText , InputTagRemove} from "@/index"
-
-
+import { FishTankTag } from "@/index"
+import { Flag24 } from '@fishtank/icons-vue' 
 
 export default Vue.extend({
   components: {
     FishTankTag,
-    MultiSelectTag,
-    InputTagRemove,
-    InputText 
+    Flag24
   },
   data () {
     return{
       tagOne:true,
       tagTwo:false,
-      newOptions: ["Different", "Options", "Array","Of", "Longer", "Length"],
+      stringOptions: ["Different", "Options", "Array","Of", "Longer", "Length"],
+      newOptions: [{val:true}, {val:true}, {val:true}, {val:true}],
       emptyArray:[],
       selectedOptions: ["Different", {value:null}, ["ArrayValue"]],
       newTag:"",
       tags:[{tagVal:"tag1", tagTing:"ting"},{tagVal:"tag2"},{tagVal:"tag3"},],
-      multiToggle:false
+      multiToggle:false,
+      docs: FishTankTag.options.__docs
     }
   }
 })

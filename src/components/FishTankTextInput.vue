@@ -36,15 +36,19 @@
           :value="value"
           v-model="textAreaModel"
           :id="labelId"
-          :style="{'height':textAreafalseHeight + 'px', 'minHeight':'2.5rem', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
+          :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
-          :rows="calcedTextAreafalseHeight"
           class="ft-input-text__input ft-input-text__input__textarea"
-          @keyup="getFalseHeight"
+          @keypress="getFalseHeight"
           @keydown.delete="getFalseHeight"
-          @keydown.ctrl.86="getFalseHeight"
+          @keyup.91.90="getFalseHeight"
+          @keyup.91.86="getFalseHeight"
+          @keyup.91.88="getFalseHeight"
+          @keyup.enter="getFalseHeight"
+          @keyup.delete="getFalseHeight"
+          @paste="getFalseHeight"
           @cut="getFalseHeight"
-          v-on="listeners"/></textarea>
+          v-on="listeners"></textarea>
         <!--eslint-enable-->
       </template>
       <template v-else>
@@ -95,7 +99,7 @@ import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {
-    CloseIcon: CloseIcon
+    CloseIcon: CloseIcon,
   },
   inheritAttrs: false,
   model:{
@@ -174,9 +178,9 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
-      textAreafalseHeight:24,
-      calcedTextAreafalseHeight:1,
-      scrollOn:false
+      textAreafalseHeight:44,
+      scrollOn:false,
+      trackFalseHeight:0
       }
   },
   computed: {
@@ -217,15 +221,21 @@ export default Vue.extend({
     focusElement(element: HTMLElement) {
       element.focus()
     },
-    getFalseHeight(): void{
-      if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
-        if (!this.scrollOn) this.scrollOn = true
-        return
-      }
-      if (this.$refs.falseTextarea !== undefined) {
-        if (this.scrollOn) this.scrollOn = false
-        this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
-      }
+    getFalseHeight(e:ClipboardEvent): void{
+      setTimeout(()=>{
+          this.$nextTick(()=>{
+            if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+              this.textAreafalseHeight = this.$props.maxheight
+              if (!this.scrollOn) this.scrollOn = true
+              return
+            }
+            if (this.$refs.falseTextarea !== undefined) {
+              if (this.scrollOn) this.scrollOn = false
+              this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+            }
+            (this.$refs.input as HTMLFontElement).focus()
+          })
+        }, 100)
     },
   }
 })

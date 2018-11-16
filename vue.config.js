@@ -11,5 +11,11 @@ module.exports = {
       .rule('svg')
         .use('vue-svg-icon')
           .loader('vue-svg-icon-loader')
-  }
+  },
+  configureWebpack: config => {
+    config.module.rules.push({
+      resourceQuery: /blockType=docs/,
+      loader: require.resolve('./config/docs-loader.js')
+    })
+  },
 }

@@ -14,8 +14,11 @@
         :value="value"
         class="ft-input-checkbox__native" 
         type="checkbox"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
         v-on="listeners">
-      <div class="ft-input-checkbox__checkbox">
+      <div 
+        :class="['ft-input-checkbox__checkbox', {'focused': isFocused}]">
         <transition name="ft-transition-scale">
           <CheckboxSelected 
             v-if="isChecked"
@@ -48,6 +51,7 @@ import {
   CheckboxSelected24 as CheckboxSelected, 
   CheckboxUnselected24 as CheckboxUnselected 
 } from "@fishtank/icons-vue"
+import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name:"FishTankCheckbox",
@@ -55,6 +59,9 @@ export default Vue.extend({
     CheckboxSelected,
     CheckboxUnselected
   },
+  mixins: [
+    a11y,
+  ],
   model: {
     prop: 'modelValue',
     event: 'change'
@@ -93,7 +100,8 @@ export default Vue.extend({
   },
   data(){
     return {
-      checkProxy:false
+      checkProxy:false,
+      isFocused:false
     }
   },
   computed: {
@@ -150,3 +158,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/variables';
+  body.user-is-tabbing {
+    .focused {
+      box-shadow: 0 0 0 2px $color-selected;
+    }
+  }
+</style>
+
