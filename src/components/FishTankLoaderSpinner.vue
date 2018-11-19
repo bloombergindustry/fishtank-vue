@@ -2,7 +2,7 @@
 <template>
   <div 
     :class="[gradientClass, spinnerSize, alignClass]" 
-    :aria-busy="busy"
+    :aria-busy="loading"
     class="ft-spinner" 
     role="alert">
     <svg 
@@ -27,10 +27,12 @@
         class="ft-spinner-base" 
         cx="50" 
         cy="50" />
-      <circle 
-        class="ft-spinner-gradient" 
+      <circle
+        :style="{strokeDasharray: `${strokeDashArray}`}"
+        class="ft-spinner-gradient"
         cx="50" 
-        cy="50" />
+        cy="50" 
+        @stop-spinner="stopSpinner" />
     </svg>
   </div>
 </template>
@@ -56,19 +58,50 @@ export default Vue.extend({
       default: "center",
       required: false
     },
-    busy:{
+    loading:{
       type:Boolean,
       default:true,
       required:false
     }
   },
   data () {
-    return{}
+    return{
+      smallDash: 26,
+      smallDashMax: 52,
+      mediumDash: 50,
+      mediumDashMax: 100,
+      largeDash: 100,
+      largeDashMax: 200
+    }
   },
   computed:{
     gradientClass: function(){ return "ft-spinner--" + this.theme + "-gradient"},
     spinnerSize: function(){ return "ft-spinner--" + this.size},
-    alignClass: function() { return "ft-spinner--align-" + this.align}
+    alignClass: function() { return "ft-spinner--align-" + this.align},
+    strokeDashArray: function(){
+      let countDown = this.size === 'small' ? this.smallDash : 
+        this.size === 'medium' ? this.mediumDash :this.largeDash
+      return countDown
+    }
+  },
+  watch: {
+    loading: function(isLoading) {
+      isLoading ? null : this.stopSpinner()
+    }
+  },
+  methods:{
+    stopSpinner: function(){
+      var spinInt = window.setInterval( ()=>{
+        if (this[this.size + 'Dash'] >= this[this.size + 'DashMax']){
+          this.$emit('spinner-done')
+          window.clearInterval(spinInt)
+          return
+        } else {
+          this[this.size + 'Dash']++
+        }
+      }, (0.57*([this.size + 'Dash'] * 2)))
+      
+    }
   }
 })
 </script>
