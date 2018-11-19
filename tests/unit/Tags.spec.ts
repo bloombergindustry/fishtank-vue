@@ -9,58 +9,74 @@ import Vue from "vue"
 
 describe('FishTankTag', () => {
     
-  describe('FishTankTag', () => {
-    
-    it('changes states when the binary tag is clicked', () => {
-      let TagWrapper = Vue.extend({
-        components: {
-          FishTankTag
-        },
-        render(h) {
-          return h(FishTankTag, {
-            props: {
-              disabled: false,
-              label:'Tag Label',
-              checked:false
-            },
-          })
-        }
-      })
+  it('should exist', () => {
+    let TagWrapper = Vue.extend({
+      components: {
+        FishTankTag
+      },
+      render(h) {
+        return h(FishTankTag, {
+          props: {
+            disabled: false,
+            label:'Tag Label',
+          },
+        })
+      }
+    })
+    let tagWrapper = mount(TagWrapper)
+    let tag = tagWrapper.find('input')
+    let mockTag = tagWrapper.find('[class^="FishTankTag_tag"]') 
+    expect(tag).to.exist
+    expect(mockTag).to.exist
+  })
+
+  // it('changes states when the binary tag is clicked', () => {
+  //   let TagWrapper = Vue.extend({
+  //     components: {
+  //       FishTankTag
+  //     },
+  //     render(h) {
+  //       return h(FishTankTag, {
+  //         props: {
+  //           disabled: false,
+  //           label:'Tag Label',
+  //           checked:false
+  //         },
+  //       })
+  //     }
+  //   })
+  //   let tagWrapper = mount(TagWrapper)
+  //   let tag = tagWrapper.find('input')
+  //   let mockTag = tagWrapper.find('[class^="FishTankTag_tag"]') 
+  //   tag.trigger('input')
+  //   // console.log(tag.attributes())
+  // })
+
+  context('disabled property is true', () => {
+    let TagWrapper = Vue.extend({
+      components: {
+        FishTankTag
+      },
+      render(h) {
+        return h(FishTankTag, {
+          props: {
+            disabled: true,
+            label:'Tag Label',
+          },
+        })
+      }
+    })
+
+    it('has a disabled class', () => {
       let tagWrapper = mount(TagWrapper)
-      // console.log('tagWrapper', tagWrapper)
       let tag = tagWrapper.find('input')
-      let mockTag = tagWrapper.find('[class^="FishTankTag_tag"]') 
-      tag.trigger('input')
-      console.log(mockTag.element)
-      // console.log(mockTag.element.classList) 
-      // expect(tag.classes()).to.include('tag--active') // starts as active state
-      // tag.trigger('click')
-      // expect(tag.classes()).to.include('tag--inactive')  // clicking changes binary tag to inactive state
+      let tagAttrs = tag.attributes()
+      expect(tagAttrs.disabled).to.equal('disabled')
     })
+    // it('does not change from disabled if clicked')
+    //   let tag = mount(TagWrapper)
 
-    context('disabled property is true', () => {
-      let TagWrapper = Vue.extend({
-        components: {
-          FishTankTag
-        },
-        render(h) {
-          return h(FishTankTag, {
-            props: {
-              disabled: true,
-            },
-          })
-        }
-      })
-
-      // it('has a disabled class', () => {
-      //   let tag = mount(TagWrapper)
-      //   expect(tag.classes()).to.include('tag--disabled')
-      // })
-      // it('does not change from disabled if clicked')
-      //   let tag = mount(TagWrapper)
-
-      //   tag.trigger('click')
-      //   expect(tag.classes()).to.include('tag--disabled')
-    })
+    //   tag.trigger('click')
+    //   expect(tag.classes()).to.include('tag--disabled')
   })
 })
