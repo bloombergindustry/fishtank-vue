@@ -6,8 +6,11 @@
         <div style="display: table-cell; vertical-align: middle;">bgov </div>
         <div style="display: table-cell;">
           <spinner 
-            theme="bgov" 
+            ref="bGovSpinner"
+            :loading="bgloading" 
+            theme="bgov"
             size="medium"/>
+          <ftbutton @click="bgloading = !bgloading">Click to show loading animation</ftbutton>
         </div>
       </div>
       <div style="display: table-row;">
@@ -70,9 +73,11 @@
         <div style="display: table-cell; vertical-align: middle;">large</div>
         <div style="display: table-cell;">
           <spinner
+            :loading="lgbgloading" 
             theme="bgov"
             size="large"
           />
+          <ftbutton @click="lgbgloading = !lgbgloading">Click to show loading animation</ftbutton>
         </div>
       </div>
     </div>
@@ -81,11 +86,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankSpinner as Spinner } from '@/index'
+import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton } from '@/index'
 
 export default Vue.extend({
   components: {
-    Spinner
-  }
+    Spinner,
+    ftbutton
+  },
+  data(){
+    return {
+      bgloading: true,
+      lgbgloading:true
+    }
+  },
 })
 </script>
