@@ -93,8 +93,8 @@ export default Vue.extend({
     stopSpinner: function(){
       var spinInt = window.setInterval( ()=>{
         if (this[this.size + 'Dash'] >= this[this.size + 'DashMax']){
-          this.$emit('spinner-done')
           window.clearInterval(spinInt)
+          this.$emit('spinner-done')
           this.loading = false
           return
         } else {
