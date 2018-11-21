@@ -7,7 +7,9 @@
         label="Binary Tags"/> &nbsp; | &nbsp;
       <span>Tag Value: {{ tagOne }}</span>
       <h2>Documentation for Tags</h2> 
-      <div v-html="docs"/>
+      
+      <vue-markdown>{{ mdDocs }}</vue-markdown>
+      <FishTankPropsDoc :properties="docs"/>
       <br>
       <br>
       <FishTankTag
@@ -73,13 +75,16 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { FishTankTag } from "@/index"
+import { FishTankTag , FishTankPropsDoc} from "@/index"
 import { Flag24 } from '@fishtank/icons-vue' 
+import VueMarkdown from 'vue-markdown'
 
 export default Vue.extend({
   components: {
     FishTankTag,
-    Flag24
+    Flag24,
+    FishTankPropsDoc,
+    VueMarkdown
   },
   data () {
     return{
@@ -92,7 +97,8 @@ export default Vue.extend({
       newTag:"",
       tags:[{tagVal:"tag1", tagTing:"ting"},{tagVal:"tag2"},{tagVal:"tag3"},],
       multiToggle:false,
-      docs: FishTankTag.options.__docs
+      docs: FishTankTag.options.props,
+      mdDocs: FishTankTag.options.__token
     }
   }
 })
