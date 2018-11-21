@@ -9,6 +9,16 @@ declare module 'vue/types/vue' {
 
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
-    __docs?: string
+    __introduction?: string,
+  }
+}
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
+    __description?: string,
+  }
+}
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
+    __token?: string
   }
 }

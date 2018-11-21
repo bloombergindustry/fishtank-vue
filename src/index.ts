@@ -51,6 +51,6 @@ export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpi
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
-export { default as FishTankRenderedMarkup } from "./components/FishTankRenderedMarkup.vue"
+export { default as FishTankPropsDoc } from "./components/FishTankPropsDoc.vue"
 
 import './styles.scss'
