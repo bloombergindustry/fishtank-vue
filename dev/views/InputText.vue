@@ -4,12 +4,12 @@
       :value="val"
       label="Text Input Type"
       type="text"/>
-    <FishTankRenderedMarkup>
+    <!-- <FishTankRenderedMarkup>
       <InputText
         :value="val"
         label="Text Input Type"
         type="text"/>
-    </FishTankRenderedMarkup>
+    </FishTankRenderedMarkup> -->
     <InputText
       :value="val"
       label="Password Input Type"
@@ -54,12 +54,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText, FishTankRenderedMarkup } from '@/index'
+import { InputText, 
+// FishTankRenderedMarkup 
+} from '@/index'
 
 export default Vue.extend({
   components:{
     InputText,
-    FishTankRenderedMarkup
+    // FishTankRenderedMarkup
   },
   data(){
     return {
