@@ -14,8 +14,16 @@ module.exports = {
   },
   configureWebpack: config => {
     config.module.rules.push({
-      resourceQuery: /blockType=docs/,
-      loader: require.resolve('./config/docs-loader.js')
+      resourceQuery: /blockType=introduction/,
+      loader: require.resolve('./config/introduction-loader.js')
+    }),
+    config.module.rules.push({
+      resourceQuery: /blockType=description/,
+      loader: require.resolve('./config/description-loader.js')
+    }),
+    config.module.rules.push({
+      resourceQuery: /blockType=token/,
+      loader: require.resolve('./config/token-loader.js')
     })
   },
 }

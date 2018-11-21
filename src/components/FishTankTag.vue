@@ -48,6 +48,7 @@ import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name:"FishTankTag",
+
   components: {
     Close24
   },
@@ -62,7 +63,8 @@ export default Vue.extend({
     disabled:{
       type:Boolean,
       required:false,
-      default:false
+      default:false,
+      propDescription:"this is the component description",
     },
     value: {
       default:null,
@@ -103,7 +105,8 @@ export default Vue.extend({
   data(){
     return {
       checkProxy:false,
-      isFocused: false
+      isFocused: false,
+      propsDocData: this.$options.props
     }
   },
   computed: {
@@ -133,7 +136,7 @@ export default Vue.extend({
       return this.modelValue === this.trueValue
     },
     labelId(): string {
-      return `fishtang-tag-${(this as any)._uid}`
+      return `${this.$options.name}-${(this as any)._uid}`
     },
     hasIcon(): boolean {
       if (this.removable || this.$slots.default) {
@@ -252,7 +255,18 @@ export default Vue.extend({
   }
 </style>
 
+<introduction>
+  Component Introduction
+</introduction>
 
-<docs>
-  <p>These are docs for this component</p>
-</docs>
+<description>
+  Component description
+</description>
+
+<token>
+  ```js
+  <FishTankTag
+  v-model="tagOne"
+  label="Binary Tags"/>
+  ```
+</token>
