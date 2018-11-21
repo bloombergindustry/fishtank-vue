@@ -2,7 +2,7 @@
 <template>
   <div 
     :class="[gradientClass, spinnerSize, alignClass]" 
-    :aria-busy="loading"
+    :aria-busy="`${loading}`"
     class="ft-spinner" 
     role="alert">
     <svg 
@@ -29,7 +29,7 @@
         cy="50" />
       <circle
         :style="{strokeDasharray: `${strokeDashArray}`}"
-        class="ft-spinner-gradient"
+        :class="['ft-spinner-gradient', {'pause-spinner': !loading}]"
         cx="50" 
         cy="50" 
         @stop-spinner="stopSpinner" />
@@ -95,6 +95,7 @@ export default Vue.extend({
         if (this[this.size + 'Dash'] >= this[this.size + 'DashMax']){
           this.$emit('spinner-done')
           window.clearInterval(spinInt)
+          this.loading = false
           return
         } else {
           this[this.size + 'Dash']++
