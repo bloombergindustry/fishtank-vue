@@ -65,26 +65,4 @@ describe('Card', () => {
     })
 
   })
-    
-  // describe('Card', () => {
-    
-  //   it('should exist', () => {
-  //     let CardWrapper = Vue.extend({
-  //       components: {
-  //         Card
-  //       },
-  //       render(h) {
-  //         return h( Card, {
-  //           props: {
-  //             heading:"I am a card heading"
-  //           },
-  //         })
-  //       }
-  //     })
-  //     let cardWrapper = mount(CardWrapper)
-  //     let card = cardWrapper.find('[class^="ft-card"]') 
-  //     expect(card).to.exist
-  //   })
-
-  // })
 })
