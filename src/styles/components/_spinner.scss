@@ -1,14 +1,17 @@
 .ft-spinner{
-  circle.ft-spinner-base{
+  .ft-spinner-base{
     fill: none;
     stroke: transparent;
   }
-  circle.ft-spinner-gradient{
+  .ft-spinner-gradient{
     fill: none;
     stroke-linecap: round;
     transform: rotate(0deg);
     transform-origin: center center;
     animation: loading .75s linear infinite;
+  }
+  .pause-spinner{
+    animation-play-state: paused;
   }
   //sizes
   &.ft-spinner--small{
