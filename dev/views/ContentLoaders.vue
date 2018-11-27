@@ -244,6 +244,15 @@
       </div>
     </div>
 
+    <div style="width: 340px;">
+      <div><h1> Documentation for Loaders </h1></div>
+      <div>
+        <!--h4> Vue-markdown Output </h4>
+        <vue-markdown> {{ mdDocs }} </vue-markdown-->
+        <FishTankPropsDoc :properties="docs"/>
+      </div>
+    </div>
+
   </div>
 
 </template>
@@ -253,17 +262,23 @@
 import Vue from 'vue'
 
 import { 
-<<<<<<< HEAD
-  FishTankLoaderContent as LoaderContent
-=======
-  LoaderContent
->>>>>>> feat: first iteration of content loaders documentation
+  FishTankLoaderContent as LoaderContent,
+  FishTankPropsDoc,
 } from '@/index'
+
+import VueMarkdown from 'vue-markdown'
 
 export default Vue.extend({
   components:{
-    LoaderContent
+    LoaderContent,
+    FishTankPropsDoc,
+    VueMarkdown
   },
-
+  data(){
+    return{
+      docs: LoaderContent.options.props,
+     // mdDocs: LoaderContent.options.props
+    }
+  }
 })
 </script>
