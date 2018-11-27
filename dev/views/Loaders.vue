@@ -80,23 +80,33 @@
           <ftbutton @click="lgbgloading = !lgbgloading">Click to show loading animation</ftbutton>
         </div>
       </div>
+
+      <h1> Loader Documentation </h1>
+      <div>
+        <FishTankPropsDoc :properties="docs"/>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton } from '@/index'
+import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton, FishTankPropsDoc } from '@/index'
+import VueMarkdown from 'vue-markdown'
 
 export default Vue.extend({
   components: {
     Spinner,
-    ftbutton
+    ftbutton,
+    FishTankPropsDoc,
+    VueMarkdown
   },
   data(){
     return {
       bgloading: true,
-      lgbgloading:true
+      lgbgloading:true,
+      docs: Spinner.options.props
     }
   },
 })
