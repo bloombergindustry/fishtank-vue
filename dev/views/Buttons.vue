@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div><ButtonPrimary>Button Primary</ButtonPrimary></div> 
+    <div><ButtonPrimary name="Primary">Button Primary</ButtonPrimary></div> 
     <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
     <br>

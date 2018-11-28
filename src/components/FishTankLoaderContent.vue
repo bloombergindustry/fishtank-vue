@@ -1573,38 +1573,45 @@ import Vue from 'vue'
 
 export default Vue.extend({
   components:{
-    ContentLoader
+    ContentLoader,
   },
   props:{
     theme:{
       type: String,
       default : null,
-      required: false
+      required: false,
+      description: "Specify pre-made loader content theme (optional). There are 13 themes to choose from.",
+      availableThemes: [ " AlertList", " AlertResult", "CalendarResult", "CommiteeResult", "DirectoriesResult", "LegislationList", "LegislationResult", "MembersOfCongressList", "NewsList", "NewsResult", "ProfileResult", "StaffersList",]
     },
     loaderHeight:{
       type: Number,
       default : null,
-      required: false //set this to false, because it's not provided with the themed
+      required: false, //set this to false, because it's not provided with the themed
+      description: "Determines height of Content Loader SVG",
     },
     loaderWidth:{
       type: Number,
       default : 400,
-      required: false
+      required: false,
+      description: "Determines width of Content Loader SVG",
     },
     loaderSpeed:{
       type: Number,
       default: 2,
-      required: false
+      required: false,
+      description: "Determines speed of loader animation",
     },
     loaderPrimaryColor:{
       type: String,
       default: "#f3f3f3",
-      required: false
+      required: false,
+      description: "Determines gradient start value",
     },
     loaderSecondaryColor:{
       type: String,
       default: "#ecebeb",
-      required: false
+      required: false,
+      description: "Determines gradient end value",
     }
 
   }
