@@ -46,12 +46,16 @@ export default Vue.extend({
     theme: {
       type:String,
       default:"bgov",
-      required:true
+      required:true,
+      description: "Brand color theme",
+      availableThemes: ["bgov", "blaw", "notification-1", "notification-2", "notification-3"]
     },
     size: {
       type:String,
       default: "medium",
-      required:true
+      required:true,
+      description: "Component Size",
+      availableSizes: ["small", "medium", "large"]
     },
     align: {
       type:String,
