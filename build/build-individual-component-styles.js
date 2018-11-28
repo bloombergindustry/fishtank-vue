@@ -9,6 +9,9 @@ const outputDir = resolve(__dirname, '../dist/styles/')
 const srcDir = resolve(__dirname, '../src/')
 const stylesDir = resolve(srcDir, 'styles/components')
 
+const postcss = require("postcss")
+const autoprefixer = require("autoprefixer")
+
 const preamble = `
 @import "./styles/variables";
 @import "./styles/mixins";
@@ -48,5 +51,13 @@ fs.readdirSync(stylesDir).map(fileName => {
 
   let outFile = fileName.replace(/^_/, '').replace(/\.scss$/, '.css')
 
-  fs.writeFileSync(resolve(outputDir, outFile), result.css.toString())
+  postcss([autoprefixer])
+    .process(result.css.toString(), {from:undefined})
+    .then(results=>{
+      fs.writeFileSync(resolve(outputDir, outFile), results)
+    })
+
+  
+// result.css.toString()
+  // fs.writeFileSync(resolve(outputDir, outFile), result.css.toString())
 })

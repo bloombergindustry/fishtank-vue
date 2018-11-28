@@ -15,7 +15,10 @@ const aliasTransform = require('./config/alias-transform').default
 const scssImporter = require('./config/scss-importer').default
 
 import pack from "./package.json"
+import postcss from "postcss"
+import autoprefixer from 'autoprefixer'
 
+const fs = require('fs')
 const projectName = 'fishtank-vue'
 
 // compute globals from dependencies
@@ -54,7 +57,14 @@ function genConfig(name) {
 
   const scssOpts = {
     importer: scssImporter({ aliasConfig }),
-    output: 'dist/fishtank-vue.css'
+    output: function (styles, styleNodes) {
+      postcss([autoprefixer])
+      .process(styles, {from:undefined})
+      .then(results=>{
+        fs.writeFileSync('dist/fishtank-vue.css', results)
+      })
+    },
+  
   }
 
   const config = {
