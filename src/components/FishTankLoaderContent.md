@@ -2,11 +2,16 @@
 
 &nbsp; 
 
-### Table Of Contents
+
+## Table Of Contents
+
+&nbsp;
+
 
 - [Usage](#usage)
     - [How to Import Content Loader Component](#how-to-import-content-loader-component)
     - [How to Export Content Loader Component](#how-to-export-content-loader-component)
+
 - [The Content Loader Component](#the-content-loader-component)
     - [Alert List Theme ](#alert-list-theme)
     - [Alert Result Theme ](#alert-result-theme)

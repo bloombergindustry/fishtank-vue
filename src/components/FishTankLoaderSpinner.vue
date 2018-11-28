@@ -60,12 +60,12 @@ export default Vue.extend({
     align: {
       type:String,
       default: "center",
-      required: false,
+      required: false
     },
     loading:{
       type:Boolean,
       default:true,
-      required:false,
+      required:false
     }
   },
   data () {
@@ -97,8 +97,8 @@ export default Vue.extend({
     stopSpinner: function(){
       var spinInt = window.setInterval( ()=>{
         if (this[this.size + 'Dash'] >= this[this.size + 'DashMax']){
-          this.$emit('spinner-done')
           window.clearInterval(spinInt)
+          this.$emit('spinner-done')
           this.loading = false
           return
         } else {

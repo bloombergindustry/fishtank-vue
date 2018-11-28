@@ -244,6 +244,7 @@
       </div>
     </div>
 
+
     <div style="width: 340px;">
       <div><h1> Documentation for Loaders </h1></div>
       <div>
@@ -262,6 +263,7 @@
 import Vue from 'vue'
 
 import { 
+
   FishTankLoaderContent as LoaderContent,
   FishTankPropsDoc,
 } from '@/index'
