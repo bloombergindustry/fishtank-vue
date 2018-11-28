@@ -2,6 +2,7 @@
   <button
     :class="{ 'ft-button': true, 'ft-button--disabled': disabled, 'ft-button--block': block }"
     :disabled="disabled"
+    type="button"
     v-on="listeners"
   >
     <slot/>
@@ -26,6 +27,11 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    name:{
+      type: String,
+      default:"",
+      required:false
+    }
   },
   computed: {
     listeners(): Record<string, Function | Function[]> {
