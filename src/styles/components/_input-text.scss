@@ -122,13 +122,26 @@ input::-webkit-inner-spin-button {
   }
 
   .ft-input-text__error-text {
-    margin-top: $baseline;
-    color: $color-error;
-    font-size: $fontsize-base-md;
-    letter-spacing: $letterspacing-base-md;
-    line-height: $lineheight-base-md;
-    font-weight: $fontweight-regular;
-    font-family: $font-primary;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg{
+      fill: $color-error;
+      margin-right: 12px;
+    }
+
+    p{
+      margin: 0px;
+      color: $color-error;
+      font-size: $fontsize-base-md;
+      letter-spacing: $letterspacing-base-md;
+      line-height: $lineheight-base-md;
+      font-weight: $fontweight-regular;
+      font-family: $font-primary;
+    }
   }
 
   .ft-input-text__label {
