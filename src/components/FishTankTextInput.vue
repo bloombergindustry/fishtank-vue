@@ -172,7 +172,6 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
-      textModel:"",
       textAreafalseHeight:44,
       scrollOn:false,
       trackFalseHeight:0
