@@ -3,6 +3,12 @@ export default Vue.extend({
   created(){
     window.addEventListener('keydown', this.handleFirstTab)
   },
+  mounted(){
+    this.setBodyAriaForLoader(this)
+  },
+  destroyed(){
+    this.removeBodyAriaForLoader(this)
+  },
   methods:{
     handleFirstTab(e:KeyboardEvent):void {
       if (e.keyCode === 9) {
@@ -17,6 +23,19 @@ export default Vue.extend({
       
       window.removeEventListener('mousedown', this.handleMouseDownOnce)
       window.addEventListener('keydown', this.handleFirstTab)
+    },
+    setBodyAriaForLoader(vm: any){
+      if (["FishTankLoaderSpinner", "FishTankLoaderContent"].indexOf(vm.$options.name) >=0){
+        document.body.getAttribute('aria-busy') === null ?
+          document.body.setAttribute('aria-busy','true') :
+            document.body.getAttribute('aria-busy') === 'false' ? document.body.setAttribute('aria-busy','true') : null 
+      }
+    },
+    removeBodyAriaForLoader(vm: any){
+      if (["FishTankLoaderSpinner", "FishTankLoaderContent"].indexOf(vm.$options.name) >=0){
+        document.body.getAttribute('aria-busy') === null ?
+          null : document.body.setAttribute('aria-busy','false')
+      }
     }
   },
 })

@@ -1570,11 +1570,16 @@
 <script lang="ts">
 import { ContentLoader } from "vue-content-loader"
 import Vue from 'vue'
+import a11y from '@/util/a11y'
 
 export default Vue.extend({
+  name:'FishTankLoaderContent',
   components:{
     ContentLoader,
   },
+  mixins:[
+    a11y
+  ],
   props:{
     theme:{
       type: String,
