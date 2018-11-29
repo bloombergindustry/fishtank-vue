@@ -76,6 +76,9 @@ input[type=number]{
 
 .ft-input-text__right-icon {
   right: $baseline * 2;
+  svg{
+    fill : $color-gray;
+  }
 }
 
 .ft-input-text__label {
