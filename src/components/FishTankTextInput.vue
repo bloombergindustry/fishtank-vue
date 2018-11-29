@@ -56,6 +56,7 @@
           ref="input"
           :type="type"
           :value="value"
+          @input="updateValue"
           :id="labelId"
           v-bind="$attrs"
           class="ft-input-text__input"
@@ -95,26 +96,19 @@
 <script lang="ts">
 
 import Vue from "vue"
-import { Close24 as CloseIcon }  from "@fishtank/icons-vue"
+import { CloseSml24 as CloseIcon }  from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {
     CloseIcon: CloseIcon,
   },
   inheritAttrs: false,
-  model:{
-    prop:'modelValue',
-    event: 'input'
-  },
+  
   props: {
     value: {
       required: false,
       type: String,
       default: ""
-    },
-    modelValue: {
-      type:[String, Boolean, Object, Array, Number],
-      default: false
     },
     label: {
       required: false,
@@ -178,6 +172,7 @@ export default Vue.extend({
   data:function(){
     return {
       textAreaModel:"",
+      textModel:"",
       textAreafalseHeight:44,
       scrollOn:false,
       trackFalseHeight:0

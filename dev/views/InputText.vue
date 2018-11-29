@@ -1,7 +1,7 @@
 <template>
   <section>
     <InputText
-      :value="val"
+      v-model="val"
       label="Text Input Type"
       type="text"/>
     <!-- <FishTankRenderedMarkup>
@@ -11,21 +11,21 @@
         type="text"/>
     </FishTankRenderedMarkup> -->
     <InputText
-      :value="val"
+      v-model="val"
       label="Password Input Type"
       type="password"/>
     <InputText
-      :value="val"
+      v-model="val"
       label="Number Input Type"
       type="number"/>
     <InputText
-      :value="val"
+      v-model="val"
       label="Input Error Example"
       type="number"
       error="Error Message"/>
     <InputText
       :maxheight="170"
-      :value="val"
+      v-model="val"
       label="TextArea Input Type - Max Height 170px"
       type="textarea"/>
     <!-- <InputText
