@@ -39,9 +39,13 @@
   
 <script>
 import Vue from 'vue'
+import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name: 'FishTankLoaderSpinner',
+  mixins:[
+    a11y
+  ],
   props: {
     theme: {
       type:String,
@@ -75,7 +79,8 @@ export default Vue.extend({
       mediumDash: 50,
       mediumDashMax: 100,
       largeDash: 100,
-      largeDashMax: 200
+      largeDashMax: 200,
+      body: window.document.getElementsByName('body')
     }
   },
   computed:{
@@ -100,6 +105,7 @@ export default Vue.extend({
           window.clearInterval(spinInt)
           this.$emit('spinner-done')
           this.loading = false
+          document.body.setAttribute('aria-busy',this.loading)
           return
         } else {
           this[this.size + 'Dash']++
