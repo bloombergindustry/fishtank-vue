@@ -28,11 +28,12 @@
       v-model="val"
       label="TextArea Input Type - Max Height 170px"
       type="textarea"/>
-    <!-- <InputText
-      :value="val"
+     <!--InputText
+      v-model="val"
       label="TextArea Input Type - No Max Height"
-      type="textarea"/> -->
-    <!-- <InputText
+      type="textarea"/--> 
+    <!--
+    <InputText
       :value="val"
       label="Telephone Input Type"
       type="tel"/>
@@ -47,7 +48,7 @@
     <InputText
       :value="val"
       label="URL Input Type"
-      type="url"/> -->
+      type="url"/>-->
     <pre>{{ val }}</pre>
   </section>
 </template>
