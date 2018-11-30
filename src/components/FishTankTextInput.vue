@@ -56,10 +56,10 @@
           ref="input"
           :type="type"
           :value="value"
-          @input="updateValue"
           :id="labelId"
           v-bind="$attrs"
           class="ft-input-text__input"
+          @input="updateValue"
           v-on="listeners">
       </template>
       <p 

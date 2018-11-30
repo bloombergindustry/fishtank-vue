@@ -22,7 +22,7 @@
       v-model="val"
       label="TextArea Input Type - Max Height 170px"
       type="textarea"/>
-     <!--InputText
+    <!--InputText
       v-model="val"
       label="TextArea Input Type - No Max Height"
       type="textarea"/--> 
