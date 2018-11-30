@@ -144,7 +144,6 @@ export default Vue.extend({
           "number",
           "tel",
           "url",
-          "textarea"
         ]
 
         return textTypes.indexOf(value.toLowerCase()) > -1
