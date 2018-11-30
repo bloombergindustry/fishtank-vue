@@ -50,11 +50,11 @@ export default Vue.extend({
   name:"FishTankTag",
   introduction: "Component Introduction",
   description: "Component description",
-  token:`
+  token:[`
     <FishTankTag
     v-model="tagOne"
     label="Binary Tags"/>
-  `,
+  `],
   components: {
     Close24
   },
