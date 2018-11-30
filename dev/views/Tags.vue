@@ -8,7 +8,7 @@
       <span>Tag Value: {{ tagOne }}</span>
       <h2>Documentation for Tags</h2> 
       
-      <vue-markdown>{{ mdDocs }}</vue-markdown>
+      <vue-markdown>{{ mdDocs[0] }}</vue-markdown>
       <FishTankPropsDoc :properties="docs"/>
       <br>
       <br>

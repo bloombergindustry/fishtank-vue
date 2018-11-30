@@ -9,7 +9,7 @@ declare module 'vue/types/vue' {
 
 declare module 'vue/types/options' {
   interface Tokens {
-      template: string;
+      template: Array<String>;
   }
   interface ComponentOptions<V extends Vue> {
     introduction?: string,
@@ -18,6 +18,6 @@ declare module 'vue/types/options' {
     description?: string;
   }
   interface ComponentOptions<V extends Vue> {
-    token?: string | Array<String> | Tokens
+    token?: string | Array<String>
   }
 }
