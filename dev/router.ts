@@ -53,10 +53,6 @@ export default new Router({
     {
       path: '/contentloaders',
       component: () => import("./views/ContentLoaders.vue")
-    },
-    {
-      path: '/treeselect',
-      component: () => import("./views/TreeSelect.vue")
     }
     
   ]

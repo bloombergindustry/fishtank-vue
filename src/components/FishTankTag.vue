@@ -48,7 +48,13 @@ import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name:"FishTankTag",
-
+  introduction: "Component Introduction",
+  description: "Component description",
+  token:`
+    <FishTankTag
+    v-model="tagOne"
+    label="Binary Tags"/>
+  `,
   components: {
     Close24
   },
@@ -64,7 +70,7 @@ export default Vue.extend({
       type:Boolean,
       required:false,
       default:false,
-      propDescription:"this is the component description",
+      description:"this is the component description",
     },
     value: {
       default:null,
@@ -255,18 +261,6 @@ export default Vue.extend({
   }
 </style>
 
-<introduction>
-  Component Introduction
-</introduction>
-
-<description>
-  Component description
-</description>
-
 <token>
-  ```js
-  <FishTankTag
-  v-model="tagOne"
-  label="Binary Tags"/>
-  ```
+  
 </token>

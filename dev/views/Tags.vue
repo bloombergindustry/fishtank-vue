@@ -98,7 +98,7 @@ export default Vue.extend({
       tags:[{tagVal:"tag1", tagTing:"ting"},{tagVal:"tag2"},{tagVal:"tag3"},],
       multiToggle:false,
       docs: FishTankTag.options.props,
-      mdDocs: FishTankTag.options.__token
+      mdDocs: FishTankTag.options.token
     }
   }
 })

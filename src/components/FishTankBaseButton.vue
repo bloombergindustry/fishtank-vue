@@ -21,16 +21,19 @@ export default Vue.extend({
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
+      description:"Specify if button should be disabled"
     },
     block: {
       type: Boolean,
-      default: false
+      default: false,
+      decription: "Changes Button to full width block element"
     },
     name:{
       type: String,
       default:"",
-      required:false
+      required:false,
+      decription: "Optional name of the button, which can be used with the form data."
     }
   },
   computed: {

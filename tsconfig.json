@@ -35,6 +35,7 @@
   ],
   "files":[
     "vue-shim.d.ts",
-    "doc-shim.d.ts"
+    "doc-shim.d.ts",
+    "vendors-shim.d.ts"
   ]
 }

@@ -1,14 +1,14 @@
 <template>
   <div class="ft-button--fab-wrapper">
 
-    <BaseButton 
+    <FishTankBaseButton 
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
       class="ft-button--fab"
       v-on="$listeners"> 
 
       <slot name="mainIcon"/> 
-    </BaseButton>
+    </FishTankBaseButton>
 
     <ul v-if="optionsAvailable">
 
@@ -35,12 +35,12 @@
 
 <script lang="ts">
 import Vue from "vue"
-import BaseButton from "./BaseButton.vue"
+import FishTankBaseButton from "./FishTankBaseButton.vue"
 
 export default Vue.extend({
   name: "ButtonFAB",
   components: {
-    BaseButton
+    FishTankBaseButton
   },
   props:{
     optionsAvailable: {
