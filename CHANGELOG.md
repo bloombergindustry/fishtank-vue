@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.0-0"></a>
+# [3.5.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.4.1...v3.5.0-0) (2018-12-03)
+
+
+### Bug Fixes
+
+* added aria-busy prop updates to a11y mixin; applied a11y to  loaders ([141496f](https://github.com/bloombergbna/fishtank-vue/commit/141496f))
+* Continued renaming or components, to support css module refactor ([099f7b4](https://github.com/bloombergbna/fishtank-vue/commit/099f7b4))
+* Fixed textarea size update when typing ([ce71d3d](https://github.com/bloombergbna/fishtank-vue/commit/ce71d3d))
+* fixing dependancy import issues preventing proper build ([a4f0ef9](https://github.com/bloombergbna/fishtank-vue/commit/a4f0ef9))
+* removed duplicated textarea prop type ([956bbe3](https://github.com/bloombergbna/fishtank-vue/commit/956bbe3))
+* removed unused pdependancies from production build ([7119ff1](https://github.com/bloombergbna/fishtank-vue/commit/7119ff1))
+* Renamed a collection of components in advance of css refactor using css modules. ([6e402c2](https://github.com/bloombergbna/fishtank-vue/commit/6e402c2))
+* Renamed components to match Fish Tank naming conventions and future css module refactor ([8a81c0b](https://github.com/bloombergbna/fishtank-vue/commit/8a81c0b))
+* reset content on unit test files ([c038e66](https://github.com/bloombergbna/fishtank-vue/commit/c038e66))
+* updated docs to reference a item from token array, rather than a token object. ([6e90b1f](https://github.com/bloombergbna/fishtank-vue/commit/6e90b1f))
+
+
+### Features
+
+* Added accessibility labels to some existing components. For Button group, added accessibility interactions to support button groups and focus on selected items ([15dbe4c](https://github.com/bloombergbna/fishtank-vue/commit/15dbe4c))
+* added close functionality to text inputs, and css to fall more in line with design documentation ([ca52ab4](https://github.com/bloombergbna/fishtank-vue/commit/ca52ab4))
+* added documentation to content loaders for props; type, default values, requirement, descriptions, and 'available themes ' for themes ([8328f97](https://github.com/bloombergbna/fishtank-vue/commit/8328f97))
+* added inline prop documentation for spinner's props 'size' and 'theme'. Did not add documentation for 'align' or 'loading' as they were not included in the markdown documentation ([03d4fcc](https://github.com/bloombergbna/fishtank-vue/commit/03d4fcc))
+* added name prop and default button type to base button elements ([a033feb](https://github.com/bloombergbna/fishtank-vue/commit/a033feb))
+* Added postcss to build process for css assets ([a69e068](https://github.com/bloombergbna/fishtank-vue/commit/a69e068))
+* added token, introduction, and description custom content blocks, fishtank propsdoc component to filter and display props object ([79ea0a1](https://github.com/bloombergbna/fishtank-vue/commit/79ea0a1))
+* added token, introduction, and description custom content blocks, fishtank propsdoc component to filter and display props object ([f080253](https://github.com/bloombergbna/fishtank-vue/commit/f080253))
+* added/fixed page loader view, which was overwritten in error ([2c96455](https://github.com/bloombergbna/fishtank-vue/commit/2c96455))
+* adding accesibility props and fixes to fishtank-vue components ([cb08b3f](https://github.com/bloombergbna/fishtank-vue/commit/cb08b3f))
+* changes to FAB button documentation ([e326ffb](https://github.com/bloombergbna/fishtank-vue/commit/e326ffb))
+* create loading animation methods and inline styles in spinner svgs ([d50c609](https://github.com/bloombergbna/fishtank-vue/commit/d50c609))
+* create loading animation methods and inline styles in spinner svgs ([ab5c6b5](https://github.com/bloombergbna/fishtank-vue/commit/ab5c6b5))
+* create loading animation methods and inline styles in spinner svgs ([befeffa](https://github.com/bloombergbna/fishtank-vue/commit/befeffa))
+* first iteration of content loaders documentation ([036bd00](https://github.com/bloombergbna/fishtank-vue/commit/036bd00))
+* first iteration of content loaders documentation ([5408a51](https://github.com/bloombergbna/fishtank-vue/commit/5408a51))
+* Input Text ([850e36b](https://github.com/bloombergbna/fishtank-vue/commit/850e36b))
+* Refactored Dependancy TS definitions. ([c6c05f4](https://github.com/bloombergbna/fishtank-vue/commit/c6c05f4))
+* removed double tab focus on feature button label ([29ceb72](https://github.com/bloombergbna/fishtank-vue/commit/29ceb72))
+* removed unused imports from button feature Icon ([1ec3e7b](https://github.com/bloombergbna/fishtank-vue/commit/1ec3e7b))
+* updated page content loaders documentation ([f45d971](https://github.com/bloombergbna/fishtank-vue/commit/f45d971))
+* updated page content loaders documentation ([b4e3cae](https://github.com/bloombergbna/fishtank-vue/commit/b4e3cae))
+* updated page loader documentation ([66d0a1c](https://github.com/bloombergbna/fishtank-vue/commit/66d0a1c))
+* updated page loader documentation ([881b895](https://github.com/bloombergbna/fishtank-vue/commit/881b895))
+* updated page loader documentation ([6d92301](https://github.com/bloombergbna/fishtank-vue/commit/6d92301))
+* updates/changes to FAB button documentation ([9d82eca](https://github.com/bloombergbna/fishtank-vue/commit/9d82eca))
+
+
+
 <a name="3.4.1"></a>
 ## [3.4.1](https://github.com/bloombergbna/fishtank-vue/compare/v3.4.0...v3.4.1) (2018-11-16)
 
