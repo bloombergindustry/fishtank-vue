@@ -45,19 +45,4 @@ describe("FishTankButtonGroup", () => {
       expect(bgroupbutton.value).to.exist
     })
   })
-
-  // describe('Active state', () => {
-
-  //   it('On click, it becomes the active button', () => {
-  //     propsData.label="Button Label"
-
-  //     const wrapper = mountBGroupButton()
-
-  //     console.log(wrapper.classes())
-  //     let bgroupbutton = wrapper.find('.ft-buttongroup__button').element as HTMLElement
-  //     let bgroupbuttonInput = wrapper.find('input')
-  //     bgroupbuttonInput.element.click()
-  //     expect(bgroupbutton.classList).to.exist
-  //   })
-  // })
 })

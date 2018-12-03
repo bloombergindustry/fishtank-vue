@@ -3,7 +3,7 @@ import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallow, mount } from "@vue/test-utils"
 import {
-  FishTankButtonGroup, FishTankButtonGroupButton
+  FishTankButtonGroup,
 } from "@/index"
 import { doesNotThrow } from 'assert'
 

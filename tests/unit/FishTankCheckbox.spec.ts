@@ -2,17 +2,17 @@
 import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallow, mount } from "@vue/test-utils"
-import {Card} from "@/index"
+import {FishTankCheckbox} from "@/index"
 
 
 import Vue from "vue"
 
-describe('Card', () => {
+describe('FishTankCheckbox', () => {
   let propsData : any = {}
   let slots : any = {}
 
   const mountInput = () => {
-    return shallow(Card, {
+    return shallow(FishTankCheckbox, {
       propsData,
       slots,
     })
