@@ -263,10 +263,10 @@
 import Vue from 'vue'
 
 import { 
-
   FishTankLoaderContent as LoaderContent,
-  FishTankPropsDoc,
 } from '@/index'
+
+import FishTankPropsDoc from '@/components/FishTankPropsDoc.vue'
 
 import VueMarkdown from 'vue-markdown'
 

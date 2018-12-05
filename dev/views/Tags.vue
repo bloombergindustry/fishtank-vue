@@ -75,7 +75,8 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { FishTankTag , FishTankPropsDoc} from "@/index"
+import { FishTankTag } from "@/index"
+import FishTankPropsDoc from '@/components/FishTankPropsDoc.vue'
 import { Flag24 } from '@fishtank/icons-vue' 
 import VueMarkdown from 'vue-markdown'
 

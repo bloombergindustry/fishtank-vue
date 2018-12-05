@@ -14,10 +14,10 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 
 export default Vue.extend({
   name: "FishTankButtonOutlineSmall",
-  introduction: "Primary Button",
-  description: "Primary Button",
+  introduction: "Small Outline Button",
+  description: "Small Outline Button",
   token:[`
-    <FishTankButtonOutlineSmall>Primary Button</FishTankButtonOutlineSmall>
+    <FishTankButtonOutlineSmall>Small Outline Button</FishTankButtonOutlineSmall>
   `],
   components: {
     FishTankBaseButton

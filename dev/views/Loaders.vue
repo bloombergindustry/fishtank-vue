@@ -92,7 +92,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton, FishTankPropsDoc } from '@/index'
+import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton } from '@/index'
+import FishTankPropsDoc from '@/components/FishTankPropsDoc.vue'
 import VueMarkdown from 'vue-markdown'
 
 export default Vue.extend({

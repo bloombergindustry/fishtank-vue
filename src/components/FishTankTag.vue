@@ -150,7 +150,10 @@ export default Vue.extend({
       } else {
         return false
       }
-    }
+    },
+    // returnStyle(){
+    //   return JSON.stringify(this.$style)
+    // }
   },
   methods:{
     updateInput(event:any) {
