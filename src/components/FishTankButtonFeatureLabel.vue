@@ -20,14 +20,14 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 import FishTankButtonFeatureIcon from "./FishTankButtonFeatureIcon.vue"
 
 export default Vue.extend({
-  name: "ButtonFeatureLabel",
+  name: "FishTankButtonFeatureLabel",
   introduction: "Feature Label Button",
   description: "Feature Label Button",
   token:[`
-    <ButtonFeatureLabel> 
+    <FishTankButtonFeatureLabel> 
       <template slot="icon"> <Alert24/> </template>
       <template slot="label"> Button Feature Label</template>
-    </ButtonFeatureLabel>
+    </FishTankButtonFeatureLabel>
   `],
   components: {
     FishTankBaseButton,

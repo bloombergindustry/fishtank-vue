@@ -27,13 +27,13 @@ export default Vue.extend({
     block: {
       type: Boolean,
       default: false,
-      decription: "Changes Button to full width block element"
+      description: "Changes Button to full width block element"
     },
     name:{
       type: String,
       default:"",
       required:false,
-      decription: "Optional name of the button, which can be used with the form data."
+      description: "Optional name of the button, which can be used with the form data."
     }
   },
   computed: {

@@ -22,13 +22,13 @@ export default Vue.extend({
   <FishTankButtonPrimary 
     :block="true">Button Primary</FishTankButtonPrimary>
   `,
-  `<ButtonPrimary 
+  `<FishTankButtonPrimary 
     @click="handleClick"
-    >Button Primary</ButtonPrimary>`,
-  `<ButtonPrimary
+    >Button Primary</FishTankButtonPrimary>`,
+  `<FishTankButtonPrimary
     :disabled="falsyVariable"
     :block="truthyVariable"
-    >Button Primary</ButtonPrimary>`
+    >Button Primary</FishTankButtonPrimary>`
   ],
   components: {
     FishTankBaseButton
