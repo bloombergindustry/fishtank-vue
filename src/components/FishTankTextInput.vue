@@ -88,7 +88,8 @@
       v-if="errorMessage"
       class="ft-input-text__error-text"
     >
-      {{ errorMessage }}
+      <WarningIcon/>
+      <p> {{ errorMessage }} </p>
     </div>
   </div>
 </template>
@@ -96,11 +97,15 @@
 <script lang="ts">
 
 import Vue from "vue"
-import { CloseSml24 as CloseIcon }  from "@fishtank/icons-vue"
+import { 
+  CloseSml24 as CloseIcon,
+  Warning24 as WarningIcon
+  }  from "@fishtank/icons-vue"
 
 export default Vue.extend({
   components: {
     CloseIcon: CloseIcon,
+    WarningIcon: WarningIcon
   },
   inheritAttrs: false,
   
