@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.6.0"></a>
+# [3.6.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.5.0...v3.6.0) (2018-12-07)
+
+
+### Features
+
+* FishTankText component added; in beta ([ed72b95](https://github.com/bloombergbna/fishtank-vue/commit/ed72b95))
+
+
+
 <a name="3.5.0"></a>
 # [3.5.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.5.0-0...v3.5.0) (2018-12-06)
 
