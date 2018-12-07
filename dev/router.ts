@@ -53,6 +53,10 @@ export default new Router({
     {
       path: '/contentloaders',
       component: () => import("./views/ContentLoaders.vue")
+    },
+    {
+      path: '/text',
+      component: () => import("./views/Text.vue")
     }
     
   ]
