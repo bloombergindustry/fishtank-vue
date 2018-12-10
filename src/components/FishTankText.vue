@@ -69,6 +69,11 @@ import Vue, {VNode} from 'vue'
         required: false,
         default: false
       },
+      semiBold: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
       size: {
         type: String,
         default: 'baseLg',

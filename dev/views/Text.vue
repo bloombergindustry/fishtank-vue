@@ -5,6 +5,7 @@
         :color="textColor"
         :size="textSize"
         :bold="bold"
+        :semi-bold="semiBold"
         :inline="inline"
         :italic="italic"
         :align="align"
@@ -75,6 +76,9 @@
           v-model="bold" 
           label="Bold"/>
         <fish-tank-checkbox 
+          v-model="semiBold" 
+          label="SemiBold"/>
+        <fish-tank-checkbox 
           v-model="inline" 
           label="Inline"/>
         <fish-tank-checkbox 
@@ -104,6 +108,7 @@ export default Vue.extend({
       textColor: 'black',
       textSize: 'baseLg',
       bold: false,
+      semiBold: false,
       inline: false,
       italic: false,
       align: 'left',
