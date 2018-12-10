@@ -11,12 +11,14 @@
     <InputText
       v-model="number"
       label="Number Input Type"
-      type="number"/>
+      type="number"
+      error/>
     <InputText
       v-model="val"
-      label="Input Error Example"
+      label="Input Number Error Example"
       type="number"
-      error="Error Message"/>
+      error ="This is an error message"
+      />
     <InputText
       :maxheight="170"
       v-model="text_area"
