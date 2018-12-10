@@ -119,6 +119,11 @@ export default Vue.extend({
       type: String,
       default: ""
     },
+    valueChange: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
     label: {
       required: false,
       type: String,
@@ -195,7 +200,7 @@ export default Vue.extend({
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
-      }if ((this as any).error && this.$props.value != ""){
+      }else if ((this as any).error && this.$props.valueChange){
         return undefined
       }
 
@@ -220,10 +225,7 @@ export default Vue.extend({
   methods: {
     updateValue(value: string | undefined) {
       this.$emit("input", value) 
-      //return (this as any).error.fullMessage = undefined  
-      if ((this as any).error){
-        return undefined
-      }
+      this.$props.valueChange = true;
       
     },
     
