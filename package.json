@@ -45,7 +45,7 @@
     "@fishtank/colors": "3.1.0",
     "@fishtank/icons": "3.8.4",
     "@fishtank/space": "1.0.12",
-    "@fishtank/type": "3.0.2",
+    "@fishtank/type": "3.1.0",
     "@types/chai": "^4.1.0",
     "@types/lodash": "4.14.109",
     "@types/mocha": "^2.2.46",
