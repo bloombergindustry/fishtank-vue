@@ -59,13 +59,14 @@
           :id="labelId"
           v-bind="$attrs"
           class="ft-input-text__input"
-          @input="updateValue"
+          @input="updateValue "
           v-on="listeners">
       </template>
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        class="ft-false-text-area">
+        class="ft-false-text-area"
+      >
         &nbsp;{{ textAreaModel }}
       </p>
       <span
@@ -86,6 +87,7 @@
 
     <div
       v-if="errorMessage"
+      id="error-block"
       class="ft-input-text__error-text"
     >
       <WarningIcon/>
@@ -101,6 +103,8 @@ import {
   CloseSml24 as CloseIcon,
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
+import { error, isNullOrUndefined } from 'util';
+import InputTextVue from 'dev/views/InputText.vue';
 
 export default Vue.extend({
   components: {
@@ -157,7 +161,7 @@ export default Vue.extend({
     error: {
       required: false,
       default: null,
-      type: [String, Object],
+      type: String,//[String, Object],
       validator(value: string | { fullMessage? : string }) : boolean {
         if (typeof value === 'string') {
           return true
@@ -191,13 +195,18 @@ export default Vue.extend({
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
+      }if ((this as any).error && this.$props.value != ""){
+        return undefined
       }
 
       if (typeof (this as any).error === "string") {
         return (this as any).error
       } else if ((this as any).error.fullMessage) {
         return (this as any).error.fullMessage
-      } else { return undefined }
+      } else { 
+        return undefined 
+      }
+
     },
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -210,8 +219,14 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
-      this.$emit("input", value)
+      this.$emit("input", value) 
+      //return (this as any).error.fullMessage = undefined  
+      if ((this as any).error){
+        return undefined
+      }
+      
     },
+    
     clearText() {
       this.updateValue(undefined)
       this.focusElement(this.$refs.input as HTMLInputElement)
