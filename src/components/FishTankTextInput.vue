@@ -60,6 +60,7 @@
           v-bind="$attrs"
           class="ft-input-text__input"
           @input="updateValue "
+          @click="removeError"
           v-on="listeners">
       </template>
       <p 
@@ -119,11 +120,6 @@ export default Vue.extend({
       type: String,
       default: ""
     },
-    valueChange: {
-      required: false,
-      type: Boolean,
-      default: false
-    },
     label: {
       required: false,
       type: String,
@@ -166,7 +162,7 @@ export default Vue.extend({
     error: {
       required: false,
       default: null,
-      type: String,//[String, Object],
+      type: [String, Object],
       validator(value: string | { fullMessage? : string }) : boolean {
         if (typeof value === 'string') {
           return true
@@ -200,8 +196,6 @@ export default Vue.extend({
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
-      }else if ((this as any).error && this.$props.valueChange){
-        return undefined
       }
 
       if (typeof (this as any).error === "string") {
@@ -221,14 +215,15 @@ export default Vue.extend({
         }
       }
     },
+   
   },
   methods: {
     updateValue(value: string | undefined) {
-      this.$emit("input", value) 
-      this.$props.valueChange = true;
-      
+      this.$emit("input", value)       
     },
-    
+    removeError(){
+      this.$props.error = undefined
+    },
     clearText() {
       this.updateValue(undefined)
       this.focusElement(this.$refs.input as HTMLInputElement)
