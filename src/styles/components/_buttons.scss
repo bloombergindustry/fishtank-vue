@@ -247,7 +247,7 @@ body.user-is-tabbing button:focus {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
-    transition: all 1s ease-in-out;
+    transition: all .3s ease-in-out;
   
     &:hover{
       transform: scale(1.25);
@@ -262,7 +262,7 @@ body.user-is-tabbing button:focus {
     }
   }
   
-  /*&:hover ul{
+  &:hover ul{
     transition: 0.5s ease-in;
     bottom: 50px;
     opacity: 1;
@@ -273,7 +273,7 @@ body.user-is-tabbing button:focus {
       transition: 0.3s ease-in;
    }
    
-  }*/
+  }
 
   p, a{
     text-decoration: none;
@@ -350,19 +350,6 @@ body.user-is-tabbing button:focus {
   }
 }
 
-.activeDrawer{
-  ul{
-  transition: 0.5s ease-in;
-  bottom: 50px;
-  opacity: 1;
-
- li p{
-    right: 70px;
-    opacity: 1;
-    transition: 0.3s ease-in;
- }
-}
-}
 .ft-button--feature-label{
   padding: 0px ;
   margin: 0px;

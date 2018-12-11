@@ -5,17 +5,13 @@
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
       class="ft-button--fab" 
-      v-on="$listeners"
-      @click="openDrawer"> 
+      v-on="$listeners"> 
 
       <slot name="mainIcon"/> 
     </FishTankBaseButton>
 
     <ul 
-      v-if="optionsAvailable"
-      id="drawer"
-      class="activeDrawer"
-      
+      v-if="optionsAvailable"      
     >
 
       <a 
@@ -90,14 +86,6 @@ export default Vue.extend({
     },
   },
   methods:{
-    openDrawer(){
-      var drawer = document.getElementById("drawer")
-
-      if (drawer){
-        drawer.classList.add("activeDrawer")
-      }
-
-    }
   }
 })
 
