@@ -126,7 +126,7 @@ export default Vue.extend({
       fabPrimaryColorStart: '#0018AB',
       fabPrimaryColorEnd: '#9933CC',
       fabSecondaryColor: '#17509F',
-      fabOptionsPresent : true,
+      //fabOptionsPresent : true,
       fabLink1 : 'https://twitter.com/',
       fabLink2 : 'https://facebook.com/',
     }
