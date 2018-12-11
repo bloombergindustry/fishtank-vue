@@ -4,13 +4,19 @@
     <FishTankBaseButton 
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
-      class="ft-button--fab"
-      v-on="$listeners"> 
+      class="ft-button--fab" 
+      v-on="$listeners"
+      @click="openDrawer"> 
 
       <slot name="mainIcon"/> 
     </FishTankBaseButton>
 
-    <ul v-if="optionsAvailable">
+    <ul 
+      v-if="optionsAvailable"
+      id="drawer"
+      class="activeDrawer"
+      
+    >
 
       <a 
         :href="optionOneLink">
@@ -82,6 +88,16 @@ export default Vue.extend({
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`
     },
+  },
+  methods:{
+    openDrawer(){
+      var drawer = document.getElementById("drawer")
+
+      if (drawer){
+        drawer.classList.add("activeDrawer")
+      }
+
+    }
   }
 })
 

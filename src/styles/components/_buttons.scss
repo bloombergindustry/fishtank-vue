@@ -261,18 +261,19 @@ body.user-is-tabbing button:focus {
       fill: $color-white;
     }
   }
-
-  &:hover ul{
+  
+  /*&:hover ul{
     transition: 0.5s ease-in;
     bottom: 50px;
     opacity: 1;
 
-  }
-  &:hover ul li p{
+   li p{
       right: 70px;
       opacity: 1;
       transition: 0.3s ease-in;
-  }
+   }
+   
+  }*/
 
   p, a{
     text-decoration: none;
@@ -349,6 +350,19 @@ body.user-is-tabbing button:focus {
   }
 }
 
+.activeDrawer{
+  ul{
+  transition: 0.5s ease-in;
+  bottom: 50px;
+  opacity: 1;
+
+ li p{
+    right: 70px;
+    opacity: 1;
+    transition: 0.3s ease-in;
+ }
+}
+}
 .ft-button--feature-label{
   padding: 0px ;
   margin: 0px;
