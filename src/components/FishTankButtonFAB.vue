@@ -4,13 +4,15 @@
     <FishTankBaseButton 
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
-      class="ft-button--fab"
+      class="ft-button--fab" 
       v-on="$listeners"> 
 
       <slot name="mainIcon"/> 
     </FishTankBaseButton>
 
-    <ul v-if="optionsAvailable">
+    <ul 
+      v-if="optionsAvailable"      
+    >
 
       <a 
         :href="optionOneLink">
@@ -82,6 +84,8 @@ export default Vue.extend({
     returnSecondaryFabColor(): string {
       return `background:  ${this.fabColorSecondary} ;`
     },
+  },
+  methods:{
   }
 })
 
