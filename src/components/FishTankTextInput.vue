@@ -104,8 +104,6 @@ import {
   CloseSml24 as CloseIcon,
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
-import { error, isNullOrUndefined } from 'util';
-import InputTextVue from 'dev/views/InputText.vue';
 
 export default Vue.extend({
   components: {
