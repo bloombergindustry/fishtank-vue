@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.7.0"></a>
+# [3.7.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.6.0...v3.7.0) (2018-12-10)
+
+
+### Features
+
+* Added semi-bold prop to text; updated fishtank-vue dependancies ([4d083ed](https://github.com/bloombergbna/fishtank-vue/commit/4d083ed))
+
+
+
+<a name="3.6.0"></a>
+# [3.6.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.5.0...v3.6.0) (2018-12-07)
+
+
+### Features
+
+* FishTankText component added; in beta ([ed72b95](https://github.com/bloombergbna/fishtank-vue/commit/ed72b95))
+
+
+
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.5.0-0...v3.5.0) (2018-12-06)
+
+
+### Features
+
+* added Error Icon to error message ([f49159c](https://github.com/bloombergbna/fishtank-vue/commit/f49159c))
+* updated inline documentation attributes for buttons ([e5305b2](https://github.com/bloombergbna/fishtank-vue/commit/e5305b2))
+
+
+
 <a name="3.5.0-0"></a>
 # [3.5.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.4.1...v3.5.0-0) (2018-12-03)
 
