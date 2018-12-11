@@ -60,7 +60,7 @@
           v-bind="$attrs"
           class="ft-input-text__input"
           @input="updateValue "
-          @click="removeError"
+          @focus="checkError"
           v-on="listeners">
       </template>
       <p 
@@ -112,6 +112,9 @@ export default Vue.extend({
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon
   },
+  token:[
+    
+  ],
   inheritAttrs: false,
   
   props: {
@@ -219,10 +222,20 @@ export default Vue.extend({
   },
   methods: {
     updateValue(value: string | undefined) {
+      
       this.$emit("input", value)       
     },
-    removeError(){
-      this.$props.error = undefined
+    checkError(){
+      if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
+         return
+      }else if( this.$props.error.fullMessage === undefined || this.$props.error.fullMessage === null ){
+        console.log("error message full Message is undefinded");
+      }else{
+        this.reset()
+      }
+    },
+    reset(){
+     this.$emit("reset",null)
     },
     clearText() {
       this.updateValue(undefined)

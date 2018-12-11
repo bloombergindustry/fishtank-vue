@@ -17,7 +17,8 @@
       v-model="val"
       label="Input Number Error Example"
       type="number"
-      error ="This is an error message"
+      :error ="error"
+      @reset="clearError"
       />
     <InputText
       :maxheight="170"
@@ -70,7 +71,13 @@ export default Vue.extend({
       text: "",
       password: "",
       number: "",
-      text_area: ""
+      text_area: "",
+      error:"error msg"
+    }
+  }, 
+  methods:{
+    clearError(){
+      this.error=""
     }
   }
   
