@@ -228,8 +228,8 @@ export default Vue.extend({
     checkError(){
       if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
          return
-      }else if( this.$props.error.fullMessage === undefined || this.$props.error.fullMessage === null ){
-        console.log("error message full Message is undefinded");
+      }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){
+        return
       }else{
         this.reset()
       }
