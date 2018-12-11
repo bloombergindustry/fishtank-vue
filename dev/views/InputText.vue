@@ -1,25 +1,28 @@
 <template>
   <section>
     <InputText
-      v-model="val"
+      v-model="text"
       label="Text Input Type"
       type="text"/>
     <InputText
-      v-model="val"
+      v-model="password"
       label="Password Input Type"
       type="password"/>
     <InputText
-      v-model="val"
+      v-model="number"
       label="Number Input Type"
-      type="number"/>
+      type="number"
+      error/>
     <InputText
       v-model="val"
-      label="Input Error Example"
+      label="Input Number Error Example"
       type="number"
-      error="Error Message"/>
+      :error ="error"
+      @reset="clearError"
+      />
     <InputText
       :maxheight="170"
-      v-model="val"
+      v-model="text_area"
       label="TextArea Input Type - Max Height 170px"
       type="textarea"/>
     <!--InputText
@@ -43,7 +46,13 @@
       :value="val"
       label="URL Input Type"
       type="url"/>-->
-    <pre>{{ val }}</pre>
+    <h3> List of Input Values</h3>
+    <p><b>Text Input Value : </b> {{text}} </p>
+    <p><b>Password Input Value : </b> {{password}} </p>
+    <p><b>Number Input Value : </b> {{number}} </p>
+    <p><b>Number Error Input Value : </b> {{val}} </p>
+    <p><b>Text Area Input Value : </b> {{text_area}} </p>
+
   </section>
 </template>
 
@@ -58,7 +67,17 @@ export default Vue.extend({
   },
   data(){
     return {
-      val:""
+      val:"",
+      text: "",
+      password: "",
+      number: "",
+      text_area: "",
+      error:"error msg"
+    }
+  }, 
+  methods:{
+    clearError(){
+      this.error=""
     }
   }
   

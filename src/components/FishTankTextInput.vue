@@ -59,13 +59,15 @@
           :id="labelId"
           v-bind="$attrs"
           class="ft-input-text__input"
-          @input="updateValue"
+          @input="updateValue "
+          @focus="checkError"
           v-on="listeners">
       </template>
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        class="ft-false-text-area">
+        class="ft-false-text-area"
+      >
         &nbsp;{{ textAreaModel }}
       </p>
       <span
@@ -86,6 +88,7 @@
 
     <div
       v-if="errorMessage"
+      id="error-block"
       class="ft-input-text__error-text"
     >
       <WarningIcon/>
@@ -107,6 +110,9 @@ export default Vue.extend({
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon
   },
+  token:[
+    
+  ],
   inheritAttrs: false,
   
   props: {
@@ -197,7 +203,10 @@ export default Vue.extend({
         return (this as any).error
       } else if ((this as any).error.fullMessage) {
         return (this as any).error.fullMessage
-      } else { return undefined }
+      } else { 
+        return undefined 
+      }
+
     },
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -207,10 +216,24 @@ export default Vue.extend({
         }
       }
     },
+   
   },
   methods: {
     updateValue(value: string | undefined) {
-      this.$emit("input", value)
+      
+      this.$emit("input", value)       
+    },
+    checkError(){
+      if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
+         return
+      }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){
+        return
+      }else{
+        this.reset()
+      }
+    },
+    reset(){
+     this.$emit("reset",null)
     },
     clearText() {
       this.updateValue(undefined)
