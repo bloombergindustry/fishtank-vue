@@ -20,19 +20,20 @@
         :class="[$style.tag, {[$style.checked]:isChecked}, {[$style.disabled]:disabled}, {[$style.hasIcon]:hasIcon}, {'focused': isFocused}]">
         <div
           :class="$style.labelContent">
-          <span
+          <!-- <span
             v-if="iconPosition==='left'"
             :class="[$style.icon, {[$style.iconLeft]: (iconPosition==='left')}]">
             <slot/>
-          </span>
+          </span> -->
           <span
             :class="[$style.labelText]">
             {{ label }}</span>
           <span
             v-if="iconPosition==='right'"
             :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">
-            <Close24
-              v-if="removable"/>
+            <CloseSml24
+              v-if="removable"
+              :class="$style.iconAlignment"/>
             <slot/>
           </span>
         </div>
@@ -43,7 +44,7 @@
 
 <script lang="ts">
 import Vue from "vue"
-import { Close24 } from '@fishtank/icons-vue' 
+import { CloseSml24 } from '@fishtank/icons-vue' 
 import a11y from '@/util/a11y'
 
 export default Vue.extend({
@@ -56,7 +57,7 @@ export default Vue.extend({
     label="Binary Tags"/>
   `],
   components: {
-    Close24
+    CloseSml24
   },
   mixins:[
     a11y
@@ -186,6 +187,8 @@ export default Vue.extend({
     display: inline-block;
     position: relative;
     margin: 0px;
+    /* height: 28px; */
+  
     &:hover {
       &.label{
         color: $color-black;
@@ -198,11 +201,15 @@ export default Vue.extend({
     height: 100%;
     display: block;
     opacity: 0;
+    cursor: pointer;
+    &:disabled{
+      cursor: default; 
+    }
   }
   .tag{
     border-radius: 6px;
     color: $color-gray;
-    background-color: $color-gray-lightest;
+    background-color: $color-secondary;
     border: 1px solid $color-gray-lighter;
     padding: 3px $baseline*2 3px $baseline*2;
     vertical-align: middle;
@@ -214,8 +221,7 @@ export default Vue.extend({
     font-weight: $fontweight-semi;
   }
   .hasIcon{
-    padding-top: 1px;
-    padding-bottom: 0px;
+    padding-right: 28px;
   }
   .checked{
     color: $color-white;
@@ -230,6 +236,7 @@ export default Vue.extend({
   .label{
     &:hover .tag{
       color: $color-black;
+      background-color: $color-secondary-lighter;
     }
     &:hover .checked{
       color: $color-white;
@@ -247,19 +254,25 @@ export default Vue.extend({
   }
   .icon{
     margin-top: -2px;
+    position: relative;
+    cursor: pointer;
   }
-  .iconLeft{
-    padding-right: 4px;
-  }
+  /* .iconLeft{
+    padding-right: 0;
+  } */
   .iconRight{
-    padding-left: 4px;
+    padding-left: 0;
+  }
+  .iconAlignment{
+    position: absolute;
+    padding-left: $baseline;
   }
 </style>
 <style lang="scss">
 @import '../styles/variables';
   body.user-is-tabbing {
     .focused {
-      box-shadow: 0 0 0 2px $color-selected;
+      box-shadow: 0 0 0 2px $color-selected-darkest;
     }
   }
 </style>
