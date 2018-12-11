@@ -71,7 +71,7 @@
         &nbsp;{{ textAreaModel }}
       </p>
       <span
-        v-if="showRightIcon"
+        v-if="showRightIcon && !numberType"
         class="ft-input-text__right-icon"
       >
         <slot name="rightIcon">
@@ -194,6 +194,12 @@ export default Vue.extend({
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
+    numberType(){
+      if(this.$props.type === "number"){
+        return true
+      }
+    }
+    ,
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
