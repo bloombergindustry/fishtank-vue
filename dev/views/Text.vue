@@ -86,6 +86,18 @@
           label="Italic"/>
       </div>
     </div>
+    <fish-tank-text
+      block 
+      bold>The Component Can be nested</fish-tank-text>
+    <fish-tank-text block>
+      This text block wraps 
+      <fish-tank-text 
+        inline
+        color="action">this inner text block</fish-tank-text> in the action color.
+    </fish-tank-text>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 <script lang="ts">
