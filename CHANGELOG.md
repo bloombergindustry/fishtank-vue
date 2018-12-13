@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.8.0-1"></a>
+# [3.8.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0-0...v3.8.0-1) (2018-12-13)
+
+
+### Features
+
+* testing postcss & css module integration in rollup build ([0dec7b6](https://github.com/bloombergbna/fishtank-vue/commit/0dec7b6))
+
+
+
 <a name="3.8.0-0"></a>
 # [3.8.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.7.0...v3.8.0-0) (2018-12-13)
 
