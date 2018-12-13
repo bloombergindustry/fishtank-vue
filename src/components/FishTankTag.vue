@@ -20,14 +20,6 @@
         :class="[$style.tag, {[$style.checked]:isChecked}, {[$style.disabled]:disabled}, {[$style.hasIcon]:hasIcon}, {'focused': isFocused}]">
         <div
           :class="$style.labelContent">
-          <!-- <span
-            v-if="iconPosition==='left'"
-            :class="[$style.icon, {[$style.iconLeft]: (iconPosition==='left')}]">
-            <slot/>
-          </span> -->
-          <!-- <span
-            :class="[$style.labelText]">
-            {{ label }}</span> -->
           <FishTankText
             :color="getStateColor" 
             inline 
@@ -52,6 +44,7 @@ import Vue from "vue"
 import { CloseSml24 } from '@fishtank/icons-vue' 
 import a11y from '@/util/a11y'
 import '@fishtank/colors/dist/index.custom-properties.css'
+import '@fishtank/space/dist/index.custom-properties.css'
 import { default as FishTankText } from '@/components/FishTankText.vue'
 
 export default Vue.extend({
@@ -59,9 +52,9 @@ export default Vue.extend({
   introduction: "Component Introduction",
   description: "Component description",
   token:[`
-    <FishTankTag
-    v-model="tagOne"
-    label="Binary Tags"/>
+    <fish-tank-tag
+      v-model="tagVariable"
+      label="Binary Tags"/>
   `],
   components: {
     CloseSml24,
@@ -169,9 +162,9 @@ export default Vue.extend({
         }
       } else {
         if(this.isChecked){
-          return 'grayLight'
+          return 'disabled'
         } else { 
-          return 'gray'
+          return 'disabled'
         }
       }
     }
@@ -208,11 +201,6 @@ export default Vue.extend({
     display: inline-block;
     position: relative;
     margin: 0px;
-    /* &:hover {
-      &.label{
-        color: $color-black;
-      }
-    } */
   }
   .wrap.label:hover{
     color: var(--color-black);
@@ -224,9 +212,6 @@ export default Vue.extend({
     display: block;
     opacity: 0;
     cursor: pointer;
-    /* &:disabled{
-      cursor: default; 
-    } */
   }
   .input:disabled{
     cursor: default; 
@@ -239,12 +224,6 @@ export default Vue.extend({
     padding: 3px calc(var(--baseline)*2) 3px calc(var(--baseline)*2);
     vertical-align: middle;
   }
-  /* .labelText{
-    @include font-base-md();
-    font-family: $font-primary;
-    letter-spacing: $letterspacing-base-md;
-    font-weight: $fontweight-semi;
-  } */
   .hasIcon{
     padding-right: 28px;
   }
@@ -258,22 +237,6 @@ export default Vue.extend({
     background-color: var(--color-gray-lightest);
     border: 1px solid var(--color-gray-lighter);
   }
-  /* .label{
-    &:hover .tag{
-      color: $color-black;
-      background-color: $color-secondary-lighter;
-    }
-    &:hover .checked{
-      color: $color-white;
-      background-color: $color-selected-lighter;
-      border-color: $color-selected-lighter;
-    }
-    &:hover .disabled{
-      color: $color-disabled;
-      background-color: $color-gray-lightest;
-      border-color: $color-gray-lighter;
-    }
-  } */
   .label:hover .tag{
     color: var(--color-black);
       background-color: var(--color-secondary-lighter);
@@ -296,9 +259,6 @@ export default Vue.extend({
     position: relative;
     cursor: pointer;
   }
-  /* .iconLeft{
-    padding-right: 0;
-  } */
   .iconRight{
     padding-left: 0;
   }
@@ -306,12 +266,7 @@ export default Vue.extend({
     position: absolute;
     padding-left: var(--baseline);
   }
-</style>
-<style lang="scss">
-@import '../styles/variables';
-  body.user-is-tabbing {
-    .focused {
-      box-shadow: 0 0 0 2px $color-selected-darkest;
-    }
+  body.user-is-tabbing .focused {
+    box-shadow: 0 0 0 2px var(--color-selected-darkest);
   }
 </style>
