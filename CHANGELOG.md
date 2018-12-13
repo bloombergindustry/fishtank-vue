@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.8.0-0"></a>
+# [3.8.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.7.0...v3.8.0-0) (2018-12-13)
+
+
+### Features
+
+* achieved toggle on error state when input is edited when on field with an error ([221fb3f](https://github.com/bloombergbna/fishtank-vue/commit/221fb3f))
+* achieved toggle on error state when input is edited when on field with an error ([15ec074](https://github.com/bloombergbna/fishtank-vue/commit/15ec074))
+* added Error Icon to error message ([a9ba44a](https://github.com/bloombergbna/fishtank-vue/commit/a9ba44a))
+* addressed merge conflicts ([c049c2d](https://github.com/bloombergbna/fishtank-vue/commit/c049c2d))
+* assigned different inputs their own return values for testing on the views/InputText page ([c4e77d7](https://github.com/bloombergbna/fishtank-vue/commit/c4e77d7))
+* assigned different inputs their own return values for testing on the views/InputText page ([486dbf4](https://github.com/bloombergbna/fishtank-vue/commit/486dbf4))
+* changed to updateValue method ([5e570ab](https://github.com/bloombergbna/fishtank-vue/commit/5e570ab))
+* changed to updateValue method ([4dd39cd](https://github.com/bloombergbna/fishtank-vue/commit/4dd39cd))
+* cleaned up some styles on the tag to match designs ([24173b5](https://github.com/bloombergbna/fishtank-vue/commit/24173b5))
+* code refactor and cleanup ([f7549d8](https://github.com/bloombergbna/fishtank-vue/commit/f7549d8))
+* code refactor and cleanup ([aa6bcba](https://github.com/bloombergbna/fishtank-vue/commit/aa6bcba))
+* further updates to FAB button ([04a1ff6](https://github.com/bloombergbna/fishtank-vue/commit/04a1ff6))
+* refactored Tags to leverage text component ([59be77c](https://github.com/bloombergbna/fishtank-vue/commit/59be77c))
+* removed clear icon 'x' from number input field and it's associated clear functionality ([f7405f8](https://github.com/bloombergbna/fishtank-vue/commit/f7405f8))
+* speed up animations for Button FAB ([26a8b7f](https://github.com/bloombergbna/fishtank-vue/commit/26a8b7f))
+* speed up animations for Button FAB ([da3c7ac](https://github.com/bloombergbna/fishtank-vue/commit/da3c7ac))
+* speed up animations for Button FAB ([08bac05](https://github.com/bloombergbna/fishtank-vue/commit/08bac05))
+* updates to  input text ([ff10447](https://github.com/bloombergbna/fishtank-vue/commit/ff10447))
+
+
+
 <a name="3.7.0"></a>
 # [3.7.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.6.0...v3.7.0) (2018-12-10)
 
