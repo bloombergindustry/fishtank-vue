@@ -25,9 +25,14 @@
             :class="[$style.icon, {[$style.iconLeft]: (iconPosition==='left')}]">
             <slot/>
           </span> -->
-          <span
+          <!-- <span
             :class="[$style.labelText]">
-            {{ label }}</span>
+            {{ label }}</span> -->
+          <FishTankText
+            :color="getStateColor" 
+            inline 
+            size="baseMd"
+            semi-bold>{{ label }}</FishTankText>
           <span
             v-if="iconPosition==='right'"
             :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">
@@ -46,6 +51,8 @@
 import Vue from "vue"
 import { CloseSml24 } from '@fishtank/icons-vue' 
 import a11y from '@/util/a11y'
+import '@fishtank/colors/dist/index.custom-properties.css'
+import { default as FishTankText } from '@/components/FishTankText.vue'
 
 export default Vue.extend({
   name:"FishTankTag",
@@ -57,7 +64,8 @@ export default Vue.extend({
     label="Binary Tags"/>
   `],
   components: {
-    CloseSml24
+    CloseSml24,
+    FishTankText
   },
   mixins:[
     a11y
@@ -113,7 +121,7 @@ export default Vue.extend({
     return {
       checkProxy:false,
       isFocused: false,
-      propsDocData: this.$options.props
+      propsDocData: this.$options.props,
     }
   },
   computed: {
@@ -152,7 +160,22 @@ export default Vue.extend({
         return false
       }
     },
-    // returnStyle(){
+    getStateColor():string{
+      if (!this.disabled){
+        if(this.isChecked){
+          return 'white'
+        } else { 
+          return 'gray'
+        }
+      } else {
+        if(this.isChecked){
+          return 'grayLight'
+        } else { 
+          return 'gray'
+        }
+      }
+    }
+    // returnStyle(): string{
     //   return JSON.stringify(this.$style)
     // }
   },
@@ -178,22 +201,21 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang="scss">
-  @import '../styles/fonts';
-  @import '../styles/mixins';
+<style module>
   
   .wrap{
     position: relative;
     display: inline-block;
     position: relative;
     margin: 0px;
-    /* height: 28px; */
-  
-    &:hover {
+    /* &:hover {
       &.label{
         color: $color-black;
       }
-    }
+    } */
+  }
+  .wrap.label:hover{
+    color: var(--color-black);
   }
   .input{
     position: absolute;
@@ -202,38 +224,41 @@ export default Vue.extend({
     display: block;
     opacity: 0;
     cursor: pointer;
-    &:disabled{
+    /* &:disabled{
       cursor: default; 
-    }
+    } */
+  }
+  .input:disabled{
+    cursor: default; 
   }
   .tag{
     border-radius: 6px;
-    color: $color-gray;
-    background-color: $color-secondary;
-    border: 1px solid $color-gray-lighter;
-    padding: 3px $baseline*2 3px $baseline*2;
+    color: var(--color-gray);
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-gray-lighter);
+    padding: 3px calc(var(--baseline)*2) 3px calc(var(--baseline)*2);
     vertical-align: middle;
   }
-  .labelText{
+  /* .labelText{
     @include font-base-md();
     font-family: $font-primary;
     letter-spacing: $letterspacing-base-md;
     font-weight: $fontweight-semi;
-  }
+  } */
   .hasIcon{
     padding-right: 28px;
   }
   .checked{
-    color: $color-white;
-    background-color: $color-selected;
-    border: 1px solid $color-selected;
+    color: var(--color-white);
+    background-color: var(--color-selected);
+    border: 1px solid var(--color-selected);
   }
   .disabled{
-    color: $color-disabled;
-    background-color: $color-gray-lightest;
-    border: 1px solid $color-gray-lighter;
+    color: var(--color-disabled);
+    background-color: var(--color-gray-lightest);
+    border: 1px solid var(--color-gray-lighter);
   }
-  .label{
+  /* .label{
     &:hover .tag{
       color: $color-black;
       background-color: $color-secondary-lighter;
@@ -248,6 +273,20 @@ export default Vue.extend({
       background-color: $color-gray-lightest;
       border-color: $color-gray-lighter;
     }
+  } */
+  .label:hover .tag{
+    color: var(--color-black);
+      background-color: var(--color-secondary-lighter);
+  }
+  .label:hover .checked{
+    color: var(--color-white);
+    background-color: var(--color-selected-lighter);
+    border-color: var(--color-selected-lighter);
+  }
+  .label:hover .disabled{
+    color: var(--color-disabled);
+    background-color: var(--color-gray-lightest);
+    border-color: var(--color-gray-lighter);
   }
   .labelContent{
     display: flex;
@@ -265,7 +304,7 @@ export default Vue.extend({
   }
   .iconAlignment{
     position: absolute;
-    padding-left: $baseline;
+    padding-left: var(--baseline);
   }
 </style>
 <style lang="scss">
@@ -276,7 +315,3 @@ export default Vue.extend({
     }
   }
 </style>
-
-<token>
-  
-</token>

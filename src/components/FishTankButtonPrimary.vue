@@ -17,10 +17,12 @@ export default Vue.extend({
   introduction: "Primary Button",
   description: "Primary Button",
   token:[`
-    <FishTankButtonPrimary>Primary Button</FishTankButtonPrimary>
+    <FishTankButtonPrimary>
+      Primary Button</FishTankButtonPrimary>
   `,`
   <FishTankButtonPrimary 
-    :block="true">Button Primary</FishTankButtonPrimary>
+    :block="true">
+    Button Primary</FishTankButtonPrimary>
   `,
   `<FishTankButtonPrimary 
     @click="handleClick"

@@ -44,6 +44,7 @@ import Vue, {VNode} from 'vue'
   const colors = returnFtColors
 
   export default Vue.extend({
+    name:"FishTankText",
     props: {
       align: {
         type: String,
@@ -103,6 +104,7 @@ import Vue, {VNode} from 'vue'
         return style
       },
       propMapping () {
+        
         let style = (<any>this).styles
         return {
           color: (<any>this).colorMappingFunc,
