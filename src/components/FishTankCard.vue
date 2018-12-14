@@ -5,12 +5,16 @@
       :class="branded"
       class="ft-card__brand-stripe"
     />
-    <div class="ft-card__container">
+    <div 
+      class="ft-card__container"
+      aria-label="Card Container"
+    >
       <slot
         :headerClass="'ft-card__heading'"
         name="heading"
       />
-      <div
+      <div 
+        aria-label="Card Heading"
         v-if="!$slots.heading && heading"
         class="ft-card__heading"
       >
@@ -19,6 +23,7 @@
 
       <div
         class="ft-card__body"
+        aria-label="Card Content"
       >
         <slot/>
       </div>
