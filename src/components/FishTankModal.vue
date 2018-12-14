@@ -40,7 +40,8 @@
             v-if="$slots.headingExtra"
             class="ft-modal__heading-extra"
           >
-            <slot name="headingExtra"/>
+            <slot 
+              name="headingExtra"/>
           </div>
           <div class="ft-modal__close">
             <span
@@ -49,8 +50,11 @@
             />
             <div class="ft-modal__close-icon-wrapper">
               <Close24
+                tabindex="0"
+                aria-label="Close Modal"
                 class="ft-modal__close-icon"
                 @click="close"
+                @keydown.enter="accessibilityClick"
               />
             </div>
           </div>
@@ -75,7 +79,9 @@
             class="ft-modal__footer-container"
           >
             <div>
-              <slot name="footerLeft"/>
+              <slot 
+                name="footerLeft"
+              />
             </div>
             <div>
               <slot name="footerRight"/>
@@ -400,6 +406,9 @@ export default Vue.extend({
 
       return true
     },
+    accessibilityClick(){
+      this.close()
+    }
   }
 })
 </script>
