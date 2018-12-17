@@ -4,17 +4,18 @@
       v-if="branded"
       :class="branded"
       class="ft-card__brand-stripe"
+      v-bind:area-label="cardBrand"
     />
     <div 
       class="ft-card__container"
-      aria-label="Card Container"
+      v-bind:aria-label="cardContainer"
     >
       <slot
         :headerClass="'ft-card__heading'"
         name="heading"
       />
       <div 
-        aria-label="Card Heading"
+        v-bind:aria-label="cardHeading"
         v-if="!$slots.heading && heading"
         class="ft-card__heading"
       >
@@ -23,7 +24,7 @@
 
       <div
         class="ft-card__body"
-        aria-label="Card Content"
+        v-bind:aria-label="cardContent"
       >
         <slot/>
       </div>
@@ -44,7 +45,28 @@ export default Vue.extend({
       type: String,
       required: false,
       default: undefined,
+    },
+    cardContainer: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    cardHeading: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    cardContent: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    cardBrand:{
+      type: String,
+      required: false,
+      default: undefined
     }
+
   }
 })
 </script>
