@@ -77,27 +77,33 @@ function genConfig(name) {
       // }),
       aliasTransform(aliasConfig),
       commonjs(),
-      vue({
-        compileTemplate: true,
-        css: true,
-        style:{
-          postcssPlugins:[
-            rollupPostcss([autoprefixer])
-          ]
-        },
-        typescript: {
-          compilerOptions: {
-            importHelpers: true,
-          }
-        }
-      }),
+      vue(
+        // {
+        //   compileTemplate: true,
+        //   css: true,
+        //   style:{
+        //     postcssPlugins:[
+        //       rollupPostcss([autoprefixer])
+        //     ]
+        //   },
+        //   typescript: {
+        //     compilerOptions: {
+        //       importHelpers: true,
+        //     }
+        //   }
+        // }
+      ),
       scss(scssOpts),
-      json(),
-      typescript({}),
+      typescript({
+        tsconfig: 'tsconfig.json',
+        experimentalDecorators: true,
+        module: 'es2015'
+      }),
       babel({
         exclude: "node_modules/**",
         runtimeHelpers: true
       }),
+      json(),
       filesize()
     ].concat(opts.plugins || []),
     output: {
