@@ -28,12 +28,14 @@
       <Search24 slot="headingIcon"/>
       <LoremIpsum/>
       <template slot="headingExtra">
-        <Home24/>
-        Set as Home
+        <ButtonFeatureLabel >
+          <template slot="icon"> <Home24/> </template>
+          <template slot="label"> Set as Home </template>
+        </ButtonFeatureLabel>
       </template>
       <div slot="footerRight">
         <!-- <ButtonSecondary disabled>Close</ButtonSecondary> -->
-        <ButtonPrimary disabled>Search</ButtonPrimary>
+        <ButtonPrimary >Search</ButtonPrimary>
       </div>
     </Modal>
 
@@ -51,7 +53,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Modal, DialogBox, ButtonPrimary, ButtonSecondary } from '@/index'
+import { Modal, DialogBox, ButtonPrimary, ButtonSecondary, ButtonFeatureLabel } from '@/index'
 import LoremIpsum from '../LoremIpsum.vue'
 import { Search24, HomeO24 as Home24 } from '@fishtank/icons-vue'
 
@@ -61,6 +63,7 @@ export default Vue.extend({
     DialogBox,
     ButtonPrimary,
     ButtonSecondary,
+    ButtonFeatureLabel,
     LoremIpsum,
     Search24,
     Home24,
