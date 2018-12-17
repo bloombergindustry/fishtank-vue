@@ -16,7 +16,6 @@ const scssImporter = require('./config/scss-importer').default
 
 import pack from "./package.json"
 import postcss from "postcss"
-import rollupPostcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 
 const fs = require('fs')
@@ -72,26 +71,17 @@ function genConfig(name) {
     input: opts.entry,
     external: externals(),
     plugins: [
-      // rollupPostcss({
-      //   modules: true
-      // }),
       aliasTransform(aliasConfig),
       commonjs(),
       vue(
-        // {
-        //   compileTemplate: true,
-        //   css: true,
-        //   style:{
-        //     postcssPlugins:[
-        //       rollupPostcss([autoprefixer])
-        //     ]
-        //   },
-        //   typescript: {
-        //     compilerOptions: {
-        //       importHelpers: true,
-        //     }
-        //   }
-        // }
+        {
+          css: true,
+          style:{
+            postcssModulesOptions:{
+              generateScopedName: '[name]-[local]-[hash:base64:4]'
+            }
+          },
+        }
       ),
       scss(scssOpts),
       typescript({
