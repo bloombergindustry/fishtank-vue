@@ -3,6 +3,8 @@
     v-bind="$attrs"
     class="ft-button--feature-label"
     v-on="$listeners"
+    role="button"
+    v-bind:aria-label="name"
   >
 
     <slot/>
@@ -25,8 +27,13 @@ export default Vue.extend({
   components: {
     FishTankBaseButton,
   },
+ 
   props:{
-   
+   name:{
+     type: String,
+     required: false,
+     default: "Feature Icon Button"
+   }
   },
 
   computed:{

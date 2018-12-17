@@ -13,7 +13,12 @@
     <div><ButtonWhite>Button White</ButtonWhite></div>
     <br>
 
-    <div><ButtonFeatureIcon> <Alert24/> </ButtonFeatureIcon></div>
+    <div>
+      <ButtonFeatureIcon
+      :name="ariaLabelFeatureIcon"> 
+        <Alert24/> 
+      </ButtonFeatureIcon>
+    </div>
     <br>
 
     <div><ButtonGradient 
@@ -129,6 +134,9 @@ export default Vue.extend({
       fabOptionsPresent : false, //also false by default, true activated drawer
       fabLink1 : 'https://twitter.com/',
       fabLink2 : 'https://facebook.com/',
+
+      //Relevant to Feature Button Icon : sets texts for Icon's aria label
+      ariaLabelFeatureIcon : "Add Alert"
     }
   },
   
