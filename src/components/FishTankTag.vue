@@ -115,6 +115,7 @@ export default Vue.extend({
       checkProxy:false,
       isFocused: false,
       propsDocData: this.$options.props,
+
     }
   },
   computed: {
@@ -167,9 +168,9 @@ export default Vue.extend({
           return 'disabled'
         }
       }
-    }
+    },
     // returnStyle(): string{
-    //   return JSON.stringify(this.$style)
+    //   return this.$style
     // }
   },
   methods:{
