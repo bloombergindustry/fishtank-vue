@@ -27,7 +27,7 @@ export default Vue.extend({
     :gradientStart="startingHexColorVariable"
     :gradientEnd="endingHexColorVariable"
     :colorDirection="to right"
-    >Button Gradient</FishTankButtonGradient>
+    >Bloomberg Government</FishTankButtonGradient>
   `],
   components: {
     FishTankBaseButton

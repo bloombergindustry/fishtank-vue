@@ -55,7 +55,7 @@ export default Vue.extend({
   },
   data: function(){
     return {
-      bgValue:"All",
+      bgValue:"",
       bgValueAltBeta:"Members",
     }
   }

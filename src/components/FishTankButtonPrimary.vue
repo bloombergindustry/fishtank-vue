@@ -18,7 +18,7 @@ export default Vue.extend({
   description: "Primary Button",
   token:[`
     <FishTankButtonPrimary>
-      Primary Button</FishTankButtonPrimary>
+      Save</FishTankButtonPrimary>
   `,`
   <FishTankButtonPrimary 
     :block="true">
