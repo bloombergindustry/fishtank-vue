@@ -5,14 +5,18 @@
       :class="branded"
       class="ft-card__brand-stripe"
     />
-    <div class="ft-card__container">
+    <div 
+      class="ft-card__container"
+    >
       <slot
         :headerClass="'ft-card__heading'"
         name="heading"
       />
-      <div
+      <div 
         v-if="!$slots.heading && heading"
         class="ft-card__heading"
+        role="heading"
+        aria-level="3"
       >
         {{ heading }}
       </div>
@@ -40,6 +44,7 @@ export default Vue.extend({
       required: false,
       default: undefined,
     }
+
   }
 })
 </script>

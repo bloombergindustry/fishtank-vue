@@ -4,11 +4,14 @@
       I am a plain card
     </Card>
 
-    <Card heading="I am a card heading">
+    <Card 
+      heading="I am a card heading"
+    >
       I am card content
     </Card>
 
-    <Card>
+    <Card
+    >
       <div
         slot="heading"
         slot-scope="{ headerClass }"
@@ -20,7 +23,9 @@
       I am card content
     </Card>
 
-    <Card branded="card-sample-brand-class">
+    <Card 
+      branded="card-sample-brand-class"
+    >
       I am a branded card
     </Card>
   </div>
@@ -29,10 +34,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Card } from '@/index'
+import { mapClassName } from '@/util/style';
 
 export default Vue.extend({
   components: {
     Card
+  },
+  data: function(){
+    return{
+    }
   }
 })
 </script>
