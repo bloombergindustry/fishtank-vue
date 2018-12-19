@@ -18,7 +18,7 @@ export default Vue.extend({
   description: "Fish Tank Button",
   token:[`
     <FishTankButton>
-      Primary Button</FishTankButton>
+      Save</FishTankButton>
   `],
   components: {
     FishTankBaseButton

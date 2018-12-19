@@ -9,7 +9,8 @@
         :value="value" 
         :checked ="shouldBeChecked" 
         class="ft-radio__input" 
-        type="radio" 
+        type="radio"
+        ref="input" 
         v-on="listeners">
       <div class="ft-radio__icon"/>
       <div class="ft-radio__label-content">
@@ -61,6 +62,20 @@ export default Vue.extend({
       required:true
     }
   },
+  inject:{
+    fishtankRadioGroupShared:{
+      default:{
+        register(){},
+        unregister(){}
+      },
+    }
+  },
+  mounted(){
+    this.fishtankRadioGroupShared.register(this)
+  },
+  destroyed(){
+    this.fishtankRadioGroupShared.unregister(this)
+  },
   computed:{
     shouldBeChecked():Boolean{
       return this.value === this.modelValue
@@ -77,6 +92,11 @@ export default Vue.extend({
     labelId(): string {
       return `ft-radio-${(this as any)._uid}`
     },
+  },
+  methods:{
+    setFocus(){
+      (this.$refs.input as HTMLFormElement).focus()
+    }
   }
 })
 </script>

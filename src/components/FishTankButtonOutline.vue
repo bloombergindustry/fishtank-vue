@@ -17,7 +17,7 @@ export default Vue.extend({
   introduction: "Outline Button",
   description: "Outline Button",
   token:[`
-    <FishTankButtonOutline>Outline Button</FishTankButtonOutline>
+    <FishTankButtonOutline>Filter</FishTankButtonOutline>
   `],
   components: {
     FishTankBaseButton

@@ -17,7 +17,7 @@ export default Vue.extend({
   introduction: "Destructive Button",
   description: "Destructive Button",
   token:[`
-    <FishTankButtonDestructive>Destructive Button</FishTankButtonDestructive>
+    <FishTankButtonDestructive>Delete</FishTankButtonDestructive>
   `],
   components: {
     FishTankBaseButton

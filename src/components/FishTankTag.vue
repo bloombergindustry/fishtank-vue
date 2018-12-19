@@ -169,9 +169,6 @@ export default Vue.extend({
         }
       }
     },
-    // returnStyle(): string{
-    //   return this.$style
-    // }
   },
   methods:{
     updateInput(event:any) {

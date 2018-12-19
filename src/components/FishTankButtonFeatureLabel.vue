@@ -17,8 +17,6 @@
 import Vue from "vue"
 import FishTankBaseButton from "./FishTankBaseButton.vue"
 
-import FishTankButtonFeatureIcon from "./FishTankButtonFeatureIcon.vue"
-
 export default Vue.extend({
   name: "FishTankButtonFeatureLabel",
   introduction: "Feature Label Button",
@@ -26,12 +24,11 @@ export default Vue.extend({
   token:[`
     <FishTankButtonFeatureLabel> 
       <template slot="icon"> <Alert24/> </template>
-      <template slot="label"> Button Feature Label</template>
+      <template slot="label"> Set Alert</template>
     </FishTankButtonFeatureLabel>
   `],
   components: {
-    FishTankBaseButton,
-    FishTankButtonFeatureIcon,
+    FishTankBaseButton
   }
 })
 </script>

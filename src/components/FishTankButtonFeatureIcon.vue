@@ -2,15 +2,12 @@
   <FishTankBaseButton
     v-bind="$attrs"
     class="ft-button--feature-label"
-    v-on="$listeners"
     role="button"
-    v-bind:aria-label="name"
+    :aria-label="name"
+    v-on="$listeners"
   >
-
-    <slot/>
-
+    <slot />
   </FishTankBaseButton>
-
 </template>
 
 <script lang="ts">

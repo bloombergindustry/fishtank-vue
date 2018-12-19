@@ -17,7 +17,7 @@ export default Vue.extend({
   introduction: "White Button",
   description: "White Button",
   token:[`
-    <FishTankButtonWhite>White Button</FishTankButtonWhite>
+    <FishTankButtonWhite>Filter</FishTankButtonWhite>
   `],
   components: {
     FishTankBaseButton
