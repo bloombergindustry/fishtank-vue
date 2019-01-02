@@ -13,6 +13,7 @@
       <li><a href="#/buttongroup">Button Group</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>
       <li><a href="#/text">Text</a></li>
+      <li><a href="#/pagination">Pagination</a></li>
     </ul>
   </section>
 </template>
