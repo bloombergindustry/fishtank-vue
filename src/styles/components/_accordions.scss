@@ -1,0 +1,19 @@
+.ft-accordion-wrapper-lg{
+    height: 48px;
+    width: 468px;
+    border-bottom: 1px solid $color-gray-lighter;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .ft-accordion-heading{
+        color: $color-gray-dark;
+        font-size: $fontsize-base-lg;
+    }
+
+    svg{
+        color: $color-gray;
+    }
+}

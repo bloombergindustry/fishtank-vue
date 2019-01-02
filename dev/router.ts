@@ -57,6 +57,10 @@ export default new Router({
     {
       path: '/text',
       component: () => import("./views/Text.vue")
+    },
+    {
+      path: '/accordions',
+      component: () => import("./views/Accordions.vue")
     }
     
   ]

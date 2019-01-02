@@ -59,5 +59,7 @@ export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
 export { default as FishTankText } from "./components/FishTankText.vue"
+export { default as FishTankAccordionLarge } from "./components/FishTankAccordionLarge.vue"
+
 
 import './styles.scss'
