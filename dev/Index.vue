@@ -1,7 +1,8 @@
 <template>
   <section>
     <ul>
-      <li class="checkboxes"><a href="#/checkboxes">Checkboxes</a></li>
+      <li><a href="#/accordions">Accordions</a></li>
+      <li><a href="#/checkboxes">Checkboxes</a></li>
       <li><a href="#/buttons">Buttons</a></li>
       <li><a href="#/radios">Radios</a></li>
       <li><a href="#/switches">Switches</a></li>
