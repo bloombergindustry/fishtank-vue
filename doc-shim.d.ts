@@ -3,13 +3,17 @@ declare module 'vue/types/vue' {
   // Global properties can be declared
   // on the `VueConstructor` interface
   interface VueConstructor {
-    options: ComponentOptions<Vue>
+    options: ComponentOptions<Vue>,
+  }
+  interface Vue {
+    register(): void,
+    unregister(): void
   }
 }
 
 declare module 'vue/types/options' {
   interface Tokens {
-      template: Array<String>;
+    template: Array<String>;
   }
   interface ComponentOptions<V extends Vue> {
     introduction?: string,

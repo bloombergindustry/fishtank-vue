@@ -12,7 +12,26 @@
 import Vue from 'vue'
 import a11y from '@/util/a11y'
 
+interface RadioComponent extends Vue{
+  value?:[Object],
+  modelValue?:[Object],
+  setFocus(): void
+}
 export default Vue.extend ({
+  token:[
+    `<fish-tank-radio-group>
+      <FishTankRadio 
+        v-model="val" 
+        value="beta" 
+        label="beta"
+        name="beta"/>
+      <FishTankRadio 
+        v-model="val" 
+        value="beta" 
+        label="beta"
+        name="beta"/>
+    <fish-tank-radio-group>`
+  ],
   mixins:[
     a11y
   ],
@@ -59,7 +78,7 @@ export default Vue.extend ({
   methods:{
     focusRadio(){
       let activeIndex = 0;
-      (this as any).registeredChildren.map(c=> {
+      (this as any).registeredChildren.map((c:RadioComponent)=> {
         if (c.value === c.modelValue) { 
           c.setFocus() 
           return
