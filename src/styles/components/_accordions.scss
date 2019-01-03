@@ -1,19 +1,46 @@
+*{
+    margin: 0px;
+}
+
 .ft-accordion-wrapper-lg{
-    height: 48px;
-    width: 468px;
-    border-bottom: 1px solid $color-gray-lighter;
+    width: 100%;
+    
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $color-gray-lighter;
+
+    .ft-accordion-heading-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 
     .ft-accordion-heading{
         color: $color-gray-dark;
         font-size: $fontsize-base-lg;
+        font-weight: $fontweight-regular;
+        line-height: $lineheight-base-lg;
+        letter-spacing: $letterspacing-base-lg;
+    }
+
+    .ft-accordion-sub-heading{
+        color: $color-gray;
+        font-size: $fontsize-base-sm;
+        font-weight: $fontweight-regular;
+        line-height: $lineheight-base-sm;
+        letter-spacing: $letterspacing-small;
     }
 
     svg{
         color: $color-gray;
+        
+    }
+
+    .ft-accordion-panel{
+        padding: 12px
     }
 }
