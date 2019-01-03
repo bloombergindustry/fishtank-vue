@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.8.0"></a>
+# [3.8.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0-2...v3.8.0) (2019-01-03)
+
+
+### Features
+
+* added props to dynamically handle aria label text from users ([457b202](https://github.com/bloombergbna/fishtank-vue/commit/457b202))
+* Added Radio accessibility features and fixed some TS errors ([5f5e623](https://github.com/bloombergbna/fishtank-vue/commit/5f5e623))
+* aria-labels added to cards; card content, card headers, and card container ([3ac69b4](https://github.com/bloombergbna/fishtank-vue/commit/3ac69b4))
+* New radio group element providing grouping and accessibility focus state for collection of radio elements ([5a5cc33](https://github.com/bloombergbna/fishtank-vue/commit/5a5cc33))
+* removed unnecessary props and added role and aria-label to headings for header card ([0ac6d40](https://github.com/bloombergbna/fishtank-vue/commit/0ac6d40))
+
+
+
 <a name="3.8.0-2"></a>
 # [3.8.0-2](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0-1...v3.8.0-2) (2018-12-17)
 
