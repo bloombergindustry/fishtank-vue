@@ -1,46 +1,49 @@
 *{
     margin: 0px;
 }
-
-.ft-accordion-wrapper-lg{
-    width: 100%;
-    
-
+.ft-accordion-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 12px;
-    border-bottom: 1px solid $color-gray-lighter;
+    flex-direction: column;
+    margin: 12px;
 
-    .ft-accordion-heading-wrapper{
+    .ft-accordion-wrapper-lg{
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border-bottom: 1px solid $color-gray-lighter;
+    
+        .ft-accordion-heading-wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
 
-    .ft-accordion-heading{
-        color: $color-gray-dark;
-        font-size: $fontsize-base-lg;
-        font-weight: $fontweight-regular;
-        line-height: $lineheight-base-lg;
-        letter-spacing: $letterspacing-base-lg;
-    }
-
-    .ft-accordion-sub-heading{
-        color: $color-gray;
-        font-size: $fontsize-base-sm;
-        font-weight: $fontweight-regular;
-        line-height: $lineheight-base-sm;
-        letter-spacing: $letterspacing-small;
-    }
-
-    svg{
-        color: $color-gray;
+            .ft-accordion-heading{
+                color: $color-gray-dark;
+                font-size: $fontsize-base-lg;
+                font-weight: $fontweight-regular;
+                line-height: $lineheight-base-lg;
+                letter-spacing: $letterspacing-base-lg;
+            }
         
+            .ft-accordion-sub-heading{
+                color: $color-gray;
+                font-size: $fontsize-base-sm;
+                font-weight: $fontweight-regular;
+                line-height: $lineheight-base-sm;
+                letter-spacing: $letterspacing-small;
+            }
+        }
+    
+        svg{
+            color: $color-gray;
+            
+        }   
     }
-
+    
     .ft-accordion-panel{
         padding: 12px
     }
+
 }

@@ -1,7 +1,5 @@
 <template>
     <div>
-        <h3 class="title">Large Accordion 1-line </h3>
-
         <FishTankAccordionLarge 
             heading="Section Heading"
             subheading="Sub-heading"
@@ -11,7 +9,6 @@
 
         <br/>
 
-        <h3 class="title">Large Accordion 1-line </h3>
 
         <FishTankAccordionLarge 
             heading="Section Heading"
