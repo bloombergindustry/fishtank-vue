@@ -22,7 +22,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import a11y from '@/util/a11y'
+interface RadioComponentGroup {
+  register(cmp:any):void,
+  unregister(cmp:any):void
+}
 export default Vue.extend({
+  name: "FishTankRadio",
+  introduction: "Radio Input Element",
+  description: "Radio Input Element",
+  token:[
+`<FishTankRadio 
+  v-model="val" 
+  value="beta" 
+  label="beta"
+  name="beta"/>`
+  ],
   mixins: [
     a11y,
   ],
@@ -60,6 +74,9 @@ export default Vue.extend({
       type:String,
       default:"",
       required:true
+    },
+    fishtankRadioGroupShared: {
+      type: Object as () => RadioComponentGroup,
     }
   },
   inject:{
