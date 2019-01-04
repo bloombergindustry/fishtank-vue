@@ -60,10 +60,12 @@
         methods:{
             toggle(){
                 
-                if(this.visible){
-                    this.visible = false
-                }else{
-                    this.visible = true
+                if( !this.disabled ){
+                    if( this.visible ){
+                        this.visible = false
+                    }else{
+                        this.visible = true
+                    }
                 }
             }
         }
