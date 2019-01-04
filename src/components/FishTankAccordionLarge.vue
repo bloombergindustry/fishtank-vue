@@ -1,8 +1,10 @@
 <template>
-    <div class="ft-accordion-container">
+    <div 
+        :class="[disabled ? 'ft-accordion-container-gray' : 'ft-accordion-container']"
+    > 
         <div 
             class="ft-accordion-wrapper-lg"
-            v-on:click="toggle"
+            @click="toggle"
         >
             <div class="ft-accordion-heading-wrapper">
                 <p class="ft-accordion-heading"> {{ heading }} </p>
@@ -48,6 +50,11 @@
             subheading: {
                 type: String,
                 required: false
+            },
+            disabled:{
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
         methods:{
@@ -67,5 +74,3 @@
 
 </style>
 
-<!--- re-organize accordion classes, styles and structures, then add
- type/javascript, slots/templates to get this working -->
