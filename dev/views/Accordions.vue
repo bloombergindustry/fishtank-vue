@@ -9,9 +9,18 @@
 
         <br/>
 
-
         <FishTankAccordionLarge 
             heading="Section Heading"
+        >
+            <FishTankLoaderContent theme="AlertList"/>
+        </FishTankAccordionLarge>
+
+        <br/>
+
+        <FishTankAccordionLarge 
+            heading="Disabled Section Heading"
+            subheading="Disabled Sub-heading"
+            :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordionLarge>
@@ -30,6 +39,11 @@
         components: {
             FishTankAccordionLarge,
             FishTankLoaderContent
+        },
+        data: function() {
+            return{
+                disabledAccordion : true
+            }
         }
         
     }
