@@ -7,14 +7,24 @@
             @click="toggle"
         >
             <div class="ft-accordion-heading-wrapper">
-                <p class="ft-accordion-heading"> {{ heading }} </p>
+                <p 
+                    class="ft-accordion-heading"
+                    role="heading"
+                    aria-level="3"
+                > 
+                    {{ heading }} 
+                </p>
                 <p 
                     class="ft-accordion-sub-heading"
                     v-if="subheading"
+                    role="heading"
+                    aria-level="4"
                 > {{ subheading }} </p>
             </div>
-            <ChevronDown24 v-show="visible"/>
-            <ChevronUp24 v-show="!visible"/>
+            <ChevronUp24 
+                :class="[ visible ? 'ft-accordion-svg-down' : 'ft-accordion-svg-up' ]"
+                aria-label="collapse / expand content"
+            />
         </div>
         <div 
             class="ft-accordion-panel"
@@ -24,6 +34,9 @@
         </div>
     </div>
 </template>
+
+<!-- add option to limit the the number of accordions that can be open at any
+one time -->
 
 <script lang="ts">
 
