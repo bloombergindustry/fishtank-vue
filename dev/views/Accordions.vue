@@ -2,7 +2,6 @@
     <div>
         <FishTankAccordionLarge 
             heading="Section Heading"
-            subheading="Sub-heading"
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordionLarge>
@@ -11,6 +10,7 @@
 
         <FishTankAccordionLarge 
             heading="Section Heading"
+            subheading="Sub-heading"
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordionLarge>
