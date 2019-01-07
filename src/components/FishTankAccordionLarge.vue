@@ -35,19 +35,14 @@
     </div>
 </template>
 
-<!-- add option to limit the the number of accordions that can be open at any
-one time -->
-
 <script lang="ts">
 
     import { 
-        ChevronDown24,
         ChevronUp24 
     }  from "@fishtank/icons-vue"
 
     export default {
         components: {
-            ChevronDown24,
             ChevronUp24
         },
         data: function(){
