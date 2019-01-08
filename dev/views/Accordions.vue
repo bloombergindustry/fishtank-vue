@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>一つだけ | Singles </h1>
+        <h1>Single Accordions ( Large ) </h1>
 
         <FishTankAccordionLarge 
             heading="Section Heading"
@@ -14,6 +14,7 @@
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordionLarge>
+
         <FishTankAccordionLarge 
             heading="Another Section Heading"
             subheading="Another Sub-heading"
@@ -31,16 +32,11 @@
 
         <br/>
 
-        <h1>グルプ | Group </h1>
+        <h1>Accordion Group ( Large ) </h1>
 
         <br/>
 
         <FishTankAccordionGroup>
-            <FishTankAccordionLarge 
-                heading="Group Section Heading"
-            >
-                <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordionLarge>
 
             <FishTankAccordionLarge 
                 heading="Group Section Heading"
