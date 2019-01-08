@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.9.0-0"></a>
+# [3.9.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0...v3.9.0-0) (2019-01-08)
+
+
+### Bug Fixes
+
+* fixed paginate component dependancy tree ([eadda53](https://github.com/bloombergbna/fishtank-vue/commit/eadda53))
+
+
+### Features
+
+* Add pagination component ([9c844be](https://github.com/bloombergbna/fishtank-vue/commit/9c844be))
+
+
+
 <a name="3.8.0"></a>
 # [3.8.0](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0-2...v3.8.0) (2019-01-03)
 
