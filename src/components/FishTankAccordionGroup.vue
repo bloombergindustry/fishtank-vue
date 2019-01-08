@@ -6,6 +6,17 @@
 
 <script>
     export default {
+        data: function(){
+            return{
+                children: []
+            }
+        },
+        props:{
+            
+        },
+        methods:{
+
+        }
         
     }
 </script>
