@@ -57,7 +57,11 @@ export default new Router({
     {
       path: '/text',
       component: () => import("./views/Text.vue")
-    }
+    },
+    {
+      path: '/pagination',
+      component: () => import("./views/Pagination.vue")
+    },
     
   ]
 })
