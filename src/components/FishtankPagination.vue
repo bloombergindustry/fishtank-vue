@@ -18,7 +18,7 @@
 
 <script lang="ts">
   import Vue, { VueConstructor } from 'vue';
-  const VuePaginate = require('vuejs-paginate');
+  import * as VueJsPaginate from "vuejs-paginate"
   import {
     ChevronLeft24 as ChevronLeftIcon,
     ChevronRight24 as ChevronRightIcon,
@@ -35,7 +35,7 @@
     },
 
     components: {
-      VuePaginate,
+      'vue-paginate':VueJsPaginate,
       ChevronLeftIcon,
       ChevronRightIcon,
     },
@@ -72,9 +72,9 @@
 </script>
 
 <style lang="scss">
-  @import '~@fishtank/type/dist/index';
-  @import '~@fishtank/colors/dist/index';
-  @import '~@fishtank/space/dist/index';
+  @import '../../node_modules/@fishtank/type/dist/index';
+  @import '../../node_modules/@fishtank/colors/dist/index';
+  @import '../../node_modules/@fishtank/space/dist/index';
 
   .ft-pagination {
     font-weight: $fontweight-semi;
