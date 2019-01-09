@@ -25,7 +25,7 @@
         <FishTankAccordionLarge 
             heading="Disabled Section Heading"
             subheading="Disabled Sub-heading"
-            :disabled="true"
+            :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordionLarge>

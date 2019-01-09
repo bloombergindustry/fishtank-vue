@@ -8,29 +8,27 @@
         >
             <div class="ft-accordion-heading-wrapper">
                 <p 
-                class="ft-accordion-heading"
-                role="heading"
-                aria-level="3"
+                    class="ft-accordion-heading"
+                    role="heading"
+                    aria-level="3"
                 > 
                     {{ heading }} 
                 </p>
                 <p 
-                class="ft-accordion-sub-heading"
-                v-if="subheading"
-                role="heading"
-                aria-level="4"
-                > 
-                    {{ subheading }} 
-                </p>
+                    class="ft-accordion-sub-heading"
+                    v-if="subheading"
+                    role="heading"
+                    aria-level="4"
+                > {{ subheading }} </p>
             </div>
             <ChevronUp24 
-            :class="[ visible ? 'ft-accordion-svg-down' : 'ft-accordion-svg-up' ]"
-            aria-label="collapse / expand content"
+                :class="[ visible ? 'ft-accordion-svg-down' : 'ft-accordion-svg-up' ]"
+                aria-label="collapse / expand content"
             />
         </div>
         <div 
-        class="ft-accordion-panel"
-        v-show="visible"
+            class="ft-accordion-panel"
+            v-show="visible"
         >
             <slot/>
         </div>
@@ -39,20 +37,19 @@
 
 <script lang="ts">
 
-    import { ChevronUp24 }  from "@fishtank/icons-vue"
+    import { 
+        ChevronUp24 
+    }  from "@fishtank/icons-vue"
 
     export default {
-
         components: {
             ChevronUp24
         },
-
-        data(): any{
+        data: function(){
             return{
                 visible: false
             }
         },
-
         props:{
             heading: {
                 type: String,
@@ -62,17 +59,15 @@
                 type: String,
                 required: false
             },
-            disabled: {
+            disabled:{
                 type: Boolean,
                 required: false,
                 default: false
-            },
-           
+            }
         },
-
         methods:{
-            toggle: function()  {
-            
+            toggle(){
+                
                 if( !this.disabled ){
                     if( this.visible ){
                         this.visible = false
