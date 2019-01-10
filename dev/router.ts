@@ -62,6 +62,9 @@ export default new Router({
       path: '/pagination',
       component: () => import("./views/Pagination.vue")
     },
-    
+    {
+      path: '/accordions',
+      component: () => import("./views/Accordions.vue")
+    }
   ]
 })

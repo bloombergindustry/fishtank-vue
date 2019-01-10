@@ -1,5 +1,5 @@
 <template >
-
+ 
   <ContentLoader 
     v-if="theme === 'AlertList'"
     :height="92"
@@ -1568,6 +1568,7 @@
   </ContentLoader>
 </template>
 <script lang="ts">
+/* eslint-disable */ 
 import { ContentLoader } from "vue-content-loader"
 import Vue from 'vue'
 import a11y from '@/util/a11y'
