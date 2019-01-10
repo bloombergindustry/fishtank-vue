@@ -62,6 +62,10 @@ export default new Router({
       path: '/pagination',
       component: () => import("./views/Pagination.vue")
     },
+    {
+      path: '/box',
+      component: () => import("./views/Box.vue")
+    },
     
   ]
 })

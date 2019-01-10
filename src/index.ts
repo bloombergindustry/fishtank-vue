@@ -60,5 +60,6 @@ export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
 export { default as FishTankText } from "./components/FishTankText.vue"
+export { default as FishTankBox } from "./components/FishTankBox.vue"
 
 import './styles.scss'
