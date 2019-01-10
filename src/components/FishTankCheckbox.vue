@@ -170,8 +170,6 @@ export default Vue.extend({
     }
   }
 
-  //from scss file
-
 .input-checkbox {
   position: relative;
 }
