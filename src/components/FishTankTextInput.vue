@@ -1,29 +1,29 @@
 <template>
   <div
-    :class="{ 'ft-input-text--error': !!errorMessage }"
-    class="ft-input-text"
+    :class="{ 'input-text--error': !!errorMessage }"
+    class="input-text"
   >
     <div
       v-if="label"
-      class="ft-input-text__label-wrapper"
+      class="input-text__label-wrapper"
     >
       <label
         :for="labelId"
-        class="ft-input-text__label"
+        class="input-text__label"
       >
         {{ label }}
       </label>
 
-      <span class="ft-input-text__auxillary-slot">
+      <span class="input-text__auxillary-slot">
         <slot name="auxillary"/>
       </span>
     </div>
     <div
-      class="ft-input-text__input-wrapper"
+      class="input-text__input-wrapper"
     >
       <span
         v-if="$slots.leftIcon"
-        class="ft-input-text__left-icon"
+        class="input-text__left-icon"
       >
         <slot name="leftIcon"/>
       </span>
@@ -38,7 +38,7 @@
           :id="labelId"
           :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
-          class="ft-input-text__input ft-input-text__input__textarea"
+          class="input-text__input input-text__input__textarea"
           @keypress="getFalseHeight"
           @keydown.delete="getFalseHeight"
           @keyup.91.90="getFalseHeight"
@@ -58,7 +58,7 @@
           :value="value"
           :id="labelId"
           v-bind="$attrs"
-          class="ft-input-text__input"
+          class="input-text__input"
           @input="updateValue "
           @focus="checkError"
           v-on="listeners">
@@ -66,17 +66,17 @@
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        class="ft-false-text-area"
+        class="false-text-area"
       >
         &nbsp;{{ textAreaModel }}
       </p>
       <span
         v-if="showRightIcon && !numberType"
-        class="ft-input-text__right-icon"
+        class="input-text__right-icon"
       >
         <slot name="rightIcon">
           <span
-            class="ft-input-text__input-clear"
+            class="input-text__input-clear"
             @click="clearText"
           >
             <CloseIcon/>
@@ -89,7 +89,7 @@
     <div
       v-if="errorMessage"
       id="error-block"
-      class="ft-input-text__error-text"
+      class="input-text__error-text"
     >
       <WarningIcon/>
       <p> {{ errorMessage }} </p>
@@ -189,7 +189,7 @@ export default Vue.extend({
   },
   computed: {
     labelId(): string {
-      return `ft-input-${(this as any)._uid}`
+      return `input-${(this as any)._uid}`
     },
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
@@ -267,3 +267,185 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  @mixin placeholder() {
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      @content;
+    }
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      @content;
+    }
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      @content;
+    }
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      @content;
+    }
+  }
+
+  .input-text__input {
+    width: 100%;
+    height: $baseline * 10;
+    padding-left: $baseline * 3;
+    padding-right: $baseline * 10;
+    box-sizing: border-box;
+    font-family: $font-primary;
+    font-weight: $fontweight-regular;
+    line-height: $lineheight-base-lg;
+    letter-spacing: $letterspacing-base-lg;
+    border: $color-gray-lighter 1px solid;
+    color: $color-black;
+    border-radius: 2px;
+
+    @include font-base-lg();
+
+    &:focus {
+      outline: $color-selected 2px solid;
+    }
+
+    &:disabled {
+      background-color: $color-secondary;
+      color: $color-disabled;
+    }
+
+    @include placeholder() {
+      color: $color-gray-lighter;
+      font-style: italic;
+    }
+  }
+  input[type=number]{
+    text-align:right;
+    padding-right:$baseline*3;
+  }
+  .input-text__left-icon ~ .input-text__input {
+    padding-left: $baseline*11;
+  }
+
+  .input-text__input-wrapper {
+    position: relative;
+  }
+
+  .input-text__left-icon,
+  .input-text__right-icon {
+    position: absolute;
+    top: $baseline * 2;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .input-text__left-icon {
+    left: $baseline * 2;
+  }
+
+  .input-text__right-icon {
+    right: $baseline * 2;
+    svg{
+      fill : $color-gray;
+    }
+  }
+
+  .input-text__label {
+    text-transform: uppercase;
+    font-weight: $fontweight-semi;
+    font-family: $font-primary;
+    line-height: $lineheight-base-md;
+    letter-spacing: $letterspacing-base-md;
+    color: $color-black;
+
+    @include font-base-md();
+  }
+
+  .input-text__label-wrapper {
+    position: relative;
+    margin-bottom: $baseline;
+  }
+
+  .input-text__auxillary-slot {
+    @include font-base-sm();
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .input-text {
+    padding-bottom: $baseline * 6;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  .input-text--error {
+    .input-text__input {
+      border-color: $color-error;
+      color: $color-error;
+    }
+
+    .input-text__error-text {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      svg{
+        fill: $color-error;
+        margin-right: 12px;
+      }
+
+      p{
+        margin: 0px;
+        color: $color-error;
+        font-size: $fontsize-base-md;
+        letter-spacing: $letterspacing-base-md;
+        line-height: $lineheight-base-md;
+        font-weight: $fontweight-regular;
+        font-family: $font-primary;
+      }
+    }
+
+    .input-text__label {
+      color: $color-error;
+    }
+  }
+  .input-text__input__textarea{
+    overflow: auto;
+    transition:all 250ms ease-in-out;
+    padding-top:6px;
+    padding-bottom:1px;
+    min-height:2.5rem;
+    padding-left: 0.75rem;
+    padding-right: 2.5rem;
+  }
+  .false-text-area{
+    min-height:2.5rem;
+    padding-left: 0.75rem;
+    padding-right: 2.5rem;
+    visibility: hidden;
+    font-size:1rem;
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    background: lightblue;
+    display: block;
+    white-space:pre-line;
+    word-wrap: break-word;
+    width:calc(100% - 3.25rem)
+  }
+
+</style>
