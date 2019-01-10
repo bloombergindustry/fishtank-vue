@@ -1,43 +1,43 @@
 <template>
   <div 
-    :class="[value ? 'ft-input-checkbox--checked' : 'ft-input-checkbox--unchecked', {'ft-input-checkbox__disabled':disabled}]"
-    class="ft-input-checkbox"
+    :class="[value ? 'input-checkbox--checked' : 'input-checkbox--unchecked', {'input-checkbox__disabled':disabled}]"
+    class="input-checkbox"
   >
     <label
       :for="(id !==null? id: labelId)"
-      class="ft-input-checkbox__label"
+      class="input-checkbox__label"
     >
       <input 
         :id="(id !==null? id: labelId)" 
         :disabled="disabled"
         :checked="isChecked"
         :value="value"
-        class="ft-input-checkbox__native" 
+        class="input-checkbox__native" 
         type="checkbox"
         @focus="isFocused = true"
         @blur="isFocused = false"
         v-on="listeners">
       <div 
-        :class="['ft-input-checkbox__checkbox', {'focused': isFocused}]">
-        <transition name="ft-transition-scale">
+        :class="['input-checkbox__checkbox', {'focused': isFocused}]">
+        <transition name="transition-scale">
           <CheckboxSelected 
             v-if="isChecked"
-            :key="`{$labelId}+'-ft-svg-selected'`"
+            :key="`{$labelId}+'-svg-selected'`"
             :class="returnEnabledDisabled"
-            class="ft-svg-selected"
+            class="svg-selected"
           />
           <CheckboxUnselected 
             v-if="!isChecked"
             :key="`{$labelId}+'-ft-svg-unselected'`"
             :class="returnEnabledDisabled"
-            class="ft-svg-unselected"
+            class="svg-unselected"
           />
         </transition>
       </div>
       <div
         v-if="label" 
-        class="ft-input-checkbox__label-content">
-        <div class="ft-input-checkbox__label-content__label">{{ label }}</div>
+        class="input-checkbox__label-content">
+        <div class="input-checkbox__label-content__label">{{ label }}</div>
         <slot/>
       </div>
     </label>
@@ -131,10 +131,10 @@ export default Vue.extend({
       return this.modelValue === this.trueValue
     },
     labelId(): string {
-      return `ft-checkbox-${(this as any)._uid}`
+      return `checkbox-${(this as any)._uid}`
     },
     returnEnabledDisabled(): string {
-    return this.disabled ? "ft-input-checkbox__checkbox__disabled" : "ft-input-checkbox__checkbox__enabled"
+    return this.disabled ? "input-checkbox__checkbox__disabled" : "input-checkbox__checkbox__enabled"
     }
   },
   methods:{
@@ -160,11 +160,103 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  @import '../styles/variables';
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
   body.user-is-tabbing {
     .focused {
       box-shadow: 0 0 0 2px $color-selected;
     }
   }
+
+  //from scss file
+
+.input-checkbox {
+  position: relative;
+}
+.input-checkbox__native{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+}
+.input-checkbox__label{
+  display: flex;
+}
+.input-checkbox__checkbox{
+  margin-top: 4px;
+  position: relative;
+  width:24px;
+  height: 24px;
+}
+.svg-selected, .svg-unselected {
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.svg-selected{
+  color:$color-selected;
+}
+.svg-unselected{
+  color: $color-gray;
+}
+
+.input-checkbox__label-content {
+  @include font-base-md();
+  font-family: $font-primary;
+  font-weight:$fontweight-regular;
+  font-size: $fontsize-base-md;
+  line-height:$lineheight-base-md;
+  letter-spacing: $letterspacing-base-md;
+  color:$color-gray-dark;
+  padding-left: $baseline*3;
+  &__label{
+    margin: 6px 0;
+  }
+}
+  
+.input-checkbox:hover{
+  .svg-selected{
+    color:$color-selected-darkest;
+  }
+  .svg-unselected{
+    color: $color-black;
+  }
+  .input-checkbox__label-content {
+    color: $color-black;
+  }
+}
+.input-checkbox__disabled{
+  .input-checkbox__label-content, .svg-selected, .svg-unselected{
+    color:$color-disabled;
+  }
+  &:hover{
+    .input-checkbox__label-content, .svg-selected, .svg-unselected{
+      color:$color-disabled
+    }
+  }
+}
+
+$input-checkbox-time:0.3s;
+
+.transition-scale-leave-active, .transition-scale-leave-active{
+  top: 0px;
+  left: 0px;
+}
+.transition-scale-enter-active {
+  transition: transform $input-checkbox-time, opacity $input-checkbox-time, delay $input-checkbox-time;
+}
+.transition-scale-leave-active {
+  transition: transform $input-checkbox-time, opacity $input-checkbox-time;
+}
+.transition-scale-enter, .transition-scale-leave-to {
+  transform: scale(0);
+  opacity: 0;
+  left: 0;
+  top: 0px;
+}
+
 </style>
 
