@@ -1,24 +1,27 @@
 <template>
-  <div class="ft-radio">
+
+  <div class="radio">
     <label 
       :for="(id !==null? id: labelId)"
-      class="ft-radio__label">
+      class="radio__label">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        class="ft-radio__input" 
+        class="radio__input" 
         type="radio"
         ref="input" 
         v-on="listeners">
-      <div class="ft-radio__icon"/>
-      <div class="ft-radio__label-content">
+      <div class="radio__icon"/>
+      <div class="radio__label-content">
         {{ label }}
       </div>
     </label>
   </div>
+
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import a11y from '@/util/a11y'
@@ -107,7 +110,7 @@ export default Vue.extend({
       }
     },
     labelId(): string {
-      return `ft-radio-${(this as any)._uid}`
+      return `radio-${(this as any)._uid}`
     },
   },
   methods:{
@@ -117,5 +120,108 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  body.user-is-tabbing .radio__input:focus {
+    & + .radio__icon{
+      box-shadow: 0 0 0 2px $color-selected;
+    }
+  }
+  .radio{
+    font-family: $font-primary;
+    position: relative;
+    padding-left: $baseline*9;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .radio__input{
+    opacity: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    &:disabled {
+      cursor: default;
+    }
+  }
+  .radio__icon{
+    transition: all 0.3s ease;
+    display:inline-block;
+    width:12px;
+    height:12px;
+    background-color: transparent;
+    content:"";
+    border: 2px solid $color-gray;
+    border-radius:50%;
+    position: absolute;
+    left: 4px;
+    top: 8px;
+  }
+  .radio__input + .radio__icon{
+    &:after{
+      content:"";
+      width: 6px;
+      height: 6px;
+      background-color: $color-selected;
+      border:1px solid $color-selected;
+      border-radius: 50%;
+      display: inline-block;
+      top: 2px;
+      left: 2px;
+      position: absolute;
+      transform: scale(0.0);
+      transition: transform .3s cubic-bezier(.5,.1,.3,1.5);
+    }
+  }
+  .radio__input:checked + .radio__icon{
+    &:after{
+      transform: scale(1.0);
+    }
+  }
+  .radio__input:hover + .radio__icon{
+    &:after{
+      background-color: $color-selected-darker;
+      border:1px solid $color-selected-darker;
+    }
+  }
+  .radio__label{
+    color: $color-gray-dark;
+    font-size: $fontsize-base-md;
+    line-height: $lineheight-base-md;
+    letter-spacing: $letterspacing-base-md;
+    font-weight:$fontweight-regular;
+    &:hover{
+      color:$color-black;
+    }
+  }
+  .radio__input:hover {
+    & + .ft-radio__icon{
+      border:2px solid $color-black;
+    }
+  }
+  .radio__input:disabled + .radio__icon{
+    border:2px solid $color-disabled;
+  }
+  .radio__input:checked:disabled + .radio__icon{
+    border:2px solid $color-disabled;
+    &:after {
+      background-color: $color-disabled;
+      border:1px solid $color-disabled;
+    }
+  }
+  .radio__input:disabled ~ .radio__label-content{
+    color:$color-disabled;
+  }
+
+</style>
+
 
 
