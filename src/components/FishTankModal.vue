@@ -1,58 +1,58 @@
 <template>
-  <div class="ft-modal__entry-point">
+  <div class="modal__entry-point">
     <div
       ref="content"
       :class="classObj"
-      class="ft-modal"
+      class="modal"
     >
       <div
         v-if="escapeable"
-        class="ft-modal__escapable-background"
+        class="modal__escapable-background"
         @click="close"
       />
       <div
         :style="styles"
-        class="ft-modal__container"
+        class="modal__container"
       >
         <div
-          class="ft-modal__heading"
+          class="modal__heading"
         >
-          <div class="ft-modal__heading-title-container">
+          <div class="modal__heading-title-container">
             <div
               v-if="$slots.headingIcon"
-              class="ft-modal__heading-icon-wrapper"
+              class="modal__heading-icon-wrapper"
               tabindex="-1"
             >
               <div 
-                class="ft-modal__heading-icon" 
+                class="modal__heading-icon" 
                 tabindex="-1">
                 <slot name="headingIcon"/>
               </div>
             </div>
             <div
               v-if="heading"
-              class="ft-modal__heading-title"
+              class="modal__heading-title"
             >
               {{ heading }}
             </div>
           </div>
           <div
             v-if="$slots.headingExtra"
-            class="ft-modal__heading-extra"
+            class="modal__heading-extra"
           >
             <slot 
               name="headingExtra"/>
           </div>
-          <div class="ft-modal__close">
+          <div class="modal__close">
             <span
               v-if="!dialog"
-              class="ft-modal__close-separator"
+              class="modal__close-separator"
             />
-            <div class="ft-modal__close-icon-wrapper">
+            <div class="modal__close-icon-wrapper">
               <Close24
                 tabindex="0"
                 aria-label="Close Modal"
-                class="ft-modal__close-icon"
+                class="modal__close-icon"
                 @click="close"
                 @keydown.enter="accessibilityClick"
               />
@@ -60,23 +60,23 @@
           </div>
         </div>
 
-        <div class="ft-modal__body">
+        <div class="modal__body">
           <slot/>
         </div>
 
         <div
           v-if="showFooter"
-          class="ft-modal__footer"
+          class="modal__footer"
         >
           <div
             v-if="$slots.footer"
-            class="ft-modal__footer-container"
+            class="modal__footer-container"
           >
             <slot name="footer"/>
           </div>
           <div
             v-else-if="$slots.footerLeft || $slots.footerRight"
-            class="ft-modal__footer-container"
+            class="modal__footer-container"
           >
             <div>
               <slot 
@@ -99,7 +99,7 @@ import Detachable from '@/util/detachable'
 import { Close24 } from '@fishtank/icons-vue'
 
 let overlayTimeout: null | number = null
-let overlay: null | HTMLElement = document.querySelector('.ft-overlay')
+let overlay: null | HTMLElement = document.querySelector('.overlay')
 
 export default Vue.extend({
   components: {
@@ -167,9 +167,9 @@ export default Vue.extend({
     },
     classObj() : Record<any, any> {
       let classObj : Record<string, boolean> = {
-        'ft-modal--active': this.active,
-        'ft-modal--fixed': this.fixed,
-        'ft-modal--dialog': this.dialog,
+        'modal--active': this.active,
+        'modal--fixed': this.fixed,
+        'modal--dialog': this.dialog,
       }
 
       // This is a bit of a hack, but since our rendered modal doesn't actually appear
@@ -178,7 +178,7 @@ export default Vue.extend({
       // custom classes from the top-level item onto the actual modal div.
       if (this.$el) {
         let parentClasses = this.$el.className.split(' ').forEach((classVal) => {
-          if(classVal !== "ft-modal__entry-point") {
+          if(classVal !== "modal__entry-point") {
             classObj[classVal] = true
           }
         })
@@ -236,17 +236,17 @@ export default Vue.extend({
         this.clearTimeout()
 
         return overlay ?
-                !!overlay.classList.add('ft-overlay--active') :
+                !!overlay.classList.add('overlay--active') :
                 false
       }
 
       if (!overlay) {
-        overlay = document.querySelector('.ft-overlay') as HTMLElement | null
+        overlay = document.querySelector('.overlay') as HTMLElement | null
       }
       if (!overlay) {
         overlay = document.createElement('div')
       }
-      overlay.className = 'ft-overlay'
+      overlay.className = 'overlay'
 
       this.hideScroll()
 
@@ -256,7 +256,7 @@ export default Vue.extend({
       overlay.clientHeight // Force repaint
       requestAnimationFrame(() => {
         if (!overlay) return
-        overlay.className += ' ft-overlay--active'
+        overlay.className += ' overlay--active'
       })
 
       return true
@@ -266,7 +266,7 @@ export default Vue.extend({
         return this.showScroll()
       }
 
-      overlay.classList.remove('ft-overlay--active')
+      overlay.classList.remove('overlay--active')
 
       overlayTimeout = window.setTimeout(() => {
         // IE11 Fix
@@ -412,3 +412,198 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  $modal-border: 1px solid $color-gray-lighter;
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__escapable-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.modal__container {
+  position: relative;
+	box-sizing: border-box;
+  border: $modal-border;
+	border-radius: 2px;
+	background-color: $color-white;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.4);
+  width: 100%;
+  overflow: hidden;
+  max-width: 500px;
+  max-height: calc(100% - (36px * 2));
+  display: flex;
+  flex-direction: column;
+  z-index: 1002;
+}
+
+.modal--active {
+  display: flex;
+}
+
+.modal--fixed {
+  .modal__container {
+    height: 100%;
+  }
+}
+
+.modal__heading {
+  padding: $baseline * 3;
+  background-color: $color-gray-lightest;
+  box-sizing: border-box;
+  border-bottom: $modal-border;
+  border-radius: 2px 2px 0 0;
+  height: $baseline * 12;
+  min-height: $baseline * 12;
+  font-size: $fontsize-base-lg;
+  line-height: $lineheight-base-lg;
+  font-family: $font-primary;
+  font-weight: $fontweight-semi;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.modal__heading,
+.modal__footer {
+  box-sizing: border-box;
+}
+
+.modal__footer {
+  padding: $baseline * 3;
+  white-space: nowrap;
+}
+
+.modal__footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__heading-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.modal__heading-icon {
+  display: flex;
+}
+
+.modal__heading-icon-wrapper  + .modal__heading-title {
+  margin-left: 8px;
+}
+
+.modal__heading-extra {
+  flex: 0 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.modal__close {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.modal__close-separator {
+  display: inline-block;
+  width: 1px;
+  height: 32px;
+  background-color: $color-gray-lighter;
+}
+
+.modal__close-icon-wrapper {
+  padding-left: 12px;
+  display: flex;
+}
+
+.modal__close-icon {
+  cursor: pointer;
+}
+
+.modal__body {
+  padding: $baseline * 3;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal--fixed {
+  .modal__footer {
+    padding: $baseline * 3;
+    background-color: $color-gray-lightest;
+    border-top: $modal-border;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .modal__body {
+    flex: 1 100%;
+  }
+}
+
+.modal--dialog {
+  .modal__heading {
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 $baseline * 3;
+  }
+}
+
+@include breakpoint-sm-or-lesser {
+  .modal__container {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  .modal__body {
+    flex: 1 100%;
+  }
+
+  .modal--fixed {
+    .modal__footer {
+      padding-bottom: $baseline * 3;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(black, 0.5)
+}
+
+.overlay--active {
+  display: block;
+}
+
+</style>
