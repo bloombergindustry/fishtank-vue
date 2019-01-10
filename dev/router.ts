@@ -65,6 +65,10 @@ export default new Router({
     {
       path: '/accordions',
       component: () => import("./views/Accordions.vue")
-    }
+    },
+    {
+      path: '/box',
+      component: () => import("./views/Box.vue")
+    },
   ]
 })

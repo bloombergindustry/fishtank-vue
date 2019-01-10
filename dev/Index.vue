@@ -15,6 +15,7 @@
       <li><a href="#/contentloaders">Content Loaders</a></li>
       <li><a href="#/text">Text</a></li>
       <li><a href="#/pagination">Pagination</a></li>
+      <li><a href="#/box">Box</a></li>
     </ul>
   </section>
 </template>

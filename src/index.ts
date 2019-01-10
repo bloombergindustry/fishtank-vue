@@ -62,6 +62,6 @@ export { default as FishTankLoaderContent } from "./components/FishTankLoaderCon
 export { default as FishTankText } from "./components/FishTankText.vue"
 export { default as FishTankAccordionLarge } from "./components/FishTankAccordionLarge.vue"
 export { default as FishTankAccordionGroup } from "./components/FishTankAccordionGroup.vue"
-
+export { default as FishTankBox } from "./components/FishTankBox.vue"
 
 import './styles.scss'
