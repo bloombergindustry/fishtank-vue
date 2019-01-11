@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="{ 'ft-button': true, 'ft-button--disabled': disabled, 'ft-button--block': block }"
+    :class="{ 'button': true, 'button--disabled': disabled, 'button--block': block }"
     :disabled="disabled"
     type="button"
     v-on="listeners"
@@ -49,3 +49,50 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  body.user-is-tabbing button:focus {
+    box-shadow: 0 0 0 2px $color-selected;
+  }
+
+  .baseButton{
+    @include baseButton();
+  }
+  .baseButtonSm{
+    @include baseButtonSm();
+  }
+  .button {
+    @include baseButton();
+    box-sizing: border-box;
+
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+
+    outline: none;
+
+    &:active,
+    &:hover {
+      cursor: pointer;
+
+      &:disabled {
+        cursor: default;
+        box-shadow: none;
+      }
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
+  }
+
+  .button--block {
+    display: block;
+    width: 100%;
+  }
+</style>
