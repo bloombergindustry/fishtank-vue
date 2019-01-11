@@ -164,7 +164,8 @@ body.user-is-tabbing button:focus {
   box-sizing: border-box;
   display: inline-block;
 }
-.ft-button--white {
+
+/*.ft-button--white {
   background-color: $color-white;
   border-color: $color-gray-lightest;
   color: $color-gray;
@@ -187,7 +188,8 @@ body.user-is-tabbing button:focus {
       color: $color-gray-lighter;
     }
   }
-}
+}*/
+
 .ft-button--gradient {
   border:none;
   background-color: $color-white;

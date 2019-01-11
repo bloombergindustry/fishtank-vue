@@ -31,7 +31,7 @@ export default Vue.extend({
   @import "../../node_modules/@fishtank/type/dist/index";
 
 .button--outline {
-  background-color: $color-white;
+  background-color: transparent;
   border-color: $color-gray;
   border-width: 2px;
   color: $color-gray;
