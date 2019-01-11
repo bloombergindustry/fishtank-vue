@@ -1,7 +1,7 @@
 <template>
   <FishTankBaseButton
     v-bind="$attrs"
-    class="ft-button--outline ft-button--outline-small"
+    class="button--outline button--outline-small"
     v-on="$listeners"
   >
     <slot/>
@@ -24,3 +24,49 @@ export default Vue.extend({
   }
 })
 </script>
+
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .button--outline {
+    background-color: $color-white;
+    border-color: $color-gray;
+    border-width: 2px;
+    color: $color-gray;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-gray;
+    }
+    &:disabled {
+      color: $color-gray-lighter;
+      border-color: $color-gray-lighter;
+
+      &:hover {
+        background-color: transparent;
+
+      }
+    }
+    &:active {
+      background-color: $color-gray-dark;
+      border-color: $color-gray-dark;
+    }
+  }
+
+  .button--outline-small{
+    height: 24px;
+    border-width: 1px;
+    padding: 1px 8px 2px 8px;
+    line-height: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    text-align: center;
+  }
+
+</style>
+
+

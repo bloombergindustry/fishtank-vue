@@ -1,4 +1,4 @@
-// base button start
+/*/ base button start
 
 body.user-is-tabbing button:focus {
   box-shadow: 0 0 0 2px $color-selected;
@@ -131,6 +131,7 @@ body.user-is-tabbing button:focus {
 }
 //end of seondary button
 
+//start or destructive button
 .ft-button--destructive {
   background-color: $color-error;
   border-color: $color-error-darkest;
@@ -155,6 +156,7 @@ body.user-is-tabbing button:focus {
     }
   }
 }
+//end of destructive button*/
 
 .ft-button--wrapper{
   padding: 2px ;
@@ -206,7 +208,7 @@ body.user-is-tabbing button:focus {
     border-color: rgba(0,0,0,0.3);
   }
 }
-.ft-button--outline {
+/*.ft-button--outline {
   background-color: none;
   border-color: $color-gray;
   border-width: 2px;
@@ -229,7 +231,7 @@ body.user-is-tabbing button:focus {
     background-color: $color-gray-dark;
     border-color: $color-gray-dark;
   }
-}
+}*/
 
 .ft-button--fab-wrapper{
   position: fixed;
@@ -426,7 +428,7 @@ body.user-is-tabbing button:focus {
 }
 
 
-.ft-button--outline-small{
+/*.ft-button--outline-small{
   height: 24px;
   border-width: 1px;
   padding: 1px 8px 2px 8px;
@@ -435,7 +437,7 @@ body.user-is-tabbing button:focus {
   font-weight: 600;
   letter-spacing: 0.1px;
   text-align: center;
-}
+}*/
 
 
 .hvr-grow {
