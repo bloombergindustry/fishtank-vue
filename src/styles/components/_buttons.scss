@@ -158,12 +158,12 @@ body.user-is-tabbing button:focus {
 }
 //end of destructive button*/
 
-.ft-button--wrapper{
+/*.ft-button--wrapper{
   padding: 2px ;
   border-radius: 4px;
   box-sizing: border-box;
   display: inline-block;
-}
+}*/
 
 /*.ft-button--white {
   background-color: $color-white;
@@ -190,7 +190,7 @@ body.user-is-tabbing button:focus {
   }
 }*/
 
-.ft-button--gradient {
+/*.ft-button--gradient {
   border:none;
   background-color: $color-white;
   color: $color-gray;
@@ -209,7 +209,8 @@ body.user-is-tabbing button:focus {
     background-color:rgba(0,0,0,0.3);
     border-color: rgba(0,0,0,0.3);
   }
-}
+}*/
+
 /*.ft-button--outline {
   background-color: none;
   border-color: $color-gray;
@@ -364,7 +365,7 @@ body.user-is-tabbing button:focus {
   }
 }
 
-.ft-button--feature-label{
+/*.ft-button--feature-label{
   padding: 0px ;
   margin: 0px;
   height: 100%;
@@ -403,7 +404,7 @@ body.user-is-tabbing button:focus {
   }
   
   
-}
+}*/
 
 .ft-button--outline-dark {
   background-color: transparent;
