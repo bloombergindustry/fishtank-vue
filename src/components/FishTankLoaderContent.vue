@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <template >
  
+=======
+<template>
+
+>>>>>>> feat: fixed lintin errors in content loaders & cards
   <ContentLoader 
     v-if="theme === 'AlertList'"
     :height="92"
@@ -48,7 +53,6 @@
       width="400" 
       height="1" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -59,7 +63,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -212,8 +215,6 @@
       width="320" 
       height="16" 
     />
-
-    
   </ContentLoader>
 
   <ContentLoader
@@ -224,7 +225,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -353,8 +353,6 @@
       width="340" 
       height="16" 
     />  
-    
-    
   </ContentLoader>
 
   <ContentLoader
@@ -365,7 +363,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="0" 
@@ -572,7 +569,6 @@
       width="51" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -583,7 +579,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="0" 
@@ -619,7 +614,6 @@
       width="400" 
       height="108" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -630,7 +624,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -675,7 +668,6 @@
       width="340" 
       height="1" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -686,7 +678,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="20" 
@@ -821,7 +812,6 @@
       width="340" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -832,7 +822,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -868,7 +857,6 @@
       width="60" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -879,7 +867,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="0" 
@@ -951,7 +938,6 @@
       width="383" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -962,7 +948,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -1061,7 +1046,6 @@
       width="340" 
       height="1" 
     />
-  
   </ContentLoader>
 
   <ContentLoader
@@ -1072,7 +1056,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -1243,7 +1226,6 @@
       width="340" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -1253,8 +1235,7 @@
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
-  >
-    
+  > 
     <rect 
       x="0" 
       y="0" 
@@ -1389,7 +1370,6 @@
       width="340" 
       height="16" 
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -1400,7 +1380,6 @@
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
   >
-    
     <rect 
       x="0" 
       y="12" 
@@ -1551,9 +1530,8 @@
       rx="5" 
       ry="0" 
       width="301" 
-      height="18" 
+      height="18"
     />
-
   </ContentLoader>
 
   <ContentLoader
@@ -1561,12 +1539,13 @@
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
-    :width ="loaderWidth" 
-    :height ="loaderHeight" 
+    :width="loaderWidth" 
+    :height="loaderHeight" 
   >
-    <slot/> 
+    <slot /> 
   </ContentLoader>
 </template>
+
 <script lang="ts">
 /* eslint-disable */ 
 import { ContentLoader } from "vue-content-loader"

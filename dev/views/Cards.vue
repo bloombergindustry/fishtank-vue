@@ -10,8 +10,7 @@
       I am card content
     </Card>
 
-    <Card
-    >
+    <Card>
       <div
         slot="heading"
         slot-scope="{ headerClass }"
@@ -34,7 +33,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Card } from '@/index'
-import { mapClassName } from '@/util/style';
+import { mapClassName } from '@/util/style'
 
 export default Vue.extend({
   components: {
