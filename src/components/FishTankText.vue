@@ -172,8 +172,91 @@ import Vue, {VNode} from 'vue'
   })
 </script>
 <style module lang="scss">
-  @import '../styles/components/_text';
   @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
   @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
+
+  /* font family */
+  .antialiased {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .primary {
+    font-family: var(--font-primary)
+  }
+
+  .accent {
+    font-family: var(--font-accent);
+  }
+
+  /* font weight */
+  .fontWeightNormal {
+    font-weight: normal;
+  }
+  .fontWeightSemiBold {
+    font-weight: 600; 
+  }
+  .fontWeightBold {
+    font-weight: 700;
+  }
+
+  /* emphasis */
+  .fontStyleRegular {
+    font-style: normal;
+  }
+
+  .fontStyleItalic {
+    font-style: italic;
+  }
+
+  /* transforms */
+  .capitalize {
+    text-transform: capitalize; 
+  }
+
+  /* decorations */
+  .underline {
+    text-decoration: underline; 
+  }
+
+  .lineThrough {
+    text-decoration: line-through;
+  }
+
+  .noUnderline {
+    text-decoration: none;
+  }
+
+  /* overflow */
+
+  .breakWord {
+    hyphens: auto;
+    word-wrap: break-word;
+  }
+
+  .truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* alignment */
+  .alignLeft {
+    text-align: left;
+  }
+
+  .alignRight {
+    text-align: right;
+  }
+
+  .alignCenter {
+    text-align: center;
+  }
+
+  .textJustify {
+    text-align: justify;
+  }
+  
 </style>
