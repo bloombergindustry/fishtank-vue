@@ -2,7 +2,7 @@
   <div
     :id="(id !==null? id: labelId)"
     :aria-labelledby="(id !==null? id: labelId)" 
-    :class="[ 'ft-buttongroup',{'ft-buttongroup--small':small}, {'ft-buttongroup--is-focused':isFocused}]"
+    :class="[ 'buttongroup',{'buttongroup--small':small}, {'buttongroup--is-focused':isFocused}]"
     role="radiogroup">
     <slot/>
   </div>
@@ -61,8 +61,31 @@ export default Vue.extend({
   },
   computed:{
     labelId(): string {
-      return `ft-button-group-button-${(this as any)._uid}`
+      return `button-group-${(this as any)._uid}`
     },
   }
 })
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+.buttongroup--is-focused ,.buttongroup__button--is-focused {
+    box-shadow: 0 0 0 2px $color-selected;
+    border-radius: 2px;
+  }
+
+  .buttongroup__button--small.buttongroup--is-focused{
+    border-radius: 4px;
+  }
+  .buttongroup{
+    display: flex;
+    width: 100%;
+    color: $color-gray-dark;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+</style>
