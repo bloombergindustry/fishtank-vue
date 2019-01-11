@@ -1,12 +1,12 @@
 <template>
   <a 
-    :class="{ 'ft-button--block': block }"
+    :class="{ 'button--block': block }"
     :style="returnGradientStyle" 
-    class="ft-button--wrapper">
+    class="button--wrapper">
     <FishTankBaseButton 
       v-bind="$attrs"
       :block="block"
-      class="ft-button--gradient"
+      class="button--gradient"
       v-on="$listeners"
     >
       <slot/>
@@ -64,3 +64,44 @@ export default Vue.extend({
 })
 
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .button--block {
+    display: block;
+    width: 100%;
+  }
+
+  .button--wrapper{
+    padding: 2px ;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+
+  .button--gradient {
+    border:none;
+    background-color: $color-white;
+    color: $color-gray;
+
+    &:hover {
+      background: transparent;
+      color: $color-white;
+    }
+    &:disabled {
+      opacity: 0.4;
+      &:hover {
+        background-color: $color-gray;
+      }
+    }
+    &:active {
+      background-color:rgba(0,0,0,0.3);
+      border-color: rgba(0,0,0,0.3);
+    }
+  }
+
+</style>
