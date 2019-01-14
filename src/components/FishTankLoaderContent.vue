@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-<template >
- 
-=======
 <template>
 
->>>>>>> feat: fixed lintin errors in content loaders & cards
   <ContentLoader 
     v-if="theme === 'AlertList'"
     :height="92"
