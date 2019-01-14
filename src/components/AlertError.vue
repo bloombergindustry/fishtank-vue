@@ -1,12 +1,12 @@
 <template>
   <BaseAlert
     :heading="heading"
-    class="ft-alert--error"
+    class="alert--error"
   >
     <WarningIcon
       slot="icon"
       :scale="1"
-      class="ft-alert__icon"
+      class="alert__icon"
     />
     <slot/>
   </BaseAlert>
@@ -31,3 +31,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+  
+  .alert--error {
+    background-color: $color-error-lightest;
+    border-color: $color-error;
+
+    .alert__icon {
+      color: $color-error;
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 <template>
   <BaseAlert
     :heading="heading"
-    class="ft-alert--success"
+    class="alert--success"
   >
     <slot/>
   </BaseAlert>
@@ -24,3 +24,22 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .alert--success {
+    background-color: $color-action-lightest;
+    border-color: $color-action-lighter;
+
+    .alert__icon {
+      color: $color-action-lighter;
+    }
+  }
+
+
+</style>
+

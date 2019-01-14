@@ -24,7 +24,7 @@
             :color="getStateColor" 
             inline 
             size="baseMd"
-            semi-bold>{{ label }}</FishTankText>
+            semi-bold>{{ label }} </FishTankText>
           <span
             v-if="iconPosition==='right'"
             :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">

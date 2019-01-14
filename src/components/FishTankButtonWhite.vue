@@ -1,7 +1,7 @@
 <template>
   <FishTankBaseButton
     v-bind="$attrs"
-    class="ft-button--white"
+    class="button--white"
     v-on="$listeners"
   >
     <slot/>
@@ -24,3 +24,35 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .button--white {
+    background-color: $color-white;
+    border-color: $color-gray-lightest;
+    color: $color-gray;
+
+    @include button-box-shadow($color-white);
+
+    &:hover {
+      color: $color-black;
+    }
+
+    &:active {
+      background-color: $color-gray-lightest;
+      box-shadow: none;
+    }
+    &:disabled {
+      opacity: 0.4;
+
+      &:hover {
+        background-color: $color-disabled;
+        color: $color-gray-lighter;
+      }
+    }
+  }
+
+</style>
