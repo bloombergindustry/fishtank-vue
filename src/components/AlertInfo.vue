@@ -1,7 +1,7 @@
 <template>
   <BaseAlert
     :heading="heading"
-    class="ft-alert--info"
+    class="alert--info"
   >
     <slot/>
   </BaseAlert>
@@ -24,3 +24,19 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .alert--info {
+    background-color: $color-selection-lightest;
+    border-color: $color-selection;
+
+    .alert__icon {
+      color: $color-selection;
+    }
+  }
+</style>
