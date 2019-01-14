@@ -1,13 +1,13 @@
 <template>
-  <div class="ft-alert">
+  <div class="alert">
     <div 
       v-if="hasIcon" 
-      class="ft-alert__icon"
+      class="alert__icon"
     >
       <slot name="icon"/>
     </div>
-    <div class="ft-alert__content">
-      <div class="ft-alert__heading">{{ heading }}</div>
+    <div class="alert__content">
+      <div class="alert__heading">{{ heading }}</div>
       <slot/>
     </div>
   </div>
@@ -31,3 +31,43 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
+
+  .alert {
+    padding: $baseline * 3;
+    position: relative;
+    border-color: $color-black;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .alert__icon {
+    position: absolute;
+
+    svg {
+      height: $baseline * 8;
+      width: $baseline * 8;
+    }
+
+     &+ .ft-alert__content {
+      margin-left: $baseline * 11;
+    }
+  }
+
+  .alert__content {
+    @include font-base-sm();
+    margin-left: $baseline * 3;
+  }
+
+  .alert__heading {
+    @include font-base-lg();
+    font-weight: $fontweight-semi;
+    margin-bottom: $baseline * 2;
+  }
+
+</style>
