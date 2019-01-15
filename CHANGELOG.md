@@ -2,6 +2,90 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0-0"></a>
+# [4.0.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.9.0-0...v4.0.0-0) (2019-01-15)
+
+
+* Merge pull request #2 from BGOV/feat-css-edits-docs-release ([18ab095](https://github.com/bloombergbna/fishtank-vue/commit/18ab095)), closes [#2](https://github.com/bloombergbna/fishtank-vue/issues/2)
+
+
+### Bug Fixes
+
+* fixing TS errors and CSS import errors breaking the build ([beced49](https://github.com/bloombergbna/fishtank-vue/commit/beced49))
+
+
+### Features
+
+* added accordion componention component with basic styles ([088e660](https://github.com/bloombergbna/fishtank-vue/commit/088e660))
+* added accordion componention component with basic styles ([8820d82](https://github.com/bloombergbna/fishtank-vue/commit/8820d82))
+* added accordion group component ([a19dee1](https://github.com/bloombergbna/fishtank-vue/commit/a19dee1))
+* added accordion group component ([ad1bd89](https://github.com/bloombergbna/fishtank-vue/commit/ad1bd89))
+* added animation to chevrons ([de0bfd1](https://github.com/bloombergbna/fishtank-vue/commit/de0bfd1))
+* added animation to chevrons ([35a6f8d](https://github.com/bloombergbna/fishtank-vue/commit/35a6f8d))
+* added disabled state to accordion component ([5b57046](https://github.com/bloombergbna/fishtank-vue/commit/5b57046))
+* added disabled state to accordion component ([e27874d](https://github.com/bloombergbna/fishtank-vue/commit/e27874d))
+* added drop down panel and chevron replacement on accordion ([be578db](https://github.com/bloombergbna/fishtank-vue/commit/be578db))
+* added drop down panel and chevron replacement on accordion ([73d26f0](https://github.com/bloombergbna/fishtank-vue/commit/73d26f0))
+* Added FishTankBox component. Component in current development, in alpha state. ([b6e760d](https://github.com/bloombergbna/fishtank-vue/commit/b6e760d))
+* Added FishTankBox component. Component in current development, in alpha state. ([39b3e78](https://github.com/bloombergbna/fishtank-vue/commit/39b3e78))
+* added props to accordion component ([ec0a4f2](https://github.com/bloombergbna/fishtank-vue/commit/ec0a4f2))
+* added props to accordion component ([9435c5a](https://github.com/bloombergbna/fishtank-vue/commit/9435c5a))
+* cleaned out all component scss files with the exception of the unused alert.scss for the  Alert Error, Info, & Success Components ([e838928](https://github.com/bloombergbna/fishtank-vue/commit/e838928))
+* cleaned out all component scss files with the exception of the unused alert.scss for the  Alert Error, Info, & Success Components ([60efc6e](https://github.com/bloombergbna/fishtank-vue/commit/60efc6e))
+* cleared button group scss files and added styles within button group component ([c00233c](https://github.com/bloombergbna/fishtank-vue/commit/c00233c))
+* cleared button group scss files and added styles within button group component ([0c9d0f0](https://github.com/bloombergbna/fishtank-vue/commit/0c9d0f0))
+* cleared text component style sheet and added styles within component ([4c70ddc](https://github.com/bloombergbna/fishtank-vue/commit/4c70ddc))
+* cleared text component style sheet and added styles within component ([6b794ac](https://github.com/bloombergbna/fishtank-vue/commit/6b794ac))
+* code cleanup on checkbox component ([25db18b](https://github.com/bloombergbna/fishtank-vue/commit/25db18b))
+* code cleanup on checkbox component ([4a6f266](https://github.com/bloombergbna/fishtank-vue/commit/4a6f266))
+* fixed lintin errors in content loaders & cards ([64e40a4](https://github.com/bloombergbna/fishtank-vue/commit/64e40a4))
+* fixed lintin errors in content loaders & cards ([6e826b3](https://github.com/bloombergbna/fishtank-vue/commit/6e826b3))
+* fixed merge conflicts ([a4aef62](https://github.com/bloombergbna/fishtank-vue/commit/a4aef62))
+* fixed merge conflicts ([2e2b0b5](https://github.com/bloombergbna/fishtank-vue/commit/2e2b0b5))
+* moved scss styles within accordion component ([f1a7eea](https://github.com/bloombergbna/fishtank-vue/commit/f1a7eea))
+* re-added empty previously deleted emptly .scss files ([f7e6c45](https://github.com/bloombergbna/fishtank-vue/commit/f7e6c45))
+* re-added empty previously deleted emptly .scss files ([15214ae](https://github.com/bloombergbna/fishtank-vue/commit/15214ae))
+* removed Cards scss files and added styles within Cards  component ([6ffcb8c](https://github.com/bloombergbna/fishtank-vue/commit/6ffcb8c))
+* removed Cards scss files and added styles within Cards  component ([cc2901c](https://github.com/bloombergbna/fishtank-vue/commit/cc2901c))
+* removed input checkbox scss files and added styles within input checkbox component ([0ff8ed8](https://github.com/bloombergbna/fishtank-vue/commit/0ff8ed8))
+* removed input checkbox scss files and added styles within input checkbox component ([c25fcc9](https://github.com/bloombergbna/fishtank-vue/commit/c25fcc9))
+* removed Modals  scss files and added styles within Modals  component ([149d836](https://github.com/bloombergbna/fishtank-vue/commit/149d836))
+* removed Modals  scss files and added styles within Modals  component ([bc49526](https://github.com/bloombergbna/fishtank-vue/commit/bc49526))
+* removed spinner scss files and added styles within spinner  component ([427caaf](https://github.com/bloombergbna/fishtank-vue/commit/427caaf))
+* removed spinner scss files and added styles within spinner  component ([2156b41](https://github.com/bloombergbna/fishtank-vue/commit/2156b41))
+* removed styles for radio button and added them within the component ([b27a2c3](https://github.com/bloombergbna/fishtank-vue/commit/b27a2c3))
+* removed styles for radio button and added them within the component ([0e6cafe](https://github.com/bloombergbna/fishtank-vue/commit/0e6cafe))
+* removed Switch scss files and added styles within Switch component ([be9ba05](https://github.com/bloombergbna/fishtank-vue/commit/be9ba05))
+* removed Switch scss files and added styles within Switch component ([9aa954c](https://github.com/bloombergbna/fishtank-vue/commit/9aa954c))
+* removed Tags scss file ([39e5f6c](https://github.com/bloombergbna/fishtank-vue/commit/39e5f6c))
+* removed Tags scss file ([6f41aef](https://github.com/bloombergbna/fishtank-vue/commit/6f41aef))
+* removed text inputs scss files and added styles within text inputs  component ([f655cb1](https://github.com/bloombergbna/fishtank-vue/commit/f655cb1))
+* removed text inputs scss files and added styles within text inputs  component ([7a71cce](https://github.com/bloombergbna/fishtank-vue/commit/7a71cce))
+* Single accordion component ([760e073](https://github.com/bloombergbna/fishtank-vue/commit/760e073))
+* updated chevron toggle ([a8f61d7](https://github.com/bloombergbna/fishtank-vue/commit/a8f61d7))
+* updated chevron toggle ([f258e91](https://github.com/bloombergbna/fishtank-vue/commit/f258e91))
+* updated scss for Button FAB ([7b6025c](https://github.com/bloombergbna/fishtank-vue/commit/7b6025c))
+* updated scss for Button FAB ([b4923d3](https://github.com/bloombergbna/fishtank-vue/commit/b4923d3))
+* updated scss for buttons Gradients, Outline Dark, and Outline Dark Small ([741ce0b](https://github.com/bloombergbna/fishtank-vue/commit/741ce0b))
+* updated scss for buttons Gradients, Outline Dark, and Outline Dark Small ([9f02496](https://github.com/bloombergbna/fishtank-vue/commit/9f02496))
+* updated style placement of feature icon and feature label components ([5513b7b](https://github.com/bloombergbna/fishtank-vue/commit/5513b7b))
+* updated style placement of feature icon and feature label components ([6790d05](https://github.com/bloombergbna/fishtank-vue/commit/6790d05))
+* updated styles button Ouline, button Outline Small, and button Destructive components ([34317c8](https://github.com/bloombergbna/fishtank-vue/commit/34317c8))
+* updated styles button Ouline, button Outline Small, and button Destructive components ([fc1f38d](https://github.com/bloombergbna/fishtank-vue/commit/fc1f38d))
+* updated styles on the alert components ([0820341](https://github.com/bloombergbna/fishtank-vue/commit/0820341))
+* updated styles on the alert components ([835b51a](https://github.com/bloombergbna/fishtank-vue/commit/835b51a))
+* updated styles to buttonPrimary and buttonSecondary components ([19bafb0](https://github.com/bloombergbna/fishtank-vue/commit/19bafb0))
+* updated styles to buttonPrimary and buttonSecondary components ([658465f](https://github.com/bloombergbna/fishtank-vue/commit/658465f))
+* updates to outline button scss and ghost button component ([e4f8023](https://github.com/bloombergbna/fishtank-vue/commit/e4f8023))
+* updates to outline button scss and ghost button component ([2b8cb1c](https://github.com/bloombergbna/fishtank-vue/commit/2b8cb1c))
+
+
+### BREAKING CHANGES
+
+* Moved css out of individual css files, into component
+
+
+
 <a name="3.9.0-0"></a>
 # [3.9.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.8.0...v3.9.0-0) (2019-01-08)
 
