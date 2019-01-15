@@ -43,8 +43,6 @@
 import Vue from "vue"
 import { CloseSml24 } from '@fishtank/icons-vue' 
 import a11y from '@/util/a11y'
-import '@fishtank/colors/dist/index.custom-properties.css'
-import '@fishtank/space/dist/index.custom-properties.css'
 import { default as FishTankText } from '@/components/FishTankText.vue'
 
 export default Vue.extend({
@@ -192,8 +190,9 @@ export default Vue.extend({
 })
 </script>
 
-<style module>
-  
+<style module lang="scss">
+  @import '../../node_modules/@fishtank/colors/dist/index.custom-properties.css';
+  @import '../../node_modules/@fishtank/space/dist/index.custom-properties.css';
   .wrap{
     position: relative;
     display: inline-block;
