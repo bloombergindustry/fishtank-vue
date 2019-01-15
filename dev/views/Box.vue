@@ -16,7 +16,8 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankText, FishTankBox} from "@/index"
+import { FishTankText } from "@/index"
+import FishTankBox from "@/components/FishTankBox.vue"
 
 export default Vue.extend({
   components: {
