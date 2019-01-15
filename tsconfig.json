@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "importHelpers": true,
+    "strictPropertyInitialization":false,
     "allowJs": true,
     "baseUrl": ".",
     "types": [

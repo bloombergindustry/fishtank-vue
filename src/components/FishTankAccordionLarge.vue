@@ -1,54 +1,51 @@
 <template>
+  <div 
+    :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
+  > 
     <div 
-        :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
-    > 
-        <div 
-            class="accordion-wrapper-lg"
-            @click="toggle"
+      class="accordion-wrapper-lg"
+      @click="toggle"
+    >
+      <div class="accordion-heading-wrapper">
+        <p 
+          class="accordion-heading"
+          role="heading"
+          aria-level="3"
+        > 
+          {{ heading }} 
+        </p>
+        <p 
+          v-if="subheading"
+          class="accordion-sub-heading"
+          role="heading"
+          aria-level="4"
         >
-            <div class="accordion-heading-wrapper">
-                <p 
-                    class="accordion-heading"
-                    role="heading"
-                    aria-level="3"
-                > 
-                    {{ heading }} 
-                </p>
-                <p 
-                    class="accordion-sub-heading"
-                    v-if="subheading"
-                    role="heading"
-                    aria-level="4"
-                > {{ subheading }} </p>
-            </div>
-            <ChevronUp24 
-                :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
-                aria-label="collapse / expand content"
-            />
-        </div>
-        <div 
-            class="accordion-panel"
-            v-show="visible"
-        >
-            <slot/>
-        </div>
+          {{ subheading }}
+        </p>
+      </div>
+      <ChevronUp24 
+        :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
+        aria-label="collapse / expand content"
+      />
     </div>
+    <div 
+      v-show="visible"
+      class="accordion-panel"
+    >
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-
+  import Vue from "vue"
     import { 
         ChevronUp24 
     }  from "@fishtank/icons-vue"
 
-    export default {
+    export default Vue.extend({
         components: {
             ChevronUp24
-        },
-        data: function(){
-            return{
-                visible: false
-            }
         },
         props:{
             heading: {
@@ -57,7 +54,8 @@
             },
             subheading: {
                 type: String,
-                required: false
+                required: false,
+                default:""
             },
             disabled:{
                 type: Boolean,
@@ -65,9 +63,13 @@
                 default: false
             }
         },
+        data: function(){
+            return{
+                visible: false
+            }
+        },
         methods:{
-            toggle(){
-                
+            toggle():void{   
                 if( !this.disabled ){
                     if( this.visible ){
                         this.visible = false
@@ -77,7 +79,7 @@
                 }
             }
         }
-    }
+    })
 </script>
 
 <style  lang="scss">

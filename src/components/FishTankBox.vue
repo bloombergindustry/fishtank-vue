@@ -48,12 +48,12 @@ export type Flex = 'grow' | 'shrink' | 'none'
 export type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type Margin = -12 | -11 | -10 | -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
 export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type Color = returnFtColors
+export type Color = any
 
-let colorMappingFunc = (value) => {
+let colorMappingFunc = (value:any) => {
   if (!value) return identity()
   let allColorMappings = mapping(color)
-  let mapColorNameToClass = (colorName) => {
+  let mapColorNameToClass = (colorName:String) => {
     let [prefix, rest] = [colorName[0], colorName.substring(1, colorName.length)]
     let colorClassName = `color${prefix.toUpperCase()}${rest}Bg`
     return colorClassName
@@ -233,7 +233,7 @@ const paddingX = bind(rangeWithoutZero("paddingX"), whitespace);
 const paddingY = bind(rangeWithoutZero("paddingY"), whitespace);
 const padding = union(paddingX, paddingY);
 
-const props = {
+const props: any = {
   display: mapping({
     none: styles.xsDisplayNone,
     flex: styles.xsDisplayFlex,
@@ -299,7 +299,7 @@ const props = {
   color: colorMappingFunc
 };
 
-@Component
+@Component({})
 export default class Box extends Vue {
   @Prop() alignItems: AlignItemType;
   @Prop() display: DisplayType;
@@ -347,11 +347,11 @@ export default class Box extends Vue {
 <style lang="scss">
 @import "../styles/variables";
 @import "../styles/mixins";
-@import "../styles/components/box/style";
-@import "../styles/components/box/box-whitespaces";
-@import "../styles/components/box/Layout";
-@import "../styles/components/box/Column";
-@import "../styles/components/box/Colors";
+@import "../styles/components/box-style";
+@import "../styles/components/box-whitespaces";
+@import "../styles/components/Layout";
+@import "../styles/components/Column";
+@import "../styles/components/Colors";
 input {
   width: 100%;
   height: $baseline * 10;
