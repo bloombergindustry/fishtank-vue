@@ -51,19 +51,22 @@ import Vue, {VNode} from 'vue'
         default: 'left',
         validator: function (value: string) {
           return align.indexOf(value) !== -1
-        }
+        },
+        description:"Text alignment"
       },
       color: {
         type: String,
         validator: function (value: string) {
           return colors.indexOf(value) !== -1
         },
-        default: 'black'
+        default: 'black',
+        description:"Text color"
       },
       inline: {
         type: Boolean,
         required: false,
-        default: false
+        default: false,
+        description:"Text renders in an inline element (span"
       },
       bold: {
         type: Boolean,

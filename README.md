@@ -19,7 +19,6 @@ npm install @fishtank/fishtank-vue
 * [Loaders](src/components/Loaders.md)
 * [Text Input](src/components/InputText.md)
 * [Checkboxes](src/components/Checkboxes.md)
-* [Tags](src/components/Tags.md)
 
 ## Usage
 
