@@ -49,6 +49,7 @@
             }
         },
         methods:{
+<<<<<<< HEAD
             register(componentAsThis:any):void {
                 (this as any).registeredChildren.push(componentAsThis);
             },
@@ -67,6 +68,18 @@
            
         }
     })
+=======
+
+        },
+        computed:{
+            registerChildren(){
+
+            }
+        }
+        /* The time has come for you to use your brain and learn to do this. 
+            Go forth and suffer.... I mean, I meant prosper, strong one.. */
+    }
+>>>>>>> feat: minor changes to accordion large structure
 </script>
 
 <style scoped>
