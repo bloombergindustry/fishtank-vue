@@ -61,6 +61,11 @@
                 type: Boolean,
                 required: false,
                 default: false
+            },
+            id:{
+                type: String,
+                default: null,
+                required: false
             }
         },
         data: function(){
