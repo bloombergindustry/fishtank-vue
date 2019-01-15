@@ -22,7 +22,6 @@ export { default as InputSwitch } from "./components/FishTankSwitch.vue"
 export { default as InputText } from "./components/FishTankTextInput.vue"
 export { default as Modal } from "./components/FishTankModal.vue"
 export { default as DialogBox } from "./components/FishTankDialogBox.vue"
-export { default as Tag } from "./components/FishTankTag.vue"
 
 //Todo - Remove exports above and retain only rebranded exports below
 export { default as FishTankSpinner } from "./components/FishTankLoaderSpinner.vue"

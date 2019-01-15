@@ -1,20 +1,23 @@
 <template>
 
-  <div class="radio">
+  <div 
+    :class="[$style.radio]">
     <label 
       :for="(id !==null? id: labelId)"
-      class="radio__label">
+      :class="[$style.radio__label]">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        class="radio__input" 
+        :class="[$style.radio__input, 'ft-a11y__input']" 
         type="radio"
         ref="input" 
         v-on="listeners">
-      <div class="radio__icon"/>
-      <div class="radio__label-content">
+      <div 
+        :class="[$style.radio__icon, 'ft-a11y__icon']"/>
+      <div 
+        :class="[$style.radio__label__content]">
         {{ label }}
       </div>
     </label>
@@ -51,12 +54,14 @@ export default Vue.extend({
     value:{
       type:[String,Boolean,Object,Number], 
       default:null,
-      require:true
+      require:true,
+      description:"Radio Value"
     },
     disabled:{
       type:Boolean,
       default:null,
-      require:false
+      require:false,
+      description:"Specify if radio should be disabled"
     },
     modelValue: {
       type:[String,Boolean,Object,Number],
@@ -66,17 +71,20 @@ export default Vue.extend({
     label:{
       type:String,
       default:null,
-      required:true
+      required:true,
+      description:"Radio label"
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:"Radio ID"
     },
     name:{
       type:String,
       default:"",
-      required:true
+      required:true,
+      description:"Radio name"
     },
     fishtankRadioGroupShared: {
       type: Object as () => RadioComponentGroup,
@@ -120,17 +128,21 @@ export default Vue.extend({
   }
 })
 </script>
-
 <style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  body.user-is-tabbing .ft-a11y__input:focus {
+    & + .ft-a11y__icon{
+      box-shadow: 0 0 0 2px $color-selected;
+    }
+  }
+</style>
+
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-  body.user-is-tabbing .radio__input:focus {
-    & + .radio__icon{
-      box-shadow: 0 0 0 2px $color-selected;
-    }
-  }
   .radio{
     font-family: $font-primary;
     position: relative;
@@ -217,7 +229,7 @@ export default Vue.extend({
       border:1px solid $color-disabled;
     }
   }
-  .radio__input:disabled ~ .radio__label-content{
+  .radio__input:disabled ~ .radio__label__content{
     color:$color-disabled;
   }
 

@@ -9,4 +9,3 @@
 ## [Text Inputs](./InputText.md)
 ## [Checkboxes](./Checkboxes.md)
 ## [Modals](./Modals.md)
-## [Tags](./Tags.md)
