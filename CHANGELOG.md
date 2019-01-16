@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0-1"></a>
+# [4.0.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.0-0...v4.0.0-1) (2019-01-16)
+
+
+### Bug Fixes
+
+* Adjust css import for tags to properly insert space css-properties stylesheet ([9a2c442](https://github.com/bloombergbna/fishtank-vue/commit/9a2c442))
+* Format and TS syntax fixes for Box, radio and Tags; CSS fixes for Radios and Tags. Updates Text input styles to use css modules. Updated utility scripts ([ba0e0e4](https://github.com/bloombergbna/fishtank-vue/commit/ba0e0e4))
+
+
+
 <a name="4.0.0-0"></a>
 # [4.0.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v3.9.0-0...v4.0.0-0) (2019-01-15)
 
