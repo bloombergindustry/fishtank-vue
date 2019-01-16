@@ -186,8 +186,8 @@ export default Vue.extend({
 </script>
 
 <style module lang="scss">
-  @import '../../node_modules/@fishtank/colors/dist/index.custom-properties.css';
-  @import '../../node_modules/@fishtank/space/dist/index.custom-properties.css';
+  @import '../../node_modules/@fishtank/colors/dist/index.custom-properties';
+  @import '../../node_modules/@fishtank/space/dist/index.custom-properties';
   .wrap{
     position: relative;
     display: inline-block;
