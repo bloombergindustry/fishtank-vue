@@ -1,7 +1,7 @@
 export type InlineStyle = { [key: string]: string | number | void }
 
 export type Style = {
-  className: Set<string>
+  className: Set<string>,
   inlineStyle: InlineStyle
 }
 

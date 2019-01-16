@@ -1,6 +1,6 @@
 <template>
   <div v-bind="boxProps">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script lang="ts">
@@ -10,7 +10,7 @@ import {
   Vue,
   Component,
   Prop
-} from "vue-property-decorator";
+} from "vue-property-decorator"
 
 import {
   Style,
@@ -33,9 +33,9 @@ import {
   rangeWithoutZero
 } from '../util/transform'
 
-import color  from '../util/ColorsClassMapping';
+import color  from '../util/ColorsClassMapping'
 
-const _ = require("lodash").noConflict();
+const _ = require("lodash").noConflict()
 
 export type AlignItemType = "start" | "end" | "center" | "baseline" | "stretch";
 export type Direction = "row" | "column";
@@ -69,7 +69,7 @@ const styles = {
   xsDisplayVisuallyHidden: "xsDisplayVisuallyHidden",
   xsDirectionRow: "xsDirectionRow",
   xsDirectionColumn: "xsDirectionColumn"
-};
+}
 
 const Columns = {
   xsCol1: "xsCol1",
@@ -84,7 +84,7 @@ const Columns = {
   xsCol10: "xsCol10",
   xsCol11: "xsCol11",
   xsCol12: "xsCol12"
-};
+}
 
 const layout = {
   justifyStart: "justifyStart",
@@ -113,7 +113,7 @@ const layout = {
   flexNone: 'flexNone',
   flexShrink: 'flexShrink',
   flexWrap: 'flexWrap'
-};
+}
 
 const whitespace = {
   marginStart1: "marginStart1",
@@ -219,19 +219,19 @@ const whitespace = {
   paddingY10: "paddingY10",
   paddingY11: "paddingY11",
   paddingY12: "paddingY12"
-};
+}
 
 /* transformation js */
-const marginStart = bind(rangeWithoutZero("marginStart"), whitespace);
-const marginEnd = bind(rangeWithoutZero("marginEnd"), whitespace);
-const marginTop = bind(rangeWithoutZero("marginTop"), whitespace);
-const marginRight = bind(rangeWithoutZero("marginRight"), whitespace);
-const marginBottom = bind(rangeWithoutZero("marginBottom"), whitespace);
-const marginLeft = bind(rangeWithoutZero("marginLeft"), whitespace);
-const margin = union(marginTop, marginBottom, marginLeft, marginRight);
-const paddingX = bind(rangeWithoutZero("paddingX"), whitespace);
-const paddingY = bind(rangeWithoutZero("paddingY"), whitespace);
-const padding = union(paddingX, paddingY);
+const marginStart = bind(rangeWithoutZero("marginStart"), whitespace)
+const marginEnd = bind(rangeWithoutZero("marginEnd"), whitespace)
+const marginTop = bind(rangeWithoutZero("marginTop"), whitespace)
+const marginRight = bind(rangeWithoutZero("marginRight"), whitespace)
+const marginBottom = bind(rangeWithoutZero("marginBottom"), whitespace)
+const marginLeft = bind(rangeWithoutZero("marginLeft"), whitespace)
+const margin = union(marginTop, marginBottom, marginLeft, marginRight)
+const paddingX = bind(rangeWithoutZero("paddingX"), whitespace)
+const paddingY = bind(rangeWithoutZero("paddingY"), whitespace)
+const padding = union(paddingX, paddingY)
 
 const props: any = {
   display: mapping({
@@ -297,7 +297,7 @@ const props: any = {
   wrap: toggle(layout.flexWrap),
   width: (width:any) => fromInlineStyle({ width }),
   color: colorMappingFunc
-};
+}
 
 @Component({})
 export default class Box extends Vue {
@@ -330,7 +330,7 @@ export default class Box extends Vue {
   @Prop([String]) color: Color;
 
   get boxProps() {
-    let concatenatedClasses: Style = identity();
+    let concatenatedClasses: Style = identity()
     for (const prop in this.$props) {
       if (props[prop]) {
         concatenatedClasses = concat([concatenatedClasses, props[prop](this.$props[prop])])
@@ -347,11 +347,11 @@ export default class Box extends Vue {
 <style lang="scss">
 @import "../styles/variables";
 @import "../styles/mixins";
-@import "../styles/components/box-style";
-@import "../styles/components/box-whitespaces";
-@import "../styles/components/Layout";
-@import "../styles/components/Column";
-@import "../styles/components/Colors";
+@import "../styles/box/box-style";
+@import "../styles/box/box-whitespaces";
+@import "../styles/box/box-layout";
+@import "../styles/box/box-column";
+@import "../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
 input {
   width: 100%;
   height: $baseline * 10;

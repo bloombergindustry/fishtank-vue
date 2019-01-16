@@ -46,8 +46,8 @@ export function rangeWithoutZero(scale: string) {
 
 export function bind(fn:any, scope:any) {
   return (val: any) => {
-    return mapClassName(name => scope[name])(fn(val));
-  };
+    return mapClassName(name => scope[name])(fn(val))
+  }
 }
 
-export const union = (...fns:any[]) => (val: any) => concat(fns.map(fn => fn(val)));
+export const union = (...fns:any[]) => (val: any) => concat(fns.map(fn => fn(val)))

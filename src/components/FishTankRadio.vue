@@ -142,7 +142,7 @@ export default Vue.extend({
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
-
+/* fix box sizing bug*/
   .radio{
     font-family: $font-primary;
     position: relative;

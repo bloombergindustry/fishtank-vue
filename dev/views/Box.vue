@@ -4,13 +4,16 @@
       color="action" 
       padding="space4"
       column="8">
-      <fish-tank-text> Text in a FishTankBox component in a 8 column space</fish-tank-text>
+      <fish-tank-text>
+        Text in a FishTankBox component in a 8 column space</fish-tank-text>
     </fish-tank-box>
     <fish-tank-box>
-      <fish-tank-text> Text in another box justified in the remaining space, shared equally</fish-tank-text>
+      <fish-tank-text>
+        Text in another box justified in the remaining space, shared equally</fish-tank-text>
     </fish-tank-box>
     <fish-tank-box>
-      <fish-tank-text color="error"> Text in another box justified in the remaining space, shared equally</fish-tank-text>
+      <fish-tank-text color="error">
+        Text in another box justified in the remaining space, shared equally</fish-tank-text>
     </fish-tank-box>
   </fish-tank-box>
 </template>
