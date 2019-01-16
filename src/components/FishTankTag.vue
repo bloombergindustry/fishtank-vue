@@ -30,7 +30,7 @@
             :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">
             <CloseSml24
               v-if="removable"
-              :class="$style.iconAlignment"/>
+              :class="[$style.iconAlignment, {[$style.iconChecked]:isChecked}]"/>
             <slot/>
           </span>
         </div>
@@ -49,11 +49,6 @@ export default Vue.extend({
   name:"FishTankTag",
   introduction: "Component Introduction",
   description: "Component description",
-  token:[`
-    <fish-tank-tag
-      v-model="tagVariable"
-      label="Binary Tags"/>
-  `],
   components: {
     CloseSml24,
     FishTankText
@@ -262,6 +257,9 @@ export default Vue.extend({
   .iconAlignment{
     position: absolute;
     padding-left: var(--baseline);
+  }
+  .iconChecked{
+    color: var(--color-white);
   }
   body.user-is-tabbing .focused {
     box-shadow: 0 0 0 2px var(--color-selected-darkest);

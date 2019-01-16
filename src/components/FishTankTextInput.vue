@@ -1,29 +1,29 @@
 <template>
   <div
-    :class="{ 'input-text--error': !!errorMessage }"
-    class="input-text"
+    :class="[$style.inputText,{ [$style.inputTextError]: !!errorMessage }]"
   >
     <div
       v-if="label"
-      class="input-text__label-wrapper"
+      :class="$style.inputTextLabelWrapper"
     >
       <label
         :for="labelId"
-        class="input-text__label"
+        :class="$style.inputTextLabel"
       >
         {{ label }}
       </label>
 
-      <span class="input-text__auxillary-slot">
+      <span 
+        :class="$style.inputTextAuxillarySlot">
         <slot name="auxillary"/>
       </span>
     </div>
     <div
-      class="input-text__input-wrapper"
+      :class="$style.inputTextInputWrapper"
     >
       <span
         v-if="$slots.leftIcon"
-        class="input-text__left-icon"
+        :class="$style.inputTextLeftIcon"
       >
         <slot name="leftIcon"/>
       </span>
@@ -38,7 +38,7 @@
           :id="labelId"
           :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
-          class="input-text__input input-text__input__textarea"
+          :class="[$style.inputTextInput, $style.inputTextInputTextarea, {[$style.inputTextInputErrorState]:errorMessage}]"
           @keypress="getFalseHeight"
           @keydown.delete="getFalseHeight"
           @keyup.91.90="getFalseHeight"
@@ -58,7 +58,7 @@
           :value="value"
           :id="labelId"
           v-bind="$attrs"
-          class="input-text__input"
+          :class="[$style.inputTextInput, {[$style.inputTextInputErrorState]:errorMessage}]"
           @input="updateValue "
           @focus="checkError"
           v-on="listeners">
@@ -66,17 +66,17 @@
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        class="false-text-area"
+        :class="$style.falseTextArea"
       >
         &nbsp;{{ textAreaModel }}
       </p>
       <span
         v-if="showRightIcon && !numberType"
-        class="input-text__right-icon"
+        :class="$style.inputTextRightIcon"
       >
         <slot name="rightIcon">
           <span
-            class="input-text__input-clear"
+            :class="$style.inputTextInputClear"
             @click="clearText"
           >
             <CloseIcon/>
@@ -89,10 +89,14 @@
     <div
       v-if="errorMessage"
       id="error-block"
-      class="input-text__error-text"
-    >
-      <WarningIcon/>
-      <p> {{ errorMessage }} </p>
+      :class="[{[$style.inputTextErrorText]:errorMessage}]"
+    > 
+      <span
+        :class="$style.errorIcon">
+        <WarningIcon/>
+      </span>
+      <p
+        :class="$style.errorMessageText"> {{ errorMessage }} </p>
     </div>
   </div>
 </template>
@@ -268,7 +272,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
@@ -292,7 +296,7 @@ export default Vue.extend({
     }
   }
 
-  .input-text__input {
+  .inputTextInput {
     width: 100%;
     height: $baseline * 10;
     padding-left: $baseline * 3;
@@ -322,20 +326,20 @@ export default Vue.extend({
       font-style: italic;
     }
   }
-  input[type=number]{
+  .inputTextInput[type=number]{
     text-align:right;
     padding-right:$baseline*3;
   }
-  .input-text__left-icon ~ .input-text__input {
+  .inputTextLeftIcon ~ .inputTextInput {
     padding-left: $baseline*11;
   }
 
-  .input-text__input-wrapper {
+  .inputTextInputWrapper {
     position: relative;
   }
 
-  .input-text__left-icon,
-  .input-text__right-icon {
+  .inputTextLeftIcon,
+  .inputTextRightIcon {
     position: absolute;
     top: $baseline * 2;
 
@@ -345,18 +349,18 @@ export default Vue.extend({
     }
   }
 
-  .input-text__left-icon {
+  .inputTextLeftIcon {
     left: $baseline * 2;
   }
 
-  .input-text__right-icon {
+  .inputTextRightIcon {
     right: $baseline * 2;
     svg{
       fill : $color-gray;
     }
   }
 
-  .input-text__label {
+  .inputTextLabel {
     text-transform: uppercase;
     font-weight: $fontweight-semi;
     font-family: $font-primary;
@@ -367,12 +371,12 @@ export default Vue.extend({
     @include font-base-md();
   }
 
-  .input-text__label-wrapper {
+  .inputTextLabelWrapper {
     position: relative;
     margin-bottom: $baseline;
   }
 
-  .input-text__auxillary-slot {
+  .inputTextAuxillarySlot {
     @include font-base-sm();
 
     position: absolute;
@@ -380,35 +384,28 @@ export default Vue.extend({
     bottom: 0;
   }
 
-  .input-text {
+  .inputText {
     padding-bottom: $baseline * 6;
   }
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+  .inputTextInput::-webkit-outer-spin-button,
+  .inputTextInput::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
   }
-
-  .input-text--error {
-    .input-text__input {
+  .inputTextInputErrorState {
       border-color: $color-error;
       color: $color-error;
     }
-
-    .input-text__error-text {
+  .inputTextError {
+    .inputTextErrorText {
       margin-top: 4px;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-
-      svg{
-        fill: $color-error;
-        margin-right: 12px;
-      }
-
-      p{
+    }
+    .errorMessageText{
         margin: 0px;
         color: $color-error;
         font-size: $fontsize-base-md;
@@ -417,13 +414,18 @@ export default Vue.extend({
         font-weight: $fontweight-regular;
         font-family: $font-primary;
       }
-    }
-
-    .input-text__label {
+    .inputTextLabel {
       color: $color-error;
     }
   }
-  .input-text__input__textarea{
+  .errorIcon{
+    line-height: 0px;
+    &>*{
+      fill: $color-error;
+      margin-right: 12px;
+    }
+  }
+  .inputTextInputTextarea{
     overflow: auto;
     transition:all 250ms ease-in-out;
     padding-top:6px;
@@ -432,7 +434,7 @@ export default Vue.extend({
     padding-left: 0.75rem;
     padding-right: 2.5rem;
   }
-  .false-text-area{
+  .falseTextArea{
     min-height:2.5rem;
     padding-left: 0.75rem;
     padding-right: 2.5rem;
