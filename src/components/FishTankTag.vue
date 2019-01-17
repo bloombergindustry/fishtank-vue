@@ -107,7 +107,6 @@ export default Vue.extend({
     return {
       checkProxy:false,
       isFocused: false,
-      propsDocData: this.$options.props,
 
     }
   },

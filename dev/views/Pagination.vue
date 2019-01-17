@@ -3,7 +3,7 @@
     <div>
       Default
     </div>
-    <fishtank-pagination
+    <fish-tank-pagination
       v-model="pageNumOne"
       :page-count="100" />
     <div>
@@ -14,7 +14,7 @@
     <div>
       Don't show last page
     </div>
-    <fishtank-pagination
+    <fish-tank-pagination
       v-model="pageNumTwo"
       :page-count="100"
       :show-last-page="false" />
@@ -26,7 +26,7 @@
     <div>
       V-model works
     </div>
-    <fishtank-pagination
+    <fish-tank-pagination
       v-model="pageNumThree"
       :page-count="100" />
     <div>
@@ -38,13 +38,13 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import { FishtankPagination } from '@/index';
+  import { FishTankPagination } from '@/index';
 
   export default Vue.extend({
     name: 'Pagination',
 
     components: {
-      FishtankPagination,
+      FishTankPagination,
     },
 
     data() {

@@ -247,9 +247,6 @@
 
     <div style="width: 340px;">
       <div><h1> Documentation for Loaders </h1></div>
-      <div>
-        <FishTankPropsDoc :properties="docs"/>
-      </div>
     </div>
 
   </div>
@@ -264,13 +261,10 @@ import {
   FishTankLoaderContent as LoaderContent,
 } from '@/index'
 
-import FishTankPropsDoc from '@/components/FishTankPropsDoc.vue'
-
 
 export default Vue.extend({
   components:{
     LoaderContent,
-    FishTankPropsDoc,
   },
   data(){
     return{

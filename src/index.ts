@@ -51,7 +51,7 @@ export { default as FishTankTextInput } from "./components/FishTankTextInput.vue
 export { default as FishTankModal } from "./components/FishTankModal.vue"
 export { default as FishTankDialogBox } from "./components/FishTankDialogBox.vue"
 export { default as FishTankTag } from "./components/FishTankTag.vue"
-export { default as FishtankPagination } from "./components/FishtankPagination.vue"
+export { default as FishTankPagination } from "./components/FishTankPagination.vue"
 // export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
 // Multi-select tag needs to be rebuilt
 export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
