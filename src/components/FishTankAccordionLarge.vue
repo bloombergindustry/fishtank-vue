@@ -1,6 +1,8 @@
 <template>
     <div 
         :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
+        :id="( id !==null? id: labelId )"
+        role="accordion"
     > 
         <div 
             class="accordion-wrapper-lg"
@@ -41,6 +43,11 @@
         ChevronUp24 
     }  from "@fishtank/icons-vue"
 
+    interface AccordionComponentGroup {
+        register(cmp:any):void,
+        unregister(cmp:any):void
+    }
+
     export default {
         components: {
             ChevronUp24
@@ -68,7 +75,24 @@
                 type: String,
                 default: null,
                 required: false
+            },
+            fishtankAccordionGroupShared: {
+                type: Object as () => AccordionComponentGroup,
             }
+        },
+        inject:{
+            fishtankAccordionGroupShared: {
+                default: {
+                    register(){},
+                    unregister(){}
+                }
+            }
+        },
+        mounted(){
+            this.fishtankAccordionGroupShared.register(this)
+        },
+        destroyed(){
+            this.fishtankAccordionGroupShared.unregister(this)
         },
         methods:{
             toggle(){
@@ -80,6 +104,11 @@
                         this.visible = true
                     }
                 }
+            }
+        },
+        computed:{
+            labelId(): string{
+                return `accordion-${(this as any)._uid}`
             }
         }
     }
