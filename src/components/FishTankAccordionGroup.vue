@@ -1,29 +1,50 @@
 <template>
-    <div>
+    <div
+        :id="(id !== null? id:labelId)"
+        role="accordion group"
+        tabindex="0"
+    >
         <slot/>
     </div>
 </template>
 
-<script>
+<script lang="ts">
     export default {
         data: function(){
             return{
-                children: []
+                registeredChildren: []
             }
         },
         props:{
-            
+            id:{
+                type: String,
+                default: null,
+                required: false
+            }
         },
-        methods:{
-
+        provide: function(){
+            const fishtankAccordionGroupShared = {
+                register: this.register,
+                unregister: this.unregister
+            }
+            return {fishtankAccordionGroupShared}
         },
         computed:{
-            registerChildren(){
-
+            labelId(): string{
+                return `accordion-group-${(this as any)._uid}`
+            }
+        },
+        methods:{
+            register(componentAsThis:any):void {
+                (this as any).registeredChildren.push(componentAsThis);
+            },
+            unregister(componentAsThis:any):void{
+                let index = ((this as any).registeredChildren as any[]).indexOf(componentAsThis);
+                if(index > -1){
+                    (this as any).registeredChildren.splice(index, 1);
+                }
             }
         }
-        /* The time has come for you to use your brain and learn to do this. 
-            Go forth and suffer.... I mean, I meant prosper, strong one.. */
     }
 </script>
 
