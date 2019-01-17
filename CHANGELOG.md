@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.0...v4.0.1) (2019-01-17)
+
+
+### Bug Fixes
+
+* moved ts-lib to dependancies ([d13f803](https://github.com/bloombergbna/fishtank-vue/commit/d13f803))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.0-1...v4.0.0) (2019-01-17)
 
