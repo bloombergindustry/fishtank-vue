@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.0-1...v4.0.0) (2019-01-17)
+
+
+### Bug Fixes
+
+* scss dependancy import for FishTankTag ([2b62b5a](https://github.com/bloombergbna/fishtank-vue/commit/2b62b5a))
+* scss dependancy import for FishTankTag ([66848ca](https://github.com/bloombergbna/fishtank-vue/commit/66848ca))
+
+
+### Features
+
+* added postcss variable script to process styles using css variables for backwards compatibility for IE ([47a9368](https://github.com/bloombergbna/fishtank-vue/commit/47a9368))
+
+
+
 <a name="4.0.0-1"></a>
 # [4.0.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.0-0...v4.0.0-1) (2019-01-16)
 
