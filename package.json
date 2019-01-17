@@ -36,8 +36,6 @@
   },
   "dependencies": {
     "@fishtank/icons-vue": ">= 3.8.0",
-    "eslint-plugin-prettier": "3.0.0",
-    "tslib": ">= 1.9.0",
     "vue-content-loader": "^0.2.1",
     "vuejs-paginate": "1.9.3"
   },
@@ -69,6 +67,7 @@
     "babel-loader": "8.0.0-beta.3",
     "chai": "^4.1.2",
     "css-loader": "0.28.11",
+    "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-vue": "5.0.0",
     "extract-text-webpack-plugin": "3.0.2",
     "in-publish": "2.0.0",
@@ -76,6 +75,7 @@
     "node-sass": "4.9.0",
     "normalize-scss": "7.0.1",
     "postcss": "7.0.6",
+    "postcss-css-variables": "0.11.0",
     "promise-polyfill": "8.0.0",
     "punycode": "^2.1.1",
     "rimraf": "2.6.2",
@@ -97,6 +97,7 @@
     "standard-version": "4.4.0",
     "style-loader": "0.20.3",
     "svg-sprite-loader": "3.7.3",
+    "tslib": ">= 1.9.0",
     "typescript": "2.9.1",
     "uglify-es": "3.3.9",
     "vue": "^2.5.17",

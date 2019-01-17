@@ -82,9 +82,6 @@
       </div>
 
       <h1> Loader Documentation </h1>
-      <div>
-        <FishTankPropsDoc :properties="docs"/>
-      </div>
 
     </div>
   </div>
@@ -93,15 +90,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FishTankSpinner as Spinner, FishTankButtonPrimary as ftbutton } from '@/index'
-import FishTankPropsDoc from '@/components/FishTankPropsDoc.vue'
-import VueMarkdown from 'vue-markdown'
 
 export default Vue.extend({
   components: {
     Spinner,
     ftbutton,
-    FishTankPropsDoc,
-    VueMarkdown
   },
   data(){
     return {

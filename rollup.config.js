@@ -10,6 +10,7 @@ import uglify from "rollup-plugin-uglify"
 import typescript from "rollup-plugin-typescript2"
 import externals from '@yelo/rollup-node-external'
 import { minify } from "uglify-es"
+import postcsscssvariables from "postcss-css-variables"
 
 const aliasTransform = require('./config/alias-transform').default
 const scssImporter = require('./config/scss-importer').default
@@ -77,6 +78,10 @@ function genConfig(name) {
         {
           css: true,
           style:{
+            postcssPlugins:[
+              postcsscssvariables,
+              autoprefixer,
+            ],
             postcssModulesOptions:{
               generateScopedName: '[name]-[local]-[hash:base64:4]'
             }
