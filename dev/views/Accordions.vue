@@ -2,33 +2,26 @@
     <div>
         <h1>Single Accordions ( Large ) </h1>
 
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Section Heading"
         >
             <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
-        <FishTankAccordionLarge 
-            heading="Section Heading"
-            subheading="Sub-heading"
-        >
-            <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
-
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Another Section Heading"
-            subheading="Another Sub-heading"
+            subheading="A Sub-heading"
         >
             <FishTankLoaderContent theme="MembersOfCongressList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Disabled Section Heading"
             subheading="Disabled Sub-heading"
             :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
         <br/>
 
@@ -36,27 +29,29 @@
 
         <br/>
 
-        <FishTankAccordionGroup>
+        <FishTankAccordionGroup
+            :single="true"
+        >
 
-            <FishTankAccordionLarge 
+            <FishTankAccordion 
                 heading="Group Section Heading"
                 subheading="Group Sub-heading"
             >
                 <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordionLarge>
-            <FishTankAccordionLarge 
+            </FishTankAccordion>
+            <FishTankAccordion 
                 heading="Another Group Section Heading"
                 subheading="Another Group Sub-heading"
             >
                 <FishTankLoaderContent theme="MembersOfCongressList"/>
-            </FishTankAccordionLarge>
+            </FishTankAccordion>
 
-            <FishTankAccordionLarge 
+            <FishTankAccordion 
                 heading="Yet Another Group Section Heading"
                 subheading="Yet Another Group Sub-heading"
             >
                 <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordionLarge>
+            </FishTankAccordion>
         
         </FishTankAccordionGroup>
 
@@ -70,14 +65,14 @@
 <script>
 
     import{
-        FishTankAccordionLarge,
+        FishTankAccordion,
         FishTankLoaderContent,
         FishTankAccordionGroup 
     }from '@/index'
 
     export default {
         components: {
-            FishTankAccordionLarge,
+            FishTankAccordion,
             FishTankLoaderContent,
             FishTankAccordionGroup
         },

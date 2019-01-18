@@ -2,11 +2,13 @@
     <div 
         :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
         :id="( id !==null? id: labelId )"
+        tabindex="0"
         role="accordion"
     > 
         <div 
             class="accordion-wrapper-lg"
             @click="toggle"
+            @keyup.enter="toggle"
         >
             <div class="accordion-heading-wrapper">
                 <p 
@@ -106,12 +108,12 @@
                 }
             }
         },
-        computed:{
+        computed:{ 
             labelId(): string{
                 return `accordion-${(this as any)._uid}`
             }
         }
-    }
+    }                                                                                                                                                                                                                                                                                                          
 </script>
 
 <style  lang="scss">
