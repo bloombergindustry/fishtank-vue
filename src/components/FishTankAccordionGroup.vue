@@ -20,6 +20,11 @@
                 type: String,
                 default: null,
                 required: false
+            },
+            single:{
+                type: Boolean,
+                default: false,
+                required: true
             }
         },
         provide: function(){
@@ -43,6 +48,9 @@
                 if(index > -1){
                     (this as any).registeredChildren.splice(index, 1);
                 }
+            },
+            singleToggle(){
+                //                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             for(  ){}
             }
         }
     }
