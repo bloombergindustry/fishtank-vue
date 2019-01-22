@@ -40,6 +40,7 @@
 </template>
 
 <script lang="ts">
+    import Vue from 'vue'
 
     import { 
         ChevronUp24 
@@ -47,10 +48,11 @@
 
     interface AccordionComponentGroup {
         register(cmp:any):void,
-        unregister(cmp:any):void
+        unregister(cmp:any):void,
+        toggle(cmp:any):void
     }
 
-    export default {
+    export default Vue.extend({
         components: {
             ChevronUp24
         },
@@ -86,7 +88,8 @@
             fishtankAccordionGroupShared: {
                 default: {
                     register(){},
-                    unregister(){}
+                    unregister(){},
+                    toggle(){}
                 }
             }
         },
@@ -96,6 +99,7 @@
         destroyed(){
             this.fishtankAccordionGroupShared.unregister(this)
         },
+       
         methods:{
             toggle(){
                 
@@ -104,6 +108,7 @@
                         this.visible = false
                     }else{
                         this.visible = true
+                        this.fishtankAccordionGroupShared.toggle(this)
                     }
                 }
             }
@@ -113,7 +118,7 @@
                 return `accordion-${(this as any)._uid}`
             }
         }
-    }                                                                                                                                                                                                                                                                                                          
+    })                                                                                                                                                                                                                                                                                                          
 </script>
 
 <style  lang="scss">
