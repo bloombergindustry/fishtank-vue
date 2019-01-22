@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Single Accordions ( Large ) </h1>
+        <h1>Single Accordions </h1>
 
         <FishTankAccordion 
             heading="Section Heading"
@@ -25,7 +25,7 @@
 
         <br/>
 
-        <h1>Accordion Group ( Large ) </h1>
+        <h1>Accordion Group </h1>
 
         <br/>
 
