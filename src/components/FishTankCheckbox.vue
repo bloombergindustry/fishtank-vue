@@ -70,11 +70,13 @@ export default Vue.extend({
     disabled:{
       type:Boolean,
       required:false,
-      default:false
+      default:false,
+      description:`Disable the checkbox`
     },
     value: {
       default:null,
       type: [String, Boolean, Object, Array, Number],
+      description:`When the checkbox bound to an array via v-model, the value or data object added or removed from the array.`
     },
     modelValue: {
       type:[String, Boolean, Object, Array, Number],
@@ -82,12 +84,14 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      required: true
+      required: true,
+      description:`Checkbox label`
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:`Checkbox element ID`
     },
     trueValue: {
       default: true,

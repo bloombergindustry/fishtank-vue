@@ -6,11 +6,7 @@
 <script lang="ts">
 // Trying to get the interface correct, I need to refactor once we get all the functionality
 // This is the interface I am trying to use https://pinterest.github.io/gestalt/#/Box
-import {
-  Vue,
-  Component,
-  Prop
-} from "vue-property-decorator"
+import Vue from "vue"
 
 import {
   Style,
@@ -299,50 +295,220 @@ const props: any = {
   color: colorMappingFunc
 }
 
-@Component({})
-export default class Box extends Vue {
-  @Prop() alignItems: AlignItemType;
-  @Prop() display: DisplayType;
-  @Prop() column: Column; /* 1 -12 */
-  @Prop() direction: Direction; /* row column */
-  @Prop() justifyContent: JustifyContent;  /* "start" | "end" | "center" | "between" | "around"; */
-  @Prop() marginStart: Margin; /* between 12...12*/
-  @Prop() marginEnd: Margin; /* between 12...12*/
-  @Prop() marginTop: Margin; /* between 12...12*/
-  @Prop() marginRight: Margin; /* between 12...12*/
-  @Prop() marginBottom: Margin; /* between 12...12*/
-  @Prop() marginLeft: Margin; /* between 12...12*/
-  @Prop() margin: Margin; /* between 12...12*/
-  @Prop() padding: Padding;
-  @Prop() paddingX: Padding;
-  @Prop() paddingY: Padding;
-  @Prop() width: number | string; // TODO
-  @Prop([Boolean]) wrap: boolean;
-  @Prop() position: Position;
-  @Prop([Boolean]) top: boolean;
-  @Prop([Boolean]) left: boolean;
-  @Prop([Boolean]) right: boolean;
-  @Prop([Boolean]) bottom: boolean;
-  @Prop([Number, String]) maxHeight: number | string;
-  @Prop([Number, String]) height: number | string;
-  @Prop() overflow: OverFlow;
-  @Prop() flex: Flex;
-  @Prop([String]) color: Color;
+export default Vue.extend({
+  props:{
+    alignItems: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function (value: AlignItemType) {
+        return ["start" , "end" , "center" , "baseline" , "stretch"].indexOf(value) !== -1
+      }
+    },
+    // AlignItemType,
+    // // @Prop() 
+    display: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      }
 
-  get boxProps() {
-    let concatenatedClasses: Style = identity()
-    for (const prop in this.$props) {
-      if (props[prop]) {
-        concatenatedClasses = concat([concatenatedClasses, props[prop](this.$props[prop])])
+    },
+    // DisplayType,
+    // // @Prop() 
+    column: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Column){
+        return (0<value && 13>value)
+      }
+    },
+    // Column, /* 1 -12 */
+    // // @Prop() 
+    direction: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column"].indexOf(value) !== -1
+      }
+    },
+    justifyContent: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: JustifyContent){
+        return ["start" , "end" , "center" , "between" , "around"].indexOf(value) !== -1
+      }
+    },
+    marginStart: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      }
+    },
+    marginEnd: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      }
+    },
+    marginTop: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      }
+    },
+    marginRight: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      }
+    },
+    marginBottom: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      }
+    },
+    marginLeft: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<value && 13>value)
+      }
+    },
+    padding: {
+      type:[Number, String],
+      default:null,
+      required:false,
+      // validator: function(value: Padding){
+      //   if(typeof value === Number){
+      //     return (-1<value && 13>value)
+      //   } else {
+      //     return value
+      //   }
+      // }
+    },
+    paddingX: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Padding){
+        return (-1<value && 13>value)
+      }
+    },
+    paddingY: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Padding){
+        return (-1<value && 13>value)
+      }
+    },
+    width: {
+      type: [ Number, String ],
+      default:null,
+      required:false,
+    },
+    wrap:{
+      type: Boolean,
+      default:false,
+      required:false
+    },
+    position: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Position){
+        return ['absolute' , 'relative' , 'fixed'].indexOf(value) !== -1
+      }
+    },
+    top:{
+      type: Boolean,
+      default:false,
+      required:false
+    },
+    bottom:{
+      type: Boolean,
+      default:false,
+      required:false
+    },
+    left:{
+      type: Boolean,
+      default:false,
+      required:false
+    },
+    right:{
+      type: Boolean,
+      default:false,
+      required:false
+    },
+    maxHeight: {
+      type: [ Number, String ],
+      default:null,
+      required:false
+    },
+    height: {
+      type: [ Number, String ],
+      default:null,
+      required:false
+    },
+    overflow: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: OverFlow){
+        return ['visible' , 'hidden' , 'scroll' , 'scrollX' , 'scrollY' , 'auto'].indexOf(value) !== -1
+      }
+    },
+    flex: {
+      default:'grow',
+      type:String,
+      required:false,
+      validator: function (value: Flex) {
+        return ['grow' , 'shrink' , 'none'].indexOf(value) !== -1
+      }
+    },
+    color: {
+      type:String, 
+      required:false, 
+      default:null,
+      // validator: function (value: Color) {
+      //   return ['color', 'array', 'here'].indexOf(value) !== -1
+      // }
+    },
+  },
+  computed: {
+    boxProps() {
+      let concatenatedClasses: Style = identity()
+      for (const prop in this.$props) {
+        if (props[prop]) {
+          concatenatedClasses = concat([concatenatedClasses, props[prop](this.$props[prop])])
+        }
+      }
+      let boxProps = toProps(concatenatedClasses)
+      return {
+        class: boxProps.className,
+        style: boxProps.style
       }
     }
-    let boxProps = toProps(concatenatedClasses)
-    return {
-      class: boxProps.className,
-      style: boxProps.style
-    }
   }
-}
+})
 </script>
 <style lang="scss">
 @import "../styles/variables";

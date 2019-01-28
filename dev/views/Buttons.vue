@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div><ButtonPrimary name="Primary">Button Primary</ButtonPrimary></div> 
+    <div>
+      <ButtonPrimary name="Primary">
+        Button Primary
+      </ButtonPrimary>
+    </div> 
     <br>
     <div><ButtonSecondary>Button Secondary</ButtonSecondary></div>
     <br>
@@ -15,28 +19,40 @@
 
     <div>
       <ButtonFeatureIcon
-      :name="ariaLabelFeatureIcon"> 
-        <Alert24/> 
+        :name="ariaLabelFeatureIcon"
+      > 
+        <Alert24 /> 
       </ButtonFeatureIcon>
     </div>
     <br>
 
-    <div><ButtonGradient 
-      :color-direction="colorDirection" 
-      :gradient-start="colorStart" 
-      :gradient-end="colorEnd" >Button Gradient</ButtonGradient></div>
+    <div>
+      <ButtonGradient 
+        :color-direction="colorDirection" 
+        :gradient-start="colorStart" 
+        :gradient-end="colorEnd"
+      >
+        Button Gradient
+      </ButtonGradient>
+    </div>
     <br>
 
     <div>
       <ButtonFeatureLabel> 
-        <template slot="icon"> <Alert24/> </template>
-        <template slot="label"> Button Feature Label</template>
+        <template slot="icon">
+          <Alert24 />
+        </template>
+        <template slot="label">
+          Button Feature Label
+        </template>
       </ButtonFeatureLabel>
     </div>
     <br>
 
     <div style="background: #292e31;  padding: 12px; border-radius: 10px; display: inline-block;">
-      <h2 style="color: #fff; text-align: center;" > For Dark Backgrounds </h2>
+      <h2 style="color: #fff; text-align: center;">
+        For Dark Backgrounds
+      </h2>
       <br>
 
       <div><ButtonOutlineDark> Button Outline Dark </ButtonOutlineDark></div>
@@ -44,7 +60,6 @@
 
       <div><ButtonOutlineDarkSmall> Button Outline Dark Small </ButtonOutlineDarkSmall></div>
       <br>
-
     </div>
    
     <div>
@@ -56,15 +71,19 @@
         :option-one-link="fabLink1"
         :option-two-link="fabLink2"
       >
+        <template slot="mainIcon">
+          <Add32 />
+        </template>
 
-        <template slot="mainIcon"> <Add32/>  </template>
-
-        <template slot="option1"> <Twitter24/> </template>
-        <template slot="option2"> <Facebook24/> </template>
+        <template slot="option1">
+          <Twitter24 />
+        </template>
+        <template slot="option2">
+          <Facebook24 />
+        </template>
       </ButtonFAB>
     </div>
     <br>
-
   </div>
 </template>
 
