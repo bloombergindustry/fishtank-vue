@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0-1"></a>
+# [4.1.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-0...v4.1.0-1) (2019-01-28)
+
+
+### Features
+
+* Refactored Box to remove dependancy on vue-property-decorator ([9ac0636](https://github.com/bloombergbna/fishtank-vue/commit/9ac0636))
+
+
+
 <a name="4.1.0-0"></a>
 # [4.1.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.2...v4.1.0-0) (2019-01-28)
 
