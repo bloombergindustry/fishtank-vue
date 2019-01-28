@@ -31,15 +31,15 @@
   "module": "dist/fishtank-vue.esm.js",
   "typings": "dist/fishtank-vue.d.ts",
   "styles": "dist/fishtank-vue.css",
-  "peerDependencies": {
-    "vue": ">= 2.5.0"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@fishtank/icons-vue": ">= 3.8.0",
     "tslib": ">= 1.9.0",
+    "vue": "2.5.22",
     "vue-content-loader": "^0.2.1",
-    "vuejs-paginate": "1.9.3",
-    "vue-property-decorator": "7.2.0"
+    "vue-property-decorator": "7.2.0",
+    "vue-template-compiler": "2.5.22",
+    "vuejs-paginate": "1.9.3"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.49",
@@ -101,13 +101,11 @@
     "svg-sprite-loader": "3.7.3",
     "typescript": "2.9.1",
     "uglify-es": "3.3.9",
-    "vue": "^2.5.17",
     "vue-markdown": "^2.2.4",
     "vue-popperjs": "1.5.0",
     "vue-prism-component": "1.0.1",
     "vue-router": "3.0.1",
     "vue-svg-icon-loader": "1.3.2",
-    "vue-template-compiler": "^2.5.17",
     "webpack-merge": "4.1.2",
     "webpack-node-externals": "1.6.0"
   },
