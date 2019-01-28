@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0-0"></a>
+# [4.1.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.2...v4.1.0-0) (2019-01-28)
+
+
+### Features
+
+* added documentation to FishTankCheckbox ([3f1339d](https://github.com/bloombergbna/fishtank-vue/commit/3f1339d))
+
+
+
 <a name="4.0.2"></a>
 ## [4.0.2](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.1...v4.0.2) (2019-01-18)
 
