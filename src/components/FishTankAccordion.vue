@@ -9,6 +9,7 @@
             class="accordion-wrapper-lg"
             @click="toggle"
             @keyup.enter="toggle"
+            ref="accordion"
         >
             <div class="accordion-heading-wrapper">
                 <p 
@@ -49,7 +50,7 @@
     interface AccordionComponentGroup {
         register(cmp:any):void,
         unregister(cmp:any):void,
-        toggle(cmp:any):void
+        toggleGroup(cmp:any):void
     }
 
     export default Vue.extend({
@@ -59,6 +60,7 @@
         data: function(){
             return{
                 visible: false
+                
             }
         },
         props:{
@@ -82,6 +84,7 @@
             },
             fishtankAccordionGroupShared: {
                 type: Object as () => AccordionComponentGroup,
+                required: false
             }
         },
         inject:{
@@ -89,28 +92,35 @@
                 default: {
                     register(){},
                     unregister(){},
-                    toggle(){}
+                    toggleGroup(){}
                 }
             }
         },
         mounted(){
             this.fishtankAccordionGroupShared.register(this)
         },
+        updated(){
+            // this.fishtankAccordionGroupShared.toggleGroup(this)
+        },
         destroyed(){
             this.fishtankAccordionGroupShared.unregister(this)
         },
        
         methods:{
-            toggle(){
-                
+            toggle(){               
                 if( !this.disabled ){
                     if( this.visible ){
                         this.visible = false
                     }else{
-                        this.visible = true
-                        this.fishtankAccordionGroupShared.toggle(this)
+                        this.$emit("resetgroup")
+                        
+                        this.fishtankAccordionGroupShared.toggleGroup(this)
+this.visible = true
                     }
                 }
+            },
+            setFocus(){
+                (this.$refs.accordion as HTMLElement).focus()
             }
         },
         computed:{ 

@@ -3,7 +3,7 @@
         :id="(id !== null? id:labelId)"
         role="accordion group"
         tabindex="0"
-        @click="toggle"
+        v-on:resetgroup="resetParent"
     >
         <slot/>
     </div>
@@ -11,6 +11,12 @@
 
 <script lang="ts">
     import Vue from 'vue'
+
+    interface AccordionComponent extends Vue{
+        setFocus(): void,
+        toggle(): void 
+    }
+
     export default  Vue.extend({
         data: function(){
             return{
@@ -32,7 +38,8 @@
         provide: function(){
             const fishtankAccordionGroupShared = {
                 register: this.register,
-                unregister: this.unregister
+                unregister: this.unregister,
+                toggleGroup: this.toggleGroup
             }
             return {fishtankAccordionGroupShared}
         },
@@ -51,19 +58,22 @@
                     (this as any).registeredChildren.splice(index, 1);
                 }
             },
-            toggle(componentAsThis:any):void{
-                console.log(componentAsThis.labelId)
-                let focus = ((this as any).registeredChildren as any[]).indexOf(componentAsThis)
+            resetParent():void{
+                console.log("RESET")
+            },
+
+            toggleGroup(componentAsThis:any):void{
+                (this as any).registeredChildren.map(i=>{
+                    console.log(i)
+                    i.visible = false
+                })
+                // for( var i = 0; i < ((this as any).registeredChildren as any[]).length ; i++ ){
+                    
+                    
+                // }
                 
-                for( var i = 0; i < ((this as any).registeredChildren as any[]).length ; i++ ){
-                    var compared = ((this as any).registeredChildren[i])
-                    if( focus !== compared ){
-                        console.log("hi")
-                        console.log(compared.visible)
-                    }
-                }
-                
-            }
+            },
+           
         }
     })
 </script>
