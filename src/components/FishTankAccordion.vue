@@ -82,7 +82,7 @@
                     role="heading"
                     aria-level="3"
                 > 
-                    {{ smallHeading }} 
+                    {{ heading }} 
                 </p>
             </div>
 
@@ -128,25 +128,25 @@
         props:{
             heading: {
                 type: String,
-                required: false
+                required: false,
+                description:"Main heading text for large accordian."
             },
             subheading: {
                 type: String,
-                required: false
+                required: false,
+                description: "Sub-heading text for large accordian."
             },
             disabled:{
                 type: Boolean,
                 required: false,
-                default: false
+                default: false,
+                description:"Specify if accordian should be disabled."
             },
             small:{
                 type: Boolean,
                 required: false,
-                default: false
-            },
-            smallHeading:{
-                type: String,
-                required: false
+                default: false,
+                description:"Specify is accordian style should be small"
             },
             id:{
                 type: String,
