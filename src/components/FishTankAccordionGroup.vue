@@ -3,7 +3,6 @@
         :id="(id !== null? id:labelId)"
         role="accordion group"
         tabindex="0"
-        v-on:resetgroup="resetParent"
     >
         <slot/>
     </div>
@@ -32,14 +31,15 @@
             single:{
                 type: Boolean,
                 default: false,
-                required: true
+                required: true,
+                description:"Allows only one accordion to be open at a time."
             }
         },
         provide: function(){
             const fishtankAccordionGroupShared = {
                 register: this.register,
                 unregister: this.unregister,
-                toggleGroup: this.toggleGroup
+                closeSiblings: this.closeSiblings,
             }
             return {fishtankAccordionGroupShared}
         },
@@ -58,19 +58,10 @@
                     (this as any).registeredChildren.splice(index, 1);
                 }
             },
-            resetParent():void{
-                console.log("RESET")
-            },
-
-            toggleGroup(componentAsThis:any):void{
-                (this as any).registeredChildren.map(i=>{
-                    console.log(i)
+            closeSiblings(componentAsThis:any):void{
+                (this as any).registeredChildren.map((i:any)=>{
                     i.visible = false
                 })
-                // for( var i = 0; i < ((this as any).registeredChildren as any[]).length ; i++ ){
-                    
-                    
-                // }
                 
             },
            

@@ -50,7 +50,7 @@
     interface AccordionComponentGroup {
         register(cmp:any):void,
         unregister(cmp:any):void,
-        toggleGroup(cmp:any):void
+        closeSiblings(cmp:any):void
     }
 
     export default Vue.extend({
@@ -77,6 +77,15 @@
                 required: false,
                 default: false
             },
+            small:{
+                type: Boolean,
+                required: false,
+                default: false
+            },
+            smallHeading:{
+                type: String,
+                required: false
+            },
             id:{
                 type: String,
                 default: null,
@@ -92,15 +101,12 @@
                 default: {
                     register(){},
                     unregister(){},
-                    toggleGroup(){}
+                    closeSiblings(){}
                 }
             }
         },
         mounted(){
             this.fishtankAccordionGroupShared.register(this)
-        },
-        updated(){
-            // this.fishtankAccordionGroupShared.toggleGroup(this)
         },
         destroyed(){
             this.fishtankAccordionGroupShared.unregister(this)
@@ -111,11 +117,9 @@
                 if( !this.disabled ){
                     if( this.visible ){
                         this.visible = false
-                    }else{
-                        this.$emit("resetgroup")
-                        
-                        this.fishtankAccordionGroupShared.toggleGroup(this)
-this.visible = true
+                    }else{     
+                        this.fishtankAccordionGroupShared.closeSiblings(this)
+                        this.visible = true
                     }
                 }
             },
