@@ -31,14 +31,14 @@
 
         <FishTankAccordion
             :small="true"
-            smallHeading="Small Section Heading"
+            heading="Small Section Heading"
         >
             <FishTankLoaderContent theme="AlertList"/>
         </FishTankAccordion>
 
         <FishTankAccordion
             :small="true"
-            smallHeading="Disabled Small Section Heading"
+            heading="Disabled Small Section Heading"
             :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
