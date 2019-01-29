@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Single Accordions </h1>
+        <h1>Single Accordions [ Large ]</h1>
 
         <FishTankAccordion 
             heading="Section Heading"
@@ -18,6 +18,27 @@
         <FishTankAccordion 
             heading="Disabled Section Heading"
             subheading="Disabled Sub-heading"
+            :disabled="disabledAccordion"
+        >
+            <FishTankLoaderContent theme="AlertList"/>
+        </FishTankAccordion>
+
+        <br/>
+
+        <h1> Single Accordion [ Small ]</h1>
+
+        <br/>
+
+        <FishTankAccordion
+            :small="true"
+            smallHeading="Small Section Heading"
+        >
+            <FishTankLoaderContent theme="AlertList"/>
+        </FishTankAccordion>
+
+        <FishTankAccordion
+            :small="true"
+            smallHeading="Disabled Small Section Heading"
             :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
@@ -54,10 +75,6 @@
             </FishTankAccordion>
         
         </FishTankAccordionGroup>
-
-    
-
-
 
     </div>
 </template>
