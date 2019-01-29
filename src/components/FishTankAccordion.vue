@@ -1,5 +1,6 @@
 <template>
-    <div 
+    <div
+        v-if="!small"
         :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
         :id="( id !==null? id: labelId )"
         tabindex="0"
@@ -11,7 +12,9 @@
             @keyup.enter="toggle"
             ref="accordion"
         >
-            <div class="accordion-heading-wrapper">
+            <div 
+                class="accordion-heading-wrapper"
+            >
                 <p 
                     class="accordion-heading"
                     role="heading"
@@ -26,7 +29,64 @@
                     aria-level="4"
                 > {{ subheading }} </p>
             </div>
+
             <ChevronUp24 
+                :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
+                aria-label="collapse / expand content"
+            />
+        </div>
+        <div 
+            class="accordion-panel"
+            v-show="visible"
+        >
+            <slot/>
+        </div>
+    </div>
+    <div
+        v-else 
+        :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
+        :id="( id !==null? id: labelId )"
+        tabindex="0"
+        role="accordion"
+    > 
+        <div 
+            class="accordion-wrapper-sm"
+            @click="toggle"
+            @keyup.enter="toggle"
+            ref="accordion"
+        >
+            <div 
+                class="accordion-heading-wrapper"
+                v-if="!small"
+            >
+                <p 
+                    class="accordion-heading"
+                    role="heading"
+                    aria-level="3"
+                > 
+                    {{ heading }} 
+                </p>
+                <p 
+                    class="accordion-sub-heading"
+                    v-if="subheading"
+                    role="heading"
+                    aria-level="4"
+                > {{ subheading }} </p>
+            </div>
+            <div 
+                class="accordion-heading-wrapper"
+                v-else
+            >
+                <p 
+                    class="accordion-heading-small"
+                    role="heading"
+                    aria-level="3"
+                > 
+                    {{ smallHeading }} 
+                </p>
+            </div>
+
+            <ChevronSmlUp24 
                 :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
                 aria-label="collapse / expand content"
             />
@@ -44,7 +104,8 @@
     import Vue from 'vue'
 
     import { 
-        ChevronUp24 
+        ChevronUp24,
+        ChevronSmlUp24 
     }  from "@fishtank/icons-vue"
 
     interface AccordionComponentGroup {
@@ -55,7 +116,8 @@
 
     export default Vue.extend({
         components: {
-            ChevronUp24
+            ChevronUp24,
+            ChevronSmlUp24
         },
         data: function(){
             return{
@@ -66,7 +128,7 @@
         props:{
             heading: {
                 type: String,
-                required: true
+                required: false
             },
             subheading: {
                 type: String,
@@ -157,6 +219,14 @@
         padding: 12px;
         border-bottom: 1px solid $color-gray-lighter;
     }
+    .accordion-wrapper-sm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px;
+        border-bottom: 1px solid $color-gray-lighter;
+    }
 
     .accordion-container .accordion-wrapper-lg{
         display: flex;
@@ -164,6 +234,35 @@
         justify-content: space-between;
         align-items: center;
         padding: 12px;
+        border-bottom: 1px solid $color-gray-lighter;
+
+        &:hover{
+
+            .accordion-heading-wrapper{
+
+                .ft-accordion-heading{
+                    color: $color-black;
+                }
+
+                .accordion-sub-heading{
+                    color: $color-black;
+                }
+
+            }
+
+            svg{
+                color: $color-black;
+            }
+
+        }
+
+    }
+    .accordion-container .accordion-wrapper-sm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px;
         border-bottom: 1px solid $color-gray-lighter;
 
         &:hover{
@@ -210,6 +309,14 @@
         letter-spacing: $letterspacing-small;
     }
 
+    .accordion-heading-small{
+        color: $color-gray;
+        font-size: $fontsize-base-md;
+        font-weight: $fontweight-semi;
+        line-height: $lineheight-base-md;
+        letter-spacing: $letterspacing-base-md;
+    } 
+
     svg{
         color: $color-gray;      
     }
@@ -225,6 +332,10 @@
     }
 
     .accordion-container-gray .accordion-heading{
+        color: $color-gray-lighter;
+    }
+
+    .accordion-container-gray .accordion-heading-small{
         color: $color-gray-lighter;
     }
 
