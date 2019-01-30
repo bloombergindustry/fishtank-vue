@@ -16,7 +16,7 @@
         toggle(): void 
     }
 
-    export default  Vue.extend({
+    export default Vue.extend({
         data: function(){
             return{
                 registeredChildren: [],
