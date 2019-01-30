@@ -1,29 +1,29 @@
 <template>
     <div
         v-if="!small"
-        :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
+        :class="[$style.accordianElement] + [ disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
         tabindex="0"
         role="accordion"
     > 
         <div 
-            class="accordion-wrapper-lg"
+            :class="[$style.accordionWrapperLg]"
             @click="toggle"
             @keyup.enter="toggle"
             ref="accordion"
         >
             <div 
-                class="accordion-heading-wrapper"
+                :class="[$style.accordionHeadingWrapper]"
             >
                 <p 
-                    class="accordion-heading"
+                    :class="[$style.accordionHeading]"
                     role="heading"
                     aria-level="3"
                 > 
                     {{ heading }} 
                 </p>
                 <p 
-                    class="accordion-sub-heading"
+                    :class="[$style.accordionSubHeading]"
                     v-if="subheading"
                     role="heading"
                     aria-level="4"
@@ -31,12 +31,12 @@
             </div>
 
             <ChevronUp24 
-                :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
+                :class="[ visible ? $style.accordionSvgDown : $style.accordionSvgUp ]"
                 aria-label="collapse / expand content"
             />
         </div>
         <div 
-            class="accordion-panel"
+            :class="[$style.accordionPanel]"
             v-show="visible"
         >
             <slot/>
@@ -44,41 +44,41 @@
     </div>
     <div
         v-else 
-        :class="[disabled ? 'accordion-container-gray' : 'accordion-container']"
+        :class="[$style.accordianElement, disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
         tabindex="0"
         role="accordion"
     > 
         <div 
-            class="accordion-wrapper-sm"
+            :class="[$style.accordionWrapperSm]"
             @click="toggle"
             @keyup.enter="toggle"
             ref="accordion"
         >
             <div 
-                class="accordion-heading-wrapper"
+                :class="[$style.accordionHeadingWrapper]"
                 v-if="!small"
             >
                 <p 
-                    class="accordion-heading"
+                    :class="[$style.accordionHeading]"
                     role="heading"
                     aria-level="3"
                 > 
                     {{ heading }} 
                 </p>
                 <p 
-                    class="accordion-sub-heading"
+                    :class="[$style.accordionSubHeading]"
                     v-if="subheading"
                     role="heading"
                     aria-level="4"
                 > {{ subheading }} </p>
             </div>
             <div 
-                class="accordion-heading-wrapper"
+                :class="[$style.accordionHeadingWrapper]"
                 v-else
             >
                 <p 
-                    class="accordion-heading-small"
+                    :class="[$style.accordionHeadingSmall]"
                     role="heading"
                     aria-level="3"
                 > 
@@ -87,12 +87,12 @@
             </div>
 
             <ChevronSmlUp24 
-                :class="[ visible ? 'accordion-svg-down' : 'accordion-svg-up' ]"
+                :class="[ visible ? $style.accordionSvgDown : $style.accordionSvgUp ]"
                 aria-label="collapse / expand content"
             />
         </div>
         <div 
-            class="accordion-panel"
+            :class="[$style.accordionPanel]"
             v-show="visible"
         >
             <slot/>
@@ -197,21 +197,21 @@
     })                                                                                                                                                                                                                                                                                                          
 </script>
 
-<style  lang="scss">
+<style module lang="scss">
     @import "../../node_modules/@fishtank/colors/dist/index";
     @import "../../node_modules/@fishtank/type/dist/index";
 
-    *{
+    .accordianElement {
         margin: 0px;
     }
 
-    .accordion-container{
+    .accordionContainer{
         display: flex;
         flex-direction: column;
         margin: 12px;
     }
 
-    .accordion-wrapper-lg{
+    .accordionWrapperLg{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -219,7 +219,7 @@
         padding: 12px;
         border-bottom: 1px solid $color-gray-lighter;
     }
-    .accordion-wrapper-sm{
+    .accordionWrapperSm{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -228,7 +228,7 @@
         border-bottom: 1px solid $color-gray-lighter;
     }
 
-    .accordion-container .accordion-wrapper-lg{
+    .accordionContainer .accordionWrapperLg{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -238,13 +238,13 @@
 
         &:hover{
 
-            .accordion-heading-wrapper{
+            .accordionHeadingWrapper{
 
-                .ft-accordion-heading{
+                .accordionHeading{
                     color: $color-black;
                 }
 
-                .accordion-sub-heading{
+                .accordionSubHeading{
                     color: $color-black;
                 }
 
@@ -257,7 +257,7 @@
         }
 
     }
-    .accordion-container .accordion-wrapper-sm{
+    .accordionContainer .accordionWrappeSm{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -267,13 +267,13 @@
 
         &:hover{
 
-            .accordion-heading-wrapper{
+            .accordionHeadingWrapper{
 
-                .ft-accordion-heading{
+                .accordionHeading{
                     color: $color-black;
                 }
 
-                .accordion-sub-heading{
+                .accordionSubHeading{
                     color: $color-black;
                 }
 
@@ -287,13 +287,13 @@
 
     }
 
-    .accordion-heading-wrapper{
+    .accordionHeadingWrapper{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
-    .accordion-heading{
+    .accordionHeading{
         color: $color-gray-dark;
         font-size: $fontsize-base-lg;
         font-weight: $fontweight-regular;
@@ -301,7 +301,7 @@
         letter-spacing: $letterspacing-base-lg;
     } 
 
-    .accordion-sub-heading{
+    .accordionSubHeading{
         color: $color-gray;
         font-size: $fontsize-base-sm;
         font-weight: $fontweight-regular;
@@ -309,7 +309,7 @@
         letter-spacing: $letterspacing-small;
     }
 
-    .accordion-heading-small{
+    .accordionHeadingSmall{
         color: $color-gray;
         font-size: $fontsize-base-md;
         font-weight: $fontweight-semi;
@@ -321,36 +321,36 @@
         color: $color-gray;      
     }
 
-    .accordion-panel{
+    .accordionPanel{
         padding: 0px
     }
 
-    .accordion-container-gray{
+    .accordionContainerGray{
         display: flex;
         flex-direction: column;
         margin: 12px;
     }
 
-    .accordion-container-gray .accordion-heading{
+    .accordionContainerGray .accordionHeading{
         color: $color-gray-lighter;
     }
 
-    .accordion-container-gray .accordion-heading-small{
+    .accordionContainerGray .accordionHeadingSmall{
         color: $color-gray-lighter;
     }
 
-    .accordion-container-gray .accordion-sub-heading{
+    .accordionContainerGray .accordionSubHeading{
         color: $color-gray-lighter;
     }
-    .accordion-container-gray svg{
+    .accordionContainerGray svg{
         color: $color-gray-lighter;
     }
 
-    .accordion-svg-up{
+    .accordionSvgUp{
         transition: 0.3s ease-in-out;
         transform: rotate(180deg);
     }
-    .accordion-svg-down{
+    .accordionSvgDown{
         transition: 0.3s ease-in-out;
         transform: rotate(0deg);
     }
