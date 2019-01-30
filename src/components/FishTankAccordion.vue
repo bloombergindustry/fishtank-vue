@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="!small"
-        :class="[$style.accordianElement] + [ disabled ? $style.accordionContainerGray : $style.accordionContainer]"
+        :class="[ disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
         tabindex="0"
         role="accordion"
@@ -44,7 +44,7 @@
     </div>
     <div
         v-else 
-        :class="[$style.accordianElement, disabled ? $style.accordionContainerGray : $style.accordionContainer]"
+        :class="[disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
         tabindex="0"
         role="accordion"
@@ -201,10 +201,6 @@
     @import "../../node_modules/@fishtank/colors/dist/index";
     @import "../../node_modules/@fishtank/type/dist/index";
 
-    .accordianElement {
-        margin: 0px;
-    }
-
     .accordionContainer{
         display: flex;
         flex-direction: column;
@@ -288,12 +284,14 @@
     }
 
     .accordionHeadingWrapper{
+        margin: 0px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
     .accordionHeading{
+        margin: 0px;
         color: $color-gray-dark;
         font-size: $fontsize-base-lg;
         font-weight: $fontweight-regular;
@@ -302,6 +300,7 @@
     } 
 
     .accordionSubHeading{
+        margin: 0px;
         color: $color-gray;
         font-size: $fontsize-base-sm;
         font-weight: $fontweight-regular;
@@ -310,6 +309,7 @@
     }
 
     .accordionHeadingSmall{
+        margin: 0px;
         color: $color-gray;
         font-size: $fontsize-base-md;
         font-weight: $fontweight-semi;
