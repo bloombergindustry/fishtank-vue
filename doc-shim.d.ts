@@ -7,7 +7,8 @@ declare module 'vue/types/vue' {
   }
   interface Vue {
     register(): void,
-    unregister(): void
+    unregister(): void,
+    closeSiblings():void
   }
 }
 

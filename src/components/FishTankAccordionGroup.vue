@@ -1,24 +1,72 @@
 <template>
-    <div>
+    <div
+        :id="(id !== null? id:labelId)"
+        role="accordion group"
+        tabindex="0"
+    >
         <slot/>
     </div>
 </template>
 
-<script>
-    export default {
+<script lang="ts">
+    import Vue from 'vue'
+
+    interface AccordionComponent extends Vue{
+        setFocus(): void,
+        toggle(): void 
+    }
+
+    export default Vue.extend({
         data: function(){
             return{
-                children: []
+                registeredChildren: [],
             }
         },
         props:{
-            
+            id:{
+                type: String,
+                default: null,
+                required: false
+            },
+            single:{
+                type: Boolean,
+                default: false,
+                required: true,
+                description:"Allows only one accordion to be open at a time."
+            }
+        },
+        provide: function(){
+            const fishtankAccordionGroupShared = {
+                register: this.register,
+                unregister: this.unregister,
+                closeSiblings: this.closeSiblings,
+            }
+            return {fishtankAccordionGroupShared}
+        },
+        computed:{
+            labelId(): string{
+                return `accordion-group-${(this as any)._uid}`
+            }
         },
         methods:{
-
+            register(componentAsThis:any):void {
+                (this as any).registeredChildren.push(componentAsThis);
+            },
+            unregister(componentAsThis:any):void{
+                let index = ((this as any).registeredChildren as any[]).indexOf(componentAsThis);
+                if(index > -1){
+                    (this as any).registeredChildren.splice(index, 1);
+                }
+            },
+            closeSiblings(componentAsThis:any):void{
+                (this as any).registeredChildren.map((i:any)=>{
+                    i.visible = false
+                })
+                
+            },
+           
         }
-        
-    }
+    })
 </script>
 
 <style scoped>

@@ -1,68 +1,80 @@
 <template>
     <div>
-        <h1>Single Accordions ( Large ) </h1>
+        <h1>Single Accordions [ Default ]</h1>
 
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Section Heading"
         >
             <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
-        <FishTankAccordionLarge 
-            heading="Section Heading"
-            subheading="Sub-heading"
-        >
-            <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
-
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Another Section Heading"
-            subheading="Another Sub-heading"
+            subheading="A Sub-heading"
         >
             <FishTankLoaderContent theme="MembersOfCongressList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
-        <FishTankAccordionLarge 
+        <FishTankAccordion 
             heading="Disabled Section Heading"
             subheading="Disabled Sub-heading"
             :disabled="disabledAccordion"
         >
             <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordionLarge>
+        </FishTankAccordion>
 
         <br/>
 
-        <h1>Accordion Group ( Large ) </h1>
+        <h1> Single Accordion [ Small ]</h1>
 
         <br/>
 
-        <FishTankAccordionGroup>
+        <FishTankAccordion
+            :small="true"
+            heading="Small Section Heading"
+        >
+            <FishTankLoaderContent theme="AlertList"/>
+        </FishTankAccordion>
 
-            <FishTankAccordionLarge 
+        <FishTankAccordion
+            :small="true"
+            heading="Disabled Small Section Heading"
+            :disabled="disabledAccordion"
+        >
+            <FishTankLoaderContent theme="AlertList"/>
+        </FishTankAccordion>
+
+        <br/>
+
+        <h1>Accordion Group </h1>
+
+        <br/>
+
+        <FishTankAccordionGroup
+            :single="true"
+        >
+
+            <FishTankAccordion 
                 heading="Group Section Heading"
                 subheading="Group Sub-heading"
             >
                 <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordionLarge>
-            <FishTankAccordionLarge 
+            </FishTankAccordion>
+            <FishTankAccordion 
                 heading="Another Group Section Heading"
                 subheading="Another Group Sub-heading"
             >
                 <FishTankLoaderContent theme="MembersOfCongressList"/>
-            </FishTankAccordionLarge>
+            </FishTankAccordion>
 
-            <FishTankAccordionLarge 
+            <FishTankAccordion 
                 heading="Yet Another Group Section Heading"
                 subheading="Yet Another Group Sub-heading"
             >
                 <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordionLarge>
+            </FishTankAccordion>
         
         </FishTankAccordionGroup>
-
-    
-
-
 
     </div>
 </template>
@@ -70,14 +82,14 @@
 <script>
 
     import{
-        FishTankAccordionLarge,
+        FishTankAccordion,
         FishTankLoaderContent,
         FishTankAccordionGroup 
     }from '@/index'
 
     export default {
         components: {
-            FishTankAccordionLarge,
+            FishTankAccordion,
             FishTankLoaderContent,
             FishTankAccordionGroup
         },
