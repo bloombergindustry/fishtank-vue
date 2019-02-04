@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="{ 'button': true, 'button--disabled': disabled, 'button--block': block }"
+    :class="{ 'button': true, 'buttonDisabled': disabled, 'buttonBlock': block }"
     :disabled="disabled"
     type="button"
     v-on="listeners"
@@ -91,7 +91,7 @@ export default Vue.extend({
 
   }
 
-  .button--block {
+  .buttonBlock {
     display: block;
     width: 100%;
   }
