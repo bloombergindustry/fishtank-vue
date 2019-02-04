@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="{ 'button': true, 'button--disabled': disabled, 'button--block': block }"
+    :class="{[$style.button] : true , [$style.buttonDisabled] : disabled , [$style.buttonBlock] : block}"
     :disabled="disabled"
     type="button"
     v-on="listeners"
@@ -50,7 +50,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
@@ -91,7 +91,7 @@ export default Vue.extend({
 
   }
 
-  .button--block {
+  .buttonBlock {
     display: block;
     width: 100%;
   }
