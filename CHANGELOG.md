@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0-2"></a>
+# [4.1.0-2](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.2...v4.1.0-2) (2019-02-04)
+
+
+### Features
+
+* addded basic group toggle functionality to group accordions ([5f2dfbf](https://github.com/bloombergbna/fishtank-vue/commit/5f2dfbf))
+* addded basic group toggle functionality to group accordions ([b17cfea](https://github.com/bloombergbna/fishtank-vue/commit/b17cfea))
+* added css modules to accordion component ([df0d5e1](https://github.com/bloombergbna/fishtank-vue/commit/df0d5e1))
+* added css modules to accordion component ([7c1b511](https://github.com/bloombergbna/fishtank-vue/commit/7c1b511))
+* added documentation to FishTankCheckbox ([e1054e8](https://github.com/bloombergbna/fishtank-vue/commit/e1054e8))
+* added documentation to FishTankCheckbox ([3f1339d](https://github.com/bloombergbna/fishtank-vue/commit/3f1339d))
+* added documentation to FishTankCheckbox ([21f753c](https://github.com/bloombergbna/fishtank-vue/commit/21f753c))
+* basic functionality to accordion group added ([89fc054](https://github.com/bloombergbna/fishtank-vue/commit/89fc054))
+* basic functionality to accordion group added ([62813af](https://github.com/bloombergbna/fishtank-vue/commit/62813af))
+* changes to accordion group ([8ba4551](https://github.com/bloombergbna/fishtank-vue/commit/8ba4551))
+* changes to accordion group ([acf240f](https://github.com/bloombergbna/fishtank-vue/commit/acf240f))
+* cleaned up console errors on accordion group ([8d49cc8](https://github.com/bloombergbna/fishtank-vue/commit/8d49cc8))
+* cleaned up console errors on accordion group ([977723c](https://github.com/bloombergbna/fishtank-vue/commit/977723c))
+* fixed margin errors in accordion styles ([09f5df2](https://github.com/bloombergbna/fishtank-vue/commit/09f5df2))
+* fixed margin errors in accordion styles ([786d57f](https://github.com/bloombergbna/fishtank-vue/commit/786d57f))
+* minor changes to accordion large structure ([55d88a7](https://github.com/bloombergbna/fishtank-vue/commit/55d88a7))
+* minor changes to accordion large structure ([2a5fec3](https://github.com/bloombergbna/fishtank-vue/commit/2a5fec3))
+* minor changes to accordion large structure ([dfd178e](https://github.com/bloombergbna/fishtank-vue/commit/dfd178e))
+* minor changes to accordion large structure ([3fa6d41](https://github.com/bloombergbna/fishtank-vue/commit/3fa6d41))
+* modified alignment of labels within buttons ([45eae06](https://github.com/bloombergbna/fishtank-vue/commit/45eae06))
+* Refactored Box to remove dependancy on vue-property-decorator ([5d1624c](https://github.com/bloombergbna/fishtank-vue/commit/5d1624c))
+* Refactored Box to remove dependancy on vue-property-decorator ([9ac0636](https://github.com/bloombergbna/fishtank-vue/commit/9ac0636))
+* renamed fishtank accordion large to fishtank accordion ([eb34c29](https://github.com/bloombergbna/fishtank-vue/commit/eb34c29))
+* renamed fishtank accordion large to fishtank accordion ([92534ad](https://github.com/bloombergbna/fishtank-vue/commit/92534ad))
+* updated styles on accordian component ([1e60c34](https://github.com/bloombergbna/fishtank-vue/commit/1e60c34))
+* updated styles on accordian component ([e0d5068](https://github.com/bloombergbna/fishtank-vue/commit/e0d5068))
+
+
+
 <a name="4.1.0-1"></a>
 # [4.1.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-0...v4.1.0-1) (2019-01-28)
 
