@@ -71,7 +71,9 @@
                 heading="Yet Another Group Section Heading"
                 subheading="Yet Another Group Sub-heading"
             >
-                <FishTankLoaderContent theme="AlertList"/>
+                <FishTankButtonPrimary
+                    
+                > Click </FishTankButtonPrimary>
             </FishTankAccordion>
         
         </FishTankAccordionGroup>
@@ -84,14 +86,16 @@
     import{
         FishTankAccordion,
         FishTankLoaderContent,
-        FishTankAccordionGroup 
+        FishTankAccordionGroup,
+        FishTankButtonPrimary 
     }from '@/index'
 
     export default {
         components: {
             FishTankAccordion,
             FishTankLoaderContent,
-            FishTankAccordionGroup
+            FishTankAccordionGroup,
+            FishTankButtonPrimary
         },
         data: function() {
             return{

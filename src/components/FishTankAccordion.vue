@@ -3,13 +3,17 @@
         v-if="!small"
         :class="[ disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
-        tabindex="0"
         role="accordion"
     > 
         <div 
             :class="[$style.accordionWrapperLg]"
-            @click="toggle"
+            tabindex="0"
+            @keypress="toggle"
+            @keydown.enter="toggle"
             @keyup.enter="toggle"
+            @keyup.13="toggle"
+            @keydown.13="toggle"
+            @click="toggle"
             ref="accordion"
         >
             <div 
@@ -38,6 +42,7 @@
         <div 
             :class="[$style.accordionPanel]"
             v-show="visible"
+            :tabindex='( visible ? "0" : null)'
         >
             <slot/>
         </div>
@@ -94,6 +99,7 @@
         <div 
             :class="[$style.accordionPanel]"
             v-show="visible"
+            :tabindex='( visible ? "0" : null)'
         >
             <slot/>
         </div>
@@ -185,9 +191,9 @@
                     }
                 }
             },
-            setFocus(){
-                (this.$refs.accordion as HTMLElement).focus()
-            }
+            // setFocus(){
+            //     (this.$refs.accordion as HTMLElement).focus()
+            // }
         },
         computed:{ 
             labelId(): string{
@@ -201,6 +207,7 @@
     @import "../../node_modules/@fishtank/colors/dist/index";
     @import "../../node_modules/@fishtank/type/dist/index";
 
+    
     .accordionContainer{
         display: flex;
         flex-direction: column;
@@ -280,7 +287,7 @@
             }
 
         }
-
+        
     }
 
     .accordionHeadingWrapper{
