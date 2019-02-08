@@ -51,13 +51,17 @@
         v-else 
         :class="[disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
-        tabindex="0"
         role="accordion"
     > 
         <div 
             :class="[$style.accordionWrapperSm]"
-            @click="toggle"
+            tabindex="0"
+            @keypress="toggle"
+            @keydown.enter="toggle"
             @keyup.enter="toggle"
+            @keyup.13="toggle"
+            @keydown.13="toggle"
+            @click="toggle"
             ref="accordion"
         >
             <div 

@@ -33,7 +33,7 @@
             :small="true"
             heading="Small Section Heading"
         >
-            <FishTankLoaderContent theme="AlertList"/>
+            <FishTankButtonPrimary> Click </FishTankButtonPrimary>
         </FishTankAccordion>
 
         <FishTankAccordion
@@ -71,9 +71,7 @@
                 heading="Yet Another Group Section Heading"
                 subheading="Yet Another Group Sub-heading"
             >
-                <FishTankButtonPrimary
-                    
-                > Click </FishTankButtonPrimary>
+                <FishTankButtonPrimary> Click </FishTankButtonPrimary>
             </FishTankAccordion>
         
         </FishTankAccordionGroup>
@@ -100,6 +98,11 @@
         data: function() {
             return{
                 disabledAccordion : true
+            }
+        },
+        medthods:{
+            alert(){
+                alert('Hey :)')
             }
         }
         
