@@ -68,23 +68,3 @@ export const toProps = ({
 
   return props
 }
-interface colorObject
-  {
-    colorname:string
-  }
-const getColorsArray = function(colorObj:colorObject){
-  let arr:Array<string> = []
-  for (const key in colorObj) {
-    if (colorObj.hasOwnProperty(key)) {
-      let int = key.replace('color','')
-      arr = [...arr, int.slice(0,1).toLowerCase()+int.slice(1)]
-    }
-  }
-  return arr
-}
-
-const ftColors = require('@fishtank/colors/dist/index.common')
-export const returnColorsArray = function(colorObj:colorObject){
-  return getColorsArray(colorObj)
-}
-export const returnFtColors = getColorsArray(require('@fishtank/colors/dist/index.common'))

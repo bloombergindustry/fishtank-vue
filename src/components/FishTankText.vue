@@ -1,9 +1,4 @@
 <script lang="ts">
-//Alignment meeds to be built
-// example needs a trigger wrapping element/s to show block vs inline
-// add option to show primary vs accent font stack
-// add addional font weight options for regular
-
 import Vue, {VNode} from 'vue'
   import {
     Style,
@@ -13,9 +8,7 @@ import Vue, {VNode} from 'vue'
     fromClassName,
     mapClassName,
     concat,
-    toProps,
-    returnFtColors,
-    returnColorsArray
+    toProps
   } from '../util/style'
 
   import {
@@ -23,6 +16,9 @@ import Vue, {VNode} from 'vue'
     toggle
   } from '../util/transform'
   import ftColorsObj from '@fishtank/colors/dist/text.common.js'
+  import {
+    propToFishtankColorName
+  } from '../util/mappers'
   import _ from 'lodash'
 
   const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
@@ -31,8 +27,6 @@ import Vue, {VNode} from 'vue'
   {
     colorname:string
   }
-
-  const colors = returnColorsArray(ftColorsObj)
 
   export default Vue.extend({
     name:"FishTankText",
@@ -48,7 +42,7 @@ import Vue, {VNode} from 'vue'
       color: {
         type: String,
         validator: function (value: string) {
-          return colors.indexOf(value) !== -1
+          return propToFishtankColorName(value) in ftColorsObj
         },
         default: 'black',
         description:"Font color",
@@ -153,12 +147,7 @@ import Vue, {VNode} from 'vue'
         if (!value) return identity()
         let style = (<any>this).styles
         let allColorMappings = mapping(style)
-        let mapColorNameToClass = (colorName: string) => {
-          let [prefix, rest] = [colorName[0], colorName.substring(1, colorName.length)]
-          let colorClassName = `color${prefix.toUpperCase()}${rest}`
-          return colorClassName
-        }
-        return allColorMappings(mapColorNameToClass(value))
+        return allColorMappings(propToFishtankColorName(value))
       }
     },
     render(createElement) {

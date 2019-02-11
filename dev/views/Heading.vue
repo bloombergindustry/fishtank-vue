@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-wrapper">
-      <fish-tank-heading 
+      <fish-tank-heading
         :level="level.toString()"
         :color="textColor"
         :size="textSize"
@@ -13,7 +13,7 @@
       <label>
         <div>
           <br>
-          <fish-tank-text 
+          <fish-tank-text
             bold
             italic >Level</fish-tank-text>
           <select v-model="level">
@@ -22,7 +22,7 @@
         </div>
         <div>
           <br>
-          <fish-tank-text 
+          <fish-tank-text
             bold
             italic >Font</fish-tank-text>
           <select v-model="font">
@@ -30,17 +30,17 @@
             <option value="accent">accent</option>
           </select>
         </div>
-        
+
         <div>
           <br>
           <fish-tank-text
-          color="black" 
+          color="black"
             bold
             italic >Colors</fish-tank-text>
           <select v-model="textColor">
-            <option 
-              v-for="(color, index) in options.colors" 
-              :value="color" 
+            <option
+              v-for="(color, index) in options.colors"
+              :value="color"
               :key="index">{{ color }}</option>
           </select>
         </div>
@@ -48,7 +48,7 @@
 
       <div>
         <br>
-        <fish-tank-text 
+        <fish-tank-text
           bold
           italic >Font Size</fish-tank-text>
         <select v-model="textSize">
@@ -74,11 +74,11 @@
 
       <div>
         <br>
-        <fish-tank-checkbox 
-          v-model="bold" 
+        <fish-tank-checkbox
+          v-model="bold"
           label="Bold"/>
-        <fish-tank-checkbox 
-          v-model="semiBold" 
+        <fish-tank-checkbox
+          v-model="semiBold"
           label="SemiBold"/>
       </div>
     </div>
@@ -91,13 +91,14 @@
 import Vue from 'vue'
 import { FishTankText, FishTankCheckbox, FishTankHeading} from "@/index"
 import {
-    returnColorsArray
-  } from '../../src/util/style'
+  fishtankToPropName
+} from '../../src/util/mappers'
 import * as heading from '@fishtank/colors/dist/heading.common.js'
+import _ from 'lodash'
 
 const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
 const align = ['left', 'right', 'center', 'justify']
-const colors = returnColorsArray(heading)
+const colors = _.keys(heading).map(fishtankToPropName)
 export default Vue.extend({
   components: {
     FishTankText,
