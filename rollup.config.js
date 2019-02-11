@@ -51,6 +51,20 @@ const builds = {
     dest: `dist/${projectName}.esm.js`,
     format: "es",
   },
+  cjsProduction: {
+    entry: "src/index.ts",
+    dest: `dist/${projectName}.common.min.js`,
+    format: "cjs",
+    env:'production'
+  },
+  // (ES Modules). Used by bundlers that support ES Modules,
+  // e.g. Rollup & Webpack 2
+  esmProduction: {
+    entry: "src/index.ts",
+    dest: `dist/${projectName}.esm.min.js`,
+    format: "es",
+    env:'production'
+  },
 }
 
 function genConfig(name) {
@@ -83,7 +97,7 @@ function genConfig(name) {
               autoprefixer,
             ],
             postcssModulesOptions:{
-              generateScopedName: '[name]-[local]-[hash:base64:4]'
+              generateScopedName: 'ft-[local]-[hash:base64:4]'
             }
           },
         }

@@ -38,6 +38,7 @@
   "files":[
     "vue-shim.d.ts",
     "doc-shim.d.ts",
-    "vendors-shim.d.ts"
+    "vendors-shim.d.ts",
+    "dependancy-shim.d.ts"
   ]
 }
