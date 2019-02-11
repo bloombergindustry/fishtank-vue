@@ -101,9 +101,7 @@
             }
         },
         medthods:{
-            alert(){
-                alert('Hey :)')
-            }
+           
         }
         
     }

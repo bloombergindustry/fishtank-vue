@@ -13,7 +13,7 @@
             @keyup.enter="toggle"
             @keyup.13="toggle"
             @keydown.13="toggle"
-            @click="toggle"
+            @click=" mouseFocus(true); toggle()"
             ref="accordion"
         >
             <div 
@@ -61,7 +61,7 @@
             @keyup.enter="toggle"
             @keyup.13="toggle"
             @keydown.13="toggle"
-            @click="toggle"
+            @click=" mouseFocus(true); toggle()"
             ref="accordion"
         >
             <div 
@@ -131,8 +131,7 @@
         },
         data: function(){
             return{
-                visible: false
-                
+                visible: false,
             }
         },
         props:{
@@ -195,9 +194,12 @@
                     }
                 }
             },
-            // setFocus(){
-            //     (this.$refs.accordion as HTMLElement).focus()
-            // }
+            mouseFocus( focusState : Boolean){
+                if( focusState){
+                    (this.$refs.accordion as HTMLElement).blur()   
+                }
+            },
+         
         },
         computed:{ 
             labelId(): string{
