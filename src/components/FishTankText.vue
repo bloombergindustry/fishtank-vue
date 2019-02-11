@@ -23,10 +23,6 @@ import Vue, {VNode} from 'vue'
 
   const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
   const align = ['left', 'right', 'center', 'justify']
-  interface colorObject
-  {
-    colorname:string
-  }
 
   export default Vue.extend({
     name:"FishTankText",
@@ -45,8 +41,7 @@ import Vue, {VNode} from 'vue'
           return propToFishtankColorName(value) in ftColorsObj
         },
         default: 'black',
-        description:"Font color",
-        colors:`${colors}`
+        description:"Font color"
       },
       inline: {
         type: Boolean,
