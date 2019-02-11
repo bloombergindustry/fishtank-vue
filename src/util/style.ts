@@ -84,5 +84,7 @@ const getColorsArray = function(colorObj:colorObject){
 }
 
 const ftColors = require('@fishtank/colors/dist/index.common')
-
+export const returnColorsArray = function(colorObj:colorObject){
+  return getColorsArray(colorObj)
+}
 export const returnFtColors = getColorsArray(require('@fishtank/colors/dist/index.common'))

@@ -22,21 +22,31 @@ import Vue, {VNode} from 'vue'
     mapping,
     toggle
   } from '../util/transform'
-  import ftColorsObj from '@fishtank/colors/dist/text.common.js'
+  
+  import ftColorsObj from '@fishtank/colors/dist/heading.common.js'
+  
   import _ from 'lodash'
 
   const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
-  const align = ['left', 'right', 'center', 'justify']
+  const align = ['left', 'center']
   interface colorObject
   {
     colorname:string
-  }
+  } 
   
   const colors = returnColorsArray(ftColorsObj)
 
   export default Vue.extend({
-    name:"FishTankText",
+    name:"FishTankHeading",
     props: {
+      level:{
+        type:String,
+        default:'1',
+        validator: function (value: string) {
+          return (0<(parseInt(value) && 7>parseInt(value)))
+        },
+        description:"Heading Semantic Level"
+      },
       align: {
         type: String,
         default: 'left',
@@ -52,12 +62,6 @@ import Vue, {VNode} from 'vue'
         },
         default: 'black',
         description:"Text color"
-      },
-      inline: {
-        type: Boolean,
-        required: false,
-        default: false,
-        description:"Text renders in an inline element (span"
       },
       bold: {
         type: Boolean,
@@ -87,10 +91,6 @@ import Vue, {VNode} from 'vue'
           return ['primary', 'accent'].indexOf(value) !== -1
         },
       },
-      italic: {
-        default: false,
-        type: Boolean
-      }
     },
     computed: {
       styles () {
@@ -105,7 +105,6 @@ import Vue, {VNode} from 'vue'
           inline: toggle(style.inline),
           semiBold: toggle(style.fontWeightSemiBold),
           bold: toggle(style.fontWeightBold),
-          italic: toggle(style.fontStyleItalic),
           size: (<any>this).fontMappingFunc,
           font: mapping(style)
         }
@@ -152,21 +151,15 @@ import Vue, {VNode} from 'vue'
     },
     render(createElement) {
       let textProps = (<any>this).textProps as {class: string, style: InlineStyle}
-
-      if (this.$props.inline) {
-        return createElement(
-          'span', {class: textProps.class, style: textProps.style}, this.$slots.default
-        )
-      } else {
-        return createElement(
-          'div', {class: textProps.class, style: textProps.style}, this.$slots.default
-        )
-      }
+      
+      return createElement(
+        'h'+(<any>this).level, {class: textProps.class, style: textProps.style}, this.$slots.default
+      )
     }
   })
 </script>
 <style module lang="scss">
-  @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
+  @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-heading';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
   @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
 
@@ -241,16 +234,16 @@ import Vue, {VNode} from 'vue'
     text-align: left;
   }
 
-  .alignRight {
-    text-align: right;
-  }
+  // .alignRight {
+  //   text-align: right;
+  // }
 
   .alignCenter {
     text-align: center;
   }
 
-  .textJustify {
-    text-align: justify;
-  }
+  // .textJustify {
+  //   text-align: justify;
+  // }
   
 </style>
