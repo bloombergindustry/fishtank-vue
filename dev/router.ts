@@ -59,6 +59,10 @@ export default new Router({
       component: () => import("./views/Text.vue")
     },
     {
+      path: '/heading',
+      component: () => import("./views/Heading.vue")
+    },
+    {
       path: '/pagination',
       component: () => import("./views/Pagination.vue")
     },
