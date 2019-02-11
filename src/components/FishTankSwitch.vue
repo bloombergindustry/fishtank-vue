@@ -40,11 +40,13 @@ export default Vue.extend({
     disabled:{
       type:Boolean,
       required:false,
-      default:false
+      default:false,
+      description:'Switch is disabled'
     },
     value: {
       default:null,
       type: [String, Boolean, Object, Array, Number],
+      description:'Switch value'
     },
     modelValue: {
       type:[String, Boolean, Object, Array, Number],
@@ -52,12 +54,14 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      required: true
+      required: true,
+      description:'Switch label'
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:'Switch ID'
     },
     trueValue: {
       default: true,

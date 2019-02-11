@@ -51,7 +51,8 @@ import Vue, {VNode} from 'vue'
           return colors.indexOf(value) !== -1
         },
         default: 'black',
-        description:"Font color"
+        description:"Font color",
+        colors:`${colors}`
       },
       inline: {
         type: Boolean,

@@ -61,7 +61,7 @@ export default Vue.extend({
       type:Boolean,
       default:null,
       require:false,
-      description:"Specify if radio should be disabled"
+      description:"Radio is disabled"
     },
     modelValue: {
       type:[String,Boolean,Object,Number],
