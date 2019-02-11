@@ -3,11 +3,12 @@ import {
   concat,
   fromClassName,
   identity,
-  mapClassName
+  mapClassName,
+  Style
 } from './style'
 
 
-export function mapping(map: {[key: string]: string}) {
+export function mapping(map: {[key: string]: string}): (val: string) => Style {
   return (val: string) => {
     return _.has(map, val) ? fromClassName(map[val]) : identity()
   }
@@ -18,33 +19,25 @@ export function mapping(map: {[key: string]: string}) {
 //     <Box top />
 //
 
-export function toggle(...classNames: Array<string>) {
+export function toggle(...classNames: Array<string>) : (val: boolean) => Style{
   return (val: boolean) => {
     return val ? fromClassName(...classNames) : identity()
   }
 }
 
-export function range(scale: string) {
+export function range(scale: string): (val: number) => Style {
   return (val: number) => {
     return fromClassName(`${scale}${val < 0 ? `N${Math.abs(val)}` : val}`)
   }
 }
 
-export function rangeWithoutZero(scale: string) {
+export function rangeWithoutZero(scale: string): (val: number) => Style {
   return (val: number) => {
     return val === 0 ? identity() : range(scale)(val)
   }
 }
 
-// export function bind(fn, scope) {
-//   return val => {
-//     return mapClassName(name => scope[name])(fn(val))
-//   }
-// }
-
-// export const union = (...fns) => val => concat(fns.map(fn => fn(val)))
-
-export function bind(fn:any, scope:any) {
+export function bind(fn:any, scope:any): (val: string) => Style {
   return (val: any) => {
     return mapClassName(name => scope[name])(fn(val))
   }

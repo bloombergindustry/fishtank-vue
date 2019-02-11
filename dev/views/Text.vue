@@ -19,7 +19,7 @@
       <label>
         <div>
           <br>
-          <fish-tank-text 
+          <fish-tank-text
             bold
             italic >Font</fish-tank-text>
           <select v-model="font">
@@ -27,16 +27,16 @@
             <option value="accent">accent</option>
           </select>
         </div>
-        
+
         <div>
           <br>
-          <fish-tank-text 
+          <fish-tank-text
             bold
             italic >Colors</fish-tank-text>
           <select v-model="textColor">
-            <option 
-              v-for="(color, index) in options.colors" 
-              :value="color" 
+            <option
+              v-for="(color, index) in options.colors"
+              :value="color"
               :key="index">{{ color }}</option>
           </select>
         </div>
@@ -44,7 +44,7 @@
 
       <div>
         <br>
-        <fish-tank-text 
+        <fish-tank-text
           bold
           italic >Font Size</fish-tank-text>
         <select v-model="textSize">
@@ -72,26 +72,26 @@
 
       <div>
         <br>
-        <fish-tank-checkbox 
-          v-model="bold" 
+        <fish-tank-checkbox
+          v-model="bold"
           label="Bold"/>
-        <fish-tank-checkbox 
-          v-model="semiBold" 
+        <fish-tank-checkbox
+          v-model="semiBold"
           label="SemiBold"/>
-        <fish-tank-checkbox 
-          v-model="inline" 
+        <fish-tank-checkbox
+          v-model="inline"
           label="Inline"/>
-        <fish-tank-checkbox 
-          v-model="italic" 
+        <fish-tank-checkbox
+          v-model="italic"
           label="Italic"/>
       </div>
     </div>
     <fish-tank-text
-      block 
+      block
       bold>The Component Can be nested</fish-tank-text>
     <fish-tank-text block>
-      This text block wraps 
-      <fish-tank-text 
+      This text block wraps
+      <fish-tank-text
         inline
         color="action">this inner text block</fish-tank-text> in the action color.
     </fish-tank-text>
@@ -103,12 +103,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FishTankText, FishTankCheckbox} from "@/index"
+import ftColorsObj from '@fishtank/colors/dist/text.common.js'
 import {
-    returnFtColors
-  } from '../../src/util/style'
+  fishtankToPropName
+} from '../../src/util/mappers'
+import _ from 'lodash'
+
 const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
 const align = ['left', 'right', 'center', 'justify']
-const colors = returnFtColors
+const colors = _.keys(ftColorsObj).map(fishtankToPropName)
 
 export default Vue.extend({
   components: {

@@ -13,28 +13,23 @@ import Vue, {VNode} from 'vue'
     fromClassName,
     mapClassName,
     concat,
-    toProps,
-    returnFtColors,
-    returnColorsArray
+    toProps
   } from '../util/style'
 
   import {
     mapping,
     toggle
   } from '../util/transform'
-  
+
   import ftColorsObj from '@fishtank/colors/dist/heading.common.js'
-  
+  import {
+    propToFishtankColorName
+  } from '../util/mappers'
+
   import _ from 'lodash'
 
   const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
   const align = ['left', 'center']
-  interface colorObject
-  {
-    colorname:string
-  } 
-  
-  const colors = returnColorsArray(ftColorsObj)
 
   export default Vue.extend({
     name:"FishTankHeading",
@@ -58,7 +53,7 @@ import Vue, {VNode} from 'vue'
       color: {
         type: String,
         validator: function (value: string) {
-          return colors.indexOf(value) !== -1
+          return propToFishtankColorName(value) in ftColorsObj
         },
         default: 'black',
         description:"Text color"
@@ -98,7 +93,7 @@ import Vue, {VNode} from 'vue'
         return style
       },
       propMapping () {
-        
+
         let style = (<any>this).styles
         return {
           color: (<any>this).colorMappingFunc,
@@ -141,17 +136,12 @@ import Vue, {VNode} from 'vue'
         if (!value) return identity()
         let style = (<any>this).styles
         let allColorMappings = mapping(style)
-        let mapColorNameToClass = (colorName: string) => {
-          let [prefix, rest] = [colorName[0], colorName.substring(1, colorName.length)]
-          let colorClassName = `color${prefix.toUpperCase()}${rest}`
-          return colorClassName
-        }
-        return allColorMappings(mapColorNameToClass(value))
+        return allColorMappings(propToFishtankColorName(value))
       }
     },
     render(createElement) {
       let textProps = (<any>this).textProps as {class: string, style: InlineStyle}
-      
+
       return createElement(
         'h'+(<any>this).level, {class: textProps.class, style: textProps.style}, this.$slots.default
       )
@@ -182,7 +172,7 @@ import Vue, {VNode} from 'vue'
     font-weight: normal;
   }
   .fontWeightSemiBold {
-    font-weight: 600; 
+    font-weight: 600;
   }
   .fontWeightBold {
     font-weight: 700;
@@ -199,12 +189,12 @@ import Vue, {VNode} from 'vue'
 
   /* transforms */
   .capitalize {
-    text-transform: capitalize; 
+    text-transform: capitalize;
   }
 
   /* decorations */
   .underline {
-    text-decoration: underline; 
+    text-decoration: underline;
   }
 
   .lineThrough {
@@ -245,5 +235,5 @@ import Vue, {VNode} from 'vue'
   // .textJustify {
   //   text-align: justify;
   // }
-  
+
 </style>
