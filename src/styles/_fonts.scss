@@ -1,13 +1,13 @@
 @mixin webfont($family, $weight, $basePath) {
-  @font-face {
-    font-family: $family;
-    font-style: normal;
-    font-weight: $weight;
-    src: url("#{$basePath}.eot");
-    src: url("#{$basePath}.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
-         url("#{$basePath}.woff2") format('woff2'), /* Super Modern Browsers */
-         url("#{$basePath}.woff") format('woff') /* Modern Browsers */
-  }
+  // @font-face {
+  //   font-family: $family;
+  //   font-style: normal;
+  //   font-weight: $weight;
+  //   src: url("#{$basePath}.eot");
+  //   src: url("#{$basePath}.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+  //        url("#{$basePath}.woff2") format('woff2'), /* Super Modern Browsers */
+  //        url("#{$basePath}.woff") format('woff') /* Modern Browsers */
+  // }
 }
 
 @mixin opensans($weight, $basePath) {
@@ -19,22 +19,22 @@
 }
 
 @mixin declare-webfonts() {
-  @include opensans(400, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-regular');
-  @include opensans(600, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-600');
-  @include opensans(700, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-700');
+  // @include opensans(400, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-regular');
+  // @include opensans(600, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-600');
+  // @include opensans(700, 'https://cdn.bgovcontent.com/fonts/open-sans-v15-latin-700');
 
-  @include avenir(400, 'https://cdn.bgovcontent.com/fonts/AvenirNext-Regular');
-  @include avenir(600, 'https://cdn.bgovcontent.com/fonts/AvenirNext-Demi');
+  // @include avenir(400, 'https://cdn.bgovcontent.com/fonts/AvenirNext-Regular');
+  // @include avenir(600, 'https://cdn.bgovcontent.com/fonts/AvenirNext-Demi');
   // @include avenir(700, 'https://cdn.bgovcontent.com/fonts/AvenirNextMForBBG-Bold');
 
   /* We don't have an EOT file for Avenir Bold right now so let's declare the font family without that */
-  @font-face {
-      font-family: 'avenir next';
-      font-style: normal;
-      font-weight: 700;
-      src: url('https://cdn.bgovcontent.com/fonts/AvenirNextMForBBG-Bold.woff2') format('woff2'),
-          url('https://cdn.bgovcontent.com/fonts/AvenirNextMForBBG-Bold.woff') format('woff');
-  }
+  // @font-face {
+      // font-family: 'avenir next';
+      // font-style: normal;
+      // font-weight: 700;
+      // src: url('https://cdn.bgovcontent.com/fonts/AvenirNextMForBBG-Bold.woff2') format('woff2'),
+      //     url('https://cdn.bgovcontent.com/fonts/AvenirNextMForBBG-Bold.woff') format('woff');
+  // }
 
   body {
     -webkit-font-smoothing: antialiased;
