@@ -31,7 +31,7 @@ import Vue, {VNode} from 'vue'
   {
     colorname:string
   }
-  
+
   const colors = returnColorsArray(ftColorsObj)
 
   export default Vue.extend({
@@ -98,7 +98,6 @@ import Vue, {VNode} from 'vue'
         return style
       },
       propMapping () {
-        
         let style = (<any>this).styles
         return {
           color: (<any>this).colorMappingFunc,
@@ -106,8 +105,24 @@ import Vue, {VNode} from 'vue'
           semiBold: toggle(style.fontWeightSemiBold),
           bold: toggle(style.fontWeightBold),
           italic: toggle(style.fontStyleItalic),
-          size: (<any>this).fontMappingFunc,
-          font: mapping(style)
+          size: mapping({
+            headingLg: style.fontSizeHeadingLg,
+            headingMd: style.fontSizeHeadingMd,
+            headingSm: style.fontSizeHeadingSm,
+            baseLg: style.fontSizeBaseLg,
+            baseMd: style.fontSizeBaseMd,
+            baseSm: style.fontSizeBaseSm
+          }),
+          font: mapping({
+            primary: style.primary,
+            accent: style.accent
+          }),
+          align: mapping({
+            left: style.alignLeft,
+            right: style.alignRight,
+            center: style.alignCenter,
+            justify: style.alignJustify
+          })
         }
       },
       textProps(): { class: string, style: InlineStyle } {
@@ -127,17 +142,6 @@ import Vue, {VNode} from 'vue'
       }
     },
     methods: {
-      fontMappingFunc(value: string) {
-        if (!value) return identity()
-        let style = (<any>this).styles
-        let allFontNameToClass = mapping(style)
-        let mapFontNameToClass = (textName: string) => {
-          let [prefix, rest] = [textName[0], textName.substring(1, textName.length)]
-          let colorClassName = `fontSize${prefix.toUpperCase()}${rest}`
-          return colorClassName
-        }
-        return allFontNameToClass(mapFontNameToClass(value))
-      },
       colorMappingFunc (value: string) {
         if (!value) return identity()
         let style = (<any>this).styles
@@ -189,7 +193,7 @@ import Vue, {VNode} from 'vue'
     font-weight: normal;
   }
   .fontWeightSemiBold {
-    font-weight: 600; 
+    font-weight: 600;
   }
   .fontWeightBold {
     font-weight: 700;
@@ -206,12 +210,12 @@ import Vue, {VNode} from 'vue'
 
   /* transforms */
   .capitalize {
-    text-transform: capitalize; 
+    text-transform: capitalize;
   }
 
   /* decorations */
   .underline {
-    text-decoration: underline; 
+    text-decoration: underline;
   }
 
   .lineThrough {
@@ -249,8 +253,8 @@ import Vue, {VNode} from 'vue'
     text-align: center;
   }
 
-  .textJustify {
+  .alignJustify {
     text-align: justify;
   }
-  
+
 </style>
