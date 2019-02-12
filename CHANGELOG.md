@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0-3"></a>
+# [4.1.0-3](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-2...v4.1.0-3) (2019-02-12)
+
+
+### Features
+
+* add css modules to stles ([9a65674](https://github.com/bloombergbna/fishtank-vue/commit/9a65674))
+* Added FishTankText documentation ([99ca569](https://github.com/bloombergbna/fishtank-vue/commit/99ca569))
+* Added FishTankText documentation ([42a373f](https://github.com/bloombergbna/fishtank-vue/commit/42a373f))
+* Added Heading component - beta ([226fcd1](https://github.com/bloombergbna/fishtank-vue/commit/226fcd1))
+* Box documentation ([5b42952](https://github.com/bloombergbna/fishtank-vue/commit/5b42952))
+* removed bem style notation from css ([5fc2a0d](https://github.com/bloombergbna/fishtank-vue/commit/5fc2a0d))
+* Removed the debug code. ([5f29ccc](https://github.com/bloombergbna/fishtank-vue/commit/5f29ccc))
+* Updated box component to use cssmodules ([6ca32f7](https://github.com/bloombergbna/fishtank-vue/commit/6ca32f7))
+* Updated inline dev documentation for Text, Switch, and Radio components ([4999275](https://github.com/bloombergbna/fishtank-vue/commit/4999275))
+* Updated rollup config to provide minified builds by default, and provide minufied and unminified builds in dist ([053bc69](https://github.com/bloombergbna/fishtank-vue/commit/053bc69))
+
+
+
 <a name="4.1.0-2"></a>
 # [4.1.0-2](https://github.com/bloombergbna/fishtank-vue/compare/v4.0.2...v4.1.0-2) (2019-02-04)
 
