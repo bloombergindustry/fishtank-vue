@@ -5,7 +5,8 @@
         color="highlight1" 
         :padding-x="4"
         :margin-top="4"
-        :column="12">
+        :column="12"
+        wrap>
           <fish-tank-text>
             Text in a FishTankBox component in a 12 column space
           </fish-tank-text>

@@ -16,8 +16,7 @@ import {
   fromClassName,
   mapClassName,
   concat,
-  toProps,
-  returnFtColors
+  toProps
 } from '../util/style'
 
 import {
@@ -304,8 +303,7 @@ export default Vue.extend({
       validator: function (value: AlignItemType) {
         return ["start" , "end" , "center" , "baseline" , "stretch"].indexOf(value) !== -1
       },
-      description:'Flexbox align property',
-      propertyValues:()=>{return }
+      description:'Box flexbox align-content property sets how the browser distributes space between and around content items along the cross-axis of a Box, and the main-axis of a grid container.',
     },
     // AlignItemType,
     // // @Prop() 
@@ -315,8 +313,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
-      }
-
+      },
+      description:'Box display property',
     },
     // DisplayType,
     // // @Prop() 
@@ -326,7 +324,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Column){
         return (0<value && 13>value)
-      }
+      },
+      description:'Box grid columns',
     },
     // Column, /* 1 -12 */
     // // @Prop() 
@@ -336,7 +335,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Direction){
         return ["row" , "column"].indexOf(value) !== -1
-      }
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row or column',
     },
     justifyContent: {
       type:String,
@@ -344,7 +344,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: JustifyContent){
         return ["start" , "end" , "center" , "between" , "around"].indexOf(value) !== -1
-      }
+      },
+      description:'Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.',
     },
     marginStart: {
       type:Number,
@@ -352,7 +353,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<(value) && 13>value)
-      }
+      },
+      description:'',
     },
     marginEnd: {
       type:Number,
@@ -360,7 +362,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<(value) && 13>value)
-      }
+      },
+      description:'',
     },
     marginTop: {
       type:Number,
@@ -368,7 +371,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<(value) && 13>value)
-      }
+      },
+      description:'',
     },
     marginRight: {
       type:Number,
@@ -376,7 +380,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<(value) && 13>value)
-      }
+      },
+      description:'',
     },
     marginBottom: {
       type:Number,
@@ -384,7 +389,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<(value) && 13>value)
-      }
+      },
+      description:'',
     },
     marginLeft: {
       type:Number,
@@ -392,7 +398,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Margin){
         return (-13<value && 13>value)
-      }
+      },
+      description:'',
     },
     padding: {
       type:Number,
@@ -400,7 +407,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Padding){
         return (-1<value && 13>value)
-      }
+      },
+      description:'Box padding, applied to horizontally and vertically',
     },
     paddingX: {
       type:Number,
@@ -408,7 +416,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: Padding){
         return (-1<value && 13>value)
-      }
+      },
+      description:'Box padding, applied horizontally',
     },
     paddingY: {
       type:Number,
@@ -416,17 +425,20 @@ export default Vue.extend({
       required:false,
       validator: function(value: Padding){
         return (-1<value && 13>value)
-      }
+      },
+      description:'Box padding, applied vertically',
     },
     width: {
       type: [ Number, String ],
       default:null,
       required:false,
+      description:'Box width property sets an boxes\'s width.',
     },
     wrap:{
       type: Boolean,
       default:false,
-      required:false
+      required:false,
+      description:'Box flex-wrap property sets flex-wrap:wrap, setting flex items to wrap onto multiple lines.',
     },
     position: {
       type:String,
@@ -434,37 +446,44 @@ export default Vue.extend({
       required:false,
       validator: function(value: Position){
         return ['absolute' , 'relative' , 'fixed'].indexOf(value) !== -1
-      }
+      },
+      description:'Box position property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.',
     },
     top:{
       type: Boolean,
       default:false,
-      required:false
+      required:false,
+      description:'Box top position property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     bottom:{
       type: Boolean,
       default:false,
-      required:false
+      required:false,
+      description:'Box bottom position  property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     left:{
       type: Boolean,
       default:false,
-      required:false
+      required:false,
+      description:'Box left position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     right:{
       type: Boolean,
       default:false,
-      required:false
+      required:false,
+      description:'Box right position property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     maxHeight: {
       type: [ Number, String ],
       default:null,
-      required:false
+      required:false,
+      description:'Box max-height property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.',
     },
     height: {
       type: [ Number, String ],
       default:null,
-      required:false
+      required:false,
+      description:'Box height property specifies the height of an element. By default, the property defines the height of the content area.',
     },
     overflow: {
       type:String,
@@ -472,7 +491,8 @@ export default Vue.extend({
       required:false,
       validator: function(value: OverFlow){
         return ['visible' , 'hidden' , 'scroll' , 'scrollX' , 'scrollY' , 'auto'].indexOf(value) !== -1
-      }
+      },
+      description:'Box overflow property sets what to do when an element\'s content is too big to fit in its block formatting context.',
     },
     flex: {
       default:'grow',
@@ -480,7 +500,8 @@ export default Vue.extend({
       required:false,
       validator: function (value: Flex) {
         return ['grow' , 'shrink' , 'none'].indexOf(value) !== -1
-      }
+      },
+      description:'Box flexbox flex property; sets how a flex type Box will grow or shrink to fit the space available in its flex container.',
     },
     color: {
       type:String, 
@@ -489,6 +510,7 @@ export default Vue.extend({
       // validator: function (value: Color) {
       //   return ['color', 'array', 'here'].indexOf(value) !== -1
       // }
+      description:'Box background color property'
     },
   },
   computed: {
@@ -496,6 +518,7 @@ export default Vue.extend({
       let style = (<any>this).$style
       return style
     },
+    
     boxProps() {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
