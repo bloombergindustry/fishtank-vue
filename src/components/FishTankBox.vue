@@ -16,7 +16,8 @@ import {
   fromClassName,
   mapClassName,
   concat,
-  toProps
+  toProps,
+  arrayToProps
 } from '../util/style'
 
 import {
@@ -526,8 +527,8 @@ export default Vue.extend({
           concatenatedClasses = concat([concatenatedClasses, props[prop](this.$props[prop])])
         }
       }
-      let boxProps = toProps(concatenatedClasses)
-      let modulesClasses:Array<string> = boxProps.classArray.map(x=>{
+      let boxProps = arrayToProps(concatenatedClasses)
+      let modulesClasses:Array<string> = boxProps.className.map(x=>{
         return this.moduleClassNames[x]
       })
       return {
