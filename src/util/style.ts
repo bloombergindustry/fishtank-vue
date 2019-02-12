@@ -2,7 +2,8 @@ export type InlineStyle = { [key: string]: string | number | void }
 
 export type Style = {
   className: Set<string>,
-  inlineStyle: InlineStyle
+  inlineStyle: InlineStyle,
+  classArray?:Array<string>
 }
 
 export function identity(): Style {
@@ -50,8 +51,9 @@ export function concat(styles: Array<Style>): Style {
 export const toProps = ({
   className,
   inlineStyle,
-}: Style): { className: string, style: InlineStyle } => {
-  const props = { className: '', style: {} }
+  classArray,
+}: Style): { className: string, style: InlineStyle, classArray:[string] } => {
+  const props = { className: '', style: {}, classArray: [] }
 
   if (className.size > 0) {
     // Sorting here ensures that classNames are always stable, reducing diff
@@ -60,6 +62,7 @@ export const toProps = ({
     props.className = Array.from(className)
       .sort()
       .join(' ')
+    props.classArray = Array.from(className).sort() 
   }
 
   if (Object.keys(inlineStyle).length > 0) {

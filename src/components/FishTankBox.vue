@@ -303,7 +303,9 @@ export default Vue.extend({
       required:false,
       validator: function (value: AlignItemType) {
         return ["start" , "end" , "center" , "baseline" , "stretch"].indexOf(value) !== -1
-      }
+      },
+      description:'Flexbox align property',
+      propertyValues:()=>{return }
     },
     // AlignItemType,
     // // @Prop() 
@@ -393,16 +395,12 @@ export default Vue.extend({
       }
     },
     padding: {
-      type:[Number, String],
+      type:Number,
       default:null,
       required:false,
-      // validator: function(value: Padding){
-      //   if(typeof value === Number){
-      //     return (-1<value && 13>value)
-      //   } else {
-      //     return value
-      //   }
-      // }
+      validator: function(value: Padding){
+        return (-1<value && 13>value)
+      }
     },
     paddingX: {
       type:Number,
@@ -494,6 +492,10 @@ export default Vue.extend({
     },
   },
   computed: {
+    moduleClassNames () {
+      let style = (<any>this).$style
+      return style
+    },
     boxProps() {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
@@ -502,15 +504,19 @@ export default Vue.extend({
         }
       }
       let boxProps = toProps(concatenatedClasses)
+      let modulesClasses:Array<string> = boxProps.classArray.map(x=>{
+        return this.moduleClassNames[x]
+      })
       return {
-        class: boxProps.className,
-        style: boxProps.style
+        // class: boxProps.className,
+        class: modulesClasses.join(' '),
+        style: boxProps.style,        
       }
-    }
+    },
   }
 })
 </script>
-<style lang="scss">
+<style module lang="scss">
 @import "../styles/variables";
 @import "../styles/mixins";
 @import "../styles/box/box-style";
