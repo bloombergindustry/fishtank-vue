@@ -74,12 +74,12 @@
 <script lang="ts">
 import Vue from "vue"
 import { FishTankTag } from "@/index"
-import { Flag24 } from '@fishtank/icons-vue' 
+// import { Flag24 } from '@fishtank/icons-vue' 
 
 export default Vue.extend({
   components: {
     FishTankTag,
-    Flag24,
+    // Flag24,
   },
   data () {
     return{

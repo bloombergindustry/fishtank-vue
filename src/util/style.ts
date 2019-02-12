@@ -2,13 +2,14 @@ export type InlineStyle = { [key: string]: string | number | void }
 
 export type Style = {
   className: Set<string>,
-  inlineStyle: InlineStyle
+  inlineStyle: InlineStyle,
+  
 }
 
 export function identity(): Style {
   return {
     className: new Set(),
-    inlineStyle: {}
+    inlineStyle: {},
   }
 }
 
@@ -22,7 +23,7 @@ export function fromClassName(...classNames: Array<string>): Style {
 export function fromInlineStyle(inlineStyle: InlineStyle): Style {
   return {
     className: new Set(),
-    inlineStyle
+    inlineStyle,
   }
 }
 
@@ -31,7 +32,7 @@ export const mapClassName = (fn: (x: string) => string) => ({
   inlineStyle
 }: Style): Style => ({
   className: new Set(Array.from(className).map(fn)),
-  inlineStyle
+  inlineStyle,
 })
 
 export function concat(styles: Array<Style>): Style {
@@ -60,6 +61,28 @@ export const toProps = ({
     props.className = Array.from(className)
       .sort()
       .join(' ')
+  }
+
+  if (Object.keys(inlineStyle).length > 0) {
+    props.style = inlineStyle
+  }
+
+  return props
+}
+
+export const arrayToProps = ({
+  className,
+  inlineStyle,
+  
+}: Style): { className: string[], style: InlineStyle} => {
+  const props = { className: [''], style: {} }
+
+  if (className.size > 0) {
+    // Sorting here ensures that classNames are always stable, reducing diff
+    // churn. Box usually has a small number of properties so it's not a perf
+    // concern.
+    props.className = Array.from(className)
+      .sort()
   }
 
   if (Object.keys(inlineStyle).length > 0) {
