@@ -40,9 +40,15 @@
             />
         </div>
         <div 
-            :class="[$style.accordionPanel]"
+            :class="[$style.accordionPanel , tabFocus ? $style.accordionClick : $style.accordionTab]"
             v-show="visible"
             :tabindex='( visible ? "0" : null)'
+            @keypress.enter=" addAccessibilityFocus();"
+            @keydown.enter="  addAccessibilityFocus();"
+            @keyup.enter=" addAccessibilityFocus();"
+            @keyup.13=" addAccessibilityFocus();"
+            @keydown.13=" addAccessibilityFocus();"
+            @click=" removeAccessibilityFocus();"
         >
             <slot/>
         </div>
@@ -101,9 +107,15 @@
             />
         </div>
         <div 
-            :class="[$style.accordionPanel]"
+            :class="[$style.accordionPanel , tabFocus ? $style.accordionClick : $style.accordionTab]"
             v-show="visible"
             :tabindex='( visible ? "0" : null)'
+            @keypress.enter=" addAccessibilityFocus();"
+            @keydown.enter="  addAccessibilityFocus();"
+            @keyup.enter=" addAccessibilityFocus();"
+            @keyup.13=" addAccessibilityFocus();"
+            @keydown.13=" addAccessibilityFocus();"
+            @click=" removeAccessibilityFocus();"
         >
             <slot/>
         </div>

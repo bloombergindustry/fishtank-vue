@@ -12,7 +12,7 @@
             heading="Another Section Heading"
             subheading="A Sub-heading"
         >
-            <FishTankLoaderContent theme="MembersOfCongressList"/>
+            <FishTankButtonPrimary> Click Big </FishTankButtonPrimary>
         </FishTankAccordion>
 
         <FishTankAccordion 
