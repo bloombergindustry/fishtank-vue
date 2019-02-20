@@ -77,6 +77,6 @@ export default new Router({
     {
       path: '/select',
       component: () => import("./views/Select.vue")
-    },
+    }
   ]
 })

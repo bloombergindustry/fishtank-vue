@@ -71,16 +71,15 @@
 </template>
 
 <script>
-  import {
-    FishTankText,
-    FishTankBox
-    } from '../index'
+  import FishTankText from './FishTankText.vue'
+  import FishTankBox from './FishTankBox.vue'
+  
   import {
     CaretDown24,
     CaretUp24
   } from '@fishtank/icons-vue'
-  import mixins from '../util/a11y'
-  import {uuid} from '../util/uuid'
+  import mixins from '@/util/a11y'
+  import {uuid} from '@/util/uuid'
 
   const id = ''
 /**
