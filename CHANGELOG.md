@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-2...v4.1.0) (2019-02-20)
+
+
+### Features
+
+* add css modules to stles ([9a65674](https://github.com/bloombergbna/fishtank-vue/commit/9a65674))
+* added accessiblity toggle on click and tab with and without highlight for accordions ([e7bad01](https://github.com/bloombergbna/fishtank-vue/commit/e7bad01))
+* Added FishTankText documentation ([42a373f](https://github.com/bloombergbna/fishtank-vue/commit/42a373f))
+* Added FishTankText documentation ([99ca569](https://github.com/bloombergbna/fishtank-vue/commit/99ca569))
+* Added Heading component - beta ([226fcd1](https://github.com/bloombergbna/fishtank-vue/commit/226fcd1))
+* added keyboard tabbing and click events to accordion component and it's children ([96e6261](https://github.com/bloombergbna/fishtank-vue/commit/96e6261))
+* added method to accordions on click to clear focus state when element is clicked by mouse ([e486883](https://github.com/bloombergbna/fishtank-vue/commit/e486883))
+* added smooth transitioning between clickin and tabbing accessibility highlighting ([a3961ec](https://github.com/bloombergbna/fishtank-vue/commit/a3961ec))
+* Box documentation ([5b42952](https://github.com/bloombergbna/fishtank-vue/commit/5b42952))
+* merge BLAW dropdown, renamed FishTankSelect, and applied accessibility features - aria tagging and keyboard navigation ([b95a2b7](https://github.com/bloombergbna/fishtank-vue/commit/b95a2b7))
+* removed bem style notation from css ([5fc2a0d](https://github.com/bloombergbna/fishtank-vue/commit/5fc2a0d))
+* Removed the debug code. ([5f29ccc](https://github.com/bloombergbna/fishtank-vue/commit/5f29ccc))
+* tab and click accessiblity functionality added to booth accordion default, and small options ([b6a97a4](https://github.com/bloombergbna/fishtank-vue/commit/b6a97a4))
+* updated accessbility tabbing and highlighting to match parent accordion when tabbing or using mouse ([eb216ad](https://github.com/bloombergbna/fishtank-vue/commit/eb216ad))
+* Updated box component to use cssmodules ([6ca32f7](https://github.com/bloombergbna/fishtank-vue/commit/6ca32f7))
+* Updated inline dev documentation for Text, Switch, and Radio components ([4999275](https://github.com/bloombergbna/fishtank-vue/commit/4999275))
+* Updated rollup config to provide minified builds by default, and provide minufied and unminified builds in dist ([053bc69](https://github.com/bloombergbna/fishtank-vue/commit/053bc69))
+
+
+
 <a name="4.1.0-3"></a>
 # [4.1.0-3](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-2...v4.1.0-3) (2019-02-12)
 
