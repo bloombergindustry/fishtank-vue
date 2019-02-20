@@ -63,5 +63,6 @@ export { default as FishTankHeading } from "./components/FishTankHeading.vue"
 export { default as FishTankAccordion } from "./components/FishTankAccordion.vue"
 export { default as FishTankAccordionGroup } from "./components/FishTankAccordionGroup.vue"
 export { default as FishTankBox } from "./components/FishTankBox.vue"
+export { default as FishTankSelect } from "./components/FishTankSelect.vue"
 
 import './styles.scss'

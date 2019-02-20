@@ -74,5 +74,9 @@ export default new Router({
       path: '/box',
       component: () => import("./views/Box.vue")
     },
+    {
+      path: '/select',
+      component: () => import("./views/Select.vue")
+    },
   ]
 })

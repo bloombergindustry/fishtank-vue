@@ -17,6 +17,7 @@
       <li><a href="#/heading">Heading</a></li>
       <li><a href="#/pagination">Pagination</a></li>
       <li><a href="#/box">Box</a></li>
+      <li><a href="#/select">Select</a></li>
     </ul>
   </section>
 </template>
