@@ -2,7 +2,6 @@
     <div
         :id="(id !== null? id:labelId)"
         role="accordion group"
-        tabindex="0"
     >
         <slot/>
     </div>
@@ -64,6 +63,17 @@
                 })
                 
             },
+            // focusRadio(){
+            //     let activeIndex = 0;
+            //     (this as any).registeredChildren.map((c:AccordionComponent)=> {
+            //         if (c.visible) { 
+            //             c.setFocus() 
+            //             return
+            //         } else {
+            //             (this as any).registeredChildren[0].setFocus()
+            //         }
+            //     }) 
+            // }
            
         }
     })
@@ -72,3 +82,6 @@
 <style scoped>
 
 </style>
+<!--
+Accordion tab index accessibility issue git 'er done today. !!!! 
+-->

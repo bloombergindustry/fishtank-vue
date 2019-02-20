@@ -3,13 +3,17 @@
         v-if="!small"
         :class="[ disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
-        tabindex="0"
         role="accordion"
     > 
         <div 
-            :class="[$style.accordionWrapperLg]"
-            @click="toggle"
-            @keyup.enter="toggle"
+            :class="[ $style.accordionWrapperLg , tabFocus ? $style.accordionClick : $style.accordionTab]"
+            tabindex="0"
+            @keypress.enter="toggle(); addAccessibilityFocus();"
+            @keydown.enter=" toggle(); addAccessibilityFocus();"
+            @keyup.enter="toggle(); addAccessibilityFocus();"
+            @keyup.13="toggle(); addAccessibilityFocus();"
+            @keydown.13="toggle(); addAccessibilityFocus();"
+            @click=" toggle(); removeAccessibilityFocus();"
             ref="accordion"
         >
             <div 
@@ -36,8 +40,15 @@
             />
         </div>
         <div 
-            :class="[$style.accordionPanel]"
+            :class="[$style.accordionPanel , tabFocus ? $style.accordionClick : $style.accordionTab]"
             v-show="visible"
+            :tabindex='( visible ? "0" : null)'
+            @keypress.enter=" addAccessibilityFocus();"
+            @keydown.enter="  addAccessibilityFocus();"
+            @keyup.enter=" addAccessibilityFocus();"
+            @keyup.13=" addAccessibilityFocus();"
+            @keydown.13=" addAccessibilityFocus();"
+            @click=" removeAccessibilityFocus();"
         >
             <slot/>
         </div>
@@ -46,13 +57,17 @@
         v-else 
         :class="[disabled ? $style.accordionContainerGray : $style.accordionContainer]"
         :id="( id !==null? id: labelId )"
-        tabindex="0"
         role="accordion"
     > 
         <div 
-            :class="[$style.accordionWrapperSm]"
-            @click="toggle"
-            @keyup.enter="toggle"
+            :class="[$style.accordionWrapperSm , tabFocus ? $style.accordionClick : $style.accordionTab]"
+            tabindex="0"
+            @keypress.enter="toggle(); addAccessibilityFocus();"
+            @keydown.enter="toggle(); addAccessibilityFocus();"
+            @keyup.enter="toggle(); addAccessibilityFocus();"
+            @keyup.13="toggle(); addAccessibilityFocus();"
+            @keydown.13="toggle(); addAccessibilityFocus();"
+            @click="toggle(); removeAccessibilityFocus();"
             ref="accordion"
         >
             <div 
@@ -92,8 +107,15 @@
             />
         </div>
         <div 
-            :class="[$style.accordionPanel]"
+            :class="[$style.accordionPanel , tabFocus ? $style.accordionClick : $style.accordionTab]"
             v-show="visible"
+            :tabindex='( visible ? "0" : null)'
+            @keypress.enter=" addAccessibilityFocus();"
+            @keydown.enter="  addAccessibilityFocus();"
+            @keyup.enter=" addAccessibilityFocus();"
+            @keyup.13=" addAccessibilityFocus();"
+            @keydown.13=" addAccessibilityFocus();"
+            @click=" removeAccessibilityFocus();"
         >
             <slot/>
         </div>
@@ -102,27 +124,26 @@
 
 <script lang="ts">
     import Vue from 'vue'
-
+    import A11y from '../util/a11y'
     import { 
         ChevronUp24,
         ChevronSmlUp24 
     }  from "@fishtank/icons-vue"
-
     interface AccordionComponentGroup {
         register(cmp:any):void,
         unregister(cmp:any):void,
         closeSiblings(cmp:any):void
     }
-
     export default Vue.extend({
+        
         components: {
             ChevronUp24,
             ChevronSmlUp24
         },
         data: function(){
             return{
-                visible: false
-                
+                visible: false,
+                tabFocus: false
             }
         },
         props:{
@@ -185,9 +206,19 @@
                     }
                 }
             },
-            setFocus(){
-                (this.$refs.accordion as HTMLElement).focus()
+            removeAccessibilityFocus(){                               
+                if(!this.tabFocus){
+                    if(this.tabFocus){
+                        this.tabFocus= false
+                    }else{
+                        this.tabFocus = true
+                    }
+                }    
+            },
+            addAccessibilityFocus(){
+                this.tabFocus=false
             }
+         
         },
         computed:{ 
             labelId(): string{
@@ -197,16 +228,23 @@
     })                                                                                                                                                                                                                                                                                                          
 </script>
 
+
+
 <style module lang="scss">
     @import "../../node_modules/@fishtank/colors/dist/index";
     @import "../../node_modules/@fishtank/type/dist/index";
+    .accordionClick:focus{
+        outline: transparent;
+    }
+    .accordionTab:focus{
+        outline: 0 0 0 2px $color-selected;
+    }
 
     .accordionContainer{
         display: flex;
         flex-direction: column;
         margin: 12px;
     }
-
     .accordionWrapperLg{
         display: flex;
         flex-direction: row;
@@ -214,6 +252,7 @@
         align-items: center;
         padding: 12px;
         border-bottom: 1px solid $color-gray-lighter;
+        
     }
     .accordionWrapperSm{
         display: flex;
@@ -222,8 +261,8 @@
         align-items: center;
         padding: 6px;
         border-bottom: 1px solid $color-gray-lighter;
+       
     }
-
     .accordionContainer .accordionWrapperLg{
         display: flex;
         flex-direction: row;
@@ -231,27 +270,13 @@
         align-items: center;
         padding: 12px;
         border-bottom: 1px solid $color-gray-lighter;
-
-        &:hover{
-
-            .accordionHeadingWrapper{
-
-                .accordionHeading{
-                    color: $color-black;
-                }
-
-                .accordionSubHeading{
-                    color: $color-black;
-                }
-
-            }
-
-            svg{
-                color: $color-black;
-            }
-
-        }
-
+    }
+   
+    .accordionContainer .accordionWrapperLg:hover .accordionHeadingWrapper .accordionHeading + .accordionSubHeading{
+        color: $color-black;
+    }
+    .accordionContainer .accordionWrapperLg:hover svg{
+        color: $color-black;
     }
     .accordionContainer .accordionWrappeSm{
         display: flex;
@@ -260,36 +285,20 @@
         align-items: center;
         padding: 6px;
         border-bottom: 1px solid $color-gray-lighter;
-
-        &:hover{
-
-            .accordionHeadingWrapper{
-
-                .accordionHeading{
-                    color: $color-black;
-                }
-
-                .accordionSubHeading{
-                    color: $color-black;
-                }
-
-            }
-
-            svg{
-                color: $color-black;
-            }
-
-        }
-
     }
-
+   
+    .accordionContainer .accordionWrapperSm:hover .accordionHeadingWrapper .accordionHeadingSmall{
+        color: $color-black;
+    }
+    .accordionContainer .accordionWrapperSm:hover svg{
+        color: $color-black;
+    }
     .accordionHeadingWrapper{
         margin: 0px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-
     .accordionHeading{
         margin: 0px;
         color: $color-gray-dark;
@@ -298,7 +307,6 @@
         line-height: $lineheight-base-lg;
         letter-spacing: $letterspacing-base-lg;
     } 
-
     .accordionSubHeading{
         margin: 0px;
         color: $color-gray;
@@ -307,7 +315,6 @@
         line-height: $lineheight-base-sm;
         letter-spacing: $letterspacing-small;
     }
-
     .accordionHeadingSmall{
         margin: 0px;
         color: $color-gray;
@@ -316,36 +323,31 @@
         line-height: $lineheight-base-md;
         letter-spacing: $letterspacing-base-md;
     } 
-
     svg{
         color: $color-gray;      
     }
-
     .accordionPanel{
-        padding: 0px
+        padding: 0px        
     }
-
+    
     .accordionContainerGray{
         display: flex;
         flex-direction: column;
         margin: 12px;
     }
-
+   
     .accordionContainerGray .accordionHeading{
         color: $color-gray-lighter;
     }
-
     .accordionContainerGray .accordionHeadingSmall{
         color: $color-gray-lighter;
     }
-
     .accordionContainerGray .accordionSubHeading{
         color: $color-gray-lighter;
     }
     .accordionContainerGray svg{
         color: $color-gray-lighter;
     }
-
     .accordionSvgUp{
         transition: 0.3s ease-in-out;
         transform: rotate(180deg);
@@ -354,6 +356,12 @@
         transition: 0.3s ease-in-out;
         transform: rotate(0deg);
     }
-
 </style>
-
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+    body.user-is-tabbing .accordionWrapperLg + .accordionWrapperSm + .accordionPanel{
+        box-shadow: 0 0 0 2px $color-selected;
+    }
+   
+</style>

@@ -12,7 +12,7 @@
             heading="Another Section Heading"
             subheading="A Sub-heading"
         >
-            <FishTankLoaderContent theme="MembersOfCongressList"/>
+            <FishTankButtonPrimary> Click Big </FishTankButtonPrimary>
         </FishTankAccordion>
 
         <FishTankAccordion 
@@ -33,7 +33,7 @@
             :small="true"
             heading="Small Section Heading"
         >
-            <FishTankLoaderContent theme="AlertList"/>
+            <FishTankButtonPrimary> Click </FishTankButtonPrimary>
         </FishTankAccordion>
 
         <FishTankAccordion
@@ -71,7 +71,7 @@
                 heading="Yet Another Group Section Heading"
                 subheading="Yet Another Group Sub-heading"
             >
-                <FishTankLoaderContent theme="AlertList"/>
+                <FishTankButtonPrimary> Click </FishTankButtonPrimary>
             </FishTankAccordion>
         
         </FishTankAccordionGroup>
@@ -84,19 +84,24 @@
     import{
         FishTankAccordion,
         FishTankLoaderContent,
-        FishTankAccordionGroup 
+        FishTankAccordionGroup,
+        FishTankButtonPrimary 
     }from '@/index'
 
     export default {
         components: {
             FishTankAccordion,
             FishTankLoaderContent,
-            FishTankAccordionGroup
+            FishTankAccordionGroup,
+            FishTankButtonPrimary
         },
         data: function() {
             return{
                 disabledAccordion : true
             }
+        },
+        medthods:{
+           
         }
         
     }
