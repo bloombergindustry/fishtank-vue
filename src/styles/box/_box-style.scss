@@ -1,4 +1,4 @@
-@import "../../node_modules/@fishtank/colors/dist/index";
+@import "../../../node_modules/@fishtank/colors/dist/index";
 .box {
   .accessibilityOutline:focus {
     box-shadow: 0 0 0 2px $color-selected;
