@@ -2,7 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<<<<<<< HEAD
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.1...v4.2.0) (2019-02-21)
+
+
+### Bug Fixes
+
+* fixed css import for Box component styles ([39efb65](https://github.com/bloombergbna/fishtank-vue/commit/39efb65))
+
+
+### Features
+
+* merge BLAW dropdown, renamed FishTankSelect, and applied accessibility features - aria tagging and keyboard navigation ([2bf176a](https://github.com/bloombergbna/fishtank-vue/commit/2bf176a))
+
+
+
+<a name="4.1.0-3"></a>
+# [4.1.0-3](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0-2...v4.1.0-3) (2019-02-12)
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.0...v4.1.1) (2019-02-20)
 
