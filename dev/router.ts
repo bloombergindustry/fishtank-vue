@@ -1,10 +1,11 @@
 import Vue, { VNode } from 'vue'
 import Router from 'vue-router'
+import { RouterOptions, RouteConfig } from 'vue-router';
 import CardsDemo from "./views/Cards.vue"
 
 Vue.use(Router)
 
-export default new Router({
+export default new Router(<RouterOptions>{
   routes: [
     {
       path: '/',
