@@ -10,7 +10,7 @@
             :loading="bgloading" 
             theme="bgov"
             size="medium"/>
-          <ftbutton @click="bgloading = !bgloading">Click to show loading animation</ftbutton>
+          <ftbutton @click="bgloading = false">Click to show loading animation</ftbutton>
         </div>
       </div>
       <div style="display: table-row;">
@@ -18,8 +18,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="blaw"
-            size="medium"
-          />
+            size="medium" />
         </div>
       </div>
       <div style="display: table-row;">
@@ -27,8 +26,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-1"
-            size="medium"
-          />
+            size="medium" />
         </div>
       </div>
       <div style="display: table-row;">
@@ -36,8 +34,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-2"
-            size="medium"
-          />
+            size="medium" />
         </div>
       </div>
       <div style="display: table-row;">
@@ -45,8 +42,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="notification-3"
-            size="medium"
-          />
+            size="medium" />
         </div>
       </div>
       <h1 style="text-align: left;">sizes</h1>
@@ -56,8 +52,7 @@
           <spinner
             theme="bgov"
             size="small" 
-            alpha
-          />
+            alpha />
         </div>
       </div>
       <div style="display: table-row;">
@@ -65,8 +60,7 @@
         <div style="display: table-cell;">
           <spinner
             theme="bgov"
-            size="medium" 
-          />
+            size="medium" />
         </div>
       </div>
       <div style="display: table-row;">
@@ -75,14 +69,12 @@
           <spinner
             :loading="lgbgloading" 
             theme="bgov"
-            size="large"
-          />
-          <ftbutton @click="lgbgloading = !lgbgloading">Click to show loading animation</ftbutton>
+            size="large" />
+          <ftbutton @click="lgbgloading = false">Click to show loading animation</ftbutton>
         </div>
       </div>
 
       <h1> Loader Documentation </h1>
-
     </div>
   </div>
 </template>

@@ -65,7 +65,7 @@ export default Vue.extend({
       type:Boolean,
       required:false,
       default:false,
-      description:"this is the component description",
+      description:"Disable tag",
     },
     value: {
       default:null,
@@ -77,12 +77,14 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      required: true
+      required: true,
+      description:"Tag label",
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:"Tag ID",
     },
     trueValue: {
       default: true,
@@ -95,7 +97,8 @@ export default Vue.extend({
     removable:{
       type:Boolean,
       required:false,
-      default:false
+      default:false,
+      description:"Removable style tag",
     },
     iconPosition:{
       type: String,

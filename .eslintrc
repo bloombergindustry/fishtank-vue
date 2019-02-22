@@ -12,7 +12,16 @@
     "prettier/prettier": ["warning", {
       "semi": false
     }],
-    "semi": ["warn", "never"]
+    "semi": ["warn", "never"],
+    "vue/multiline-html-element-content-newline":["error", {
+      "ignores": ["VueComponent", "pre", "textarea"]
+    }],
+    "vue/component-name-in-template-casing": ["error", "kebab-case", {
+      "ignores": []
+    }],
+    "vue/html-closing-bracket-newline": ["error", {
+      "multiline": "never"
+    }]
   },
   "plugins": [
     "vue"

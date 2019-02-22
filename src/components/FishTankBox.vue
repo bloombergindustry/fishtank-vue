@@ -1,8 +1,3 @@
-<template>
-  <div v-bind="boxProps">
-    <slot />
-  </div>
-</template>
 <script lang="ts">
 // Trying to get the interface correct, I need to refactor once we get all the functionality
 // This is the interface I am trying to use https://pinterest.github.io/gestalt/#/Box
@@ -32,7 +27,7 @@ import {
 import color  from '../util/ColorsClassMapping'
 
 const _ = require("lodash").noConflict()
-
+export type IsBoxType = "div" | "span" | "section" | "article" | "aside" | "footer" | "header" | "details" | "figcaption" | "figure" | "main" | "nav" | "summary" | "time";
 export type AlignItemType = "start" | "end" | "center" | "baseline" | "stretch";
 export type Direction = "row" | "column";
 export type DisplayType = "none"| "flex"| "block"| "inlineBlock"| "visuallyHidden";
@@ -296,7 +291,21 @@ const props: any = {
 }
 
 export default Vue.extend({
+  name:'FishTankBox',
+  render(createElement) {
+    return createElement(
+        this.tag, this.boxProps, this.$slots.default
+      )
+  },
   props:{
+    tag:{
+      default:'div',
+      required:false,
+      type:String,
+      validator: function (value: IsBoxType) {
+        return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
+      },
+    },
     alignItems: {
       type:String,
       default:null,

@@ -61,7 +61,7 @@ import Vue, {VNode} from 'vue'
       bold: {
         type: Boolean,
         required: false,
-        default: false
+        default: false,
       },
       semiBold: {
         type: Boolean,
@@ -73,11 +73,13 @@ import Vue, {VNode} from 'vue'
         default: 'baseLg',
         validator: function (value: string) {
           return fontSizes.indexOf(value) !== -1
-        }
+        },
+        description:"Heading text size"
       },
       truncate: {
         type: Boolean,
-        default: false
+        default: false,
+        description:"Text, within a container of fixed size, overflows with ellipsis"
       },
       font: {
         default: 'primary',
@@ -85,6 +87,7 @@ import Vue, {VNode} from 'vue'
         validator: function (value: string) {
           return ['primary', 'accent'].indexOf(value) !== -1
         },
+        description:"Heading font type"
       },
     },
     computed: {

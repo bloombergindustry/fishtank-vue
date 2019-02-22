@@ -5,21 +5,17 @@
     :width="width"
     escapeable
     dialog
-    @change="onChange"
-  >
+    @change="onChange">
     <slot/>
     <slot
       slot="footer"
-      name="footer"
-    />
+      name="footer" />
     <slot
       slot="footerLeft"
-      name="footerLeft"
-    />
+      name="footerLeft" />
     <slot
       slot="footerRight"
-      name="footerRight"
-    />
+      name="footerRight" />
   </Modal>
 </template>
 
@@ -39,16 +35,19 @@ export default Vue.extend({
     active: {
       type: Boolean,
       required: true,
+      description:"Dialog box is active"
     },
     heading: {
       type: String,
       required: false,
       default: undefined,
+      description:"Dialog box heading text"
     },
     width: {
       type: String,
       required: false,
       default: undefined,
+      description:"Dialog box width"
     }
   },
   methods: {

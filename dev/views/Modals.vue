@@ -1,31 +1,29 @@
 <template>
   <div>
     <div>
-      <ButtonPrimary @click="modal1 = true">Open Standard Modal</ButtonPrimary>
-      <ButtonPrimary @click="modal2 = true">Open Fixed Modal</ButtonPrimary>
-      <ButtonPrimary @click="dialog = true">Open Dialog</ButtonPrimary>
+      <button-primary @click="modal1 = true">Open Standard Modal</button-primary>
+      <button-primary @click="modal2 = true">Open Fixed Modal</button-primary>
+      <button-primary @click="dialog = true">Open Dialog</button-primary>
     </div>
-    <Modal
+    <modal
       v-model="modal1"
       heading="Heading"
-      escapeable
-    >
+      escapeable>
       modal body content
       <div slot="footerRight">
-        <ButtonPrimary>Action</ButtonPrimary>
+        <button-primary>Action</button-primary>
       </div>
       <div slot="footerLeft">
-        <ButtonPrimary>Search</ButtonPrimary>
+        <button-primary>Search</button-primary>
       </div>
-    </Modal>
+    </modal>
 
-    <Modal
+    <modal
       v-model="modal2"
       heading="Fixed Modal"
       class="my-custom-class"
-      fixed
-    >
-      <Search24 slot="headingIcon"/>
+      fixed>
+      <Search24 slot="headingIcon" />
       <LoremIpsum/>
       <template slot="headingExtra">
         <ButtonFeatureLabel >
@@ -37,7 +35,7 @@
         <!-- <ButtonSecondary disabled>Close</ButtonSecondary> -->
         <ButtonPrimary >Search</ButtonPrimary>
       </div>
-    </Modal>
+    </modal>
 
     <DialogBox
       v-model="dialog"

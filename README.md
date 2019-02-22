@@ -1,6 +1,6 @@
 # Fishtank Vue
 
-Fish Tank VueJS Component Module
+[Fish Tank VueJS Component Module](http://fishtank.bna.com)
 
 ## Installation
 
@@ -8,29 +8,19 @@ Fish Tank VueJS Component Module
 npm install @fishtank/fishtank-vue
 ```
 
-## [Available Components](src/components/Readme.md)
-
-* [Cards](src/components/Card.md)
-* [Modals](src/components/Modals.md)
-* [Buttons](src/components/Buttons.md)
-* [Button Group](src/components/ButtonGroup.md)
-* [Radios](src/components/Radios.md)
-* [Switches](src/components/Switches.md)
-* [Loaders](src/components/Loaders.md)
-* [Text Input](src/components/InputText.md)
-* [Checkboxes](src/components/Checkboxes.md)
-
 ## Usage
+
+Please reference [http://fishtank.bna.com](http://fishtank.bna.com) for detailed documentation 
 
 ### ESM Module
 
 Import the component from the library module
 ``` js
-import { Card } from @fishtank/fishtank-vue
+import { FishTankCard } from @fishtank/fishtank-vue
 
 extend default {
   components:{
-    Card
+    FishTankCard
   }
 }
 ```
@@ -42,18 +32,25 @@ const fishtank = require(“@fishtank-vue”)
 
 extend default {
   components:{
-    fishtank.Card
+    fishtank.FishTankCard
+  }
+}
+```
+OR
+
+``` js
+const card = require(“@fishtank-vue”).FishTankCard
+
+extend default {
+  components:{
+    card
   }
 }
 ```
 
 ### Component CSS
 
-Fishtank-vue provides styles as:
-  * _dist/fishtank-vue.css_: a single CSS file of all component styles
-  * _dist/styles_: component specific stylesheets
-
-Import the full library, or per component styles, into your project as necessary.
+Fishtank-vue provides styles are compiled and self-contained within the component itself. There are no additional CSS imports.
 
 ## Contributing
 

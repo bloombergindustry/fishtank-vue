@@ -1,11 +1,2 @@
 # Fish Tank Components
-
-## [Buttons](./Buttons.md)
-## [Button Group](./ButtonGroup.md)
-## [Cards](./Card.md)
-## [Radios](./Radios.md)
-## [Switches](./Switches.md)
-## [Loaders](./Loaders.md)
-## [Text Inputs](./InputText.md)
-## [Checkboxes](./Checkboxes.md)
-## [Modals](./Modals.md)
+See component documentation on [http://fishtank.bna.com](http://fishtank.bna.com)

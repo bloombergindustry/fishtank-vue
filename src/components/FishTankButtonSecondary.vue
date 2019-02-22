@@ -1,11 +1,10 @@
 <template>
-  <FishTankBaseButton
+  <fish-tank-base-button
     v-bind="$attrs"
     class="button--secondary"
-    v-on="$listeners"
-  >
-    <slot/>
-  </FishTankBaseButton>
+    v-on="$listeners">
+    <slot />
+  </fish-tank-base-button>
 </template>
 
 <script lang="ts">

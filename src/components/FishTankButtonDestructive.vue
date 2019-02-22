@@ -1,11 +1,10 @@
 <template>
-  <FishTankBaseButton 
+  <fish-tank-base-button 
     v-bind="$attrs"
     class="button--destructive"
-    v-on="$listeners"
-  >
-    <slot/>
-  </FishTankBaseButton>
+    v-on="$listeners">
+    <slot />
+  </fish-tank-base-button>
 </template>
 
 <script lang="ts">
@@ -15,10 +14,6 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 export default Vue.extend({
   name: "FishTankButtonDestructive",
   introduction: "Destructive Button",
-  description: "Destructive Button",
-  token:[`
-    <FishTankButtonDestructive>Delete</FishTankButtonDestructive>
-  `],
   components: {
     FishTankBaseButton
   },

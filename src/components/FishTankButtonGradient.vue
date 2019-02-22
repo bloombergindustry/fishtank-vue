@@ -3,14 +3,13 @@
     :class="{ 'button--block': block }"
     :style="returnGradientStyle" 
     class="button--wrapper">
-    <FishTankBaseButton 
+    <fish-tank-base-button 
       v-bind="$attrs"
       :block="block"
       class="button--gradient"
-      v-on="$listeners"
-    >
-      <slot/>
-    </FishTankBaseButton>
+      v-on="$listeners">
+      <slot />
+    </fish-tank-base-button>
   </a>
 </template>
 
@@ -20,15 +19,6 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 
 export default Vue.extend({
   name: "FishTankButtonGradient",
-  introduction: "Gradient Button",
-  description: "Gradient Button",
-  token:[`
-    <FishTankButtonGradient
-    :gradientStart="startingHexColorVariable"
-    :gradientEnd="endingHexColorVariable"
-    :colorDirection="to right"
-    >Bloomberg Government</FishTankButtonGradient>
-  `],
   components: {
     FishTankBaseButton
   },
