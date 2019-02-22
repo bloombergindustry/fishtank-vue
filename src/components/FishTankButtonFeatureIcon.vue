@@ -1,13 +1,12 @@
 <template>
-  <FishTankBaseButton
+  <fish-tank-base-button
     v-bind="$attrs"
     class="button--feature-label"
     role="button"
     :aria-label="name"
-    v-on="$listeners"
-  >
+    v-on="$listeners">
     <slot />
-  </FishTankBaseButton>
+  </fish-tank-base-button>
 </template>
 
 <script lang="ts">
@@ -16,11 +15,6 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 
 export default Vue.extend({
   name: "FishTankButtonFeatureIcon",
-  introduction: "Feature Icon Button",
-  description: "Feature Icon Button",
-  token:[`
-    <FishTankButtonFeatureIcon> <Alert24/> </FishTankButtonFeatureIcon>
-  `],
   components: {
     FishTankBaseButton,
   },

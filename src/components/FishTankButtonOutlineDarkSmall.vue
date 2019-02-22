@@ -1,11 +1,10 @@
 <template>
-  <FishTankBaseButton
+  <fish-tank-base-button
     v-bind="$attrs"
     class="button--outline-dark ft-button--outline-small"
-    v-on="$listeners"
-  >
-    <slot/>
-  </FishTankBaseButton>
+    v-on="$listeners">
+    <slot />
+  </fish-tank-base-button>
 </template>
 
 <script lang="ts">
@@ -14,11 +13,6 @@ import FishTankBaseButton from "./FishTankBaseButton.vue"
 
 export default Vue.extend({
   name: "FishTankButtonOutlineDarkSmall",
-  introduction: "Small Dark Outline Button",
-  description: "Small Dark Outline Button",
-  token:[`
-    <FishTankButtonOutlineDarkSmall>Filter</FishTankButtonOutlineDarkSmall>
-  `],
   components: {
     FishTankBaseButton
   }

@@ -1,6 +1,9 @@
 <template>
   <section>
-    <fish-tank-box display="flex" justify-content="between">
+    <fish-tank-box 
+      tag="section"
+      display="flex" 
+      justify-content="between">
       <fish-tank-box 
         color="highlight1" 
         :padding-x="4"
@@ -14,7 +17,9 @@
           <br>
       </fish-tank-box>
     </fish-tank-box>
-    <fish-tank-box display="flex" justify-content="between">
+    <fish-tank-box 
+      display="flex" 
+      justify-content="between">
       <fish-tank-box 
         color="action" 
         :padding="4"

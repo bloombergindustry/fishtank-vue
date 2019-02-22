@@ -37,7 +37,7 @@
     "vue": ">= 2.5.17"
   },
   "dependencies": {
-    "@fishtank/icons-vue": ">= 3.9.1",
+    "@fishtank/icons-vue": ">= 3.11.0",
     "tslib": ">= 1.9.0",
     "vue-content-loader": "^0.2.1",
     "vuejs-paginate": "1.9.3"

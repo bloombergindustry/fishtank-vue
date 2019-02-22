@@ -24,11 +24,9 @@
         v-if="!noItems" 
         align="right">
         <CaretDown24 
-          v-if="!displaySelect" 
-        />
+          v-if="!displaySelect"/>
         <CaretUp24 
-          v-if="displaySelect" 
-        />
+          v-if="displaySelect"/>
       </fish-tank-box>
     </fish-tank-box>
     <fish-tank-box

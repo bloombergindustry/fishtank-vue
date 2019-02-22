@@ -51,25 +51,27 @@ export default Vue.extend({
       type:String,
       default:"bgov",
       required:true,
-      description: "Brand color theme",
+      description: "Spinner BBNA brand color theme",
       availableThemes: ["bgov", "blaw", "notification-1", "notification-2", "notification-3"]
     },
     size: {
       type:String,
       default: "medium",
       required:true,
-      description: "Component Size",
+      description: "Spinner size",
       availableSizes: ["small", "medium", "large"]
     },
     align: {
       type:String,
       default: "center",
-      required: false
+      required: false,
+      description: "Spinner alignment",
     },
     loading:{
       type:Boolean,
       default:true,
-      required:false
+      required:false,
+      description: "Spinner loading state",
     }
   },
   data () {

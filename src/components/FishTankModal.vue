@@ -117,30 +117,35 @@ export default Vue.extend({
       type: String,
       required: false,
       default: undefined,
+      description: "Modal heading text"
     },
     fixed: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
+      description: "Modal has a fixed of it's maximum possible size in the viewport"
     },
     dialog: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     active: {
       type: Boolean,
       required: true,
+      description: "Modal is active"
     },
     escapeable: {
       type: Boolean,
       required: false,
       default: false,
+      description: "Modal can be closed using the ESC key"
     },
     width: {
       type: String,
       required: false,
       default: undefined,
+      description: "Modal width"
     },
   },
   data() {

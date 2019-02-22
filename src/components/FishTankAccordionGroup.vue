@@ -25,7 +25,8 @@
             id:{
                 type: String,
                 default: null,
-                required: false
+                required: false,
+                description:"Accordion group ID."
             },
             single:{
                 type: Boolean,

@@ -6,7 +6,6 @@
     :force-page="pageNum-1"
     :break-view-class="breakViewClass"
     :container-class="'ft-pagination'">
-
     <template slot="prevContent">
       <chevron-left-icon />
     </template>
@@ -44,16 +43,18 @@
       pageCount: {
         type: Number,
         required: true,
+        description: "Maximum pages to show at a time"
       },
       pageNum: {
         type: Number,
         required: false,
-        default: 0 as number,
+        default: 0 as number
       },
       showLastPage: {
         type: Boolean,
         required: false,
         default: true,
+        description: "Show the last available page"
       },
     },
 

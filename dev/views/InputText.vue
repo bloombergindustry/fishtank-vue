@@ -3,7 +3,7 @@
     <InputText
       v-model="text"
       label="Text Input Type"
-      type="text"/>
+      type="text" />
     <InputText
       v-model="password"
       label="Password Input Type"

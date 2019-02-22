@@ -3,28 +3,23 @@
     <div
       v-if="branded"
       :class="branded"
-      class="card__brand-stripe"
-    />
+      class="card__brand-stripe" />
     <div 
-      class="card__container"
-    >
+      class="card__container">
       <slot
         :headerClass="'card__heading'"
-        name="heading"
-      />
+        name="heading" />
       <div 
         v-if="!$slots.heading && heading"
         class="card__heading"
         role="heading"
-        aria-level="3"
-      >
+        aria-level="3">
         {{ heading }}
       </div>
 
       <div
-        class="card__body"
-      >
-        <slot/>
+        class="card__body">
+        <slot />
       </div>
     </div>
   </div>
@@ -38,11 +33,13 @@ export default Vue.extend({
       type: String,
       required: false,
       default: undefined,
+      description:"Card heading text"
     },
     branded: {
       type: String,
       required: false,
       default: undefined,
+      description:"Card displays a branded header strip or background color."
     }
 
   }

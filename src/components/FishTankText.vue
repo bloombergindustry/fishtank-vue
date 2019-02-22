@@ -80,7 +80,7 @@ import Vue, {VNode} from 'vue'
         validator: function (value: string) {
           return ['primary', 'accent'].indexOf(value) !== -1
         },
-        description:"Fish Tank font stack"
+        description:"Text font type"
       },
       italic: {
         default: false,

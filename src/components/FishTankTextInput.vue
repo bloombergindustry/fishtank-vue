@@ -123,22 +123,25 @@ export default Vue.extend({
     value: {
       required: false,
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       required: false,
       type: String,
-      default: undefined
+      default: undefined,
+      description:"Text input label",
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:"Text input ID",
     },
     maxheight:{
       type:Number,
       default:null,
-      required:false
+      required:false,
+      description:"Textarea type input max-height",
     },
     resize:{
       type:Boolean,
@@ -162,7 +165,8 @@ export default Vue.extend({
         ]
 
         return textTypes.indexOf(value.toLowerCase()) > -1
-      }
+      },
+      description:"Text input type - text | textarea | password | email | search | number | tel | url",
     },
     error: {
       required: false,
@@ -180,7 +184,8 @@ export default Vue.extend({
         // eslint-disable-next-line no-console
         console.warn("InputText's `error` prop should be a string or an object with a `fullMessage` string property")
         return false
-      }
+      },
+      description:"Error state message - either a string or an object with a `fullMessage` string property",
     }
   },
   data:function(){

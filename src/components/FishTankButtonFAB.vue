@@ -1,37 +1,30 @@
 <template>
   <div class="button--fab-wrapper">
-
-    <FishTankBaseButton 
+    <fish-tank-base-button 
       v-bind="$attrs"
       :style="returnPrimaryFabColor"
       class="button--fab" 
       v-on="$listeners"> 
-
-      <slot name="mainIcon"/> 
-    </FishTankBaseButton>
+      <slot name="mainIcon" /> 
+    </fish-tank-base-button>
 
     <ul 
-      v-if="optionsAvailable"      
-    >
-
+      v-if="optionsAvailable">
       <a 
         :href="optionOneLink">
-        <li :style="returnSecondaryFabColor" > 
-
-          <slot name="option1"/> 
+        <li :style="returnSecondaryFabColor"> 
+          <slot name="option1" /> 
         </li>
       </a>
 
       <a 
         :href="optionTwoLink">
         <li
-          :style="returnSecondaryFabColor" >
-          <slot name="option2"/> 
+          :style="returnSecondaryFabColor">
+          <slot name="option2" /> 
         </li>
       </a>
-
     </ul>
-
   </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 </template>
 

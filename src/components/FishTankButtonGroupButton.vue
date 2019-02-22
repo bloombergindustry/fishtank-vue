@@ -1,11 +1,10 @@
 <template>
   <div 
-    slot-scope="slotProps"
-    :class="[{'buttongroup__button--active':shouldBeChecked},{'buttongroup__button--disabled':disabled},'buttongroup__button',{'buttongroup__button--small':fishtankButtonGroupShared.isSmall},]">
+    :class="[$style.button, {[$style.disabled]:disabled}, {[$style.active]:shouldBeChecked}, {[$style.small]:fishtankButtonGroupShared.isSmall}]">
     <label 
       :for="(id !==null? id: labelId)"
       :tabindex="shouldBeChecked ? 0 : -1"
-      :class="['buttongroup__button__label', {'baseButton--small':fishtankButtonGroupShared.isSmall}]"
+      :class="[$style.label]"
       @focus="setFocusInput()">
       <input 
         ref="input"
@@ -14,14 +13,13 @@
         :value="value" 
         :checked ="shouldBeChecked" 
         :tabindex="shouldBeChecked ? 0 : -1" 
-        class="buttongroup__button__input" 
+        :class="$style.input" 
         type="radio"
         v-on="listeners"
         @focus="fishtankButtonGroupShared.isFocused = true"
         @blur="fishtankButtonGroupShared.isFocused = false">
-      <!-- <div class="ft-buttongroup__button__icon"/> -->
       <div 
-        :class="['buttongroup__button__label-content', {'buttongroup__button__label-content--small':fishtankButtonGroupShared.isSmall}]">
+        :class="[$style.labelContent, {[$style.labelContentSmall]:fishtankButtonGroupShared.isSmall}]">
         {{ label }}
       </div>
     </label>
@@ -43,12 +41,14 @@ export default Vue.extend({
     value:{
       type:[String,Boolean,Object,Number], 
       default:null,
-      require:true
+      require:true,
+      description:"Button Value"
     },
     disabled:{
       type:Boolean,
       default:null,
-      require:false
+      require:false,
+      description:"Disable the button"
     },
     modelValue: {
       type:[String,Boolean,Object,Number],
@@ -58,17 +58,20 @@ export default Vue.extend({
     label:{
       type:String,
       default:null,
-      required:true
+      required:true,
+      description:"Button Label"
     },
     id:{
       type:String,
       default:null,
-      required:false
+      required:false,
+      description:"Button ID"
     },
     name:{
       type:String,
       default:"",
-      required:true
+      required:true,
+      description:"Button Name"
     },
     fishtankButtonGroupShared:{
       type:Object,
@@ -79,6 +82,8 @@ export default Vue.extend({
     fishtankButtonGroupShared:{
       default:{
         isSmall:false,
+        register(){},
+        unregister(){}
       },
     }
   },
@@ -105,18 +110,27 @@ export default Vue.extend({
   methods:{
     setFocusInput: function(){
       (this.$refs.input as HTMLInputElement).focus()
+    },
+    setValue: function() {
+      this.$emit("change", this.value)
     }
-  }
+  },
+  mounted(){
+    this.fishtankButtonGroupShared.register(this)
+  },
+  destroyed(){
+    this.fishtankButtonGroupShared.unregister(this)
+  },
 })
 </script>
 
-<style lang="scss">
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
   
-  .buttongroup__button {
+  .button {
     flex: 1 0 0;
     text-align: center;
     box-sizing: border-box;
@@ -143,7 +157,7 @@ export default Vue.extend({
     // padding: 0 12px 0 12px;
     height:40px;
   } 
-  .buttongroup__button--disabled {
+  .disabled {
     color: $color-disabled;
     &:hover{
       cursor:default;
@@ -151,7 +165,7 @@ export default Vue.extend({
       background-color:$color-secondary;
     }
   }
-  .buttongroup__button--small{
+  .small{
     height: 28px;
     &:first-of-type{
       border-radius: 4px 0px 0px 4px;
@@ -161,16 +175,19 @@ export default Vue.extend({
       border-radius: 0 4px 4px 0;
     }
   }
-  .buttongroup__button__input{
+  .input{
     cursor: pointer;
     opacity: 0;
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
     &:disabled {
       cursor:not-allowed;
     }
   }
-  .buttongroup__button__label{
+  .label{
     position: relative;
     display: inline-block;
     height: 100%;
@@ -182,10 +199,10 @@ export default Vue.extend({
     font-family: $font-primary;
     cursor: pointer;
   }
-  .buttongroup__button__label-content {
+  .labelContent {
     padding: 7px $baseline*3 9px $baseline*3;
   }
-  .buttongroup__button__label-content--small{
+  .labelContentSmall{
     font-size:$fontsize-base-md;
     font-weight: $fontweight-semi;
     line-height: $lineheight-base-md;
@@ -198,14 +215,10 @@ export default Vue.extend({
     left: 0;
     top: 0;
   }
-  .buttongroup__button--active, .buttongroup__button--active:hover{
+  .active, .active:hover{
     color:$color-white;
     background-color: $color-selected; 
     border-color: $color-selected-darkest; 
   }
-  .baseButton--small{
-  
-  }
-
 </style>
 
