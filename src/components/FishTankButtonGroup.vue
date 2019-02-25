@@ -91,7 +91,7 @@ export default Vue.extend({
             return i.shouldBeChecked === true
         })
       if (areAnySelected.length === 0){
-        this.registeredChildren[0].setValue()
+        (this as any).registeredChildren[0].setValue()
       }
     }
   },
