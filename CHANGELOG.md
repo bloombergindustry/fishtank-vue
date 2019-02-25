@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.3.0-1"></a>
+# [4.3.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0-0...v4.3.0-1) (2019-02-25)
+
+
+### Bug Fixes
+
+* rollup-plugin-vue@4.7.2 has a dependancy of vue-runtime-helpers. Added to dependancies ([fbe0870](https://github.com/bloombergbna/fishtank-vue/commit/fbe0870))
+
+
+
 <a name="4.3.0-0"></a>
 # [4.3.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.2.0...v4.3.0-0) (2019-02-25)
 
