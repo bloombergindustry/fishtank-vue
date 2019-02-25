@@ -90,6 +90,7 @@ function genConfig(name) {
       commonjs(),
       vue(
         {
+          needMap: false,
           css: true,
           style:{
             postcssPlugins:[
@@ -106,7 +107,9 @@ function genConfig(name) {
       typescript({
         tsconfig: 'tsconfig.json',
         experimentalDecorators: true,
-        module: 'es2015'
+        module: 'es2015',
+        objectHashIgnoreUnknownHack:true,
+        clean:true
       }),
       babel({
         exclude: "node_modules/**",

@@ -294,7 +294,7 @@ export default Vue.extend({
   name:'FishTankBox',
   render(createElement) {
     return createElement(
-        this.tag, this.boxProps, this.$slots.default
+        (this as any).tagElement, (this as any).boxProps, this.$slots.default
       )
   },
   props:{
@@ -305,6 +305,7 @@ export default Vue.extend({
       validator: function (value: IsBoxType) {
         return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
       },
+      description:"Box semantic element"
     },
     alignItems: {
       type:String,
@@ -356,6 +357,15 @@ export default Vue.extend({
         return ["start" , "end" , "center" , "between" , "around"].indexOf(value) !== -1
       },
       description:'Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.',
+    },
+    margin: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Margin){
+        return (-13<(value) && 13>value)
+      },
+      description:'',
     },
     marginStart: {
       type:Number,
@@ -538,7 +548,7 @@ export default Vue.extend({
       }
       let boxProps = arrayToProps(concatenatedClasses)
       let modulesClasses:Array<string> = boxProps.className.map(x=>{
-        return this.moduleClassNames[x]
+        return (this as any).moduleClassNames[x]
       })
       return {
         // class: boxProps.className,
@@ -546,6 +556,10 @@ export default Vue.extend({
         style: boxProps.style,        
       }
     },
+
+    tagElement () {
+      return (this as any).tag
+    }
   }
 })
 </script>

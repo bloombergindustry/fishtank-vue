@@ -78,6 +78,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/select',
       component: () => import("./views/Select.vue")
+    },
+    {
+      path: '/alerts',
+      component: () => import("./views/Alerts.vue")
     }
   ]
 })
