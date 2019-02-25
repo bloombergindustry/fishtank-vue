@@ -2,6 +2,7 @@
   <section>
     <ul>
       <li><a href="#/accordions">Accordions</a></li>
+      <li><a href="#/alerts">Alerts</a></li>
       <li><a href="#/checkboxes">Checkboxes</a></li>
       <li><a href="#/buttons">Buttons</a></li>
       <li><a href="#/radios">Radios</a></li>
