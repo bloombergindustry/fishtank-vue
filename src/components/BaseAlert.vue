@@ -1,13 +1,12 @@
 <template>
-  <div class="alert">
+  <div :class="$style.alert">
     <div 
       v-if="hasIcon" 
-      class="alert__icon"
-    >
+      :class="$style.alertIcon">
       <slot name="icon"/>
     </div>
-    <div class="alert__content">
-      <div class="alert__heading">{{ heading }}</div>
+    <div :class="(hasIcon ? $style.alertContentWIcon : $style.alertContent)">
+      <div :class="$style.alertHeading">{{ heading }}</div>
       <slot/>
     </div>
   </div>
@@ -32,11 +31,12 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style module lang="scss">
 
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
+  
 
   .alert {
     padding: $baseline * 3;
@@ -46,25 +46,23 @@ export default Vue.extend({
     border-style: solid;
   }
 
-  .alert__icon {
+  .alertIcon {
     position: absolute;
-
-    svg {
-      height: $baseline * 8;
-      width: $baseline * 8;
-    }
-
-     &+ .ft-alert__content {
-      margin-left: $baseline * 11;
-    }
+  }
+  .alertIconSvg {
+    height: $baseline * 8;
+    width: $baseline * 8;
+  }
+  .alertContentWIcon {
+    margin-left: $baseline * 11;
   }
 
-  .alert__content {
+  .alertContent {
     @include font-base-sm();
     margin-left: $baseline * 3;
   }
 
-  .alert__heading {
+  .alertHeading {
     @include font-base-lg();
     font-weight: $fontweight-semi;
     margin-bottom: $baseline * 2;
