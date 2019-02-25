@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.3.0-0"></a>
+# [4.3.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.2.0...v4.3.0-0) (2019-02-25)
+
+
+### Bug Fixes
+
+* added fishtank/space to css scope for buttonGroup ([f2c00f4](https://github.com/bloombergbna/fishtank-vue/commit/f2c00f4))
+* adjust css cascade of icon color for BaseAlert; minot edits to AlertSuccess ([ffda5a9](https://github.com/bloombergbna/fishtank-vue/commit/ffda5a9))
+* Update to eslint rules related to kebab casing, and line breaks ([1b3b1ae](https://github.com/bloombergbna/fishtank-vue/commit/1b3b1ae))
+* Updated package.json with new version of icons-vue ([f0a72d4](https://github.com/bloombergbna/fishtank-vue/commit/f0a72d4))
+
+
+### Features
+
+* added margin prop to Box ([02c9ba8](https://github.com/bloombergbna/fishtank-vue/commit/02c9ba8))
+* added Tag prop to box to allow box to generate semantic elements like section, aside, article, etc. We have a limited list of semantic HTML5 elements related to layout, but can be expanded if needed. ([aa6af83](https://github.com/bloombergbna/fishtank-vue/commit/aa6af83))
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.1.1...v4.2.0) (2019-02-21)
 
