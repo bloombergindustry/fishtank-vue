@@ -2,11 +2,11 @@
   <div :class="$style.alert">
     <div 
       v-if="hasIcon" 
-      :class="$style.alertIcon">
+      :class="$style.icon">
       <slot name="icon"/>
     </div>
-    <div :class="(hasIcon ? $style.alertContentWIcon : $style.alertContent)">
-      <div :class="$style.alertHeading">{{ heading }}</div>
+    <div :class="(hasIcon ? $style.contentWIcon : $style.content)">
+      <div :class="$style.heading">{{ heading }}</div>
       <slot/>
     </div>
   </div>
@@ -46,23 +46,23 @@ export default Vue.extend({
     border-style: solid;
   }
 
-  .alertIcon {
+  .icon {
     position: absolute;
+    svg {
+      height: $baseline * 8;
+      width: $baseline * 8;
+    }
   }
-  .alertIconSvg {
-    height: $baseline * 8;
-    width: $baseline * 8;
-  }
-  .alertContentWIcon {
+  .contentWIcon {
     margin-left: $baseline * 11;
   }
 
-  .alertContent {
+  .content {
     @include font-base-sm();
     margin-left: $baseline * 3;
   }
 
-  .alertHeading {
+  .heading {
     @include font-base-lg();
     font-weight: $fontweight-semi;
     margin-bottom: $baseline * 2;
