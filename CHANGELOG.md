@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0-1...v4.3.0) (2019-02-26)
+
+
+### Bug Fixes
+
+* Refactored FishTankCard to use CSS Module ([a9b83f0](https://github.com/bloombergbna/fishtank-vue/commit/a9b83f0))
+* refactored Radios to use CSS modules ([bf09f7d](https://github.com/bloombergbna/fishtank-vue/commit/bf09f7d))
+
+
+
 <a name="4.3.0-1"></a>
 # [4.3.0-1](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0-0...v4.3.0-1) (2019-02-25)
 
