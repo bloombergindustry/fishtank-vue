@@ -2,23 +2,22 @@
   <div class="card">
     <div
       v-if="branded"
-      :class="branded"
-      class="card__brand-stripe" />
+      :class="[branded, $style.brandStripe]" />
     <div 
-      class="card__container">
+      :class="$style.container">
       <slot
-        :headerClass="'card__heading'"
+        :headerClass="$style.heading"
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
-        class="card__heading"
+        :class="$style.heading"
         role="heading"
         aria-level="3">
         {{ heading }}
       </div>
 
       <div
-        class="card__body">
+        :class="$style.body">
         <slot />
       </div>
     </div>
@@ -47,34 +46,41 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import '../styles/mixins';
+.card + .card {
+  margin-top: $baseline * 6;
+}
+</style>
+
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-  .card__container {
+  .container {
     box-sizing: border-box;
     border-radius: 2px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
   }
 
-  .card__brand-stripe {
+  .brandStripe {
     border-radius: 2px 2px 0 0;
     height: 4px;
   }
 
-  .card__brand-stripe + .card__container {
+  .brandStripe + .container {
     .card__heading {
       border-radius: 0;
     }
 
-    .card__body {
+    .body {
       border-top: none;
       border-top-right-radius: 0;
       border-top-left-radius: 0;
     }
   }
 
-  .card__heading {
+  .heading {
     border: 1px solid $color-gray-lighter;
     border-radius: 2px 2px 0 0;
     padding: $baseline * 3;
@@ -86,21 +92,17 @@ export default Vue.extend({
     letter-spacing: $letterspacing-base-lg;
   } 
 
-  .card__body {
+  .body {
     padding: $baseline * 3;
     border-radius: 2px;
     background-color: $color-white;
     border: 1px solid $color-gray-lighter;
   }
 
-  .card__heading + .card__body {
+  .heading + .body {
     border-top: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-  }
-
-  .card + .card {
-    margin-top: $baseline * 6;
   }
 
 </style>
