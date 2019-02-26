@@ -4,20 +4,20 @@
     :class="[$style.radio]">
     <label 
       :for="(id !==null? id: labelId)"
-      :class="[$style.radio__label]">
+      :class="[$style.label]">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: labelId)"  
         :value="value" 
         :checked ="shouldBeChecked" 
-        :class="[$style.radio__input, 'ft-a11y__input']" 
+        :class="[$style.input, 'a11yInput']" 
         type="radio"
         ref="input" 
         v-on="listeners">
       <div 
-        :class="[$style.radio__icon, 'ft-a11y__icon']"/>
+        :class="[$style.icon, 'a11yIcon']"/>
       <div 
-        :class="[$style.radio__label__content]">
+        :class="[$style.labelContent]">
         {{ label }}
       </div>
     </label>
@@ -131,8 +131,8 @@ export default Vue.extend({
 <style lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
-  body.user-is-tabbing .ft-a11y__input:focus {
-    & + .ft-a11y__icon{
+  body.user-is-tabbing .a11yInput:focus {
+    & + .a11yIcon{
       box-shadow: 0 0 0 2px $color-selected;
     }
   }
@@ -150,7 +150,7 @@ export default Vue.extend({
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  .radio__input{
+  .input{
     opacity: 0;
     margin: 0;
     position: absolute;
@@ -164,7 +164,7 @@ export default Vue.extend({
       cursor: default;
     }
   }
-  .radio__icon{
+  .icon{
     transition: all 0.3s ease;
     display:inline-block;
     width:12px;
@@ -177,7 +177,7 @@ export default Vue.extend({
     left: 4px;
     top: 8px;
   }
-  .radio__input + .radio__icon{
+  .input + .icon{
     &:after{
       content:"";
       width: 6px;
@@ -193,18 +193,18 @@ export default Vue.extend({
       transition: transform .3s cubic-bezier(.5,.1,.3,1.5);
     }
   }
-  .radio__input:checked + .radio__icon{
+  .input:checked + .icon{
     &:after{
       transform: scale(1.0);
     }
   }
-  .radio__input:hover + .radio__icon{
+  .input:hover + .icon{
     &:after{
       background-color: $color-selected-darker;
       border:1px solid $color-selected-darker;
     }
   }
-  .radio__label{
+  .label{
     color: $color-gray-dark;
     font-size: $fontsize-base-md;
     line-height: $lineheight-base-md;
@@ -214,22 +214,22 @@ export default Vue.extend({
       color:$color-black;
     }
   }
-  .radio__input:hover {
-    & + .ft-radio__icon{
+  .input:hover {
+    & + .ft-icon{
       border:2px solid $color-black;
     }
   }
-  .radio__input:disabled + .radio__icon{
+  .input:disabled + .icon{
     border:2px solid $color-disabled;
   }
-  .radio__input:checked:disabled + .radio__icon{
+  .input:checked:disabled + .icon{
     border:2px solid $color-disabled;
     &:after {
       background-color: $color-disabled;
       border:1px solid $color-disabled;
     }
   }
-  .radio__input:disabled ~ .radio__label__content{
+  .input:disabled ~ .labelContent{
     color:$color-disabled;
   }
 
