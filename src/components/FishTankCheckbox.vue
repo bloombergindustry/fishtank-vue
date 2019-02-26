@@ -18,7 +18,7 @@
         @blur="isFocused = false"
         v-on="listeners">
       <div 
-        :class="['input-checkbox__checkbox', {'focused': isFocused}]">
+        :class="['input-checkbox__checkbox', {'a11y': isFocused}]">
         <transition name="transition-scale">
           <CheckboxSelected 
             v-if="isChecked"
@@ -164,15 +164,18 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-
   body.user-is-tabbing {
-    .focused {
+    .a11y {
       box-shadow: 0 0 0 2px $color-selected;
     }
   }
+</style>
+
+<style lang="scss">
+  @import '../styles/mixins';
+  @import "../../node_modules/@fishtank/colors/dist/index";
+  @import "../../node_modules/@fishtank/type/dist/index";
 
 .input-checkbox {
   position: relative;
