@@ -1,43 +1,52 @@
 <template>
   <div 
-    :class="[value ? 'input-checkbox--checked' : 'input-checkbox--unchecked', {'input-checkbox__disabled':disabled}]"
-    class="input-checkbox"
+    :class="[$style.checkbox, {[$style.disabled]:disabled},(value ? [$style.checked] : [$style.unchecked])]"
+    
   >
     <label
       :for="(id !==null? id: labelId)"
-      class="input-checkbox__label"
+      :class="$style.label"
     >
       <input 
         :id="(id !==null? id: labelId)" 
         :disabled="disabled"
         :checked="isChecked"
         :value="value"
-        class="input-checkbox__native" 
+        :class="$style.native" 
         type="checkbox"
         @focus="isFocused = true"
         @blur="isFocused = false"
         v-on="listeners">
       <div 
-        :class="['input-checkbox__checkbox', {'a11y': isFocused}]">
-        <transition name="transition-scale">
+        :class="[$style.animationWrap, {'a11y': isFocused}]">
+        <transition 
+          name="transition-scale"
+          :enter-active-class="$style.transitionScaleEnterActive"
+          :leave-active-class="$style.transitionScaleLeaveActive"
+          :enter-class="$style.transitionScaleEnter"
+          :leave-to-class="$style.transitionScaleLeaveTo">
           <CheckboxSelected 
             v-if="isChecked"
-            :key="`{$labelId}+'-svg-selected'`"
-            :class="returnEnabledDisabled"
-            class="svg-selected"
+            :key="`{$labelId}+'-svgSelected'`"
+            :class="[$style.svgSelected, returnEnabledDisabled]"
+            
           />
           <CheckboxUnselected 
             v-if="!isChecked"
-            :key="`{$labelId}+'-ft-svg-unselected'`"
-            :class="returnEnabledDisabled"
-            class="svg-unselected"
+            :key="`{$labelId}+'unselected'`"
+            :class="[$style.svgUnselected, returnEnabledDisabled]"
           />
         </transition>
       </div>
       <div
         v-if="label" 
-        class="input-checkbox__label-content">
-        <div class="input-checkbox__label-content__label">{{ label }}</div>
+        :class="$style.labelContent">
+        <div :class="$style.labelContentLabel">
+          <fish-tank-text 
+            primary 
+            size="baseMd"
+            color="grayDark">{{ label }}</fish-tank-text>
+        </div>
         <slot/>
       </div>
     </label>
@@ -51,13 +60,15 @@ import {
   CheckboxSelected24 as CheckboxSelected, 
   CheckboxUnselected24 as CheckboxUnselected 
 } from "@fishtank/icons-vue"
+import { FishTankText } from '@/index'
 import a11y from '@/util/a11y'
 
 export default Vue.extend({
   name:"FishTankCheckbox",
   components: {
     CheckboxSelected,
-    CheckboxUnselected
+    CheckboxUnselected,
+    FishTankText
   },
   mixins: [
     a11y,
@@ -138,7 +149,7 @@ export default Vue.extend({
       return `checkbox-${(this as any)._uid}`
     },
     returnEnabledDisabled(): string {
-    return this.disabled ? "input-checkbox__checkbox__disabled" : "input-checkbox__checkbox__enabled"
+    return this.disabled ? "disabled" : "animationWrap__enabled"
     }
   },
   methods:{
@@ -172,91 +183,84 @@ export default Vue.extend({
   }
 </style>
 
-<style lang="scss">
+<style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-.input-checkbox {
+.checkbox {
   position: relative;
 }
-.input-checkbox__native{
+.native{
   position: absolute;
   width:100%;
   height: 100%;
   z-index: 1;
   opacity: 0;
 }
-.input-checkbox__label{
+.label{
   display: flex;
 }
-.input-checkbox__checkbox{
+.animationWrap{
   margin-top: 4px;
   position: relative;
   width:24px;
   height: 24px;
 }
-.svg-selected, .svg-unselected {
+.svgSelected, .svgUnselected {
   position: absolute;
   left: 0;
   top:0;
 }
-.svg-selected{
+.svgSelected{
   color:$color-selected;
 }
-.svg-unselected{
+.svgUnselected{
   color: $color-gray;
 }
 
-.input-checkbox__label-content {
-  @include font-base-md();
-  font-family: $font-primary;
-  font-weight:$fontweight-regular;
-  font-size: $fontsize-base-md;
-  line-height:$lineheight-base-md;
-  letter-spacing: $letterspacing-base-md;
-  color:$color-gray-dark;
+.labelContent {
   padding-left: $baseline*3;
-  &__label{
-    margin: 6px 0;
-  }
+}
+.labelContentLabel {
+  margin: 6px 0;
 }
   
-.input-checkbox:hover{
-  .svg-selected{
+.checkbox:hover{
+  .svgSelected{
     color:$color-selected-darkest;
   }
-  .svg-unselected{
+  .svgUnselected{
     color: $color-black;
   }
-  .input-checkbox__label-content {
+  .labelContent {
     color: $color-black;
   }
 }
-.input-checkbox__disabled{
-  .input-checkbox__label-content, .svg-selected, .svg-unselected{
+.disabled{
+  .labelContent, .svgSelected, .svgUnselected{
     color:$color-disabled;
   }
   &:hover{
-    .input-checkbox__label-content, .svg-selected, .svg-unselected{
+    .labelContent, .svgSelected, .svgUnselected{
       color:$color-disabled
     }
   }
 }
 
-$input-checkbox-time:0.3s;
+$checkbox-time:0.3s;
 
-.transition-scale-leave-active, .transition-scale-leave-active{
+.transitionScaleLeaveActive, .transitionScaleLeaveActive{
   top: 0px;
   left: 0px;
 }
-.transition-scale-enter-active {
-  transition: transform $input-checkbox-time, opacity $input-checkbox-time, delay $input-checkbox-time;
+.transitionScaleEnterActive {
+  transition: transform $checkbox-time, opacity $checkbox-time, delay $checkbox-time;
 }
-.transition-scale-leave-active {
-  transition: transform $input-checkbox-time, opacity $input-checkbox-time;
+.transitionScaleLeaveActive {
+  transition: transform $checkbox-time, opacity $checkbox-time;
 }
-.transition-scale-enter, .transition-scale-leave-to {
+.transitionScaleEnter, .transitionScaleLeaveTo {
   transform: scale(0);
   opacity: 0;
   left: 0;
