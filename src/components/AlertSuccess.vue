@@ -1,7 +1,7 @@
 <template>
   <BaseAlert
     :heading="heading"
-    :class="style.success">
+    :class="$style.success">
     <slot/>
   </BaseAlert>
 </template>
