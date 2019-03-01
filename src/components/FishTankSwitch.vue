@@ -134,46 +134,44 @@ export default Vue.extend({
     font-family: $font-primary;
     display: block;
   }
-.switch {
-  width: 100%; 
-  position: relative;
-  padding: 6px 0;
-}
-.switch input{
-  width:100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-  margin: 0px;
-  top: 0;
-  left:0;
-  display: block;
-}
   .switch {
-    > label {
-      top: 0px;
-      color: $color-gray-dark;
-    }
-    &:hover {
-      > label{
-        color: $color-black;
-        cursor: pointer;
-      }
-    }
-    .inputCheckboxWrap {
-      width: 33px;
-      height: 18px;
-      background-color:$color-gray-light;
-      border-radius: 10px;
-      border:1px solid $color-gray;
-      float: right;
-    }
-    input:disabled ~ .labelContent{
-      color: $color-disabled;
-      cursor: default;
-    }
+    width: 100%; 
+    position: relative;
+    padding: 6px 0;
   }
+  .switch input{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    margin: 0px;
+    top: 0;
+    left:0;
+    display: block; 
+  }
+  .switch  > label {
+    top: 0px;
+    color: $color-gray-dark;
+  }
+  .switch:hover > label{
+    color: $color-black;
+    cursor: pointer;
+  }
+    
+  .switch .inputCheckboxWrap {
+    width: 33px;
+    height: 18px;
+    background-color:$color-gray-light;
+    border-radius: 10px;
+    border:1px solid $color-gray;
+    float: right;
+  }
+  .switch  input:disabled ~ .labelContent{
+    color: $color-disabled;
+    cursor: default;
+  }
+
   .switch input:disabled + .inputCheckboxWrap{
     background-color:$color-secondary;
     border:1px solid $color-disabled;
@@ -205,13 +203,12 @@ export default Vue.extend({
     top: 6px;
     left: 6px;
   }
-  .switch .inputCheckboxLabel{ 
-    &:after{
+  .switch .inputCheckboxLabel:after{
       display: block;
       clear:both;
       content:'';
-    }
   }
+  
   .switch input:disabled + .inputCheckboxWrap .inputCheckboxTarget:after {
     background-color: $color-disabled;
   }
