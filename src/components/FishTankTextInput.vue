@@ -11,6 +11,12 @@
         :class="$style.inputTextLabel"
       >
         {{ label }}
+        <span
+          v-if="required"
+          :class="$style.inputTextLabelRequired"
+        >
+        *
+        </span>
       </label>
 
       <span 
@@ -142,6 +148,11 @@ export default Vue.extend({
       default:null,
       required:false,
       description:"Textarea type input max-height",
+    },
+    required:{
+      type:Boolean,
+      default:false,
+      required:false
     },
     resize:{
       type:Boolean,
@@ -374,6 +385,10 @@ export default Vue.extend({
     color: $color-black;
 
     @include font-base-md();
+  }
+
+  .inputTextLabelRequired {
+    color: $color-error;
   }
 
   .inputTextLabelWrapper {
