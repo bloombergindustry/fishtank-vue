@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.3.1"></a>
+## [4.3.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0...v4.3.1) (2019-03-01)
+
+
+### Bug Fixes
+
+* Fixed 'style.success' with '.success' in success alert component ([280db90](https://github.com/bloombergbna/fishtank-vue/commit/280db90))
+* fixed circular dependancy error in FishTankCheckbox ([09ab01a](https://github.com/bloombergbna/fishtank-vue/commit/09ab01a))
+* Refactored checkbox to leverage css modules ([fbc2c08](https://github.com/bloombergbna/fishtank-vue/commit/fbc2c08))
+
+
+
 <a name="4.3.0"></a>
 # [4.3.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0-1...v4.3.0) (2019-02-26)
 
