@@ -31,7 +31,8 @@
         :style="{strokeDasharray: `${strokeDashArray}`}"
         :class="['spinner-gradient', {'pause-spinner': !loading}]"
         cx="50" 
-        cy="50" 
+        cy="50"
+        :r="radius" 
         @stop-spinner="stopSpinner" />
     </svg>
   </div>
@@ -93,7 +94,18 @@ export default Vue.extend({
       let countDown = this.size === 'small' ? this.smallDash : 
         this.size === 'medium' ? this.mediumDash :this.largeDash
       return countDown
+    },
+    radius: function(){
+      //controls radius size of spinner svg
+        if(this.size === "small"){
+          return 8
+        }else if (this.size === "medium"){
+          return 15
+        }else if (this.size === "large"){
+          return 30
+        }  
     }
+    
   },
   watch: {
     loading: function(isLoading) {
@@ -143,13 +155,11 @@ export default Vue.extend({
 //sizes
   .spinner.spinner--small{
       circle.spinner-base, circle.spinner-gradient{
-        r: 8px;
         stroke-width: 4;
       }
   }
   .spinner.spinner--medium{
       circle.spinner-base, circle.spinner-gradient{
-        r: 15px;
         stroke-width: 6;
       }
       circle.spinner-gradient{
@@ -159,7 +169,6 @@ export default Vue.extend({
 
   .spinner.spinner--large{
       circle.spinner-base, circle.spinner-gradient{
-      r: 30px;
       stroke-width: 12;
     }
     circle.spinner-gradient{
@@ -172,85 +181,85 @@ export default Vue.extend({
   //colors
 
 
-.spinner{
-  &.spinner--bgov-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--bgov-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-bgov-navy;
+  .spinner{
+    &.spinner--bgov-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--bgov-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-bgov-purple;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-bgov-navy;
+        }
+        stop.stop-class-2{
+          stop-color: $color-bgov-purple;
+        }
       }
     }
   }
-}
 
-.spinner{
-  &.spinner--blaw-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--blaw-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-blaw-blue;
+  .spinner{
+    &.spinner--blaw-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--blaw-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-blaw-blue;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-blaw-blue;
+        }
+        stop.stop-class-2{
+          stop-color: $color-blaw-blue;
+        }
       }
     }
   }
-}
 
-.spinner{
-  &.spinner--notification-1-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-1-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-1;
+  .spinner{
+    &.spinner--notification-1-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-1-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-notification-1;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-1;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-1;
+        }
       }
     }
   }
-}
 
-.spinner{
-  &.spinner--notification-2-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-2-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-2;
+  .spinner{
+    &.spinner--notification-2-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-2-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-notification-2;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-2;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-2;
+        }
       }
     }
   }
-}
 
-.spinner{
-  &.spinner--notification-3-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-3-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-3;
+  .spinner{
+    &.spinner--notification-3-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-3-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-notification-3;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-3;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-3;
+        }
       }
     }
   }
-}
 
 
   .spinner .spinner--align-center {
