@@ -124,41 +124,40 @@ export default Vue.extend({
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-  .spinner{
-    .spinner-base{
+  .spinner .spinner-base{
       fill: none;
       stroke: transparent;
-    }
-    .spinner-gradient{
+  }
+  .spinner .spinner-gradient{
       fill: none;
       stroke-linecap: round;
       transform: rotate(0deg);
       transform-origin: center center;
       animation: loading .75s linear infinite;
-    }
-    .pause-spinner{
+  }
+
+  .spinner .pause-spinner{
       animation-play-state: paused;
-    }
-    //sizes
-    &.spinner--small{
+  }
+
+//sizes
+  .spinner.spinner--small{
       circle.spinner-base, circle.spinner-gradient{
         r: 8px;
         stroke-width: 4;
       }
-      circle.spinner-gradient{
-        stroke-dasharray: 26;
-      }
-    }
-    &.spinner--medium{
+  }
+  .spinner.spinner--medium{
       circle.spinner-base, circle.spinner-gradient{
         r: 15px;
         stroke-width: 6;
       }
       circle.spinner-gradient{
-        // stroke-dasharray: 50;
+        stroke-dasharray: 50;
       }
-    }
-    &.spinner--large{
+  }
+
+  .spinner.spinner--large{
       circle.spinner-base, circle.spinner-gradient{
       r: 30px;
       stroke-width: 12;
@@ -167,7 +166,13 @@ export default Vue.extend({
       // stroke-dasharray: 100;
     }
   }
+
+
+
   //colors
+
+
+.spinner{
   &.spinner--bgov-gradient{
     circle.spinner-gradient{
       stroke: url(#spinner--bgov-gradient);
@@ -181,6 +186,9 @@ export default Vue.extend({
       }
     }
   }
+}
+
+.spinner{
   &.spinner--blaw-gradient{
     circle.spinner-gradient{
       stroke: url(#spinner--blaw-gradient);
@@ -194,6 +202,9 @@ export default Vue.extend({
       }
     }
   }
+}
+
+.spinner{
   &.spinner--notification-1-gradient{
     circle.spinner-gradient{
       stroke: url(#spinner--notification-1-gradient);
@@ -207,6 +218,9 @@ export default Vue.extend({
       }
     }
   }
+}
+
+.spinner{
   &.spinner--notification-2-gradient{
     circle.spinner-gradient{
       stroke: url(#spinner--notification-2-gradient);
@@ -220,6 +234,9 @@ export default Vue.extend({
       }
     }
   }
+}
+
+.spinner{
   &.spinner--notification-3-gradient{
     circle.spinner-gradient{
       stroke: url(#spinner--notification-3-gradient);
@@ -233,24 +250,36 @@ export default Vue.extend({
       }
     }
   }
-  &.spinner--align-center {
+}
+
+
+  .spinner .spinner--align-center {
     text-align: center;
   }
-  &.spinner--align-left {
+  .spinner .spinner--align-left {
     text-align: left;
-  }
-  &.spinner--align-right {
+  } 
+  .spinner .spinner--align-right {
     text-align: right;
   }
   
-  @keyframes loading{
+  // @keyframes loading{
+  //   from{
+  //     transform: rotate(0deg);
+  //   }
+  //   to{
+  //     transform: rotate(360deg);
+  //   }
+  // }
+
+
+@keyframes loading{
     from{
       transform: rotate(0deg);
     }
     to{
       transform: rotate(360deg);
     }
-  }
-}
+} 
 
 </style>
