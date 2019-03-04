@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.3.2-0"></a>
+## [4.3.2-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.1...v4.3.2-0) (2019-03-04)
+
+
+### Bug Fixes
+
+* Fixing vulnerability error in lodash by upgrading to lodash@>=4.17.11 ([5a91113](https://github.com/bloombergbna/fishtank-vue/commit/5a91113))
+* Moved [@fishtank](https://github.com/fishtank) dev dependancies into dependancies, so they carry over into consumers's project ([fa5e994](https://github.com/bloombergbna/fishtank-vue/commit/fa5e994))
+
+
+
 <a name="4.3.1"></a>
 ## [4.3.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.0...v4.3.1) (2019-03-01)
 
