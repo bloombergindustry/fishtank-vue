@@ -131,7 +131,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped >
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
@@ -152,7 +152,7 @@ export default Vue.extend({
       animation-play-state: paused;
   }
 
-//sizes
+ //sizes
   .spinner.spinner--small{
       circle.spinner-base, circle.spinner-gradient{
         stroke-width: 4;
@@ -172,7 +172,7 @@ export default Vue.extend({
       stroke-width: 12;
     }
     circle.spinner-gradient{
-      // stroke-dasharray: 100;
+      stroke-dasharray: 100;
     }
   }
 
@@ -261,7 +261,6 @@ export default Vue.extend({
     }
   }
 
-
   .spinner .spinner--align-center {
     text-align: center;
   }
@@ -271,24 +270,14 @@ export default Vue.extend({
   .spinner .spinner--align-right {
     text-align: right;
   }
-  
-  // @keyframes loading{
-  //   from{
-  //     transform: rotate(0deg);
-  //   }
-  //   to{
-  //     transform: rotate(360deg);
-  //   }
-  // }
 
-
-@keyframes loading{
+  @keyframes loading{
     from{
       transform: rotate(0deg);
     }
     to{
       transform: rotate(360deg);
     }
-} 
+  } 
 
 </style>
