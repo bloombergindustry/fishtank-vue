@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.4.0-0"></a>
+# [4.4.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.2-0...v4.4.0-0) (2019-03-05)
+
+
+### Bug Fixes
+
+* Moved [@fishtank](https://github.com/fishtank) dev dependancies into dependancies, so they carry over into consumers's project ([55dad69](https://github.com/bloombergbna/fishtank-vue/commit/55dad69))
+
+
+### Features
+
+* fixed spinner radius cross browser visibility error ([2dbe9a5](https://github.com/bloombergbna/fishtank-vue/commit/2dbe9a5))
+* made some changes to simplify scss ([05c8fa2](https://github.com/bloombergbna/fishtank-vue/commit/05c8fa2))
+* refactored swtich component css, removed BEM style notation and added CSS Modules ([60db267](https://github.com/bloombergbna/fishtank-vue/commit/60db267))
+* removed nested css styles ([c5bb1b5](https://github.com/bloombergbna/fishtank-vue/commit/c5bb1b5))
+* scoped css styles for spinner ([5424582](https://github.com/bloombergbna/fishtank-vue/commit/5424582))
+
+
+
 <a name="4.3.2-0"></a>
 ## [4.3.2-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.1...v4.3.2-0) (2019-03-04)
 
