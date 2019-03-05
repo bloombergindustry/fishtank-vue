@@ -31,7 +31,8 @@
         :style="{strokeDasharray: `${strokeDashArray}`}"
         :class="['spinner-gradient', {'pause-spinner': !loading}]"
         cx="50" 
-        cy="50" 
+        cy="50"
+        :r="radius" 
         @stop-spinner="stopSpinner" />
     </svg>
   </div>
@@ -93,7 +94,18 @@ export default Vue.extend({
       let countDown = this.size === 'small' ? this.smallDash : 
         this.size === 'medium' ? this.mediumDash :this.largeDash
       return countDown
+    },
+    radius: function(){
+      //controls radius size of spinner svg
+        if(this.size === "small"){
+          return 8
+        }else if (this.size === "medium"){
+          return 15
+        }else if (this.size === "large"){
+          return 30
+        }  
     }
+    
   },
   watch: {
     loading: function(isLoading) {
@@ -119,130 +131,146 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped >
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-  .spinner{
-    .spinner-base{
+  .spinner .spinner-base{
       fill: none;
       stroke: transparent;
-    }
-    .spinner-gradient{
+  }
+  .spinner .spinner-gradient{
       fill: none;
       stroke-linecap: round;
       transform: rotate(0deg);
       transform-origin: center center;
       animation: loading .75s linear infinite;
-    }
-    .pause-spinner{
+  }
+
+  .spinner .pause-spinner{
       animation-play-state: paused;
-    }
-    //sizes
-    &.spinner--small{
+  }
+
+ //sizes
+  .spinner.spinner--small{
       circle.spinner-base, circle.spinner-gradient{
-        r: 8px;
         stroke-width: 4;
       }
-      circle.spinner-gradient{
-        stroke-dasharray: 26;
-      }
-    }
-    &.spinner--medium{
+  }
+  .spinner.spinner--medium{
       circle.spinner-base, circle.spinner-gradient{
-        r: 15px;
         stroke-width: 6;
       }
       circle.spinner-gradient{
-        // stroke-dasharray: 50;
+        stroke-dasharray: 50;
       }
-    }
-    &.spinner--large{
+  }
+
+  .spinner.spinner--large{
       circle.spinner-base, circle.spinner-gradient{
-      r: 30px;
       stroke-width: 12;
     }
     circle.spinner-gradient{
-      // stroke-dasharray: 100;
+      stroke-dasharray: 100;
     }
   }
+
+
+
   //colors
-  &.spinner--bgov-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--bgov-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-bgov-navy;
+
+
+  .spinner{
+    &.spinner--bgov-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--bgov-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-bgov-purple;
-      }
-    }
-  }
-  &.spinner--blaw-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--blaw-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-blaw-blue;
-      }
-      stop.stop-class-2{
-        stop-color: $color-blaw-blue;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-bgov-navy;
+        }
+        stop.stop-class-2{
+          stop-color: $color-bgov-purple;
+        }
       }
     }
   }
-  &.spinner--notification-1-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-1-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-1;
+
+  .spinner{
+    &.spinner--blaw-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--blaw-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-notification-1;
-      }
-    }
-  }
-  &.spinner--notification-2-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-2-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-2;
-      }
-      stop.stop-class-2{
-        stop-color: $color-notification-2;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-blaw-blue;
+        }
+        stop.stop-class-2{
+          stop-color: $color-blaw-blue;
+        }
       }
     }
   }
-  &.spinner--notification-3-gradient{
-    circle.spinner-gradient{
-      stroke: url(#spinner--notification-3-gradient);
-    }
-    linearGradient{
-      stop.stop-class-1{
-        stop-color: $color-notification-3;
+
+  .spinner{
+    &.spinner--notification-1-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-1-gradient);
       }
-      stop.stop-class-2{
-        stop-color: $color-notification-3;
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-1;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-1;
+        }
       }
     }
   }
-  &.spinner--align-center {
+
+  .spinner{
+    &.spinner--notification-2-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-2-gradient);
+      }
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-2;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-2;
+        }
+      }
+    }
+  }
+
+  .spinner{
+    &.spinner--notification-3-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--notification-3-gradient);
+      }
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-notification-3;
+        }
+        stop.stop-class-2{
+          stop-color: $color-notification-3;
+        }
+      }
+    }
+  }
+
+  .spinner .spinner--align-center {
     text-align: center;
   }
-  &.spinner--align-left {
+  .spinner .spinner--align-left {
     text-align: left;
-  }
-  &.spinner--align-right {
+  } 
+  .spinner .spinner--align-right {
     text-align: right;
   }
-  
+
   @keyframes loading{
     from{
       transform: rotate(0deg);
@@ -250,7 +278,6 @@ export default Vue.extend({
     to{
       transform: rotate(360deg);
     }
-  }
-}
+  } 
 
 </style>
