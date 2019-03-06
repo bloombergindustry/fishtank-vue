@@ -515,7 +515,7 @@ export default Vue.extend({
       description:'Box overflow property sets what to do when an element\'s content is too big to fit in its block formatting context.',
     },
     flex: {
-      default:'grow',
+      default:'shrink',
       type:String,
       required:false,
       validator: function (value: Flex) {
