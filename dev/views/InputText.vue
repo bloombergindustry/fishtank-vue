@@ -14,6 +14,12 @@
       type="number"
       error/>
     <InputText
+      label="Input Required Example"
+      type="number"
+      @reset="clearError"
+      required
+      />
+    <InputText
       v-model="val"
       label="Input Number Error Example"
       type="number"
