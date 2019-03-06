@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
-import { shallow, mount } from "@vue/test-utils"
+import { shallowMount as shallow , mount } from "@vue/test-utils"
 import {
   FishTankButtonGroup,
 } from "@/index"
