@@ -127,7 +127,7 @@ describe('Buttons', () => {
       it('passes all attribute bindings down to base button', () => {
         let wrapper = mount(Button, {
           attrs: {
-            disabled: true
+            disabled: 'true'
           }
         })
         let base = wrapper.find(BaseButton)
@@ -177,7 +177,7 @@ describe('Buttons', () => {
       it('passes all attribute bindings down to base button', () => {
         let wrapper = mount(Button, {
           attrs: {
-            disabled: true
+            disabled: 'true'
           }
         })
         let base = wrapper.find(BaseButton)
@@ -224,7 +224,8 @@ describe('Buttons', () => {
       it("Mounts gradient button and checks if it contains the background image style attribute with a linear gradient. " ,() =>{
         let wrapper = mount(Button)
         let gradientwrap = wrapper.find("a")
-        expect(gradientwrap. hasStyle("background-image", "linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));"))
+        // expect(gradientwrap. ("background-image", "linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));"))
+        expect(gradientwrap.element.style.backgroundImage).to.equal("linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));")
   
       })
       
