@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.4.0-4.4.0-1.0"></a>
+# [4.4.0-4.4.0-1.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.2-0...v4.4.0-4.4.0-1.0) (2019-03-07)
+
+
+### Bug Fixes
+
+* created cleanClasses function for text test ([0c8d913](https://github.com/bloombergbna/fishtank-vue/commit/0c8d913))
+* Moved [@fishtank](https://github.com/fishtank) dev dependancies into dependancies, so they carry over into consumers's project ([55dad69](https://github.com/bloombergbna/fishtank-vue/commit/55dad69))
+* updated [@fishtank](https://github.com/fishtank) foundation packages dependancies to fixed values. Moving forward, with maintain fixed value references, as opposed to using '~', '^', or '>=' ([3bcd251](https://github.com/bloombergbna/fishtank-vue/commit/3bcd251))
+* updated [@fishtank](https://github.com/fishtank) foundation packages dependancies to fixed values. Moving forward, with maintain fixed value references, as opposed to using '~', '^', or '>=' ([2f70c35](https://github.com/bloombergbna/fishtank-vue/commit/2f70c35))
+
+
+### Features
+
+* added optional required prop for FishTankTextInput ([27167fc](https://github.com/bloombergbna/fishtank-vue/commit/27167fc))
+* fixed spinner radius cross browser visibility error ([2dbe9a5](https://github.com/bloombergbna/fishtank-vue/commit/2dbe9a5))
+* made some changes to simplify scss ([05c8fa2](https://github.com/bloombergbna/fishtank-vue/commit/05c8fa2))
+* refactored swtich component css, removed BEM style notation and added CSS Modules ([60db267](https://github.com/bloombergbna/fishtank-vue/commit/60db267))
+* removed nested css styles ([c5bb1b5](https://github.com/bloombergbna/fishtank-vue/commit/c5bb1b5))
+* scoped css styles for spinner ([5424582](https://github.com/bloombergbna/fishtank-vue/commit/5424582))
+
+
+
 <a name="4.4.0-0"></a>
 # [4.4.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.3.2-0...v4.4.0-0) (2019-03-07)
 
