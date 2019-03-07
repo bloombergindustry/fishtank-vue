@@ -1,4 +1,4 @@
-import { mount, shallowMount as  shallow } from '@vue/test-utils'
+import { shallowMount as  shallow } from '@vue/test-utils'
 import { expect } from "chai"
 import FishTankText from '@/components/FishTankText.vue'
 const getCleanClassNames = function(classList:any):Array<string>{
@@ -9,18 +9,13 @@ const getCleanClassNames = function(classList:any):Array<string>{
   return cleanClasses
 }
 describe('FishTankText.vue', () => {
-  const propsData = {
-    prop1: '',
-    prop2: []
-  }
-  const slotsData = {
-    default: "Test slot text"
-  }
-  // const wrapper = mount(
-  //   FishTankText,
-  //   { propsData }
-  // )
-
+  let propsData:any = {}
+  let slotsData:any = {}
+  
+  afterEach(() => {
+    propsData = {}
+    slotsData = {}
+  })
   const mountInput = () => {
     return shallow(FishTankText, {
       slots: slotsData,
@@ -46,6 +41,97 @@ describe('FishTankText.vue', () => {
     let cleanClasses = getCleanClassNames(wrapper.element.classList)
     cleanClasses.forEach(c=>{
       expect(defaultClasses.indexOf(c) >-1)
+    })
+  })
+  describe('when a font prop is provided', () => {
+    beforeEach(() => {
+      propsData.font = "accent"
+    })
+    it('render the accent font stack', () =>{
+      const expectedClass = [ "accent" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
+    })
+  })
+
+  describe('when a size prop is changed', () => {
+    beforeEach(() => {
+      propsData.size = "baseLg"
+    })
+    it('render the accent font stack', () =>{
+      const expectedClass = [ "fontSizeBaseLg" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
+    })
+  })
+
+  describe('when a color prop is changed', () => {
+    beforeEach(() => {
+      propsData.color = "blawBlue"
+    })
+    it('render the blawBlue font color', () =>{
+      const expectedClass = [ "colorBlawBlue" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
+    })
+  })
+
+  describe('when a weight prop is changed', () => {
+    beforeEach(() => {
+      propsData.bold = true
+    })
+    it('render the bold font weight', () =>{
+      const expectedClass = [ "fontWeightBold" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
+    })
+  })
+
+  describe('when a weight prop is changed', () => {
+    beforeEach(() => {
+      propsData.semiBold = true
+    })
+    it('render the bold font weight', () =>{
+      const expectedClass = [ "fontWeightSemiBold" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
+    })
+  })
+
+  describe('when a alignment prop is changed', () => {
+    beforeEach(() => {
+      propsData.align = 'right'
+    })
+    it('render the alignment to the right', () =>{
+      const expectedClass = [ "alignRight" ]
+      const wrapper = mountInput()
+      let cleanClasses = getCleanClassNames(wrapper.element.classList)
+      let classExists = cleanClasses.filter(c=>{
+        return (expectedClass.indexOf(c) > -1)
+      })
+      expect(classExists[0]).to.equal(expectedClass[0])
     })
   })
 })
