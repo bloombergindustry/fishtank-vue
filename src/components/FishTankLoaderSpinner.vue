@@ -24,7 +24,7 @@
         </linearGradient>
       </defs>
       <circle 
-        class="spinner-base" 
+        class="base" 
         cx="50" 
         cy="50" />
       <circle
@@ -51,14 +51,14 @@ export default Vue.extend({
     theme: {
       type:String,
       default:"bgov",
-      required:true,
+      required:false,
       description: "Spinner BBNA brand color theme",
       availableThemes: ["bgov", "blaw", "notification-1", "notification-2", "notification-3"]
     },
     size: {
       type:String,
       default: "medium",
-      required:true,
+      required:false,
       description: "Spinner size",
       availableSizes: ["small", "medium", "large"]
     },
@@ -97,13 +97,15 @@ export default Vue.extend({
     },
     radius: function(){
       //controls radius size of spinner svg
-        if(this.size === "small"){
-          return 8
-        }else if (this.size === "medium"){
-          return 15
-        }else if (this.size === "large"){
-          return 30
-        }  
+      let r = 15
+      if(this.size === "small"){
+        r = 8
+      }else if (this.size === "medium"){
+        r = 15
+      }else if (this.size === "large"){
+        r = 30
+      } 
+      return r 
     }
     
   },
@@ -136,7 +138,7 @@ export default Vue.extend({
   @import "../../node_modules/@fishtank/colors/dist/index";
   @import "../../node_modules/@fishtank/type/dist/index";
 
-  .spinner .spinner-base{
+  .spinner .base{
       fill: none;
       stroke: transparent;
   }
@@ -154,12 +156,12 @@ export default Vue.extend({
 
  //sizes
   .spinner.spinner--small{
-      circle.spinner-base, circle.spinner-gradient{
+      circle.base, circle.spinner-gradient{
         stroke-width: 4;
       }
   }
   .spinner.spinner--medium{
-      circle.spinner-base, circle.spinner-gradient{
+      circle.base, circle.spinner-gradient{
         stroke-width: 6;
       }
       circle.spinner-gradient{
@@ -168,7 +170,7 @@ export default Vue.extend({
   }
 
   .spinner.spinner--large{
-      circle.spinner-base, circle.spinner-gradient{
+      circle.base, circle.spinner-gradient{
       stroke-width: 12;
     }
     circle.spinner-gradient{
