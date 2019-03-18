@@ -1,35 +1,35 @@
 <template>
   <section>
-    <FishTankCheckbox 
+    <checkbox 
       v-model="val"
-      value="alpha" 
       label="alpha"/>
-    <FishTankCheckbox 
+    <checkbox 
       v-model="val" 
       disabled
-      value="alpha" 
       label="alpha"/>
-    <FishTankCheckbox 
-      v-model="val2"
-      value="beta" 
+
+      <code>val: {{ val }}</code>
+    <checkbox 
+      :value="val2"
+      @change="val2 = !val2;"
       label="beta"/>
-    <FishTankCheckbox 
+    <checkbox 
       v-model="val2"
       disabled
       value="beta" 
       label="beta"/>
-    <code>{{ val }}</code>
+      <code>val2: {{ val2 }}</code>
 
-    <FishTankCheckbox 
-      v-model="baseArr"
-      value="alpha" 
+    <checkbox 
+      :value="(baseArr.indexOf(a1) > -1)"
+      @change="editArray(baseArr, a1)"
       label="alpha"/>
-    <FishTankCheckbox 
-      v-model="baseArr"
-      value="beta" 
+    <checkbox 
+      :value="(baseArr.indexOf(b1) > -1)"
+      @change="editArray(baseArr, b1)"
       label="beta"/>
 
-    <code>{{ baseArr }}</code>
+    <code>baseArr: {{ baseArr }}</code>
   </section>
 </template>
 
@@ -39,7 +39,7 @@ import { FishTankCheckbox } from '@/index'
 
 export default Vue.extend({
   components:{
-    FishTankCheckbox,
+    checkbox: FishTankCheckbox,
   },
   data(){
     return {
@@ -47,7 +47,14 @@ export default Vue.extend({
       val2:true,
       arr:['epsilon'],
       baseVal:false,
-      baseArr:[]
+      baseArr:[],
+      a1:"alpha",
+      b1:"beta",
+    }
+  },
+  methods:{
+    editArray(arr:any, v:any){
+      arr.indexOf(v) < 0 ? arr.push(v) : arr.splice(arr.indexOf(v), 1)
     }
   }
   
