@@ -2,10 +2,10 @@
   <div>
     <div>
       <div>Value pre-set to Option 3</div>
-      <FishTankSelect 
+      <fish-tank-select
+        label="Fish Tank Dropdown" 
         :items="items" 
-        :selected="selected" 
-        @change="handleChange" />
+        v-model="selected"/>
       <div>Old Value: {{oldValue.label}}</div>
       <div>New Value: {{newValue.label}}</div>
     </div>
@@ -15,13 +15,15 @@
         <template v-for="(button, index) in buttons">
           <button
             :key="index"
-            @click="selected2 = items[index]"
-          >
+            @click="selected2 = items[index]">
             {{ button }}
           </button>
         </template>
       </div>
-      <FishTankSelect :items="items" :selected="selected2" @change=handleChange2 />
+      <FishTankSelect 
+        :items="items" 
+        :selected="selected2"
+        @change=handleChange2 />
     </div>
   </div>
 </template>
@@ -40,7 +42,7 @@ export default {
         {label: 'Option 3', value: 'OPTION3'},
         {label: 'Option 4', value: 'OPTION4'},
       ],
-      selected: {label: 'Option 3', value: 'OPTION3'},
+      selected: 'OPTION3',
       oldValue: {},
       newValue: {},
       selected2: {label: 'Option 1', value: 'OPTION1'},
