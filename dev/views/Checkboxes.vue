@@ -2,6 +2,7 @@
   <section>
     <checkbox 
       v-model="val"
+      value = "tt"
       label="alpha"/>
     <checkbox 
       v-model="val" 
