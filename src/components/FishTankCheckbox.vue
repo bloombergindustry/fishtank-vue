@@ -4,19 +4,18 @@
     
   >
     <label
-      :for="(id !==null? id: labelId)"
+      :for="(id !==null? id: null)"
       :class="$style.label"
     >
       <input 
-        :id="(id !==null? id: labelId)" 
+        :id="(id !==null? id: null)" 
         :disabled="disabled"
-        :checked="isChecked"
-        :value="value"
+        :checked="value"
         :class="$style.native" 
+        @click="emitChange"
         type="checkbox"
         @focus="isFocused = true"
-        @blur="isFocused = false"
-        v-on="listeners">
+        @blur="isFocused = false">
       <div 
         :class="[$style.animationWrap, {'a11y': isFocused}]">
         <transition 
@@ -26,14 +25,14 @@
           :enter-class="$style.transitionScaleEnter"
           :leave-to-class="$style.transitionScaleLeaveTo">
           <CheckboxSelected 
-            v-if="isChecked"
-            :key="`{$labelId}+'-svgSelected'`"
+            v-if="value"
+            :key="`{$keyId}+'-svgSelected'`"
             :class="[$style.svgSelected, returnEnabledDisabled]"
             
           />
           <CheckboxUnselected 
-            v-if="!isChecked"
-            :key="`{$labelId}+'unselected'`"
+            v-if="!value"
+            :key="`{$keyId}+'unselected'`"
             :class="[$style.svgUnselected, returnEnabledDisabled]"
           />
         </transition>
@@ -74,7 +73,7 @@ export default Vue.extend({
     a11y,
   ],
   model: {
-    prop: 'modelValue',
+    prop: 'value',
     event: 'change'
   },
   props: {
@@ -85,13 +84,9 @@ export default Vue.extend({
       description:`Disable the checkbox`
     },
     value: {
-      default:null,
-      type: [String, Boolean, Object, Array, Number],
-      description:`When the checkbox bound to an array via v-model, the value or data object added or removed from the array.`
-    },
-    modelValue: {
-      type:[String, Boolean, Object, Array, Number],
-      default: false
+      default:false,
+      type: [Boolean, Array],
+      description:`Checkbox binding to a boolean or array`
     },
     label: {
       type: String,
@@ -104,71 +99,23 @@ export default Vue.extend({
       required:false,
       description:`Checkbox element ID`
     },
-    trueValue: {
-      default: true,
-      type:[String, Boolean, Object, Array, Number]
-    },
-    falseValue: {
-      default: false,
-      type:[String, Boolean, Object, Array, Number]
+  },
+  methods:{
+    emitChange(){
+      this.$emit('change', !(this as any).value)
     }
   },
   data(){
     return {
-      checkProxy:false,
       isFocused:false
     }
   },
   computed: {
-    listeners(): Record<string, Function | Function[]> {
-      return {
-        ...this.$listeners,
-        change: ($event: MouseEvent) => {
-          if (this.disabled) return 
-          this.updateInput($event)
-        }
-      }
-    },
-    checked: {
-      set:function(val:any){
-        this.checkProxy = val
-      },
-      get: function(): Record<string, boolean | number | Function | Function[]>{
-        return this.value
-      }
-    },
-    isChecked: function(){
-      if (this.modelValue instanceof Array) {
-        let res = false
-        if(this.modelValue.indexOf(this.value) >= 0) res = !res
-        return res
-      }
-      return this.modelValue === this.trueValue
-    },
-    labelId(): string {
+    keyId(): string {
       return `checkbox-${(this as any)._uid}`
     },
     returnEnabledDisabled(): string {
     return this.disabled ? "disabled" : "animationWrap__enabled"
-    }
-  },
-  methods:{
-    updateInput(event:any) {
-      let isChecked = event.target.checked
-
-      if (this.modelValue instanceof Array) {
-        let newValue = [...this.modelValue]
-
-        if (isChecked) {
-          newValue.push(this.value)
-        } else {
-          newValue.splice(newValue.indexOf(this.value), 1)
-        }
-
-        this.$emit('change', newValue)
-      } else {
-        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
-      }
     }
   }
 })
@@ -177,7 +124,7 @@ export default Vue.extend({
 <style lang="scss">
   @import "../../node_modules/@fishtank/colors/dist/index";
   body.user-is-tabbing {
-    .a11y {
+    .a11y:focus {
       box-shadow: 0 0 0 2px $color-selected;
     }
   }
@@ -185,8 +132,6 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
 
 .checkbox {
   position: relative;
