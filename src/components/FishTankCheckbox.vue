@@ -100,17 +100,9 @@ export default Vue.extend({
       description:`Checkbox element ID`
     },
   },
-  mounted(){
-    console.log(this.value instanceof Array )
-  },
   methods:{
     emitChange(){
-      this.$emit('change', !this.value)
-      // if ((this as any).value instanceof Array){
-      //   this.$emit('change', ['A', 'B'])
-      // } else {
-      //   this.$emit('change', !this.value)
-      // }
+      this.$emit('change', !(this as any).value)
     }
   },
   data(){
@@ -119,19 +111,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    // checked: {
-    //   get: function(): Record<string, boolean | number | Function | Function[]>{
-    //     return this.value
-    //   }
-    // },
-    // isChecked: function(){
-    //   if (this.modelValue instanceof Array) {
-    //     let res = false
-    //     if(this.modelValue.indexOf(this.value) >= 0) res = !res
-    //     return res
-    //   }
-    //   return this.modelValue === this.trueValue
-    // },
     keyId(): string {
       return `checkbox-${(this as any)._uid}`
     },
@@ -153,8 +132,6 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
 
 .checkbox {
   position: relative;
