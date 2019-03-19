@@ -32,14 +32,12 @@ export default Vue.extend({
 </script>
 
 <style module lang="scss">
-
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-  
-
+  :root {
+    --alert-baseline: var(--baseline);
+  }
   .alert {
-    padding: $baseline * 3;
+    padding: calc(var(--alert-baseline) * 3);
     position: relative;
     border-color: $color-black;
     border-width: 1px;

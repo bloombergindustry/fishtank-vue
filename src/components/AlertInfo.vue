@@ -1,9 +1,9 @@
 <template>
-  <BaseAlert
+  <base-alert
     :heading="heading"
     :class="$style.info">
     <slot/>
-  </BaseAlert>
+  </base-alert>
 </template>
 
 <script lang="ts">
@@ -25,13 +25,13 @@ export default Vue.extend({
 </script>
 
 <style module lang="scss">
-
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-
+  :root {
+    --info-background:var(--color-selection-lightest);
+    --info-border:var(--color-selection);
+  }
   .info {
-    background-color: $color-selection-lightest;
-    border-color: $color-selection;
+    background-color: var(--info-background);
+    border-color: var(--info-border);
   }
 </style>

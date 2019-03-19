@@ -1,5 +1,5 @@
 <template>
-  <BaseAlert
+  <base-alert
     :heading="heading"
     :class="$style.error">
     <WarningIcon
@@ -7,7 +7,7 @@
       :scale="1"
       :class="$style.icon"/>
     <slot/>
-  </BaseAlert>
+  </base-alert>
 </template>
 
 <script lang='ts'>
@@ -31,17 +31,17 @@ export default {
 </script>
 
 <style module lang="scss">
-
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-  
+  :root{
+    --error-background: var(--color-error-lightest);
+    --error-border: var(--color-error);
+  }
   .error {
-    background-color: $color-error-lightest;
-    border-color: $color-error;
+    background-color: var(--error-background);
+    border-color: var(--error-border);
 
     .icon {
-      color: $color-error;
+      color: var(--error-border);
     }
   }
 </style>
