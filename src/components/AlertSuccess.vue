@@ -1,9 +1,9 @@
 <template>
-  <BaseAlert
+  <base-alert
     :heading="heading"
     :class="$style.success">
     <slot/>
-  </BaseAlert>
+  </base-alert>
 </template>
 
 <script lang="ts">
@@ -25,14 +25,14 @@ export default Vue.extend({
 </script>
 
 <style module lang="scss">
-
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-
+  :root {
+    --success-background:var(--color-action-lightest);
+    --success-border:var(--color-action-lighter);
+  }
   .success {
-    background-color: $color-action-lightest;
-    border-color: $color-action-lighter;
+    background-color: var(--success-background);
+    border-color: var(--success-border);
   }
 
 
