@@ -96,13 +96,25 @@
         color="action">this inner text block</fish-tank-text> in the action color.
     </fish-tank-text>
     <br>
+    <fish-tank-box width="100px" :padding-y=3>
+      <fish-tank-text bold>Overflow:</fish-tank-text>
+      <fish-tank-text>
+        Text default overflow is breakWord
+      </fish-tank-text>
+    </fish-tank-box>
+    <fish-tank-box width="100px" :padding-y=3>
+      <fish-tank-text bold>Truncate:</fish-tank-text>
+      <fish-tank-text truncate>
+        Text default overflow is breakWord
+      </fish-tank-text>
+    </fish-tank-box>
     <br>
     <br>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankText, FishTankCheckbox} from "@/index"
+import { FishTankText, FishTankCheckbox, FishTankBox} from "@/index"
 import ftColorsObj from '@fishtank/colors/dist/text.common.js'
 import {
   fishtankToPropName
@@ -116,7 +128,8 @@ const colors = _.keys(ftColorsObj).map(fishtankToPropName)
 export default Vue.extend({
   components: {
     FishTankText,
-    FishTankCheckbox
+    FishTankCheckbox,
+    FishTankBox
   },
   data () {
     return {
