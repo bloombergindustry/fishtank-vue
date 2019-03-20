@@ -1787,7 +1787,7 @@ html[dir="rtl"] .marginEndN12 {
   }
 }
 
-@media (--md) {
+@media (min-width:768px) {
   html:not([dir="rtl"]) .mdMarginStart1 {
     margin-left: calc(var(--bt) * 1);
   }
@@ -2677,7 +2677,7 @@ html[dir="rtl"] .marginEndN12 {
   }
 }
 
-@media (--lg) {
+@media (min-width: 1200px) {
   html:not([dir="rtl"]) .lgMarginStart1 {
     margin-left: calc(var(--bt) * 1);
   }
