@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.5.0"></a>
+# [4.5.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.4.0...v4.5.0) (2019-03-20)
+
+
+### Bug Fixes
+
+* CSS Custom Properties Refactor of Accordion; Class name and template refactor of Accordion ([2e6144c](https://github.com/bloombergbna/fishtank-vue/commit/2e6144c))
+
+
+### Features
+
+* Major internal refactor of checkboxes. Largely stateless now, uses v-model or v-bind:value to set variab le binding ([ca3fb2f](https://github.com/bloombergbna/fishtank-vue/commit/ca3fb2f))
+* Refactored Alerts to use CSS custom variables ([7f45b61](https://github.com/bloombergbna/fishtank-vue/commit/7f45b61))
+
+
+
 <a name="4.4.0"></a>
 # [4.4.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.4.0-4.4.0-1.0...v4.4.0) (2019-03-07)
 
