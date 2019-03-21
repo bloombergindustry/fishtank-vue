@@ -117,13 +117,13 @@
   }
 }
 
-@media (--md) {
+@media (min-width:768px) {
   .mdFlex {
     display: flex;
   }
 }
 
-@media (--lg) {
+@media (min-width: 1200px) {
   .lgFlex {
     display: flex;
   }

@@ -104,7 +104,7 @@
   }
 }
 
-@media (--md) {
+@media (min-width:768px) {
   .mdCol1 {
     width: calc(1 / var(--ncols) * 100%);
   }
@@ -154,7 +154,7 @@
   }
 }
 
-@media (--lg) {
+@media (min-width: 1200px) {
   .lgCol1 {
     width: calc(1 / var(--ncols) * 100%);
   }

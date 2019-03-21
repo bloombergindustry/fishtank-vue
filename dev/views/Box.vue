@@ -1,14 +1,16 @@
 <template>
   <section>
-    <fish-tank-box 
+    <fish-tank-box
       tag="section"
-      display="flex" 
+      display="flex"
       justify-content="between">
-      <fish-tank-box 
-        color="highlight1" 
+      <fish-tank-box
+        color="highlight1"
         :padding-x="4"
         :margin-top="4"
-        :column="12"
+        :xs-column="12"
+        :md-column="6"
+        :lg-column="3"
         wrap>
           <fish-tank-text>
             Text in a FishTankBox component in a 12 column space
@@ -17,11 +19,11 @@
           <br>
       </fish-tank-box>
     </fish-tank-box>
-    <fish-tank-box 
-      display="flex" 
+    <fish-tank-box
+      display="flex"
       justify-content="between">
-      <fish-tank-box 
-        color="action" 
+      <fish-tank-box
+        color="action"
         :padding="4"
         :column="8">
         <fish-tank-text>
@@ -62,8 +64,8 @@ export default Vue.extend({
       align: 'left',
       font:'primary',
       pageTemplate:`<fish-tank-box display="flex" justify-content="between">
-    <fish-tank-box 
-      color="action" 
+    <fish-tank-box
+      color="action"
       padding="space4"
       column="4">
       <fish-tank-text> Text in a box</fish-tank-text>

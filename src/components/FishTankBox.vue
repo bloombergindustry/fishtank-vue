@@ -74,7 +74,33 @@ const Columns = {
   xsCol9: "xsCol9",
   xsCol10: "xsCol10",
   xsCol11: "xsCol11",
-  xsCol12: "xsCol12"
+  xsCol12: "xsCol12",
+
+  mdCol1: "mdCol1",
+  mdCol2: "mdCol2",
+  mdCol3: "mdCol3",
+  mdCol4: "mdCol4",
+  mdCol5: "mdCol5",
+  mdCol6: "mdCol6",
+  mdCol7: "mdCol7",
+  mdCol8: "mdCol8",
+  mdCol9: "mdCol9",
+  mdCol10: "mdCol10",
+  mdCol11: "mdCol11",
+  mdCol12: "mdCol12",
+
+  lgCol1: "lgCol1",
+  lgCol2: "lgCol2",
+  lgCol3: "lgCol3",
+  lgCol4: "lgCol4",
+  lgCol5: "lgCol5",
+  lgCol6: "lgCol6",
+  lgCol7: "lgCol7",
+  lgCol8: "lgCol8",
+  lgCol9: "lgCol9",
+  lgCol10: "lgCol10",
+  lgCol11: "lgCol11",
+  lgCol12: "lgCol12"
 }
 
 const layout = {
@@ -240,6 +266,9 @@ const props: any = {
     // default: stretch
   }),
   column: bind(range("xsCol"), Columns),
+  xsColumn: bind(range("xsCol"), Columns),
+  mdColumn: bind(range("mdCol"), Columns),
+  lgColumn: bind(range("lgCol"), Columns),
   justifyContent: mapping({
     end: layout.justifyEnd,
     center: layout.justifyCenter,
@@ -317,7 +346,7 @@ export default Vue.extend({
       description:'Box flexbox align-content property sets how the browser distributes space between and around content items along the cross-axis of a Box, and the main-axis of a grid container.',
     },
     // AlignItemType,
-    // // @Prop() 
+    // // @Prop()
     display: {
       type:String,
       default:"block",
@@ -328,7 +357,7 @@ export default Vue.extend({
       description:'Box display property',
     },
     // DisplayType,
-    // // @Prop() 
+    // // @Prop()
     column: {
       type:Number,
       default:null,
@@ -338,8 +367,35 @@ export default Vue.extend({
       },
       description:'Box grid columns',
     },
+    xsColumn: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Column){
+        return (0<value && 13>value)
+      },
+      description:'Box grid columns',
+    },
+    mdColumn: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Column){
+        return (0<value && 13>value)
+      },
+      description:'Box grid columns',
+    },
+    lgColumn: {
+      type:Number,
+      default:null,
+      required:false,
+      validator: function(value: Column){
+        return (0<value && 13>value)
+      },
+      description:'Box grid columns',
+    },
     // Column, /* 1 -12 */
-    // // @Prop() 
+    // // @Prop()
     direction: {
       type:String,
       default:null,
@@ -524,8 +580,8 @@ export default Vue.extend({
       description:'Box flexbox flex property; sets how a flex type Box will grow or shrink to fit the space available in its flex container.',
     },
     color: {
-      type:String, 
-      required:false, 
+      type:String,
+      required:false,
       default:null,
       // validator: function (value: Color) {
       //   return ['color', 'array', 'here'].indexOf(value) !== -1
@@ -538,7 +594,7 @@ export default Vue.extend({
       let style = (<any>this).$style
       return style
     },
-    
+
     boxProps() {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
@@ -553,7 +609,7 @@ export default Vue.extend({
       return {
         // class: boxProps.className,
         class: modulesClasses.join(' '),
-        style: boxProps.style,        
+        style: boxProps.style,
       }
     },
 
