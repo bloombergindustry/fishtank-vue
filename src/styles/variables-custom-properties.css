@@ -1,0 +1,12 @@
+
+
+@import '../../node_modules/@fishtank/space/dist/index.custom-properties.css';
+@import '../../node_modules/@fishtank/type/dist/index.custom-properties.css';
+@import '../../node_modules/@fishtank/colors/dist/index.custom-properties.css';
+
+:root {
+  --breakpoint-xlarge-min: 1440px;
+  --breakpoint-large-min: 1008px;
+  --breakpoint-medium-min: 752px;
+  --breakpoint-small-min: 480px;
+}

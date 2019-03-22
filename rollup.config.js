@@ -11,6 +11,8 @@ import typescript from "rollup-plugin-typescript2"
 import externals from '@yelo/rollup-node-external'
 import { minify } from "uglify-es"
 import postcsscssvariables from "postcss-css-variables"
+import atImport from "postcss-import"
+import rollpost from "rollup-plugin-postcss"
 
 const aliasTransform = require('./config/alias-transform').default
 const scssImporter = require('./config/scss-importer').default
@@ -42,7 +44,8 @@ const builds = {
   cjs: {
     entry: "src/index.ts",
     dest: `dist/${projectName}.common.js`,
-    format: "cjs"
+    format: "cjs",
+    env: null
   },
   // (ES Modules). Used by bundlers that support ES Modules,
   // e.g. Rollup & Webpack 2
@@ -50,26 +53,19 @@ const builds = {
     entry: "src/index.ts",
     dest: `dist/${projectName}.esm.js`,
     format: "es",
-  },
-  cjsProduction: {
-    entry: "src/index.ts",
-    dest: `dist/${projectName}.common.min.js`,
-    format: "cjs",
-    env:'production'
-  },
-  // (ES Modules). Used by bundlers that support ES Modules,
-  // e.g. Rollup & Webpack 2
-  esmProduction: {
-    entry: "src/index.ts",
-    dest: `dist/${projectName}.esm.min.js`,
-    format: "es",
-    env:'production'
+    env : null
   },
 }
 
-function genConfig(name) {
+function genConfig(name, isProdVar, custProps) {
   const opts = builds[name]
-
+  opts.env = isProdVar
+  const importOptions = {
+    filter:url=>url === '../styles/variables-custom-properties',
+  }
+  opts.dest =`dist/${projectName}.${name}${(custProps === 'true' ? ".vars":"")}${(isProdVar === null ? "":".min")}.js`
+  opts.compileCustomProperties = custProps === 'true' ? [ atImport(importOptions), autoprefixer] : [atImport(),postcsscssvariables,autoprefixer]
+  
   const scssOpts = {
     importer: scssImporter({ aliasConfig }),
     output: function (styles, styleNodes) {
@@ -93,10 +89,14 @@ function genConfig(name) {
           needMap: false,
           css: true,
           style:{
-            postcssPlugins:[
-              postcsscssvariables,
-              autoprefixer,
-            ],
+            rollpost:{
+              onImport:i=>{
+                console.log(i)
+              }
+            },
+            postcssPlugins:
+              opts.compileCustomProperties
+            ,
             postcssModulesOptions:{
               generateScopedName: 'ft-[local]-[hash:base64:4]'
             }
@@ -148,5 +148,6 @@ function genConfig(name) {
 }
 
 const target = process.env.TARGET || "esm"
-module.exports = genConfig(target)
-
+const isProd = process.env.PROD  || null
+const compileCustomProperties = process.env.compileCustomProperties  || null
+module.exports = genConfig(target, isProd, compileCustomProperties)

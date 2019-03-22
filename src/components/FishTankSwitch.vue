@@ -11,7 +11,7 @@
         :value="value"
         type="checkbox" 
         v-on="listeners">
-      <div :class="$style.inputCheckboxWrap">
+      <div :class="[$style.inputCheckboxWrap, 'a11y']">
         <div :class="$style.inputCheckboxTarget"/>
       </div>
       <div :class="$style.labelContent">
@@ -115,17 +115,15 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss">
+  @import '../styles/mixins';
+  body.user-is-tabbing input:focus + .a11y {
+    box-shadow: 0 0 0 2px $color-selected;
+  }
+</style>
 
 <style module lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-
-
-
-  body.user-is-tabbing input:focus + .inputCheckboxWrap {
-    box-shadow: 0 0 0 2px $color-selected;
-  }
 
   .switch .inputCheckboxLabel {
     font-size: $fontsize-base-md;

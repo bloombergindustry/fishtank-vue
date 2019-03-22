@@ -9,8 +9,10 @@
     <box :marginBottom="2">
       <fish-tank-alert-error heading="Update Did Not Complete"></fish-tank-alert-error>
     </box>
-    <box :marginBottom="2">
-      <fish-tank-alert-info heading="Completed Tasks"></fish-tank-alert-info>
+    <box class="override">
+      <box :marginBottom="2">
+        <fish-tank-alert-info heading="Completed Tasks"></fish-tank-alert-info>
+      </box>
     </box>
   </div>
 </template>
@@ -41,7 +43,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .content {
   height: 100px;
   width: 200px;

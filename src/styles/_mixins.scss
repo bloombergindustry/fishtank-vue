@@ -1,107 +1,102 @@
-@import './variables';
+@import "variables-scss.scss";
 
 @mixin font-base-lg() {
-  font-size: $fontsize-base-lg;
-  line-height: $lineheight-base-lg;
+  font-size: var(--fontsize-base-lg);
+  line-height: var(--lineheight-base-lg);
 }
 
 @mixin font-base-md() {
-  font-size: $fontsize-base-md;
-  line-height: $lineheight-base-md;
+  font-size: var(--fontsize-base-md);
+  line-height: var(--lineheight-base-md);
 }
 
 @mixin font-base-sm() {
-  font-size: $fontsize-base-sm;
-  line-height: $lineheight-base-sm;
+  font-size: var(--fontsize-base-sm);
+  line-height: var(--lineheight-base-sm);
 }
 
-$breakpoint-xlarge-min: 1440px;
-$breakpoint-large-min: 1008px;;
-$breakpoint-medium-min: 752px;
-$breakpoint-small-min: 480px;
-
 @mixin breakpoint-xl () {
-  @media (min-width: $breakpoint-xlarge-min) {
+  @media (min-width: var(--breakpoint-xlarge-min)) {
     @content;
   }
 }
 
 @mixin breakpoint-lg () {
-  @media (min-width: $breakpoint-large-min) and (max-width: $breakpoint-xlarge-min - 1px) {
+  @media (min-width: var(--breakpoint-large-min)) and (max-width: calc(var(--breakpoint-xlarge-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-lg-or-greater () {
-  @media (min-width: $breakpoint-large-min) {
+  @media (min-width: var(--breakpoint-large-min)) {
     @content;
   }
 }
 
 @mixin breakpoint-lg-or-lesser () {
-  @media (max-width: $breakpoint-xlarge-min - 1px) {
+  @media (max-width: calc(var(--breakpoint-xlarge-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-md () {
-  @media (min-width: $breakpoint-medium-min) and (max-width: $breakpoint-large-min - 1px) {
+  @media (min-width: var(--breakpoint-medium-min)) and (max-width: calc(var(--breakpoint-large-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-md-or-greater () {
-  @media (min-width: $breakpoint-medium-min) {
+  @media (min-width: var(--breakpoint-medium-min)) {
     @content;
   }
 }
 
 @mixin breakpoint-md-or-lesser () {
-  @media (max-width: $breakpoint-large-min - 1px) {
+  @media (max-width: calc(var(--breakpoint-large-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-sm () {
-  @media (min-width: $breakpoint-small-min) and (max-width: $breakpoint-medium-min - 1px) {
+  @media (min-width: var(--breakpoint-small-min)) and (max-width: calc(var(--breakpoint-medium-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-sm-or-greater () {
-  @media (min-width: $breakpoint-small-min) {
+  @media (min-width: var(--breakpoint-small-min)) {
     @content;
   }
 }
 
 @mixin breakpoint-sm-or-lesser () {
-  @media (max-width: $breakpoint-medium-min - 1px) {
+  @media (max-width: calc(var(--breakpoint-medium-min) - 1px)) {
     @content;
   }
 }
 
 @mixin breakpoint-xs () {
-  @media (max-width: $breakpoint-small-min - 1px) {
+  @media (max-width: calc(var(--breakpoint-small-min) - 1px)) {
     @content;
   }
 }
 
 @mixin baseButton {
   @include font-base-lg();
-  font-family: $font-primary;
-  font-weight: $fontweight-semi;
+  font-family: var(--font-primary);
+  font-weight: var(--fontweight-semi);
 
   padding: 6px 11px 10px 11px;
-  height: $baseline*10;
+  height: calc(var(--baseline)*10);
 }
 
 @mixin baseButtonSm {
   @include font-base-sm();
-  font-family: $font-primary;
-  font-weight: $fontweight-semi;
+  font-family: var(--font-primary);
+  font-weight: var(--fontweight-semi);
 
   padding: 7px 11px 9px 11px;
-  height: $baseline*10;
+  height: calc(var(--baseline)*10);
 }
 
 @mixin button-box-shadow($color) {

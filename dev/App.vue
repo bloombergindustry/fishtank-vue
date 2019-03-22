@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import '../src/styles/variables';
+@import '../src/styles/variables-custom-properties.css';
 @import '../src/styles/fonts';
 @import "~normalize-scss";
 
@@ -15,13 +15,13 @@ body, html {
   // margin: 0;
   padding: 10px;
   font: 0.75em open sans, arial, sans-serif;
-  color: $color-black;
+  color: var(--color-black);
   box-sizing: border-box;
 }
 
 html {
   height: 100%;
-  font-size: $root-fontsize;
+  font-size: var(--root-fontsize);
 }
 
 // body {
