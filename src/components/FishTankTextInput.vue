@@ -66,7 +66,8 @@
           v-bind="$attrs"
           :class="[$style.inputTextInput, {[$style.inputTextInputErrorState]:errorMessage}]"
           @input="updateValue "
-          @focus="checkError"
+          @blur="$emit('blur', $event)"
+          @focus="checkError, $emit('focus', $event)"
           v-on="listeners">
       </template>
       <p 
@@ -89,7 +90,7 @@
           </span>
         </slot>
       </span>
-
+    <slot name="below" />
     </div>
 
     <div
