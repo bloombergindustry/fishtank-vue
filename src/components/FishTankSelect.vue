@@ -9,20 +9,19 @@
       name="label">
       {{ label }}
     </slot>
-    <div class="positionWrap">
+    <div class="position-wrap">
       <button 
-        :class="['selected', 'a11y',(small ? 'small-select':null)]" 
+        :class="['selected', 'a11y',(small ? 'small':null)]" 
         aria-haspopup="listbox"
         :placeholder="!value" 
         @click="opened=!opened">
         <box 
-          class="selectedWrap" 
           display="flex" 
           justify-content="between"> 
           <ftext
             color="grayDark"
             :size="small ? 'baseSm': 'baseMd'"
-            :class="(small ? 'small-select-text':null)">
+            :class="(small ? 'small-text':null)">
             {{ displayLabel }}
           </ftext>
           <caretdown 
@@ -164,12 +163,12 @@ export default {
 
 <style scoped lang="scss">
 @import '../styles/mixins';
-@import '../../node_modules/@fishtank/colors/dist/index.scss';
-
-.select{
-  --select-background: var(--color-secondary);
+// accessibility styles
+body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within{
+  box-shadow: 0 0 0 2px $color-selected;
 }
-.positionWrap{
+
+.position-wrap{
   position: relative;
 }
 .selected{
@@ -184,15 +183,12 @@ export default {
   padding-top: $paddingVal;
   padding-bottom: $paddingVal;
 }
-body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within{
-  box-shadow: 0 0 0 2px $color-selected;
-}
-.small-select{
+.small{
   $paddingVal: $baseline;
   padding-top: $paddingVal ;
   padding-bottom: $paddingVal;
 }
-.small-select-text {
+.small-text {
   padding-top:$baseline;
 }
 .items {
