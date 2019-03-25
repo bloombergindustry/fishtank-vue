@@ -45,9 +45,7 @@
           @click="$emit('change', item.value); opened = false"
           @blur="closeDropdown(items, index)"
           class="listItem">
-          <box :padding=2>
             <ftext>{{ item.label }}</ftext>
-          </box>
         </a>
       </div>
     </div>
@@ -154,7 +152,7 @@ export default {
 
 <style scoped lang="scss">
 @import '../styles/mixins';
-@import '../../node_modules/@fishtank/colors/dist/index.custom-properties';
+@import '../../node_modules/@fishtank/colors/dist/index.scss';
 
 .select{
   --select-background: var(--color-secondary);
@@ -190,6 +188,7 @@ body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within
 }
 .listItem{
   display: block;
+  padding: $baseline * 2;
   &:hover, &:focus {
     background-color: var(--hover-background-color, #E7F5FB);
     outline: none;
