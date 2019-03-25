@@ -80,6 +80,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/alerts',
       component: () => import("./views/Alerts.vue")
+    },
+    {
+      path: '/lookup',
+      component: () => import("./views/Lookup.vue")
     }
   ]
 })
