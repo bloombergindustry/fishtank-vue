@@ -11,17 +11,18 @@
     </slot>
     <div class="positionWrap">
       <button 
-        class="selected a11y" 
+        :class="['selected', 'a11y',(small ? 'small-select':null)]" 
         aria-haspopup="listbox"
         :placeholder="!value" 
         @click="opened=!opened">
         <box 
           class="selectedWrap" 
           display="flex" 
-          justify-content="between" 
-          :padding=2> 
+          justify-content="between"> 
           <ftext
-            color="grayDark">
+            color="grayDark"
+            :size="small ? 'baseSm': 'baseMd'"
+            :class="(small ? 'small-select-text':null)">
             {{ displayLabel }}
           </ftext>
           <caretdown 
@@ -45,7 +46,10 @@
           @click="$emit('change', item.value); opened = false"
           @blur="closeDropdown(items, index)"
           class="listItem">
-            <ftext>{{ item.label }}</ftext>
+          <ftext
+            :size="small ? 'baseSm': 'baseMd'">
+            {{ item.label }}
+          </ftext>
         </a>
       </div>
     </div>
@@ -124,7 +128,14 @@ export default {
     /**
      * Current selected item value
      */
-    value: String | Number
+    value: String | Number,
+
+    /**
+     * Small Select
+     */
+    small:{
+      type:Boolean
+    } 
   },
   model: {
     event: 'change',
@@ -156,25 +167,32 @@ export default {
 
 .select{
   --select-background: var(--color-secondary);
-  --selected-wrap: var(--color-secondary-lighter);
 }
 .positionWrap{
   position: relative;
 }
 .selected{
-  background-color:transparent;
+  border-radius: 2px;
   border: 0;
   width: 100%;
   text-align: left;
-  padding: 0;
   outline: 0;
+  background-color: var(--select-background, $color-secondary);
+  border: 1px solid #C5CACD;
+  $paddingVal: $baseline * 2;
+  padding-top: $paddingVal;
+  padding-bottom: $paddingVal;
 }
 body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within{
   box-shadow: 0 0 0 2px $color-selected;
 }
-.selectedWrap{
-  background-color: var(--select-background);
-  border: 1px solid #C5CACD;
+.small-select{
+  $paddingVal: $baseline;
+  padding-top: $paddingVal ;
+  padding-bottom: $paddingVal;
+}
+.small-select-text {
+  padding-top:$baseline;
 }
 .items {
   border: 1px solid var(--border-color, #C5CACD);
@@ -188,7 +206,7 @@ body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within
 }
 .listItem{
   display: block;
-  padding: $baseline * 2;
+  padding: $baseline;
   &:hover, &:focus {
     background-color: var(--hover-background-color, #E7F5FB);
     outline: none;
