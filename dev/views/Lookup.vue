@@ -18,7 +18,14 @@ export default {
   },
   data () {
     return {
-      selected: null
+      selected: null,
+      exampleItems: [
+            { label: "Some item 1", value: "Some item 1" },
+            { label: "Some item 2", value: "Some item 2" },
+            { label: "Some item 3", value: "Some item 3" },
+            { label: "Some item 4", value: "Some item 4" },
+            { label: "Some item 5", value: "Some item 5" }
+          ]
     }
   },
   created () {
