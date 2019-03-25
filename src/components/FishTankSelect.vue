@@ -42,11 +42,12 @@
           v-for="(item, index) in items" 
           :key="index" 
           tabindex="0" 
-          @keyup.enter="$emit('change', item.value, $nextTick(()=>opened=false))" 
+          @keyup.enter="$emit('change', item.value, $nextTick(()=>opened=true))" 
           @click="$emit('change', item.value); opened = false"
           @blur="closeDropdown(items, index)"
-          class="listItem">
+          class="list-item">
           <ftext
+            class="list-item-text"
             :size="small ? 'baseSm': 'baseMd'">
             {{ item.label }}
           </ftext>
@@ -204,12 +205,18 @@ body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within
   z-index: 100;
   top:0;
 }
-.listItem{
+.list-item{
   display: block;
   padding: $baseline;
   &:hover, &:focus {
     background-color: var(--hover-background-color, #E7F5FB);
     outline: none;
   }
+}
+.list-item-text {
+  color:$color-gray-dark;
+}
+.list-item:focus .list-item-text, .list-item:hover .list-item-text{
+  color: $color-black
 }
 </style>
