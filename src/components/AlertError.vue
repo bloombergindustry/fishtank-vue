@@ -31,17 +31,15 @@ export default {
 </script>
 
 <style module lang="scss">
+  @import '../styles/variables-custom-properties';
   @import '../styles/mixins';
-  :root{
-    --error-background: var(--color-error-lightest);
-    --error-border: var(--color-error);
-  }
+  
   .error {
-    background-color: var(--error-background);
-    border-color: var(--error-border);
+    background-color: var(--error-background, $color-error-lightest);
+    border-color: var(--error-border, $color-error);
 
     .icon {
-      color: var(--error-border);
+      color: var(--error-border, $color-error);
     }
   }
 </style>

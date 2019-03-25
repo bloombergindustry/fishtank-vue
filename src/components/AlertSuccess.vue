@@ -26,10 +26,7 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  :root {
-    --success-background:var(--color-action-lightest);
-    --success-border:var(--color-action-lighter);
-  }
+
   .success {
     background-color: var(--success-background);
     border-color: var(--success-border);

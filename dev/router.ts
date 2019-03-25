@@ -1,6 +1,5 @@
 import Vue, { VNode } from 'vue'
 import Router, { RouterOptions } from 'vue-router'
-import CardsDemo from "./views/Cards.vue"
 
 Vue.use(Router)
 
@@ -12,7 +11,7 @@ export default new Router(<RouterOptions>{
     },
     {
       path: '/cards',
-      component: CardsDemo
+      component: () => import("./views/Cards.vue")
     },
     {
       path: '/modals',

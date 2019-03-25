@@ -33,11 +33,9 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  :root {
-    --alert-baseline: var(--baseline);
-  }
+
   .alert {
-    padding: calc(var(--alert-baseline) * 3);
+    padding: $baseline * 3;
     position: relative;
     border-color: $color-black;
     border-width: 1px;

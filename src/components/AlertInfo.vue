@@ -26,12 +26,9 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  :root {
-    --info-background:var(--color-selection-lightest);
-    --info-border:var(--color-selection);
-  }
+
   .info {
-    background-color: var(--info-background);
-    border-color: var(--info-border);
+    background-color: var(--info-background, $color-selected-lightest);
+    border-color: var(--info-border, $color-selected);
   }
 </style>
