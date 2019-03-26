@@ -1,4 +1,4 @@
-import { shallowMount as  shallow } from '@vue/test-utils'
+import { shallowMount as  shallow, Wrapper, WrapperArray } from '@vue/test-utils'
 import { expect } from "chai"
 import { spy} from 'sinon'
 import FishTankLoaderSpinner from '@/components/FishTankLoaderSpinner.vue'
@@ -59,15 +59,21 @@ describe('FishTankLoaderSpinner.vue', () => {
     })
   })
 
-  context('when a loading state changes', () => {
+  context('when a loading state is set to false', () => {
     beforeEach(() => {
       propsData.loading = false
     })
-    it('emits a spinner-done event when the loaded stops', () => {
+    it('pauses loading animation', () => {
       const wrapper = mountInput()
-      let cir = wrapper.findAll('circle')
-      // console.dir(cir[0].html())
-      // expect(wrapper.element.classList.contains('spinner--small')).to.be.true
+      // wrapper.findAll('circle')
+      const circles = new Promise(function(resolve, reject){
+        resolve(wrapper.findAll('circle'))
+      })
+      circles.then(res =>{
+        // second, visible circle in the SVG has the "pause-spinner" class
+        const classes = (res as any).wrappers[1]
+        expect(classes.element.classList.contains('pause-spinner')).to.be.true
+      })
     })
   })
 })
