@@ -37,7 +37,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     let linearGradient = wrapper.find('linearGradient')
     expect(linearGradient.attributes('id')).to.eq('spinner--bgov-gradient')
   })
-  describe('when a theme prop is provided', () => {
+  describe('when a BLAW theme prop is provided', () => {
     beforeEach(() => {
       propsData.theme = 'blaw'
     })
@@ -49,13 +49,71 @@ describe('FishTankLoaderSpinner.vue', () => {
     })
   })
 
-  context('when a size prop is provided', () => {
+  describe('when a BTAX theme prop is provided', () => {
+    beforeEach(() => {
+      propsData.theme = 'btax'
+    })
+    it('renders with the btax gradient', () => {
+      const wrapper = mountInput()
+      let linearGradient = wrapper.find('linearGradient')
+      // console.log(linearGradient)
+      expect(linearGradient.attributes('id')).to.eq('spinner--btax-gradient')
+    })
+  })
+
+  describe('when a Notification 1 theme prop is provided', () => {
+    beforeEach(() => {
+      propsData.theme = 'notification-1'
+    })
+    it('renders with the notification-1 gradient', () => {
+      const wrapper = mountInput()
+      let linearGradient = wrapper.find('linearGradient')
+      // console.log(linearGradient)
+      expect(linearGradient.attributes('id')).to.eq('spinner--notification-1-gradient')
+    })
+  })
+
+  describe('when a Notification 2 theme prop is provided', () => {
+    beforeEach(() => {
+      propsData.theme = 'notification-2'
+    })
+    it('renders with the notification-2 gradient', () => {
+      const wrapper = mountInput()
+      let linearGradient = wrapper.find('linearGradient')
+      // console.log(linearGradient)
+      expect(linearGradient.attributes('id')).to.eq('spinner--notification-2-gradient')
+    })
+  })
+
+  describe('when a Notification 3 theme prop is provided', () => {
+    beforeEach(() => {
+      propsData.theme = 'notification-3'
+    })
+    it('renders with the notification-3 gradient', () => {
+      const wrapper = mountInput()
+      let linearGradient = wrapper.find('linearGradient')
+      // console.log(linearGradient)
+      expect(linearGradient.attributes('id')).to.eq('spinner--notification-3-gradient')
+    })
+  })
+
+  context('when a small size prop is provided', () => {
     beforeEach(() => {
       propsData.size = 'small'
     })
     it('renders at the small size', () => {
       const wrapper = mountInput()
       expect(wrapper.element.classList.contains('spinner--small')).to.be.true
+    })
+  })
+
+  context('when a large size prop is provided', () => {
+    beforeEach(() => {
+      propsData.size = 'large'
+    })
+    it('renders at the small size', () => {
+      const wrapper = mountInput()
+      expect(wrapper.element.classList.contains('spinner--large')).to.be.true
     })
   })
 
@@ -71,8 +129,9 @@ describe('FishTankLoaderSpinner.vue', () => {
       })
       circles.then(res =>{
         // second, visible circle in the SVG has the "pause-spinner" class
-        const classes = (res as any).wrappers[1]
-        expect(classes.element.classList.contains('pause-spinner')).to.be.true
+        return (res as any).wrappers[1]   
+      }).then(res=>{
+        expect(res.element.classList.contains('pause-spinner')).to.be.true
       })
     })
   })
