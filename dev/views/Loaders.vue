@@ -8,8 +8,7 @@
           <spinner 
             ref="bGovSpinner"
             :loading="bgloading" 
-            theme="bgov"
-            size="medium"/>
+            theme="bgov"/>
           <ftbutton @click="bgloading = false">Click to show loading animation</ftbutton>
         </div>
       </div>
