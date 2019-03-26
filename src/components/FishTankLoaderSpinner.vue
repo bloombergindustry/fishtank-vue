@@ -53,7 +53,7 @@ export default Vue.extend({
       default:"bgov",
       required:false,
       description: "Spinner BBNA brand color theme",
-      availableThemes: ["bgov", "blaw", "notification-1", "notification-2", "notification-3"]
+      availableThemes: ["bgov", "btax", "blaw", "notification-1", "notification-2", "notification-3"]
     },
     size: {
       type:String,
@@ -210,6 +210,22 @@ export default Vue.extend({
         }
         stop.stop-class-2{
           stop-color: $color-blaw-blue;
+        }
+      }
+    }
+  }
+
+  .spinner{
+    &.spinner--btax-gradient{
+      circle.spinner-gradient{
+        stroke: url(#spinner--btax-gradient);
+      }
+      linearGradient{
+        stop.stop-class-1{
+          stop-color: $color-bna-blue;
+        }
+        stop.stop-class-2{
+          stop-color: $color-btax-blue;
         }
       }
     }

@@ -13,6 +13,14 @@
         </div>
       </div>
       <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">btax</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="btax"
+            size="medium" />
+        </div>
+      </div>
+      <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle;">blaw</div>
         <div style="display: table-cell;">
           <spinner
