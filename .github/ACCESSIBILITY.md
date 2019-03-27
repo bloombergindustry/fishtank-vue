@@ -77,11 +77,17 @@ https://github.com/pa11y/pa11y
 
 ## References 
 [Getting Started with Web Accessibility in - Part 1 Vue](https://medium.com/@emilymears/getting-started-with-web-accessibility-in-vue-17e2c4ea0842)
+
 [Getting Started with Web Accessibility in Vue - Part 2 ](https://medium.com/@emilymears/getting-started-with-web-accessibility-in-vue-17e2c4ea0842 )
+
 [US Web Design System - UI Components](https://designsystem.digital.gov/components/ )
+
 [W3 - Web Accessibility Tutorials ](https://www.w3.org/WAI/tutorials/ )
+
 [W3 - WAI-ARIA Authoring Practices ](https://www.w3.org/TR/wai-aria-practices/ )
+
 [W3 - Pseudo Selectors ](https://www.w3.org/TR/selectors/#dynamic-pseudos )
+
 
  
 
