@@ -132,7 +132,16 @@ These tutorials provide best-practice guidance on implementing accessibility in 
 This page demonstrates how to make common rich internet application patterns and widgets accessible by applying WAI-ARIA roles, states, and properties and implementing keyboard support.
 
 ## Tools
-https://github.com/pa11y/pa11y
+
+[WAVE Web Accessibility Chrome Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US)
+
+[WAVE Web Accessibility Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/wave-accessibility-tool/)
+
+[Pa11y](https://github.com/pa11y/pa11y)
+
+[AXE Accessibility Testing Chrome Extension](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
+
+[Google Chrome Accessibility Developer CLI Tool](https://github.com/GoogleChrome/accessibility-developer-tools)
 
 ## References 
 [Getting Started with Web Accessibility in - Part 1 Vue](https://medium.com/@emilymears/getting-started-with-web-accessibility-in-vue-17e2c4ea0842)
