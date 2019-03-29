@@ -155,6 +155,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../styles/mixins';
 .Autocomplete {
   font-family: 'Open Sans', sans-serif;
 
@@ -163,19 +164,21 @@ export default {
 
     .items {
       background-color: #fff;
-      border-radius: 1px;
-      box-shadow: 0 3px 6px 0 rgba(41, 46, 49, 0.5);
+      border: 1px solid $color-gray-lighter;
+      border-radius: 2px;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
       left: 2px;
       position: absolute;
       top: 100%;
-      width: 520px;
+      width: 100%;
       z-index: 10;
+      margin-top:$baseline;
 
       &:empty { display: none; }
 
       .HighlightedText {
         display: block;
-        padding: 9px;
+        padding: $baseline *2;
         cursor: pointer;
         font-size: var(--font-size, 14px);
         line-height: 20px;
