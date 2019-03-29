@@ -135,19 +135,20 @@ export default Vue.extend({
 
 <style lang="scss" scoped >
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
-
-  .spinner .base{
+  .spinner {
+    width:100px;
+    height: 100px;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    animation: loading .75s linear infinite;
+  }
+  .spinner .spinner-base{
       fill: none;
       stroke: transparent;
   }
   .spinner .spinner-gradient{
       fill: none;
       stroke-linecap: round;
-      transform: rotate(0deg);
-      transform-origin: center center;
-      animation: loading .75s linear infinite;
   }
 
   .spinner .pause-spinner{
@@ -297,5 +298,4 @@ export default Vue.extend({
       transform: rotate(360deg);
     }
   } 
-
 </style>
