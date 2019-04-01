@@ -1,37 +1,41 @@
 <template>
   <data-fetcher :url="dataUrl" enable-cache>
     <div class="Autocomplete" :focused="focused" :name="name" :orientation="orientation" slot-scope="{ loading, fetchedData: { data: { items } } }" @keydown="e => _handleKeydown(e, items)" >
-      <div class="input-wrapper">
+      <div 
+        :id="`${id}-combobox`"
+        class="input-wrapper"
+        role="combobox">
         <text-input 
-          icon="search_24" 
+          :id="`${id}-input`"
+          ref="query"
+          v-model="query"
+          type="text"
+          icon="search_24"
           :label="label" 
           :orientation="orientation" 
           :placeholder="placeholder" 
           :aria-expanded="(focused && items ? true: false)"
-          ref="query" :id="id" 
-          v-model="query" 
+          :aria-controls="`${id}-listbox`"
+          aria-haspopup="listbox"  
+          aria-autocomplete="list" 
+          :aria-activedescendant="`option-${focusedItem}`"
+          :aria-labelledby="label" 
           @blur="focused=false" 
-          @focus="focused=true" 
-          type="text"
-          :aria-controls="id"
-          aria-haspopup=listbox  
-          aria-autocomplete="both" 
-          aria-activedescendant="id"
-          :aria-labelledby="label">
+          @focus="focused=true">
           <div
-            :id="id"
+            v-if="focused && items"
+            :id="`${id}-listbox`"
+            slot="below"
             role="listbox"
-            class="items" 
-            slot="below" 
-            v-if="focused && items">
+            class="items">
             <HighlightedText
               v-for="(item, index) in items"
               :id="`option-${index}`"
-              :content="item.label"
               :key="index"
-              :focused="focusedItem===index"
-              :aria-selected="focusedItem===index"
               :aria-labelledby="label"
+              :focused="focusedItem===index"
+              :class="['item', {'focused':focusedItem===index}]"
+              :content="item.label"
               :term="query"
               role="option"
               @mousedown.native="() => _selectResult(item)"
@@ -45,7 +49,7 @@
 
 <script>
 import DataFetcher from './BLAWDataFetcher.vue'
-import HighlightedText from './BLAWHighlightedText.vue'
+import HighlightedText from './FishTankHighlightedText.vue'
 import TextInput from './FishTankTextInput.vue'
 
 /** Triggered when selecting a result
@@ -106,7 +110,7 @@ export default {
     return {
       dataUrl: '',
       focused: false,
-      focusedItem: 0,
+      focusedItem: -1,
       query: this.value ? this.value.label : ''
     }
   },
@@ -130,10 +134,12 @@ export default {
     _handleKeydown (e, items = []) {
       switch (e.key) {
         case 'ArrowUp':
+          e.preventDefault()
           this.focusedItem--
           if (this.focusedItem < 0) this.focusedItem = items.length - 1
           break
         case 'ArrowDown':
+          e.preventDefault()
           this.focusedItem++
           if (this.focusedItem >= items.length) this.focusedItem = 0
           break
@@ -149,7 +155,7 @@ export default {
       this.focused = false
       this.$emit('change', item)
       this.query = item.label
-    }
+    },
   }
 }
 </script>
@@ -167,26 +173,25 @@ export default {
       border: 1px solid $color-gray-lighter;
       border-radius: 2px;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
-      left: 2px;
       position: absolute;
       top: 100%;
-      width: 100%;
+      width: calc(100% - 2px);
       z-index: 10;
       margin-top:$baseline;
 
       &:empty { display: none; }
-
-      .HighlightedText {
+      .item {
         display: block;
         padding: $baseline *2;
+      }
+      .HighlightedText {
         cursor: pointer;
         font-size: var(--font-size, 14px);
         line-height: 20px;
-
-        &[focused] {
-          background-color: #b9d1f3;
-          color: #225379;
-        }
+      }
+      .focused {
+        background-color: #b9d1f3;
+        color: #225379;
       }
     }
   }
