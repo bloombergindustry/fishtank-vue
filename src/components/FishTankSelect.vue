@@ -3,17 +3,27 @@
     class="select" 
     :name="name" 
     :orientation="orientation" 
-    @mouseleave="opened=false">
+    @mouseleave="opened=false"
+    @keydown="e => _handleKeydown(e, items)">
     <slot 
-      v-if="label" 
-      name="label">
-      {{ label }}
+      v-if="label">
+      <span 
+        :id="`${id}-label`"
+        name="label">
+        {{ label }}
+      </span>
     </slot>
     <div class="position-wrap">
       <button 
         :class="['selected', 'a11y',(small ? 'small':null)]" 
         aria-haspopup="listbox"
         :placeholder="!value" 
+        :aria-expanded="opened"
+        :aria-labelledby="`${id}-label ${id}-button`"
+        :aria-activedescendant="`${id}-option-${focusedItem}`"
+        :focused="!opened"
+        @blur="opened=false"
+        :id="`${id}-button`"
         @click="opened=!opened">
         <box 
           display="flex" 
@@ -35,22 +45,25 @@
       
       <div 
         v-if="opened" 
-        class="items a11y-within" 
-        role="listbox">
-        <a 
+        :class="['items', {'a11y-within': focusedItem > -1}]"
+        tabindex="-1" 
+        role="listbox"
+        :id="`${id}-listbox`"
+        :aria-labelledby="`${id}-label`"
+        :focused="opened">
+        <ftext
           v-for="(item, index) in items" 
-          :key="index" 
-          tabindex="0" 
-          @keyup.enter="$emit('change', item.value, $nextTick(()=>opened=true))" 
+          :id="`${id}-option-${index}`"
+          :key="index"
+          :focused="focusedItem===index"
+          :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
+          :aria-selected="focusedItem===index"
+          role="option" 
           @click="$emit('change', item.value); opened = false"
           @blur="closeDropdown(items, index)"
-          class="list-item">
-          <ftext
-            class="list-item-text"
-            :size="small ? 'baseSm': 'baseMd'">
-            {{ item.label }}
-          </ftext>
-        </a>
+          :size="small ? 'baseSm': 'baseMd'">
+          {{ item.label }}
+        </ftext>
       </div>
     </div>
   </div>
@@ -101,7 +114,10 @@ export default {
       type: Array,
       default: () => []
     },
-
+    /**
+     * Select ID label
+     */
+    id: String,
     /**
      * Input label
      */
@@ -143,7 +159,8 @@ export default {
   },
   data () {
     return {
-      opened: false
+      opened: false,
+      focusedItem:-1
     }
   },
   computed: {
@@ -156,7 +173,28 @@ export default {
       if ((items.length - 1) === index){
         this.opened=false
       }
-    }
+    },
+    _handleKeydown (e, items = []) {
+      switch (e.key) {
+        case 'ArrowUp':
+          e.preventDefault()
+          this.focusedItem--
+          if (this.focusedItem < 0) this.focusedItem = items.length - 1
+          break
+        case 'ArrowDown':
+          e.preventDefault()
+          this.focusedItem++
+          if (this.focusedItem >= items.length) this.focusedItem = 0
+          break
+        case 'Enter':
+          if (this.focusedItem > -1) {  
+            this.$emit('change', this.items[this.focusedItem].value)
+          }
+          break
+        default:
+          this.focused = true
+      }
+    },
   }
 }
 </script>
@@ -164,7 +202,7 @@ export default {
 <style scoped lang="scss">
 @import '../styles/mixins';
 // accessibility styles
-body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within{
+body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within{
   box-shadow: 0 0 0 2px $color-selected;
 }
 
@@ -204,15 +242,14 @@ body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within:focus-within
 .list-item{
   display: block;
   padding: $baseline;
-  &:hover, &:focus {
+  color:$color-gray-dark;
+  &:hover, &:focus, &.focused {
     background-color: var(--hover-background-color, #E7F5FB);
     outline: none;
   }
 }
-.list-item-text {
-  color:$color-gray-dark;
-}
-.list-item:focus .list-item-text, .list-item:hover .list-item-text{
+.d
+.list-item:focus .list-item:hover, .focused {
   color: $color-black
 }
 </style>
