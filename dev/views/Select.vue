@@ -3,7 +3,8 @@
     <div>
       <div>Value pre-set to Option 3</div>
       <fish-tank-select
-        label="Fish Tank Dropdown" 
+        id="options-select"
+        label="Fish Tank Select" 
         :items="items" 
         v-model="selected"/>
 
@@ -12,7 +13,6 @@
         label="Fish Tank Dropdown" 
         :items="items" 
         v-model="selected"/>
-
     </div>
     <div style="margin-top: 12px;">
       <fish-tank-select
