@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.0-0"></a>
+# [4.6.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.5.0...v4.6.0-0) (2019-04-02)
+
+
+### Features
+
+* Accessibility features for selects ([c71878a](https://github.com/bloombergbna/fishtank-vue/commit/c71878a))
+* Added FishTankLookup ([6b063e6](https://github.com/bloombergbna/fishtank-vue/commit/6b063e6))
+* Added FishTankLookup ([f7dfb63](https://github.com/bloombergbna/fishtank-vue/commit/f7dfb63))
+* Added new BTax gradient style and theme to loaders ([71d6f87](https://github.com/bloombergbna/fishtank-vue/commit/71d6f87))
+* Created new build scripts to compile css custom property styles for components. ([7345304](https://github.com/bloombergbna/fishtank-vue/commit/7345304))
+
+
+
 <a name="4.5.0"></a>
 # [4.5.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.4.0...v4.5.0) (2019-03-20)
 
