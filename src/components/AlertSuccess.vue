@@ -28,8 +28,8 @@ export default Vue.extend({
   @import '../styles/mixins';
 
   .success {
-    background-color: var(--success-background);
-    border-color: var(--success-border);
+    background-color: var(--success-background, $success-background);
+    border-color: var(--success-border, $success-border);
   }
 
 
