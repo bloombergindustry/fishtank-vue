@@ -52,8 +52,6 @@ export default Vue.extend({
 
 <style module lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
 
   body.user-is-tabbing button:focus {
     box-shadow: 0 0 0 2px $color-selected;

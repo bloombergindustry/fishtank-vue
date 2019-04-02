@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style module lang="scss">
-  @import '../styles/variables-custom-properties';
   @import '../styles/mixins';
   
   .error {
