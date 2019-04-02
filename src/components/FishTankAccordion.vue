@@ -177,7 +177,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--color-gray-lighter);
+      border-bottom: 1px solid var(--color-gray-lighter, &color-gray-lighter);
       outline: transparent;
     }
     .accordionWrapperLg{
@@ -189,16 +189,16 @@
     }
    
     .accordionWrapperLg:hover .accordionSubHeading{
-        color: var(--color-black);
+        color: var(--color-black, $color-black);
     }
     .accordionContainer .accordionWrapperLg:hover svg{
-        color: var(--color-black);
+        color: var(--color-black, $color-black);
     }
     .accordionContainer .accordionWrapperSm:hover .accordionHeadingWrapper .accordionHeadingSmall{
-        color: var(--color-black);
+        color: var(--color-black, $color-black);
     }
     .accordionContainer .accordionWrapperSm:hover svg{
-        color: var(--color-black);
+        color: var(--color-black, $color-black);
     }
     .accordionHeadingWrapper{
         margin: 0px;
@@ -208,30 +208,30 @@
     }
     .accordionHeading{
         margin: 0px;
-        color: var(--color-gray-dark);
-        font-size: var(--fontsize-base-lg);
-        font-weight: var(--fontweight-regular);
-        line-height: var(--lineheight-base-lg);
-        letter-spacing: var(--letterspacing-base-lg);
+        color: var(--color-gray-dark, $color-gray-dark);
+        font-size: var(--fontsize-base-lg, $fontsize-base-lg);
+        font-weight: var(--fontweight-regular, $fontweight-regular);
+        line-height: var(--lineheight-base-lg, $lineheight-base-lg);
+        letter-spacing: var(--letterspacing-base-lg, $letterspacing-base-lg);
     } 
     .accordionSubHeading{
         margin: 0px;
-        color: var(--color-gray);
-        font-size: var(--fontsize-base-sm);
-        font-weight: var(--fontweight-regular);
-        line-height: var(--lineheight-base-sm);
-        letter-spacing: var(--letterspacing-small);
+        color: var(--color-gray, $color-gray);
+        font-size: var(--fontsize-base-sm, $fontsize-base-sm);
+        font-weight: var(--fontweight-regular, $fontweight-regular);
+        line-height: var(--lineheight-base-sm, $lineheight-base-sm);
+        letter-spacing: var(--letterspacing-small, $letterspacing-small);
     }
     .accordionHeadingSmall{
         margin: 0px;
-        color: var(--color-gray);
-        font-size: var(--fontsize-base-md);
-        font-weight: var(--fontweight-semi);
-        line-height: var(--lineheight-base-md);
-        letter-spacing: var(--letterspacing-base-md);
+        color: var(--color-gray, $color-gray);
+        font-size: var(--fontsize-base-md, $fontsize-base-md);
+        font-weight: var(--fontweight-semi, $fontweight-semi);
+        line-height: var(--lineheight-base-md, $lineheight-base-md);
+        letter-spacing: var(--letterspacing-base-md, $letterspacing-base-md);
     } 
     svg{
-        color: var(--color-gray);
+        color: var(--color-gray, $color-gray);
     }
     .accordionPanel{
         padding: 0px        
@@ -244,16 +244,16 @@
     }
    
     .accordionDisabled .accordionHeading{
-        color: var(--color-gray-lighter);
+        color: var(--color-gray-lighter, $color-gray-lighter);
     }
     .accordionDisabled .accordionHeadingSmall{
-        color: var(--color-gray-lighter);
+        color: var(--color-gray-lighter, $color-gray-lighter);
     }
     .accordionDisabled .accordionSubHeading,.accordionDisabled .accordionWrapperLg:hover .accordionSubHeading{ 
-        color: var(--color-gray-lighter);
+        color: var(--color-gray-lighter, $color-gray-lighter);
     }
     .accordionDisabled svg{
-        color: var(--color-gray-lighter);
+        color: var(--color-gray-lighter, $color-gray-lighter);
     }
     .accordionSvgUp{
         transition: 0.3s ease-in-out;
@@ -268,7 +268,7 @@
   @import '../styles/mixins';
     body.user-is-tabbing {
       .a11y:focus{
-        box-shadow: 0 0 0 2px var(--color-selected);
+        box-shadow: 0 0 0 2px var(--color-selected, $color-selected);
       }
     }
 </style>
