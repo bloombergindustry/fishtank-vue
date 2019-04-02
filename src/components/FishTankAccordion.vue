@@ -177,7 +177,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--color-gray-lighter, &color-gray-lighter);
+      border-bottom: 1px solid var(--color-gray-lighter, $color-gray-lighter);
       outline: transparent;
     }
     .accordionWrapperLg{
