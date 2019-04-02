@@ -132,6 +132,7 @@ export default Vue.extend({
   
   .button {
     flex: 1 0 0;
+    position: relative;
     text-align: center;
     box-sizing: border-box;
     border-top-width: 1px;
@@ -188,7 +189,6 @@ export default Vue.extend({
     }
   }
   .label{
-    position: relative;
     display: inline-block;
     height: 100%;
     width: 100%;
@@ -198,6 +198,9 @@ export default Vue.extend({
     letter-spacing: $letterspacing-base-lg;
     font-family: $font-primary;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .labelContent {
     padding: 7px $baseline*3 9px $baseline*3;
