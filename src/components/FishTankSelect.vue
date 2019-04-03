@@ -22,6 +22,7 @@
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
         @keydown.tab="opened ? opened = false: null"
+        @keydown.esc="opened ? opened = false: null"
         :id="`${id}-button`"
         @click="opened=!opened">
         <box 
