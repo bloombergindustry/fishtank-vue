@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.1"></a>
+## [4.6.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.0...v4.6.1) (2019-04-03)
+
+
+### Bug Fixes
+
+* fixed mouse click event, and close on tab rather than on blur for better usability ([ac63233](https://github.com/bloombergbna/fishtank-vue/commit/ac63233))
+
+
+
 <a name="4.6.0"></a>
 # [4.6.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.0-2...v4.6.0) (2019-04-03)
 
