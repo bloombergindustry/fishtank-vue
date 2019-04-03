@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.6.0"></a>
+# [4.6.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.0-2...v4.6.0) (2019-04-03)
+
+
+### Bug Fixes
+
+* added fallback scss values for css custom propertis in Success alert and Accordion ([62c45b8](https://github.com/bloombergbna/fishtank-vue/commit/62c45b8))
+
+
+### Features
+
+* Accessibility features for selects ([e5abcba](https://github.com/bloombergbna/fishtank-vue/commit/e5abcba))
+* Added FishTankLookup ([afb08c4](https://github.com/bloombergbna/fishtank-vue/commit/afb08c4))
+
+
+
 <a name="4.6.0-2"></a>
 # [4.6.0-2](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.0-1...v4.6.0-2) (2019-04-02)
 
