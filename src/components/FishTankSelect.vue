@@ -21,8 +21,7 @@
         :aria-expanded="opened"
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
-        :focused="!opened"
-        @blur="opened=false"
+        @keydown.tab="opened ? opened = false: null"
         :id="`${id}-button`"
         @click="opened=!opened">
         <box 
@@ -50,16 +49,15 @@
         role="listbox"
         :id="`${id}-listbox`"
         :aria-labelledby="`${id}-label`"
-        :focused="opened">
+        >
         <ftext
           v-for="(item, index) in items" 
           :id="`${id}-option-${index}`"
           :key="index"
-          :focused="focusedItem===index"
           :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
           :aria-selected="focusedItem===index"
           role="option" 
-          @click="$emit('change', item.value); opened = false"
+          @click.native="$emit('change', item.value); opened = false"
           @blur="closeDropdown(items, index)"
           :size="small ? 'baseSm': 'baseMd'">
           {{ item.label }}
@@ -238,6 +236,7 @@ body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within{
   min-width: 100%;
   z-index: 100;
   top:0;
+  outline: 0;
 }
 .list-item{
   display: block;
