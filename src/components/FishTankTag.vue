@@ -4,8 +4,7 @@
     :aria-label="removable ? `Remove ${label}`:null" >
     <label
       :for="id"
-      :class="$style.label"
-    >
+      :class="$style.label">
       <input 
         :id="id" 
         :disabled="disabled"
@@ -24,14 +23,16 @@
             :color="getStateColor" 
             inline 
             size="baseMd"
-            semi-bold>{{ label }} </FishTankText>
+            semi-bold>
+            {{ label }}
+          </FishTankText>
           <span
             v-if="iconPosition==='right'"
             :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">
             <CloseSml24
               v-if="removable"
               :class="[$style.iconAlignment, {[$style.iconChecked]:isChecked}]"/>
-            <slot/>
+            <slot />
           </span>
         </div>
       </div>
