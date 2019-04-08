@@ -3,11 +3,11 @@
     :class="[$style.wrap]"  
     :aria-label="removable ? `Remove ${label}`:null" >
     <label
-      :for="(id !==null? id: labelId)"
+      :for="id"
       :class="$style.label"
     >
       <input 
-        :id="(id !==null? id: labelId)" 
+        :id="id" 
         :disabled="disabled"
         :checked="isChecked"
         :value="value"
@@ -139,9 +139,6 @@ export default Vue.extend({
       }
       return this.modelValue === this.trueValue
     },
-    labelId(): string {
-      return `${this.$options.name}-${(this as any)._uid}`
-    },
     hasIcon(): boolean {
       if (this.removable || this.$slots.default) {
         return true
@@ -266,4 +263,5 @@ export default Vue.extend({
   body.user-is-tabbing .focused {
     box-shadow: 0 0 0 2px var(--color-selected-darkest);
   }
+  
 </style>
