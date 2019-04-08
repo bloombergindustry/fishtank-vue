@@ -3,11 +3,11 @@
     :class="[$style.wrap]"  
     :aria-label="removable ? `Remove ${label}`:null" >
     <label
-      :for="(id !==null? id: labelId)"
+      :for="id"
       :class="$style.label"
     >
       <input 
-        :id="(id !==null? id: labelId)" 
+        :id="id" 
         :disabled="disabled"
         :checked="isChecked"
         :value="value"
@@ -138,9 +138,6 @@ export default Vue.extend({
         return res
       }
       return this.modelValue === this.trueValue
-    },
-    labelId(): string {
-      return `${this.$options.name}-${(this as any)._uid}`
     },
     hasIcon(): boolean {
       if (this.removable || this.$slots.default) {
