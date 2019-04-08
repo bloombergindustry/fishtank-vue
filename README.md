@@ -1,6 +1,6 @@
 # Fishtank Vue
 
-[Fish Tank VueJS Component Module](http://fishtank.bna.com)
+[Fish Tank VueJS Component Module](https://fishtank.bna.com)
 
 ## Installation
 
@@ -10,7 +10,7 @@ npm install @fishtank/fishtank-vue
 
 ## Usage
 
-Please reference [http://fishtank.bna.com](http://fishtank.bna.com) for detailed documentation 
+Please reference [https://fishtank.bna.com](https://fishtank.bna.com) for detailed documentation 
 
 ### ESM Module
 
