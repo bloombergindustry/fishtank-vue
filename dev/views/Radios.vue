@@ -1,6 +1,32 @@
 <template>
   <section>
-    <fish-tank-radio-group>
+    <h1>BLaw RadioList Component</h1>
+    <radio-list 
+      v-model="valueBlaw" 
+      label="Example" 
+      name="example" 
+      :items="items">
+      <template slot="example-title-slot-3">
+        Item 3 from slot
+      </template>
+    </radio-list>
+    <div>value={{ valueBlaw }}</div>
+
+
+    <h1>BLaw RadioList Component</h1>
+    <radio-list 
+      v-model="valueBlaw2" 
+      label="Example2" 
+      name="example2" 
+      :items="items2">
+      <template slot="example-title-slot-3">
+        Item 2 from slot
+      </template>
+    </radio-list>
+    <div>value={{ valueBlaw2 }}</div>
+
+    <!-- <h1>FishTank Radio and RadioGroup component</h1> -->
+    <!-- <fish-tank-radio-group>
       <FishTankRadio 
         v-model="val"
         value="alpha" 
@@ -45,18 +71,21 @@
         value="theta" 
         label="theta"
         name="theta"
-      />
+      /> -->
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankRadio,FishTankRadioGroup } from '@/index'
+import { 
+  // FishTankRadioGroup, 
+  FishTankRadioList as RadioList } from '@/index'
+
 
 export default Vue.extend({
   components:{
-    FishTankRadio,
-    FishTankRadioGroup,
+    // FishTankRadioGroup,
+    RadioList,
   },
   data(){
     return {
@@ -64,7 +93,20 @@ export default Vue.extend({
       valTwo:null,
       arr:['epsilon'],
       baseVal:false,
-      baseArr:[]
+      baseArr:[],
+      items: [
+        { label: "Item 1", value: "1" },
+        { label: "Item 2", value: "2" },
+        { label: "Item 3", slot: "example-title-slot-3", value: "3" }
+      ],
+      valueBlaw: "1",
+
+      items2: [
+        { label: "Item 1", value: "1" },
+        { label: "Item 2", value: "2" },
+        { label: "Item 3", slot: "example-title-slot-3", value: "3" }
+      ],
+      valueBlaw2: "1"
     }
   }
   

@@ -3,20 +3,27 @@
   <div 
     :class="[$style.radio]">
     <label 
-      :for="(id !==null? id: labelId)"
+      :for="(id !==null? id: `radio-${identifier}-label`)"
       :class="[$style.label]">
       <input 
         :disabled="disabled" 
-        :id="(id !==null? id: labelId)"  
+        :id="(id !==null? id: `radio-${identifier}-input`)"  
         :value="value" 
+        :tabindex='(shouldBeChecked ? "0" :"-1")'
         :checked ="shouldBeChecked" 
         :class="[$style.input, 'a11yInput']" 
         type="radio"
-        ref="input" 
+        ref="input"
+        :name="name" 
         v-on="listeners">
       <div 
         :class="[$style.icon, 'a11yIcon']"/>
-      <div 
+      <template v-if="$slots.default">
+        <div :class="[$style.labelContent]">
+          <slot />
+        </div>
+      </template>
+      <div v-else
         :class="[$style.labelContent]">
         {{ label }}
       </div>
@@ -36,13 +43,6 @@ export default Vue.extend({
   name: "FishTankRadio",
   introduction: "Radio Input Element",
   description: "Radio Input Element",
-  token:[
-`<FishTankRadio 
-  v-model="val" 
-  value="beta" 
-  label="beta"
-  name="beta"/>`
-  ],
   mixins: [
     a11y,
   ],
@@ -83,12 +83,15 @@ export default Vue.extend({
     name:{
       type:String,
       default:"",
-      required:true,
+      required:false,
       description:"Radio name"
     },
     fishtankRadioGroupShared: {
       type: Object as () => RadioComponentGroup,
     }
+  },
+  data:{
+    identifier: (Math.random() * 10000).toFixed(0).toString(),
   },
   inject:{
     fishtankRadioGroupShared:{
@@ -100,6 +103,7 @@ export default Vue.extend({
   },
   mounted(){
     this.fishtankRadioGroupShared.register(this)
+    console.log(this)
   },
   destroyed(){
     this.fishtankRadioGroupShared.unregister(this)
@@ -116,9 +120,6 @@ export default Vue.extend({
           this.$emit("change", this.value)
         }
       }
-    },
-    labelId(): string {
-      return `radio-${(this as any)._uid}`
     },
   },
   methods:{
