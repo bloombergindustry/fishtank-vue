@@ -103,7 +103,6 @@ export default Vue.extend({
   },
   mounted(){
     this.fishtankRadioGroupShared.register(this)
-    console.log(this)
   },
   destroyed(){
     this.fishtankRadioGroupShared.unregister(this)

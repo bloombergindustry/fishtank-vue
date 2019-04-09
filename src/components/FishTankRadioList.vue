@@ -26,7 +26,7 @@ import radio from './FishTankRadio.vue'
   * @type {Event}
   */
 export default Vue.extend({
-  name: 'RadioList',
+  name: 'FishTankRadioList',
   components:{
     radio
   },
