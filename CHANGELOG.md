@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.7.0"></a>
+# [4.7.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.1...v4.7.0) (2019-04-10)
+
+
+### Bug Fixes
+
+* added event listener for esc to close dropdown ([dadf347](https://github.com/bloombergbna/fishtank-vue/commit/dadf347))
+* Fixed background color class name reference functionality for Box components ([fef2d3a](https://github.com/bloombergbna/fishtank-vue/commit/fef2d3a))
+
+
+### Features
+
+* Merged BLAW RadioList and FishTankRadio into FishTankRadioList; Provided accessibility structure to allow radio groups, tabbing between groups, and arrow navigation between options for keyboard navigation, and screen reader support ([d37a280](https://github.com/bloombergbna/fishtank-vue/commit/d37a280))
+
+
+
 <a name="4.6.1"></a>
 ## [4.6.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.0...v4.6.1) (2019-04-03)
 
