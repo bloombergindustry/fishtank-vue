@@ -11,7 +11,7 @@
       <li><a href="#/cards">Cards</a></li>
       <li><a href="#/tags">Tags</a></li>
       <li><a href="#/inputtext">Input Text</a></li>
-      <li><a href="#/loaders">Spinning Loader</a></li>
+      <li><a href="#/spinnerloader">Spinner Loader</a></li>
       <li><a href="#/buttongroup">Button Group</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>
       <li><a href="#/text">Text</a></li>

@@ -97,6 +97,18 @@ describe('FishTankLoaderSpinner.vue', () => {
     })
   })
 
+  describe('when a `theme` theme prop is provided', () => {
+    beforeEach(() => {
+      propsData.theme = 'theme'
+    })
+    it('renders with the notification-3 gradient', () => {
+      const wrapper = mountInput()
+      let linearGradient = wrapper.find('linearGradient')
+      // console.log(linearGradient)
+      expect(linearGradient.attributes('id')).to.eq('spinner--theme-gradient')
+    })
+  })
+
   context('when a small size prop is provided', () => {
     beforeEach(() => {
       propsData.size = 'small'
