@@ -38,8 +38,8 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/InputText.vue")
     },
     {
-      path: '/loaders',
-      component: () => import("./views/Loaders.vue")
+      path: '/spinnerloader',
+      component: () => import("./views/SpinnerLoader.vue")
     },
     {
       path: '/checkboxes',
