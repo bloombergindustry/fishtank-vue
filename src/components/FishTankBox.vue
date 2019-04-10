@@ -24,7 +24,7 @@ import {
   rangeWithoutZero
 } from '../util/transform'
 
-import color  from '../util/ColorsClassMapping'
+import color  from '../util/colorsClassMapping'
 
 const _ = require("lodash").noConflict()
 export type IsBoxType = "div" | "span" | "section" | "article" | "aside" | "footer" | "header" | "details" | "figcaption" | "figure" | "main" | "nav" | "summary" | "time";
@@ -43,10 +43,11 @@ export type Color = any
 
 let colorMappingFunc = (value:any) => {
   if (!value) return identity()
-  let allColorMappings = mapping(color)
+  let allColorMappings = mapping(color())
   let mapColorNameToClass = (colorName:String) => {
     let [prefix, rest] = [colorName[0], colorName.substring(1, colorName.length)]
     let colorClassName = `color${prefix.toUpperCase()}${rest}Bg`
+    // debugger
     return colorClassName
   }
   return allColorMappings(mapColorNameToClass(value))
@@ -620,7 +621,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/variables";
 @import "../styles/mixins";
 @import "../styles/box/box-style";
 @import "../styles/box/box-whitespaces";
