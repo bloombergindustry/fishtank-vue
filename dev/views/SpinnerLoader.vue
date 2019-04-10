@@ -13,6 +13,14 @@
         </div>
       </div>
       <div style="display: table-row;">
+        <div style="display: table-cell; vertical-align: middle;">Themable</div>
+        <div style="display: table-cell;">
+          <spinner
+            theme="theme"
+            size="medium" />
+        </div>
+      </div>
+      <div style="display: table-row;">
         <div style="display: table-cell; vertical-align: middle;">btax</div>
         <div style="display: table-cell;">
           <spinner
@@ -104,3 +112,9 @@ export default Vue.extend({
   },
 })
 </script>
+<style>
+  :root{
+    --start-color: red;
+    --stop-color: blue;
+  }
+</style>
