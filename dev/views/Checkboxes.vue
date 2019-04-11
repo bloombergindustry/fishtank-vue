@@ -1,34 +1,62 @@
 <template>
   <section>
+    <heading 
+      level="1"
+      size="HeadingLg">
+      FishTankCheckboxV2
+    </heading>
+    <checkbox2
+      v-model="val"
+      value="tt"
+      label="alpha" />
+
+    <checkbox2
+      v-model="val"
+      value="tt"
+      label="alpha"
+      slider />
+
+    <checkbox2
+      v-model="val"
+      disabled
+      value="tt"
+      label="alpha"
+      switch />
+
+    <heading 
+      level="1"
+      size="HeadingLg">
+      FishTankCheckbox
+    </heading>
     <checkbox 
       v-model="val"
-      value = "tt"
-      label="alpha"/>
+      value="tt"
+      label="alpha" />
     <checkbox 
       v-model="val" 
       disabled
-      label="alpha"/>
+      label="alpha" />
 
-      <code>val: {{ val }}</code>
+    <code>val: {{ val }}</code>
     <checkbox 
       :value="val2"
-      @change="val2 = !val2;"
-      label="beta"/>
+      label="beta"
+      @change="val2 = !val2;" />
     <checkbox 
       v-model="val2"
       disabled
       value="beta" 
-      label="beta"/>
-      <code>val2: {{ val2 }}</code>
+      label="beta" />
+    <code>val2: {{ val2 }}</code>
 
     <checkbox 
       :value="(baseArr.indexOf(a1) > -1)"
-      @change="editArray(baseArr, a1)"
-      label="alpha"/>
+      label="alpha"
+      @change="editArray(baseArr, a1)" />
     <checkbox 
       :value="(baseArr.indexOf(b1) > -1)"
-      @change="editArray(baseArr, b1)"
-      label="beta"/>
+      label="beta"
+      @change="editArray(baseArr, b1)" />
 
     <code>baseArr: {{ baseArr }}</code>
   </section>
@@ -36,11 +64,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankCheckbox } from '@/index'
+import { FishTankCheckbox, FishTankCheckboxV2, FishTankHeading } from '@/index'
 
 export default Vue.extend({
   components:{
     checkbox: FishTankCheckbox,
+    checkbox2:FishTankCheckboxV2,
+    heading:FishTankHeading
   },
   data(){
     return {
