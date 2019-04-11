@@ -1,13 +1,13 @@
 _THIS DOCUMENT IS WORK IN PROGRESS AND IS NOT FINAL_
 # Accessibility For Vue Components
 
-Although many BNA products are not readily accessible to wider world, and are behind a paywall, we should not mistake our customer base for one that has the same physical or cognitive abilities as each other. Building UI that is accessible is business critical and socially imperative.
+Although many BNA products are not readily accessible beyond paywalls, we should not mistake our customer base for one that has the same full physical or cognitive abilities. We also should not believe that our products are exempt from federal 508 compliance requirements. Building UI that is accessible is business critical and socially imperative.
  
 TL;DR – Jump to [Getting Started with Accessibility](#getting-started)
  
-Building a product that provides accessible navigation is more than adding tabindex=”0” attributes to your code. Ideally, it’s assessing what's required to make your site navigable without a mouse, and providing contextual tags for content and UI for screen-readers.
+Building a product that provides accessible navigation is more than adding tabindex=”0” attributes to your code. Ideally, it’s assessing what's required to make your site navigable without a mouse, and providing contextual tags and structure to make content and interfaces screen-readable.
  
-There are lots of compelling, and emotional arguments for developing products that are navigable and usable without a mouse or even a screen. Even if you are not differently-able, we all have, at periods in our lives, limited or situational disabilities (physical ailment related to vision or movement, for example). We are then assured that our customers are also facing these same challenges. 
+There are lots of compelling emotional arguments for developing accessible products. Even if you are not differently-able, we all have, at periods in our lives, limited or situational disabilities (physical ailment related to vision or movement, for example). We are then assured that our customers are also facing these same challenges. 
  
 The [business](https://www.w3.org/WAI/business-case/) and legal arguments are just as, if not more, compelling: according to https://www.adatitleiii.com, by mid-2018, ADA lawsuits were already on track to exceed 2017 numbers: https://www.adatitleiii.com/2018/07/website-access-and-other-ada-title-iii-lawsuits-hit-record-numbers/ . In 2008, Target was the subject of a [class action lawsuit by the National Federation for the Blind](https://en.wikipedia.org/wiki/National_Federation_of_the_Blind_v._Target_Corp.) that cost the retailer $6 million in damages plus plaintiff legal fees, and more.
 
@@ -17,17 +17,17 @@ We have a legal, if not moral, responsibility to build products in a way that ad
  
 # Getting started with accessibility
 ## Consider the user’s flow through the component as you build it
-It’s important to understand the UI engineering challenge of building an interface, by starting from a place of empathy with your wide range of users. The first step is to take accessibility into account from the planning stage before you write a single line of code. Choice of UI elements and ARIA planning can save you time refactoring code later.
+It’s important to understand the UI engineering challenge of building an interface, by starting from a place of empathy with your wide range of users. The first step is to take accessibility into account from the planning stage before you write a single line of code. Choice of semantic HTML elements and ARIA tag planning can save you time refactoring code later.
 
 If you are refactoring existing or work in progress work, try navigating and interacting without the mouse, or with your computer OS Voice Narration feature (Voiceover on Mac, for example). It will help you identify gaps in interactions.
  
-## Keyboard focus and navigation
+## Understand keyboard focus and navigation
  
 *Whenever possible, use Vue’s built in bindings to native html elements over custom elements; You’ll get native browser accessibility and state management features out of the box.*
  
-Keyboard navigation means using the tab and arrow keys to move through focus-able elements on the page. Users can only, by default, navigate to links, buttons and form controls with the keyboard. As they navigate, they see a visual representation on the current item focused, usable with a browser default outline indication.
+Keyboard navigation means using the tab and arrow keys to move through focus-able elements on the page. Users can, by default, navigate to links, buttons and form controls with the keyboard. As they navigate, they see a visual representation on the current item focused, usable with a browser default outline indication.
  
-Typically, in the design phase, we opt for branded UI elements. We developers will choose to style a div or span to accomplish this. To support accessibility, you then have to apply conventions like ARIA and tabindex to give this anonymous DOM element semantic structure and the ability for it to be focused during keyboard navigation:
+Typically, in the design phase, we opt for branded UI elements. We developers will choose to style a div or span to accomplish this. To support accessibility, you then have to apply conventions like ARIA and tabindex to make elements focusable, and give anonymous DOM element semantic structure and the ability for it to be focused during keyboard navigation:
 
 ```html
 <!--An example of a div styled as a save button-->
@@ -42,13 +42,9 @@ By styling a native element, you get all of the native functional properties and
 
 ## Tabindex 
 
-The tabindex attribute indicates if its element can be focused, and if/where it participates in sequential keyboard navigation (usually with the “Tab” key, hence the name). 
+The tabindex attribute indicates an element can be focused, and its sequence in order of focusable elements on the page during keyboard navigation (usually with the “Tab” key, hence the name). 
  
-Using 
-```html
-tabindex=”0”
-```
-can be used to add an non-form element to the ordered flow of focus-able elements on the page.
+Links and form elements can, natively, be tab navigated. Adding ```tabindex=”0”``` to other elements (divs, spans, section, etc.) can make them tab-navigable.
 
 The value denotes the position in the sequence of element. “0” is the default, allow navigation to progression on order in DOM from the top of the page to the bottom. A negative value takes it out of sequence completely. A higher value moves it down in sequence. That means that an element with TabIndex of “1” with be focused after *all* the “0” elements have been tabbed through. Generally, unless there is some particular reason to move an element out of the normal order of elements in the DOM, all elements with have tabindex=”0”.
 
@@ -130,6 +126,16 @@ These tutorials provide best-practice guidance on implementing accessibility in 
 
 [W3C Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
 This page demonstrates how to make common rich internet application patterns and widgets accessible by applying WAI-ARIA roles, states, and properties and implementing keyboard support.
+
+## Reference Existing, Common UI Patterns 
+
+The W3C and WCAG provides [patterns for accessible versions of common UI components](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/examples/) that can be referenced when building more complex Vue Components.
+
+These patterns provide structure on how to leverage IDs, aria roles, aria tags, aria-labeledby, etc. to provide context and relationships between elements. In particular, these contextual tagging relationships provide browsers the structure to support keyboard interactions.
+
+Reference these patterns to influence the structure, and use as a baseline to test the keyboard and speech-reader accessibility of your component.
+* [WAI-ARIA Authoring Practices - Index of ARIA Design Pattern Examples](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/examples/)
+* [WCAG Tutorials](https://www.w3.org/WAI/tutorials/)
 
 ## Tools
 
