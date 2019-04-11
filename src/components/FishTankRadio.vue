@@ -90,8 +90,10 @@ export default Vue.extend({
       type: Object as () => RadioComponentGroup,
     }
   },
-  data:{
-    identifier: (Math.random() * 10000).toFixed(0).toString(),
+  data(){
+    return {
+      identifier: (Math.random() * 10000).toFixed(0).toString(),
+    }
   },
   inject:{
     fishtankRadioGroupShared:{
