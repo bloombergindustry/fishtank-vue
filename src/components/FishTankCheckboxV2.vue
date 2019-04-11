@@ -1,8 +1,6 @@
 <template>
   <div 
-    :class="[isSwitch ? 'switch':'checkbox', {['disabled']:disabled},(value ? 'checked' : 'unchecked')]"
-    
-  >
+    :class="[isSwitch ? 'switch':'checkbox', {['disabled']:disabled},(value ? 'checked' : 'unchecked')]" >
     <label
       :for="(id !==null? id: null)"
       class="label">

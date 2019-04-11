@@ -1,27 +1,26 @@
 /* eslint-disable no-console */
 import { expect } from "chai"
-import sinon, { spy, stub, restore } from 'sinon'
 import { shallowMount as  shallow, mount } from "@vue/test-utils"
-import {FishTankCheckbox} from "@/index"
+import {FishTankCheckboxV2 as Checkbox} from "@/index"
 
 
 import Vue from "vue"
 
 describe('FishTankCheckbox', () => {
-  let propsData : any = {}
-  let slots : any = {}
-
-  const mountInput = () => {
-    return shallow(FishTankCheckbox, {
-      propsData,
-      slots,
-    })
+  const props = {
+    propsData: {
+      items: [{ label: 'Item 1', value: '1' }]
+    }
   }
-
-  afterEach(() => {
-    propsData = {}
-    slots = {}
+  it('should fire change event when checkbox changes', () => {
+    const wrapper = mount(Checkbox, props)
+    wrapper.find('label').trigger('click')
+    expect(wrapper.emitted().change.length).to.eq(1)
   })
 
+  // afterEach(() => {
+  //   props.propsData = {}
+  //   slots = {}
+  // })
   
 })
