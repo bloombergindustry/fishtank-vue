@@ -67,11 +67,7 @@ export default Vue.extend({
     background-color:red;
 
     .element-name-input{
-<<<<<<< HEAD
       background-color: blue;
-=======
-      background-color: blue
->>>>>>> b72ab001db79b5c7924a7ef76de322d40252051a
     }
   }
 
@@ -80,11 +76,7 @@ export default Vue.extend({
     background-color:red;
 
     .input {
-<<<<<<< HEAD
       background-color: blue;
-=======
-      background-color: blue
->>>>>>> b72ab001db79b5c7924a7ef76de322d40252051a
     }
   }
 
