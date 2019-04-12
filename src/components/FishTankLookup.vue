@@ -28,7 +28,7 @@
             slot="below"
             role="listbox"
             class="items">
-            <HighlightedText
+            <hightlight
               v-for="(item, index) in items"
               :id="`option-${index}`"
               :key="index"
@@ -58,7 +58,7 @@ import TextInput from './FishTankTextInput.vue'
  */
 
 export default {
-  components: { DataFetcher, HighlightedText, TextInput },
+  components: { DataFetcher, hightlight: HighlightedText, TextInput },
   name: 'FishTankLookup',
   model: {
     prop: 'value',
