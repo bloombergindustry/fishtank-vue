@@ -2,7 +2,7 @@
   <section>
     <heading 
       level="1"
-      size="HeadingLg">
+      size="HeadingMd">
       FishTankCheckboxV2
     </heading>
     <checkbox2
@@ -25,7 +25,7 @@
 
     <heading 
       level="1"
-      size="HeadingLg">
+      size="HeadingMd">
       FishTankCheckbox
     </heading>
     <checkbox 

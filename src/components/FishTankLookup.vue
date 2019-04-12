@@ -34,7 +34,7 @@
               :key="index"
               :aria-labelledby="label"
               :focused="focusedItem===index"
-              :class="['item', {'focused':focusedItem===index}]"
+              :class="['item', {'focused': focusedItem===index}]"
               :content="item.label"
               :term="query"
               role="option"

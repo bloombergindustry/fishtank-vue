@@ -13,14 +13,6 @@ import axios from 'axios'
 
 export default {
   name: 'DataFetcher',
-  data () {
-    return {
-      cache: {},
-      fetchedData: { data: {} },
-      lastRequest: '',
-      loading: false
-    }
-  },
   props: {
     /**
      * Enable request caching
@@ -32,10 +24,24 @@ export default {
      */
     url: String
   },
+  data () {
+    return {
+      cache: {},
+      fetchedData: { data: {} },
+      lastRequest: '',
+      loading: false
+    }
+  },
   watch: {
     url (newValue) {
       this.lastRequest = newValue
       if (!this.loading && newValue) this._request(newValue)
+    }
+  },
+  created () {
+    if (this.url) {
+      this.lastRequest = this.url
+      this._request(this.url)
     }
   },
   methods: {
@@ -84,12 +90,6 @@ export default {
       loading: this.loading,
       fetchedData: this.fetchedData
     })
-  },
-  created () {
-    if (this.url) {
-      this.lastRequest = this.url
-      this._request(this.url)
-    }
   }
 }
 </script>
