@@ -34,8 +34,8 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Tags.vue")
     },
     {
-      path: '/inputtext',
-      component: () => import("./views/InputText.vue")
+      path: '/textinput',
+      component: () => import("./views/TextInput.vue")
     },
     {
       path: '/spinnerloader',

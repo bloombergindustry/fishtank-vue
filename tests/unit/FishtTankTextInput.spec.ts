@@ -2,14 +2,14 @@
 import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallowMount as  shallow, mount } from "@vue/test-utils"
-import {InputText} from "@/index"
+import {FishTankTextInput as TextInput} from "@/index"
 
-describe("InputText", () => {
+describe("TextInput", () => {
   let propsData : any = {}
   let slots : any = {}
 
   const mountInput = () => {
-    return shallow(InputText, {
+    return shallow(TextInput, {
       propsData,
       slots,
     })
@@ -27,19 +27,17 @@ describe("InputText", () => {
 
     it('sets the initial input value', () => {
       const wrapper = mountInput()
-      let input = wrapper.find('.ft-input-text__input').element as HTMLInputElement
-
+      let input = wrapper.find('.input-element').element as HTMLInputElement
       expect(input.value).to.eq("initial value")
     })
 
     it('emits input events when the text changes', () => {
       const wrapper = mountInput()
-      let input = wrapper.find('.ft-input-text__input')
+      let input = wrapper.find('.input-element')
 
       ;(input.element as HTMLInputElement).value = 'new value'
       input.trigger('input')
-
-      expect(wrapper.emitted().input[0]).to.eql(['new value'])
+      expect(wrapper.emitted().input[1]).to.eql(['new value'])
     })
 
     context('when input type is provided', () => {
@@ -51,7 +49,7 @@ describe("InputText", () => {
             propsData.type = type
             const wrapper = mountInput()
 
-            let input = wrapper.find('.ft-input-text__input')
+            let input = wrapper.find('.input-element')
 
             expect(input.attributes().type).to.eq(type)
           })
@@ -82,15 +80,15 @@ describe("InputText", () => {
 
       it('contains a label element', () => {
         const wrapper = mountInput()
-        let label = wrapper.find('.ft-input-text__label')
+        let label = wrapper.find('.label')
 
         expect(label.text()).to.eq("I am the label")
       })
 
       it('assigns a "for" value matching the input id', () => {
         const wrapper = mountInput()
-        let label = wrapper.find('.ft-input-text__label')
-        let input = wrapper.find('.ft-input-text__input')
+        let label = wrapper.find('.label')
+        let input = wrapper.find('.input-element')
 
         expect(label.attributes().for).to.equal(input.attributes().id)
       })
@@ -117,14 +115,13 @@ describe("InputText", () => {
 
         it('adds an error class to the input', () => {
           const wrapper = mountInput()
-
-          expect(wrapper.classes()).to.contain('ft-input-text--error')
+          expect(wrapper.classes()).to.contain('error')
         })
 
         it('displays the error', () => {
           const wrapper = mountInput()
 
-          expect(wrapper.find('.ft-input-text__error-text').text()).to.contain('the error')
+          expect(wrapper.find('.error-message').text()).to.contain('the error')
         })
       })
 
@@ -142,13 +139,13 @@ describe("InputText", () => {
         it('adds an error class to the input', () => {
           const wrapper = mountInput()
 
-          expect(wrapper.classes()).to.contain('ft-input-text--error')
+          expect(wrapper.classes()).to.contain('error')
         })
 
         it('displays the error', () => {
           const wrapper = mountInput()
 
-          expect(wrapper.find('.ft-input-text__error-text').text()).to.contain("Test Attr can't be blank")
+          expect(wrapper.find('.error-text').text()).to.contain("Test Attr can't be blank")
         })
       })
 
@@ -185,13 +182,13 @@ describe("InputText", () => {
       it('displays the icon', () => {
         const wrapper = mountInput()
 
-        expect(wrapper.find('.the-left-icon').exists()).to.be.true
+        expect(wrapper.find('.left-icon').exists()).to.be.true
       })
 
       it('puts the left icon next to the input', () => {
         const wrapper = mountInput()
 
-        expect(wrapper.find('.ft-input-text__left-icon + .ft-input-text__input').exists()).to.be.true
+        expect(wrapper.find('.left-icon + .input-element').exists()).to.be.true
       })
     })
 
@@ -201,7 +198,7 @@ describe("InputText", () => {
           it('does not show a clear button', () => {
             const wrapper = mountInput()
 
-            expect(wrapper.find('.ft-input-text__input-clear').exists()).to.be.false
+            expect(wrapper.find('.clear').exists()).to.be.false
           })
         })
 
@@ -213,13 +210,13 @@ describe("InputText", () => {
           it('shows a clear button', () => {
             const wrapper = mountInput()
 
-            expect(wrapper.find('.ft-input-text__input-clear').exists()).to.be.true
+            expect(wrapper.find('.clear').exists()).to.be.true
           })
 
           context('when the clear button is clicked', () => {
             it('sets the value to undefined', () => {
               const wrapper = mountInput()
-              wrapper.find('.ft-input-text__input-clear').trigger('click')
+              wrapper.find('.clear').trigger('click')
 
               expect(wrapper.emitted().input[0]).to.eql([undefined])
             })
@@ -227,9 +224,9 @@ describe("InputText", () => {
             it('focuses the input', () => {
               const wrapper = mountInput()
               const focusSpy = spy(wrapper.vm as any, 'focusElement')
-              let input = wrapper.find('.ft-input-text__input')
+              let input = wrapper.find('.input-element')
 
-              wrapper.find('.ft-input-text__input-clear').trigger('click')
+              wrapper.find('.clear').trigger('click')
 
               sinon.assert.calledWith(focusSpy, input.element)
             })
@@ -265,7 +262,7 @@ describe("InputText", () => {
           it('should not show a clear button', () => {
             const wrapper = mountInput()
 
-            expect(wrapper.find('.ft-input-text__input-clear').exists()).to.be.false
+            expect(wrapper.find('.clear').exists()).to.be.false
           })
         })
       })

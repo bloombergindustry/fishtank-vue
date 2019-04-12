@@ -10,7 +10,7 @@
       <li><a href="#/modals">Modals</a></li>
       <li><a href="#/cards">Cards</a></li>
       <li><a href="#/tags">Tags</a></li>
-      <li><a href="#/inputtext">Input Text</a></li>
+      <li><a href="#/textinput">Text Input</a></li>
       <li><a href="#/spinnerloader">Spinner Loader</a></li>
       <li><a href="#/buttongroup">Button Group</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>

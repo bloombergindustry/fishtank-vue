@@ -1,35 +1,35 @@
 <template>
   <div
-    :class="[$style.inputText,{ [$style.inputTextError]: !!errorMessage }]"
+    :class="['text-input',{ 'error': !!errorMessage }]"
   >
     <div
       v-if="label"
-      :class="$style.inputTextLabelWrapper"
+      class="label-wrapper"
     >
       <label
         :for="labelId"
-        :class="$style.inputTextLabel"
+        class="label"
       >
         {{ label }}
         <span
           v-if="required"
-          :class="$style.inputTextLabelRequired"
+          class="label-required"
         >
         *
         </span>
       </label>
 
       <span 
-        :class="$style.inputTextAuxillarySlot">
+        class="auxillary-slot">
         <slot name="auxillary"/>
       </span>
     </div>
     <div
-      :class="$style.inputTextInputWrapper"
+      class="input-wrapper"
     >
       <span
         v-if="$slots.leftIcon"
-        :class="$style.inputTextLeftIcon"
+        class="left-icon"
       >
         <slot name="leftIcon"/>
       </span>
@@ -44,7 +44,7 @@
           :id="labelId"
           :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
           v-bind="$attrs"
-          :class="[$style.inputTextInput, $style.inputTextInputTextarea, {[$style.inputTextInputErrorState]:errorMessage}]"
+          :class="['input-element', 'inputTextInputTextarea', {'error-state':errorMessage}]"
           @keypress="getFalseHeight"
           @keydown.delete="getFalseHeight"
           @keyup.91.90="getFalseHeight"
@@ -64,7 +64,7 @@
           :value="value"
           :id="labelId"
           v-bind="$attrs"
-          :class="[$style.inputTextInput, {[$style.inputTextInputErrorState]:errorMessage}]"
+          :class="['input-element', {'error-state':errorMessage}]"
           @input="updateValue "
           @blur="$emit('blur', $event)"
           @focus="checkError, $emit('focus', $event)"
@@ -73,17 +73,17 @@
       <p 
         v-if="type === 'textarea'"
         ref="falseTextarea" 
-        :class="$style.falseTextArea"
+        class="false-text-area"
       >
         &nbsp;{{ textAreaModel }}
       </p>
       <span
         v-if="showRightIcon && !numberType"
-        :class="$style.inputTextRightIcon"
+        class="right-icon"
       >
         <slot name="rightIcon">
           <span
-            :class="$style.inputTextInputClear"
+            class="clear"
             @click="clearText"
           >
             <CloseIcon/>
@@ -96,14 +96,14 @@
     <div
       v-if="errorMessage"
       id="error-block"
-      :class="[{[$style.inputTextErrorText]:errorMessage}]"
+      :class="{'error-text':errorMessage}"
     > 
       <span
-        :class="$style.errorIcon">
+        class="error-icon">
         <WarningIcon/>
       </span>
       <p
-        :class="$style.errorMessageText"> {{ errorMessage }} </p>
+        class="error-message"> {{ errorMessage }} </p>
     </div>
   </div>
 </template>
@@ -112,7 +112,7 @@
 
 import Vue from "vue"
 import { 
-  CloseSml24 as CloseIcon,
+  CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
 
@@ -289,10 +289,8 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang="scss">
+<style scoped lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
 
   @mixin placeholder() {
     &::-webkit-input-placeholder {
@@ -313,7 +311,7 @@ export default Vue.extend({
     }
   }
 
-  .inputTextInput {
+  .input-element {
     width: 100%;
     height: $baseline * 10;
     padding-left: $baseline * 3;
@@ -343,20 +341,20 @@ export default Vue.extend({
       font-style: italic;
     }
   }
-  .inputTextInput[type=number]{
+  .input-element[type=number]{
     text-align:right;
     padding-right:$baseline*3;
   }
-  .inputTextLeftIcon ~ .inputTextInput {
+  .left-icon ~ .input-element {
     padding-left: $baseline*11;
   }
 
-  .inputTextInputWrapper {
+  .input-wrapper {
     position: relative;
   }
 
-  .inputTextLeftIcon,
-  .inputTextRightIcon {
+  .left-icon,
+  .right-icon {
     position: absolute;
     top: $baseline * 2;
 
@@ -366,18 +364,18 @@ export default Vue.extend({
     }
   }
 
-  .inputTextLeftIcon {
+  .left-icon {
     left: $baseline * 2;
   }
 
-  .inputTextRightIcon {
+  .right-icon {
     right: $baseline * 2;
     svg{
       fill : $color-gray;
     }
   }
 
-  .inputTextLabel {
+  .label {
     text-transform: uppercase;
     font-weight: $fontweight-semi;
     font-family: $font-primary;
@@ -388,16 +386,16 @@ export default Vue.extend({
     @include font-base-md();
   }
 
-  .inputTextLabelRequired {
+  .label-required {
     color: $color-error;
   }
 
-  .inputTextLabelWrapper {
+  .label-wrapper {
     position: relative;
     margin-bottom: $baseline;
   }
 
-  .inputTextAuxillarySlot {
+  .auxillary-slot {
     @include font-base-sm();
 
     position: absolute;
@@ -405,28 +403,28 @@ export default Vue.extend({
     bottom: 0;
   }
 
-  .inputText {
+  .text-input {
     padding-bottom: $baseline * 6;
   }
 
-  .inputTextInput::-webkit-outer-spin-button,
-  .inputTextInput::-webkit-inner-spin-button {
+  .input-element::-webkit-outer-spin-button,
+  .input-element::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
   }
-  .inputTextInputErrorState {
+  .error-state {
       border-color: $color-error;
       color: $color-error;
     }
-  .inputTextError {
-    .inputTextErrorText {
+  .error {
+    .error-text {
       margin-top: 4px;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
     }
-    .errorMessageText{
+    .error-message{
         margin: 0px;
         color: $color-error;
         font-size: $fontsize-base-md;
@@ -435,11 +433,11 @@ export default Vue.extend({
         font-weight: $fontweight-regular;
         font-family: $font-primary;
       }
-    .inputTextLabel {
+    .label {
       color: $color-error;
     }
   }
-  .errorIcon{
+  .error-icon{
     line-height: 0px;
     &>*{
       fill: $color-error;
@@ -455,7 +453,7 @@ export default Vue.extend({
     padding-left: 0.75rem;
     padding-right: 2.5rem;
   }
-  .falseTextArea{
+  .false-text-area{
     min-height:2.5rem;
     padding-left: 0.75rem;
     padding-right: 2.5rem;

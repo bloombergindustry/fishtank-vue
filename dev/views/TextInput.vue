@@ -1,40 +1,38 @@
 <template>
   <section>
-    <InputText
+    <inputtext
       v-model="text"
       label="Text Input Type"
       type="text" />
-    <InputText
+    <inputtext
       v-model="password"
       label="Password Input Type"
-      type="password"/>
-    <InputText
+      type="password" />
+    <inputtext
       v-model="number"
       label="Number Input Type"
       type="number"
-      error/>
-    <InputText
+      error />
+    <inputtext
       label="Input Required Example"
       type="number"
-      @reset="clearError"
       required
-      />
-    <InputText
+      @reset="clearError" />
+    <inputtext
       v-model="val"
       label="Input Number Error Example"
       type="number"
-      :error ="error"
-      @reset="clearError"
-      />
-    <InputText
-      :maxheight="170"
+      :error="error"
+      @reset="clearError" />
+    <inputtext
       v-model="text_area"
+      :maxheight="170"
       label="TextArea Input Type - Max Height 170px"
-      type="textarea"/>
-    <!--InputText
-      v-model="val"
+      type="textarea" />
+    <inputtext
+      v-model="text_area"
       label="TextArea Input Type - No Max Height"
-      type="textarea"/--> 
+      type="textarea" />
     <!--
     <InputText
       :value="val"
@@ -64,12 +62,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText, 
-} from '@/index'
+import { InputText } from '@/index'
 
 export default Vue.extend({
   components:{
-    InputText,
+    inputtext:InputText,
   },
   data(){
     return {
