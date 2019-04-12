@@ -1,25 +1,35 @@
 /* eslint-disable no-console */
 import { expect } from "chai"
-import sinon, { spy, stub, restore } from 'sinon'
-import { shallowMount as  shallow, mount } from "@vue/test-utils"
-import {FishTankRadio} from "@/index"
+import {  mount } from "@vue/test-utils"
+import { FishTankRadio as Radio } from "@/index"
 
+// describe('FishTankRadio', () => {
+//   let propsData : any = {}
+//   let slots : any = {}
 
-import Vue from "vue"
+//   const mountInput = () => {
+//     return shallow(FishTankRadio, {
+//       propsData,
+//       slots,
+//     })
+//   }
+
+//   afterEach(() => {
+//     propsData = {}
+//     slots = {}
+//   })
+// })
 
 describe('FishTankRadio', () => {
-  let propsData : any = {}
-  let slots : any = {}
-
-  const mountInput = () => {
-    return shallow(FishTankRadio, {
-      propsData,
-      slots,
-    })
+  const props = {
+    propsData: {
+      label: 'Item 1', value: "A"
+    }
   }
-
-  afterEach(() => {
-    propsData = {}
-    slots = {}
+  it('should fire change event when checkbox changes', () => {
+    const wrapper = mount(Radio, props)
+    wrapper.find('input').trigger('click')
+    console.dir(wrapper.emitted())
+    expect(wrapper.emitted().change[0][0]).to.eq("A")
   })
 })

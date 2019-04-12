@@ -3,9 +3,6 @@ import { expect } from "chai"
 import { mount } from "@vue/test-utils"
 import {FishTankCheckboxV2 as Checkbox} from "@/index"
 
-
-import Vue from "vue"
-
 describe('FishTankCheckbox', () => {
   const props = {
     propsData: {
