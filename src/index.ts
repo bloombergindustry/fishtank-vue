@@ -66,5 +66,6 @@ export { default as FishTankBox } from "./components/FishTankBox.vue"
 export { default as FishTankSelect } from "./components/FishTankSelect.vue"
 export { default as FishTankLookup } from "./components/FishTankLookup.vue"
 export { default as FishTankRadioList } from "./components/FishTankRadioList.vue"
+export { default as FishTankTabs} from "./components/FishTankTabs.vue"
 
 import './styles.scss'

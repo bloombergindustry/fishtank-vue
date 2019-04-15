@@ -19,13 +19,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import * as svgicon from 'vue-svgicon'
+import {
+  Alert24
+} from '@fishtank/icons-vue' 
 //Replace this with a Fish Tank icon
-import 'compiled-icons/fishtank'
+// import 'compiled-icons/fishtank'
 
 export default Vue.extend({
-  components: { svgicon },
-  name: 'Tabs',
+  components: { Alert24 },
+  name: 'FishTankTabs',
   props: {
     /**
      * Active tab name
@@ -80,7 +82,7 @@ export default Vue.extend({
 <style scoped lang='scss'>
 .Tabs {
   .header {
-    border-bottom: 1px solid var(--border-color, lightgray);
+    // border-bottom: 1px solid var(--border-color, lightgray);
     display: flex;
     padding: 0 6px;
     margin-bottom: var(--tab-header-margin-bottom, unset);
@@ -91,10 +93,12 @@ export default Vue.extend({
       cursor: pointer;
       display: flex;
       font-size: 16px;
+      font-weight: 400;
       padding: 6px 3px;
       width: var(--tab-title-width, unset);
       color: var(--tab-title-color);
       background-color: var(--tab-title-background-color);
+      transition: all .3s ease-in-out;
 
       > span {
         margin-left: var(--tab-title-span-margin-left, 5px);
@@ -104,15 +108,22 @@ export default Vue.extend({
       &:not(:last-child) {
         margin-right: var(--tab-title-margin-right, 15px);
       }
-      &[active] {
-        border-color: var(--active-color, #0D9DDB);
+      &:hover {
         font-weight: 600;
         color: var(--active-tab-title-color);
         background-color: var(--active-tab-title-background-color);
         pointer-events: var(--active-tab-title-pointer-events);
         cursor: var(--active-tab-title-cursor);
       }
-      &[disabled] {
+      &:active {
+        border-color: var(--active-color, #0D9DDB);
+        // font-weight: 600;
+        color: var(--active-tab-title-color);
+        background-color: var(--active-tab-title-background-color);
+        pointer-events: var(--active-tab-title-pointer-events);
+        cursor: var(--active-tab-title-cursor);
+      }
+      &:disabled {
         color: var(--disabled-tab-title-color);
         background-color: var(--disabled-tab-title-background-color);
         border-color: var(--disabled-tab-title-border-color);

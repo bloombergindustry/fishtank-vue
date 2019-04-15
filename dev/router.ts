@@ -54,6 +54,9 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/ContentLoaders.vue")
     },
     {
+      path: '/tabs',
+      component: () => import("./views/Tabs.vue")
+    },{
       path: '/text',
       component: () => import("./views/Text.vue")
     },
