@@ -49,7 +49,7 @@ export default Vue.extend({
     return{
       tabs: [ 
         {label: 'Company Inbox', name: 'Company Inbox'}, 
-        {label: 'All Tracking', name: 'All Tracking', icon: 'Alert24'}, 
+        {label: 'All Tracking', name: 'All Tracking' }, 
         {label: 'My Assignments', name: 'My Assignments', disabled: true},
         {label: 'Needs Review', name: 'Needs Review'},
         {label: 'Not Tracking', name: 'Not Tracking', hidden: true},

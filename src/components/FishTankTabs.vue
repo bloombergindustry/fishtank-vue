@@ -3,7 +3,6 @@
     <div class="header" v-bind:style="headerStyleObject">
       <div class="title" v-bind:style="titleStyleObject" v-for="(item, index) in items" :key="`${index}-title`" :active="item.name===active" :disabled="item.disabled" :hidden="item.hidden" @click="$emit('change', item.name)">
         <slot :name="`${item.name}-title`">
-          <svgicon class='tab-icon' v-if="item.icon" :name="item.icon" width="24" height="24" />
           <span>{{item.label}}</span>
         </slot>
       </div>
@@ -19,14 +18,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {
-  Alert24
-} from '@fishtank/icons-vue' 
-//Replace this with a Fish Tank icon
-// import 'compiled-icons/fishtank'
 
 export default Vue.extend({
-  components: { Alert24 },
+  components: {  },
   name: 'FishTankTabs',
   props: {
     /**
@@ -44,7 +38,6 @@ export default Vue.extend({
      * @param {Object[]} [items=[]] - Child tab definitions
      * @param {Boolean} [items[].disabled] - Tab disabled state
      * @param {Boolean} [items[].hidden] - Tab hidden state
-     * @param {String} [items[].icon] - Tab icon to display
      * @param {String} [items[].label] - Tab label to display
      * @param {String} [items[].name] - Tab name to use for defining slots, use '-title' suffix for title slot
      * @param {Boolean} [items[].renderHidden] - Render the content when hidden instead of omitting, for forms etc
@@ -65,7 +58,7 @@ export default Vue.extend({
         return {}
       }
     },
-
+   
     /**
      * Custom styling of the tab title
      */
@@ -75,77 +68,77 @@ export default Vue.extend({
         return {}
       }
     }
-  }
+  },
+
 })
 </script>
 
 <style scoped lang='scss'>
-.Tabs {
-  .header {
-    // border-bottom: 1px solid var(--border-color, lightgray);
-    display: flex;
-    padding: 0 6px;
-    margin-bottom: var(--tab-header-margin-bottom, unset);
+.Tabs .header {
+  // border-bottom: 1px solid var(--border-color, lightgray);
+  display: flex;
+  padding: 0 6px;
+  margin-bottom: var(--tab-header-margin-bottom, unset);
+}
 
-    .title {
-      align-items: center;
-      border-bottom: 4px solid var(--border-color, lightgray);
-      cursor: pointer;
-      display: flex;
-      font-size: 16px;
-      font-weight: 400;
-      padding: 6px 3px;
-      width: var(--tab-title-width, unset);
-      color: var(--tab-title-color);
-      background-color: var(--tab-title-background-color);
-      transition: all .3s ease-in-out;
+.title {
+  align-items: center;
+  border-bottom: 4px solid var(--border-color, lightgray);
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 3px;
+  width: var(--tab-title-width, unset);
+  color: var(--tab-title-color);
+  background-color: var(--tab-title-background-color);
+  transition: all .3s ease-in-out;
 
-      > span {
-        margin-left: var(--tab-title-span-margin-left, 5px);
-        margin-right: var(--tab-title-span-margin-right, unset);
-      }
-
-      &:not(:last-child) {
-        margin-right: var(--tab-title-margin-right, 15px);
-      }
-      &:hover {
-        font-weight: 600;
-        color: var(--active-tab-title-color);
-        background-color: var(--active-tab-title-background-color);
-        pointer-events: var(--active-tab-title-pointer-events);
-        cursor: var(--active-tab-title-cursor);
-      }
-      &:active {
-        border-color: var(--active-color, #0D9DDB);
-        // font-weight: 600;
-        color: var(--active-tab-title-color);
-        background-color: var(--active-tab-title-background-color);
-        pointer-events: var(--active-tab-title-pointer-events);
-        cursor: var(--active-tab-title-cursor);
-      }
-      &:disabled {
-        color: var(--disabled-tab-title-color);
-        background-color: var(--disabled-tab-title-background-color);
-        border-color: var(--disabled-tab-title-border-color);
-      }
-      &[hidden] { display: none; }
-
-      &:first-of-type {
-        border-radius: var(--tab-title-first-of-type-border-radius, unset);
-      }
-      &:last-of-type {
-        border-radius: var(--tab-title-last-of-type-border-radius, unset);
-      }
-      &:only-of-type {
-        border-radius: var(--tab-title-only-of-type-border-radius, unset);
-      }
-    }
+  > span {
+    margin-left: var(--tab-title-span-margin-left, 5px);
+    margin-right: var(--tab-title-span-margin-right, unset);
   }
 
-  .body {
-    .content {
+  &:not(:last-child) {
+    margin-right: var(--tab-title-margin-right, 15px);
+  }
+  &:hover {
+    font-weight: 600;
+    color: var(--active-tab-title-color);
+    background-color: var(--active-tab-title-background-color);
+    pointer-events: var(--active-tab-title-pointer-events);
+    cursor: var(--active-tab-title-cursor);
+  }
+  &:active {
+    border-color: var(--active-color, #0D9DDB);
+    // font-weight: 600;
+    color: var(--active-tab-title-color);
+    background-color: var(--active-tab-title-background-color);
+    pointer-events: var(--active-tab-title-pointer-events);
+    cursor: var(--active-tab-title-cursor);
+  }
+  &:disabled {
+    color: var(--disabled-tab-title-color);
+    background-color: var(--disabled-tab-title-background-color);
+    border-color: var(--disabled-tab-title-border-color);
+  }
+  &[hidden] { 
+    display: none; 
+  }
+  &:first-of-type {
+    border-radius: var(--tab-title-first-of-type-border-radius, unset);
+  }
+  &:last-of-type {
+    border-radius: var(--tab-title-last-of-type-border-radius, unset);
+  }
+  &:only-of-type {
+    border-radius: var(--tab-title-only-of-type-border-radius, unset);
+  }
+}
+
+.Tabs{
+  .body .content {
       &[hidden] { display: none; }
-    }
   }
 
   &[disabled],[disabled] {
