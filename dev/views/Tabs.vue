@@ -5,14 +5,14 @@
     display="flex"
     direction="column"
     justify-content="center"
+    :padding="4"
 >
     <FishTankText
       size="headingMd"
       font="accent"
       :bold="true"
       align="center"
-      class="margin-spacing"
-    > The Fish Tank Tab Component</FishTankText>
+    > The FishTankTab Component</FishTankText>
 
     <FishTankText
         class="margin-spacing"
@@ -28,7 +28,6 @@
       display="flex"
       direction="column"
       justify-content="center"
-      :margin="4"
     >
 
       <FishTankTabs
@@ -58,7 +57,6 @@
       display="flex"
       direction="row"
       justify-content="between"
-      :margin="4"
     >
       <FishTankBox 
         type="div"
@@ -141,9 +139,39 @@
       </FishTankBox>
 
     </FishTankBox>
-    <p><i> Note on Tab Usage: How to Start using this component. I.E. It takes in an array and shows/hides content based on said array.</i></p>
 
-    <p><i> Note on Tab Positioning: Best way to position your tab component is within other divs or box comopnent, tabs itself are centered.</i></p>
+    <FishTankText
+      class="margin-spacing-notes"
+      size="baseLg"
+      font="primary"
+      :italic="true"
+      align="left"
+    >  
+      <FishTankText
+        :inline="true"
+        :bold="true"
+      > 
+        Notes on Tab Positioning :
+      </FishTankText>
+       FishTankTabs' positioning is centered by default. Left and Right Positioning must be done using styles within a div or a FishTankBox component.
+    </FishTankText>
+
+    <FishTankText
+      class="margin-spacing-notes"
+      size="baseLg"
+      font="primary"
+      :italic="true"
+      align="left"
+    >  
+      <FishTankText
+        :inline="true"
+        :bold="true"
+      > 
+        Notes on Tab Usage :
+      </FishTankText>
+        Tabs are populated by passing in an object array called 'item', which has the properties of active(String), disabled(Boolean), divider(Boolean), hidden(Boolena), label(String), name(String), and renderHidden(Boolean).
+    </FishTankText>
+
   </FishTankBox>
 
 </template>
@@ -195,10 +223,14 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .margin-spacing{
-  margin-top: 24px;
+  margin-top: 48px;
   margin-bottom: 24px;
 }
 .margin-bottom{
   margin-bottom: 24px; 
+}
+.margin-spacing-notes{
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 </style>
