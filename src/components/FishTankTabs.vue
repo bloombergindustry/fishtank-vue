@@ -1,11 +1,25 @@
 <template>
-  <div class="Tabs" :disabled="disabled">
+  <div 
+    class="Tabs" 
+    :disabled="disabled"
+  >
     <div 
       class="header" 
       v-bind:style="headerStyleObject"
       :class="[divider ? 'seperator': 'no-seperator']"
     >
-      <div class="title" v-bind:style="titleStyleObject" v-for="(item, index) in items" :key="`${index}-title`" :active="item.name===active" :disabled="item.disabled" :hidden="item.hidden" @click="$emit('change', item.name)">
+      <div 
+        class="title" 
+        v-bind:style="titleStyleObject" 
+        v-for="(item, index) in items" 
+        :key="`${index}-title`" 
+        :active="item.name===active" 
+        :disabled="item.disabled" 
+        :hidden="item.hidden" 
+        @click="$emit('change', item.name)"
+        tabindex="0"
+        role="button"
+      >
         <slot :name="`${item.name}-title`">
           <span>{{item.label}}</span>
         </slot>
@@ -13,8 +27,15 @@
     </div>
 
     <div class="body">
-      <div class="content" v-for="(item, index) in items" :key="index" :hidden="item.renderHidden && item.name!==active" >
-        <slot v-if="item.renderHidden || item.name===active" :name="item.name"></slot>
+      <div 
+        class="content" v-for="(item, index) in items" 
+        :key="index" 
+        :hidden="item.renderHidden && item.name!==active" 
+      >
+        <slot 
+          v-if="item.renderHidden || item.name===active" 
+          :name="item.name"
+        ></slot>
       </div>
     </div>
   </div>
@@ -89,6 +110,8 @@ export default Vue.extend({
 <style scoped lang='scss'>
 .Tabs .header {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: 0 6px;
   margin-bottom: var(--tab-header-margin-bottom, unset);
 }
@@ -102,16 +125,16 @@ export default Vue.extend({
 }
 
 .title {
-  align-items: center;
-  border-bottom: 4px solid var(--border-color, lightgray);
+  align-self: center;
+  border-bottom: 3px solid var(--border-color, lightgray);
   cursor: pointer;
   display: flex;
   font-size: 16px;
   font-weight: 400;
-  padding: 6px 3px;
+  padding: 5px 4px;
   width: var(--tab-title-width, unset);
-  color: var(--tab-title-color);
-  background-color: var(--tab-title-background-color);
+  color: var(--color-gray-dark);
+  // background-color: var(--tab-title-background-color);
   transition: all .3s ease-in-out;
 
   > span {
@@ -131,6 +154,7 @@ export default Vue.extend({
   }
   &:active {
     border-color: var(--active-color, #0D9DDB);
+    border-width: 4px;
     // font-weight: 600;
     color: var(--active-tab-title-color);
     background-color: var(--active-tab-title-background-color);

@@ -1,34 +1,143 @@
 <template>
-  <div>
+  <FishTankBox 
+    type="section"
+    color="highlight1"
+    display="flex"
+    direction="column"
+    justify-content="center"
+>
     <FishTankText
-      style="width: 100%; margin-top: 24px; margin-bottom: 24px;"
-      size="baseLg"
+      size="headingMd"
       font="accent"
       :bold="true"
       align="center"
+      class="margin-spacing"
     > The Fish Tank Tab Component</FishTankText>
 
-    <FishTankTabs
-      :items ="tabs"
-    ></FishTankTabs>
+    <FishTankText
+        class="margin-spacing"
+        size="headingSm"
+        font="primary"
+        :bold="true"
+        align="center"
+    > Full Page Tabs</FishTankText>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <FishTankBox 
+      type="div"
+      color="white"
+      display="flex"
+      direction="column"
+      justify-content="center"
+      :margin="4"
+    >
 
-    <FishTankTabs
-      :items ="tabs"
-      :divider="true"
-    ></FishTankTabs>
+      <FishTankTabs
+        class="margin-spacing"
+        :items ="tabs"
+      ></FishTankTabs>
 
-    
-  </div>
+      <FishTankTabs
+        class="margin-spacing"
+        :items ="tabs"
+        :divider="true"
+      ></FishTankTabs>
+
+    </FishTankBox>
+    <p><i> Note: About Tab positioning for later documentation </i></p>
+
+    <FishTankText
+        class="margin-spacing"
+        size="headingSm"
+        font="primary"
+        :bold="true"
+        align="center"
+    > Side Positioned Tabs</FishTankText>
+
+    <FishTankBox 
+      type="div"
+      color="white"
+      display="flex"
+      direction="row"
+      justify-content="between"
+      :margin="4"
+    >
+      <FishTankBox 
+        type="div"
+        color="highlight1"
+        display="flex"
+        direction="column"
+        justify-content="center"
+        width="50%"
+        :margin="2"
+        :padding="4"
+      >
+        <FishTankText
+          class="margin-bottom"
+          size="baseLg"
+          font="primary"
+          :bold="true"
+          align="left"
+        > Left Positioned Tabs</FishTankText>
+
+        <FishTankBox 
+          type="div"
+          color="white"
+          display="flex"
+          direction="column"
+          alignItems="start"
+        >
+          <FishTankTabs
+            class="margin-spacing"
+            :items ="tabs2"
+          ></FishTankTabs>
+        </FishTankBox>
+
+      </FishTankBox>
+
+      <FishTankBox 
+        type="div"
+        color="highlight1"
+        display="flex"
+        direction="column"
+        justify-content="center"
+        width="50%"
+        :margin="2"
+        :padding="4"
+      >
+        <FishTankText
+          class="margin-bottom"
+          size="baseLg"
+          font="primary"
+          :bold="true"
+          align="right"
+        > Right Positioned Tabs</FishTankText>
+
+        <FishTankBox 
+          type="div"
+          color="white"
+          display="flex"
+          direction="column"
+          alignItems="end"
+        >
+          <FishTankTabs
+            class="margin-spacing"
+            :items ="tabs2"
+          ></FishTankTabs>
+        </FishTankBox>
+
+      </FishTankBox>
+
+    </FishTankBox>
+    <p>Example to the right</p>
+  </FishTankBox>
+
 </template>
 
 <script lang="ts">
+
 import Vue from 'vue'
 import { 
+  FishTankBox,
   FishTankText,
   FishTankTabs
 } from '@/index'
@@ -41,6 +150,7 @@ import {
 
 export default Vue.extend({
   components: {
+    FishTankBox,
     FishTankText,
     FishTankTabs,
     Alert24
@@ -56,9 +166,24 @@ export default Vue.extend({
         {label: 'Not Tracking', name: 'Not Tracking', hidden: true},
         {label: 'People', name: 'People'},
         {label: 'Search', name: 'Search'}
+      ],
+      tabs2: [ 
+        {label: 'News', name: 'News'}, 
+        {label: 'Groups', name: 'Groups' }, 
+        {label: 'Messages', name: 'Messages', disabled: true},
+        {label: 'Profile', name: 'Profile'}
       ]
     }
   }
 })
 </script>
 
+<style lang="scss" scoped>
+.margin-spacing{
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.margin-bottom{
+  margin-bottom: 24px; 
+}
+</style>
