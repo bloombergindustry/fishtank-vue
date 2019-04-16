@@ -1,6 +1,10 @@
 <template>
   <div class="Tabs" :disabled="disabled">
-    <div class="header" v-bind:style="headerStyleObject">
+    <div 
+      class="header" 
+      v-bind:style="headerStyleObject"
+      :class="[divider ? 'seperator': 'no-seperator']"
+    >
       <div class="title" v-bind:style="titleStyleObject" v-for="(item, index) in items" :key="`${index}-title`" :active="item.name===active" :disabled="item.disabled" :hidden="item.hidden" @click="$emit('change', item.name)">
         <slot :name="`${item.name}-title`">
           <span>{{item.label}}</span>
@@ -32,6 +36,15 @@ export default Vue.extend({
      * Disabled state of entire component
      */
     disabled: Boolean,
+
+    /**
+     * Disables seperator style line on tab component
+     */
+    divider: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
 
     /**
      * Array of children with nested grandchildren
@@ -75,10 +88,17 @@ export default Vue.extend({
 
 <style scoped lang='scss'>
 .Tabs .header {
-  // border-bottom: 1px solid var(--border-color, lightgray);
   display: flex;
   padding: 0 6px;
   margin-bottom: var(--tab-header-margin-bottom, unset);
+}
+
+.seperator{
+  border-bottom: 1px solid var(--border-color, lightgray);
+}
+
+.no-seperator{
+  border-bottom: 1px solid transparent;
 }
 
 .title {

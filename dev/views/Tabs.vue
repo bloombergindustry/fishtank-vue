@@ -19,6 +19,7 @@
 
     <FishTankTabs
       :items ="tabs"
+      :divider="true"
     ></FishTankTabs>
 
     
