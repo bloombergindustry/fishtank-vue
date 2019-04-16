@@ -20,7 +20,7 @@
         font="primary"
         :bold="true"
         align="center"
-    > Full Page Tabs</FishTankText>
+    > Center Positioned Tabs</FishTankText>
 
     <FishTankBox 
       type="div"
@@ -43,7 +43,6 @@
       ></FishTankTabs>
 
     </FishTankBox>
-    <p><i> Note: About Tab positioning for later documentation </i></p>
 
     <FishTankText
         class="margin-spacing"
@@ -90,6 +89,13 @@
             class="margin-spacing"
             :items ="tabs2"
           ></FishTankTabs>
+
+          <FishTankTabs
+            class="margin-spacing"
+            :items ="tabs2"
+            :divider="true"
+          ></FishTankTabs>
+
         </FishTankBox>
 
       </FishTankBox>
@@ -123,12 +129,21 @@
             class="margin-spacing"
             :items ="tabs2"
           ></FishTankTabs>
+
+          <FishTankTabs
+            class="margin-spacing"
+            :items ="tabs2"
+            :divider="true"
+          ></FishTankTabs>
+
         </FishTankBox>
 
       </FishTankBox>
 
     </FishTankBox>
-    <p>Example to the right</p>
+    <p><i> Note on Tab Usage: How to Start using this component. I.E. It takes in an array and shows/hides content based on said array.</i></p>
+
+    <p><i> Note on Tab Positioning: Best way to position your tab component is within other divs or box comopnent, tabs itself are centered.</i></p>
   </FishTankBox>
 
 </template>
