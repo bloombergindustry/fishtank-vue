@@ -1,37 +1,37 @@
 <template>
   <div 
-    :class="[$style.wrap]"  
-    :aria-label="removable ? `Remove ${label}`:null" >
+    class="wrap"  
+    :aria-label="removable ? `Remove ${label}`:null">
     <label
       :for="id"
-      :class="$style.label">
+      class="label">
       <input 
         :id="id" 
         :disabled="disabled"
         :checked="isChecked"
         :value="value"
-        :class="[$style.input]"
+        class="input"
         type="checkbox"
         @focus="isFocused = true"
         @blur="isFocused = false"
         v-on="listeners">
       <div 
-        :class="[$style.tag, {[$style.checked]:isChecked}, {[$style.disabled]:disabled}, {[$style.hasIcon]:hasIcon}, {'focused': isFocused}]">
+        :class="['tag', {'checked':isChecked}, {'disabled':disabled}, {'hasIcon':hasIcon}, {'focused': isFocused}]">
         <div
-          :class="$style.labelContent">
-          <FishTankText
+          class="labelContent">
+          <f-text
             :color="getStateColor" 
             inline 
             size="baseMd"
             semi-bold>
             {{ label }}
-          </FishTankText>
+          </f-text>
           <span
             v-if="iconPosition==='right'"
-            :class="[$style.icon, {[$style.iconRight]: (iconPosition==='right')}]">
-            <CloseSml24
+            :class="['icon', {'iconRight': (iconPosition==='right')}]">
+            <close-sml-24
               v-if="removable"
-              :class="[$style.iconAlignment, {[$style.iconChecked]:isChecked}]"/>
+              :class="['iconAlignment', {'iconChecked':isChecked}]" />
             <slot />
           </span>
         </div>
@@ -52,7 +52,7 @@ export default Vue.extend({
   description: "Component description",
   components: {
     CloseSml24,
-    FishTankText
+    fText:FishTankText
   },
   mixins:[
     a11y
@@ -185,9 +185,8 @@ export default Vue.extend({
 })
 </script>
 
-<style module lang="scss">
-  @import '../../node_modules/@fishtank/colors/dist/index.custom-properties';
-  @import '../../node_modules/@fishtank/space/dist/index.custom-properties';
+<style lang="scss" scoped>
+  @import '../styles/mixins';
   .wrap{
     position: relative;
     display: inline-block;
@@ -264,5 +263,4 @@ export default Vue.extend({
   body.user-is-tabbing .focused {
     box-shadow: 0 0 0 2px var(--color-selected-darkest);
   }
-  
 </style>
