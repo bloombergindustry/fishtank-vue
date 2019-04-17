@@ -25,33 +25,33 @@
     </radio-list>
     <div>value={{ valueBlaw2 }}</div>
 
-    <!-- <h1>FishTank Radio and RadioGroup component</h1> -->
-    <!-- <fish-tank-radio-group>
-      <FishTankRadio 
+    <h1>FishTank Radio and RadioGroup component</h1>
+    <radio-group>
+      <radio 
         v-model="val"
         value="alpha" 
         label="alpha"
-        name="alpha"/>
-      <FishTankRadio 
+        name="alpha" />
+      <radio 
         v-model="val" 
         disabled
         value="alpha" 
         label="alpha"
-        name="alpha"/>
-      <FishTankRadio 
+        name="alpha" />
+      <radio 
         v-model="val"
         value="beta" 
         label="beta"
-        name="beta"/>
-      <FishTankRadio 
+        name="beta" />
+      <radio 
         v-model="val"
         disabled
         value="beta" 
         label="beta"
-        name="beta"/>
+        name="beta" />
       {{ val }}
-    </fish-tank-radio-group>
-    <hr>
+    </radio-group>
+    <!-- <hr>
     <fish-tank-radio-group>
       <FishTankRadio 
         v-model="valTwo"
@@ -78,13 +78,15 @@
 <script lang="ts">
 import Vue from 'vue'
 import { 
-  // FishTankRadioGroup, 
+  FishTankRadioGroup,
+  FishTankRadio, 
   FishTankRadioList as RadioList } from '@/index'
 
 
 export default Vue.extend({
   components:{
-    // FishTankRadioGroup,
+    radioGroup: FishTankRadioGroup,
+    radio: FishTankRadio,
     RadioList,
   },
   data(){

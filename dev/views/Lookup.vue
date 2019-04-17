@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Autocomplete
+    <autocomplete
       id="autocomplete_example"
       label="Autocomplete Label"
       orientation="ltr"
@@ -14,18 +14,18 @@ const moxios = require('moxios')
 import { FishTankLookup } from '@/index';
 export default {
   components:{
-    Autocomplete:FishTankLookup
+    autocomplete:FishTankLookup
   },
   data () {
     return {
       selected: null,
-      exampleItems: [
-            { label: "Some item 1", value: "Some item 1" },
-            { label: "Some item 2", value: "Some item 2" },
-            { label: "Some item 3", value: "Some item 3" },
-            { label: "Some item 4", value: "Some item 4" },
-            { label: "Some item 5", value: "Some item 5" }
-          ]
+      // exampleItems: [
+      //       { label: "Some item 1", value: "Some item 1" },
+      //       { label: "Some item 2", value: "Some item 2" },
+      //       { label: "Some item 3", value: "Some item 3" },
+      //       { label: "Some item 4", value: "Some item 4" },
+      //       { label: "Some item 5", value: "Some item 5" }
+      //     ]
     }
   },
   created () {
@@ -46,14 +46,14 @@ export default {
     })
 
     // Mock empty request
-    moxios.stubRequest(/\/some_autocomplete_endpoint\?query=$/, {
-      status: 200,
-      response: {
-        "data": {
-          "items": []
-        }
-      }
-    })
+    // moxios.stubRequest(/\/some_autocomplete_endpoint\?query=$/, {
+    //   status: 200,
+    //   response: {
+    //     "data": {
+    //       "items": []
+    //     }
+    //   }
+    // })
   }
 }
 </script>
