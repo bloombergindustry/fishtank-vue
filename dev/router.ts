@@ -30,6 +30,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Switches.vue")
     },
     {
+      path: '/badges',
+      component: () => import("./views/Badges.vue")
+    },
+    {
       path: '/tags',
       component: () => import("./views/Tags.vue")
     },
@@ -44,6 +48,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/checkboxes',
       component: () => import("./views/Checkboxes.vue")
+    },
+    {
+      path: '/checkboxesv2',
+      component: () => import("./views/CheckboxesV2.vue")
     },
     {
       path: '/buttongroup',
