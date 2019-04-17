@@ -1,11 +1,10 @@
 <template>
-  <FishTankBaseButton
+  <base-button
     v-bind="$attrs"
-    class="button--primary"
-    v-on="$listeners"
-  >
-    <slot/>
-  </FishTankBaseButton>
+    :class="buttonClass"
+    v-on="$listeners">
+    <slot />
+  </base-button>
 </template>
 
 <script lang="ts">
@@ -21,12 +20,27 @@ export default Vue.extend({
       Save</FishTankButton>
   `],
   components: {
-    FishTankBaseButton
+    baseButton:FishTankBaseButton
   },
   props:{
     primary:{
       type: Boolean,
       default: false
+    },
+    secondary:{
+      type: Boolean,
+      default: false
+    },
+    destructive:{
+      type: Boolean,
+      default: false
+    },
+  },
+  methods:{
+    buttonClass(){
+      if (this.primary) {return 'primary'}
+      else if (this.secondary) return 'secondary'
+      else if (this.destructive) return 'destructive'
     }
   }
 })
