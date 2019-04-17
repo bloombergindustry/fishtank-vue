@@ -2,30 +2,7 @@
   <section>
     <heading 
       level="1"
-      size="HeadingMd">
-      FishTankCheckboxV2
-    </heading>
-    <checkbox2
-      v-model="val"
-      value="tt"
-      label="alpha" />
-
-    <checkbox2
-      v-model="val"
-      value="tt"
-      label="alpha"
-      slider />
-
-    <checkbox2
-      v-model="val"
-      disabled
-      value="tt"
-      label="alpha"
-      switch />
-
-    <heading 
-      level="1"
-      size="HeadingMd">
+      size="headingMd">
       FishTankCheckbox
     </heading>
     <checkbox 
@@ -64,12 +41,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankCheckbox, FishTankCheckboxV2, FishTankHeading } from '@/index'
+import { FishTankCheckbox, FishTankHeading } from '@/index'
 
 export default Vue.extend({
   components:{
     checkbox: FishTankCheckbox,
-    checkbox2:FishTankCheckboxV2,
     heading:FishTankHeading
   },
   data(){
