@@ -33,7 +33,38 @@
       <FishTankTabs
         class="margin-spacing"
         :items ="tabs"
-      ></FishTankTabs>
+      >
+        <template :slot="tabs[0].name">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the 'Company Inbox' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+        <template slot="All Tracking">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the 'All Tracking' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+      </FishTankTabs>
 
       <FishTankTabs
         class="margin-spacing"
@@ -169,7 +200,7 @@
       > 
         Notes on Tab Usage :
       </FishTankText>
-        Tabs are populated by passing in an object array called 'item', which has the properties of active(String), disabled(Boolean), divider(Boolean), hidden(Boolena), label(String), name(String), and renderHidden(Boolean).
+        FishtankTabs are populated by passing in an object array called 'item', which has the properties of active(String), disabled(Boolean), divider(Boolean), hidden(Boolena), label(String), name(String), and renderHidden(Boolean).
     </FishTankText>
 
   </FishTankBox>
@@ -212,9 +243,8 @@ export default Vue.extend({
       ],
       tabs2: [ 
         {label: 'News', name: 'News'}, 
-        {label: 'Groups', name: 'Groups' }, 
-        {label: 'Messages', name: 'Messages', disabled: true},
-        {label: 'Profile', name: 'Profile'}
+        {label: 'Messages', name: 'Messages'},
+        {label: 'Profile', name: 'Profile', disabled: true}
       ]
     }
   }

@@ -7,6 +7,7 @@
       class="header" 
       v-bind:style="headerStyleObject"
       :class="[divider ? 'seperator': 'no-seperator']"
+      role="menubar"
     >
       <div 
         class="title" 
@@ -16,11 +17,16 @@
         :active="item.name===active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
-        @click="$emit('change', item.name)"
+        @click="$emit('change', item.name), toggle()"
+        @keypress.enter="$emit('change', item.name)"
+        @keydown.enter="$emit('change', item.name)"
+        @keyup.enter="$emit('change', item.name)"
         tabindex="0"
-        role="button"
+        role="menuitem"
       >
-        <slot :name="`${item.name}-title`">
+        <slot 
+          :name="`${item.name}-title`"
+        >
           <span>{{item.label}}</span>
         </slot>
       </div>
@@ -32,6 +38,7 @@
         :key="index" 
         :hidden="item.renderHidden && item.name!==active" 
       >
+
         <slot 
           v-if="item.renderHidden || item.name===active" 
           :name="item.name"
@@ -43,6 +50,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import A11y from '../util/a11y'
 
 export default Vue.extend({
   components: {  },
@@ -81,7 +89,11 @@ export default Vue.extend({
     /**
      * Render tab content hidden instead of conditionally
      */
-    renderHidden: Boolean,
+    renderHidden: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
 
     /**
      * Custom styling of the header
@@ -103,6 +115,13 @@ export default Vue.extend({
       }
     }
   },
+  methods:{
+    toggle(){
+      if( !item.disabled){
+        console.log("test");
+      }
+    }
+  }
 
 })
 </script>
@@ -145,6 +164,9 @@ export default Vue.extend({
   &:not(:last-child) {
     margin-right: var(--tab-title-margin-right, 15px);
   }
+  // &:focus{
+  //   outline: transparent;
+  //   }
   &:hover {
     font-weight: 600;
     color: var(--active-tab-title-color);
@@ -153,6 +175,15 @@ export default Vue.extend({
     cursor: var(--active-tab-title-cursor);
   }
   &:active {
+    border-color: var(--active-color, #0D9DDB);
+    // border-width: 4px;
+    // font-weight: 600;
+    color: var(--active-tab-title-color);
+    background-color: var(--active-tab-title-background-color);
+    pointer-events: var(--active-tab-title-pointer-events);
+    cursor: var(--active-tab-title-cursor);
+  }
+  &[active] {
     border-color: var(--active-color, #0D9DDB);
     border-width: 4px;
     // font-weight: 600;
@@ -182,12 +213,21 @@ export default Vue.extend({
 
 .Tabs{
   .body .content {
-      &[hidden] { display: none; }
+      &:hidden { display: none; }
   }
 
-  &[disabled],[disabled] {
+  &:disabled,[disabled] {
     opacity: 0.25;
     pointer-events: none;
   }
 }
+</style>
+
+<style lang="scss">
+  @import '../styles/mixins';
+    body.user-is-tabbing {
+      .a11y:focus{
+        box-shadow: 0 0 0 2px var(--color-selected, $color-selected);
+      }
+    }
 </style>
