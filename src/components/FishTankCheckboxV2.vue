@@ -19,7 +19,7 @@
           <div class="inputCheckboxTarget"/>
         </div>
         <div class="labelContent">
-          <slot v-if="label === null"/>
+          <slot v-if="$slots.default"/>
           <span v-else>
             {{ label }}
           </span>
@@ -48,17 +48,20 @@
             />
           </transition>
         </div>
-        <div
-          v-if="label" 
-          class="labelContent">
-          <div class="labelContentLabel">
-            <fish-tank-text 
-              primary 
-              size="baseMd"
-              color="grayDark">{{ label }}</fish-tank-text>
-          </div>
-          <slot/>
+        <div class="labelContent">
+          <slot v-if="$slots.default"/>
+          <fish-tank-text
+            v-else 
+            size="baseMd"
+            color="grayDark">{{ label }}</fish-tank-text>
         </div>
+        
+        <!-- <div
+           class="labelContent">
+          <div class="labelContentLabel">
+            
+          </div>
+        </div> -->
       </template>
     </label>
   </div>
@@ -185,6 +188,7 @@ export default Vue.extend({
 
 .labelContent {
   padding-left: $baseline*3;
+  margin: 6px 0;
 }
 .labelContentLabel {
   margin: 6px 0;
