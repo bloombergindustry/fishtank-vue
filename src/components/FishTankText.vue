@@ -173,6 +173,7 @@
  })
 </script>
 <style module lang="scss">
+  @import '../styles/mixins';
   @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
   @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
@@ -184,11 +185,11 @@
   }
 
   .primary {
-    font-family: var(--font-primary)
+    font-family: $font-primary;
   }
 
   .accent {
-    font-family: var(--font-accent);
+    font-family: $font-accent;
   }
 
   /* font weight */
