@@ -20,6 +20,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/buttons',
       component: () => import("./views/Buttons.vue")
+    },
+    {
+      path: '/buttonsV2',
+      component: () => import("./views/ButtonsV2.vue")
     }
     ,{
       path: '/radios',
