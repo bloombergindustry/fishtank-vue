@@ -20,7 +20,8 @@
       <fbutton 
         :disabled="disabled" 
         :small="small" 
-        type="submit">
+        type="submit"
+        class="theme">
         Click Here
       </fbutton>
     </box>
@@ -72,6 +73,15 @@
         Caution
       </fbutton>
     </box>
+
+    <!-- <box display="block" :margin="2" >
+      <fbutton 
+        :disabled="disabled" 
+        :small="small" 
+        role="theme">
+        Set Theme
+      </fbutton>
+    </box> -->
   </section>
 </template>
 <script>
@@ -93,3 +103,10 @@ export default {
   }
 }
 </script>
+<style>
+.theme{
+  --button-background-color:red;
+  --button-border-color:darkred;
+  --button-text-color:white;
+}
+</style>

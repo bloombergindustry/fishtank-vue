@@ -106,6 +106,27 @@ body.user-is-tabbing .a11y:focus {
     &:disabled{
       opacity: 0.4;
     }
+    &.theme {
+      background-color:var(--button-background-color);
+      border-color:var(--button-border-color);
+      @include button-box-shadow($color-white);
+      .text {
+        color:var(--button-text-color);
+      }
+      &:hover {
+          background-color:var(--button-hover-color);
+        }
+
+      &:active {
+        background-color:var(--button-active-color);
+      }
+
+      &:disabled {
+        &:hover {
+          background-color:var(--button-disabled-hover-color);
+        }
+      }
+    }
     &.standard {
       background-color: $color-notification-3;
       border-color: $color-notification-3;
