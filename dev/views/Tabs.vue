@@ -45,11 +45,12 @@
               font="primary"
               :italic="true"
               align="left"
-            >  This is the 'Company Inbox' content. You are able to see this text because this tab is currently active.
+            >  This is the '{{tabs[0].name}}' content. You are able to see this text because this tab is currently active.
             </FishTankText>
           </FishTankBox>
         </template>
-        <template slot="All Tracking">
+
+        <template :slot="tabs[1].name">
           <FishTankBox 
             type="section"
             :margin="6"
@@ -60,10 +61,75 @@
               font="primary"
               :italic="true"
               align="left"
-            >  This is the 'All Tracking' content. You are able to see this text because this tab is currently active.
+            >  This is the '{{tabs[1].name}}' content. You are able to see this text because this tab is currently active.
             </FishTankText>
           </FishTankBox>
         </template>
+
+        <template :slot="tabs[2].name">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the '{{tabs[2].name}}' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+
+        <template :slot="tabs[3].name">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the '{{tabs[3].name}}' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+
+        <template :slot="tabs[4].name">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the '{{tabs[4].name}}' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+
+        <template :slot="tabs[5].name">
+          <FishTankBox 
+            type="section"
+            :margin="6"
+          > 
+            <FishTankText
+              class="margin-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left"
+            >  This is the '{{tabs[5].name}}' content. You are able to see this text because this tab is currently active.
+            </FishTankText>
+          </FishTankBox>
+        </template>
+
       </FishTankTabs>
 
       <FishTankTabs
@@ -237,7 +303,6 @@ export default Vue.extend({
         {label: 'All Tracking', name: 'All Tracking' }, 
         {label: 'My Assignments', name: 'My Assignments', disabled: true},
         {label: 'Needs Review', name: 'Needs Review'},
-        {label: 'Not Tracking', name: 'Not Tracking', hidden: true},
         {label: 'People', name: 'People'},
         {label: 'Search', name: 'Search'}
       ],

@@ -17,7 +17,7 @@
         :active="item.name===active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
-        @click="$emit('change', item.name), toggle()"
+        @click="change(item.name)"
         @keypress.enter="$emit('change', item.name)"
         @keydown.enter="$emit('change', item.name)"
         @keyup.enter="$emit('change', item.name)"
@@ -115,11 +115,16 @@ export default Vue.extend({
       }
     }
   },
-  methods:{
-    toggle(){
-      if( !item.disabled){
-        console.log("test");
+  data: function(){
+      return{
+        // active: String,
+
       }
+  },
+  methods:{
+    change(itemName:string){
+      this.$props.active = itemName
+      console.log("test")
     }
   }
 
