@@ -3,6 +3,10 @@
     "experimentalDecorators": true,
     "target": "es6",
     "module": "esnext",
+    "lib": [
+      "dom",
+      "es7"
+    ],
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
