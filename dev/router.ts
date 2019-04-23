@@ -46,6 +46,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/TextInput.vue")
     },
     {
+      path: '/textarea',
+      component: () => import("./views/TextArea.vue")
+    },
+    {
       path: '/spinnerloader',
       component: () => import("./views/SpinnerLoader.vue")
     },
