@@ -24,15 +24,6 @@
       type="number"
       :error="error"
       @reset="clearError" />
-    <inputtext
-      v-model="text_area"
-      :maxheight="170"
-      label="TextArea Input Type - Max Height 170px"
-      type="textarea" />
-    <inputtext
-      v-model="text_area"
-      label="TextArea Input Type - No Max Height"
-      type="textarea" />
     <!--
     <InputText
       :value="val"
@@ -55,8 +46,6 @@
     <p><b>Password Input Value : </b> {{password}} </p>
     <p><b>Number Input Value : </b> {{number}} </p>
     <p><b>Number Error Input Value : </b> {{val}} </p>
-    <p><b>Text Area Input Value : </b> {{text_area}} </p>
-
   </section>
 </template>
 

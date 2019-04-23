@@ -33,19 +33,33 @@
       >
         <slot name="leftIcon"/>
       </span>
-      <input
+        <!--eslint-disable-->
+      <textarea
         ref="input"
-        :type="type"
         :value="value"
         :id="`textarea-${identifier}-id`"
+        :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
         v-bind="$attrs"
-        :class="['input-element', {'error-state':errorMessage}]"
-        @input="updateValue "
-        @blur="$emit('blur', $event)"
-        @focus="checkError, $emit('focus', $event)"
-        v-on="listeners">
+        :class="['input-element', 'inputTextInputTextarea', {'error-state':errorMessage}]"
+        @keypress="getFalseHeight"
+        @keydown.delete="getFalseHeight"
+        @keyup.91.90="getFalseHeight"
+        @keyup.91.86="getFalseHeight"
+        @keyup.91.88="getFalseHeight"
+        @keyup.enter="getFalseHeight"
+        @keyup.delete="getFalseHeight"
+        @paste="getFalseHeight"
+        @cut="getFalseHeight"
+        v-on="listeners" />
+      <!--eslint-enable-->
+      <p 
+        ref="falseTextarea" 
+        class="false-text-area"
+      >
+        &nbsp;{{ value }}
+      </p>
       <span
-        v-if="showRightIcon && !numberType"
+        v-if="showRightIcon"
         class="right-icon"
       >
         <slot name="rightIcon">
@@ -88,6 +102,9 @@ export default Vue.extend({
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon
   },
+  token:[
+    
+  ],
   inheritAttrs: false,
   
   props: {
@@ -124,25 +141,6 @@ export default Vue.extend({
       default:false,
       required:false
     },
-    type: {
-      required: false,
-      default: "text",
-      type: String,
-      validator: (value: string) => {
-        const textTypes = [
-          "text",
-          "password",
-          "email",
-          "search",
-          "number",
-          "tel",
-          "url",
-        ]
-
-        return textTypes.indexOf(value.toLowerCase()) > -1
-      },
-      description:"Text input type - text | textarea | password | email | search | number | tel | url",
-    },
     error: {
       required: false,
       default: null,
@@ -176,12 +174,6 @@ export default Vue.extend({
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
-    numberType(){
-      if(this.$props.type === "number"){
-        return true
-      }
-    }
-    ,
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
@@ -229,6 +221,22 @@ export default Vue.extend({
     },
     focusElement(element: HTMLElement) {
       element.focus()
+    },
+    getFalseHeight(e:ClipboardEvent): void{
+      setTimeout(()=>{
+          this.$nextTick(()=>{
+            if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+              this.textAreafalseHeight = this.$props.maxheight
+              if (!this.scrollOn) this.scrollOn = true
+              return
+            }
+            if (this.$refs.falseTextarea !== undefined) {
+              if (this.scrollOn) this.scrollOn = false
+              this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+            }
+            (this.$refs.input as HTMLFontElement).focus()
+          })
+        }, 100)
     },
   }
 })
@@ -285,10 +293,6 @@ export default Vue.extend({
       color: $color-gray-lighter;
       font-style: italic;
     }
-  }
-  .input-element[type=number]{
-    text-align:right;
-    padding-right:$baseline*3;
   }
   .left-icon ~ .input-element {
     padding-left: $baseline*11;
