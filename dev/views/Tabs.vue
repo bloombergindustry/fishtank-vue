@@ -33,6 +33,8 @@
       <FishTankTabs
         class="margin-spacing"
         :items ="tabs"
+        :active="activeDefaultTab1"
+        @change="activeDefaultTab1=$event.name"
       >
         <template :slot="tabs[0].name">
           <FishTankBox 
@@ -131,11 +133,12 @@
         </template>
 
       </FishTankTabs>
-
       <FishTankTabs
         class="margin-spacing"
-        :items ="tabs"
+        :items="tabs"
         :divider="true"
+        :active="activeDefaultTab2"
+        @change="test(activeDefaultTab2=$event.name)"
       ></FishTankTabs>
 
     </FishTankBox>
@@ -310,9 +313,22 @@ export default Vue.extend({
         {label: 'News', name: 'News'}, 
         {label: 'Messages', name: 'Messages'},
         {label: 'Profile', name: 'Profile', disabled: true}
-      ]
+      ],
+      activeDefaultTab1: 'Company Inbox',
+      activeDefaultTab2: 'Company Inbox'
+    }
+  },
+  methods:{
+    test(e:any){ //debugger function
+      console.log(e)
+    },
+
+    changeTab(itemName:string){
+      this.$props.active = itemName
+      console.log("test")
     }
   }
+  
 })
 </script>
 

@@ -14,13 +14,11 @@
         v-bind:style="titleStyleObject" 
         v-for="(item, index) in items" 
         :key="`${index}-title`" 
-        :active="item.name===active" 
+        :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
-        @click="change(item.name)"
-        @keypress.enter="$emit('change', item.name)"
-        @keydown.enter="$emit('change', item.name)"
-        @keyup.enter="$emit('change', item.name)"
+        @click="$emit('change', item)"
+        @keyup.enter="$emit('change', item)"
         tabindex="0"
         role="menuitem"
       >
@@ -115,18 +113,8 @@ export default Vue.extend({
       }
     }
   },
-  data: function(){
-      return{
-        // active: String,
-
-      }
-  },
-  methods:{
-    change(itemName:string){
-      this.$props.active = itemName
-      console.log("test")
-    }
-  }
+  
+  
 
 })
 </script>
