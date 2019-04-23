@@ -1,7 +1,8 @@
 <template>
   <section>
     <inputtext
-      v-model="text"
+      :value="text"
+      @input="text = $event"
       label="Text Input Type"
       type="text" />
     <inputtext

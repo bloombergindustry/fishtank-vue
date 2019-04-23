@@ -5,7 +5,8 @@
       :maxheight="170"
       label="TextArea Input Type - Max Height 170px" />
     <tarea
-      v-model="text_area"
+      :value="text_area"
+      @input="text_area = $event"
       label="TextArea Input Type - No Max Height" />
 
     <p class="text-area-example"><b>Text Area Input Value : </b> {{ text_area }} </p>
