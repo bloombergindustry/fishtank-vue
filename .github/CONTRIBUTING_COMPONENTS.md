@@ -66,6 +66,25 @@ The dos and don'ts described later are smaller tips and tricks that are meant
 to be practical guidelines and examples of things you should and shouldn't be doing
 while developing components in this repository.
 
+### Writing your component
+* You can add a route to your preview page in `dev/router.ts`
+* Please title each component in UpperCamelCase. _Please reference the [Vue Style Guide](https://vuejs.org/v2/style-guide/) for best practices in building components._
+
+#### Minimal Component
+in src/components/MyComponent.vue
+```html
+<template>
+  <my-component />
+</template>
+<script lang="ts">
+export default Vue.extend({
+  name: 'MyCompoment'
+})
+</script>
+<style scoped lang="scss">
+</style>
+```
+
 ### Props vs Data (Element State)
 
 Put simple, data is passed in the following way:

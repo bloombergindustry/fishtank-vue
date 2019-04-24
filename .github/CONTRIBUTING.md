@@ -12,6 +12,7 @@ Please take a few moments to review the following guidelines before contributing
     * [Unit Testing](#unit-testing)
       * [Minimal Unit Test](#minimal-unit-test)
       * [Running Tests](#running-tests)
+    * [Providing Accessibility Functionality](ACCESSIBILITY.md)
     * [Writing Your Commit & Creating Pull Requests](#writing-your-commit-&-creating-pull-requests)
 
 ## How to Contribute
@@ -45,57 +46,13 @@ $ npm run serve
 * Unit tests are located in `src/test/unit/`.
 
 ### Writing your component
-* You can add a route to your preview page in `dev/router.ts`
-* Please title each component in UpperCamelCase. _Please reference the [Vue Style Guide](https://vuejs.org/v2/style-guide/) for best practices in building components._
+Read our [contributing components guidelines](CONTRIBUTING_COMPONENTS.md)
 
-#### Minimal Component
-in src/components/MyComponent.vue
-```html
-<template>
-  <my-component />
-</template>
-<script lang="ts">
-export default Vue.extend({
-  name: 'MyCompoment'
-})
-</script>
-<style scoped lang="scss">
-</style>
-```
+### Writing your component styles
+Read our [contributing CSS guidelines](CONTRIBUTING_CSS.md)
 
 ### Unit Testing
 Read our [testing guidelines](TESTING.md)
-
-#### Minimal Unit Test
-in test/unit/MyComponent.spec.ts
-```js
-import { mount } from '@vue/test-utils'
-import MyComponent from 'components/MyComponent.vue'
-
-describe('MyComponent.vue', () => {
-  it('renders without issues', () => {
-    const wrapper = mount(MyComponent)
-    expect(wrapper.html()).to.equal('<div></div>')
-  })
-})
-```
-
-#### Running Tests
-Please ensure you written and included passing unit tests for you component. Tests are located in tests/unit/, and are written in [Chai](http://www.chaijs.com/).
-
-Use the following command to run tests: 
-```sh
-  $ yarn test
-  # or
-  $ npm run test
-```
-
-Use the following command to run the es-linter: 
-```sh
-  $ yarn lint
-  # or
-  $ npm run lint
-```
 
 ### Writing Your Commit & Creating Pull Requests
 * Please use the [Conventional Commits](https://conventionalcommits.org/) format to title and create your commits. Some example types are:
