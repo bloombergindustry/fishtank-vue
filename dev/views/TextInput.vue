@@ -1,13 +1,41 @@
 <template>
   <section>
     <inputtext
-      v-model="text"
+      :value="text"
+      @input="text = $event"
       label="Text Input Type"
-      type="text" />
+      placeholder="Text Input Type"
+      type="text">
+      <searchicon class="test" slot="leftIcon" @click="exampleSearchFunc(text)"/>
+    </inputtext>
+
+    <inputtext
+      :value="text"
+      @input="text = $event"
+      label="Text Input Type"
+      placeholder="Text Input Type"
+      type="text"
+      orientation="rtl">
+      <searchicon slot="leftIcon"/>
+      <ftext slot="rightIcon">@bna.com</ftext>
+    </inputtext>
+
+    <inputtext
+      class="custom"
+      :value="text"
+      @input="text = $event"
+      label="Text Input Type"
+      placeholder="Text Input Type"
+      type="text"
+      orientation="ltr">
+      <searchicon slot="leftIcon"/>
+    </inputtext>
+
+
     <inputtext
       v-model="password"
       label="Password Input Type"
-      type="password" />
+      type="password"/>
     <inputtext
       v-model="number"
       label="Number Input Type"
@@ -24,15 +52,6 @@
       type="number"
       :error="error"
       @reset="clearError" />
-    <inputtext
-      v-model="text_area"
-      :maxheight="170"
-      label="TextArea Input Type - Max Height 170px"
-      type="textarea" />
-    <inputtext
-      v-model="text_area"
-      label="TextArea Input Type - No Max Height"
-      type="textarea" />
     <!--
     <InputText
       :value="val"
@@ -55,18 +74,19 @@
     <p><b>Password Input Value : </b> {{password}} </p>
     <p><b>Number Input Value : </b> {{number}} </p>
     <p><b>Number Error Input Value : </b> {{val}} </p>
-    <p><b>Text Area Input Value : </b> {{text_area}} </p>
-
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText } from '@/index'
+import { InputText , FishTankText} from '@/index'
+import { Search24 } from '@fishtank/icons-vue'
 
 export default Vue.extend({
   components:{
     inputtext:InputText,
+    searchicon: Search24,
+    ftext:FishTankText
   },
   data(){
     return {
@@ -81,8 +101,21 @@ export default Vue.extend({
   methods:{
     clearError(){
       this.error=""
+    },
+    exampleSearchFunc(t:String){
+      // eslint-disable-next-line no-console
+      console.log("search")
+      this.$emit('input', t)
     }
   }
   
 })
 </script>
+<style>
+.custom .input-wrapper{
+  flex:1 0 auto;
+}
+.custom .label-wrapper{
+  width:50%;
+}
+</style>

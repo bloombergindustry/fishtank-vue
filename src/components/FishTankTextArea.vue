@@ -1,60 +1,78 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]">
-    <div :class="['orientation-wrap', orientation]">
-      <div
-        v-if="label"
-        class="label-wrapper">
-        <label
-          :for="`textinput-${identifier}-id`"
-          class="label">
-          {{ label }}
-          <span
-            v-if="required"
-            class="label-required">
-          *
-          </span>
-        </label>
+    :class="['text-input',{ 'error': !!errorMessage }]"
+  >
+    <div
+      v-if="label"
+      class="label-wrapper"
+    >
+      <label
+        :for="`textarea-${identifier}-id`"
+        class="label"
+      >
+        {{ label }}
+        <span
+          v-if="required"
+          class="label-required"
+        >
+        *
+        </span>
+      </label>
 
-        <span
-          v-if="$slots.auxillary"
-          class="auxillary-slot">
-          <slot name="auxillary"/>
-        </span>
-      </div>
-      <div
-        :class="['input-wrapper', {'a11y': isFocused}]">
-        <span v-if="$slots.leftIcon"
-          class="left-icon">
-          <slot name="leftIcon"></slot>
-        </span>
-        <input
-          ref="input"
-          :type="type"
-          :value="value"
-          :id="`textinput-${identifier}-id`"
-          v-bind="$attrs"
-          :class="['input-element', {'error-state':errorMessage}]"
-          @input="updateValue "
-          @blur="$emit('blur', $event), isFocused=false"
-          @focus="checkError, $emit('focus', $event), isFocused=true"
-          v-on="listeners">
-        <span
-          v-if="$slots.rightIcon && !numberType"
-          class="right-icon">
-          <slot name="rightIcon">
-            <span
-              class="clear"
-              @click="clearText"
-            >
-              <CloseIcon/>
-            </span>
-          </slot>
-        </span>
-        <slot name="below" />
-      </div>
+      <span 
+        class="auxillary-slot">
+        <slot name="auxillary"/>
+      </span>
     </div>
-    
+    <div
+      class="input-wrapper"
+    >
+      <span
+        v-if="$slots.leftIcon"
+        class="left-icon"
+      >
+        <slot name="leftIcon"/>
+      </span>
+        <!--eslint-disable-->
+      <textarea
+        ref="input"
+        :value="value"
+        :id="`textarea-${identifier}-id`"
+        :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
+        v-bind="$attrs"
+        :class="['input-element', 'inputTextInputTextarea', {'error-state':errorMessage}]"
+        @keypress="getFalseHeight"
+        @keydown.delete="getFalseHeight"
+        @keyup.91.90="getFalseHeight"
+        @keyup.91.86="getFalseHeight"
+        @keyup.91.88="getFalseHeight"
+        @keyup.enter="getFalseHeight"
+        @keyup.delete="getFalseHeight"
+        @paste="getFalseHeight"
+        @cut="getFalseHeight"
+        v-on="listeners" />
+      <!--eslint-enable-->
+      <p 
+        ref="falseTextarea" 
+        class="false-text-area"
+      >
+        &nbsp;{{ value }}
+      </p>
+      <span
+        v-if="showRightIcon"
+        class="right-icon"
+      >
+        <slot name="rightIcon">
+          <span
+            class="clear"
+            @click="clearText"
+          >
+            <CloseIcon/>
+          </span>
+        </slot>
+      </span>
+    <slot name="below" />
+    </div>
 
     <div
       v-if="errorMessage"
@@ -84,6 +102,9 @@ export default Vue.extend({
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon
   },
+  token:[
+    
+  ],
   inheritAttrs: false,
   
   props: {
@@ -120,29 +141,6 @@ export default Vue.extend({
       default:false,
       required:false
     },
-    orientation:{
-      type:String,
-      default:null
-    },
-    type: {
-      required: false,
-      default: "text",
-      type: String,
-      validator: (value: string) => {
-        const textTypes = [
-          "text",
-          "password",
-          "email",
-          "search",
-          "number",
-          "tel",
-          "url",
-        ]
-
-        return textTypes.indexOf(value.toLowerCase()) > -1
-      },
-      description:"Text input type - text | textarea | password | email | search | number | tel | url",
-    },
     error: {
       required: false,
       default: null,
@@ -170,19 +168,12 @@ export default Vue.extend({
       scrollOn:false,
       trackFalseHeight:0,
       identifier: (Math.random() * 10000).toFixed(0).toString(),
-      isFocused:false
       }
   },
   computed: {
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
-    numberType(){
-      if(this.$props.type === "number"){
-        return true
-      }
-    }
-    ,
     errorMessage(): string | undefined {
       if (!(this as any).error) {
         return undefined
@@ -231,7 +222,23 @@ export default Vue.extend({
     focusElement(element: HTMLElement) {
       element.focus()
     },
-  },
+    getFalseHeight(e:ClipboardEvent): void{
+      setTimeout(()=>{
+          this.$nextTick(()=>{
+            if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+              this.textAreafalseHeight = this.$props.maxheight
+              if (!this.scrollOn) this.scrollOn = true
+              return
+            }
+            if (this.$refs.falseTextarea !== undefined) {
+              if (this.scrollOn) this.scrollOn = false
+              this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+            }
+            (this.$refs.input as HTMLFontElement).focus()
+          })
+        }, 100)
+    },
+  }
 })
 </script>
 
@@ -256,33 +263,25 @@ export default Vue.extend({
       @content;
     }
   }
-  .input-wrapper {
-    border: $color-gray-lighter 1px solid;
-    border-radius: 2px;
-    position: relative;
-    display: flex;
-  }
-  .a11y{
-    border: transparent 1px solid;
-    box-shadow: 0 0 0 2px $color-selected;
-  }
+
   .input-element {
     width: 100%;
     height: $baseline * 10;
+    padding-left: $baseline * 3;
+    padding-right: $baseline * 10;
     box-sizing: border-box;
     font-family: $font-primary;
     font-weight: $fontweight-regular;
     line-height: $lineheight-base-lg;
     letter-spacing: $letterspacing-base-lg;
-    border:0px;
+    border: $color-gray-lighter 1px solid;
     color: $color-black;
-    padding:0.5em;
-    // flex: 1 0 auto;
+    border-radius: 2px;
 
     @include font-base-lg();
 
     &:focus {
-      outline: 0;
+      outline: $color-selected 2px solid;
     }
 
     &:disabled {
@@ -295,17 +294,19 @@ export default Vue.extend({
       font-style: italic;
     }
   }
-  .input-element[type=number]{
-    text-align:right;
+  .left-icon ~ .input-element {
+    padding-left: $baseline*11;
   }
-  // .left-icon ~ .input-element {
-  //   padding-left: $baseline*11;
-  // }
+
+  .input-wrapper {
+    position: relative;
+  }
 
   .left-icon,
   .right-icon {
-    padding:0.5em;
-    flex: 1 0 auto;
+    position: absolute;
+    top: $baseline * 2;
+
     svg {
       width: 24px;
       height: 24px;
@@ -416,17 +417,5 @@ export default Vue.extend({
     word-wrap: break-word;
     width:calc(100% - 3.25rem)
   }
-  .ltr, .rtl {
-    display: flex;
-    .label-wrapper{
-      padding: 10px 0px 0px 0px;
-    }
-    // flex: 1 0 auto;
-  }
-  .rtl {
-    flex-direction: row-reverse;
-    .input-wrapper{
-      // flex: 1 0 auto;
-    }
-  }
+
 </style>
