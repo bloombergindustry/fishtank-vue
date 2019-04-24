@@ -1,4 +1,4 @@
-# Testing
+# Fish Tank Vue Component Testing Guidelines
 ## Frameworks
 * Assertions Library: [Chai](http://www.chaijs.com/api/bdd/)
 * Testing Utils: [Vue Test Utils](https://vue-test-utils.vuejs.org/)
@@ -28,7 +28,7 @@ describe('MyComponent.vue', () => {
 })
 ```
 
-###Mounting and Testing rendering
+### Mounting and Testing rendering
 Use vue-test-utils mount utility to mount with options
 ```js
 import { expect } from "chai"
@@ -81,7 +81,7 @@ wrapper.vm.$emit('customEvent')
 expect(wrapper.emitted().customEvent).to.be.true
 ```
 
-#### Running Tests
+### Running Tests
 Please ensure you written and included passing unit tests for you component. Tests are located in tests/unit/, and are written in [Chai](http://www.chaijs.com/).
 
 Use the following command to run tests: 

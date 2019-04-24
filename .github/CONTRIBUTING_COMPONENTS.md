@@ -1,4 +1,4 @@
-# FishTank-Vue Contribution Guide
+# Fish Tank Vue Component Contribution Guide
 
 Please read this document fully before contributing any new code to the Fish Tank Vue Component Library. It outlines some important guidelines when writing components that will help them stay aligned with the philosophy that stands behind components already part of this library.
 

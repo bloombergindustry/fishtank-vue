@@ -7,11 +7,8 @@ Please take a few moments to review the following guidelines before contributing
     * [Development Setup](#development-setup)
     * [Source Code Setup](#source-code-setup)
     * [Writing Your Component](#writing-your-component)
-      * [Minimal Component](#minimal-component)
     * [Writing Your Component Styles](#writing-your-component-styles)
     * [Unit Testing](#unit-testing)
-      * [Minimal Unit Test](#minimal-unit-test)
-      * [Running Tests](#running-tests)
     * [Providing Accessibility Functionality](ACCESSIBILITY.md)
     * [Writing Your Commit & Creating Pull Requests](#writing-your-commit-&-creating-pull-requests)
 
@@ -19,7 +16,7 @@ Please take a few moments to review the following guidelines before contributing
 
 The basic workflow is the following:
 
-* [Fork](https://github.com/bloombergbna/fishtank-vue/fork) the repository
+* [Fork](https://bbgithub.dev.bloomberg.com/fishtank/vue/fork) the repository
 * Create a new branch off the `dev` branch. _Do Not Make Changes Directly On Your Forks Dev Branch_.
 * Create your new feature or edit code, following our code quality guidelines and format. Commit your changes
 * Make a [pull request](https://help.github.com/articles/using-pull-requests) to main project's **dev** branch.
