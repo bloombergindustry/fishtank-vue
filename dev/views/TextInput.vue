@@ -6,10 +6,32 @@
       label="Text Input Type"
       placeholder="Text Input Type"
       type="text">
-      <slot name="leftIcon">
-        <search24 />
-      </slot>
+      <searchicon class="test" slot="leftIcon" @click="exampleSearchFunc(text)"/>
     </inputtext>
+
+    <inputtext
+      :value="text"
+      @input="text = $event"
+      label="Text Input Type"
+      placeholder="Text Input Type"
+      type="text"
+      orientation="rtl">
+      <searchicon slot="leftIcon"/>
+      <ftext slot="rightIcon">@bna.com</ftext>
+    </inputtext>
+
+    <inputtext
+      class="custom"
+      :value="text"
+      @input="text = $event"
+      label="Text Input Type"
+      placeholder="Text Input Type"
+      type="text"
+      orientation="ltr">
+      <searchicon slot="leftIcon"/>
+    </inputtext>
+
+
     <inputtext
       v-model="password"
       label="Password Input Type"
@@ -57,13 +79,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText } from '@/index'
+import { InputText , FishTankText} from '@/index'
 import { Search24 } from '@fishtank/icons-vue'
 
 export default Vue.extend({
   components:{
     inputtext:InputText,
-    search24: Search24
+    searchicon: Search24,
+    ftext:FishTankText
   },
   data(){
     return {
@@ -78,8 +101,21 @@ export default Vue.extend({
   methods:{
     clearError(){
       this.error=""
+    },
+    exampleSearchFunc(t:String){
+      // eslint-disable-next-line no-console
+      console.log("search")
+      this.$emit('input', t)
     }
   }
   
 })
 </script>
+<style>
+.custom .input-wrapper{
+  flex:1 0 auto;
+}
+.custom .label-wrapper{
+  width:50%;
+}
+</style>

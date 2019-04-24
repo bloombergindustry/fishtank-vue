@@ -1,64 +1,60 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]"
-  >
-    <div
-      v-if="label"
-      class="label-wrapper"
-    >
-      <label
-        :for="`textinput-${identifier}-id`"
-        class="label"
-      >
-        {{ label }}
-        <span
-          v-if="required"
-          class="label-required"
-        >
-        *
-        </span>
-      </label>
-
-      <span 
-        class="auxillary-slot">
-        <slot name="auxillary"/>
-      </span>
-    </div>
-    <div
-      class="input-wrapper"
-    >
-      <span
-        v-if="$slots.leftIcon"
-        class="left-icon"
-      >
-        <slot name="leftIcon"/>
-      </span>
-      <input
-        ref="input"
-        :type="type"
-        :value="value"
-        :id="`textinput-${identifier}-id`"
-        v-bind="$attrs"
-        :class="['input-element', {'error-state':errorMessage}]"
-        @input="updateValue "
-        @blur="$emit('blur', $event)"
-        @focus="checkError, $emit('focus', $event)"
-        v-on="listeners">
-      <span
-        v-if="showRightIcon && !numberType"
-        class="right-icon"
-      >
-        <slot name="rightIcon">
+    :class="['text-input',{ 'error': !!errorMessage }]">
+    <div :class="['orientation-wrap', orientation]">
+      <div
+        v-if="label"
+        class="label-wrapper">
+        <label
+          :for="`textinput-${identifier}-id`"
+          class="label">
+          {{ label }}
           <span
-            class="clear"
-            @click="clearText"
-          >
-            <CloseIcon/>
+            v-if="required"
+            class="label-required">
+          *
           </span>
-        </slot>
-      </span>
-    <slot name="below" />
+        </label>
+
+        <span
+          v-if="$slots.auxillary"
+          class="auxillary-slot">
+          <slot name="auxillary"/>
+        </span>
+      </div>
+      <div
+        :class="['input-wrapper', {'a11y': isFocused}]">
+        <span v-if="$slots.leftIcon"
+          class="left-icon">
+          <slot name="leftIcon"></slot>
+        </span>
+        <input
+          ref="input"
+          :type="type"
+          :value="value"
+          :id="`textinput-${identifier}-id`"
+          v-bind="$attrs"
+          :class="['input-element', {'error-state':errorMessage}]"
+          @input="updateValue "
+          @blur="$emit('blur', $event), isFocused=false"
+          @focus="checkError, $emit('focus', $event), isFocused=true"
+          v-on="listeners">
+        <span
+          v-if="$slots.rightIcon && !numberType"
+          class="right-icon">
+          <slot name="rightIcon">
+            <span
+              class="clear"
+              @click="clearText"
+            >
+              <CloseIcon/>
+            </span>
+          </slot>
+        </span>
+        <slot name="below" />
+      </div>
     </div>
+    
 
     <div
       v-if="errorMessage"
@@ -124,6 +120,10 @@ export default Vue.extend({
       default:false,
       required:false
     },
+    orientation:{
+      type:String,
+      default:null
+    },
     type: {
       required: false,
       default: "text",
@@ -170,6 +170,7 @@ export default Vue.extend({
       scrollOn:false,
       trackFalseHeight:0,
       identifier: (Math.random() * 10000).toFixed(0).toString(),
+      isFocused:false
       }
   },
   computed: {
@@ -231,9 +232,6 @@ export default Vue.extend({
       element.focus()
     },
   },
-  mounted(){
-    console.dir(this)
-  }
 })
 </script>
 
@@ -258,25 +256,33 @@ export default Vue.extend({
       @content;
     }
   }
-
+  .input-wrapper {
+    border: $color-gray-lighter 1px solid;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+  }
+  .a11y{
+    border: transparent 1px solid;
+    box-shadow: 0 0 0 2px $color-selected;
+  }
   .input-element {
     width: 100%;
     height: $baseline * 10;
-    padding-left: $baseline * 3;
-    padding-right: $baseline * 10;
     box-sizing: border-box;
     font-family: $font-primary;
     font-weight: $fontweight-regular;
     line-height: $lineheight-base-lg;
     letter-spacing: $letterspacing-base-lg;
-    border: $color-gray-lighter 1px solid;
+    border:0px;
     color: $color-black;
-    border-radius: 2px;
+    padding:0.5em;
+    // flex: 1 0 auto;
 
     @include font-base-lg();
 
     &:focus {
-      outline: $color-selected 2px solid;
+      outline: 0;
     }
 
     &:disabled {
@@ -291,21 +297,15 @@ export default Vue.extend({
   }
   .input-element[type=number]{
     text-align:right;
-    padding-right:$baseline*3;
   }
-  .left-icon ~ .input-element {
-    padding-left: $baseline*11;
-  }
-
-  .input-wrapper {
-    position: relative;
-  }
+  // .left-icon ~ .input-element {
+  //   padding-left: $baseline*11;
+  // }
 
   .left-icon,
   .right-icon {
-    position: absolute;
-    top: $baseline * 2;
-
+    padding:0.5em;
+    flex: 1 0 auto;
     svg {
       width: 24px;
       height: 24px;
@@ -416,5 +416,17 @@ export default Vue.extend({
     word-wrap: break-word;
     width:calc(100% - 3.25rem)
   }
-
+  .ltr, .rtl {
+    display: flex;
+    .label-wrapper{
+      padding: 10px 0px 0px 0px;
+    }
+    // flex: 1 0 auto;
+  }
+  .rtl {
+    flex-direction: row-reverse;
+    .input-wrapper{
+      // flex: 1 0 auto;
+    }
+  }
 </style>
