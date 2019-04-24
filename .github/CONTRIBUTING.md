@@ -1,4 +1,4 @@
-# FishTank-Vue Contributing Guide
+# FishTank-Vue Contribution Guide
 Please take a few moments to review the following guidelines before contributing components to the Fish Tank Design System Library.
 
 ## Table Of Contents
@@ -26,11 +26,8 @@ The basic workflow is the following:
 
 ### Creating Your Branch
 * Use a descriptive title no more than 64 characters long, begining with "feat/". This will be used as the commit message when your PR is merged. 
-* For changes and feature requests, please include an example of what you are trying to solve and an example of the markup. It is preferred that you create an issue first however, as that will allow the team to ingest and review your proposal before or as you start.
 
 ### Development Setup
-_If your on a Mac you will need [Yarn](https://yarnpkg.com/lang/en/) before continuing._
-
 Clone this repository and run the following commands to build the project.
 ``` sh
 $ yarn install 
@@ -65,51 +62,6 @@ export default Vue.extend({
 <style scoped lang="scss">
 </style>
 ```
-
-### Writing Your Component Styles
-* Styles should be written within the single-file component, in the style block. 
-* If the component is written in a manner that leverages JSX and the render() function, you may use [CSS Modules](https://github.com/css-modules/css-modules) to write your [styles](https://vue-loader.vuejs.org/guide/css-modules.html#usage). Refer to the [CSS Module spec](https://github.com/css-modules/css-modules) for more information.
-* However, the majority of component will be written using the ```<template>``` block notation, with mininal to no JSX. These componentsshould use the _scoped_ feature on the style block to styles.
-* Write styles using [_specificity of 10_](https://css-tricks.com/specifics-on-css-specificity/) to target elements
-  * Target class names, not HTML block elements to avoid unintended css side effects
-  * To improve organization and readability, when using SCSS/SASS/LESS, avoid nesting classes more than 1 level. However use nesting to target element pseudo states like _:focus_, _:hover_, _:checked_,  etc.
-  * Consider using simple, readable class names, using _scoped_ or CSS Modules functionality resolves the need to namespace or use BEM notation for class names
-  ```scss
-  // Bad
-  .element-name {
-    background-color:red;
-
-    .element-name-input{
-      background-color: blue;
-    }
-  }
-
-  // Good
-  .element-name {
-    background-color:red;
-
-    .input {
-      background-color: blue;
-    }
-  }
-
-
-  // Best
-  .element-name {
-    background-color:red;
-  }
-  .input {
-    background-color: blue
-  }
-  ```
-* Please leverage @fishtank foundational elements for: 
-  * [colors](https://www.npmjs.com/package/@fishtank/colors) - [github](https://github.com/bloombergbna/fishtank-colors)
-  * [space](https://www.npmjs.com/package/@fishtank/space) - [github](https://github.com/bloombergbna/fishtank-space)
-  * [typography](https://www.npmjs.com/package/@fishtank/type) - [github](https://github.com/bloombergbna/fishtank-type)
-  * [iconography](https://www.npmjs.com/package/@fishtank/icons) - [github](https://github.com/bloombergbna/fishtank-icons)
-* You are free to use SCSS to compile your styles. 
-  * _PLEASE NOTE: We are aiming for specificity “10” for our CSS; this means we want each group of styles ideally written within a single class name attribute, with child elements with their own class name, and avoid nesting styles (except in the case of pseudo class name states like :active, :hover, :visited, :checked, etc)._
-* Avoid styling block level elements; styles should be applied using class names
 
 ### Unit Testing
 Read our [testing guidelines](TESTING.md)

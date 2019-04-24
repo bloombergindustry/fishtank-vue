@@ -1,5 +1,4 @@
-_THIS DOCUMENT IS WORK IN PROGRESS AND IS NOT FINAL_
-# Accessibility For Vue Components
+# Fish Tank Accessibility Guide
 
 Although many BNA products are not readily accessible beyond paywalls, we should not mistake our customer base for one that has the same full physical or cognitive abilities. We also should not believe that our products are exempt from federal 508 compliance requirements. Building UI that is accessible is business critical and socially imperative.
  
@@ -16,10 +15,6 @@ In the inverse, companies like Google, [Barclays](https://www.w3.org/community/w
 We have a legal, if not moral, responsibility to build products in a way that address and succeeds at supporting accessibility, or leverages established native accessibility feature and patterns of HTML and the Web.
  
 # Getting started with accessibility
-## Consider the user’s flow through the component as you build it
-It’s important to understand the UI engineering challenge of building an interface, by starting from a place of empathy with your wide range of users. The first step is to take accessibility into account from the planning stage before you write a single line of code. Choice of semantic HTML elements and ARIA tag planning can save you time refactoring code later.
-
-If you are refactoring existing or work in progress work, try navigating and interacting without the mouse, or with your computer OS Voice Narration feature (Voiceover on Mac, for example). It will help you identify gaps in interactions.
  
 ## Understand keyboard focus and navigation
  
@@ -119,13 +114,10 @@ However, the first rule of ARIA is if a native HTML element or attribute has the
 Using ARIA tags add functional context to dynamic elements on the page (etc: aria-loading) as well as semantic description to non--native html elements (aria-label, role: button, etc.)
 Review this [introduction to ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA), as well as the available [ARIA tags and roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques ).
 
-### Tutorial and patterns for accessible UI
+## For complex components, consider the user’s flow
+It’s important to understand the UI engineering challenge of building an interface, by starting from a place of empathy with your wide range of users. The first step is to take accessibility into account from the planning stage before you write a single line of code. Choice of semantic HTML elements and ARIA tag planning can save you time refactoring code later.
 
-[Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/)
-These tutorials provide best-practice guidance on implementing accessibility in different situations. They combine WCAG 2.0 success criteria and techniques from various conformance levels. Each tutorial page lists the specific success criteria and techniques used on that page.
-
-[W3C Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-This page demonstrates how to make common rich internet application patterns and widgets accessible by applying WAI-ARIA roles, states, and properties and implementing keyboard support.
+If you are refactoring existing or work in progress work, try navigating and interacting without the mouse, or with your computer OS Voice Narration feature (Voiceover on Mac, for example). It will help you identify gaps in interactions.
 
 ## Reference Existing, Common UI Patterns 
 
@@ -136,6 +128,14 @@ These patterns provide structure on how to leverage IDs, aria roles, aria tags, 
 Reference these patterns to influence the structure, and use as a baseline to test the keyboard and speech-reader accessibility of your component.
 * [WAI-ARIA Authoring Practices - Index of ARIA Design Pattern Examples](https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/examples/)
 * [WCAG Tutorials](https://www.w3.org/WAI/tutorials/)
+
+### Tutorial and patterns for accessible UI
+
+[Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/)
+These tutorials provide best-practice guidance on implementing accessibility in different situations. They combine WCAG 2.0 success criteria and techniques from various conformance levels. Each tutorial page lists the specific success criteria and techniques used on that page.
+
+[W3C Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+This page demonstrates how to make common rich internet application patterns and widgets accessible by applying WAI-ARIA roles, states, and properties and implementing keyboard support.
 
 ## Tools
 
