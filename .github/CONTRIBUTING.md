@@ -1,4 +1,4 @@
-# FishTank-Vue Contribution Guide
+# Fish Tank Vue Component Contribution Guide
 Please take a few moments to review the following guidelines before contributing components to the Fish Tank Design System Library.
 
 ## Table Of Contents
