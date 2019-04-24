@@ -7,7 +7,7 @@
       class="label-wrapper"
     >
       <label
-        :for="`textarea-${identifier}-id`"
+        :for="`textinput-${identifier}-id`"
         class="label"
       >
         {{ label }}
@@ -37,7 +37,7 @@
         ref="input"
         :type="type"
         :value="value"
-        :id="`textarea-${identifier}-id`"
+        :id="`textinput-${identifier}-id`"
         v-bind="$attrs"
         :class="['input-element', {'error-state':errorMessage}]"
         @input="updateValue "
@@ -230,6 +230,9 @@ export default Vue.extend({
     focusElement(element: HTMLElement) {
       element.focus()
     },
+  },
+  mounted(){
+    console.dir(this)
   }
 })
 </script>

@@ -3,6 +3,7 @@
     <tarea
       v-model="text_area"
       :maxheight="170"
+      placeholder="Text Area Type Input"
       label="TextArea Input Type - Max Height 170px" />
     <tarea
       :value="text_area"
