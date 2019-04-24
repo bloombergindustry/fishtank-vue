@@ -4,11 +4,16 @@
       :value="text"
       @input="text = $event"
       label="Text Input Type"
-      type="text" />
+      placeholder="Text Input Type"
+      type="text">
+      <slot name="leftIcon">
+        <search24 />
+      </slot>
+    </inputtext>
     <inputtext
       v-model="password"
       label="Password Input Type"
-      type="password" />
+      type="password"/>
     <inputtext
       v-model="number"
       label="Number Input Type"
@@ -53,10 +58,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { InputText } from '@/index'
+import { Search24 } from '@fishtank/icons-vue'
 
 export default Vue.extend({
   components:{
     inputtext:InputText,
+    search24: Search24
   },
   data(){
     return {
