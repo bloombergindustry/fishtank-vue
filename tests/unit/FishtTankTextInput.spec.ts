@@ -3,6 +3,7 @@ import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallowMount as  shallow, mount } from "@vue/test-utils"
 import {FishTankTextInput as TextInput} from "@/index"
+import {CloseSml24 as CloseIcon, } from '@fishtank/icons-vue'
 
 describe("TextInput", () => {
   let propsData : any = {}
@@ -41,7 +42,7 @@ describe("TextInput", () => {
     })
 
     context('when input type is provided', () => {
-      const validTypes = [ "text", "password", "email", "search", "number", "tel", "url", "textarea" ]
+      const validTypes = [ "text", "password", "email", "search", "number", "tel", "url" ]
 
       validTypes.forEach(type => {
         context(`when the type is "${type}"`, () => {
@@ -204,20 +205,32 @@ describe("TextInput", () => {
 
         context('when value is not blank', () => {
           beforeEach(() => {
-            propsData.value = 'foobar'
+            propsData.isFocused = true
+            propsData.value = "Initial Value"
           })
 
           it('shows a clear button', () => {
             const wrapper = mountInput()
 
+
+            let input = wrapper.find('.input-element')
+
+            ;(input.element as HTMLInputElement).value = 'new value'
+            input.element.focus()
             expect(wrapper.find('.clear').exists()).to.be.true
           })
 
           context('when the clear button is clicked', () => {
+            beforeEach(() => {
+              propsData.isFocused = true
+              propsData.value = "Initial Value"
+            })
             it('sets the value to undefined', () => {
               const wrapper = mountInput()
-              wrapper.find('.clear').trigger('click')
-
+              const input = wrapper.find('.input-element')
+              input.element.focus()
+              const clear = wrapper.find('.clear')
+              clear.element.click()
               expect(wrapper.emitted().input[0]).to.eql([undefined])
             })
 
@@ -225,9 +238,9 @@ describe("TextInput", () => {
               const wrapper = mountInput()
               const focusSpy = spy(wrapper.vm as any, 'focusElement')
               let input = wrapper.find('.input-element')
-
-              wrapper.find('.clear').trigger('click')
-
+              input.element.focus()
+              const clear = wrapper.find('.clear')
+              clear.element.click()
               sinon.assert.calledWith(focusSpy, input.element)
             })
           })
