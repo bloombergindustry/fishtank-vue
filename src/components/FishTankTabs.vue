@@ -10,15 +10,17 @@
       role="menubar"
     >
       <div 
-        class="title" 
+        :class="['title', focus ? 'no-focus' : 'focus', 'a11y']" 
         v-bind:style="titleStyleObject" 
         v-for="(item, index) in items" 
         :key="`${index}-title`" 
         :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
-        @click="$emit('change', item)"
-        @keyup.enter="$emit('change', item)"
+        @focus="focus === false"
+        @click="$emit('change', item); removeFocus()"
+        @keyup.13="$emit('change', item); addFocus()"
+        @keyup.9="addFocus()"
         tabindex="0"
         role="menuitem"
       >
@@ -113,13 +115,43 @@ export default Vue.extend({
       }
     }
   },
-  
+  data: function(){
+    return{
+      /*
+      * Disables focus State
+      */
+      focus: false
+    }
+  },
+  methods:{
+    focusTab(){
+      if(this.focus){
+        console.log('focus is on')
+      }
+    },
+
+    removeFocus(){
+      if(!this.focus){
+        if(this.focus){
+          this.focus = false
+        }else{
+          this.focus = true
+        }
+      }
+      console.log('remove Focus ; focuse state : ' + this.focus)
+    },
+    addFocus(){
+      this.focus = false
+      console.log("add Focus ; focus state : " + this.focus)
+    }
+  }
   
 
 })
 </script>
 
 <style scoped lang='scss'>
+ @import '../styles/mixins';
 .Tabs .header {
   display: flex;
   flex-direction: row;
@@ -134,6 +166,14 @@ export default Vue.extend({
 
 .no-seperator{
   border-bottom: 1px solid transparent;
+}
+
+.focus:focus{
+  box-shadow: 0 0 0 2px #0D9DDB;
+}
+.no-focus:focus{
+  //box-shadow: 0 0 0 0px transparent;
+  outline: transparent;
 }
 
 .title {
