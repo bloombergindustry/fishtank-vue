@@ -40,16 +40,15 @@
           @focus="checkError, $emit('focus', $event), isFocused=true"
           v-on="listeners">
         <span
-          v-if="$slots.rightIcon && !numberType"
+          v-if="!numberType"
           class="right-icon">
-          <slot name="rightIcon">
-            <span
-              class="clear"
-              @click="clearText"
-            >
-              <CloseIcon/>
-            </span>
-          </slot>
+          <slot name="rightIcon"/>
+        </span>
+        <span
+          v-if="isFocused && (value.length >0)"
+          class="clear"
+          @click="clearText">
+          <CloseIcon/>
         </span>
         <slot name="below" />
       </div>
@@ -416,10 +415,13 @@ export default Vue.extend({
     word-wrap: break-word;
     width:calc(100% - 3.25rem)
   }
+  .clear{
+    padding: 10px 0px 0px 0px;
+  }
   .ltr, .rtl {
     display: flex;
     .label-wrapper{
-      padding: 10px 0px 0px 0px;
+      padding: 8px 0px 0px 0px;
     }
     // flex: 1 0 auto;
   }
