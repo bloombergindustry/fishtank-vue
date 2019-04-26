@@ -10,17 +10,16 @@
       role="menubar"
     >
       <div 
-        :class="['title', focus ? 'no-focus' : 'focus', 'a11y']" 
+        :class="['title', focus ? 'no-focus' : 'focus']" 
         v-bind:style="titleStyleObject" 
         v-for="(item, index) in items" 
         :key="`${index}-title`" 
         :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
-        @focus="focus === false"
         @click="$emit('change', item); removeFocus()"
         @keyup.13="$emit('change', item); addFocus()"
-        @keyup.9="addFocus()"
+        @keyup.9="addFocus(); "
         tabindex="0"
         role="menuitem"
       >
@@ -120,16 +119,10 @@ export default Vue.extend({
       /*
       * Disables focus State
       */
-      focus: false
+      focus: true
     }
   },
   methods:{
-    focusTab(){
-      if(this.focus){
-        console.log('focus is on')
-      }
-    },
-
     removeFocus(){
       if(!this.focus){
         if(this.focus){
@@ -138,11 +131,11 @@ export default Vue.extend({
           this.focus = true
         }
       }
-      console.log('remove Focus ; focuse state : ' + this.focus)
+      //console.log('remove Focus ; focuse state : ' + this.focus)
     },
     addFocus(){
       this.focus = false
-      console.log("add Focus ; focus state : " + this.focus)
+      //console.log("add Focus ; focus state : " + this.focus)
     }
   }
   
@@ -170,9 +163,9 @@ export default Vue.extend({
 
 .focus:focus{
   box-shadow: 0 0 0 2px #0D9DDB;
+  font-weight: 600;
 }
 .no-focus:focus{
-  //box-shadow: 0 0 0 0px transparent;
   outline: transparent;
 }
 
@@ -186,7 +179,6 @@ export default Vue.extend({
   padding: 5px 4px;
   width: var(--tab-title-width, unset);
   color: var(--color-gray-dark);
-  // background-color: var(--tab-title-background-color);
   transition: all .3s ease-in-out;
 
   > span {
@@ -197,9 +189,7 @@ export default Vue.extend({
   &:not(:last-child) {
     margin-right: var(--tab-title-margin-right, 15px);
   }
-  // &:focus{
-  //   outline: transparent;
-  //   }
+
   &:hover {
     font-weight: 600;
     color: var(--active-tab-title-color);
@@ -209,8 +199,6 @@ export default Vue.extend({
   }
   &:active {
     border-color: var(--active-color, #0D9DDB);
-    // border-width: 4px;
-    // font-weight: 600;
     color: var(--active-tab-title-color);
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
@@ -219,7 +207,6 @@ export default Vue.extend({
   &[active] {
     border-color: var(--active-color, #0D9DDB);
     border-width: 4px;
-    // font-weight: 600;
     color: var(--active-tab-title-color);
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
