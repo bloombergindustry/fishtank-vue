@@ -3,7 +3,6 @@ import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallowMount as  shallow, mount } from "@vue/test-utils"
 import {FishTankTextInput as TextInput} from "@/index"
-import {CloseSml24 as CloseIcon, } from '@fishtank/icons-vue'
 
 describe("TextInput", () => {
   let propsData : any = {}

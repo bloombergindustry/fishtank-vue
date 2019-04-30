@@ -6,14 +6,15 @@
         v-if="label"
         class="label-wrapper">
         <label
-          :for="`textinput-${identifier}-id`"
+          :for="(id || `textinput-${identifier}-id`)"
           class="label">
-          {{ label }}
-          <span
-            v-if="required"
-            class="label-required">
-          *
-          </span>
+          <ftext bold primary uppercase size="baseMd" :color="getColor">{{ label }}
+            <span
+              v-if="required"
+              class="label-required">
+            *
+            </span>
+          </ftext>
         </label>
 
         <span
@@ -32,12 +33,13 @@
           ref="input"
           :type="type"
           :value="value"
-          :id="`textinput-${identifier}-id`"
+          :id="(id || `textinput-${identifier}-id`)"
           v-bind="$attrs"
           :class="['input-element', {'error-state':errorMessage}]"
-          @input="updateValue "
+          :aria-describedby="( id !== null ? `${id}-error-message`:`textinput-error-message-${identifier}-id`)"
+          @input="checkError(), updateValue "
           @blur="$emit('blur', $event), isFocused=false"
-          @focus="checkError, $emit('focus', $event), isFocused=true"
+          @focus=" $emit('focus', $event), isFocused=true"
           v-on="listeners">
         <span
           v-if="!numberType"
@@ -65,6 +67,7 @@
         <WarningIcon/>
       </span>
       <p
+        :id="( id !== null ? `${id}-error-message`:`textinput-error-message-${identifier}-id`)"
         class="error-message"> {{ errorMessage }} </p>
     </div>
   </div>
@@ -73,56 +76,20 @@
 <script lang="ts">
 
 import Vue from "vue"
+import textInput from "../util/mixins/textInput"
+
 import { 
   CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
-
+import FishTankText  from './FishTankText.vue';
 export default Vue.extend({
   components: {
     CloseIcon: CloseIcon,
-    WarningIcon: WarningIcon
+    WarningIcon: WarningIcon,
+    ftext:FishTankText
   },
-  inheritAttrs: false,
-  
-  props: {
-    value: {
-      required: false,
-      type: String,
-      default: "",
-    },
-    label: {
-      required: false,
-      type: String,
-      default: undefined,
-      description:"Text input label",
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false,
-      description:"Text input ID",
-    },
-    maxheight:{
-      type:Number,
-      default:null,
-      required:false,
-      description:"Textarea type input max-height",
-    },
-    required:{
-      type:Boolean,
-      default:false,
-      required:false
-    },
-    resize:{
-      type:Boolean,
-      default:false,
-      required:false
-    },
-    orientation:{
-      type:String,
-      default:null
-    },
+  props:{ 
     type: {
       required: false,
       default: "text",
@@ -142,36 +109,11 @@ export default Vue.extend({
       },
       description:"Text input type - text | textarea | password | email | search | number | tel | url",
     },
-    error: {
-      required: false,
-      default: null,
-      type: [String, Object],
-      validator(value: string | { fullMessage? : string }) : boolean {
-        if (typeof value === 'string') {
-          return true
-        }
-
-        if (value.fullMessage) {
-          return true
-        }
-
-        // eslint-disable-next-line no-console
-        console.warn("InputText's `error` prop should be a string or an object with a `fullMessage` string property")
-        return false
-      },
-      description:"Error state message - either a string or an object with a `fullMessage` string property",
-    }
   },
-  data:function(){
-    return {
-      textAreaModel:"",
-      textAreafalseHeight:44,
-      scrollOn:false,
-      trackFalseHeight:0,
-      identifier: (Math.random() * 10000).toFixed(0).toString(),
-      isFocused:false
-      }
-  },
+  mixins:[
+    textInput
+  ],
+  inheritAttrs: false,
   computed: {
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
@@ -180,21 +122,6 @@ export default Vue.extend({
       if(this.$props.type === "number"){
         return true
       }
-    }
-    ,
-    errorMessage(): string | undefined {
-      if (!(this as any).error) {
-        return undefined
-      }
-
-      if (typeof (this as any).error === "string") {
-        return (this as any).error
-      } else if ((this as any).error.fullMessage) {
-        return (this as any).error.fullMessage
-      } else { 
-        return undefined 
-      }
-
     },
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -204,7 +131,9 @@ export default Vue.extend({
         }
       }
     },
-   
+    getColor(): string{
+      return this.$props.error ? "error" : "black"
+    }
   },
   methods: {
     updateValue(value: string | undefined) {
@@ -212,6 +141,7 @@ export default Vue.extend({
       this.$emit("input", value)       
     },
     checkError(){
+      console.log(this)
       if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
          return
       }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){
@@ -276,7 +206,6 @@ export default Vue.extend({
     border:0px;
     color: $color-black;
     padding:0.5em;
-    // flex: 1 0 auto;
 
     @include font-base-lg();
 
@@ -297,9 +226,6 @@ export default Vue.extend({
   .input-element[type=number]{
     text-align:right;
   }
-  // .left-icon ~ .input-element {
-  //   padding-left: $baseline*11;
-  // }
 
   .left-icon,
   .right-icon {
@@ -321,18 +247,9 @@ export default Vue.extend({
       fill : $color-gray;
     }
   }
-
-  .label {
+  [uppercase]{
     text-transform: uppercase;
-    font-weight: $fontweight-semi;
-    font-family: $font-primary;
-    line-height: $lineheight-base-md;
-    letter-spacing: $letterspacing-base-md;
-    color: $color-black;
-
-    @include font-base-md();
   }
-
   .label-required {
     color: $color-error;
   }
