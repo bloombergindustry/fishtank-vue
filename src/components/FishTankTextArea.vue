@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]"
+    :class="['text-area',{ 'error': !!errorMessage }, 'orientation-wrap', orientation]"
   >
     <div
       v-if="label"
@@ -10,13 +10,15 @@
         :for="`textarea-${identifier}-id`"
         class="label"
       >
-        {{ label }}
-        <span
+        <ftext bold primary uppercase size="baseMd">
+          {{ label }}
+          <span
           v-if="required"
           class="label-required"
         >
         *
         </span>
+        </ftext>
       </label>
 
       <span 
@@ -92,74 +94,33 @@
 <script lang="ts">
 
 import Vue from "vue"
+import a11y from "../util/a11y"
 import { 
   CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
 
+import textInput from '../util/mixins/textInput';
+import FishTankText  from './FishTankText.vue';
+
 export default Vue.extend({
   components: {
     CloseIcon: CloseIcon,
-    WarningIcon: WarningIcon
+    WarningIcon: WarningIcon,
+    ftext:FishTankText
   },
-  token:[
-    
+  mixins:[
+    a11y,
+    textInput
   ],
   inheritAttrs: false,
-  
   props: {
-    value: {
-      required: false,
-      type: String,
-      default: "",
-    },
-    label: {
-      required: false,
-      type: String,
-      default: undefined,
-      description:"Text input label",
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false,
-      description:"Text input ID",
-    },
     maxheight:{
       type:Number,
       default:null,
       required:false,
       description:"Textarea type input max-height",
     },
-    required:{
-      type:Boolean,
-      default:false,
-      required:false
-    },
-    resize:{
-      type:Boolean,
-      default:false,
-      required:false
-    },
-    error: {
-      required: false,
-      default: null,
-      type: [String, Object],
-      validator(value: string | { fullMessage? : string }) : boolean {
-        if (typeof value === 'string') {
-          return true
-        }
-
-        if (value.fullMessage) {
-          return true
-        }
-
-        // eslint-disable-next-line no-console
-        console.warn("InputText's `error` prop should be a string or an object with a `fullMessage` string property")
-        return false
-      },
-      description:"Error state message - either a string or an object with a `fullMessage` string property",
-    }
   },
   data:function(){
     return {
@@ -167,27 +128,9 @@ export default Vue.extend({
       textAreafalseHeight:44,
       scrollOn:false,
       trackFalseHeight:0,
-      identifier: (Math.random() * 10000).toFixed(0).toString(),
       }
   },
   computed: {
-    showRightIcon(): boolean {
-      return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
-    },
-    errorMessage(): string | undefined {
-      if (!(this as any).error) {
-        return undefined
-      }
-
-      if (typeof (this as any).error === "string") {
-        return (this as any).error
-      } else if ((this as any).error.fullMessage) {
-        return (this as any).error.fullMessage
-      } else { 
-        return undefined 
-      }
-
-    },
     listeners(): Record<string, Function | Function[]> {
       return {
         ...this.$listeners,
@@ -294,6 +237,9 @@ export default Vue.extend({
       font-style: italic;
     }
   }
+  [uppercase]{
+    text-transform: uppercase;
+  }
   .left-icon ~ .input-element {
     padding-left: $baseline*11;
   }
@@ -324,17 +270,6 @@ export default Vue.extend({
     }
   }
 
-  .label {
-    text-transform: uppercase;
-    font-weight: $fontweight-semi;
-    font-family: $font-primary;
-    line-height: $lineheight-base-md;
-    letter-spacing: $letterspacing-base-md;
-    color: $color-black;
-
-    @include font-base-md();
-  }
-
   .label-required {
     color: $color-error;
   }
@@ -352,7 +287,7 @@ export default Vue.extend({
     bottom: 0;
   }
 
-  .text-input {
+  .text-area {
     padding-bottom: $baseline * 6;
   }
 
@@ -395,7 +330,7 @@ export default Vue.extend({
   }
   .inputTextInputTextarea{
     overflow: auto;
-    transition:all 250ms ease-in-out;
+    transition:height 250ms ease-in-out;
     padding-top:6px;
     padding-bottom:1px;
     min-height:2.5rem;
@@ -416,6 +351,19 @@ export default Vue.extend({
     white-space:pre-line;
     word-wrap: break-word;
     width:calc(100% - 3.25rem)
+  }
+  .ltr, .rtl {
+    display: flex;
+    .label-wrapper{
+      padding: 8px 0px 0px 0px;
+    }
+    // flex: 1 0 auto;
+  }
+  .rtl {
+    flex-direction: row-reverse;
+    .input-wrapper{
+      // flex: 1 0 auto;
+    }
   }
 
 </style>
