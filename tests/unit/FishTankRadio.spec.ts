@@ -29,7 +29,7 @@ describe('FishTankRadio', () => {
   it('should fire change event when checkbox changes', () => {
     const wrapper = mount(Radio, props)
     wrapper.find('input').trigger('click')
-    console.dir(wrapper.emitted())
+    
     expect(wrapper.emitted().change[0][0]).to.eq("A")
   })
 })

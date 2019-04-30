@@ -142,7 +142,6 @@ export default Vue.extend({
       this.$emit("input", value)       
     },
     checkError(){
-      console.log(this)
       if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
          return
       }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){

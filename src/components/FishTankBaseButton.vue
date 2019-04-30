@@ -4,7 +4,7 @@
     :disabled="disabled"
     type="button"
     v-on="listeners">
-    <slot/>
+    <slot />
   </button>
 </template>
 

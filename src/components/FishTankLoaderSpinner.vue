@@ -15,7 +15,7 @@
           y1="0%" 
           x2="100%" 
           y2="0%">
-          <stop 
+          <stop  
             class="stop-class-1" 
             offset="0%" />
           <stop 

@@ -13,12 +13,25 @@
     <div>value={{ valueBlaw }}</div>
 
 
-    <h1>BLaw RadioList Component</h1>
+    <h1>BLaw RadioList Component, Aligned Right to Left</h1>
     <radio-list 
       v-model="valueBlaw2" 
       label="Example2" 
       name="example2"
-      orientation="rtl" 
+      orientation="ltr" 
+      :items="items2">
+      <template slot="example-title-slot-3">
+        Item 2 from slot
+      </template>
+    </radio-list>
+    <div>value={{ valueBlaw2 }}</div>
+
+    <h1>BLaw Stacked RadioList Component</h1>
+    <radio-list 
+      v-model="valueBlaw2" 
+      label="Example2" 
+      name="example2" 
+      stack
       :items="items2">
       <template slot="example-title-slot-3">
         Item 2 from slot

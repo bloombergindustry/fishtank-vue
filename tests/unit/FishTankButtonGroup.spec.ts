@@ -28,7 +28,6 @@ describe("FishTankButtonGroup", () => {
     it('renders', () => {
       const wrapper = mountBGroup()
       let bgroup = wrapper.find('.ft-buttongroup').element as HTMLElement
-      // console.log(bgroup)
       expect(bgroup).to.exist
     })
   })

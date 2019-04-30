@@ -37,7 +37,7 @@ describe("TextArea", () => {
 
       ;(input.element as HTMLInputElement).value = 'new value'
       input.trigger('input')
-      console.log(wrapper.emitted())
+      
       expect(wrapper.emitted().input[0]).to.eql(['new value'])
     })
 

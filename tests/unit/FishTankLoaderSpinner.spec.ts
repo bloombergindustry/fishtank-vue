@@ -44,7 +44,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the blaw gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--blaw-gradient')
     })
   })
@@ -56,7 +56,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the btax gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--btax-gradient')
     })
   })
@@ -68,7 +68,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the notification-1 gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--notification-1-gradient')
     })
   })
@@ -80,7 +80,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the notification-2 gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--notification-2-gradient')
     })
   })
@@ -92,7 +92,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the notification-3 gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--notification-3-gradient')
     })
   })
@@ -104,7 +104,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     it('renders with the notification-3 gradient', () => {
       const wrapper = mountInput()
       let linearGradient = wrapper.find('linearGradient')
-      // console.log(linearGradient)
+      
       expect(linearGradient.attributes('id')).to.eq('spinner--theme-gradient')
     })
   })
@@ -135,7 +135,7 @@ describe('FishTankLoaderSpinner.vue', () => {
     })
     it('pauses loading animation', () => {
       const wrapper = mountInput()
-      // wrapper.findAll('circle')
+      
       const circles = new Promise(function(resolve, reject){
         resolve(wrapper.findAll('circle'))
       })
