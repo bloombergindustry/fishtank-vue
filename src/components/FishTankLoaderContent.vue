@@ -1,371 +1,325 @@
 <template>
-
-  <ContentLoader 
+  <content-loader 
     v-if="theme === 'AlertList'"
     :height="92"
     :width="400"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="0" 
       ry="0" 
       width="191" 
-      height="12" 
-    /> 
+      height="12" /> 
     <rect 
       x="0" 
       y="40" 
       rx="0" 
       ry="0" 
       width="400" 
-      height="16" 
-    /> 
+      height="16" /> 
     <rect 
       x="270" 
       y="12" 
       rx="0" 
       ry="0" 
       width="132" 
-      height="12" 
-    /> 
+      height="12" /> 
     <rect 
       x="0" 
       y="64" 
       rx="0" 
       ry="0" 
       width="364" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="91" 
       rx="0" 
       ry="0" 
       width="400" 
-      height="1" 
-    />
-  </ContentLoader>
+      height="1" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'AlertResult'"
     :height="544"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="170" 
-      height="16" 
-    /> 
+      height="16" /> 
     <rect 
       x="0" 
       y="36" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    />
+      height="36" />
     <rect 
       x="0" 
       y="84" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    />
+      height="36" />
     <rect 
       x="0" 
       y="132" 
       rx="5" 
       ry="0" 
       width="258" 
-      height="36" 
-    />
+      height="36" />
     <rect 
       x="0" 
       y="204" 
       rx="5" 
       ry="0" 
       width="150" 
-      height="12" 
-    />
+      height="12" />
     <rect 
       x="0" 
       y="220" 
       rx="5" 
       ry="0" 
       width="150" 
-      height="12" 
-    />
+      height="12" />
     <rect 
       x="0" 
       y="236" 
       rx="5" 
       ry="0" 
       width="150" 
-      height="12" 
-    />
+      height="12" />
     <rect 
       x="0" 
       y="268" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="292" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="316" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="340" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="364" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="386" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="410" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="434" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="456" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="480" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="504" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="528" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'CalendarResult'"
     :height="588"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="170" 
-      height="24" 
-    />
+      height="24" />
     <rect 
       x="0" 
       y="48" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    /> 
+      height="36" /> 
     <rect 
       x="0" 
       y="96" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    />
+      height="36" />
     <rect 
       x="0" 
       y="144" 
       rx="5" 
       ry="0" 
       width="257" 
-      height="36" 
-    />
+      height="36" />
     <rect 
       x="0" 
       y="216" 
       rx="5" 
       ry="0" 
       width="170" 
-      height="40" 
-    /> 
+      height="40" /> 
     <rect 
       x="0" 
       y="272" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="296" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="320" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="344" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="368" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    /> 
+      height="16" /> 
     <rect 
       x="0" 
       y="420" 
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    /> 
+      height="40" /> 
     <rect 
       x="0" 
       y="476" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    /> 
+      height="16" /> 
     <rect 
       x="0" 
       y="500" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    /> 
+      height="16" /> 
     <rect 
       x="0" 
       y="524" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
     <rect 
       x="0" 
       y="548" 
       rx="5" 
       ry="0" 
       width="320" 
-      height="16" 
-    />  
+      height="16" />  
     <rect 
       x="0" 
       y="572" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />  
-  </ContentLoader>
+      height="16" />  
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'CommiteeResult'"
     :height="498"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="0" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="78" 
-    />
+      height="78" />
 
     <rect 
       x="0" 
@@ -373,8 +327,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    /> 
+      height="40" /> 
 
     <rect 
       x="0" 
@@ -382,8 +335,7 @@
       rx="5" 
       ry="0" 
       width="130" 
-      height="16" 
-    /> 
+      height="16" /> 
 
     <rect 
       x="0" 
@@ -391,8 +343,7 @@
       rx="5" 
       ry="0" 
       width="32" 
-      height="40" 
-    /> 
+      height="40" /> 
 
     <rect 
       x="60" 
@@ -400,8 +351,7 @@
       rx="5" 
       ry="0" 
       width="108" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="211" 
@@ -409,8 +359,7 @@
       rx="5" 
       ry="0" 
       width="70" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="289" 
@@ -418,8 +367,7 @@
       rx="5" 
       ry="0" 
       width="51" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -427,8 +375,7 @@
       rx="5" 
       ry="0" 
       width="130" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -436,8 +383,7 @@
       rx="5" 
       ry="0" 
       width="32" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="60" 
@@ -445,8 +391,7 @@
       rx="5" 
       ry="0" 
       width="108" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="211" 
@@ -454,8 +399,7 @@
       rx="5" 
       ry="0" 
       width="70" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="289" 
@@ -463,8 +407,7 @@
       rx="5" 
       ry="0" 
       width="51" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -472,8 +415,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -481,8 +423,7 @@
       rx="5" 
       ry="0" 
       width="130" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -490,8 +431,7 @@
       rx="5" 
       ry="0" 
       width="32" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="60" 
@@ -499,8 +439,7 @@
       rx="5" 
       ry="0" 
       width="108" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="60" 
@@ -508,8 +447,7 @@
       rx="5" 
       ry="0" 
       width="108" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="211" 
@@ -517,8 +455,7 @@
       rx="5" 
       ry="0" 
       width="70" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="289" 
@@ -526,8 +463,7 @@
       rx="5" 
       ry="0" 
       width="51" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -535,8 +471,7 @@
       rx="5" 
       ry="0" 
       width="32" 
-      height="40" 
-    />
+      height="40" />
     
     <rect 
       x="60" 
@@ -544,8 +479,7 @@
       rx="5" 
       ry="0" 
       width="108" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="211" 
@@ -553,8 +487,7 @@
       rx="5" 
       ry="0" 
       width="70" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="289" 
@@ -562,26 +495,23 @@
       rx="5" 
       ry="0" 
       width="51" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'DirectoriesResult'"
     :height="504"
     :width="400"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="0" 
       rx="5" 
       ry="0" 
       width="400" 
-      height="108" 
-    />
+      height="108" />
 
     <rect 
       x="0" 
@@ -589,8 +519,7 @@
       rx="5" 
       ry="0" 
       width="400" 
-      height="108" 
-    />
+      height="108" />
 
     <rect 
       x="0" 
@@ -598,8 +527,7 @@
       rx="5" 
       ry="0" 
       width="400" 
-      height="108" 
-    />
+      height="108" />
 
     <rect 
       x="0" 
@@ -607,26 +535,23 @@
       rx="5" 
       ry="0" 
       width="400" 
-      height="108" 
-    />
-  </ContentLoader>
+      height="108" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'LegislationList'"
     :height="107"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="85" 
-      height="20" 
-    />
+      height="20" />
 
     <rect 
       x="0" 
@@ -634,8 +559,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -643,8 +567,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -652,8 +575,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -661,26 +583,23 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="1" 
-    />
-  </ContentLoader>
+      height="1" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'LegislationResult'"
     :height="528"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="20" 
       rx="5" 
       ry="0" 
       width="171" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -688,8 +607,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -697,8 +615,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -706,8 +623,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -715,8 +631,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -724,8 +639,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -733,8 +647,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -742,8 +655,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -751,8 +663,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -760,8 +671,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -769,8 +679,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -778,8 +687,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -787,8 +695,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -796,8 +703,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -805,26 +711,23 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'MembersOfCongressList'"
     :height="64"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="32" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="44" 
@@ -832,8 +735,7 @@
       rx="5" 
       ry="0" 
       width="128" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="189" 
@@ -841,8 +743,7 @@
       rx="5" 
       ry="0" 
       width="76" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="281" 
@@ -850,26 +751,23 @@
       rx="5" 
       ry="0" 
       width="60" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'MembersOfCongressResult'"
     :height="530"
     :width="400"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="0" 
       rx="5" 
       ry="0" 
       width="400" 
-      height="268" 
-    />
+      height="268" />
 
     <rect 
       x="0" 
@@ -877,8 +775,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -886,8 +783,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -895,8 +791,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -904,8 +799,7 @@
       rx="5" 
       ry="0" 
       width="400" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -913,8 +807,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -922,8 +815,7 @@
       rx="5" 
       ry="0" 
       width="400" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -931,26 +823,23 @@
       rx="5" 
       ry="0" 
       width="383" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'NewsList'"
     :height="240"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="340" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -958,8 +847,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -967,8 +855,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="12" 
-    />
+      height="12" />
 
     <rect 
       x="0" 
@@ -976,8 +863,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="12" 
-    />
+      height="12" />
 
     <rect 
       x="0" 
@@ -985,8 +871,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -994,8 +879,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1003,8 +887,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1012,8 +895,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1021,8 +903,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1030,8 +911,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1039,26 +919,23 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="1" 
-    />
-  </ContentLoader>
+      height="1" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'NewsResult'"
     :height="528"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="171" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1066,8 +943,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -1075,8 +951,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -1084,8 +959,7 @@
       rx="5" 
       ry="0" 
       width="257" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -1093,8 +967,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="12" 
-    />
+      height="12" />
 
     <rect 
       x="0" 
@@ -1102,8 +975,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="12" 
-    />
+      height="12" />
 
     <rect 
       x="0" 
@@ -1111,8 +983,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="12" 
-    />
+      height="12" />
 
     <rect 
       x="0" 
@@ -1120,8 +991,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1129,8 +999,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1138,8 +1007,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1147,8 +1015,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1156,8 +1023,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1165,8 +1031,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1174,8 +1039,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1183,8 +1047,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1192,8 +1055,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1201,8 +1063,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1210,8 +1071,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1219,26 +1079,23 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'ProfileResult'"
     :height="508"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  > 
+    :secondary-color="loaderSecondaryColor"> 
     <rect 
       x="0" 
       y="0" 
       rx="5" 
       ry="0" 
       width="258" 
-      height="36" 
-    />
+      height="36" />
 
     <rect 
       x="0" 
@@ -1246,8 +1103,7 @@
       rx="5" 
       ry="0" 
       width="258" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1255,8 +1111,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1264,8 +1119,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -1273,8 +1127,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1282,8 +1135,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1291,8 +1143,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1300,8 +1151,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1309,8 +1159,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1318,8 +1167,7 @@
       rx="5" 
       ry="0" 
       width="171" 
-      height="40" 
-    />
+      height="40" />
 
     <rect 
       x="0" 
@@ -1327,8 +1175,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1336,8 +1183,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1345,8 +1191,7 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1354,8 +1199,7 @@
       rx="5" 
       ry="0" 
       width="325" 
-      height="16" 
-    />
+      height="16" />
 
     <rect 
       x="0" 
@@ -1363,26 +1207,23 @@
       rx="5" 
       ry="0" 
       width="340" 
-      height="16" 
-    />
-  </ContentLoader>
+      height="16" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else-if="theme === 'StaffersList'"
     :height="540"
     :width="340"
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
-    :secondary-color="loaderSecondaryColor"
-  >
+    :secondary-color="loaderSecondaryColor">
     <rect 
       x="0" 
       y="12" 
       rx="5" 
       ry="0" 
       width="141" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1390,8 +1231,7 @@
       rx="5" 
       ry="0" 
       width="156" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1399,8 +1239,7 @@
       rx="5" 
       ry="0" 
       width="205" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1408,8 +1247,7 @@
       rx="5" 
       ry="0" 
       width="141" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1417,8 +1255,7 @@
       rx="5" 
       ry="0" 
       width="156" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1426,8 +1263,7 @@
       rx="5" 
       ry="0" 
       width="205" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1435,8 +1271,7 @@
       rx="5" 
       ry="0" 
       width="176" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1444,8 +1279,7 @@
       rx="5" 
       ry="0" 
       width="116" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1453,8 +1287,7 @@
       rx="5" 
       ry="0" 
       width="205" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1462,8 +1295,7 @@
       rx="5" 
       ry="0" 
       width="115" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1471,8 +1303,7 @@
       rx="5" 
       ry="0" 
       width="207" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1480,8 +1311,7 @@
       rx="5" 
       ry="0" 
       width="231" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1489,8 +1319,7 @@
       rx="5" 
       ry="0" 
       width="202" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1498,8 +1327,7 @@
       rx="5" 
       ry="0" 
       width="275" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1507,8 +1335,7 @@
       rx="5" 
       ry="0" 
       width="301" 
-      height="18" 
-    />
+      height="18" />
 
     <rect 
       x="0" 
@@ -1516,8 +1343,7 @@
       rx="5" 
       ry="0" 
       width="202" 
-      height="24" 
-    />
+      height="24" />
 
     <rect 
       x="0" 
@@ -1525,27 +1351,25 @@
       rx="5" 
       ry="0" 
       width="301" 
-      height="18"
-    />
-  </ContentLoader>
+      height="18" />
+  </content-loader>
 
-  <ContentLoader
+  <content-loader
     v-else
     :speed="loaderSpeed"
     :primary-color="loaderPrimaryColor"
     :secondary-color="loaderSecondaryColor"
     :width="loaderWidth" 
-    :height="loaderHeight" 
-  >
+    :height="loaderHeight">
     <slot /> 
-  </ContentLoader>
+  </content-loader>
 </template>
 
 <script lang="ts">
 /* eslint-disable */ 
 import { ContentLoader } from "vue-content-loader"
 import Vue from 'vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 
 export default Vue.extend({
   name:'FishTankLoaderContent',

@@ -3,15 +3,15 @@
     :class="{[$style.button] : true , [$style.buttonDisabled] : disabled , [$style.buttonBlock] : block}"
     :disabled="disabled"
     type="button"
-    v-on="listeners"
-  >
+    v-on="listeners">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import a11y from '@/util/a11y'
+
+import { a11y } from "../util/mixins"
 
 export default Vue.extend({
   name: "BaseButton",

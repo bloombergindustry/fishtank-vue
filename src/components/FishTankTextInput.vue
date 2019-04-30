@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['text-input',{ 'error': !!errorMessage }]">
-    <div :class="['orientation-wrap', orientation]">
+    <div :class="orientation">
       <div
         v-if="label"
         class="label-wrapper">
@@ -76,7 +76,7 @@
 <script lang="ts">
 
 import Vue from "vue"
-import textInput from "../util/mixins/textInput"
+import {textInput, orientation} from "../util/mixins"
 
 import { 
   CloseSml24 as CloseIcon, 
@@ -111,7 +111,8 @@ export default Vue.extend({
     },
   },
   mixins:[
-    textInput
+    textInput,
+    orientation
   ],
   inheritAttrs: false,
   computed: {

@@ -3,7 +3,7 @@
     :class="[isSwitch ? 'switch':'checkbox', {['disabled']:disabled},(value ? 'checked' : 'unchecked')]" >
     <label
       :for="(id !==null? id: null)"
-      class="label">
+      :class="['label']">
       <input 
         :id="(id !==null? id: null)" 
         :disabled="disabled"
@@ -75,7 +75,7 @@ import {
   CheckboxUnselected24 as CheckboxUnselected 
 } from "@fishtank/icons-vue"
 import FishTankText from './FishTankText.vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 
 export default Vue.extend({
   name:"FishTankCheckbox",
@@ -151,6 +151,7 @@ export default Vue.extend({
     }
   }
 </style>
+
 
 <style scoped lang="scss">
   @import '../styles/mixins';

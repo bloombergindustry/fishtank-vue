@@ -72,7 +72,7 @@
 import FishTankText from './FishTankText.vue'
 import FishTankBox from './FishTankBox.vue'
 import { CaretDown24 } from '@fishtank/icons-vue'
-import a11y from '../util/a11y.ts'
+import { a11y } from "../util/mixins"
 /**
  * Change event.
  *

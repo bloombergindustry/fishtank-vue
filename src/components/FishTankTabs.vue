@@ -1,17 +1,15 @@
 <template>
   <div 
     class="Tabs" 
-    :disabled="disabled"
-  >
+    :disabled="disabled">
     <div 
       class="header" 
-      v-bind:style="headerStyleObject"
+      :style="headerStyleObject"
       :class="[divider ? 'seperator': 'no-seperator']"
-      role="menubar"
-    >
+      role="menubar">
       <div 
         :class="['title', focus ? 'no-focus' : 'focus']" 
-        v-bind:style="titleStyleObject" 
+        :style="titleStyleObject" 
         v-for="(item, index) in items" 
         :key="`${index}-title`" 
         :active="item.name === active" 
@@ -19,29 +17,24 @@
         :hidden="item.hidden" 
         @click="$emit('change', item); removeFocus()"
         @keyup.13="$emit('change', item); addFocus()"
-        @keyup.9="addFocus(); "
         tabindex="0"
-        role="menuitem"
-      >
+        @keyup.9="addFocus(); "
+        role="menuitem">
         <slot 
-          :name="`${item.name}-title`"
-        >
-          <span>{{item.label}}</span>
+          :name="`${item.name}-title`">
+          <span>{{ item.label }}</span>
         </slot>
       </div>
     </div>
 
     <div class="body">
       <div 
-        class="content" v-for="(item, index) in items" 
+        v-for="(item, index) in items" class="content" 
         :key="index" 
-        :hidden="item.renderHidden && item.name!==active" 
-      >
-
-        <slot 
+        :hidden="item.renderHidden && item.name!==active">
+<slot 
           v-if="item.renderHidden || item.name===active" 
-          :name="item.name"
-        ></slot>
+          :name="item.name"/>
       </div>
     </div>
   </div>
@@ -49,11 +42,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import A11y from '../util/a11y'
+import { a11y } from "../util/mixins"
 
 export default Vue.extend({
-  components: {  },
   name: 'FishTankTabs',
+  components: {  },
   props: {
     /**
      * Active tab name

@@ -26,7 +26,7 @@
 <script lang="ts">
 
 import Vue, { VNode }from 'vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 export default Vue.extend({
   name:"FishTankSwitch",
   mixins: [

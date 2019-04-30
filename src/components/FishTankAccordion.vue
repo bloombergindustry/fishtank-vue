@@ -51,7 +51,7 @@
 
 <script lang="ts">
     import Vue from 'vue'
-    import A11y from '../util/a11y'
+
     import { 
         ChevronUp24,
         ChevronSmlUp24 

@@ -28,10 +28,6 @@ export default Vue.extend({
       default:false,
       required:false
     },
-    orientation:{
-      type:String,
-      default:null
-    },
     error: {
       required: false,
       default: null,

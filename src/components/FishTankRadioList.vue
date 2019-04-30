@@ -1,18 +1,23 @@
 <template>
-  <fieldset :id="`radio-list-${identifier}`" class="RadioList" :name="name">
-    <legend v-if="label">{{label}}</legend>
-    <div class="items" role="radiogroup">
-      <div :disabled="item.disabled" v-for='(item, index) in items' :key='index' class="wrap">
-        <radio 
-          v-model="value"
-          :id="`radio-${identifier}-${item.value}`"
-          :value="item.value" 
-          :disabled="item.disabled"
-          @click="handleClick" 
-          :label="item.label"
-          :name="label">
-            <slot v-if="item.slot" :name="item.slot">{{item.label}}</slot>
-          </radio>
+  <fieldset :id="`radio-list-${identifier}`" 
+    :class="['radio-list']" :name="name">
+    <div :class="orientation">
+      <legend v-if="label" class="legend">
+        <ftext bold primary uppercase size="baseMd" color="grayDark">{{label}}</ftext>
+      </legend>
+      <div class="items" role="radiogroup">
+        <div :disabled="item.disabled" v-for='(item, index) in items' :key='index' class="wrap">
+          <radio 
+            v-model="value"
+            :id="`radio-${identifier}-${item.value}`"
+            :value="item.value" 
+            :disabled="item.disabled"
+            @click="handleClick" 
+            :label="item.label"
+            :name="label">
+              <slot v-if="item.slot" :name="item.slot">{{item.label}}</slot>
+            </radio>
+        </div>
       </div>
     </div>
   </fieldset>
@@ -21,6 +26,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import radio from './FishTankRadio.vue' 
+import ftext from './FishTankText.vue' 
+import { orientation } from "../util/mixins"
 /** Triggered when value is changed
   * @event change
   * @type {Event}
@@ -28,8 +35,12 @@ import radio from './FishTankRadio.vue'
 export default Vue.extend({
   name: 'FishTankRadioList',
   components:{
-    radio
+    radio,
+    ftext
   },
+  mixins:[
+    orientation
+  ],
   model: {
     prop: 'value',
     event: 'change'
@@ -85,7 +96,10 @@ export default Vue.extend({
 </script>
 
 <style scoped lang='scss'>
-fieldset {
+// fieldset {
+  
+// }
+.radio-list {
   margin-inline-start: 0;
   margin-inline-end: 0;
   padding-block-start: 0;
@@ -97,8 +111,10 @@ fieldset {
   border-style: none;
   border-color: transparent;
   border-image: hidden;
-}
-.RadioList {
+  .legend{
+    display: block;
+    max-width: none;
+  }
   .items {
     align-items: center;
     display: flex;
@@ -109,6 +125,16 @@ fieldset {
   .wrap{
     position: relative;
     margin-right: 25px;
+  }
+
+  .ltr, .rtl {
+    display: flex;
+  }
+  .rtl {
+    flex-direction: row-reverse;
+  }
+  [uppercase]{
+    text-transform:uppercase;
   }
   // Internet explorer hack
   // & /deep/ {

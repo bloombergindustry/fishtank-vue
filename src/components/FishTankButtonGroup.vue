@@ -9,7 +9,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 interface SharedButtonGroup {
   isSmall?:Boolean,
   isFocused?:Boolean,

@@ -60,7 +60,7 @@ import {
   CheckboxUnselected24 as CheckboxUnselected 
 } from "@fishtank/icons-vue"
 import FishTankText from './FishTankText.vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 
 export default Vue.extend({
   name:"FishTankCheckbox",

@@ -17,7 +17,8 @@
     <radio-list 
       v-model="valueBlaw2" 
       label="Example2" 
-      name="example2" 
+      name="example2"
+      orientation="rtl" 
       :items="items2">
       <template slot="example-title-slot-3">
         Item 2 from slot

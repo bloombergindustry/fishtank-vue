@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 
 interface RadioComponent extends Vue{
   value?:[Object],

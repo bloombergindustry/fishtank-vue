@@ -43,7 +43,7 @@
 <script lang="ts">
 import Vue from "vue"
 import { CloseSml24 } from '@fishtank/icons-vue' 
-import a11y from '@/util/a11y'
+import { a11y } from "../util/mixins"
 import { default as FishTankText } from '@/components/FishTankText.vue'
 
 export default Vue.extend({

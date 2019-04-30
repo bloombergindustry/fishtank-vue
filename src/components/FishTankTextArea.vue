@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['text-area',{ 'error': !!errorMessage }, 'orientation-wrap', orientation]"
+    :class="['text-area',{ 'error': !!errorMessage }, orientation]"
   >
     <div
       v-if="label"
@@ -94,14 +94,15 @@
 <script lang="ts">
 
 import Vue from "vue"
-import a11y from "../util/a11y"
+
 import { 
   CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
 
-import textInput from '../util/mixins/textInput';
 import FishTankText  from './FishTankText.vue';
+
+import {textInput, orientation, a11y} from "../util/mixins"
 
 export default Vue.extend({
   components: {
@@ -111,7 +112,8 @@ export default Vue.extend({
   },
   mixins:[
     a11y,
-    textInput
+    textInput,
+    orientation
   ],
   inheritAttrs: false,
   props: {
