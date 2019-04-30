@@ -29,7 +29,7 @@ import color  from '../util/colorsClassMapping'
 const _ = require("lodash").noConflict()
 export type IsBoxType = "div" | "span" | "section" | "article" | "aside" | "footer" | "header" | "details" | "figcaption" | "figure" | "main" | "nav" | "summary" | "time";
 export type AlignItemType = "start" | "end" | "center" | "baseline" | "stretch";
-export type Direction = "row" | "column";
+export type Direction = "row" | "column"| "row-reverse" | "column-reverse";
 export type DisplayType = "none"| "flex"| "block"| "inlineBlock"| "visuallyHidden";
 export type JustifyContent = "start" | "end" | "center" | "between" | "around";
 export type Position = 'absolute' | 'relative' | 'fixed';
@@ -60,7 +60,9 @@ const styles = {
   xsDisplayInlineBlock: "xsDisplayInlineBlock",
   xsDisplayVisuallyHidden: "xsDisplayVisuallyHidden",
   xsDirectionRow: "xsDirectionRow",
-  xsDirectionColumn: "xsDirectionColumn"
+  xsDirectionColumn: "xsDirectionColumn",
+  xsDirectionRowReverse: "xsDirectionRowReverse",
+  xsDirectionColumnReverse: "xsDirectionColumnReverse"
 }
 
 const Columns = {
@@ -278,7 +280,9 @@ const props: any = {
   }),
   direction: mapping({
     row: styles.xsDirectionRow,
-    column: styles.xsDirectionColumn
+    column: styles.xsDirectionColumn,
+    rowReverse: styles.xsDirectionRowReverse,
+    columnReverse: styles.xsDirectionColumnReverse
   }),
   position: mapping({
     absolute: layout.absolute,
@@ -402,7 +406,7 @@ export default Vue.extend({
       default:null,
       required:false,
       validator: function(value: Direction){
-        return ["row" , "column"].indexOf(value) !== -1
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
       description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row or column',
     },

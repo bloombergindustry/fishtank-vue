@@ -146,6 +146,15 @@
   flex-direction: column;
 }
 
+.xsDirectionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.xsDirectionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+
 @media (--sm) {
   .smDirectionRow {
     flex-direction: row;
@@ -153,6 +162,14 @@
 
   .smDirectionColumn {
     flex-direction: column;
+  }
+
+  .smDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+  
+  .smDirectionColumnReverse {
+    flex-direction: column-reverse;
   }
 }
 
@@ -164,6 +181,14 @@
   .mdDirectionColumn {
     flex-direction: column;
   }
+
+  .mdDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+  
+  .mdDirectionColumnReverse {
+    flex-direction: column-reverse;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -173,6 +198,14 @@
 
   .lgDirectionColumn {
     flex-direction: column;
+  }
+
+  .lgDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+  
+  .lgDirectionColumnReverse {
+    flex-direction: column-reverse;
   }
 }
 

@@ -1,11 +1,11 @@
 <template>
   <fieldset :id="`radio-list-${identifier}`" 
     :class="['radio-list']" :name="name">
-    <div :class="orientation">
+    <box :display="getDisplay" :direction="getDirection" :alignItems="getAlign">
       <legend v-if="label" class="legend">
         <ftext bold primary uppercase size="baseMd" color="grayDark">{{label}}</ftext>
       </legend>
-      <div class="items" role="radiogroup">
+      <div :class="['items', {'stack':stack}] " role="radiogroup">
         <div :disabled="item.disabled" v-for='(item, index) in items' :key='index' class="wrap">
           <radio 
             v-model="value"
@@ -19,7 +19,7 @@
             </radio>
         </div>
       </div>
-    </div>
+    </box>
   </fieldset>
 </template>
 
@@ -27,6 +27,7 @@
 import Vue from 'vue'
 import radio from './FishTankRadio.vue' 
 import ftext from './FishTankText.vue' 
+import box from './FishTankBox.vue' 
 import { orientation } from "../util/mixins"
 /** Triggered when value is changed
   * @event change
@@ -36,7 +37,8 @@ export default Vue.extend({
   name: 'FishTankRadioList',
   components:{
     radio,
-    ftext
+    ftext,
+    box
   },
   mixins:[
     orientation
@@ -74,7 +76,17 @@ export default Vue.extend({
     /**
      * Block orientation; inline by defaul
      */
-    block:Boolean
+    block:Boolean,
+    
+    /**
+     *List orientation; inline by default
+     */
+    orientation: String,
+
+    /**
+     *List radios vertically
+     */
+    stack: Boolean
   },
   data () {
     return {
@@ -91,6 +103,22 @@ export default Vue.extend({
       }
       e.preventDefault()
     },
+  },
+  computed:{
+    getDisplay(){
+      if (this.orientation) return 'flex'
+    },
+    getDirection(){
+      if (this.orientation) {
+        if (this.orientation === 'ltr') return 'row'
+        if (this.orientation === 'rtl') return 'rowReverse'
+      } else {
+        return 'column'
+      }
+    },
+    getAlign(){
+      if (this.orientation) return 'center'
+    }
   }
 })
 </script>
@@ -122,6 +150,9 @@ export default Vue.extend({
     margin: 0;
     border:0;
   }
+  .stack{
+    display: block;
+  }
   .wrap{
     position: relative;
     margin-right: 25px;
@@ -129,6 +160,7 @@ export default Vue.extend({
 
   .ltr, .rtl {
     display: flex;
+    align-content: center
   }
   .rtl {
     flex-direction: row-reverse;
