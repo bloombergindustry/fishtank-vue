@@ -2,40 +2,45 @@
   <section>
     <inputtext
       :value="text"
-      @input="text = $event"
       label="Text Input Type"
       placeholder="Text Input Type"
-      type="text">
-      <searchicon class="test" slot="leftIcon" @click="exampleSearchFunc(text)"/>
+      type="text"
+      @input="text = $event">
+      <searchicon 
+        slot="leftIcon" 
+        class="test" 
+        @click="exampleSearchFunc(text)" />
     </inputtext>
 
     <inputtext
       :value="text"
-      @input="text = $event"
       label="Text Input Type"
       placeholder="Text Input Type"
       type="text"
-      orientation="rtl">
-      <searchicon slot="leftIcon"/>
-      <ftext slot="rightIcon">@bna.com</ftext>
+      orientation="rtl"
+      @input="text = $event">
+      <searchicon slot="leftIcon" />
+      <ftext slot="rightIcon">
+        @bna.com
+      </ftext>
     </inputtext>
 
     <inputtext
       class="custom"
       :value="text"
-      @input="text = $event"
       label="Text Input Type"
       placeholder="Text Input Type"
       type="text"
-      orientation="ltr">
-      <searchicon slot="leftIcon"/>
+      orientation="ltr"
+      @input="text = $event">
+      <searchicon slot="leftIcon" />
     </inputtext>
 
 
     <inputtext
       v-model="password"
       label="Password Input Type"
-      type="password"/>
+      type="password" />
     <inputtext
       v-model="number"
       label="Number Input Type"
@@ -70,10 +75,10 @@
       label="URL Input Type"
       type="url"/>-->
     <h3> List of Input Values</h3>
-    <p><b>Text Input Value : </b> {{text}} </p>
-    <p><b>Password Input Value : </b> {{password}} </p>
-    <p><b>Number Input Value : </b> {{number}} </p>
-    <p><b>Number Error Input Value : </b> {{val}} </p>
+    <p><b>Text Input Value : </b> {{ text }} </p>
+    <p><b>Password Input Value : </b> {{ password }} </p>
+    <p><b>Number Input Value : </b> {{ number }} </p>
+    <p><b>Number Error Input Value : </b> {{ val }} </p>
   </section>
 </template>
 
@@ -95,12 +100,12 @@ export default Vue.extend({
       password: "",
       number: "",
       text_area: "",
-      error:"error msg"
+      error:"Error: Please Provide a Valid Pin"
     }
   }, 
   methods:{
     clearError(){
-      this.error=""
+      if (this.error.length) this.error=""
     },
     exampleSearchFunc(t:String){
       // eslint-disable-next-line no-console

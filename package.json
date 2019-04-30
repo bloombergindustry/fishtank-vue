@@ -16,6 +16,7 @@
     "build:cjs:dev": "yarn build:rollup --environment TARGET:cjs",
     "build:esm:uncompiled": "yarn build:rollup --environment TARGET:esm --environment compileCustomProperties:true",
     "build:cjs:uncompiled": "yarn build:rollup --environment TARGET:cjs --environment compileCustomProperties:true",
+    "build-lib": "yarn clean && vue-cli-service build --target lib --name vue-cli-lib-test src/index.ts",
     "build:ts-types": "node ./build/build-type-def.js",
     "build:css": "node ./build/build-individual-component-styles.js",
     "test": "vue-cli-service test:unit --require tests/setup.js",

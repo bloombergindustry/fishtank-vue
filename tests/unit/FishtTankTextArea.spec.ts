@@ -2,14 +2,14 @@
 import { expect } from "chai"
 import sinon, { spy, stub, restore } from 'sinon'
 import { shallowMount as  shallow, mount } from "@vue/test-utils"
-import {FishTankTextInput as TextInput} from "@/index"
+import {FishTankTextArea as TextArea} from "@/index"
 
-describe("TextInput", () => {
+describe("TextArea", () => {
   let propsData : any = {}
   let slots : any = {}
 
   const mountInput = () => {
-    return shallow(TextInput, {
+    return shallow(TextArea, {
       propsData,
       slots,
     })
@@ -37,40 +37,8 @@ describe("TextInput", () => {
 
       ;(input.element as HTMLInputElement).value = 'new value'
       input.trigger('input')
-      expect(wrapper.emitted().input[1]).to.eql(['new value'])
-    })
-
-    context('when input type is provided', () => {
-      const validTypes = [ "text", "password", "email", "search", "number", "tel", "url" ]
-
-      validTypes.forEach(type => {
-        context(`when the type is "${type}"`, () => {
-          it('sets the input type correctly', () => {
-            propsData.type = type
-            const wrapper = mountInput()
-
-            let input = wrapper.find('.input-element')
-
-            expect(input.attributes().type).to.eq(type)
-          })
-        })
-      })
-
-      context(`when the type is a non-whitelisted type`, () => {
-        afterEach(() => {
-          if ((console.error as any).restore) {
-            (console.error as any).restore()
-          }
-        })
-
-        it('raises a validation error', () => {
-          let error = stub(console, 'error')
-          propsData.type = 'foobarbaz'
-          const wrapper = mountInput()
-
-          sinon.assert.calledWith(error, sinon.match('custom validator check failed for prop "type"'))
-        })
-      })
+      console.log(wrapper.emitted())
+      expect(wrapper.emitted().input[0]).to.eql(['new value'])
     })
 
     context('when label is provided', () => {
