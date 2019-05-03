@@ -1,5 +1,9 @@
 :root {
   --ncols: 12;
+  /* --breakpoint-xlarge-min: 1440px;
+  --breakpoint-large-min: 1008px;
+  --breakpoint-medium-min: 752px;
+  --breakpoint-small-min: 480px; */
 }
 
 .col {
@@ -54,7 +58,7 @@
   width: calc(12 / var(--ncols) * 100%);
 }
 
-@media (--sm) {
+@media (min-width:480px) {
   .smCol1 {
     width: calc(1 / var(--ncols) * 100%);
   }
@@ -104,7 +108,7 @@
   }
 }
 
-@media (min-width:768px) {
+@media (min-width:752px) {
   .mdCol1 {
     width: calc(1 / var(--ncols) * 100%);
   }
@@ -154,7 +158,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
   .lgCol1 {
     width: calc(1 / var(--ncols) * 100%);
   }
@@ -200,6 +204,55 @@
   }
 
   .lgCol12 {
+    width: calc(12 / var(--ncols) * 100%);
+  }
+}
+@media (min-width: 1440px) {
+  .xlCol1 {
+    width: calc(1 / var(--ncols) * 100%);
+  }
+
+  .xlCol2 {
+    width: calc(2 / var(--ncols) * 100%);
+  }
+
+  .xlCol3 {
+    width: calc(3 / var(--ncols) * 100%);
+  }
+
+  .xlCol4 {
+    width: calc(4 / var(--ncols) * 100%);
+  }
+
+  .xlCol5 {
+    width: calc(5 / var(--ncols) * 100%);
+  }
+
+  .xlCol6 {
+    width: calc(6 / var(--ncols) * 100%);
+  }
+
+  .xlCol7 {
+    width: calc(7 / var(--ncols) * 100%);
+  }
+
+  .xlCol8 {
+    width: calc(8 / var(--ncols) * 100%);
+  }
+
+  .xlCol9 {
+    width: calc(9 / var(--ncols) * 100%);
+  }
+
+  .xlCol10 {
+    width: calc(10 / var(--ncols) * 100%);
+  }
+
+  .xlCol11 {
+    width: calc(11 / var(--ncols) * 100%);
+  }
+
+  .xlCol12 {
     width: calc(12 / var(--ncols) * 100%);
   }
 }

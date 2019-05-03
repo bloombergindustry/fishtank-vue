@@ -1,0 +1,29 @@
+.layoutContainer{
+  margin: 0 auto;
+  padding: 0 4px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 480px) {
+  .layoutFixed{
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 752px) {
+  .layoutFixed{
+    max-width: 720px;
+  }
+}
+@media only screen and (min-width: 1008px) {
+  .layoutFixed{
+    max-width: 960px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .layoutFixed{
+    max-width: 1200px;
+  }
+}

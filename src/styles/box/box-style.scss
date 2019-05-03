@@ -1,0 +1,183 @@
+@import "../../../node_modules/@fishtank/colors/dist/index";
+
+.container{
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+@media only screen and (min-width: 752px) {
+  .container{
+    background-color: yellow;
+    max-width: 720px;
+  }
+}
+@media only screen and (min-width: 1008px) {
+  .container{
+    background-color: pink;
+    max-width: 960px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .container{
+    background-color: orange;
+    max-width: 1200px;
+  }
+}
+
+.box {
+  .accessibilityOutline:focus {
+    box-shadow: 0 0 0 2px $color-selected;
+    outline: 0;
+  }
+
+  .accessibilityOutlineFocus {
+    box-shadow: 0 0 0 2px $color-selected;
+    outline: 0;
+  }
+  // composes: accessibilityOutline from "./Focus.css";
+  // composes: borderBox from "./Layout.css";
+}
+
+/* Display */
+.xsDisplayNone {
+  display: none;
+}
+
+.xsDisplayFlex {
+  display: flex;
+  flex-direction: row;
+}
+
+.xsDisplayBlock {
+  display: block;
+}
+
+.xsDisplayInline {
+  display: inline;
+}
+
+.xsDisplayInlineBlock {
+  display: inline-block;
+}
+
+.xsDisplayVisuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (min-width:720px) {
+  .smDisplayNone {
+    display: none;
+  }
+
+  .smDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .smDisplayBlock {
+    display: block;
+  }
+
+  .smDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .smDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (min-width:960px) {
+  .mdDisplayNone {
+    display: none;
+  }
+
+  .mdDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mdDisplayBlock {
+    display: block;
+  }
+
+  .mdDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .mdDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lgDisplayNone {
+    display: none;
+  }
+
+  .lgDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .lgDisplayBlock {
+    display: block;
+  }
+
+  .lgDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .lgDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* Direction */
+
+.xsDirectionRow {
+  flex-direction: row;
+}
+
+.xsDirectionColumn {
+  flex-direction: column;
+}
+
+.xsDirectionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.xsDirectionColumnReverse {
+  flex-direction: column-reverse;
+}
