@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.8.0-0"></a>
+# [4.8.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.7.0...v4.8.0-0) (2019-05-03)
+
+
+### Bug Fixes
+
+* Removed CSS modules from FishTankTag ([1ba20ac](https://github.com/bloombergbna/fishtank-vue/commit/1ba20ac))
+
+
+### Features
+
+* Added FishTankBadge component ([9fbf9c0](https://github.com/bloombergbna/fishtank-vue/commit/9fbf9c0))
+* added keyboard tabbing hover effect ([267c3a9](https://github.com/bloombergbna/fishtank-vue/commit/267c3a9))
+* Added layout component. Layout provides the high level page layout structure, inlien with Fishtank requirements ([c59a0e2](https://github.com/bloombergbna/fishtank-vue/commit/c59a0e2))
+* added toggle on tab seperator style bar ([85e03c3](https://github.com/bloombergbna/fishtank-vue/commit/85e03c3))
+* Broke out Textarea into a seperte FishTankTextArea component ([dafd649](https://github.com/bloombergbna/fishtank-vue/commit/dafd649))
+* Broke out TextArea type of text input into seperate FishTankTextArea component ([ec131a7](https://github.com/bloombergbna/fishtank-vue/commit/ec131a7))
+* Broke out TextArea type of text input into seperate FishTankTextArea component ([02d93ac](https://github.com/bloombergbna/fishtank-vue/commit/02d93ac))
+* changes to tab component ([c1b8d5f](https://github.com/bloombergbna/fishtank-vue/commit/c1b8d5f))
+* confirmed the ease of tab componen style positioning via the use of divs or FishTankBox Component ([85a35e3](https://github.com/bloombergbna/fishtank-vue/commit/85a35e3))
+* created single merged FishTankCheckboxV2 component with prop option to change to a switch/slider; Legacy FishTankCheckbox to remain until deprecation ([68f83ac](https://github.com/bloombergbna/fishtank-vue/commit/68f83ac))
+* documentation notes on tab functionality ([85603f0](https://github.com/bloombergbna/fishtank-vue/commit/85603f0))
+* documented example code ([677696c](https://github.com/bloombergbna/fishtank-vue/commit/677696c))
+* enabled switch off between click and keyboard tabing ([a29359d](https://github.com/bloombergbna/fishtank-vue/commit/a29359d))
+* enabled tab switching ([a4d4105](https://github.com/bloombergbna/fishtank-vue/commit/a4d4105))
+* minor changes to tabs.vue style testing ([cc50d9f](https://github.com/bloombergbna/fishtank-vue/commit/cc50d9f))
+* minor corrections to contribution guidelines ([f62b301](https://github.com/bloombergbna/fishtank-vue/commit/f62b301))
+* Refactoring to support label orientation and layout; fixed highlight state for accessibility ([a88239a](https://github.com/bloombergbna/fishtank-vue/commit/a88239a))
+* removal of horizontal tab icon functionality and edits to styles so that meet specificity of 10 ([fd878f5](https://github.com/bloombergbna/fishtank-vue/commit/fd878f5))
+* started styling on BLAW FishTank Tab Component ([0a20bff](https://github.com/bloombergbna/fishtank-vue/commit/0a20bff))
+* updated how changed states are emitted/handled for tabs ([9550485](https://github.com/bloombergbna/fishtank-vue/commit/9550485))
+
+
+
 <a name="4.7.0"></a>
 # [4.7.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.6.1...v4.7.0) (2019-04-10)
 
