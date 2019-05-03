@@ -35,7 +35,7 @@ const props: any = {
   lgColumn: bind(range("lgCol"), Columns),
   xlColumn: bind(range("xlCol"), Columns),
   container:toggle(styles.container),
-  fluid:toggle(styles.fluid),
+  // fluid:toggle(styles.fluid),
 }
 import { boxMixin } from "../util/mixins"
 
@@ -54,18 +54,17 @@ export default Vue.extend({
     container:Boolean,
     fluid: Boolean
   },
+  methods:{
+    isFluid(){
+      return this.$props.fluid ? ` ` :  ` ${this.$style.layoutFixed} `
+    },
+  },
   computed:{
     moduleClassNames () {
       let style = (<any>this).$style
       return style
     },
-    isFluid(){
-      if (this.$props.container && this.$props.fluid) {
-        return true
-      } else {
-        return false
-      } 
-    },
+    
 
     boxProps() {
       let concatenatedClasses: Style = identity()
@@ -82,8 +81,8 @@ export default Vue.extend({
       return {
         // class: boxProps.className,
         class: (modulesClasses.join(' ') 
-          +(this.$props.container ? ``: ` ${this.$style.layoutColumn} `)
-          +(this.$props.fluid ? ` `: ` ${this.$style.layoutFixed} `)
+          +(this.$props.container ? ` ${(this as any).isFluid()} `: ` ${this.$style.layoutColumn} `)
+          // +(this.$props.fluid ? ` `: null)
           ),
         style: boxProps.style,
       }
