@@ -236,6 +236,7 @@ const props: any = {
   smColumn: bind(range("smCol"), Columns),
   mdColumn: bind(range("mdCol"), Columns),
   lgColumn: bind(range("lgCol"), Columns),
+  xlColumn: bind(range("xlCol"), Columns),
   justifyContent: mapping({
     end: layout.justifyEnd,
     center: layout.justifyCenter,

@@ -1,32 +1,5 @@
 @import "../../../node_modules/@fishtank/colors/dist/index";
 
-.container{
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 4px;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-@media only screen and (min-width: 752px) {
-  .container{
-    background-color: yellow;
-    max-width: 720px;
-  }
-}
-@media only screen and (min-width: 1008px) {
-  .container{
-    background-color: pink;
-    max-width: 960px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .container{
-    background-color: orange;
-    max-width: 1200px;
-  }
-}
-
 .box {
   .accessibilityOutline:focus {
     box-shadow: 0 0 0 2px $color-selected;
@@ -74,7 +47,25 @@
   width: 1px;
 }
 
-@media (min-width:720px) {
+/* Direction */
+
+.xsDirectionRow {
+  flex-direction: row;
+}
+
+.xsDirectionColumn {
+  flex-direction: column;
+}
+
+.xsDirectionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.xsDirectionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+@media (min-width:480px) {
   .smDisplayNone {
     display: none;
   }
@@ -102,9 +93,26 @@
     white-space: nowrap;
     width: 1px;
   }
+  /* Direction */
+
+  .smDirectionRow {
+    flex-direction: row;
+  }
+
+  .smDirectionColumn {
+    flex-direction: column;
+  }
+
+  .smDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  .smDirectionColumnReverse {
+    flex-direction: column-reverse;
+  }
 }
 
-@media (min-width:960px) {
+@media (min-width:752px) {
   .mdDisplayNone {
     display: none;
   }
@@ -132,9 +140,27 @@
     white-space: nowrap;
     width: 1px;
   }
+
+  /* Direction */
+
+  .mdDirectionRow {
+    flex-direction: row;
+  }
+
+  .mdDirectionColumn {
+    flex-direction: column;
+  }
+
+  .mdDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  .mdDirectionColumnReverse {
+    flex-direction: column-reverse;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
   .lgDisplayNone {
     display: none;
   }
@@ -162,22 +188,68 @@
     white-space: nowrap;
     width: 1px;
   }
+  /* Direction */
+
+  .lgDirectionRow {
+    flex-direction: row;
+  }
+
+  .lgDirectionColumn {
+    flex-direction: column;
+  }
+
+  .lgDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  .lgDirectionColumnReverse {
+    flex-direction: column-reverse;
+  }
 }
 
-/* Direction */
+@media (min-width: 1440px) {
+  .xlDisplayNone {
+    display: none;
+  }
 
-.xsDirectionRow {
-  flex-direction: row;
-}
+  .xlDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
 
-.xsDirectionColumn {
-  flex-direction: column;
-}
+  .xlDisplayBlock {
+    display: block;
+  }
 
-.xsDirectionRowReverse {
-  flex-direction: row-reverse;
-}
+  .xlDisplayInlineBlock {
+    display: inline-block;
+  }
 
-.xsDirectionColumnReverse {
-  flex-direction: column-reverse;
+  .xlDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  /* Direction */
+
+  .xlDirectionRow {
+    flex-direction: row; 
+  }
+
+  .xlDirectionColumn {
+    flex-direction: column;
+  }
+
+  .xlDirectionRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  .xlDirectionColumnReverse {
+    flex-direction: column-reverse;
+  }
 }

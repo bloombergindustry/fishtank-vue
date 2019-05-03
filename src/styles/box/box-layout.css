@@ -110,21 +110,30 @@
 .flex {
   display: flex;
 }
+.xsFlex {
+  display: flex;
+}
 
-@media (--sm) {
+@media (min-width:480px) {
   .smFlex {
     display: flex;
   }
 }
 
-@media (min-width:768px) {
+@media (min-width:752px) {
   .mdFlex {
     display: flex;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
   .lgFlex {
+    display: flex;
+  }
+}
+
+@media (min-width: 1440px) {
+  .xlFlex {
     display: flex;
   }
 }

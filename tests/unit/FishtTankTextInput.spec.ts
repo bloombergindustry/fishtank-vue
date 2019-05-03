@@ -37,7 +37,8 @@ describe("TextInput", () => {
 
       ;(input.element as HTMLInputElement).value = 'new value'
       input.trigger('input')
-      expect(wrapper.emitted().input[1]).to.eql(['new value'])
+      console.log("~~~",wrapper.emitted())
+      expect(wrapper.emitted().input[0]).to.eql(['new value'])
     })
 
     context('when input type is provided', () => {
