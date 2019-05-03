@@ -12,8 +12,8 @@
 @include normalize();
 
 body, html {
-  // margin: 0;
-  padding: 10px;
+  margin: 0;
+  padding: 0px;
   font: 0.75em open sans, arial, sans-serif;
   color: var(--color-black);
   box-sizing: border-box;

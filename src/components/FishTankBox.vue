@@ -26,20 +26,22 @@ import {
 
 import color  from '../util/colorsClassMapping'
 
+import { boxMixin } from "../util/mixins"
 const _ = require("lodash").noConflict()
-export type IsBoxType = "div" | "span" | "section" | "article" | "aside" | "footer" | "header" | "details" | "figcaption" | "figure" | "main" | "nav" | "summary" | "time";
-export type AlignItemType = "start" | "end" | "center" | "baseline" | "stretch";
-export type Direction = "row" | "column"| "row-reverse" | "column-reverse";
-export type DisplayType = "none"| "flex"| "block"| "inlineBlock"| "visuallyHidden";
-export type JustifyContent = "start" | "end" | "center" | "between" | "around";
-export type Position = 'absolute' | 'relative' | 'fixed';
-export type OverFlow = 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto'
-export type Flex = 'grow' | 'shrink' | 'none'
 
-export type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type Margin = -12 | -11 | -10 | -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13;
-export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type Color = any
+import { 
+  Column, 
+  IsBoxType, 
+  AlignItemType, 
+  Direction, 
+  DisplayType, 
+  JustifyContent, 
+  Position, 
+  OverFlow, 
+  Flex,
+  Margin,
+  Padding ,
+  Color } from "../util/types/boxTypes"
 
 let colorMappingFunc = (value:any) => {
   if (!value) return identity()
@@ -53,6 +55,8 @@ let colorMappingFunc = (value:any) => {
   return allColorMappings(mapColorNameToClass(value))
 }
 
+import * as Columns from '../util/boxColumns.js'
+
 const styles = {
   xsDisplayNone: "xsDisplayNone",
   xsDisplayFlex: "xsDisplayFlex",
@@ -63,47 +67,6 @@ const styles = {
   xsDirectionColumn: "xsDirectionColumn",
   xsDirectionRowReverse: "xsDirectionRowReverse",
   xsDirectionColumnReverse: "xsDirectionColumnReverse"
-}
-
-const Columns = {
-  xsCol1: "xsCol1",
-  xsCol2: "xsCol2",
-  xsCol3: "xsCol3",
-  xsCol4: "xsCol4",
-  xsCol5: "xsCol5",
-  xsCol6: "xsCol6",
-  xsCol7: "xsCol7",
-  xsCol8: "xsCol8",
-  xsCol9: "xsCol9",
-  xsCol10: "xsCol10",
-  xsCol11: "xsCol11",
-  xsCol12: "xsCol12",
-
-  mdCol1: "mdCol1",
-  mdCol2: "mdCol2",
-  mdCol3: "mdCol3",
-  mdCol4: "mdCol4",
-  mdCol5: "mdCol5",
-  mdCol6: "mdCol6",
-  mdCol7: "mdCol7",
-  mdCol8: "mdCol8",
-  mdCol9: "mdCol9",
-  mdCol10: "mdCol10",
-  mdCol11: "mdCol11",
-  mdCol12: "mdCol12",
-
-  lgCol1: "lgCol1",
-  lgCol2: "lgCol2",
-  lgCol3: "lgCol3",
-  lgCol4: "lgCol4",
-  lgCol5: "lgCol5",
-  lgCol6: "lgCol6",
-  lgCol7: "lgCol7",
-  lgCol8: "lgCol8",
-  lgCol9: "lgCol9",
-  lgCol10: "lgCol10",
-  lgCol11: "lgCol11",
-  lgCol12: "lgCol12"
 }
 
 const layout = {
@@ -270,6 +233,7 @@ const props: any = {
   }),
   column: bind(range("xsCol"), Columns),
   xsColumn: bind(range("xsCol"), Columns),
+  smColumn: bind(range("smCol"), Columns),
   mdColumn: bind(range("mdCol"), Columns),
   lgColumn: bind(range("lgCol"), Columns),
   justifyContent: mapping({
@@ -331,6 +295,9 @@ export default Vue.extend({
         (this as any).tagElement, (this as any).boxProps, this.$slots.default
       )
   },
+  mixins:[
+    boxMixin
+  ],
   props:{
     tag:{
       default:'div',
@@ -364,33 +331,6 @@ export default Vue.extend({
     // DisplayType,
     // // @Prop()
     column: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Column){
-        return (0<value && 13>value)
-      },
-      description:'Box grid columns',
-    },
-    xsColumn: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Column){
-        return (0<value && 13>value)
-      },
-      description:'Box grid columns',
-    },
-    mdColumn: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Column){
-        return (0<value && 13>value)
-      },
-      description:'Box grid columns',
-    },
-    lgColumn: {
       type:Number,
       default:null,
       required:false,
@@ -626,7 +566,7 @@ export default Vue.extend({
 </script>
 <style module lang="scss">
 @import "../styles/mixins";
-@import "../styles/box/box-style";
+@import "../styles/box/box-style.scss";
 @import "../styles/box/box-whitespaces";
 @import "../styles/box/box-layout";
 @import "../styles/box/box-column";
@@ -654,7 +594,7 @@ input {
 textarea {
   width: 100%;
 }
-@custom-media --sm (max-width: 576px);
-@custom-media --md (max-width: 768px);
-@custom-media --lg (max-width: 1312px);
+@custom-media --sm (max-width: 720px);
+@custom-media --md (max-width: 960px);
+@custom-media --lg (max-width: 1200px);
 </style>
