@@ -22,10 +22,7 @@ import {
 
 const Columns = require('../util/boxColumns.js')
 
-const styles = {
-  container:"layoutContainer",
-  fluid:"layoutFluid",
-}
+const styles = {}
 
 const props: any = {
   column: bind(range("xsCol"), Columns),
@@ -34,7 +31,6 @@ const props: any = {
   mdColumn: bind(range("mdCol"), Columns),
   lgColumn: bind(range("lgCol"), Columns),
   xlColumn: bind(range("xlCol"), Columns),
-  container:toggle(styles.container),
   // fluid:toggle(styles.fluid),
 }
 import { boxMixin } from "../util/mixins"
@@ -56,7 +52,7 @@ import {
 
 import Vue from 'vue'
 export default Vue.extend({
-  name:"FishTankLayout",
+  name:"FishTankColumn",
   render(createElement) {
     return createElement(
         'div', (this as any).boxProps, this.$slots.default
@@ -70,9 +66,6 @@ export default Vue.extend({
     fluid: Boolean
   },
   methods:{
-    isFluid(){
-      return this.$props.fluid ? ` ` :  ` ${this.$style.layoutFixed} `
-    },
   },
   computed:{
     moduleClassNames () {
@@ -96,7 +89,7 @@ export default Vue.extend({
       return {
         // class: boxProps.className,
         class: (modulesClasses.join(' ') 
-          +(this.$props.container ? ` ${(this as any).isFluid()} `: ` ${this.$style.layoutColumn} `)
+          +this.$style.layoutColumn
           // +(this.$props.fluid ? ` `: null)
           ),
         style: boxProps.style,

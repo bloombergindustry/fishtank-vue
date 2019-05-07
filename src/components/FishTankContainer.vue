@@ -23,18 +23,12 @@ import {
 const Columns = require('../util/boxColumns.js')
 
 const styles = {
-  container:"layoutContainer",
+  // container:"layoutContainer",
   fluid:"layoutFluid",
 }
 
 const props: any = {
-  column: bind(range("xsCol"), Columns),
-  xsColumn: bind(range("xsCol"), Columns),
-  smColumn: bind(range("smCol"), Columns),
-  mdColumn: bind(range("mdCol"), Columns),
-  lgColumn: bind(range("lgCol"), Columns),
-  xlColumn: bind(range("xlCol"), Columns),
-  container:toggle(styles.container),
+  // container:toggle(styles.container),
   // fluid:toggle(styles.fluid),
 }
 import { boxMixin } from "../util/mixins"
@@ -56,7 +50,7 @@ import {
 
 import Vue from 'vue'
 export default Vue.extend({
-  name:"FishTankLayout",
+  name:"FishTankContainer",
   render(createElement) {
     return createElement(
         'div', (this as any).boxProps, this.$slots.default
@@ -96,8 +90,9 @@ export default Vue.extend({
       return {
         // class: boxProps.className,
         class: (modulesClasses.join(' ') 
-          +(this.$props.container ? ` ${(this as any).isFluid()} `: ` ${this.$style.layoutColumn} `)
-          // +(this.$props.fluid ? ` `: null)
+          +( (this as any).isFluid())
+          + " "
+          +this.$style.layoutContainer
           ),
         style: boxProps.style,
       }
@@ -107,6 +102,5 @@ export default Vue.extend({
 </script>
 <style module lang="scss">
 @import "../styles/box/layout-style";
-@import "../styles/box/layout-column";
 
 </style>

@@ -103,6 +103,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/lookup',
       component: () => import("./views/Lookup.vue")
+    },
+    {
+      path: '/layout',
+      component: () => import("./views/Layout.vue")
     }
   ]
 })
