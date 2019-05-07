@@ -67,10 +67,11 @@ export { default as FishTankHeading } from "./components/FishTankHeading.vue"
 export { default as FishTankAccordion } from "./components/FishTankAccordion.vue"
 export { default as FishTankAccordionGroup } from "./components/FishTankAccordionGroup.vue"
 export { default as FishTankBox } from "./components/FishTankBox.vue"
-export { default as FishTankLayout } from "./components/FishTankLayout.vue"
 export { default as FishTankSelect } from "./components/FishTankSelect.vue"
 export { default as FishTankLookup } from "./components/FishTankLookup.vue"
 export { default as FishTankRadioList } from "./components/FishTankRadioList.vue"
 export { default as FishTankTabs} from "./components/FishTankTabs.vue"
+export { default as FishTankContainer } from "./components/FishTankContainer.vue"
+export { default as FishTankColumn } from "./components/FishTankColumn.vue"
 
 import './styles.scss'

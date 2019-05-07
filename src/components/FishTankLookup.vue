@@ -2,11 +2,11 @@
   <data-fetcher :url="dataUrl" enable-cache>
     <div class="Autocomplete" :focused="focused" :name="name" :orientation="orientation" slot-scope="{ loading, fetchedData: { data: { items } } }" @keydown="e => _handleKeydown(e, items)" >
       <div 
-        :id="`${id}-combobox`"
+        :id="id ? `${id}-combobox` : `${identifier}-combobox`"
         class="input-wrapper"
         role="combobox">
         <text-input 
-          :id="`${id}-input`"
+          :id="id ? `${id}-input` : `${identifier}-input`"
           ref="query"
           v-model="query"
           type="text"
@@ -21,27 +21,27 @@
           :aria-activedescendant="`option-${focusedItem}`"
           :aria-labelledby="label" 
           @blur="focused=false" 
-          @focus="focused=true">
-          <div
-            v-if="focused && items"
-            :id="`${id}-listbox`"
-            slot="below"
-            role="listbox"
-            class="items">
-            <hightlight
-              v-for="(item, index) in items"
-              :id="`option-${index}`"
-              :key="index"
-              :aria-labelledby="label"
-              :focused="focusedItem===index"
-              :class="['item', {'focused': focusedItem===index}]"
-              :content="item.label"
-              :term="query"
-              role="option"
-              @mousedown.native="() => _selectResult(item)"
-              @mouseover.native="focusedItem=index" />
-          </div>
-        </text-input>
+          @focus="focused=true"
+          @click="showPop"/>
+        <div
+          :id=" id ? `${id}-listbox` : `${identifier}-listbox`"
+          ref="items"
+          slot="below"
+          role="listbox"
+          class="items">
+          <hightlight
+            v-for="(item, index) in items"
+            :id="`option-${index}`"
+            :key="index"
+            :aria-labelledby="label"
+            :focused="focusedItem===index"
+            :class="['item', {'focused': focusedItem===index}]"
+            :content="item.label"
+            :term="query"
+            role="option"
+            @mousedown.native="() => _selectResult(item)"
+            @mouseover.native="focusedItem=index" />
+        </div>
       </div>
     </div>
   </data-fetcher>
@@ -51,7 +51,7 @@
 import DataFetcher from './BLAWDataFetcher.vue'
 import HighlightedText from './FishTankHighlightedText.vue'
 import TextInput from './FishTankTextInput.vue'
-
+import Popper from 'popper.js'
 /** Triggered when selecting a result
  * @event change
  * @type {Event}
@@ -99,6 +99,11 @@ export default {
     url: String,
 
     /**
+     * Width of dropdown
+     */
+    dropdownWidth: Number,
+
+    /**
      * Current selected value
      * @param {Object} value - Value hash
      * @param {Boolean} value.label - Display value
@@ -108,10 +113,19 @@ export default {
   },
   data () {
     return {
+      identifier: (Math.random() * 10000).toFixed(0).toString(),
       dataUrl: '',
       focused: false,
       focusedItem: -1,
-      query: this.value ? this.value.label : ''
+      query: this.value ? this.value.label : '',
+      popObj:null,
+      inputEl:undefined,
+      dropdownEl:undefined,
+    }
+  },
+  computed:{
+    dropdownStyle(){ 
+      return `width: ` + (this.dropdownWidth ? `${this.dropdownWidth}px `: `200px`)
     }
   },
   watch: {
@@ -124,6 +138,9 @@ export default {
         this.$emit('change', { label: this.query, value: null })
       }
     }
+  },
+  destroyed(){
+    if(this.popObj!==undefined) this.popObj.destroy()
   },
   methods: {
     /**
@@ -156,6 +173,18 @@ export default {
       this.$emit('change', item)
       this.query = item.label
     },
+    showPop(){
+      if (this.inputEl === undefined) this.inputEl = document.querySelector(`.${this.$refs.query.$el.className}` )
+      // if (this.dropdownEl === undefined) this.dropdownEl = document.querySelector(`.${this.$refs.items.$el.className}` )
+      // console.log(this.$refs.items)
+      this.$nextTick(()=>{
+
+        this.popObj = new Popper(this.inputEl,this.$refs.items,{
+          positionFixed:true,
+          
+        })
+      })
+    }
   }
 }
 </script>
@@ -166,17 +195,17 @@ export default {
   font-family: 'Open Sans', sans-serif;
 
   .input-wrapper {
-    position: relative;
+    // position: relative;
 
     .items {
       background-color: #fff;
       border: 1px solid $color-gray-lighter;
       border-radius: 2px;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
-      position: absolute;
-      top: 100%;
-      width: calc(100% - 2px);
-      z-index: 10;
+      // position: absolute;
+      // top: 100%;
+      // width: calc(100% - 2px);
+      // z-index: 10;
       margin-top:$baseline;
 
       &:empty { display: none; }

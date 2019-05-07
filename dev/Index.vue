@@ -25,6 +25,7 @@
       <li><a href="#/box">Box</a></li>
       <li><a href="#/select">Select</a></li>
       <li><a href="#/lookup">Lookup</a></li>
+      <li><a href="#/layout">Layout</a></li>
     </ul>
   </section>
 </template>
