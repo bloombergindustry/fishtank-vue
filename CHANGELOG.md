@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.8.0-3"></a>
+# [4.8.0-3](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0-2...v4.8.0-3) (2019-05-08)
+
+
+
 <a name="4.8.0-2"></a>
 # [4.8.0-2](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0-1...v4.8.0-2) (2019-05-08)
 
