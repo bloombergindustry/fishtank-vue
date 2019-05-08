@@ -55,7 +55,7 @@ let colorMappingFunc = (value:any) => {
   return allColorMappings(mapColorNameToClass(value))
 }
 
-import * as Columns from '../util/boxColumns.js'
+import Columns from '../util/boxColumns.js'
 
 const styles = {
   xsDisplayNone: "xsDisplayNone",

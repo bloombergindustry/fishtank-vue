@@ -20,7 +20,7 @@ import {
   rangeWithoutZero
 } from '../util/transform'
 
-const Columns = require('../util/boxColumns.js')
+import Columns from '../util/boxColumns.js'
 
 const styles = {
   // container:"layoutContainer",
