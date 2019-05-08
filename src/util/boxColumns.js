@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   xsCol1: "xsCol1",
   xsCol2: "xsCol2",
   xsCol3: "xsCol3",
