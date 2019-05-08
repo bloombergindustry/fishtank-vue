@@ -335,7 +335,7 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row or column',
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
     justifyContent: {
       type:String,
