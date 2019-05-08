@@ -8,7 +8,7 @@
     "clean": "rimraf dist/",
     "dev": "yarn run serve",
     "serve": "vue-cli-service serve --open",
-    "build": "yarn run clean && yarn build-lib && yarn build:esm && yarn build:cjs && yarn build:esm:dev && yarn build:cjs:dev && yarn build:esm:uncompiled && yarn build:cjs:uncompiled && yarn build:ts-types && yarn build:css",
+    "build": "yarn run clean && yarn build:esm && yarn build:cjs && yarn build:esm:dev && yarn build:cjs:dev && yarn build:esm:uncompiled && yarn build:cjs:uncompiled && yarn build:ts-types && yarn build:css",
     "build:rollup": "yarn rollup -c",
     "build:esm": "yarn build:rollup --environment TARGET:esm --environment PROD:production",
     "build:cjs": "yarn build:rollup --environment TARGET:cjs --environment PROD:production",
