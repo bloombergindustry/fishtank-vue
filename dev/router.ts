@@ -105,8 +105,8 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Lookup.vue")
     },
     {
-      path: '/layout',
-      component: () => import("./views/Layout.vue")
+      path: '/container-columns',
+      component: () => import("./views/ContainerAndColumns.vue")
     }
   ]
 })

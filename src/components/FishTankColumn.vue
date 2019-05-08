@@ -22,7 +22,9 @@ import {
 
 const Columns = require('../util/boxColumns.js')
 
-const styles = {}
+const styles = {
+  xsDisplayBlock: "xsDisplayBlock",
+}
 
 const props: any = {
   column: bind(range("xsCol"), Columns),
@@ -31,7 +33,9 @@ const props: any = {
   mdColumn: bind(range("mdCol"), Columns),
   lgColumn: bind(range("lgCol"), Columns),
   xlColumn: bind(range("xlCol"), Columns),
-  // fluid:toggle(styles.fluid),
+  display: mapping({
+    block: styles.xsDisplayBlock,
+  }),
 }
 import { boxMixin } from "../util/mixins"
 
@@ -53,17 +57,20 @@ import {
 import Vue from 'vue'
 export default Vue.extend({
   name:"FishTankColumn",
-  render(createElement) {
-    return createElement(
-        'div', (this as any).boxProps, this.$slots.default
-      )
-  },
   mixins:[
     boxMixin
   ],
   props:{
     container:Boolean,
-    fluid: Boolean
+    fluid: Boolean,
+    display: {
+      type:String,
+      required:false,
+      validator: function(value: DisplayType){
+        return ["block"].indexOf(value) !== -1
+      },
+      description:'Column block display property',
+    },
   },
   methods:{
   },
@@ -72,9 +79,7 @@ export default Vue.extend({
       let style = (<any>this).$style
       return style
     },
-    
-
-    boxProps() {
+    boxProps(): any {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
         if (props[prop]) {
@@ -85,12 +90,9 @@ export default Vue.extend({
       let modulesClasses:Array<string> = boxProps.className.map(x=>{
         return (this as any).moduleClassNames[x]
       })
-      // debugger
       return {
-        // class: boxProps.className,
         class: (modulesClasses.join(' ') 
           +this.$style.layoutColumn
-          // +(this.$props.fluid ? ` `: null)
           ),
         style: boxProps.style,
       }
@@ -99,7 +101,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/box/layout-style";
-@import "../styles/box/layout-column";
+@import "../styles/box/column";
 
 </style>

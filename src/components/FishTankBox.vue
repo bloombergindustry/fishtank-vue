@@ -291,24 +291,10 @@ const props: any = {
 
 export default Vue.extend({
   name:'FishTankBox',
-  render(createElement) {
-    return createElement(
-        (this as any).tagElement, (this as any).boxProps, this.$slots.default
-      )
-  },
   mixins:[
     boxMixin
   ],
   props:{
-    tag:{
-      default:'div',
-      required:false,
-      type:String,
-      validator: function (value: IsBoxType) {
-        return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
-      },
-      description:"Box semantic element"
-    },
     alignItems: {
       type:String,
       default:null,
@@ -541,7 +527,7 @@ export default Vue.extend({
       return style
     },
 
-    boxProps() {
+    boxProps(): any {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
         if (props[prop]) {
@@ -558,10 +544,6 @@ export default Vue.extend({
         style: boxProps.style,
       }
     },
-
-    tagElement () {
-      return (this as any).tag
-    }
   }
 })
 </script>

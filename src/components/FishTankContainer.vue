@@ -51,11 +51,6 @@ import {
 import Vue from 'vue'
 export default Vue.extend({
   name:"FishTankContainer",
-  render(createElement) {
-    return createElement(
-        'div', (this as any).boxProps, this.$slots.default
-      )
-  },
   mixins:[
     boxMixin
   ],
@@ -73,9 +68,7 @@ export default Vue.extend({
       let style = (<any>this).$style
       return style
     },
-    
-
-    boxProps() {
+    boxProps(): any {
       let concatenatedClasses: Style = identity()
       for (const prop in this.$props) {
         if (props[prop]) {
@@ -101,6 +94,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/box/layout-style";
+@import "../styles/box/container";
 
 </style>
