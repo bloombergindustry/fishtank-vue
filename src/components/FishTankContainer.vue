@@ -79,7 +79,6 @@ export default Vue.extend({
       let modulesClasses:Array<string> = boxProps.className.map(x=>{
         return (this as any).moduleClassNames[x]
       })
-      // debugger
       return {
         // class: boxProps.className,
         class: (modulesClasses.join(' ') 

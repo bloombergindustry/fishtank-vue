@@ -49,7 +49,6 @@ let colorMappingFunc = (value:any) => {
   let mapColorNameToClass = (colorName:String) => {
     let [prefix, rest] = [colorName[0], colorName.substring(1, colorName.length)]
     let colorClassName = `color${prefix.toUpperCase()}${rest}Bg`
-    // debugger
     return colorClassName
   }
   return allColorMappings(mapColorNameToClass(value))
