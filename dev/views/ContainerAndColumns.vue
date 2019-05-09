@@ -1,7 +1,7 @@
 <template>
   <div>
     <container as="header">
-      <column display="block" :xs-column="12" as="nav">
+      <column display="block" as="nav">
         <heading level="1">Page Layout Example using FishTankContainer and FishTank Column</heading>
         <ftext>The container and column components, when used together define and provide Fish Tank Layout.</ftext>
         <ftext>Container provides centered positioning, responsive breakpoints from 752px and larger, and a fluid max width breakpoint below 752px. </ftext>
@@ -129,14 +129,14 @@
 
     <br/>
     <container class="container">
-      <column class="column" :xs-column="8">
+      <column class="column" :column="8">
         <box  color="grayDark" :padding="4">
           <ftext color="white">
             Column, box without flex grow
           </ftext>
         </box>
       </column>
-      <column class="column" :xs-column="4">
+      <column class="column" :column="4">
         <box flex="grow" color="grayLighter" :padding="4">Column</box>
       </column>
     </container>

@@ -316,17 +316,6 @@ export default Vue.extend({
     },
     // DisplayType,
     // // @Prop()
-    column: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Column){
-        return (0<value && 13>value)
-      },
-      description:'Box grid columns',
-    },
-    // Column, /* 1 -12 */
-    // // @Prop()
     direction: {
       type:String,
       default:null,
