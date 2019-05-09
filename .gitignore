@@ -24,7 +24,6 @@ yarn-error.log*
 lib-ts/
 lib-esm/
 lib/
-types/
 .rpt2_cache/
 
 package-lock.json
