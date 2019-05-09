@@ -1,61 +1,97 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]">
-    <div :class="orientation">
-      <div
-        v-if="label"
-        class="label-wrapper">
-        <label
-          :for="(id || `textinput-${identifier}-id`)"
-          class="label">
-          <ftext bold primary uppercase size="baseMd" :color="getColor">{{ label }}
-            <span
-              v-if="required"
-              class="label-required">
-            *
-            </span>
-          </ftext>
-        </label>
-
+    :class="['text-input',{ 'error': !!errorMessage }]"
+  >
+    <div
+      v-if="label"
+      class="label-wrapper"
+    >
+      <label
+        :for="labelId"
+        class="label"
+      >
+        {{ label }}
         <span
-          v-if="$slots.auxillary"
-          class="auxillary-slot">
-          <slot name="auxillary"/>
+          v-if="required"
+          class="label-required"
+        >
+        *
         </span>
-      </div>
-      <div
-        :class="['input-wrapper', {'a11y': isFocused}]">
-        <span v-if="$slots.leftIcon"
-          class="left-icon">
-          <slot name="leftIcon"></slot>
-        </span>
+      </label>
+
+      <span 
+        class="auxillary-slot">
+        <slot name="auxillary"/>
+      </span>
+    </div>
+    <div
+      class="input-wrapper"
+    >
+      <span
+        v-if="$slots.leftIcon"
+        class="left-icon"
+      >
+        <slot name="leftIcon"/>
+      </span>
+
+      <template v-if="type === 'textarea'">
+        <!--eslint-disable-->
+        <textarea
+          ref="input"
+          :type="type"
+          :value="value"
+          v-model="textAreaModel"
+          :id="labelId"
+          :style="{'height':textAreafalseHeight + 'px', 'resize': (resize === false ? 'none' : null), 'overflowY':(scrollOn ? 'scroll' : 'hidden')}"
+          v-bind="$attrs"
+          :class="['input-element', 'inputTextInputTextarea', {'error-state':errorMessage}]"
+          @keypress="getFalseHeight"
+          @keydown.delete="getFalseHeight"
+          @keyup.91.90="getFalseHeight"
+          @keyup.91.86="getFalseHeight"
+          @keyup.91.88="getFalseHeight"
+          @keyup.enter="getFalseHeight"
+          @keyup.delete="getFalseHeight"
+          @paste="getFalseHeight"
+          @cut="getFalseHeight"
+          v-on="listeners"></textarea>
+        <!--eslint-enable-->
+      </template>
+      <template v-else>
         <input
           ref="input"
           :type="type"
           :value="value"
-          :id="(id || `textinput-${identifier}-id`)"
+          :id="labelId"
           v-bind="$attrs"
           :class="['input-element', {'error-state':errorMessage}]"
-          :aria-describedby="( id !== null ? `${id}-error-message`:`textinput-error-message-${identifier}-id`)"
-          @input="checkError(), updateValue "
-          @blur="$emit('blur', $event), isFocused=false"
-          @focus=" $emit('focus', $event), isFocused=true"
+          @input="updateValue "
+          @blur="$emit('blur', $event)"
+          @focus="checkError, $emit('focus', $event)"
           v-on="listeners">
-        <span
-          v-if="!numberType"
-          class="right-icon">
-          <slot name="rightIcon"/>
-        </span>
-        <span
-          v-if="isFocused && (value.length >0)"
-          class="clear"
-          @click="clearText">
-          <CloseIcon/>
-        </span>
-        <slot name="below" />
-      </div>
+      </template>
+      <p 
+        v-if="type === 'textarea'"
+        ref="falseTextarea" 
+        class="false-text-area"
+      >
+        &nbsp;{{ textAreaModel }}
+      </p>
+      <span
+        v-if="showRightIcon && !numberType"
+        class="right-icon"
+      >
+        <slot name="rightIcon">
+          <span
+            class="clear"
+            @click="clearText"
+          >
+            <CloseIcon/>
+          </span>
+        </slot>
+      </span>
+    <slot name="below" />
     </div>
-    
 
     <div
       v-if="errorMessage"
@@ -67,7 +103,6 @@
         <WarningIcon/>
       </span>
       <p
-        :id="( id !== null ? `${id}-error-message`:`textinput-error-message-${identifier}-id`)"
         class="error-message"> {{ errorMessage }} </p>
     </div>
   </div>
@@ -76,20 +111,55 @@
 <script lang="ts">
 
 import Vue from "vue"
-import {textInput, orientation} from "../util/mixins"
-
 import { 
   CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
-import FishTankText  from './FishTankText.vue';
+
 export default Vue.extend({
   components: {
     CloseIcon: CloseIcon,
-    WarningIcon: WarningIcon,
-    ftext:FishTankText
+    WarningIcon: WarningIcon
   },
-  props:{ 
+  token:[
+    
+  ],
+  inheritAttrs: false,
+  
+  props: {
+    value: {
+      required: false,
+      type: String,
+      default: "",
+    },
+    label: {
+      required: false,
+      type: String,
+      default: undefined,
+      description:"Text input label",
+    },
+    id:{
+      type:String,
+      default:null,
+      required:false,
+      description:"Text input ID",
+    },
+    maxheight:{
+      type:Number,
+      default:null,
+      required:false,
+      description:"Textarea type input max-height",
+    },
+    required:{
+      type:Boolean,
+      default:false,
+      required:false
+    },
+    resize:{
+      type:Boolean,
+      default:false,
+      required:false
+    },
     type: {
       required: false,
       default: "text",
@@ -97,6 +167,7 @@ export default Vue.extend({
       validator: (value: string) => {
         const textTypes = [
           "text",
+          "textarea",
           "password",
           "email",
           "search",
@@ -109,13 +180,38 @@ export default Vue.extend({
       },
       description:"Text input type - text | textarea | password | email | search | number | tel | url",
     },
+    error: {
+      required: false,
+      default: null,
+      type: [String, Object],
+      validator(value: string | { fullMessage? : string }) : boolean {
+        if (typeof value === 'string') {
+          return true
+        }
+
+        if (value.fullMessage) {
+          return true
+        }
+
+        // eslint-disable-next-line no-console
+        console.warn("InputText's `error` prop should be a string or an object with a `fullMessage` string property")
+        return false
+      },
+      description:"Error state message - either a string or an object with a `fullMessage` string property",
+    }
   },
-  mixins:[
-    textInput,
-    orientation
-  ],
-  inheritAttrs: false,
+  data:function(){
+    return {
+      textAreaModel:"",
+      textAreafalseHeight:44,
+      scrollOn:false,
+      trackFalseHeight:0
+      }
+  },
   computed: {
+    labelId(): string {
+      return `input-${(this as any)._uid}`
+    },
     showRightIcon(): boolean {
       return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
     },
@@ -123,6 +219,21 @@ export default Vue.extend({
       if(this.$props.type === "number"){
         return true
       }
+    }
+    ,
+    errorMessage(): string | undefined {
+      if (!(this as any).error) {
+        return undefined
+      }
+
+      if (typeof (this as any).error === "string") {
+        return (this as any).error
+      } else if ((this as any).error.fullMessage) {
+        return (this as any).error.fullMessage
+      } else { 
+        return undefined 
+      }
+
     },
     listeners(): Record<string, Function | Function[]> {
       return {
@@ -132,9 +243,7 @@ export default Vue.extend({
         }
       }
     },
-    getColor(): string{
-      return this.$props.error ? "error" : "black"
-    }
+   
   },
   methods: {
     updateValue(value: string | undefined) {
@@ -160,7 +269,23 @@ export default Vue.extend({
     focusElement(element: HTMLElement) {
       element.focus()
     },
-  },
+    getFalseHeight(e:ClipboardEvent): void{
+      setTimeout(()=>{
+          this.$nextTick(()=>{
+            if (this.$props.maxheight && (this.$props.maxheight < (this.$refs.falseTextarea as HTMLDivElement).clientHeight)){
+              this.textAreafalseHeight = this.$props.maxheight
+              if (!this.scrollOn) this.scrollOn = true
+              return
+            }
+            if (this.$refs.falseTextarea !== undefined) {
+              if (this.scrollOn) this.scrollOn = false
+              this.textAreafalseHeight = (this.$refs.falseTextarea as HTMLDivElement).clientHeight
+            }
+            (this.$refs.input as HTMLFontElement).focus()
+          })
+        }, 100)
+    },
+  }
 })
 </script>
 
@@ -185,32 +310,25 @@ export default Vue.extend({
       @content;
     }
   }
-  .input-wrapper {
-    border: $color-gray-lighter 1px solid;
-    border-radius: 2px;
-    position: relative;
-    display: flex;
-  }
-  .a11y{
-    border: transparent 1px solid;
-    box-shadow: 0 0 0 2px $color-selected;
-  }
+
   .input-element {
     width: 100%;
     height: $baseline * 10;
+    padding-left: $baseline * 3;
+    padding-right: $baseline * 10;
     box-sizing: border-box;
     font-family: $font-primary;
     font-weight: $fontweight-regular;
     line-height: $lineheight-base-lg;
     letter-spacing: $letterspacing-base-lg;
-    border:0px;
+    border: $color-gray-lighter 1px solid;
     color: $color-black;
-    padding:0.5em;
+    border-radius: 2px;
 
     @include font-base-lg();
 
     &:focus {
-      outline: 0;
+      outline: $color-selected 2px solid;
     }
 
     &:disabled {
@@ -225,12 +343,21 @@ export default Vue.extend({
   }
   .input-element[type=number]{
     text-align:right;
+    padding-right:$baseline*3;
+  }
+  .left-icon ~ .input-element {
+    padding-left: $baseline*11;
+  }
+
+  .input-wrapper {
+    position: relative;
   }
 
   .left-icon,
   .right-icon {
-    padding:0.5em;
-    flex: 1 0 auto;
+    position: absolute;
+    top: $baseline * 2;
+
     svg {
       width: 24px;
       height: 24px;
@@ -247,9 +374,18 @@ export default Vue.extend({
       fill : $color-gray;
     }
   }
-  [uppercase]{
+
+  .label {
     text-transform: uppercase;
+    font-weight: $fontweight-semi;
+    font-family: $font-primary;
+    line-height: $lineheight-base-md;
+    letter-spacing: $letterspacing-base-md;
+    color: $color-black;
+
+    @include font-base-md();
   }
+
   .label-required {
     color: $color-error;
   }
@@ -332,20 +468,5 @@ export default Vue.extend({
     word-wrap: break-word;
     width:calc(100% - 3.25rem)
   }
-  .clear{
-    padding: 10px 0px 0px 0px;
-  }
-  .ltr, .rtl {
-    display: flex;
-    .label-wrapper{
-      padding: 8px 0px 0px 0px;
-    }
-    // flex: 1 0 auto;
-  }
-  .rtl {
-    flex-direction: row-reverse;
-    .input-wrapper{
-      // flex: 1 0 auto;
-    }
-  }
+
 </style>

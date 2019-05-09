@@ -1,42 +1,9 @@
 <template>
   <section>
     <inputtext
-      :value="text"
+      v-model="text"
       label="Text Input Type"
-      placeholder="Text Input Type"
-      type="text"
-      @input="text = $event">
-      <searchicon 
-        slot="leftIcon" 
-        class="test" 
-        @click="exampleSearchFunc(text)" />
-    </inputtext>
-
-    <inputtext
-      :value="text"
-      label="Text Input Type"
-      placeholder="Text Input Type"
-      type="text"
-      orientation="rtl"
-      @input="text = $event">
-      <searchicon slot="leftIcon" />
-      <ftext slot="rightIcon">
-        @bna.com
-      </ftext>
-    </inputtext>
-
-    <inputtext
-      class="custom"
-      :value="text"
-      label="Text Input Type"
-      placeholder="Text Input Type"
-      type="text"
-      orientation="ltr"
-      @input="text = $event">
-      <searchicon slot="leftIcon" />
-    </inputtext>
-
-
+      type="text" />
     <inputtext
       v-model="password"
       label="Password Input Type"
@@ -57,6 +24,15 @@
       type="number"
       :error="error"
       @reset="clearError" />
+    <inputtext
+      v-model="text_area"
+      :maxheight="170"
+      label="TextArea Input Type - Max Height 170px"
+      type="textarea" />
+    <inputtext
+      v-model="text_area"
+      label="TextArea Input Type - No Max Height"
+      type="textarea" />
     <!--
     <InputText
       :value="val"
@@ -75,23 +51,22 @@
       label="URL Input Type"
       type="url"/>-->
     <h3> List of Input Values</h3>
-    <p><b>Text Input Value : </b> {{ text }} </p>
-    <p><b>Password Input Value : </b> {{ password }} </p>
-    <p><b>Number Input Value : </b> {{ number }} </p>
-    <p><b>Number Error Input Value : </b> {{ val }} </p>
+    <p><b>Text Input Value : </b> {{text}} </p>
+    <p><b>Password Input Value : </b> {{password}} </p>
+    <p><b>Number Input Value : </b> {{number}} </p>
+    <p><b>Number Error Input Value : </b> {{val}} </p>
+    <p><b>Text Area Input Value : </b> {{text_area}} </p>
+
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { InputText , FishTankText} from '@/index'
-import { Search24 } from '@fishtank/icons-vue'
+import { FishTankTextInput } from '@/index'
 
 export default Vue.extend({
   components:{
-    inputtext:InputText,
-    searchicon: Search24,
-    ftext:FishTankText
+    inputtext:FishTankTextInput,
   },
   data(){
     return {
@@ -100,27 +75,14 @@ export default Vue.extend({
       password: "",
       number: "",
       text_area: "",
-      error:"Error: Please Provide a Valid Pin"
+      error:"error msg"
     }
   }, 
   methods:{
     clearError(){
-      if (this.error.length) this.error=""
-    },
-    exampleSearchFunc(t:String){
-      // eslint-disable-next-line no-console
-      console.log("search")
-      this.$emit('input', t)
+      this.error=""
     }
   }
   
 })
 </script>
-<style>
-.custom .input-wrapper{
-  flex:1 0 auto;
-}
-.custom .label-wrapper{
-  width:50%;
-}
-</style>

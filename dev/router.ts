@@ -46,6 +46,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/TextInput.vue")
     },
     {
+      path: '/textinputv2',
+      component: () => import("./views/TextInputV2.vue")
+    },
+    {
       path: '/textarea',
       component: () => import("./views/TextArea.vue")
     },

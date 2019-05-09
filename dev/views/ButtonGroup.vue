@@ -1,46 +1,40 @@
 <template>
   <div>
-    <FishTankButtonGroup>
-      <FishTankBGButton
+    <bgroup>
+      <gbutton
         v-model="bgValue"
         value="All"
         label="All"
-        name="options"
-      />
-      <FishTankBGButton
+        name="options" />
+      <gbutton
         v-model="bgValue"
         value="Members"
         label="Members"
-        name="options"
-      />
-      <FishTankBGButton
+        name="options" />
+      <gbutton
         v-model="bgValue" 
         value="Staff"
         label="Staff"
-        name="options"
-      />
-    </FishTankButtonGroup>
+        name="options" />
+    </bgroup>
     <br>
-    <FishTankButtonGroup small>
-      <FishTankBGButton
+    <bgroup small>
+      <gbutton
         v-model="bgValueAltBeta"
         value="All"
         label="All"
-        name="options2"
-      />
-      <FishTankBGButton
+        name="options2" />
+      <gbutton
         v-model="bgValueAltBeta"
         value="Members"
         label="Members"
-        name="options2"
-      />
-      <FishTankBGButton
+        name="options2" />
+      <gbutton
         v-model="bgValueAltBeta" 
         value="Staff"
         label="Staff"
-        name="options2"
-      />
-    </FishTankButtonGroup>
+        name="options2" />
+    </bgroup>
 
     <div v-if="bgValue ==='All'"> 
       All Tab 
@@ -68,8 +62,8 @@ import {FishTankButtonGroup, FishTankButtonGroupButton as FishTankBGButton} from
 
 export default Vue.extend({
   components:{
-    FishTankButtonGroup,
-    FishTankBGButton,
+    bgroup:FishTankButtonGroup,
+    gbutton:FishTankBGButton,
   },
   data: function(){
     return {
