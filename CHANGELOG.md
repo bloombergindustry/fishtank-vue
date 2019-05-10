@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.8.0"></a>
+# [4.8.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0-3...v4.8.0) (2019-05-10)
+
+
+### Bug Fixes
+
+* changed data: function(){} notation to data(){} to fix issue in build when data is beign rendered as an object eg: 'data:{}'; ([7896e72](https://github.com/bloombergbna/fishtank-vue/commit/7896e72))
+* removed 'types/' from gitignore ([c7d96c8](https://github.com/bloombergbna/fishtank-vue/commit/c7d96c8))
+* returned legacy FishTankTextInput to lib, moved new text input into FishTankTextInputV2; will deprecated in favor of new text input in new unified library ([99ccaac](https://github.com/bloombergbna/fishtank-vue/commit/99ccaac))
+
+
+### Features
+
+* implemented Popper.js to position lookup dropdown ([2e9332c](https://github.com/bloombergbna/fishtank-vue/commit/2e9332c))
+* moved column prop to shared boxMixin; updated examples to reflect ([432454a](https://github.com/bloombergbna/fishtank-vue/commit/432454a))
+
+
+
 <a name="4.8.0-3"></a>
 # [4.8.0-3](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0-2...v4.8.0-3) (2019-05-08)
 
