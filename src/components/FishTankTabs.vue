@@ -107,7 +107,7 @@ export default Vue.extend({
       }
     }
   },
-  data: function(){
+  data(){
     return{
       /*
       * Disables focus State

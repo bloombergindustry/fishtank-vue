@@ -39,7 +39,7 @@ export default Vue.extend({
   components: {
     Card
   },
-  data: function(){
+  data(){
     return{
     }
   }

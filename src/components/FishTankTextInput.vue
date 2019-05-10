@@ -200,7 +200,7 @@ export default Vue.extend({
       description:"Error state message - either a string or an object with a `fullMessage` string property",
     }
   },
-  data:function(){
+  data(){
     return {
       textAreaModel:"",
       textAreafalseHeight:44,

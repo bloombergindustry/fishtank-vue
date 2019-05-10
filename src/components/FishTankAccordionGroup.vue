@@ -16,7 +16,7 @@
     }
 
     export default Vue.extend({
-        data: function(){
+        data(){
             return{
                 registeredChildren: [],
             }

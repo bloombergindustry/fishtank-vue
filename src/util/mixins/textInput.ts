@@ -48,7 +48,7 @@ export default Vue.extend({
       description:"Error state message - either a string or an object with a `fullMessage` string property",
     }
   },
-  data:function(){
+  data(){
     return {
       identifier: (Math.random() * 10000).toFixed(0).toString(),
       isFocused:false

@@ -65,7 +65,7 @@ export default Vue.extend({
     bgroup:FishTankButtonGroup,
     gbutton:FishTankBGButton,
   },
-  data: function(){
+  data(){
     return {
       bgValue:"",
       bgValueAltBeta:"Members",

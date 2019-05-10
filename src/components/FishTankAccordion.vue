@@ -67,7 +67,7 @@
             ChevronUp24,
             ChevronSmlUp24
         },
-        data: function(){
+        data(){
             return{
                 visible: false,
                 tabFocus: false

@@ -63,7 +63,7 @@ export default Vue.extend ({
       required:false
     },
   },
-  data: function(){
+  data(){
     return {
       isSmall:this.small,
       isFocused:false,

@@ -124,7 +124,7 @@ export default Vue.extend({
       description:"Textarea type input max-height",
     },
   },
-  data:function(){
+  data(){
     return {
       textAreaModel:"",
       textAreafalseHeight:44,

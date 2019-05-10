@@ -63,7 +63,7 @@ export default Vue.extend({
       description:"Button Group ID"
     },
   },
-  data: function(){
+  data(){
     return {
       isSmall:this.small,
       isFocused:false,

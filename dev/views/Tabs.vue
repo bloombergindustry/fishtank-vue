@@ -322,7 +322,7 @@
 
           ```ts
 
-          data: function(){
+          data(){
             return{
               tabs: [ 
                 {label: 'Company Inbox', name: 'Company Inbox'}, 
@@ -368,7 +368,7 @@ export default Vue.extend({
     Alert24
   },
 
-  data: function(){
+  data(){
     return{
       tabs: [ 
         {label: 'Company Inbox', name: 'Company Inbox'}, 

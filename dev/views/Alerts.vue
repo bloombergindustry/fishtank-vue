@@ -36,7 +36,7 @@ export default Vue.extend({
     FishTankAlertInfo,
     Box: FishTankBox
   },
-  data: function(){
+  data(){
     return{
     }
   }

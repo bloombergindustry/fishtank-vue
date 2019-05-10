@@ -137,7 +137,7 @@ export default Vue.extend({
     ButtonOutlineDarkSmall,
   },
 
-  data: function(){
+  data(){
     return{
 
       //Relevant to ButtonGradient
