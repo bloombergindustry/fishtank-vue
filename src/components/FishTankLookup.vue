@@ -28,7 +28,8 @@
           ref="items"
           slot="below"
           role="listbox"
-          class="items">
+          class="items"
+          :style="{'width':dropdownStyle}">
           <hightlight
             v-for="(item, index) in items"
             :id="`option-${index}`"
@@ -101,7 +102,7 @@ export default {
     /**
      * Width of dropdown
      */
-    dropdownWidth: Number,
+    width: Number,
 
     /**
      * Current selected value
@@ -125,7 +126,7 @@ export default {
   },
   computed:{
     dropdownStyle(){ 
-      return `width: ` + (this.dropdownWidth ? `${this.dropdownWidth}px `: `200px`)
+      return this.$props.width || '200px'
     }
   },
   watch: {
@@ -177,13 +178,24 @@ export default {
       if (this.inputEl === undefined) this.inputEl = document.querySelector(`.${this.$refs.query.$el.className}` )
       // if (this.dropdownEl === undefined) this.dropdownEl = document.querySelector(`.${this.$refs.items.$el.className}` )
       // console.log(this.$refs.items)
-      this.$nextTick(()=>{
+      // this.$nextTick(()=>{
 
-        this.popObj = new Popper(this.inputEl,this.$refs.items,{
+        
+      // })
+      this.popObj = new Popper(this.inputEl,this.$refs.items,{
           positionFixed:true,
-          
+          placement:'left',
+          modifiers:{
+            computeStyle:{
+              gpuAcceleration:false,
+              // y:'left'
+            },
+            offset: {
+              enabled: true,
+              offset: '20px, -100%'
+            }
+          }
         })
-      })
     }
   }
 }
@@ -204,7 +216,8 @@ export default {
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
       // position: absolute;
       // top: 100%;
-      // width: calc(100% - 2px);
+      width: 400px;
+      left:0;
       // z-index: 10;
       margin-top:$baseline;
 
