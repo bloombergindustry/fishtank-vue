@@ -55,6 +55,7 @@
               label="Autocomplete Label"
               orientation="ltr"
               url="/some_autocomplete_endpoint"
+              :width="400"
               v-model="selected" />
           </card>
           <card>
