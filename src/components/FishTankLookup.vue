@@ -6,8 +6,8 @@
         class="input-wrapper"
         role="combobox">
         <text-input 
-          :id="id ? `${id}-input` : `${identifier}-input`"
           ref="query"
+          :id="id ? `${id}-input` : `${identifier}-input`"
           v-model="query"
           type="text"
           icon="search_24"
@@ -20,16 +20,16 @@
           aria-autocomplete="list" 
           :aria-activedescendant="`option-${focusedItem}`"
           :aria-labelledby="label" 
-          @blur="focused=false" 
-          @focus="focused=true"
-          @click="showPop"/>
+          @blur.stop="focused=false, destroyPop()" 
+          @focus.stop="focused=true, showPop()" />
         <div
+          v-if="focused"
           :id=" id ? `${id}-listbox` : `${identifier}-listbox`"
           ref="items"
           slot="below"
           role="listbox"
           class="items"
-          :style="{'width':dropdownStyle}">
+          :style="{width:dropdownStyle}">
           <hightlight
             v-for="(item, index) in items"
             :id="`option-${index}`"
@@ -119,14 +119,14 @@ export default {
       focused: false,
       focusedItem: -1,
       query: this.value ? this.value.label : '',
-      popObj:null,
+      popObj:undefined,
       inputEl:undefined,
       dropdownEl:undefined,
     }
   },
   computed:{
     dropdownStyle(){ 
-      return this.$props.width || '200px'
+      return (this.$props.width +`px`) || '200px'
     }
   },
   watch: {
@@ -141,7 +141,7 @@ export default {
     }
   },
   destroyed(){
-    if(this.popObj!==undefined) this.popObj.destroy()
+    if(this.popObj!==undefined) this.destroyPop()
   },
   methods: {
     /**
@@ -173,29 +173,34 @@ export default {
       this.focused = false
       this.$emit('change', item)
       this.query = item.label
+      this.$nextTick(function(){
+        this.destroyPop()
+      })
     },
     showPop(){
-      if (this.inputEl === undefined) this.inputEl = document.querySelector(`.${this.$refs.query.$el.className}` )
-      // if (this.dropdownEl === undefined) this.dropdownEl = document.querySelector(`.${this.$refs.items.$el.className}` )
-      // console.log(this.$refs.items)
-      // this.$nextTick(()=>{
-
-        
-      // })
-      this.popObj = new Popper(this.inputEl,this.$refs.items,{
-          positionFixed:true,
-          placement:'left',
+      // if (this.inputEl === undefined) this.inputEl = document.querySelector()
+      // this.inputEl = this.$refs.query
+      this.inputEl = document.querySelector('.input-element')
+      this.$nextTick(function(){
+        this.popObj = new Popper(this.inputEl,this.$refs.items ,{
+          placement:'bottom-start',
           modifiers:{
             computeStyle:{
-              gpuAcceleration:false,
+              gpuAcceleration:true,
               // y:'left'
             },
             offset: {
-              enabled: true,
-              offset: '20px, -100%'
+              // enabled: true,
+              // offset: '0px, -100%'
             }
           }
         })
+      })
+    },
+    destroyPop(){
+      this.$nextTick(function(){
+        if(this.popObj!==undefined) this.popObj.destroy()
+      })
     }
   }
 }
@@ -205,22 +210,15 @@ export default {
 @import '../styles/mixins';
 .Autocomplete {
   font-family: 'Open Sans', sans-serif;
-
   .input-wrapper {
-    // position: relative;
-
     .items {
+      z-index: 10;
       background-color: #fff;
       border: 1px solid $color-gray-lighter;
       border-radius: 2px;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
-      // position: absolute;
-      // top: 100%;
-      width: 400px;
       left:0;
-      // z-index: 10;
       margin-top:$baseline;
-
       &:empty { display: none; }
       .item {
         display: block;

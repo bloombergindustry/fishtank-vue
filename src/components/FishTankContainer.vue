@@ -55,7 +55,6 @@ export default Vue.extend({
     boxMixin
   ],
   props:{
-    container:Boolean,
     fluid: Boolean
   },
   methods:{
