@@ -50,7 +50,12 @@
             Stacked Card
           </card>
           <card>
-            Stacked Card
+            <lookup
+              id="autocomplete_example"
+              label="Autocomplete Label"
+              orientation="ltr"
+              url="/some_autocomplete_endpoint"
+              v-model="selected" />
           </card>
           <card>
             Stacked Card
@@ -168,9 +173,10 @@ import {
   FishTankBox,
   FishTankCard,
   FishTankText,
-  FishTankHeading
+  FishTankHeading,
+  FishTankLookup
 } from "@/index"
-
+const moxios = require('moxios')
 export default Vue.extend({
   components:{
     container:FishTankContainer,
@@ -178,7 +184,40 @@ export default Vue.extend({
     box:FishTankBox,
     card:FishTankCard,
     ftext:FishTankText,
-    heading:FishTankHeading
+    heading:FishTankHeading,
+    lookup:FishTankLookup,
+  },
+  data(){
+    return {
+      selected: null,
+    }
+  },
+  created () {
+    moxios.install()
+    moxios.stubRequest(/\/some_autocomplete_endpoint\?query=.+$/, {
+      status: 200,
+      response: {
+        "data": {
+          "items": [
+            { label: "Some item 1", value: "Some item 1" },
+            { label: "Some item 2", value: "Some item 2" },
+            { label: "Some item 3", value: "Some item 3" },
+            { label: "Some item 4", value: "Some item 4" },
+            { label: "Some item 5", value: "Some item 5" }
+          ]
+        }
+      }
+    })
+
+    // Mock empty request
+    // moxios.stubRequest(/\/some_autocomplete_endpoint\?query=$/, {
+    //   status: 200,
+    //   response: {
+    //     "data": {
+    //       "items": []
+    //     }
+    //   }
+    // })
   }
 })
 
