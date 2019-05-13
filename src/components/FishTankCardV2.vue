@@ -2,7 +2,8 @@
   <div class="card">
     <div
       v-if="branded"
-      :class="[branded, $style.brandStripe]" />
+      :class="[branded, $style.brandStripe]" 
+      :style="returnBrandStripe()"/>
     <div 
       :class="$style.container">
       <slot
@@ -26,6 +27,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
+ import ftColorsObj from '@fishtank/colors/dist/text.common.js'
+ import {
+   mapping,
+   toggle
+ } from '../util/transform'
+ import {
+   propToFishtankColorName
+ } from '../util/mappers'
+ import {
+   Style,
+   InlineStyle,
+   fromInlineStyle,
+   identity,
+   fromClassName,
+   mapClassName,
+   concat,
+   toProps
+ } from '../util/style'
 export default Vue.extend({
   props: {
     heading: {
@@ -39,8 +58,12 @@ export default Vue.extend({
       required: false,
       default: undefined,
       description:"Card displays a branded header strip or background color."
+    },
+  },
+  methods: {
+    returnBrandStripe():string {
+      return `background-color: ${this.branded};`
     }
-
   }
 })
 </script>
@@ -93,7 +116,7 @@ export default Vue.extend({
   } 
 
   .body {
-    padding: $baseline * 3;
+    // padding: $baseline * 3;
     border-radius: 2px;
     background-color: $color-white;
     border: 1px solid $color-gray-lighter;

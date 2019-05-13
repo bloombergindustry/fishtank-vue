@@ -16,6 +16,7 @@ export { default as ButtonOutlineDark} from "./components/FishTankButtonOutlineD
 export { default as ButtonOutlineSmall} from "./components/FishTankButtonOutlineSmall.vue"
 export { default as ButtonOutlineDarkSmall} from "./components/FishTankButtonOutlineDarkSmall.vue"
 export { default as Card } from "./components/FishTankCard.vue"
+export { default as CardV2 } from "./components/FishTankCardV2.vue"
 export { default as InputCheckbox } from "./components/FishTankCheckbox.vue"
 export { default as InputRadio } from "./components/FishTankRadio.vue"
 export { default as InputSwitch } from "./components/FishTankSwitch.vue"
