@@ -61,7 +61,6 @@ export default Vue.extend({
     boxMixin
   ],
   props:{
-    container:Boolean,
     fluid: Boolean,
     display: {
       type:String,
@@ -102,5 +101,5 @@ export default Vue.extend({
 </script>
 <style module lang="scss">
 @import "../styles/box/column";
-
+@import "../styles/box/grid";
 </style>

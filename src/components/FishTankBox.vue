@@ -541,6 +541,7 @@ export default Vue.extend({
 @import "../styles/box/box-whitespaces";
 @import "../styles/box/box-layout";
 @import "../styles/box/box-column";
+@import "../styles/box/grid";
 @import "../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
 input {
   width: 100%;

@@ -28,7 +28,7 @@ export default Vue.extend({
     },
     column: {
       type:Number,
-      default:null,
+      default:undefined,
       required:false,
       validator: function(value: Column){
         return (0<value && 13>value)

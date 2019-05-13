@@ -1,0 +1,247 @@
+$ncols: 12;
+.xsCol1 {
+  width: calc(1 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol2 {
+  width: calc(2 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol3 {
+  width: calc(3 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol4 {
+  width: calc(4 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol5 {
+  width: calc(5 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol6 {
+  width: calc(6 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol7 {
+  width: calc(7 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol8 {
+  width: calc(8 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol9 {
+  width: calc(9 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol10 {
+  width: calc(10 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol11 {
+  width: calc(11 / #{$ncols} * 100% - 32px);
+}
+
+.xsCol12 {
+  width: calc((12 / #{$ncols} * 100% - 32px));
+}
+
+@media (min-width:480px) {
+  .smCol1 {
+    width: calc(1 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol2 {
+    width: calc(2 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol3 {
+    width: calc(3 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol4 {
+    width: calc(4 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol5 {
+    width: calc(5 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol6 {
+    width: calc(6 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol7 {
+    width: calc(7 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol8 {
+    width: calc(8 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol9 {
+    width: calc(9 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol10 {
+    width: calc(10 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol11 {
+    width: calc(11 / #{$ncols} * 100% - 32px);
+  }
+
+  .smCol12 {
+    width: calc(12 / #{$ncols} * 100% - 32px);
+  }
+}
+
+@media (min-width:752px) {
+  .mdCol1 {
+    width: calc(1 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol2 {
+    width: calc(2 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol3 {
+    width: calc(3 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol4 {
+    width: calc(4 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol5 {
+    width: calc(5 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol6 {
+    width: calc(6 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol7 {
+    width: calc(7 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol8 {
+    width: calc(8 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol9 {
+    width: calc(9 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol10 {
+    width: calc(10 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol11 {
+    width: calc(11 / #{$ncols} * 100% - 32px);
+  }
+
+  .mdCol12 {
+    width: calc(12 / #{$ncols} * 100% - 32px);
+  }
+}
+
+@media (min-width: 1008px) {
+  .lgCol1 {
+    width: calc(1 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol2 {
+    width: calc(2 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol3 {
+    width: calc(3 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol4 {
+    width: calc(4 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol5 {
+    width: calc(5 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol6 {
+    width: calc(6 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol7 {
+    width: calc(7 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol8 {
+    width: calc(8 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol9 {
+    width: calc(9 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol10 {
+    width: calc(10 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol11 {
+    width: calc(11 / #{$ncols} * 100% - 32px);
+  }
+
+  .lgCol12 {
+    width: calc(12 / #{$ncols} * 100% - 32px);
+  }
+}
+@media (min-width: 1440px) {
+  .xlCol1 {
+    width: calc(1 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol2 {
+    width: calc(2 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol3 {
+    width: calc(3 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol4 {
+    width: calc(4 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol5 {
+    width: calc(5 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol6 {
+    width: calc(6 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol7 {
+    width: calc(7 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol8 {
+    width: calc(8 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol9 {
+    width: calc(9 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol10 {
+    width: calc(10 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol11 {
+    width: calc(11 / #{$ncols} * 100% - 32px);
+  }
+
+  .xlCol12 {
+    width: calc(12 / #{$ncols} * 100% - 32px);
+  }
+}
