@@ -8,10 +8,12 @@
       :class="$style.container">
       <slot
         :headerClass="$style.heading"
+        
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
         :class="$style.heading"
+        :style="customHeading ? returnHeaderStripe() : '' "
         role="heading"
         aria-level="3">
         {{ heading }}
@@ -27,24 +29,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
- import ftColorsObj from '@fishtank/colors/dist/text.common.js'
- import {
-   mapping,
-   toggle
- } from '../util/transform'
- import {
-   propToFishtankColorName
- } from '../util/mappers'
- import {
-   Style,
-   InlineStyle,
-   fromInlineStyle,
-   identity,
-   fromClassName,
-   mapClassName,
-   concat,
-   toProps
- } from '../util/style'
 export default Vue.extend({
   props: {
     heading: {
@@ -59,10 +43,19 @@ export default Vue.extend({
       default: undefined,
       description:"Card displays a branded header strip or background color."
     },
+    customHeading: {
+      type: String,
+      required: false,
+      default: undefined,
+      description:"Card displays a custom heading or background color."
+    },
   },
   methods: {
     returnBrandStripe():string {
       return `background-color: ${this.branded};`
+    },
+    returnHeaderStripe():string{
+      return `background-color: ${this.customHeading}; border: none; color: #FFFFFF;`
     }
   }
 })

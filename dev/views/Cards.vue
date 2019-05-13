@@ -54,6 +54,7 @@
 
     <CardV2
       heading="I am a custom card heading"
+      :customHeading="brandedColor"
     >
       I am card content
     </CardV2>
