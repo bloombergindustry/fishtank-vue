@@ -50,6 +50,7 @@
             Stacked Card
           </card>
           <card>
+            <div v-if="selected">{{selected.label}}</div>
             <lookup
               id="autocomplete_example"
               label="Autocomplete Label"
