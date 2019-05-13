@@ -7,8 +7,7 @@
     <div 
       :class="$style.container">
       <slot
-        :headerClass="$style.heading"
-        
+        :headerClass="$style.heading"     
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
