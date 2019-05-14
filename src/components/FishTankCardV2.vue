@@ -2,16 +2,16 @@
   <div class="card">
     <div
       v-if="branded"
-      :class="[branded, $style.brandStripe]" 
+      class="branded brandStripe" 
       :style="returnBrandStripe()"/>
     <div 
-      :class="$style.container">
+      class="container">
       <slot
-        :headerClass="$style.heading"     
+        :headerClass=" heading"     
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
-        :class="$style.heading"
+        class="heading"
         :style="customHeadingBg ? returnHeaderStripe() : '' "
         role="heading"
         aria-level="3">
@@ -19,7 +19,7 @@
       </div>
 
       <div
-        :class="$style.body">
+        class="body">
         <slot />
       </div>
     </div>
@@ -73,10 +73,8 @@ export default Vue.extend({
 }
 </style>
 
-<style module lang="scss">
+<style scope lang="scss">
   @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
 
   .container {
     box-sizing: border-box;
