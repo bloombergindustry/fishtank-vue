@@ -53,8 +53,9 @@
     </CardV2>
 
     <CardV2
-      heading="I am a custom card heading"
-      :customHeading="brandedColor"
+      heading="Heading with custom background"
+      :customHeadingBg="brandedColor"
+      :customHeadingText="brandedColorText"
     >
       I am card content
     </CardV2>
@@ -77,7 +78,8 @@ export default Vue.extend({
   },
   data: function(){
     return{
-      brandedColor: "#3DA774"
+      brandedColor: "#3DA774",
+      brandedColorText:"#FFFFFF"
     }
   }
 })

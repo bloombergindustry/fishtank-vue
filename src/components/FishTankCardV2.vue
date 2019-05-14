@@ -12,7 +12,7 @@
       <div 
         v-if="!$slots.heading && heading"
         :class="$style.heading"
-        :style="customHeading ? returnHeaderStripe() : '' "
+        :style="customHeadingBg ? returnHeaderStripe() : '' "
         role="heading"
         aria-level="3">
         {{ heading }}
@@ -42,7 +42,13 @@ export default Vue.extend({
       default: undefined,
       description:"Card displays a branded header strip or background color."
     },
-    customHeading: {
+    customHeadingBg: {
+      type: String,
+      required: false,
+      default: undefined,
+      description:"Card displays a custom heading or background color."
+    },
+    customHeadingText: {
       type: String,
       required: false,
       default: undefined,
@@ -54,7 +60,7 @@ export default Vue.extend({
       return `background-color: ${this.branded};`
     },
     returnHeaderStripe():string{
-      return `background-color: ${this.customHeading}; border: none; color: #FFFFFF;`
+      return `background-color: ${this.customHeadingBg}; border: none; color:${this.customHeadingText};`
     }
   }
 })
