@@ -1,5 +1,9 @@
 <template>
   <div>
+    <br>
+    <h1>FishTankCards V1</h1>
+    <br>
+
     <Card>
       I am a plain card
     </Card>
@@ -27,20 +31,61 @@
     >
       I am a branded card
     </Card>
+
+    <br>
+    <h1>FishTankCards V2</h1>
+    <br>
+
+    <CardV2>
+      I am a plain card
+    </CardV2>
+
+    <CardV2
+      :branded="brandedColor"
+    >
+      I am a branded plain card
+    </CardV2>
+
+    <CardV2 
+      heading="I am a card heading"
+    >
+      I am card content
+    </CardV2>
+
+    <CardV2
+      heading="Heading with custom background"
+      :customHeadingBg="brandedColor"
+      :customHeadingText="brandedColorText">
+      I am card content
+    </CardV2>
+
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Card } from '@/index'
+import { 
+  Card,
+  CardV2 
+} from '@/index'
 import { mapClassName } from '@/util/style'
+
+import{
+  colorAction,
+  colorWhite,
+}from '@fishtank/colors/dist/index.common'
+
+// const BgColor = require('@fishtank/colors/dist/index.common').colorAction
 
 export default Vue.extend({
   components: {
-    Card
+    Card,
+    CardV2
   },
   data(){
     return{
+      brandedColor: colorAction,
+      brandedColorText: colorWhite
     }
   }
 })
