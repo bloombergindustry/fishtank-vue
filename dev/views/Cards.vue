@@ -55,8 +55,7 @@
     <CardV2
       heading="Heading with custom background"
       :customHeadingBg="brandedColor"
-      :customHeadingText="brandedColorText"
-    >
+      :customHeadingText="brandedColorText">
       I am card content
     </CardV2>
 
@@ -71,6 +70,13 @@ import {
 } from '@/index'
 import { mapClassName } from '@/util/style'
 
+import{
+  colorAction,
+  colorWhite,
+}from '@fishtank/colors/dist/index.common'
+
+// const BgColor = require('@fishtank/colors/dist/index.common').colorAction
+
 export default Vue.extend({
   components: {
     Card,
@@ -78,8 +84,8 @@ export default Vue.extend({
   },
   data: function(){
     return{
-      brandedColor: "#3DA774",
-      brandedColorText:"#FFFFFF"
+      brandedColor: colorAction,
+      brandedColorText: colorWhite
     }
   }
 })
