@@ -42,6 +42,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Tags.vue")
     },
     {
+      path: '/verticaltabs',
+      component: () => import("./views/VerticalTabs.vue")
+    },
+    {
       path: '/textinput',
       component: () => import("./views/TextInput.vue")
     },

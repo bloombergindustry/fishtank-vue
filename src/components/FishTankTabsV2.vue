@@ -225,6 +225,9 @@ export default Vue.extend({
 }
 
 .Tabs{
+  .body{
+    border: transparent;
+  }
   .body .content {
       &:hidden { display: none; }
   }

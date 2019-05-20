@@ -20,6 +20,7 @@
       <li><a href="#/buttongroup">Button Group</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>
       <li><a href="#/tabs">Tabs</a></li>
+      <li><a href="#/verticaltabs">VerticalTabs</a></li>
       <li><a href="#/text">Text</a></li>
       <li><a href="#/heading">Heading</a></li>
       <li><a href="#/pagination">Pagination</a></li>
