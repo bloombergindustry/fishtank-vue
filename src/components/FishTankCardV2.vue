@@ -12,7 +12,7 @@
       <div 
         v-if="!$slots.heading && heading"
         class="heading"
-        :style="customHeadingBg ? returnHeaderStripe() : '' "
+        :style="customHeadingBg ? returnHeaderStripe() :'' "
         role="heading"
         aria-level="3">
         {{ heading }}
@@ -66,7 +66,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../styles/mixins';
 .card + .card {
   margin-top: $baseline * 6;

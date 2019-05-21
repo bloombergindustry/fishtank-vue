@@ -4,7 +4,7 @@
     color="highlight1"
     display="flex"
     direction="column"
-    justify-content="center"
+    justify-content="Start"
     :padding="4"
 >
     <FishTankText
@@ -26,8 +26,9 @@
       type="div"
       color="white"
       display="flex"
-      direction="column"
-      justify-content="center"
+      direction="row"
+      justify-content="start"
+      padding="4"
     >
 
       <FishTankTabsV2
@@ -37,110 +38,115 @@
         @change="activeDefaultTab1=$event.name"
       >
         <template :slot="tabs[0].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[0].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[0].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
         <template :slot="tabs[1].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[1].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+     
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[1].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
         <template :slot="tabs[2].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[2].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+         
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[2].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
         <template :slot="tabs[3].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[3].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+    
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[3].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
         <template :slot="tabs[4].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[4].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+         
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[4].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
         <template :slot="tabs[5].name">
-          <FishTankBox 
-            type="section"
-            :margin="6"
-          > 
-            <FishTankText
-              class="margin-spacing"
-              size="baseMd"
-              font="primary"
-              :italic="true"
-              align="left"
-            >  This is the '{{tabs[5].name}}' content. You are able to see this text because this tab is currently active.
-            </FishTankText>
-          </FishTankBox>
+         
+            <CardV2
+              class="margin-side"
+              :branded="CompanyInboxColor"
+            >
+              <FishTankText
+                class="padding-spacing"
+                size="baseMd"
+                font="primary"
+                :italic="true"
+                align="left"
+              >  This is the '{{tabs[5].name}}' content. You are able to see this text because this tab is currently active.
+              </FishTankText>
+            </CardV2>
         </template>
 
       </FishTankTabsV2>
 
-      <FishTankTabsV2
+      <!-- <FishTankTabsV2
         class="margin-spacing"
         :items="tabs"
         :divider="true"
         :active="activeDefaultTab2"
         @change="test(activeDefaultTab2=$event.name)"
-      ></FishTankTabsV2>
+      ></FishTankTabsV2> -->
 
     </FishTankBox>
 
@@ -154,7 +160,8 @@ import Vue from 'vue'
 import { 
   FishTankBox,
   FishTankText,
-  FishTankTabsV2
+  FishTankTabsV2,
+  CardV2
 } from '@/index'
 
 
@@ -168,6 +175,7 @@ export default Vue.extend({
     FishTankBox,
     FishTankText,
     FishTankTabsV2,
+    CardV2,
     Alert24
   },
 
@@ -187,7 +195,8 @@ export default Vue.extend({
         {label: 'Profile', name: 'Profile', disabled: true}
       ],
       activeDefaultTab1: 'Company Inbox',
-      activeDefaultTab2: 'Company Inbox'
+      activeDefaultTab2: 'Company Inbox',
+      CompanyInboxColor: "#3DA774"
     }
   },
   methods:{
@@ -208,6 +217,12 @@ export default Vue.extend({
 .margin-spacing{
   margin-top: 48px;
   margin-bottom: 24px;
+}
+.padding-spacing{
+  padding: 12px;
+}
+.margin-side{
+  margin: 0px 24px;
 }
 .margin-bottom{
   margin-bottom: 24px; 

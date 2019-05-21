@@ -45,7 +45,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../styles/mixins';
 .card + .card {
   margin-top: $baseline * 6;
