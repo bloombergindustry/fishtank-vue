@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]">
+    :class="['text-input-wrap',{ 'error': !!errorMessage }]">
     <div :class="orientation">
       <div
         v-if="label"
@@ -31,6 +31,7 @@
         </span>
         <input
           ref="input"
+          autocomplete="new-password"
           :type="type"
           :value="value"
           :id="(id || `textinput-${identifier}-id`)"
@@ -79,94 +80,111 @@
 </template>
 
 <script lang="ts">
-
-import Vue from "vue"
+ /**
+  * @displayName Text Input
+  */
 import {textInput, orientation} from "../util/mixins"
+import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
 
 import { 
   CloseSml24 as CloseIcon, 
   Warning24 as WarningIcon
-  }  from "@fishtank/icons-vue"
+}  from "@fishtank/icons-vue"
+
 import FishTankText  from './FishTankText.vue';
-export default Vue.extend({
+
+@Component({
   components: {
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon,
     ftext:FishTankText
   },
-  props:{ 
-    type: {
-      required: false,
-      default: "text",
-      type: String,
-      validator: (value: string) => {
-        const textTypes = [
-          "text",
-          "password",
-          "email",
-          "search",
-          "number",
-          "tel",
-          "url",
-        ]
-
-        return textTypes.indexOf(value.toLowerCase()) > -1
-      },
-      description:"Text input type - text | textarea | password | email | search | number | tel | url",
-    },
-  },
   mixins:[
     textInput,
     orientation
   ],
-  inheritAttrs: false,
-  computed: {
-    showRightIcon(): boolean {
-      return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
-    },
-    numberType(){
-      if(this.$props.type === "number"){
-        return true
-      }
-    },
-    listeners(): Record<string, Function | Function[]> {
-      return {
-        ...this.$listeners,
-        input: ($event: any) => {
-          this.updateValue($event.target.value)
-        }
-      }
-    },
-    getColor(): string{
-      return this.$props.error ? "error" : "black"
-    }
-  },
-  methods: {
-    updateValue(value: string | undefined) {
-      
-      this.$emit("input", value)       
-    },
-    checkError(){
-      if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
-         return
-      }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){
-        return
-      }else{
-        this.reset()
-      }
-    },
-    reset(){
-     this.$emit("reset",null)
-    },
-    clearText() {
-      this.updateValue(undefined)
-      this.focusElement(this.$refs.input as HTMLInputElement)
-    },
-    focusElement(element: HTMLElement) {
-      element.focus()
-    },
-  },
 })
+export default class TextInput extends Vue {
+  /** Triggered input element is blurred
+ * @event blur
+ * @type {Event}
+ */
+/** Triggered input element is focused
+ * @event focus
+ * @type {Event}
+ */
+/** Triggered input element is changed (compatible with v-model)
+ * @event input
+ * @type {Event}
+ */
+/**
+ * Default text input element.
+ * NOTE: Uses autocomplete="new-password" to disable native autocomplete from Chrome
+ */
+
+/**
+ * The input type
+ */
+  @Prop(String) type: string
+  
+  get showRightIcon(): boolean {
+    return !!this.$slots.rightIcon || ((this as any).value && (this as any).value.length > 0)
+  }
+
+  get listeners(): Record<string, Function | Function[]> {
+    return {
+      ...this.$listeners,
+      input: ($event: any) => {
+        this.updateValue($event.target.value)
+      }
+    }
+  }
+
+  get numberType(){
+    if(this.$props.type === "number"){
+      return true
+    }
+  }
+
+  get getColor(): string{
+    return this.$props.error ? "error" : "black"
+  }
+
+  updateValue(value: string | undefined) {
+    /**
+     * Input event on keypress
+     */
+    this.$emit("input", value)       
+  }
+
+  checkError(){
+    /**
+     * Check error event
+     * @private
+     */
+    if(this.$props.error === undefined  || this.$props.error === null || this.$props.error.length === 0 ){
+        return
+    }else if( this.$props.error.fullMessage != undefined || this.$props.error.fullMessage != null ){
+      return
+    }else{
+      this.reset()
+    }
+  }
+
+  reset(){
+    this.$emit("reset",null)
+  }
+
+  clearText() {
+    this.updateValue(undefined)
+    this.focusElement(this.$refs.input as HTMLInputElement)
+  }
+
+  focusElement(element: HTMLElement) {
+    element.focus()
+  }
+
+}
 </script>
 
 <style scoped lang="scss">
@@ -272,7 +290,7 @@ export default Vue.extend({
     bottom: 0;
   }
 
-  .text-input {
+  .text-input-wrap {
     padding-bottom: $baseline * 6;
   }
 

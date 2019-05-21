@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['text-input',{ 'error': !!errorMessage }]"
+    :class="['text-input-wrap',{ 'error': !!errorMessage }]"
   >
     <div
       v-if="label"
@@ -403,7 +403,7 @@ export default Vue.extend({
     bottom: 0;
   }
 
-  .text-input {
+  .text-input-wrap {
     padding-bottom: $baseline * 6;
   }
 
