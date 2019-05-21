@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.9.0"></a>
+# [4.9.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0...v4.9.0) (2019-05-21)
+
+
+### Bug Fixes
+
+* adjusted wrapping class name around text input. ([353f8c0](https://github.com/bloombergbna/fishtank-vue/commit/353f8c0))
+
+
+### Features
+
+* added version 2 of cards component ([ac6504b](https://github.com/bloombergbna/fishtank-vue/commit/ac6504b))
+* made changes to how branding stripe colors are updated ([f0db82c](https://github.com/bloombergbna/fishtank-vue/commit/f0db82c))
+* minor changes to how colors are being updates ([3886ec8](https://github.com/bloombergbna/fishtank-vue/commit/3886ec8))
+* refactored grid css into grid.scss to allow box and column to share the same grid styles. ([371a2ea](https://github.com/bloombergbna/fishtank-vue/commit/371a2ea))
+* Refactored Lookup to use Popper.js to dynamically position popup on scroll ([13ea4e0](https://github.com/bloombergbna/fishtank-vue/commit/13ea4e0))
+* updated card v2 to use scoped styles instead of css modules. also updated props descriptions ([cc4ef29](https://github.com/bloombergbna/fishtank-vue/commit/cc4ef29))
+* updated cards v2 so text and background are customizable ([9252085](https://github.com/bloombergbna/fishtank-vue/commit/9252085))
+* updated changes custom card heading ([ced424b](https://github.com/bloombergbna/fishtank-vue/commit/ced424b))
+* updated more changes custom card heading ([d8bb2ea](https://github.com/bloombergbna/fishtank-vue/commit/d8bb2ea))
+* Updated package.json to install latest version of VueJ and vue-template-compiler compatible with vue@2.5.17, rather than fixing to 2.5.17. ([8a2bb3e](https://github.com/bloombergbna/fishtank-vue/commit/8a2bb3e))
+
+
+
 <a name="4.8.0"></a>
 # [4.8.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0-3...v4.8.0) (2019-05-10)
 
