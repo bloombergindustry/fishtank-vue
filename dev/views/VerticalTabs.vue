@@ -25,13 +25,10 @@
     <FishTankBox 
       type="div"
       color="white"
-      display="flex"
-      direction="row"
-      justify-content="start"
       :padding="6"
     >
 
-      <FishTankTabsV2
+      <FishTankVerticalTabs
         class="margin-spacing"
         :items ="tabs"
         :active="activeDefaultTab1"
@@ -138,15 +135,15 @@
             </CardV2>
         </template>
 
-      </FishTankTabsV2>
+      </FishTankVerticalTabs>
 
-      <!-- <FishTankTabsV2
+      <FishTankVerticalTabs
         class="margin-spacing"
         :items="tabs"
         :divider="true"
         :active="activeDefaultTab2"
         @change="test(activeDefaultTab2=$event.name)"
-      ></FishTankTabsV2> -->
+      ></FishTankVerticalTabs>
 
     </FishTankBox>
 
@@ -160,7 +157,7 @@ import Vue from 'vue'
 import { 
   FishTankBox,
   FishTankText,
-  FishTankTabsV2,
+  FishTankVerticalTabs,
   CardV2
 } from '@/index'
 
@@ -174,7 +171,7 @@ export default Vue.extend({
   components: {
     FishTankBox,
     FishTankText,
-    FishTankTabsV2,
+    FishTankVerticalTabs,
     CardV2,
     Alert24
   },

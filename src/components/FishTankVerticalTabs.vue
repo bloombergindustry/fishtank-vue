@@ -167,7 +167,6 @@ export default Vue.extend({
   > span {
     padding-left: 12px;
     border-right: 4px solid transparent;
-    // transition: all .3s ease-in-out;
   }
 
   
