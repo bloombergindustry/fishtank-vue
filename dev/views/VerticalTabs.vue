@@ -28,7 +28,7 @@
       display="flex"
       direction="row"
       justify-content="start"
-      padding="4"
+      :padding="6"
     >
 
       <FishTankTabsV2

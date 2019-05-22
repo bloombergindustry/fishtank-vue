@@ -2,13 +2,12 @@
   <div 
     class="Tabs" 
     :disabled="disabled">
-    <table>
-    <tr 
+    <div class="tabs-wrapper">
+    <div 
       class="header" 
       :style="headerStyleObject"
-      :class="[divider ? 'seperator': 'no-seperator']"
       role="menubar">
-      <td
+      <div
         :class="['title', focus ? 'no-focus' : 'focus']" 
         :style="titleStyleObject" 
         v-for="(item, index) in items" 
@@ -23,11 +22,11 @@
         role="menuitem">
         <slot 
           :name="`${item.name}-title`">
-          <span>{{ item.label }}</span>
+          <span class="label">{{ item.label }}</span>
         </slot>
-      </td>
-    </tr>
-    </table>
+      </div>
+    </div>
+    </div>
 
     <div class="body">
       <div 
@@ -59,15 +58,6 @@ export default Vue.extend({
      * Disabled state of entire component
      */
     disabled: Boolean,
-
-    /**
-     * Disables seperator style line on tab component
-     */
-    divider: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
 
     /**
      * Array of children with nested grandchildren
@@ -146,20 +136,16 @@ export default Vue.extend({
    justify-content: flex-start;
  }
 
+.tabs-wrapper{
+}
+
 .header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   // padding: 0 6px;
   margin-bottom: var(--tab-header-margin-bottom, unset);
-}
-
-.seperator{
-  border-bottom: 1px solid var(--border-color, lightgray);
-}
-
-.no-seperator{
-  border-bottom: 1px solid transparent;
+  
 }
 
 .focus:focus{
@@ -169,37 +155,31 @@ export default Vue.extend({
 .no-focus:focus{
   outline: transparent;
 }
-table{
-  border-collapse: collapse;
-}
-tr{
-  border: 1px solid var(--border-color, lightgray);
-}
-
-td{
-  // width: 100%;
-  border-bottom: 1px solid var(--border-color, lightgray);
-}
 
 .title {
-  // align-self: center;
-  // border-bottom: 3px solid var(--border-color, lightgray);
-  cursor: pointer;
-  display: flex;
-  font-size: 16px;
-  font-weight: 400;
+  cursor: pointer;                                                                                                                                             
+  font-size: $fontsize-base-lg;
+  font-weight: $fontweight-regular;
+  line-height: $lineheight-base-lg;
   padding: 12px;
-  width: 100%;
+  padding-left: 0px;
+  // width: 100%;
   color: var(--color-gray-dark);
+  border: 1px solid var(--border-color, lightgray);
+  border-top: transparent;
+
   transition: all .3s ease-in-out;
 
   > span {
-    margin-left: var(--tab-title-span-margin-left, 5px);
-    margin-right: var(--tab-title-span-margin-right, unset);
+    // margin-left: var(--tab-title-span-margin-left, 5px);
+    // margin-right: var(--tab-title-span-margin-right, unset);
+    padding-left: 12px;
+    border-right: 4px solid transparent;
+    transition: all .3s ease-in-out;
   }
 
   &:not(:last-child) {
-    margin-right: var(--tab-title-margin-right, 15px);
+    // margin-right: var(--tab-title-margin-right, 15px);
   }
 
   &:hover {
@@ -215,14 +195,23 @@ td{
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    > span{
+      border-left: 4px solid var(--active-color,  #0D9DDB);
+    }
   }
   &[active] {
-    // border-color: var(--active-color, #0D9DDB);
+    border-right: transparent;
+    border-left: transparent;
     // border-width: 4px;
-    color: var(--active-tab-title-color);
+    color: var(--active-color,  #0D9DDB);
+    font-weight: 600;
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+    > span{
+      border-left: 4px solid var(--active-color,  #0D9DDB);
+    }
   }
   &:disabled {
     color: var(--color-disabled, #C5CACD);
