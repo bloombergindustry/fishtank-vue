@@ -4,7 +4,7 @@
     color="highlight1"
     display="flex"
     direction="column"
-    justify-content="Start"
+    justify-content="start"
     :padding="4"
 >
     <FishTankText
@@ -40,7 +40,7 @@
         <template :slot="tabs[0].name">
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[0].name"
             >
               <FishTankText
                 class="padding-spacing"
@@ -57,7 +57,7 @@
      
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[1].name"
             >
               <FishTankText
                 class="padding-spacing"
@@ -74,7 +74,7 @@
          
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[2].name"
             >
               <FishTankText
                 class="padding-spacing"
@@ -91,7 +91,7 @@
     
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[3].name"
             >
               <FishTankText
                 class="padding-spacing"
@@ -108,7 +108,7 @@
          
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[4].name"
             >
               <FishTankText
                 class="padding-spacing"
@@ -125,7 +125,7 @@
          
             <CardV2
               class="margin-side"
-              :branded="CompanyInboxColor"
+              :heading="tabs[5].name"
             >
               <FishTankText
                 class="padding-spacing"
