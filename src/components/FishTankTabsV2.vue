@@ -136,16 +136,12 @@ export default Vue.extend({
    justify-content: flex-start;
  }
 
-.tabs-wrapper{
-}
 
 .header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // padding: 0 6px;
   margin-bottom: var(--tab-header-margin-bottom, unset);
-  
 }
 
 .focus:focus{
@@ -163,39 +159,49 @@ export default Vue.extend({
   line-height: $lineheight-base-lg;
   padding: 12px;
   padding-left: 0px;
-  // width: 100%;
   color: var(--color-gray-dark);
   border: 1px solid var(--border-color, lightgray);
-  border-top: transparent;
 
   transition: all .3s ease-in-out;
 
   > span {
-    // margin-left: var(--tab-title-span-margin-left, 5px);
-    // margin-right: var(--tab-title-span-margin-right, unset);
     padding-left: 12px;
     border-right: 4px solid transparent;
-    transition: all .3s ease-in-out;
+    // transition: all .3s ease-in-out;
   }
 
-  &:not(:last-child) {
-    // margin-right: var(--tab-title-margin-right, 15px);
+  
+  &:not(:first-child){
+    border-top: transparent;
   }
+
 
   &:hover {
-    font-weight: 600;
+    font-weight: $fontweight-semi;
     color: var(--active-tab-title-color);
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    > span{
+      border-left: 4px solid var(--active-disabled,  #C5CaCd);
+    }
   }
   &:active {
-    // border-color: var(--active-color, #0D9DDB);
+    border-right: transparent;
+    border-left: transparent;
     color: var(--active-color,  #0D9DDB);
+    font-weight: $fontweight-semi;
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
 
+    &:first-child{
+      border-top: transparent;
+    }
+    &:last-child{
+      border-bottom:transparent;
+    }
     > span{
       border-left: 4px solid var(--active-color,  #0D9DDB);
     }
@@ -203,12 +209,18 @@ export default Vue.extend({
   &[active] {
     border-right: transparent;
     border-left: transparent;
-    // border-width: 4px;
     color: var(--active-color,  #0D9DDB);
-    font-weight: 600;
+    font-weight: $fontweight-semi;
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    &:first-child{
+      border-top: transparent;
+    }
+    &:last-child{
+      border-bottom:transparent;
+    }
     > span{
       border-left: 4px solid var(--active-color,  #0D9DDB);
     }
@@ -216,7 +228,10 @@ export default Vue.extend({
   &:disabled {
     color: var(--color-disabled, #C5CACD);
     background-color: var(--disabled-tab-title-background-color);
-    // border-color: var(--disabled-tab-title-border-color);
+    
+    > span{
+      border-left: 4px solid transparent;
+    }
   }
   &[hidden] { 
     display: none; 
@@ -241,9 +256,12 @@ export default Vue.extend({
   }
 
   &:disabled,[disabled] {
-    // opacity: 0.25;
     color: var(--color-disabled, #C5CACD);
     pointer-events: none;
+
+    > span{
+      border-left: 4px solid transparent;
+    }
   }
 }
 </style>
