@@ -2,12 +2,12 @@
   <div 
     class="Tabs" 
     :disabled="disabled">
+    <div class="tabs-wrapper">
     <div 
       class="header" 
       :style="headerStyleObject"
-      :class="[divider ? 'seperator': 'no-seperator']"
       role="menubar">
-      <div 
+      <div
         :class="['title', focus ? 'no-focus' : 'focus']" 
         :style="titleStyleObject" 
         v-for="(item, index) in items" 
@@ -22,9 +22,10 @@
         role="menuitem">
         <slot 
           :name="`${item.name}-title`">
-          <span>{{ item.label }}</span>
+          <span class="label">{{ item.label }}</span>
         </slot>
       </div>
+    </div>
     </div>
 
     <div class="body">
@@ -32,7 +33,7 @@
         v-for="(item, index) in items" class="content" 
         :key="index" 
         :hidden="item.renderHidden && item.name!==active">
-<slot 
+        <slot 
           v-if="item.renderHidden || item.name===active" 
           :name="item.name"/>
       </div>
@@ -57,15 +58,6 @@ export default Vue.extend({
      * Disabled state of entire component
      */
     disabled: Boolean,
-
-    /**
-     * Disables seperator style line on tab component
-     */
-    divider: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
 
     /**
      * Array of children with nested grandchildren
@@ -138,20 +130,18 @@ export default Vue.extend({
 
 <style scoped lang='scss'>
  @import '../styles/mixins';
-.Tabs .header {
+ .Tabs{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+ }
+
+
+.header {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 6px;
+  flex-direction: column;
+  justify-content: flex-start;
   margin-bottom: var(--tab-header-margin-bottom, unset);
-}
-
-.seperator{
-  border-bottom: 1px solid var(--border-color, lightgray);
-}
-
-.no-seperator{
-  border-bottom: 1px solid transparent;
 }
 
 .focus:focus{
@@ -163,52 +153,84 @@ export default Vue.extend({
 }
 
 .title {
-  align-self: center;
-  border-bottom: 3px solid var(--border-color, lightgray);
-  cursor: pointer;
-  display: flex;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 5px 4px;
-  width: var(--tab-title-width, unset);
+  cursor: pointer;                                                                                                                                             
+  font-size: $fontsize-base-lg;
+  font-weight: $fontweight-regular;
+  line-height: $lineheight-base-lg;
+  padding: 12px;
+  padding-left: 0px;
   color: var(--color-gray-dark);
+  border: 1px solid var(--border-color, lightgray);
+
   transition: all .3s ease-in-out;
 
   > span {
-    margin-left: var(--tab-title-span-margin-left, 5px);
-    margin-right: var(--tab-title-span-margin-right, unset);
+    padding-left: 12px;
+    border-right: 4px solid transparent;
   }
 
-  &:not(:last-child) {
-    margin-right: var(--tab-title-margin-right, 15px);
+  
+  &:not(:first-child){
+    border-top: transparent;
   }
+
 
   &:hover {
-    font-weight: 600;
+    font-weight: $fontweight-semi;
     color: var(--active-tab-title-color);
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    > span{
+      border-left: 4px solid var(--active-disabled,  #C5CaCd);
+    }
   }
   &:active {
-    border-color: var(--active-color, #0D9DDB);
-    color: var(--active-tab-title-color);
+    border-right: transparent;
+    border-left: transparent;
+    color: var(--active-color,  #0D9DDB);
+    font-weight: $fontweight-semi;
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    &:first-child{
+      border-top: transparent;
+    }
+    &:last-child{
+      border-bottom:transparent;
+    }
+    > span{
+      border-left: 4px solid var(--active-color,  #0D9DDB);
+    }
   }
   &[active] {
-    border-color: var(--active-color, #0D9DDB);
-    border-width: 4px;
-    color: var(--active-tab-title-color);
+    border-right: transparent;
+    border-left: transparent;
+    color: var(--active-color,  #0D9DDB);
+    font-weight: $fontweight-semi;
     background-color: var(--active-tab-title-background-color);
     pointer-events: var(--active-tab-title-pointer-events);
     cursor: var(--active-tab-title-cursor);
+
+    &:first-child{
+      border-top: transparent;
+    }
+    &:last-child{
+      border-bottom:transparent;
+    }
+    > span{
+      border-left: 4px solid var(--active-color,  #0D9DDB);
+    }
   }
   &:disabled {
-    color: var(--disabled-tab-title-color);
+    color: var(--color-disabled, #C5CACD);
     background-color: var(--disabled-tab-title-background-color);
-    border-color: var(--disabled-tab-title-border-color);
+    
+    > span{
+      border-left: 4px solid transparent;
+    }
   }
   &[hidden] { 
     display: none; 
@@ -233,13 +255,17 @@ export default Vue.extend({
   }
 
   &:disabled,[disabled] {
-    opacity: 0.25;
+    color: var(--color-disabled, #C5CACD);
     pointer-events: none;
+
+    > span{
+      border-left: 4px solid transparent;
+    }
   }
 }
 </style>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import '../styles/mixins';
     body.user-is-tabbing {
       .a11y:focus{

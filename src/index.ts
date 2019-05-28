@@ -73,6 +73,7 @@ export { default as FishTankSelect } from "./components/FishTankSelect.vue"
 export { default as FishTankLookup } from "./components/FishTankLookup.vue"
 export { default as FishTankRadioList } from "./components/FishTankRadioList.vue"
 export { default as FishTankTabs} from "./components/FishTankTabs.vue"
+export { default as FishTankVerticalTabs} from "./components/FishTankVerticalTabs.vue"
 export { default as FishTankContainer } from "./components/FishTankContainer.vue"
 export { default as FishTankColumn } from "./components/FishTankColumn.vue"
 
