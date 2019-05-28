@@ -8,13 +8,13 @@
         <label
           :for="(id || `textinput-${identifier}-id`)"
           class="label">
-          <ftext bold primary uppercase size="baseMd" :color="getColor">{{ label }}
+          <div class="text-input-label" :style="{'color':getColor}">{{ label }}
             <span
               v-if="required"
               class="label-required">
             *
             </span>
-          </ftext>
+          </div>
         </label>
 
         <span
@@ -91,13 +91,10 @@ import {
   Warning24 as WarningIcon
 }  from "@fishtank/icons-vue"
 
-import FishTankText  from './FishTankText.vue';
-
 @Component({
   components: {
     CloseIcon: CloseIcon,
     WarningIcon: WarningIcon,
-    ftext:FishTankText
   },
   mixins:[
     textInput,
@@ -189,7 +186,7 @@ export default class TextInput extends Vue {
 
 <style scoped lang="scss">
   @import '../styles/mixins';
-
+  @import url($cdn-url);
   @mixin placeholder() {
     &::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
@@ -293,7 +290,12 @@ export default class TextInput extends Vue {
   .text-input-wrap {
     padding-bottom: $baseline * 6;
   }
-
+  .text-input-label{
+    font-family: $font-primary;
+    font-size: $fontsize-base-md;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
   .input-element::-webkit-outer-spin-button,
   .input-element::-webkit-inner-spin-button {
       -webkit-appearance: none;
