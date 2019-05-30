@@ -109,12 +109,22 @@
       </fish-tank-text>
     </fish-tank-box>
     <br>
+    <fish-tank-text bold> Highlight:</fish-tank-text>
+    <fish-tank-text>
+      This text uses the <fish-tank-highlight highlight="highlight1">Fish Tank Text Highlight</fish-tank-highlight> Component.
+    </fish-tank-text>
+    <br>
     <br>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankText, FishTankCheckbox, FishTankBox} from "@/index"
+import { 
+  FishTankText, 
+  FishTankCheckbox, 
+  FishTankBox,
+  FishTankHighlight
+} from "@/index"
 import ftColorsObj from '@fishtank/colors/dist/text.common.js'
 import {
   fishtankToPropName
@@ -129,7 +139,8 @@ export default Vue.extend({
   components: {
     FishTankText,
     FishTankCheckbox,
-    FishTankBox
+    FishTankBox,
+    FishTankHighlight
   },
   data () {
     return {

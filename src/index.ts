@@ -62,6 +62,7 @@ export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"
 export { default as FishTankLoaderContent } from "./components/FishTankLoaderContent.vue"
 export { default as FishTankText } from "./components/FishTankText.vue"
+export { default as FishTankHighlight } from "./components/FishTankHighlight.vue"
 export { default as FishTankTextInput } from "./components/FishTankTextInput.vue"
 export { default as FishTankTextInputV2 } from "./components/FishTankTextInputV2.vue"
 export { default as FishTankTextArea } from "./components/FishTankTextArea.vue"
