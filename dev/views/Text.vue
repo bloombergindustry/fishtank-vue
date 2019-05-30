@@ -111,7 +111,10 @@
     <br>
     <fish-tank-text bold> Highlight:</fish-tank-text>
     <fish-tank-text>
-      This text uses the <fish-tank-highlight highlight="highlight1">Fish Tank Text Highlight</fish-tank-highlight> Component.
+      This text uses the Fish Tank Text <fish-tank-highlight>Highlight</fish-tank-highlight> Component.
+    </fish-tank-text>
+    <fish-tank-text>
+      It comes in the colors, <fish-tank-highlight>Highlight 1</fish-tank-highlight>,<fish-tank-highlight highlight="highlight2"> Highlight 2</fish-tank-highlight >, and <fish-tank-highlight highlight="highlight3"> Highlight 3</fish-tank-highlight>.
     </fish-tank-text>
     <br>
     <br>
