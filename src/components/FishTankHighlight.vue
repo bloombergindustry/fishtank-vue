@@ -14,7 +14,7 @@ export default Vue.extend({
       type: String,
       required: false,
       default: "highlight1",
-      description: "highlight color"
+      description: "highlight color, options: highlight1, highlight2, highlight3"
     }
   }
   
