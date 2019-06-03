@@ -58,6 +58,7 @@
       fixed
     >
     <Search32 slot="headingIcon"/>
+
     <template slot="headingExtra">
         <ButtonFeatureLabel >
           <template slot="icon"> <Home24/> </template>
@@ -68,12 +69,16 @@
           <template slot="label"> Set as Favorite </template>
         </ButtonFeatureLabel>
       </template>
-    <FishTankText>Modal Content.</FishTankText>
+
+    <FishTankText> 
+      <LoremIpsum/> 
+    </FishTankText>
 
       <template slot="footerRight">
         <FishTankText>Clear All</FishTankText>
         <button-primary>Action</button-primary>
       </template>
+      
       <template slot="footerLeft">
         <ButtonFeatureLabel >
           <template slot="icon"> <AlertAdd24/> </template>
@@ -131,8 +136,6 @@ export default Vue.extend({
       modal1: false,
       modal2: false,
       dialog: false,
-
-      // enhanced modal
       modal3: false,
     }
   }

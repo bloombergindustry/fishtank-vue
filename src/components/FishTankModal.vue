@@ -78,12 +78,12 @@
             v-else-if="$slots.footerLeft || $slots.footerRight"
             class="modal__footer-container"
           >
-            <div>
+            <div class="modal__footerLeft">
               <slot 
                 name="footerLeft"
               />
             </div>
-            <div>
+            <div class="modal__footerRight">
               <slot name="footerRight"/>
             </div>
           </div>
@@ -611,4 +611,19 @@ export default Vue.extend({
   display: block;
 }
 
+.modal__footerLeft{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modal__footerRight{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
 </style>
