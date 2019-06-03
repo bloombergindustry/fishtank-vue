@@ -103,7 +103,7 @@ let overlay: null | HTMLElement = document.querySelector('.overlay')
 
 export default Vue.extend({
   components: {
-    Close24,
+    Close24
   },
   mixins: [
     Detachable,
