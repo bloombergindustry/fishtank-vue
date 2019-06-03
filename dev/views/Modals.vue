@@ -75,10 +75,10 @@
     </FishTankText>
 
       <template slot="footerRight">
-        <FishTankText>Clear All</FishTankText>
+        <a href="#" class="clear_link"><FishTankText color="gray">Clear All</FishTankText></a>
         <button-primary>Action</button-primary>
       </template>
-      
+
       <template slot="footerLeft">
         <ButtonFeatureLabel >
           <template slot="icon"> <AlertAdd24/> </template>
@@ -142,3 +142,12 @@ export default Vue.extend({
 })
 </script>
 
+<style lang="scss" scoped>
+a{
+  text-decoration: none;
+}
+
+.clear_link{
+  margin-right: 12px;
+}
+</style>
