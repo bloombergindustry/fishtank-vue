@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Modal, DialogBox, ButtonPrimary, ButtonSecondary, ButtonFeatureLabel } from '@/index'
+import { Modal, DialogBox, ButtonPrimary, ButtonFeatureLabel } from '@/index'
 import LoremIpsum from '../LoremIpsum.vue'
 import { Search24, HomeO24 as Home24 } from '@fishtank/icons-vue'
 
@@ -60,7 +60,6 @@ export default Vue.extend({
     Modal,
     DialogBox,
     ButtonPrimary,
-    ButtonSecondary,
     ButtonFeatureLabel,
     LoremIpsum,
     Search24,
@@ -69,7 +68,7 @@ export default Vue.extend({
   data() {
     return {
       modal1: false,
-      modal2: true,
+      modal2: false,
       dialog: false,
     }
   }
