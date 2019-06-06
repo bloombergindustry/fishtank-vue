@@ -1,5 +1,8 @@
 <template>
   <div>
+    <br/>
+    <fish-tank-text bold> Modals Version 1 </fish-tank-text>
+    <br/>
     <div>
       <button-primary @click="modal1 = true">Open Standard Modal</button-primary>
       <button-primary @click="modal2 = true">Open Fixed Modal</button-primary>
@@ -8,6 +11,12 @@
     <br/>
     <div>
       <button-primary @click="modal3 = true">Health Analytics Search</button-primary>
+    </div>
+    <br/>
+    <fish-tank-text bold> Modals Version 2 </fish-tank-text>
+    <br/>
+    <div>
+      <button-primary @click="modal4 = true">Health Analytics Search</button-primary>
     </div>
     <modal
       v-model="modal1"
@@ -57,9 +66,9 @@
       width="70%"
       fixed
     >
-    <Search32 slot="headingIcon"/>
+      <Search32 slot="headingIcon"/>
 
-    <template slot="headingExtra">
+      <template slot="headingExtra">
         <ButtonFeatureLabel >
           <template slot="icon"> <Home24/> </template>
           <template slot="label"> Set as Home </template>
@@ -70,9 +79,9 @@
         </ButtonFeatureLabel>
       </template>
 
-    <FishTankText> 
-      <LoremIpsum/> 
-    </FishTankText>
+      <FishTankText> 
+        <LoremIpsum/> 
+      </FishTankText>
 
       <template slot="footerRight">
         <a href="#" class="clear_link"><FishTankText color="gray">Clear All</FishTankText></a>
@@ -90,13 +99,55 @@
         </ButtonFeatureLabel>
       </template>
     </modal>
+
+    <modal-v2
+      v-model="modal4"
+      heading="Health Analytics Search2"
+      :class="'modal__heading-title'"
+      width="80%"
+      fixed
+    >
+      <Search32 slot="headingIcon"/>
+
+      <template slot="headingExtra">
+        <ButtonFeatureLabel >
+          <template slot="icon"> <Home24/> </template>
+          <template slot="label"> Set as Home </template>
+        </ButtonFeatureLabel>
+        <ButtonFeatureLabel >
+          <template slot="icon"> <Favorite24/> </template>
+          <template slot="label"> Set as Favorite </template>
+        </ButtonFeatureLabel>
+      </template>
+
+      <FishTankText> 
+        <LoremIpsum/> 
+      </FishTankText>
+
+      <template slot="footerRight">
+        <a href="#" class="clear_link"><FishTankText color="gray">Clear All</FishTankText></a>
+        <button-primary>Action</button-primary>
+      </template>
+
+      <template slot="footerLeft" >
+        <ButtonFeatureLabel >
+          <template slot="icon"> <AlertAdd24/> </template>
+          <template slot="label"> Create Alert </template>
+        </ButtonFeatureLabel>
+        <ButtonFeatureLabel >
+          <template slot="icon"> <Duplicate24/> </template>
+          <template slot="label"> Add Search to Dashboard </template>
+        </ButtonFeatureLabel>
+      </template>
+    </modal-v2>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { 
-  Modal, 
+  Modal,
+  ModalV2, 
   DialogBox, 
   ButtonPrimary, 
   ButtonSecondary, 
@@ -117,6 +168,7 @@ import {
 export default Vue.extend({
   components: {
     Modal,
+    ModalV2,
     DialogBox,
     ButtonPrimary,
     ButtonSecondary,
@@ -137,6 +189,7 @@ export default Vue.extend({
       modal2: false,
       dialog: false,
       modal3: false,
+      modal4: true
     }
   }
 })
@@ -149,5 +202,13 @@ a{
 
 .clear_link{
   margin-right: 12px;
+}
+
+.padding{
+  margin: 12px;
+}
+
+.modal__heading-title{
+  font-size: 40px;
 }
 </style>
