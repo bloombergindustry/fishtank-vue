@@ -4,8 +4,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 /**
  * Issues So Far:
- * For some reason, the content child css is messed up
- * Some of the theme colors are not gradients
+ * the Content child css is not preserving it's properties
+ * Some of the theme colors are not gradients, maybe issue in the yaml exports?
  * Need proper vue decorator inline comments
  */
 
