@@ -20,13 +20,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class FishTankBadgeV2 extends Vue {
     
     //properties
-    @Prop()
-    indeterminate:boolean
+    @Prop({default:undefined})
+    value:String;
     @Prop({default:'light'})
     textShade:String
-    availableShades:["light","dark"]
-    @Prop()
-    value:number
+    availableShades:["light","dark","disabled"]
     @Prop({default:'notification-1'})
     theme:String;
     required:false;
@@ -37,17 +35,17 @@ export default class FishTankBadgeV2 extends Vue {
     get themeClass() {
         switch(this.theme) {
             case "bgov":
-                return "badge--grad-bgov-bluepurple"
+                return "badge-chip--grad-bgov-bluepurple"
             case "btax":
-                return "badge--grad-btax-blue"              
-            case "notification-2":
-                return "badge--color-notification-2"
-            case "notification-3":
-                return "badge--color-notification-3"
+                return "badge-chip--grad-btax-blue"              
             case "disabled":
-                return "badge--color-disabled"
+                return "badge-chip--color-disabled"
+            case "notification-2":
+                return "badge-chip--color-notification-2"
+            case "notification-3":
+                return "badge-chip--color-notification-3"
             default:
-                return "badge--color-notification-1"
+                return "badge-chip--color-notification-1"
         }
     }
 
@@ -55,41 +53,41 @@ export default class FishTankBadgeV2 extends Vue {
         switch(this.textShade) {
             case "dark":
                 return "text--color-dark"
+            case "disabled":
+                return "text--color-disabled"
             default:
                 return "text--color-light"
         }
+    }
+
+    get determineIndeterminate() {
+        return (this.value === undefined)
     }
 }
 </script>
 
 <template>
-    <div>
-    <div class="area">
-        <div 
-            class="badge"
-            :theme="theme"
-            :textShade="textShade"
-            :class = "[themeClass, textClass]" 
-            :indeterminate="indeterminate">
-            <div
-                v-if="indeterminate"
-                class="inner-circle">
-            </div>
-            <span
-                v-else
-                :value="value"
-                class ="number"
-            >
-                <slot name="badge_content">
+  <div class="badge-area">
+      <div 
+          class="badge-chip"
+          :theme="theme"
+          :textShade="textShade"
+          :class = "[themeClass, textClass]">
+          <div
+              v-if="determineIndeterminate"
+              class="inner-circle">
+          </div>
+          <span
+              v-else
+              :value = "value"
+              class ="number">
+              {{this.value}}
+          </span>
+      </div>
+      <slot name="content">
 
-                </slot>
-            </span>
-        </div>
-        <slot name="content">
-
-        </slot>
-    </div>
-    </div>
+      </slot>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -98,26 +96,17 @@ export default class FishTankBadgeV2 extends Vue {
     @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
     @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
 
-    .area {
+    .badge-area {
         position:relative;
-        //display:block;
     }
-    .badge{
-        top:-8px;
-        right:-8px;
-        display: inline-block; // unnes??
-        border-radius: 8px;
-        height:16px;
-        min-width:16px;
+
+    .badge-chip{
+        top:calc(-1*(var(--baseline)*2));
+        right:calc(-1*(var(--baseline)*2));
+        border-radius:calc(var(--baseline)*2);
+        height:calc(var(--baseline)*4);
+        min-width:calc(var(--baseline)*4);
         position: absolute;
-        background: var(--badge-background-color, $color-notification-1);
-
-        //border: 1px solid var(--badge-border-color, $color-gray-lighter);
-    }
-
-    .content {
-        display: block; //uness
-        //z-index: -1;
     }
 
     .inner-circle{
@@ -130,74 +119,76 @@ export default class FishTankBadgeV2 extends Vue {
         width:3px;
         position: absolute;
         background: $color-white;
-        //border: 1px solid var(--badge-border-color, $color-gray-lighter);
     }
 
     .number{
-        //padding:4px;
-        padding-right:6px;
-        padding-left:6px;
-        //vertical-align:middle; //unness? 
-        font-family: "OpenSans",arial,sans-serif;
+        padding-right:calc(var(--baseline)*2);
+        padding-left:calc(var(--baseline)*2);
+        font-family: var(--font-primary);
         font-size: $fontsize-base-sm;
         font-weight: $fontweight-semi;
         text-align:center;
     }
 
-    //colors NEED TO USS CSS CUSTOM VARIABLES refactor later
-    .badge{
-        &.badge--grad-bgov-bluepurple {
-            background: var(--badge-background-color, $color-bgov-navy);
+    // badge colors
+    .badge-chip{
+        &.badge-chip--grad-bgov-bluepurple {
+            background: linear-gradient(to right,  var(--badge-background-color,$color-bgov-navy) , var(--badge-background-color, $color-bgov-purple))
         }
     }
 
-    .badge{
-        &.badge--grad-btax-blue {
-            background: var(--badge-background-color, $color-btax-dark-blue);
+    .badge-chip{
+        &.badge-chip--grad-btax-blue {
+            background: linear-gradient(to right,  var(--badge-background-color,$color-bna-blue) , var(--badge-background-color, $color-btax-blue))
         }
     }
 
-    .badge{
-        &.badge--color-notification-1 {
+    .badge-chip{
+        &.badge-chip--color-notification-1 {
             background: var(--badge-background-color, $color-notification-1);
         }
     }
 
-    .badge{
-        &.badge--color-notification-2 {
+    .badge-chip{
+        &.badge-chip--color-notification-2 {
             background: var(--badge-background-color, $color-notification-2);
         }
     }
 
-    .badge{
-        &.badge--color-notification-3 {
+    .badge-chip{
+        &.badge-chip--color-notification-3 {
             background: var(--badge-background-color, $color-notification-3);
         }
     }
 
-    .badge{
-        &.badge--color-notification-3 {
+    .badge-chip{
+        &.badge-chip--color-notification-3 {
             background: var(--badge-background-color, $color-notification-3);
         }
     }
 
-    .badge{
-        &.badge--color-disabled {
+    .badge-chip{
+        &.badge-chip--color-disabled {
             background: var(--badge-background-color, $color-disabled);
         }
     }
 
     //text colors
-
-    .badge{
+    .badge-chip{
         &.text--color-light {
             color: $color-white;
         }
     }
 
-    .badge{
+    .badge-chip{
         &.text--color-dark {
             color: $color-black;
+        }
+    }
+
+    .badge-chip{
+        &.text--color-disabled {
+            color: $color-gray-light;
         }
     }
 </style>
