@@ -44,12 +44,12 @@
     <container>
       <column :xs-column="12" :md-column="8">
         <box flex="grow">
-          <!----><badgeV2 :indeterminate="false" theme="notifcattion-1" text-shade="light">
-            <template v-slot:badge_content>10000</template>
-            <template v-slot:content><!---->
+          <badgeV2 theme="btax" text-shade="light" value = "1000">
+            <template v-slot:content>
               <card>Stacked Card</card>
-            <!----></template>
-          </badgeV2><!---->
+            </template>
+          </badgeV2>
+          <card>Stacked Card</card>
           <card>Stacked Card</card>
           <card>
             <div v-if="selected">{{selected.label}}</div>
