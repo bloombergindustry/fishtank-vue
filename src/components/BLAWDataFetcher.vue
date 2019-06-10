@@ -1,5 +1,5 @@
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 
 /** Event fired on request error
  * @event error
@@ -68,22 +68,22 @@ export default {
           this.loading = false
           resolve(this.fetchedData)
         } else {
-          // axios
-          //   .get(url)
-          //   .then(res => {
-          //     this.fetchedData = res.data
-          //     if (this.enableCache) this.cache[url] = res.data
-          //     this.$emit('success', res)
-          //     resolve(res.data)
-          //   })
-          //   .catch(res => {
-          //     this.$emit('error', res)
-          //     reject(res.data)
-          //   })
-          //   .finally(() => {
-          //     this.loading = false
-          //     if (this.lastRequest !== url) this._request(this.lastRequest)
-          //   })
+          axios
+            .get(url)
+            .then(res => {
+              this.fetchedData = res.data
+              if (this.enableCache) this.cache[url] = res.data
+              this.$emit('success', res)
+              resolve(res.data)
+            })
+            .catch(res => {
+              this.$emit('error', res)
+              reject(res.data)
+            })
+            .finally(() => {
+              this.loading = false
+              if (this.lastRequest !== url) this._request(this.lastRequest)
+            })
         }
       })
     }
