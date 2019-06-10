@@ -22,7 +22,10 @@ export default {
     /**
      * Url to request data from, will make new request when changed
      */
-    url: String
+    url: {
+      type: String,
+      default:'/'
+    }
   },
   data () {
     return {
