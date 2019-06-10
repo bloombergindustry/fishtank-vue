@@ -44,11 +44,7 @@
     <container>
       <column :xs-column="12" :md-column="8">
         <box flex="grow">
-          <badgeV2 theme="btax" text-shade="light" value = "1000">
-            <template v-slot:content>
-              <card>Stacked Card</card>
-            </template>
-          </badgeV2>
+          <card>Stacked Card</card>
           <card>Stacked Card</card>
           <card>Stacked Card</card>
           <card>
@@ -169,7 +165,6 @@ import Vue from "vue";
 import {
   FishTankContainer,
   FishTankColumn,
-  FishTankBadgeV2,
   FishTankBox,
   FishTankCard,
   FishTankText,
@@ -182,7 +177,6 @@ export default Vue.extend({
     container: FishTankContainer,
     column: FishTankColumn,
     box: FishTankBox,
-    badgeV2: FishTankBadgeV2,
     card: FishTankCard,
     ftext: FishTankText,
     heading: FishTankHeading,
