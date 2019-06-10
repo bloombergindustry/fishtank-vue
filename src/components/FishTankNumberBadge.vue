@@ -2,22 +2,13 @@
 import FishTankText from './FishTankText.vue'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
-/**
- * Issues So Far:
- * the Content child css is not preserving it's properties
- * Some of the theme colors are not gradients, maybe issue in the yaml exports?
- * Need proper vue decorator inline comments
- */
 
 @Component({
     components: {
         badgeNumber:FishTankText
-    },
-    mixins: [
-
-    ]
+    }
 })
-export default class FishTankBadgeV2 extends Vue {
+export default class FishTankNumberBadge extends Vue {
     
     //properties
     @Prop({default:undefined})
@@ -122,8 +113,8 @@ export default class FishTankBadgeV2 extends Vue {
     }
 
     .number{
-        padding-right:calc(var(--baseline)*2);
-        padding-left:calc(var(--baseline)*2);
+        padding-right:calc(var(--baseline)*1.5);
+        padding-left:calc(var(--baseline)*1.5);
         font-family: var(--font-primary);
         font-size: $fontsize-base-sm;
         font-weight: $fontweight-semi;

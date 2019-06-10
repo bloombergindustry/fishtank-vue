@@ -12,6 +12,7 @@
       <li><a href="#/modals">Modals</a></li>
       <li><a href="#/cards">Cards</a></li>
       <li><a href="#/badges">Badges</a></li>
+      <li><a href="#/numberbadges">Number Badges</a></li>
       <li><a href="#/tags">Tags</a></li>
       <li><a href="#/textinput">Text Input</a></li>
       <li><a href="#/textinputv2">Text Input V2</a></li>
