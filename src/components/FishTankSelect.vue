@@ -22,8 +22,8 @@
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
         @keydown.tab="opened ? opened = false: null"
-        @keydown.esc="opened ? opened = false: null"
         :id="`${id}-button`"
+        @keydown.esc="opened ? opened = false: null"
         @click="opened=!opened">
         <box 
           display="flex" 
@@ -35,11 +35,11 @@
             {{ displayLabel }}
           </ftext>
           <caretdown 
-            class="caret"
-            v-if="!opened"/>
+            v-if="!opened"
+            class="caret"/>
           <caretdown
-            class="caret"
-            v-if="opened  "/>
+            v-if="opened  "
+            class="caret"/>
         </box>
       </button>
       
@@ -47,10 +47,9 @@
         v-if="opened" 
         :class="['items', {'a11y-within': focusedItem > -1}]"
         tabindex="-1" 
-        role="listbox"
         :id="`${id}-listbox`"
-        :aria-labelledby="`${id}-label`"
-        >
+        role="listbox"
+        :aria-labelledby="`${id}-label`">
         <ftext
           v-for="(item, index) in items" 
           :id="`${id}-option-${index}`"
@@ -58,9 +57,9 @@
           :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
           :aria-selected="focusedItem===index"
           role="option" 
+          :size="small ? 'baseSm': 'baseMd'"
           @click.native="$emit('change', item.value); opened = false"
-          @blur="closeDropdown(items, index)"
-          :size="small ? 'baseSm': 'baseMd'">
+          @blur="closeDropdown(items, index)">
           {{ item.label }}
         </ftext>
       </div>
