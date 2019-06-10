@@ -127,6 +127,9 @@ export default {
   computed:{
     dropdownStyle(){ 
       return (this.$props.width +`px`) || '200px'
+    },
+    items () {
+      return this.fetchedData.data.items
     }
   },
   watch: {
