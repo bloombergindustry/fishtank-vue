@@ -10,7 +10,7 @@
         class="modal__escapable-background"
         @click="close"
       />
-      <div
+      <div 
         :style="styles"
         class="modal__container"
       >
@@ -30,10 +30,9 @@
               </div>
             </div>
             <div
-              v-if="heading"
               class="modal__heading-title"
             >
-              {{ heading }}
+              <slot name="heading"/>
             </div>
           </div>
           <div
@@ -480,7 +479,7 @@ export default Vue.extend({
   border-radius: 2px 2px 0 0;
   height: $baseline * 12;
   min-height: $baseline * 12;
-  font-size: $fontsize-base-lg;
+  // font-size: $fontsize-base-lg;
   line-height: $lineheight-base-lg;
   font-family: $font-primary;
   font-weight: $fontweight-semi;

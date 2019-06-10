@@ -102,12 +102,19 @@
 
     <modal-v2
       v-model="modal4"
-      heading="Health Analytics Search2"
-      :class="'modal__heading-title'"
       width="80%"
       fixed
-    >
+    > 
       <Search32 slot="headingIcon"/>
+
+      <template slot="heading" > 
+        <fish-tank-text
+          color="grayDark"
+          size="headingSm"
+        >
+        Health Analytics Search2 
+        </fish-tank-text> 
+      </template>
 
       <template slot="headingExtra">
         <ButtonFeatureLabel >
@@ -208,7 +215,7 @@ a{
   margin: 12px;
 }
 
-.modal__heading-title{
-  font-size: 40px;
+.heading-text{
+  font-size: 28px;
 }
 </style>
