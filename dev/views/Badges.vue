@@ -6,8 +6,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FishTankBadge } from '@/index'
-import { FishTankNumberBadge } from '@/index'
- 
+
 export default Vue.extend({
   components:{
     badge:FishTankBadge
