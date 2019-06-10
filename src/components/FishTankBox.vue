@@ -62,10 +62,58 @@ const styles = {
   xsDisplayBlock: "xsDisplayBlock",
   xsDisplayInlineBlock: "xsDisplayInlineBlock",
   xsDisplayVisuallyHidden: "xsDisplayVisuallyHidden",
+
+  smDisplayNone: "smDisplayNone",
+  smDisplayFlex: "smDisplayFlex",
+  smDisplayBlock: "smDisplayBlock",
+  smDisplayInlineBlock: "smDisplayInlineBlock",
+  smDisplayVisuallyHidden: "smDisplayVisuallyHidden",
+
+  mdDisplayNone: "mdDisplayNone",
+  mdDisplayFlex: "mdDisplayFlex",
+  mdDisplayBlock: "mdDisplayBlock",
+  mdDisplayInlineBlock: "mdDisplayInlineBlock",
+  mdDisplayVisuallyHidden: "mdDisplayVisuallyHidden",
+
+  lgDisplayNone: "lgDisplayNone",
+  lgDisplayFlex: "lgDisplayFlex",
+  lgDisplayBlock: "lgDisplayBlock",
+  lgDisplayInlineBlock: "lgDisplayInlineBlock",
+  lgDisplayVisuallyHidden: "lgDisplayVisuallyHidden",
+
+  xlDisplayNone: "xlDisplayNone",
+  xlDisplayFlex: "xlDisplayFlex",
+  xlDisplayBlock: "xlDisplayBlock",
+  xlDisplayInlineBlock: "xlDisplayInlineBlock",
+  xlDisplayVisuallyHidden: "xlDisplayVisuallyHidden",
+}
+
+const direction = {
   xsDirectionRow: "xsDirectionRow",
   xsDirectionColumn: "xsDirectionColumn",
   xsDirectionRowReverse: "xsDirectionRowReverse",
-  xsDirectionColumnReverse: "xsDirectionColumnReverse"
+  xsDirectionColumnReverse: "xsDirectionColumnReverse",
+
+  smDirectionRow: "smDirectionRow",
+  smDirectionColumn: "smDirectionColumn",
+  smDirectionRowReverse: "smDirectionRowReverse",
+  smDirectionColumnReverse: "smDirectionColumnReverse",
+
+  mdDirectionRow: "mdDirectionRow",
+  mdDirectionColumn: "mdDirectionColumn",
+  mdDirectionRowReverse: "mdDirectionRowReverse",
+  mdDirectionColumnReverse: "mdDirectionColumnReverse",
+
+  lgDirectionRow: "lgDirectionRow",
+  lgDirectionColumn: "lgDirectionColumn",
+  lgDirectionRowReverse: "lgDirectionRowReverse",
+  lgDirectionColumnReverse: "lgDirectionColumnReverse",
+
+  xlDirectionRow: "xlDirectionRow",
+  xlDirectionColumn: "xlDirectionColumn",
+  xlDirectionRowReverse: "xlDirectionRowReverse",
+  xlDirectionColumnReverse: "xlDirectionColumnReverse",
+
 }
 
 const layout = {
@@ -223,6 +271,41 @@ const props: any = {
     inlineBlock: styles.xsDisplayInlineBlock,
     visuallyHidden: styles.xsDisplayVisuallyHidden
   }),
+  xsDisplay: mapping({
+    none: styles.xsDisplayNone,
+    flex: styles.xsDisplayFlex,
+    block: styles.xsDisplayBlock,
+    inlineBlock: styles.xsDisplayInlineBlock,
+    visuallyHidden: styles.xsDisplayVisuallyHidden
+  }),
+  smDisplay: mapping({
+    none: styles.smDisplayNone,
+    flex: styles.smDisplayFlex,
+    block: styles.smDisplayBlock,
+    inlineBlock: styles.smDisplayInlineBlock,
+    visuallyHidden: styles.smDisplayVisuallyHidden
+  }),
+  mdDisplay: mapping({
+    none: styles.mdDisplayNone,
+    flex: styles.mdDisplayFlex,
+    block: styles.mdDisplayBlock,
+    inlineBlock: styles.mdDisplayInlineBlock,
+    visuallyHidden: styles.mdDisplayVisuallyHidden
+  }),
+  lgDisplay: mapping({
+    none: styles.lgDisplayNone,
+    flex: styles.lgDisplayFlex,
+    block: styles.lgDisplayBlock,
+    inlineBlock: styles.lgDisplayInlineBlock,
+    visuallyHidden: styles.lgDisplayVisuallyHidden
+  }),
+  xlDisplay: mapping({
+    none: styles.xlDisplayNone,
+    flex: styles.xlDisplayFlex,
+    block: styles.xlDisplayBlock,
+    inlineBlock: styles.xlDisplayInlineBlock,
+    visuallyHidden: styles.xlDisplayVisuallyHidden
+  }),
   alignItems: mapping({
     start: layout.itemsStart,
     end: layout.itemsEnd,
@@ -243,11 +326,47 @@ const props: any = {
     around: layout.justifyAround
   }),
   direction: mapping({
-    row: styles.xsDirectionRow,
-    column: styles.xsDirectionColumn,
-    rowReverse: styles.xsDirectionRowReverse,
-    columnReverse: styles.xsDirectionColumnReverse
+    row: direction.xsDirectionRow,
+    column: direction.xsDirectionColumn,
+    rowReverse: direction.xsDirectionRowReverse,
+    columnReverse: direction.xsDirectionColumnReverse
   }),
+
+  xsDirection: mapping({
+    row: direction.xsDirectionRow,
+    column: direction.xsDirectionColumn,
+    rowReverse: direction.xsDirectionRowReverse,
+    columnReverse: direction.xsDirectionColumnReverse
+  }),
+
+  smDirection: mapping({
+    row: direction.smDirectionRow,
+    column: direction.smDirectionColumn,
+    rowReverse: direction.smDirectionRowReverse,
+    columnReverse: direction.smDirectionColumnReverse
+  }),
+
+  mdDirection: mapping({
+    row: direction.mdDirectionRow,
+    column: direction.mdDirectionColumn,
+    rowReverse: direction.mdDirectionRowReverse,
+    columnReverse: direction.mdDirectionColumnReverse
+  }),
+
+  lgDirection: mapping({
+    row: direction.lgDirectionRow,
+    column: direction.lgDirectionColumn,
+    rowReverse: direction.lgDirectionRowReverse,
+    columnReverse: direction.lgDirectionColumnReverse
+  }),
+
+  xlDirection: mapping({
+    row: direction.xlDirectionRow,
+    column: direction.xlDirectionColumn,
+    rowReverse: direction.xlDirectionRowReverse,
+    columnReverse: direction.xlDirectionColumnReverse
+  }),
+
   position: mapping({
     absolute: layout.absolute,
     relative: layout.relative,
@@ -306,6 +425,56 @@ export default Vue.extend({
     // AlignItemType,
     // // @Prop()
     display: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      },
+      description:'Box display property',
+    },
+    // // @Prop()
+    xsDisplay: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      },
+      description:'Box display property',
+    },
+    // // @Prop()
+    smDisplay: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      },
+      description:'Box display property',
+    },
+    // // @Prop()
+    mdDisplay: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      },
+      description:'Box display property',
+    },
+    // // @Prop()
+    lgDisplay: {
+      type:String,
+      default:"block",
+      required:false,
+      validator: function(value: DisplayType){
+        return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
+      },
+      description:'Box display property',
+    },
+    // // @Prop()
+    xlDisplay: {
       type:String,
       default:"block",
       required:false,
