@@ -426,7 +426,6 @@ export default Vue.extend({
     // // @Prop()
     display: {
       type:String,
-      default:"block",
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -436,7 +435,7 @@ export default Vue.extend({
     // // @Prop()
     xsDisplay: {
       type:String,
-      default:"block",
+      default:undefined,
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -446,7 +445,7 @@ export default Vue.extend({
     // // @Prop()
     smDisplay: {
       type:String,
-      default:"block",
+      default:undefined,
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -456,7 +455,7 @@ export default Vue.extend({
     // // @Prop()
     mdDisplay: {
       type:String,
-      default:"block",
+      default:undefined,
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -466,7 +465,7 @@ export default Vue.extend({
     // // @Prop()
     lgDisplay: {
       type:String,
-      default:"block",
+      default:undefined,
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -476,7 +475,7 @@ export default Vue.extend({
     // // @Prop()
     xlDisplay: {
       type:String,
-      default:"block",
+      default:undefined,
       required:false,
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
@@ -695,6 +694,7 @@ export default Vue.extend({
       let modulesClasses:Array<string> = boxProps.className.map(x=>{
         return (this as any).moduleClassNames[x]
       })
+
       return {
         // class: boxProps.className,
         class: modulesClasses.join(' '),
