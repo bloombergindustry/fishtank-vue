@@ -89,11 +89,13 @@ export default class FishTankNumberBadge extends Vue {
 
     .badge-area {
         position:relative;
+        display:inline-block;
     }
 
     .badge-chip{
-        top:calc(-1*(var(--baseline)*2));
-        right:calc(-1*(var(--baseline)*2));
+        top:calc(-1*(var(--baseline)*1));
+        left:calc(-3.5*var(--baseline));
+        margin-left: 100%;
         border-radius:calc(var(--baseline)*2);
         height:calc(var(--baseline)*4);
         min-width:calc(var(--baseline)*4);
@@ -113,11 +115,13 @@ export default class FishTankNumberBadge extends Vue {
     }
 
     .number{
+        display:flex;
         padding-right:calc(var(--baseline)*1.5);
         padding-left:calc(var(--baseline)*1.5);
         font-family: var(--font-primary);
         font-size: $fontsize-base-sm;
         font-weight: $fontweight-semi;
+        float:right;
         text-align:center;
     }
 
