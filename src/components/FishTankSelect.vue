@@ -3,7 +3,7 @@
     class="select" 
     :name="name" 
     :orientation="orientation" 
-    @mouseleave="opened=false"
+    @mouseleave="opened=false; destroyPop()"
     @keydown="e => _handleKeydown(e, items)">
     <slot 
       v-if="label">
@@ -15,16 +15,16 @@
     </slot>
     <div class="position-wrap">
       <button 
-        :class="['selected', 'a11y',(small ? 'small':null)]" 
+        :id="`${id}-button`"
+        :class="['selected', 'a11y',(small ? 'small':null)]"
         aria-haspopup="listbox"
         :placeholder="!value" 
         :aria-expanded="opened"
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
         @keydown.tab="opened ? opened = false: null"
-        :id="`${id}-button`"
         @keydown.esc="opened ? opened = false: null"
-        @click="opened=!opened">
+        @click="opened=!opened; openItems()">
         <box 
           display="flex" 
           justify-content="between"> 
@@ -36,32 +36,34 @@
           </ftext>
           <caretdown 
             v-if="!opened"
-            class="caret"/>
+            class="caret" />
           <caretdown
-            v-if="opened  "
-            class="caret"/>
+            v-if="opened"
+            class="caret" />
         </box>
       </button>
-      
-      <div 
-        v-if="opened" 
-        :class="['items', {'a11y-within': focusedItem > -1}]"
-        tabindex="-1" 
-        :id="`${id}-listbox`"
-        role="listbox"
-        :aria-labelledby="`${id}-label`">
-        <ftext
-          v-for="(item, index) in items" 
-          :id="`${id}-option-${index}`"
-          :key="index"
-          :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
-          :aria-selected="focusedItem===index"
-          role="option" 
-          :size="small ? 'baseSm': 'baseMd'"
-          @click.native="$emit('change', item.value); opened = false"
-          @blur="closeDropdown(items, index)">
-          {{ item.label }}
-        </ftext>
+      <div ref="itemsWrap" class="items-wrap">
+        <div 
+          v-if="opened" 
+          :id="`${id}-listbox`"
+          :class="['items', {'a11y-within': focusedItem > -1}]" 
+          tabindex="-1"
+          role="listbox"
+          :aria-labelledby="`${id}-label`"
+          :style="{width:dropdownStyle}">
+          <ftext
+            v-for="(item, index) in items" 
+            :id="`${id}-option-${index}`"
+            :key="index"
+            :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
+            :aria-selected="focusedItem===index"
+            role="option" 
+            :size="small ? 'baseSm': 'baseMd'"
+            @click.native="$emit('change', item.value); opened = false; destroyPop()"
+            @blur="closeDropdown(items, index); destroyPop()">
+            {{ item.label }}
+          </ftext>
+        </div>
       </div>
     </div>
   </div>
@@ -72,6 +74,8 @@ import FishTankText from './FishTankText.vue'
 import FishTankBox from './FishTankBox.vue'
 import { CaretDown24 } from '@fishtank/icons-vue'
 import { a11y } from "../util/mixins"
+import Popper from 'popper.js'
+import { mkdir } from 'fs';
 /**
  * Change event.
  *
@@ -149,7 +153,11 @@ export default {
      */
     small:{
       type:Boolean
-    } 
+    },
+    width:{
+      default:200,
+      type:Number
+    }
   },
   model: {
     event: 'change',
@@ -158,13 +166,18 @@ export default {
   data () {
     return {
       opened: false,
-      focusedItem:-1
+      focusedItem:-1,
+      popObj:undefined,
+      inputEl:undefined,
     }
   },
   computed: {
     displayLabel () {
       return this.value ? this.items.find(x => x.value === this.value).label : this.placeholder
-    }
+    },
+    dropdownStyle(){ 
+      return (this.$props.width +`px`) || '200px'
+    },
   },
   methods:{
     closeDropdown: function(items, index){
@@ -193,6 +206,33 @@ export default {
           this.focused = true
       }
     },
+    openItems () {
+      if (this.opened === true) this.showPop()
+    },
+    showPop(){
+      // if (this.inputEl === undefined) this.inputEl = document.querySelector()
+      // this.inputEl = this.$refs.query
+      this.inputEl = document.querySelector(`#${this.id}-button`)
+      this.$nextTick(function(){
+        this.popObj = new Popper(this.inputEl,this.$refs.itemsWrap ,{
+          placement:'bottom-start',
+          modifiers:{
+            computeStyle:{
+              gpuAcceleration:true
+            },
+          },
+          
+        })
+      })
+    },
+    destroyPop(){
+      this.$nextTick(function(){
+        if(this.popObj!==undefined) this.popObj.destroy()
+      })
+    }
+  },
+  destroyed(){
+    if(this.popObj!==undefined) this.destroyPop()
   }
 }
 </script>
@@ -203,52 +243,51 @@ export default {
 body.user-is-tabbing .a11y:focus, body.user-is-tabbing .a11y-within{
   box-shadow: 0 0 0 2px $color-selected;
 }
-
-.position-wrap{
-  position: relative;
-}
-.selected{
-  border-radius: 2px;
-  border: 0;
-  width: 100%;
-  text-align: left;
-  outline: 0;
-  background-color: var(--select-background, $color-secondary);
-  border: 1px solid #C5CACD;
-  $paddingVal: $baseline * 2;
-  padding-top: $paddingVal;
-  padding-bottom: $paddingVal;
-}
-.small{
-  $paddingVal: $baseline;
-  padding-top: $paddingVal ;
-  padding-bottom: $paddingVal;
-}
-.small-text {
-  padding-top:$baseline;
-}
-.items {
-  border: 1px solid var(--border-color, #C5CACD);
-  border-radius: 2px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
-  background-color: var(--dropdown-background-color, #FFFFFF);
-  position: absolute;
-  min-width: 100%;
-  z-index: 100;
-  top:0;
-  outline: 0;
-}
-.list-item{
-  display: block;
-  padding: $baseline;
-  color:$color-gray-dark;
-  &:hover, &:focus, &.focused {
-    background-color: var(--hover-background-color, #E7F5FB);
-    outline: none;
+.select {
+  .selected{
+    border-radius: 2px;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    outline: 0;
+    background-color: var(--select-background, $color-secondary);
+    border: 1px solid #C5CACD;
+    $paddingVal: $baseline * 2;
+    padding-top: $paddingVal;
+    padding-bottom: $paddingVal;
+  }
+  .small{
+    $paddingVal: $baseline;
+    padding-top: $paddingVal ;
+    padding-bottom: $paddingVal;
+  }
+  .small-text {
+    padding-top:$baseline;
+  }
+  .items-wrap{
+    z-index: 10;
+    
+  }
+  .items {
+    border: 1px solid var(--border-color, #C5CACD);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+    background-color: var(--dropdown-background-color, #FFFFFF);
+    min-width: 100%;
+    z-index: 100;
+    outline: 0;
+    margin-top: calc(var(--baseline))
+  }
+  .list-item{
+    display: block;
+    padding: $baseline;
+    color:$color-gray-dark;
+    &:hover, &:focus, &.focused {
+      background-color: var(--hover-background-color, #E7F5FB);
+      outline: none;
+      color: $color-black;
+    }
   }
 }
-.d
-.list-item:focus .list-item:hover, .focused {
-  color: $color-black
-}
+
 </style>

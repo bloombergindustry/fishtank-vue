@@ -121,7 +121,6 @@ export default {
       query: this.value ? this.value.label : '',
       popObj:undefined,
       inputEl:undefined,
-      dropdownEl:undefined,
     }
   },
   computed:{
