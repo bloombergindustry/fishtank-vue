@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.0-0"></a>
+# [4.10.0-0](https://github.com/bloombergbna/fishtank-vue/compare/v4.9.0...v4.10.0-0) (2019-06-11)
+
+
+### Bug Fixes
+
+* removed border from FishTankTab component ([578ad9a](https://github.com/bloombergbna/fishtank-vue/commit/578ad9a))
+* removed css modules; fixed css error no showing changed state of radios in radiolist component ([8c19d4c](https://github.com/bloombergbna/fishtank-vue/commit/8c19d4c))
+
+
+### Features
+
+* added active styles for vertical tabs ([8b324be](https://github.com/bloombergbna/fishtank-vue/commit/8b324be))
+* added Fish Tank tabs V2 ([9df7057](https://github.com/bloombergbna/fishtank-vue/commit/9df7057))
+* added responsive display styles(None, Flex, Block, inlineBlock, visuallHidden) to available props ([d3cccb9](https://github.com/bloombergbna/fishtank-vue/commit/d3cccb9))
+* cleaned up styles on vertical tabs ([a818855](https://github.com/bloombergbna/fishtank-vue/commit/a818855))
+* code cleanup ([9fe8821](https://github.com/bloombergbna/fishtank-vue/commit/9fe8821))
+* heading text is now fully customizable ([c2af230](https://github.com/bloombergbna/fishtank-vue/commit/c2af230))
+* minor changes modal enhancements ([466ad8d](https://github.com/bloombergbna/fishtank-vue/commit/466ad8d))
+* minor changes to modals ([e3106bd](https://github.com/bloombergbna/fishtank-vue/commit/e3106bd))
+* refactored Tag and textInput to remove text component and add text styles; ([07aa5bd](https://github.com/bloombergbna/fishtank-vue/commit/07aa5bd))
+* removed padding from Modal version 2's footer ([b829bfd](https://github.com/bloombergbna/fishtank-vue/commit/b829bfd))
+* renamed fish tank vertical tab files to FishTankVerticalTabs ([7520918](https://github.com/bloombergbna/fishtank-vue/commit/7520918))
+* updated modal slot options ([94065b5](https://github.com/bloombergbna/fishtank-vue/commit/94065b5))
+
+
+
 <a name="4.9.0"></a>
 # [4.9.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.8.0...v4.9.0) (2019-05-21)
 
