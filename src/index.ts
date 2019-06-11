@@ -22,6 +22,7 @@ export { default as InputRadio } from "./components/FishTankRadio.vue"
 export { default as InputSwitch } from "./components/FishTankSwitch.vue"
 export { default as InputText } from "./components/FishTankTextInput.vue"
 export { default as Modal } from "./components/FishTankModal.vue"
+export { default as ModalV2 } from "./components/FishTankModalV2.vue"
 export { default as DialogBox } from "./components/FishTankDialogBox.vue"
 
 //Todo - Remove exports above and retain only rebranded exports below
