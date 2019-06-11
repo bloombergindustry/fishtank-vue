@@ -1,25 +1,25 @@
 <template>
   <div 
-    class="Tabs" 
-    :disabled="disabled">
+    :disabled="disabled" 
+    class="Tabs">
     <div 
-      class="header" 
-      :style="headerStyleObject"
+      :style="headerStyleObject" 
       :class="[divider ? 'seperator': 'no-seperator']"
+      class="header"
       role="menubar">
       <div 
+        v-for="(item, index) in items" 
         :class="['title', focus ? 'no-focus' : 'focus']" 
         :style="titleStyleObject" 
-        v-for="(item, index) in items" 
         :key="`${index}-title`" 
         :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
+        tabindex="0"
+        role="menuitem"
         @click="$emit('change', item); removeFocus()"
         @keyup.13="$emit('change', item); addFocus()"
-        tabindex="0"
-        @keyup.9="addFocus(); "
-        role="menuitem">
+        @keyup.9="addFocus(); ">
         <slot 
           :name="`${item.name}-title`">
           <span>{{ item.label }}</span>
@@ -29,10 +29,11 @@
 
     <div class="body">
       <div 
-        v-for="(item, index) in items" class="content" 
+        v-for="(item, index) in items" 
         :key="index" 
-        :hidden="item.renderHidden && item.name!==active">
-<slot 
+        :hidden="item.renderHidden && item.name!==active" 
+        class="content">
+        <slot 
           v-if="item.renderHidden || item.name===active" 
           :name="item.name"/>
       </div>

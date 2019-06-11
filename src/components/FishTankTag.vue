@@ -1,7 +1,7 @@
 <template>
   <div 
-    class="wrap"  
-    :aria-label="removable ? `Remove ${label}`:null">
+    :aria-label="removable ? `Remove ${label}`:null"  
+    class="wrap">
     <label
       :for="id"
       class="label">

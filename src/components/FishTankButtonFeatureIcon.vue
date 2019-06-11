@@ -1,9 +1,9 @@
 <template>
   <fish-tank-base-button
     v-bind="$attrs"
+    :aria-label="name"
     class="button--feature-label"
     role="button"
-    :aria-label="name"
     v-on="$listeners">
     <slot />
   </fish-tank-base-button>

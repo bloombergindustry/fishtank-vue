@@ -1,8 +1,8 @@
 <template>
   <div 
-    class="select" 
     :name="name" 
     :orientation="orientation" 
+    class="select" 
     @mouseleave="opened=false; destroyPop()"
     @keydown="e => _handleKeydown(e, items)">
     <slot 
@@ -17,11 +17,11 @@
       <button 
         :id="`${id}-button`"
         :class="['selected', 'a11y',(small ? 'small':null)]"
-        aria-haspopup="listbox"
-        :placeholder="!value" 
-        :aria-expanded="opened"
+        :placeholder="!value"
+        :aria-expanded="opened" 
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
+        aria-haspopup="listbox"
         @keydown.tab="opened ? opened = false: null"
         @keydown.esc="opened ? opened = false: null"
         @click="opened=!opened; openItems()">
@@ -29,9 +29,9 @@
           display="flex" 
           justify-content="between"> 
           <ftext
-            color="grayDark"
             :size="small ? 'baseSm': 'baseMd'"
-            :class="(small ? 'small-text':null)">
+            :class="(small ? 'small-text':null)"
+            color="grayDark">
             {{ displayLabel }}
           </ftext>
           <caretdown 
@@ -42,23 +42,25 @@
             class="caret" />
         </box>
       </button>
-      <div ref="itemsWrap" class="items-wrap">
+      <div 
+        ref="itemsWrap" 
+        class="items-wrap">
         <div 
           v-if="opened" 
           :id="`${id}-listbox`"
           :class="['items', {'a11y-within': focusedItem > -1}]" 
-          tabindex="-1"
-          role="listbox"
           :aria-labelledby="`${id}-label`"
-          :style="{width:dropdownStyle}">
+          :style="{width:dropdownStyle}"
+          tabindex="-1"
+          role="listbox">
           <ftext
             v-for="(item, index) in items" 
             :id="`${id}-option-${index}`"
             :key="index"
             :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
             :aria-selected="focusedItem===index"
-            role="option" 
-            :size="small ? 'baseSm': 'baseMd'"
+            :size="small ? 'baseSm': 'baseMd'" 
+            role="option"
             @click.native="$emit('change', item.value); opened = false; destroyPop()"
             @blur="closeDropdown(items, index); destroyPop()">
             {{ item.label }}
@@ -75,7 +77,7 @@ import FishTankBox from './FishTankBox.vue'
 import { CaretDown24 } from '@fishtank/icons-vue'
 import { a11y } from "../util/mixins"
 import Popper from 'popper.js'
-import { mkdir } from 'fs';
+import { mkdir } from 'fs'
 /**
  * Change event.
  *
@@ -99,14 +101,18 @@ import { mkdir } from 'fs';
  */
 export default {
   name: 'FishTankSelect',
-  mixins:[
-    a11y
-  ],
   components:{
     // text is a reserved name, so using ftext
     ftext: FishTankText,
     box: FishTankBox,
     caretdown: CaretDown24
+  },
+  mixins:[
+    a11y
+  ],
+  model: {
+    event: 'change',
+    prop: 'value'
   },
   props: {
     /**
@@ -159,10 +165,6 @@ export default {
       type:Number
     }
   },
-  model: {
-    event: 'change',
-    prop: 'value'
-  },
   data () {
     return {
       opened: false,
@@ -178,6 +180,9 @@ export default {
     dropdownStyle(){ 
       return (this.$props.width +`px`) || '200px'
     },
+  },
+  destroyed(){
+    if(this.popObj!==undefined) this.destroyPop()
   },
   methods:{
     closeDropdown: function(items, index){
@@ -231,9 +236,6 @@ export default {
       })
     }
   },
-  destroyed(){
-    if(this.popObj!==undefined) this.destroyPop()
-  }
 }
 </script>
 

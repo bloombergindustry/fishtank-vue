@@ -30,9 +30,9 @@
       <circle
         :style="{strokeDasharray: `${strokeDashArray}`}"
         :class="['spinner-gradient', {'pause-spinner': !loading}]"
-        cx="50" 
-        cy="50"
         :r="radius" 
+        cx="50"
+        cy="50" 
         @stop-spinner="stopSpinner" />
     </svg>
   </div>
