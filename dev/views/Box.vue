@@ -3,7 +3,7 @@
     <fish-tank-text bold>
       Boxed used in laying out a component
     </fish-tank-text>
-    <box width="400px" height="300px" display="flex" direction="column" justifyContent="between" color="highlight2">
+    <box width="400px" height="300px" display="flex" direction="column" justifyContent="between" color="highlight2" >
       <div>
         <fish-tank-text bold>
           Custom Component
@@ -66,6 +66,8 @@
     </box>
     <box
       display="flex"
+      mdDisplay="block"
+      xlDisplay="flex"
       justify-content="between">
       <box
         color="action"

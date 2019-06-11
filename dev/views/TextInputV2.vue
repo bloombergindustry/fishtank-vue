@@ -87,6 +87,7 @@ import Vue from 'vue'
 import { FishTankTextInputV2 , FishTankText} from '@/index'
 import { Search24 } from '@fishtank/icons-vue'
 
+
 export default Vue.extend({
   components:{
     inputtext:FishTankTextInputV2,

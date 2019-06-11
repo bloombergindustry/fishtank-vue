@@ -12,7 +12,7 @@
           <ftbutton @click="bgloading = false">Click to show loading animation</ftbutton>
         </div>
       </div>
-      <div style="display: table-row;">
+      <div style="display: table-row;" class="custom">
         <div style="display: table-cell; vertical-align: middle;">Themable</div>
         <div style="display: table-cell;">
           <spinner
@@ -113,8 +113,7 @@ export default Vue.extend({
 })
 </script>
 <style>
-  :root{
-    --start-color: red;
-    --stop-color: blue;
+  .custom{
+    --spinner-start-color: red;
   }
 </style>

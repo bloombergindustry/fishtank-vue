@@ -38,7 +38,7 @@
 
 .xsDisplayVisuallyHidden {
   border: 0;
-  clip: rect(0 0 0 0);
+  opacity:0;
   height: 1px;
   margin: -1px;
   padding: 0;
@@ -85,7 +85,7 @@
 
   .smDisplayVisuallyHidden {
     border: 0;
-    clip: rect(0 0 0 0);
+    opacity:0;
     height: 1px;
     margin: -1px;
     padding: 0;
@@ -132,7 +132,7 @@
 
   .mdDisplayVisuallyHidden {
     border: 0;
-    clip: rect(0 0 0 0);
+    opacity:0;
     height: 1px;
     margin: -1px;
     padding: 0;
@@ -180,7 +180,7 @@
 
   .lgDisplayVisuallyHidden {
     border: 0;
-    clip: rect(0 0 0 0);
+    opacity:0;
     height: 1px;
     margin: -1px;
     padding: 0;
@@ -227,7 +227,7 @@
 
   .xlDisplayVisuallyHidden {
     border: 0;
-    clip: rect(0 0 0 0);
+    opacity:0;
     height: 1px;
     margin: -1px;
     padding: 0;

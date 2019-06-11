@@ -152,6 +152,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 import { 
   Modal,
   ModalV2, 
@@ -161,6 +162,7 @@ import {
   ButtonFeatureLabel,
   FishTankText 
 } from '@/index'
+
 import LoremIpsum from '../LoremIpsum.vue'
 import { 
   Search24, 
@@ -178,7 +180,6 @@ export default Vue.extend({
     ModalV2,
     DialogBox,
     ButtonPrimary,
-    ButtonSecondary,
     ButtonFeatureLabel,
     FishTankText,
     LoremIpsum,
