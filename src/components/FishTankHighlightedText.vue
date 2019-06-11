@@ -1,5 +1,5 @@
 <template>
-  <span class="HighlightedText" v-html="_transformedContent" />
+  <span class="HighlightedText" v-html="_transformedContent"/> 
 </template>
 
 <script>
