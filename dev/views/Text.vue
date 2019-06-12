@@ -86,6 +86,7 @@
           label="Italic"/>
       </div>
     </div>
+    <br>
     <fish-tank-text
       block
       bold>The Component Can be nested</fish-tank-text>
@@ -109,12 +110,45 @@
       </fish-tank-text>
     </fish-tank-box>
     <br>
+    <fish-tank-box>
+      <fish-tank-text bold>Highlighted Text:</fish-tank-text>
+      <fish-tank-text>
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted yellow" 
+          term="highlighted yellow"
+          highlight="color-highlight-1"
+        />.
+      </fish-tank-text>
+      <fish-tank-text>
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted blue" 
+          term="highlighted blue"
+          highlight="color-highlight-2"
+        />.
+      </fish-tank-text>
+      <fish-tank-text>
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted green" 
+          term="highlighted green"
+          highlight="color-highlight-3"
+        />.
+      </fish-tank-text>
+    </fish-tank-box>
+    <br>
     <br>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankText, FishTankCheckbox, FishTankBox} from "@/index"
+import { 
+  FishTankText, 
+  FishTankCheckbox, 
+  FishTankBox,
+  FishTankHighlight
+} from "@/index"
 import ftColorsObj from '@fishtank/colors/dist/text.common.js'
 import {
   fishtankToPropName
@@ -129,7 +163,8 @@ export default Vue.extend({
   components: {
     FishTankText,
     FishTankCheckbox,
-    FishTankBox
+    FishTankBox,
+    FishTankHighlight
   },
   data () {
     return {
