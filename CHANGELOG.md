@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.0"></a>
+# [4.10.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.0-4...v4.10.0) (2019-06-12)
+
+
+### Features
+
+* Added badgesV2 which supports indeterminate and number badges ([b1d2927](https://github.com/bloombergbna/fishtank-vue/commit/b1d2927))
+* Added badgesV2 which supports indeterminate and number badges ([25f1e9b](https://github.com/bloombergbna/fishtank-vue/commit/25f1e9b))
+
+
+
 <a name="4.10.0-4"></a>
 # [4.10.0-4](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.0-3...v4.10.0-4) (2019-06-12)
 
