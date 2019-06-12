@@ -12,10 +12,10 @@
           <ftbutton @click="bgloading = false">Click to show loading animation</ftbutton>
         </div>
       </div>
-      <div style="display: table-row;" class="custom">
+      <div style="display: table-row;" >
         <div style="display: table-cell; vertical-align: middle;">Themable</div>
         <div style="display: table-cell;">
-          <spinner
+          <spinner class="custom"
             theme="theme"
             size="medium" />
         </div>
