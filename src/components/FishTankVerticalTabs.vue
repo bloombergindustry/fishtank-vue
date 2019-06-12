@@ -1,41 +1,44 @@
 <template>
   <div 
-    class="Tabs" 
-    :disabled="disabled">
+    :disabled="disabled" 
+    class="Tabs">
     <div class="tabs-wrapper">
-    <div 
-      class="header" 
-      :style="headerStyleObject"
-      role="menubar">
-      <div
-        :class="['title', focus ? 'no-focus' : 'focus']" 
-        :style="titleStyleObject" 
-        v-for="(item, index) in items" 
-        :key="`${index}-title`" 
-        :active="item.name === active" 
-        :disabled="item.disabled" 
-        :hidden="item.hidden" 
-        @click="$emit('change', item); removeFocus()"
-        @keyup.13="$emit('change', item); addFocus()"
-        tabindex="0"
-        @keyup.9="addFocus(); "
-        role="menuitem">
-        <slot 
-          :name="`${item.name}-title`">
-          <span class="label">{{ item.label }}</span>
-        </slot>
+      <div 
+        :style="headerStyleObject" 
+        class="header"
+        role="menubar">
+        <div
+          v-for="(item, index) in items" 
+          :key="`${index}-title`" 
+          :class="['title', focus ? 'no-focus' : 'focus']" 
+          :style="titleStyleObject" 
+          :active="item.name === active" 
+          :disabled="item.disabled" 
+          :hidden="item.hidden" 
+          tabindex="0"
+          role="menuitem"
+          @click="$emit('change', item); removeFocus()"
+          @keyup.13="$emit('change', item); addFocus()"
+          @keyup.9="addFocus(); ">
+          <slot 
+            :name="`${item.name}-title`">
+            <span class="label">
+              {{ item.label }}
+            </span>
+          </slot>
+        </div>
       </div>
-    </div>
     </div>
 
     <div class="body">
       <div 
-        v-for="(item, index) in items" class="content" 
+        v-for="(item, index) in items"
         :key="index" 
-        :hidden="item.renderHidden && item.name!==active">
+        :hidden="item.renderHidden && item.name!==active" 
+        class="content">
         <slot 
           v-if="item.renderHidden || item.name===active" 
-          :name="item.name"/>
+          :name="item.name" />
       </div>
     </div>
   </div>

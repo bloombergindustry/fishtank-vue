@@ -162,18 +162,13 @@ import {
 } from '@/index'
 
 
-import { 
-  Alert24
-  } from "@fishtank/icons-vue"
-
-
 export default Vue.extend({
   components: {
     FishTankBox,
     FishTankText,
     FishTankVerticalTabs,
     CardV2,
-    Alert24
+    
   },
 
   data(){

@@ -493,6 +493,51 @@ export default Vue.extend({
       },
       description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    xsDirection: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
+    },
+    smDirection: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
+    },
+    mdDirection: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
+    },
+    lgDirection: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
+    },
+    xlDirection: {
+      type:String,
+      default:null,
+      required:false,
+      validator: function(value: Direction){
+        return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
+      },
+      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
+    },
     justifyContent: {
       type:String,
       default:null,

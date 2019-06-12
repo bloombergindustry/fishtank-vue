@@ -38,6 +38,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Badges.vue")
     },
     {
+      path: '/numberbadges',
+      component: () => import("./views/NumberBadges.vue")
+    },
+    {
       path: '/tags',
       component: () => import("./views/Tags.vue")
     },

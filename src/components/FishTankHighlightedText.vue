@@ -1,8 +1,7 @@
 <template>
   <span 
-    :class="[ highlight === 'color-highlight-2' ? 'HighlightedText2' : 'HighlightedText',  highlight === 'color-highlight-3' ? 'HighlightedText3' : 'HighlightedText']" 
-    v-html="_transformedContent"
-  /> 
+    class="HighlightedText" 
+      v-html="_transformedContent" />
 </template>
 
 <script>

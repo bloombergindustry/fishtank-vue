@@ -10,7 +10,7 @@
         class="modal__escapable-background"
         @click="close"
       />
-      <div
+      <div 
         :style="styles"
         class="modal__container"
       >
@@ -30,10 +30,9 @@
               </div>
             </div>
             <div
-              v-if="heading"
               class="modal__heading-title"
             >
-              {{ heading }}
+              <slot name="heading"/>
             </div>
           </div>
           <div
@@ -79,9 +78,7 @@
             class="modal__footer-container"
           >
             <div class="modal__footerLeft">
-              <slot 
-                name="footerLeft"
-              />
+              <slot name="footerLeft"/>
             </div>
             <div class="modal__footerRight">
               <slot name="footerRight"/>
@@ -418,7 +415,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
@@ -482,7 +479,7 @@ export default Vue.extend({
   border-radius: 2px 2px 0 0;
   height: $baseline * 12;
   min-height: $baseline * 12;
-  font-size: $fontsize-base-lg;
+  // font-size: $fontsize-base-lg;
   line-height: $lineheight-base-lg;
   font-family: $font-primary;
   font-weight: $fontweight-semi;
@@ -498,7 +495,8 @@ export default Vue.extend({
 }
 
 .modal__footer {
-  padding: $baseline * 3;
+  // padding: $baseline * 3;
+  padding: 0px;
   white-space: nowrap;
 }
 
@@ -552,14 +550,14 @@ export default Vue.extend({
 }
 
 .modal__body {
-  padding: $baseline * 3;
+  // padding: $baseline * 3;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .modal--fixed {
   .modal__footer {
-    padding: $baseline * 3;
+    // padding: $baseline * 3;
     background-color: $color-gray-lightest;
     border-top: $modal-border;
     border-radius: 0 0 2px 2px;
@@ -591,7 +589,7 @@ export default Vue.extend({
 
   .modal--fixed {
     .modal__footer {
-      padding-bottom: $baseline * 3;
+      // padding-bottom: $baseline * 3;
     }
   }
 }
