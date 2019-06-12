@@ -113,7 +113,28 @@
     <fish-tank-box>
       <fish-tank-text bold>Highlighted Text:</fish-tank-text>
       <fish-tank-text>
-        This text is <fish-tank-highlight content="highlighted" term="highlighted"/>.
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted yellow" 
+          term="highlighted yellow"
+          highlight="color-highlight-1"
+        />.
+      </fish-tank-text>
+      <fish-tank-text>
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted blue" 
+          term="highlighted blue"
+          highlight="color-highlight-2"
+        />.
+      </fish-tank-text>
+      <fish-tank-text>
+        This text is 
+        <fish-tank-highlight 
+          content="highlighted green" 
+          term="highlighted green"
+          highlight="color-highlight-3"
+        />.
       </fish-tank-text>
     </fish-tank-box>
     <br>
