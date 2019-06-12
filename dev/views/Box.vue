@@ -90,6 +90,37 @@
         </fish-tank-text>
       </box>
     </box>
+
+    <box
+      display="flex"
+      xs-direction="column"
+      md-direction="row"
+      xl-direction="column"
+      justify-content="between">
+      <box
+        color="action"
+        :padding="4"
+        :margin="2"
+        :column="4">
+        <fish-tank-text>
+          Column 1
+        </fish-tank-text>
+      </box>
+      <box
+        color="btaxOrange"
+        :column="4">
+        <fish-tank-text>
+          Column 2
+        </fish-tank-text>
+      </box>
+      <box
+        :column="4">
+        <fish-tank-text 
+          color="error">
+          Column 3
+        </fish-tank-text>
+      </box>
+    </box>
   </section>
 </template>
 <script lang="ts">
