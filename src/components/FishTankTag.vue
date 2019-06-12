@@ -1,7 +1,7 @@
 <template>
   <div 
-    class="wrap"  
-    :aria-label="removable ? `Remove ${label}`:null">
+    :aria-label="removable ? `Remove ${label}`:null"  
+    class="wrap">
     <label
       :for="id"
       class="label">
@@ -193,9 +193,6 @@ export default Vue.extend({
     position: relative;
     margin: 0px;
   }
-  .wrap.label:hover{
-    color: var(--color-black);
-  }
   .input{
     position: absolute;
     width:100%;
@@ -209,24 +206,24 @@ export default Vue.extend({
   }
   .tag{
     border-radius: 6px;
-    color: var(--color-gray);
-    background-color: var(--color-secondary);
-    border: 1px solid var(--color-gray-lighter);
-    padding: 3px calc(var(--baseline)*2) 3px calc(var(--baseline)*2);
+    color: var(--tag-text-color, $color-gray);
+    background-color: var(--tag-background, $color-secondary);
+    border: 1px solid var(--tag-border,$color-gray-lighter);
+    padding: 3px $baseline * 2;
     vertical-align: middle;
   }
   .hasIcon{
     padding-right: 28px;
   }
   .checked{
-    color: var(--color-white);
-    background-color: var(--color-selected);
-    border: 1px solid var(--color-selected);
+    color: var(--tag-checked-text-color, $color-white);
+    background-color: var(--tag-checked-background, $color-selected);
+    border: 1px solid var(--tag-checked-border, $color-selected);
   }
   .disabled{
-    color: var(--color-disabled);
-    background-color: var(--color-gray-lightest);
-    border: 1px solid var(--color-gray-lighter);
+    color: var(--tag-disabled-text-color, $color-disabled);
+    background-color: var(--tag-disabled-background-color, $color-gray-lightest);
+    border: 1px solid var(--tag-disabled-border-color, $color-gray-lighter);
   }
   .label:hover .tag{
     color: var(--color-black);

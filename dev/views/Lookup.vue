@@ -6,7 +6,9 @@
       orientation="ltr"
       url="/some_autocomplete_endpoint"
       v-model="selected" />
-    <div v-if="selected">{{selected.label}}</div>
+    <div v-if="selected">
+      {{ selected.label }}
+    </div>
   </div>
 </template>
 <script>

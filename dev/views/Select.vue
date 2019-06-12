@@ -12,9 +12,10 @@
         small
         label="Fish Tank Dropdown" 
         :items="items" 
+        :width='300'
         v-model="selected"/>
     </div>
-    <div style="margin-top: 12px;">
+    <div>
       <fish-tank-select
         label="Not preselected" 
         placeholder="SELECT" 

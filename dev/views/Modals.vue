@@ -168,7 +168,6 @@ import {
   Search24, 
   Search32, 
   HomeO24 as Home24,
-  Alert24,
   AlertAdd24,
   FavoriteO24 as Favorite24,
   Duplicate24

@@ -1,10 +1,11 @@
 {
   "name": "@fishtank/fishtank-vue",
-  "version": "4.9.0",
+  "version": "4.10.0-3",
   "private": false,
   "license": "Apache-2.0",
   "author": "Fish Tank Design System <agile_fishtank@bna.com>",
   "scripts": {
+    "link": "eslint",
     "clean": "rimraf dist/",
     "dev": "yarn run serve",
     "serve": "vue-cli-service serve --open",
@@ -86,6 +87,7 @@
     "eslint-plugin-vue": "5.0.0",
     "extract-text-webpack-plugin": "3.0.2",
     "in-publish": "2.0.0",
+    "jshint": "2.10.2",
     "lodash": ">=4.17.11",
     "moxios": "0.4.0",
     "node-sass": "4.9.0",
@@ -118,6 +120,7 @@
     "typescript": "2.9.1",
     "uglify-es": "3.3.9",
     "vue": "^2.5.17",
+    "vue-docgen-api": "3.13.8",
     "vue-markdown": "^2.2.4",
     "vue-prism-component": "1.0.1",
     "vue-router": "3.0.1",

@@ -123,6 +123,14 @@ export default Vue.extend({
       required:false,
       description:"Textarea type input max-height",
     },
+    /**
+		 * Textarea Input can be resized
+		 */
+    resize:{
+      type:Boolean,
+      default:false,
+      required:false
+    },
   },
   data(){
     return {

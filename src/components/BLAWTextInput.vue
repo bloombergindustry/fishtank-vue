@@ -1,21 +1,24 @@
 <template>
-  <div class="TextInput" :name="name" :orientation="orientation" @blur="$refs.input.blur()">
-    <label v-if="label">{{label}}</label>
+  <div 
+    :name="name" 
+    :orientation="orientation" 
+    class="TextInput" 
+    @blur="$refs.input.blur()">
+    <label v-if="label">{{ label }}</label>
     <div class="input-wrapper">
       <slot name="icon">
         <!-- <FishtankIcon v-if="icon" color="#777C7F" :name="icon" width="24" height="24" /> -->
       </slot>
       <input
-        autocomplete="new-password"
         ref="input"
-        type="text"
         :id="id"
         :placeholder="placeholder"
         :value="value"
+        autocomplete="new-password"
+        type="text"
         @blur="$emit('blur', $event)"
         @focus="$emit('focus', $event)"
-        @input="$emit('input', $event.target.value)"
-      />
+        @input="$emit('input', $event.target.value)">
       <slot name="below" />
     </div>
   </div>
