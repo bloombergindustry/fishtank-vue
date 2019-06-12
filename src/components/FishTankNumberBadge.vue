@@ -111,7 +111,7 @@ export default class FishTankNumberBadge extends Vue {
         height:3px;
         width:3px;
         position: absolute;
-        background: $color-white;
+        background: var(--color-white);
     }
 
     .number{
@@ -119,8 +119,8 @@ export default class FishTankNumberBadge extends Vue {
         padding-right:calc(var(--baseline)*1.5);
         padding-left:calc(var(--baseline)*1.5);
         font-family: var(--font-primary);
-        font-size: $fontsize-base-sm;
-        font-weight: $fontweight-semi;
+        font-size: var(--fontsize-base-sm);
+        font-weight: var(--fontweight-semi);
         float:right;
         text-align:center;
     }
@@ -171,19 +171,19 @@ export default class FishTankNumberBadge extends Vue {
     //text colors
     .badge-chip{
         &.text--color-light {
-            color: $color-white;
+            color: var(--color-white);
         }
     }
 
     .badge-chip{
         &.text--color-dark {
-            color: $color-black;
+            color: var(--color-black);
         }
     }
 
     .badge-chip{
         &.text--color-disabled {
-            color: $color-gray-light;
+            color: var(--color-gray-light);
         }
     }
 </style>
