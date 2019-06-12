@@ -77,7 +77,6 @@ import FishTankBox from './FishTankBox.vue'
 import { CaretDown24 } from '@fishtank/icons-vue'
 import { a11y } from "../util/mixins"
 import Popper from 'popper.js'
-import { mkdir } from 'fs'
 /**
  * Change event.
  *
