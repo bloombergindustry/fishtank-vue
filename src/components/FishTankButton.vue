@@ -79,6 +79,9 @@ body.user-is-tabbing .a11y:focus {
 
 <style scoped lang="scss">
   @import '../styles/mixins';
+  body.user-is-tabbing .a11y:focus {
+    box-shadow: 0 0 0 2px $color-selected;
+  }
   .button {
     box-sizing: border-box;
     border-radius: 2px;

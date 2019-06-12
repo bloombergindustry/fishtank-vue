@@ -2,8 +2,8 @@
   <div class="card">
     <div
       v-if="branded"
-      class="branded brandStripe" 
-      :style="returnBrandStripe()"/>
+      :style="returnBrandStripe()" 
+      class="branded brandStripe"/>
     <div 
       class="container">
       <slot
@@ -11,8 +11,8 @@
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
+        :style="customHeadingBg ? returnHeaderStripe() :'' "
         class="heading"
-        :style="customHeadingBg ? returnHeaderStripe() : '' "
         role="heading"
         aria-level="3">
         {{ heading }}
@@ -66,14 +66,14 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../styles/mixins';
 .card + .card {
   margin-top: $baseline * 6;
 }
 </style>
 
-<style scope lang="scss">
+<style scoped lang="scss">
   @import '../styles/mixins';
 
   .container {

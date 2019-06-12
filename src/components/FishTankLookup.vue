@@ -1,6 +1,14 @@
 <template>
-  <data-fetcher :url="dataUrl" enable-cache>
-    <div class="Autocomplete" :focused="focused" :name="name" :orientation="orientation" slot-scope="{ loading, fetchedData: { data: { items } } }" @keydown="e => _handleKeydown(e, items)" >
+  <data-fetcher 
+    :url="dataUrl" 
+    enable-cache>
+    <div 
+      slot-scope="{ loading, fetchedData: { data: { items } } }" 
+      :focused="focused" 
+      :name="name" 
+      :orientation="orientation" 
+      class="Autocomplete" 
+      @keydown="e => _handleKeydown(e, items)" >
       <div 
         :id="id ? `${id}-combobox` : `${identifier}-combobox`"
         class="input-wrapper"
@@ -9,27 +17,27 @@
           ref="query"
           :id="id ? `${id}-input` : `${identifier}-input`"
           v-model="query"
-          type="text"
-          icon="search_24"
-          :label="label" 
-          :orientation="orientation" 
+          :label="label"
+          :orientation="orientation"
           :placeholder="placeholder" 
-          :aria-expanded="(focused && items ? true: false)"
-          :aria-controls="`${id}-listbox`"
-          aria-haspopup="listbox"  
-          aria-autocomplete="list" 
+          :aria-expanded="(focused && items ? true: false)" 
+          :aria-controls="`${id}-listbox`" 
           :aria-activedescendant="`option-${focusedItem}`"
-          :aria-labelledby="label" 
+          :aria-labelledby="label"
+          type="text"  
+          icon="search_24" 
+          aria-haspopup="listbox"
+          aria-autocomplete="list" 
           @blur.stop="focused=false, destroyPop()" 
           @focus.stop="focused=true, showPop()" />
         <div
           v-if="focused"
-          :id=" id ? `${id}-listbox` : `${identifier}-listbox`"
           ref="items"
           slot="below"
+          :id=" id ? `${id}-listbox` : `${identifier}-listbox`"
+          :style="{width:dropdownStyle}"
           role="listbox"
-          class="items"
-          :style="{width:dropdownStyle}">
+          class="items">
           <hightlight
             v-for="(item, index) in items"
             :id="`option-${index}`"
@@ -59,8 +67,8 @@ import Popper from 'popper.js'
  */
 
 export default {
-  components: { DataFetcher, hightlight: HighlightedText, TextInput },
   name: 'FishTankLookup',
+  components: { DataFetcher, hightlight: HighlightedText, TextInput },
   model: {
     prop: 'value',
     event: 'change'
@@ -121,12 +129,14 @@ export default {
       query: this.value ? this.value.label : '',
       popObj:undefined,
       inputEl:undefined,
-      dropdownEl:undefined,
     }
   },
   computed:{
     dropdownStyle(){ 
       return (this.$props.width +`px`) || '200px'
+    },
+    items () {
+      return this.fetchedData.data.items
     }
   },
   watch: {

@@ -1,30 +1,30 @@
 <template>
 
   <div 
-    :class="[$style.radio]">
+    :class="['radio']">
     <label 
       :for="(id !==null? id: `radio-${identifier}-label`)"
-      :class="[$style.label]">
+      :class="['label']">
       <input 
         :disabled="disabled" 
         :id="(id !==null? id: `radio-${identifier}-input`)"  
         :value="value" 
         :tabindex='(shouldBeChecked ? "0" :"-1")'
         :checked ="shouldBeChecked" 
-        :class="[$style.input, 'a11yInput']" 
+        :class="['input', 'a11yInput']" 
         type="radio"
         ref="input"
         :name="name" 
         v-on="listeners">
       <div 
-        :class="[$style.icon, 'a11yIcon']"/>
+        :class="['icon', 'a11yIcon', {'is-checked':shouldBeChecked}]"/>
       <template v-if="$slots.default">
-        <div :class="[$style.labelContent]">
+        <div :class="['labelContent']">
           <slot />
         </div>
       </template>
       <div v-else
-        :class="[$style.labelContent]">
+        :class="['labelContent']">
         {{ label }}
       </div>
     </label>
@@ -139,7 +139,7 @@ export default Vue.extend({
   }
 </style>
 
-<style module lang="scss">
+<style scoped lang="scss">
   @import '../styles/mixins';
 /* fix box sizing bug*/
   .radio{
@@ -148,89 +148,91 @@ export default Vue.extend({
     padding-left: $baseline*9;
     padding-top: 6px;
     padding-bottom: 6px;
-  }
-  .input{
-    opacity: 0;
-    margin: 0;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    &:disabled {
-      cursor: default;
-    }
-  }
-  .icon{
-    transition: all 0.3s ease;
-    display:inline-block;
-    width:12px;
-    height:12px;
-    background-color: transparent;
-    content:"";
-    border: 2px solid $color-gray;
-    border-radius:50%;
-    position: absolute;
-    left: 4px;
-    top: 8px;
-  }
-  .input + .icon{
-    &:after{
-      content:"";
-      width: 6px;
-      height: 6px;
-      background-color: $color-selected;
-      border:1px solid $color-selected;
-      border-radius: 50%;
-      display: inline-block;
-      top: 2px;
-      left: 2px;
+
+    .input{
+      opacity: 0;
+      margin: 0;
       position: absolute;
-      transform: scale(0.0);
-      transition: transform .3s cubic-bezier(.5,.1,.3,1.5);
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      &:disabled {
+        cursor: default;
+      }
+    }
+    .icon{
+      transition: all 0.3s ease;
+      display:inline-block;
+      width:12px;
+      height:12px;
+      background-color: transparent;
+      content:"";
+      border: 2px solid $color-gray;
+      border-radius:50%;
+      position: absolute;
+      left: 4px;
+      top: 8px;
+    }
+    .icon{
+      &:after{
+        content:"";
+        width: 6px;
+        height: 6px;
+        background-color: $color-selected;
+        border:1px solid $color-selected;
+        border-radius: 50%;
+        display: inline-block;
+        top: 2px;
+        left: 2px;
+        position: absolute;
+        transform: scale(0.0);
+        transition: transform .3s cubic-bezier(.5,.1,.3,1.5);
+      }
+    }
+    .icon.is-checked{
+      &:after{
+        transform: scale(1.0);
+      }
+    }
+    .input:hover + .icon{
+      &:after{
+        background-color: $color-selected-darker;
+        border:1px solid $color-selected-darker;
+      }
+    }
+    .label{
+      color: $color-gray-dark;
+      font-size: $fontsize-base-md;
+      line-height: $lineheight-base-md;
+      letter-spacing: $letterspacing-base-md;
+      font-weight:$fontweight-regular;
+      &:hover{
+        color:$color-black;
+      }
+    }
+    .input:hover {
+      & + .ft-icon{
+        border:2px solid $color-black;
+      }
+    }
+    .input:disabled + .icon{
+      border:2px solid $color-disabled;
+    }
+    .input:disabled + .icon.is-checked{
+      border:2px solid $color-disabled;
+      &:after {
+        background-color: $color-disabled;
+        border:1px solid $color-disabled;
+      }
+    }
+    .input:disabled ~ .labelContent{
+      color:$color-disabled;
     }
   }
-  .input:checked + .icon{
-    &:after{
-      transform: scale(1.0);
-    }
-  }
-  .input:hover + .icon{
-    &:after{
-      background-color: $color-selected-darker;
-      border:1px solid $color-selected-darker;
-    }
-  }
-  .label{
-    color: $color-gray-dark;
-    font-size: $fontsize-base-md;
-    line-height: $lineheight-base-md;
-    letter-spacing: $letterspacing-base-md;
-    font-weight:$fontweight-regular;
-    &:hover{
-      color:$color-black;
-    }
-  }
-  .input:hover {
-    & + .ft-icon{
-      border:2px solid $color-black;
-    }
-  }
-  .input:disabled + .icon{
-    border:2px solid $color-disabled;
-  }
-  .input:checked:disabled + .icon{
-    border:2px solid $color-disabled;
-    &:after {
-      background-color: $color-disabled;
-      border:1px solid $color-disabled;
-    }
-  }
-  .input:disabled ~ .labelContent{
-    color:$color-disabled;
-  }
+  
 
 </style>
 
