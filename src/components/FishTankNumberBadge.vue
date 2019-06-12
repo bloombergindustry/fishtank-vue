@@ -11,8 +11,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class FishTankNumberBadge extends Vue {
     
     //properties
-    @Prop({default:undefined})
-    value:String;
+    @Prop({default:undefined, type:Number})
+    value:Number;
     @Prop({default:'light'})
     textShade:String
     availableShades:["light","dark","disabled"]
@@ -72,7 +72,12 @@ export default class FishTankNumberBadge extends Vue {
               v-else
               :value = "value"
               class ="number">
-              {{this.value}}
+              <template v-if="this.value > 99">
+                  99+
+              </template>
+              <template v-else>
+                {{this.value}}
+              </template>
           </span>
       </div>
       <slot name="content">

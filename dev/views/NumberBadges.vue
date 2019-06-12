@@ -43,42 +43,42 @@
             <table class = "tbl">
                 <tr>
                     <td>
-                        <badge theme ="bgov" value="9" >
+                        <badge theme ="bgov" :value="9" >
                             <template v-slot:content>
                                 <inbox />
                             </template>
                         </badge>
                     </td>
                     <td>
-                        <badge theme ="btax" value="99" >
+                        <badge theme ="btax" :value="99">
                             <template v-slot:content>
                                 <inbox />
                             </template>
                         </badge>
                     </td>
                     <td>
-                        <badge theme ="notification-1" value="999" >
+                        <badge theme ="notification-1" :value="999" >
                             <template v-slot:content>
                                 <inbox />
                             </template>
                         </badge>
                     </td>
                     <td>
-                        <badge theme ="notification-2" text-shade="dark" value="9999" >
+                        <badge theme ="notification-2" text-shade="dark" :value="9999" >
                             <template v-slot:content>
                                 <inbox />
                             </template>
                         </badge>
                     </td>
                     <td>
-                        <badge theme ="notification-3" value="1" >
+                        <badge theme ="notification-3" :value="1" >
                             <template v-slot:content>
                                 <inbox />
                             </template>
                         </badge>
                     </td>
                     <td>
-                        <badge theme ="disabled" text-shade="disabled" value="0" >
+                        <badge theme ="disabled" text-shade="disabled" :value="0" >
                             <template v-slot:content>
                                 <inbox />
                             </template>
