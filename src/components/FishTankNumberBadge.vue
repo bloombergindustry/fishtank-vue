@@ -59,30 +59,27 @@ export default class FishTankNumberBadge extends Vue {
 
 <template>
   <div class="badge-area">
-      <div 
-          class="badge-chip"
-          :theme="theme"
-          :textShade="textShade"
-          :class = "[themeClass, textClass]">
-          <div
-              v-if="determineIndeterminate"
-              class="inner-circle">
-          </div>
-          <span
-              v-else
-              :value = "value"
-              class ="number">
-              <template v-if="this.value > 99">
-                  99+
-              </template>
-              <template v-else>
-                {{this.value}}
-              </template>
-          </span>
-      </div>
-      <slot name="content">
-
-      </slot>
+    <div 
+      class="badge-chip"
+      :theme="theme"
+      :textShade="textShade"
+      :class="[themeClass, textClass]">
+      <div
+        v-if="determineIndeterminate"
+        class="inner-circle" />
+      <span
+        v-else
+        :value="value"
+        class="number">
+        <template v-if="this.value > 99">
+          99+
+        </template>
+        <template v-else>
+          {{ this.value }}
+        </template>
+      </span>
+    </div>
+    <slot name="content" />
   </div>
 </template>
 
