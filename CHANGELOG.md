@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.2"></a>
+## [4.10.2](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.1...v4.10.2) (2019-06-13)
+
+
+### Features
+
+* added BLAW fishtank higlighted text component ([afae036](https://github.com/bloombergbna/fishtank-vue/commit/afae036))
+* added Fish Tank Highlight unit test ([24d3eb1](https://github.com/bloombergbna/fishtank-vue/commit/24d3eb1))
+* updated highlight text color switching ([399e6b5](https://github.com/bloombergbna/fishtank-vue/commit/399e6b5))
+
+
+
 <a name="4.10.1"></a>
 ## [4.10.1](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.0...v4.10.1) (2019-06-12)
 
