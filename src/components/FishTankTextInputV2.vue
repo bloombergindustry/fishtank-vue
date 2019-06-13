@@ -83,7 +83,7 @@
  /**
   * @displayName Text Input
   */
-import {textInput, orientation} from "../util/mixins"
+import {textInputMixin, orientation} from "../util/mixins"
 import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
 
 import { 
@@ -97,7 +97,7 @@ import {
     WarningIcon: WarningIcon,
   },
   mixins:[
-    textInput,
+    textInputMixin,
     orientation
   ],
 })

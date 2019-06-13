@@ -102,7 +102,7 @@ import {
 
 import FishTankText  from './FishTankText.vue';
 
-import {textInput, orientation, a11y} from "../util/mixins"
+import {textInputMixin, orientation, a11y} from "../util/mixins"
 
 export default Vue.extend({
   components: {
@@ -112,7 +112,7 @@ export default Vue.extend({
   },
   mixins:[
     a11y,
-    textInput,
+    textInputMixin,
     orientation
   ],
   inheritAttrs: false,
