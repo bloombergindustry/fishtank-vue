@@ -3,7 +3,12 @@
     <fish-tank-text bold>
       Boxed used in laying out a component
     </fish-tank-text>
-    <box width="400px" height="300px" display="flex" direction="column" justifyContent="between" color="highlight2" >
+    <box 
+      color="highlight2"
+      :sm-margin="6"
+      :md-margin="2"
+      :lg-margin="4"
+      :xl-margin="10">
       <div>
         <fish-tank-text bold>
           Custom Component
@@ -13,7 +18,8 @@
         </fish-tank-text>
       </div>
 
-      <box display="flex" width="100%">
+      <box display="flex"
+           width="100%">
         <box flex="grow">
           Footer Module Content
         </box>

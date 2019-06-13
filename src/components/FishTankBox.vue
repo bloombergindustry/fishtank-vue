@@ -251,14 +251,43 @@ const whitespace = {
   paddingY12: "paddingY12"
 }
 
+const responsiveSizes = ['xs', 'sm', 'md', 'lg', 'xl']
+const responsiveWhiteSpace = (prefix: string) => _.reduce(whitespace, (memo: any, [first, ...rest]: string, key: string) => {memo[`${prefix}${_.toUpper(first)}${_.join(rest, '')}`] = `${prefix}${_.toUpper(first)}${_.join(rest, '')}`; return memo;}, {})
+
+const [xsWhiteSpace, smWhiteSpace, mdWhiteSpace, lgWhiteSpace, xlWhiteSpace] = responsiveSizes.map(responsiveWhiteSpace)
+
+
 /* transformation js */
-const marginStart = bind(rangeWithoutZero("marginStart"), whitespace)
-const marginEnd = bind(rangeWithoutZero("marginEnd"), whitespace)
-const marginTop = bind(rangeWithoutZero("marginTop"), whitespace)
-const marginRight = bind(rangeWithoutZero("marginRight"), whitespace)
-const marginBottom = bind(rangeWithoutZero("marginBottom"), whitespace)
-const marginLeft = bind(rangeWithoutZero("marginLeft"), whitespace)
+const marginTypes = ['marginStart', 'marginEnd', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft']
+const [marginStart, marginEnd, marginTop, marginRight, marginBottom, marginLeft] = marginTypes.map((marginType: string) => bind(rangeWithoutZero(marginType), whitespace))
 const margin = union(marginTop, marginBottom, marginLeft, marginRight)
+
+const [xsMarginStart, xsMarginEnd, xsMarginTop, xsMarginRight, xsMarginBottom, xsMarginLeft] = marginTypes.map(([first, ...rest]) => `xs${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), xsWhiteSpace))
+const xsMargin = union(xsMarginTop, xsMarginBottom, xsMarginLeft, xsMarginRight)
+
+const [smMarginStart, smMarginEnd, smMarginTop, smMarginRight, smMarginBottom, smMarginLeft] = marginTypes.map(([first, ...rest]) => `sm${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), smWhiteSpace))
+const smMargin = union(smMarginTop, smMarginBottom, smMarginLeft, smMarginRight)
+
+const [mdMarginStart, mdMarginEnd, mdMarginTop, mdMarginRight, mdMarginBottom, mdMarginLeft] = marginTypes.map(([first, ...rest]) => `md${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), mdWhiteSpace))
+const mdMargin = union(mdMarginTop, mdMarginBottom, mdMarginLeft, mdMarginRight)
+debugger
+
+const [lgMarginStart, lgMarginEnd, lgMarginTop, lgMarginRight, lgMarginBottom, lgMarginLeft] = marginTypes.map(([first, ...rest]) => `lg${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), lgWhiteSpace))
+const lgMargin = union(lgMarginTop, lgMarginBottom, lgMarginLeft, lgMarginRight)
+
+const [xlMarginStart, xlMarginEnd, xlMarginTop, xlMarginRight, xlMarginBottom, xlMarginLeft] = marginTypes.map(([first, ...rest]) => `xl${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), xlWhiteSpace))
+const xlMargin = union(xlMarginTop, xlMarginBottom, xlMarginLeft, xlMarginRight)
+
+const marginValidator = {
+  type:Number,
+  default:null,
+  required:false,
+  validator: function(value: Margin){
+    return (-13<(value) && 13>value)
+  },
+  description:'',
+}
+
 const paddingX = bind(rangeWithoutZero("paddingX"), whitespace)
 const paddingY = bind(rangeWithoutZero("paddingY"), whitespace)
 const padding = union(paddingX, paddingY)
@@ -380,6 +409,41 @@ const props: any = {
   marginRight,
   marginBottom,
   marginLeft,
+  xsMarginStart,
+  xsMarginEnd,
+  xsMargin,
+  xsMarginTop,
+  xsMarginRight,
+  xsMarginBottom,
+  xsMarginLeft,
+  smMarginStart,
+  smMarginEnd,
+  smMargin,
+  smMarginTop,
+  smMarginRight,
+  smMarginBottom,
+  smMarginLeft,
+  mdMarginStart,
+  mdMarginEnd,
+  mdMargin,
+  mdMarginTop,
+  mdMarginRight,
+  mdMarginBottom,
+  mdMarginLeft,
+  lgMarginStart,
+  lgMarginEnd,
+  lgMargin,
+  lgMarginTop,
+  lgMarginRight,
+  lgMarginBottom,
+  lgMarginLeft,
+  xlMarginStart,
+  xlMarginEnd,
+  xlMargin,
+  xlMarginTop,
+  xlMarginRight,
+  xlMarginBottom,
+  xlMarginLeft,
   padding,
   paddingX,
   paddingY,
@@ -547,15 +611,12 @@ export default Vue.extend({
       },
       description:'Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.',
     },
-    margin: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
+    margin: marginValidator,
+    xsMargin: marginValidator,
+    smMargin: marginValidator,
+    mdMargin: marginValidator,
+    lgMargin: marginValidator,
+    xlMargin: marginValidator,
     marginStart: {
       type:Number,
       default:null,

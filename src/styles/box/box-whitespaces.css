@@ -897,7 +897,7 @@ html[dir="rtl"] .marginEndN12 {
   padding-right: calc(var(--bt) * 12);
 }
 
-@media (--sm) {
+@media (min-width:480px) {
   html:not([dir="rtl"]) .smMarginStart1 {
     margin-left: calc(var(--bt) * 1);
   }
@@ -1787,7 +1787,7 @@ html[dir="rtl"] .marginEndN12 {
   }
 }
 
-@media (min-width:768px) {
+@media (min-width:752px) {
   html:not([dir="rtl"]) .mdMarginStart1 {
     margin-left: calc(var(--bt) * 1);
   }
@@ -2677,7 +2677,7 @@ html[dir="rtl"] .marginEndN12 {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
   html:not([dir="rtl"]) .lgMarginStart1 {
     margin-left: calc(var(--bt) * 1);
   }
@@ -3562,6 +3562,895 @@ html[dir="rtl"] .marginEndN12 {
   }
 
   .lgPaddingX12 {
+    padding-left: calc(var(--bt) * 12);
+    padding-right: calc(var(--bt) * 12);
+  }
+}
+@media (min-width: 1440px) {
+  html:not([dir="rtl"]) .xlMarginStart1 {
+    margin-left: calc(var(--bt) * 1);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd1 {
+    margin-right: calc(var(--bt) * 1);
+  }
+
+  html[dir="rtl"] .xlMarginStart1 {
+    margin-right: calc(var(--bt) * 1);
+  }
+
+  html[dir="rtl"] .xlMarginEnd1 {
+    margin-left: calc(var(--bt) * 1);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN1 {
+    margin-left: calc(var(--bt) * -1);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN1 {
+    margin-right: calc(var(--bt) * -1);
+  }
+
+  html[dir="rtl"] .xlMarginStartN1 {
+    margin-right: calc(var(--bt) * -1);
+  }
+
+  html[dir="rtl"] .xlMarginEndN1 {
+    margin-left: calc(var(--bt) * -1);
+  }
+
+  .xlMarginTop1 {
+    margin-top: calc(var(--bt) * 1);
+  }
+
+  .xlMarginRight1 {
+    margin-right: calc(var(--bt) * 1);
+  }
+
+  .xlMarginBottom1 {
+    margin-bottom: calc(var(--bt) * 1);
+  }
+
+  .xlMarginLeft1 {
+    margin-left: calc(var(--bt) * 1);
+  }
+
+  .xlMarginTopN1 {
+    margin-top: calc(var(--bt) * -1);
+  }
+
+  .xlMarginRightN1 {
+    margin-right: calc(var(--bt) * -1);
+  }
+
+  .xlMarginBottomN1 {
+    margin-bottom: calc(var(--bt) * -1);
+  }
+
+  .xlMarginLeftN1 {
+    margin-left: calc(var(--bt) * -1);
+  }
+
+  .xlPaddingY1 {
+    padding-bottom: calc(var(--bt) * 1);
+    padding-top: calc(var(--bt) * 1);
+  }
+
+  .xlPaddingX1 {
+    padding-left: calc(var(--bt) * 1);
+    padding-right: calc(var(--bt) * 1);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart2 {
+    margin-left: calc(var(--bt) * 2);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd2 {
+    margin-right: calc(var(--bt) * 2);
+  }
+
+  html[dir="rtl"] .xlMarginStart2 {
+    margin-right: calc(var(--bt) * 2);
+  }
+
+  html[dir="rtl"] .xlMarginEnd2 {
+    margin-left: calc(var(--bt) * 2);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN2 {
+    margin-left: calc(var(--bt) * -2);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN2 {
+    margin-right: calc(var(--bt) * -2);
+  }
+
+  html[dir="rtl"] .xlMarginStartN2 {
+    margin-right: calc(var(--bt) * -2);
+  }
+
+  html[dir="rtl"] .xlMarginEndN2 {
+    margin-left: calc(var(--bt) * -2);
+  }
+
+  .xlMarginTop2 {
+    margin-top: calc(var(--bt) * 2);
+  }
+
+  .xlMarginRight2 {
+    margin-right: calc(var(--bt) * 2);
+  }
+
+  .xlMarginBottom2 {
+    margin-bottom: calc(var(--bt) * 2);
+  }
+
+  .xlMarginLeft2 {
+    margin-left: calc(var(--bt) * 2);
+  }
+
+  .xlMarginTopN2 {
+    margin-top: calc(var(--bt) * -2);
+  }
+
+  .xlMarginRightN2 {
+    margin-right: calc(var(--bt) * -2);
+  }
+
+  .xlMarginBottomN2 {
+    margin-bottom: calc(var(--bt) * -2);
+  }
+
+  .xlMarginLeftN2 {
+    margin-left: calc(var(--bt) * -2);
+  }
+
+  .xlPaddingY2 {
+    padding-bottom: calc(var(--bt) * 2);
+    padding-top: calc(var(--bt) * 2);
+  }
+
+  .xlPaddingX2 {
+    padding-left: calc(var(--bt) * 2);
+    padding-right: calc(var(--bt) * 2);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart3 {
+    margin-left: calc(var(--bt) * 3);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd3 {
+    margin-right: calc(var(--bt) * 3);
+  }
+
+  html[dir="rtl"] .xlMarginStart3 {
+    margin-right: calc(var(--bt) * 3);
+  }
+
+  html[dir="rtl"] .xlMarginEnd3 {
+    margin-left: calc(var(--bt) * 3);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN3 {
+    margin-left: calc(var(--bt) * -3);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN3 {
+    margin-right: calc(var(--bt) * -3);
+  }
+
+  html[dir="rtl"] .xlMarginStartN3 {
+    margin-right: calc(var(--bt) * -3);
+  }
+
+  html[dir="rtl"] .xlMarginEndN3 {
+    margin-left: calc(var(--bt) * -3);
+  }
+
+  .xlMarginTop3 {
+    margin-top: calc(var(--bt) * 3);
+  }
+
+  .xlMarginRight3 {
+    margin-right: calc(var(--bt) * 3);
+  }
+
+  .xlMarginBottom3 {
+    margin-bottom: calc(var(--bt) * 3);
+  }
+
+  .xlMarginLeft3 {
+    margin-left: calc(var(--bt) * 3);
+  }
+
+  .xlMarginTopN3 {
+    margin-top: calc(var(--bt) * -3);
+  }
+
+  .xlMarginRightN3 {
+    margin-right: calc(var(--bt) * -3);
+  }
+
+  .xlMarginBottomN3 {
+    margin-bottom: calc(var(--bt) * -3);
+  }
+
+  .xlMarginLeftN3 {
+    margin-left: calc(var(--bt) * -3);
+  }
+
+  .xlPaddingY3 {
+    padding-bottom: calc(var(--bt) * 3);
+    padding-top: calc(var(--bt) * 3);
+  }
+
+  .xlPaddingX3 {
+    padding-left: calc(var(--bt) * 3);
+    padding-right: calc(var(--bt) * 3);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart4 {
+    margin-left: calc(var(--bt) * 4);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd4 {
+    margin-right: calc(var(--bt) * 4);
+  }
+
+  html[dir="rtl"] .xlMarginStart4 {
+    margin-right: calc(var(--bt) * 4);
+  }
+
+  html[dir="rtl"] .xlMarginEnd4 {
+    margin-left: calc(var(--bt) * 4);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN4 {
+    margin-left: calc(var(--bt) * -4);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN4 {
+    margin-right: calc(var(--bt) * -4);
+  }
+
+  html[dir="rtl"] .xlMarginStartN4 {
+    margin-right: calc(var(--bt) * -4);
+  }
+
+  html[dir="rtl"] .xlMarginEndN4 {
+    margin-left: calc(var(--bt) * -4);
+  }
+
+  .xlMarginTop4 {
+    margin-top: calc(var(--bt) * 4);
+  }
+
+  .xlMarginRight4 {
+    margin-right: calc(var(--bt) * 4);
+  }
+
+  .xlMarginBottom4 {
+    margin-bottom: calc(var(--bt) * 4);
+  }
+
+  .xlMarginLeft4 {
+    margin-left: calc(var(--bt) * 4);
+  }
+
+  .xlMarginTopN4 {
+    margin-top: calc(var(--bt) * -4);
+  }
+
+  .xlMarginRightN4 {
+    margin-right: calc(var(--bt) * -4);
+  }
+
+  .xlMarginBottomN4 {
+    margin-bottom: calc(var(--bt) * -4);
+  }
+
+  .xlMarginLeftN4 {
+    margin-left: calc(var(--bt) * -4);
+  }
+
+  .xlPaddingY4 {
+    padding-bottom: calc(var(--bt) * 4);
+    padding-top: calc(var(--bt) * 4);
+  }
+
+  .xlPaddingX4 {
+    padding-left: calc(var(--bt) * 4);
+    padding-right: calc(var(--bt) * 4);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart5 {
+    margin-left: calc(var(--bt) * 5);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd5 {
+    margin-right: calc(var(--bt) * 5);
+  }
+
+  html[dir="rtl"] .xlMarginStart5 {
+    margin-right: calc(var(--bt) * 5);
+  }
+
+  html[dir="rtl"] .xlMarginEnd5 {
+    margin-left: calc(var(--bt) * 5);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN5 {
+    margin-left: calc(var(--bt) * -5);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN5 {
+    margin-right: calc(var(--bt) * -5);
+  }
+
+  html[dir="rtl"] .xlMarginStartN5 {
+    margin-right: calc(var(--bt) * -5);
+  }
+
+  html[dir="rtl"] .xlMarginEndN5 {
+    margin-left: calc(var(--bt) * -5);
+  }
+
+  .xlMarginTop5 {
+    margin-top: calc(var(--bt) * 5);
+  }
+
+  .xlMarginRight5 {
+    margin-right: calc(var(--bt) * 5);
+  }
+
+  .xlMarginBottom5 {
+    margin-bottom: calc(var(--bt) * 5);
+  }
+
+  .xlMarginLeft5 {
+    margin-left: calc(var(--bt) * 5);
+  }
+
+  .xlMarginTopN5 {
+    margin-top: calc(var(--bt) * -5);
+  }
+
+  .xlMarginRightN5 {
+    margin-right: calc(var(--bt) * -5);
+  }
+
+  .xlMarginBottomN5 {
+    margin-bottom: calc(var(--bt) * -5);
+  }
+
+  .xlMarginLeftN5 {
+    margin-left: calc(var(--bt) * -5);
+  }
+
+  .xlPaddingY5 {
+    padding-bottom: calc(var(--bt) * 5);
+    padding-top: calc(var(--bt) * 5);
+  }
+
+  .xlPaddingX5 {
+    padding-left: calc(var(--bt) * 5);
+    padding-right: calc(var(--bt) * 5);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart6 {
+    margin-left: calc(var(--bt) * 6);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd6 {
+    margin-right: calc(var(--bt) * 6);
+  }
+
+  html[dir="rtl"] .xlMarginStart6 {
+    margin-right: calc(var(--bt) * 6);
+  }
+
+  html[dir="rtl"] .xlMarginEnd6 {
+    margin-left: calc(var(--bt) * 6);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN6 {
+    margin-left: calc(var(--bt) * -6);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN6 {
+    margin-right: calc(var(--bt) * -6);
+  }
+
+  html[dir="rtl"] .xlMarginStartN6 {
+    margin-right: calc(var(--bt) * -6);
+  }
+
+  html[dir="rtl"] .xlMarginEndN6 {
+    margin-left: calc(var(--bt) * -6);
+  }
+
+  .xlMarginTop6 {
+    margin-top: calc(var(--bt) * 6);
+  }
+
+  .xlMarginRight6 {
+    margin-right: calc(var(--bt) * 6);
+  }
+
+  .xlMarginBottom6 {
+    margin-bottom: calc(var(--bt) * 6);
+  }
+
+  .xlMarginLeft6 {
+    margin-left: calc(var(--bt) * 6);
+  }
+
+  .xlMarginTopN6 {
+    margin-top: calc(var(--bt) * -6);
+  }
+
+  .xlMarginRightN6 {
+    margin-right: calc(var(--bt) * -6);
+  }
+
+  .xlMarginBottomN6 {
+    margin-bottom: calc(var(--bt) * -6);
+  }
+
+  .xlMarginLeftN6 {
+    margin-left: calc(var(--bt) * -6);
+  }
+
+  .xlPaddingY6 {
+    padding-bottom: calc(var(--bt) * 6);
+    padding-top: calc(var(--bt) * 6);
+  }
+
+  .xlPaddingX6 {
+    padding-left: calc(var(--bt) * 6);
+    padding-right: calc(var(--bt) * 6);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart7 {
+    margin-left: calc(var(--bt) * 7);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd7 {
+    margin-right: calc(var(--bt) * 7);
+  }
+
+  html[dir="rtl"] .xlMarginStart7 {
+    margin-right: calc(var(--bt) * 7);
+  }
+
+  html[dir="rtl"] .xlMarginEnd7 {
+    margin-left: calc(var(--bt) * 7);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN7 {
+    margin-left: calc(var(--bt) * -7);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN7 {
+    margin-right: calc(var(--bt) * -7);
+  }
+
+  html[dir="rtl"] .xlMarginStartN7 {
+    margin-right: calc(var(--bt) * -7);
+  }
+
+  html[dir="rtl"] .xlMarginEndN7 {
+    margin-left: calc(var(--bt) * -7);
+  }
+
+  .xlMarginTop7 {
+    margin-top: calc(var(--bt) * 7);
+  }
+
+  .xlMarginRight7 {
+    margin-right: calc(var(--bt) * 7);
+  }
+
+  .xlMarginBottom7 {
+    margin-bottom: calc(var(--bt) * 7);
+  }
+
+  .xlMarginLeft7 {
+    margin-left: calc(var(--bt) * 7);
+  }
+
+  .xlMarginTopN7 {
+    margin-top: calc(var(--bt) * -7);
+  }
+
+  .xlMarginRightN7 {
+    margin-right: calc(var(--bt) * -7);
+  }
+
+  .xlMarginBottomN7 {
+    margin-bottom: calc(var(--bt) * -7);
+  }
+
+  .xlMarginLeftN7 {
+    margin-left: calc(var(--bt) * -7);
+  }
+
+  .xlPaddingY7 {
+    padding-bottom: calc(var(--bt) * 7);
+    padding-top: calc(var(--bt) * 7);
+  }
+
+  .xlPaddingX7 {
+    padding-left: calc(var(--bt) * 7);
+    padding-right: calc(var(--bt) * 7);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart8 {
+    margin-left: calc(var(--bt) * 8);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd8 {
+    margin-right: calc(var(--bt) * 8);
+  }
+
+  html[dir="rtl"] .xlMarginStart8 {
+    margin-right: calc(var(--bt) * 8);
+  }
+
+  html[dir="rtl"] .xlMarginEnd8 {
+    margin-left: calc(var(--bt) * 8);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN8 {
+    margin-left: calc(var(--bt) * -8);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN8 {
+    margin-right: calc(var(--bt) * -8);
+  }
+
+  html[dir="rtl"] .xlMarginStartN8 {
+    margin-right: calc(var(--bt) * -8);
+  }
+
+  html[dir="rtl"] .xlMarginEndN8 {
+    margin-left: calc(var(--bt) * -8);
+  }
+
+  .xlMarginTop8 {
+    margin-top: calc(var(--bt) * 8);
+  }
+
+  .xlMarginRight8 {
+    margin-right: calc(var(--bt) * 8);
+  }
+
+  .xlMarginBottom8 {
+    margin-bottom: calc(var(--bt) * 8);
+  }
+
+  .xlMarginLeft8 {
+    margin-left: calc(var(--bt) * 8);
+  }
+
+  .xlMarginTopN8 {
+    margin-top: calc(var(--bt) * -8);
+  }
+
+  .xlMarginRightN8 {
+    margin-right: calc(var(--bt) * -8);
+  }
+
+  .xlMarginBottomN8 {
+    margin-bottom: calc(var(--bt) * -8);
+  }
+
+  .xlMarginLeftN8 {
+    margin-left: calc(var(--bt) * -8);
+  }
+
+  .xlPaddingY8 {
+    padding-bottom: calc(var(--bt) * 8);
+    padding-top: calc(var(--bt) * 8);
+  }
+
+  .xlPaddingX8 {
+    padding-left: calc(var(--bt) * 8);
+    padding-right: calc(var(--bt) * 8);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart9 {
+    margin-left: calc(var(--bt) * 9);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd9 {
+    margin-right: calc(var(--bt) * 9);
+  }
+
+  html[dir="rtl"] .xlMarginStart9 {
+    margin-right: calc(var(--bt) * 9);
+  }
+
+  html[dir="rtl"] .xlMarginEnd9 {
+    margin-left: calc(var(--bt) * 9);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN9 {
+    margin-left: calc(var(--bt) * -9);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN9 {
+    margin-right: calc(var(--bt) * -9);
+  }
+
+  html[dir="rtl"] .xlMarginStartN9 {
+    margin-right: calc(var(--bt) * -9);
+  }
+
+  html[dir="rtl"] .xlMarginEndN9 {
+    margin-left: calc(var(--bt) * -9);
+  }
+
+  .xlMarginTop9 {
+    margin-top: calc(var(--bt) * 9);
+  }
+
+  .xlMarginRight9 {
+    margin-right: calc(var(--bt) * 9);
+  }
+
+  .xlMarginBottom9 {
+    margin-bottom: calc(var(--bt) * 9);
+  }
+
+  .xlMarginLeft9 {
+    margin-left: calc(var(--bt) * 9);
+  }
+
+  .xlMarginTopN9 {
+    margin-top: calc(var(--bt) * -9);
+  }
+
+  .xlMarginRightN9 {
+    margin-right: calc(var(--bt) * -9);
+  }
+
+  .xlMarginBottomN9 {
+    margin-bottom: calc(var(--bt) * -9);
+  }
+
+  .xlMarginLeftN9 {
+    margin-left: calc(var(--bt) * -9);
+  }
+
+  .xlPaddingY9 {
+    padding-bottom: calc(var(--bt) * 9);
+    padding-top: calc(var(--bt) * 9);
+  }
+
+  .xlPaddingX9 {
+    padding-left: calc(var(--bt) * 9);
+    padding-right: calc(var(--bt) * 9);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart10 {
+    margin-left: calc(var(--bt) * 10);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd10 {
+    margin-right: calc(var(--bt) * 10);
+  }
+
+  html[dir="rtl"] .xlMarginStart10 {
+    margin-right: calc(var(--bt) * 10);
+  }
+
+  html[dir="rtl"] .xlMarginEnd10 {
+    margin-left: calc(var(--bt) * 10);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN10 {
+    margin-left: calc(var(--bt) * -10);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN10 {
+    margin-right: calc(var(--bt) * -10);
+  }
+
+  html[dir="rtl"] .xlMarginStartN10 {
+    margin-right: calc(var(--bt) * -10);
+  }
+
+  html[dir="rtl"] .xlMarginEndN10 {
+    margin-left: calc(var(--bt) * -10);
+  }
+
+  .xlMarginTop10 {
+    margin-top: calc(var(--bt) * 10);
+  }
+
+  .xlMarginRight10 {
+    margin-right: calc(var(--bt) * 10);
+  }
+
+  .xlMarginBottom10 {
+    margin-bottom: calc(var(--bt) * 10);
+  }
+
+  .xlMarginLeft10 {
+    margin-left: calc(var(--bt) * 10);
+  }
+
+  .xlMarginTopN10 {
+    margin-top: calc(var(--bt) * -10);
+  }
+
+  .xlMarginRightN10 {
+    margin-right: calc(var(--bt) * -10);
+  }
+
+  .xlMarginBottomN10 {
+    margin-bottom: calc(var(--bt) * -10);
+  }
+
+  .xlMarginLeftN10 {
+    margin-left: calc(var(--bt) * -10);
+  }
+
+  .xlPaddingY10 {
+    padding-bottom: calc(var(--bt) * 10);
+    padding-top: calc(var(--bt) * 10);
+  }
+
+  .xlPaddingX10 {
+    padding-left: calc(var(--bt) * 10);
+    padding-right: calc(var(--bt) * 10);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart11 {
+    margin-left: calc(var(--bt) * 11);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd11 {
+    margin-right: calc(var(--bt) * 11);
+  }
+
+  html[dir="rtl"] .xlMarginStart11 {
+    margin-right: calc(var(--bt) * 11);
+  }
+
+  html[dir="rtl"] .xlMarginEnd11 {
+    margin-left: calc(var(--bt) * 11);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN11 {
+    margin-left: calc(var(--bt) * -11);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN11 {
+    margin-right: calc(var(--bt) * -11);
+  }
+
+  html[dir="rtl"] .xlMarginStartN11 {
+    margin-right: calc(var(--bt) * -11);
+  }
+
+  html[dir="rtl"] .xlMarginEndN11 {
+    margin-left: calc(var(--bt) * -11);
+  }
+
+  .xlMarginTop11 {
+    margin-top: calc(var(--bt) * 11);
+  }
+
+  .xlMarginRight11 {
+    margin-right: calc(var(--bt) * 11);
+  }
+
+  .xlMarginBottom11 {
+    margin-bottom: calc(var(--bt) * 11);
+  }
+
+  .xlMarginLeft11 {
+    margin-left: calc(var(--bt) * 11);
+  }
+
+  .xlMarginTopN11 {
+    margin-top: calc(var(--bt) * -11);
+  }
+
+  .xlMarginRightN11 {
+    margin-right: calc(var(--bt) * -11);
+  }
+
+  .xlMarginBottomN11 {
+    margin-bottom: calc(var(--bt) * -11);
+  }
+
+  .xlMarginLeftN11 {
+    margin-left: calc(var(--bt) * -11);
+  }
+
+  .xlPaddingY11 {
+    padding-bottom: calc(var(--bt) * 11);
+    padding-top: calc(var(--bt) * 11);
+  }
+
+  .xlPaddingX11 {
+    padding-left: calc(var(--bt) * 11);
+    padding-right: calc(var(--bt) * 11);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStart12 {
+    margin-left: calc(var(--bt) * 12);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEnd12 {
+    margin-right: calc(var(--bt) * 12);
+  }
+
+  html[dir="rtl"] .xlMarginStart12 {
+    margin-right: calc(var(--bt) * 12);
+  }
+
+  html[dir="rtl"] .xlMarginEnd12 {
+    margin-left: calc(var(--bt) * 12);
+  }
+
+  html:not([dir="rtl"]) .xlMarginStartN12 {
+    margin-left: calc(var(--bt) * -12);
+  }
+
+  html:not([dir="rtl"]) .xlMarginEndN12 {
+    margin-right: calc(var(--bt) * -12);
+  }
+
+  html[dir="rtl"] .xlMarginStartN12 {
+    margin-right: calc(var(--bt) * -12);
+  }
+
+  html[dir="rtl"] .xlMarginEndN12 {
+    margin-left: calc(var(--bt) * -12);
+  }
+
+  .xlMarginTop12 {
+    margin-top: calc(var(--bt) * 12);
+  }
+
+  .xlMarginRight12 {
+    margin-right: calc(var(--bt) * 12);
+  }
+
+  .xlMarginBottom12 {
+    margin-bottom: calc(var(--bt) * 12);
+  }
+
+  .xlMarginLeft12 {
+    margin-left: calc(var(--bt) * 12);
+  }
+
+  .xlMarginTopN12 {
+    margin-top: calc(var(--bt) * -12);
+  }
+
+  .xlMarginRightN12 {
+    margin-right: calc(var(--bt) * -12);
+  }
+
+  .xlMarginBottomN12 {
+    margin-bottom: calc(var(--bt) * -12);
+  }
+
+  .xlMarginLeftN12 {
+    margin-left: calc(var(--bt) * -12);
+  }
+
+  .xlPaddingY12 {
+    padding-bottom: calc(var(--bt) * 12);
+    padding-top: calc(var(--bt) * 12);
+  }
+
+  .xlPaddingX12 {
     padding-left: calc(var(--bt) * 12);
     padding-right: calc(var(--bt) * 12);
   }
