@@ -113,25 +113,25 @@
     <fish-tank-box>
       <fish-tank-text bold>Highlighted Text:</fish-tank-text>
       <fish-tank-text>
-        This text is 
-        <fish-tank-highlight 
-          content="highlighted yellow" 
+        This text is
+        <fish-tank-highlight
+          content="highlighted yellow"
           term="highlighted yellow"
           highlight="color-highlight-1"
         />.
       </fish-tank-text>
       <fish-tank-text>
-        This text is 
-        <fish-tank-highlight 
-          content="highlighted blue" 
+        This text is
+        <fish-tank-highlight
+          content="highlighted blue"
           term="highlighted blue"
           highlight="color-highlight-2"
         />.
       </fish-tank-text>
       <fish-tank-text>
-        This text is 
-        <fish-tank-highlight 
-          content="highlighted green" 
+        This text is
+        <fish-tank-highlight
+          content="highlighted green"
           term="highlighted green"
           highlight="color-highlight-3"
         />.
@@ -143,9 +143,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { 
-  FishTankText, 
-  FishTankCheckbox, 
+import {
+  FishTankText,
+  FishTankCheckbox,
   FishTankBox,
   FishTankHighlight
 } from "@/index"
