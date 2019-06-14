@@ -3,7 +3,7 @@ export type InlineStyle = { [key: string]: string | number | void }
 export type Style = {
   className: Set<string>,
   inlineStyle: InlineStyle,
-  
+
 }
 
 export function identity(): Style {
@@ -73,7 +73,7 @@ export const toProps = ({
 export const arrayToProps = ({
   className,
   inlineStyle,
-  
+
 }: Style): { className: string[], style: InlineStyle} => {
   const props = { className: [''], style: {} }
 
