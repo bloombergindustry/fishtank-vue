@@ -29,15 +29,15 @@ import color  from '../util/colorsClassMapping'
 import { boxMixin } from "../util/mixins"
 const _ = require("lodash").noConflict()
 
-import { 
-  Column, 
-  IsBoxType, 
-  AlignItemType, 
-  Direction, 
-  DisplayType, 
-  JustifyContent, 
-  Position, 
-  OverFlow, 
+import {
+  Column,
+  IsBoxType,
+  AlignItemType,
+  Direction,
+  DisplayType,
+  JustifyContent,
+  Position,
+  OverFlow,
   Flex,
   Margin,
   Padding ,
@@ -252,7 +252,12 @@ const whitespace = {
 }
 
 const responsiveSizes = ['xs', 'sm', 'md', 'lg', 'xl']
-const responsiveWhiteSpace = (prefix: string) => _.reduce(whitespace, (memo: any, [first, ...rest]: string, key: string) => {memo[`${prefix}${_.toUpper(first)}${_.join(rest, '')}`] = `${prefix}${_.toUpper(first)}${_.join(rest, '')}`; return memo;}, {})
+const responsiveWhiteSpace = (prefix: string) => {
+  return _.reduce(whitespace, (memo: any, [first, ...rest]: string, key: string) => {
+    memo[`${prefix}${_.toUpper(first)}${_.join(rest, '')}`] = `${prefix}${_.toUpper(first)}${_.join(rest, '')}`;
+    return memo;
+  }, {})
+}
 
 const [xsWhiteSpace, smWhiteSpace, mdWhiteSpace, lgWhiteSpace, xlWhiteSpace] = responsiveSizes.map(responsiveWhiteSpace)
 
@@ -270,7 +275,6 @@ const smMargin = union(smMarginTop, smMarginBottom, smMarginLeft, smMarginRight)
 
 const [mdMarginStart, mdMarginEnd, mdMarginTop, mdMarginRight, mdMarginBottom, mdMarginLeft] = marginTypes.map(([first, ...rest]) => `md${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), mdWhiteSpace))
 const mdMargin = union(mdMarginTop, mdMarginBottom, mdMarginLeft, mdMarginRight)
-debugger
 
 const [lgMarginStart, lgMarginEnd, lgMarginTop, lgMarginRight, lgMarginBottom, lgMarginLeft] = marginTypes.map(([first, ...rest]) => `lg${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), lgWhiteSpace))
 const lgMargin = union(lgMarginTop, lgMarginBottom, lgMarginLeft, lgMarginRight)
@@ -612,74 +616,48 @@ export default Vue.extend({
       description:'Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.',
     },
     margin: marginValidator,
+    marginStart: marginValidator,
+    marginEnd: marginValidator,
+    marginTop: marginValidator,
+    marginRight: marginValidator,
+    marginBottom: marginValidator,
+    marginLeft: marginValidator,
     xsMargin: marginValidator,
+    xsMarginStart: marginValidator,
+    xsMarginEnd: marginValidator,
+    xsMarginTop: marginValidator,
+    xsMarginRight: marginValidator,
+    xsMarginBottom: marginValidator,
+    xsMarginLeft: marginValidator,
     smMargin: marginValidator,
+    smMarginStart: marginValidator,
+    smMarginEnd: marginValidator,
+    smMarginTop: marginValidator,
+    smMarginRight: marginValidator,
+    smMarginBottom: marginValidator,
+    smMarginLeft: marginValidator,
     mdMargin: marginValidator,
+    mdMarginStart: marginValidator,
+    mdMarginEnd: marginValidator,
+    mdMarginTop: marginValidator,
+    mdMarginRight: marginValidator,
+    mdMarginBottom: marginValidator,
+    mdMarginLeft: marginValidator,
     lgMargin: marginValidator,
+    lgMarginStart: marginValidator,
+    lgMarginEnd: marginValidator,
+    lgMarginTop: marginValidator,
+    lgMarginRight: marginValidator,
+    lgMarginBottom: marginValidator,
+    lgMarginLeft: marginValidator,
     xlMargin: marginValidator,
-    marginStart: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
-    marginEnd: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
-    marginTop: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
-    marginRight: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
-    marginBottom: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<(value) && 13>value)
-      },
-      description:'',
-    },
-    marginLeft: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Margin){
-        return (-13<value && 13>value)
-      },
-      description:'',
-    },
-    padding: {
-      type:Number,
-      default:null,
-      required:false,
-      validator: function(value: Padding){
-        return (-1<value && 13>value)
-      },
-      description:'Box padding, applied to horizontally and vertically',
-    },
+    xlMarginStart: marginValidator,
+    xlMarginEnd: marginValidator,
+    xlMarginTop: marginValidator,
+    xlMarginRight: marginValidator,
+    xlMarginBottom: marginValidator,
+    xlMarginLeft: marginValidator,
+    padding: marginValidator,
     paddingX: {
       type:Number,
       default:null,
@@ -841,7 +819,4 @@ input {
 textarea {
   width: 100%;
 }
-@custom-media --sm (max-width: 720px);
-@custom-media --md (max-width: 960px);
-@custom-media --lg (max-width: 1200px);
 </style>

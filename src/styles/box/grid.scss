@@ -1,4 +1,12 @@
+
+@custom-media --xs (min-width: 0px);
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 752px);
+@custom-media --lg (min-width: 1008px);
+@custom-media --xl (min-width: 1440px);
+
 $ncols: 12;
+
 .xsCol1 {
   width: calc(1 / #{$ncols} * 100% - 32px);
 }
@@ -47,7 +55,7 @@ $ncols: 12;
   width: calc((12 / #{$ncols} * 100% - 32px));
 }
 
-@media (min-width:480px) {
+@media (--sm) {
   .smCol1 {
     width: calc(1 / #{$ncols} * 100% - 32px);
   }
@@ -97,7 +105,7 @@ $ncols: 12;
   }
 }
 
-@media (min-width:752px) {
+@media (--md) {
   .mdCol1 {
     width: calc(1 / #{$ncols} * 100% - 32px);
   }
@@ -147,7 +155,7 @@ $ncols: 12;
   }
 }
 
-@media (min-width: 1008px) {
+@media (--lg) {
   .lgCol1 {
     width: calc(1 / #{$ncols} * 100% - 32px);
   }
@@ -196,7 +204,7 @@ $ncols: 12;
     width: calc(12 / #{$ncols} * 100% - 32px);
   }
 }
-@media (min-width: 1440px) {
+@media (--xl) {
   .xlCol1 {
     width: calc(1 / #{$ncols} * 100% - 32px);
   }
