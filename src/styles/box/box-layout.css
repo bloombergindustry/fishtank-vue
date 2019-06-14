@@ -1,3 +1,10 @@
+@custom-media --xs (min-width: 0px);
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 752px);
+@custom-media --lg (min-width: 1008px);
+@custom-media --xl (min-width: 1440px);
+
+
 /* display */
 
 .block {
@@ -114,25 +121,25 @@
   display: flex;
 }
 
-@media (min-width:480px) {
+@media (--sm) {
   .smFlex {
     display: flex;
   }
 }
 
-@media (min-width:752px) {
+@media (--md) {
   .mdFlex {
     display: flex;
   }
 }
 
-@media (min-width: 1008px) {
+@media (--lg) {
   .lgFlex {
     display: flex;
   }
 }
 
-@media (min-width: 1440px) {
+@media (--xl) {
   .xlFlex {
     display: flex;
   }

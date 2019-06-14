@@ -1,3 +1,9 @@
+@custom-media --xs (min-width: 0px);
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 752px);
+@custom-media --lg (min-width: 1008px);
+@custom-media --xl (min-width: 1440px);
+
 .layoutContainer{
   margin: 0 auto;
   padding: 0 4px;
@@ -6,23 +12,23 @@
 	flex-wrap: wrap;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (--sm) {
   .layoutFixed{
     max-width: 100%;
   }
 }
 
-@media only screen and (min-width: 752px) {
+@media only screen and (--md) {
   .layoutFixed{
     max-width: 720px;
   }
 }
-@media only screen and (min-width: 1008px) {
+@media only screen and (--lg) {
   .layoutFixed{
     max-width: 960px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (--xl) {
   .layoutFixed{
     max-width: 1200px;
   }
