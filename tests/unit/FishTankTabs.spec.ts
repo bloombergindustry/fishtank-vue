@@ -25,10 +25,16 @@ describe('FishTankTabs', () => {
             propsData = {}
             slots = {}
         })
+
+        it('custom change event has been emitted',() =>{
+            const wrapper = mount(FishTankTabs)  
+            const event = wrapper.vm.$emit('change')
+            expect(event)
+        })
     })
     
     describe('FishTankVerticalTabs returns both slots and props data', () => {
-        const montVerticalTabInput = () => {
+        const mountVerticalTabInput = () => {
             return shallow(FishTankVerticalTabs, {
                 propsData,
                 slots
@@ -39,8 +45,13 @@ describe('FishTankTabs', () => {
             propsData = {}
             slots = {}
         })
-    })
 
+        it('custom change event has been emitted',() =>{
+            const wrapper = mount(FishTankTabs)  
+            const event = wrapper.vm.$emit('change')
+            expect(event)
+        })
+    })
     
 })
    
