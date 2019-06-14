@@ -13,23 +13,34 @@ describe('FishTankTabs', () => {
     let propsData : any = {}
     let slots : any = {}
 
-    const mountTabInput = () => {
-        return shallow(FishTankTabs, {
-            propsData,
-            slots
-        })
-    }
+    describe('FishTankTabs returns both slots and props data', () => {
+        const mountTabInput = () => {
+            return shallow(FishTankTabs, {
+                propsData,
+                slots
+            })
+        }
 
-    const montVerticalTabInput = () => {
-        return shallow(FishTankVerticalTabs, {
-            propsData,
-            slots
+        afterEach(() => {
+            propsData = {}
+            slots = {}
         })
-    }
-
-    afterEach(() => {
-        propsData = {}
-        slots = {}
     })
-  })
+    
+    describe('FishTankVerticalTabs returns both slots and props data', () => {
+        const montVerticalTabInput = () => {
+            return shallow(FishTankVerticalTabs, {
+                propsData,
+                slots
+            })
+        }
+
+        afterEach(() => {
+            propsData = {}
+            slots = {}
+        })
+    })
+
+    
+})
    
