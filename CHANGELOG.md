@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.3"></a>
+## [4.10.3](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.2...v4.10.3) (2019-06-17)
+
+
+### Features
+
+* Added remove funtionality to text badges ([1b3583b](https://github.com/bloombergbna/fishtank-vue/commit/1b3583b))
+* added unit test for FishTankTabs ([a064ce1](https://github.com/bloombergbna/fishtank-vue/commit/a064ce1))
+* update to tabs unit tests ([6ae410f](https://github.com/bloombergbna/fishtank-vue/commit/6ae410f))
+* update to unit test to account for emmitted events ([9e17a1a](https://github.com/bloombergbna/fishtank-vue/commit/9e17a1a))
+
+
+
 <a name="4.10.2"></a>
 ## [4.10.2](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.1...v4.10.2) (2019-06-13)
 
