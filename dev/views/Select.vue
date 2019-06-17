@@ -23,6 +23,7 @@
         :items="items" />
     </div>
   </div>
+
 </template>
 <script>
 import {FishTankSelect} from '@/index'
