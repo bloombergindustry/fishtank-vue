@@ -79,5 +79,3 @@ export { default as FishTankVerticalTabs} from "./components/FishTankVerticalTab
 export { default as FishTankContainer } from "./components/FishTankContainer.vue"
 export { default as FishTankColumn } from "./components/FishTankColumn.vue"
 export { default as FishTankHighlight } from "./components/FishTankHighlightedText.vue"
-
-import './styles.scss'

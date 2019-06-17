@@ -67,17 +67,17 @@ function genConfig(name, isProdVar, custProps) {
   opts.dest =`dist/${projectName}.${name}${(custProps === 'true' ? ".vars":"")}${(isProdVar === null ? "":".min")}.js`
   opts.compileCustomProperties = custProps === 'true' ? [ atImport(importOptions), autoprefixer, postcssCustomMedia] : [atImport(),postcsscssvariables,autoprefixer,postcssCustomMedia]
   // Need to remove to stop generating empty placeholder external CSS files
-  const scssOpts = {
-    importer: scssImporter({ aliasConfig }),
-    output: function (styles, styleNodes) {
-      postcss([autoprefixer])
-      .process(styles, {from:undefined})
-      .then(results=>{
-        fs.writeFileSync('dist/fishtank-vue.css', results)
-      })
-    },
+  // const scssOpts = {
+  //   importer: scssImporter({ aliasConfig }),
+  //   output: function (styles, styleNodes) {
+  //     postcss([autoprefixer])
+  //     .process(styles, {from:undefined})
+  //     .then(results=>{
+  //       fs.writeFileSync('dist/fishtank-vue.css', results)
+  //     })
+  //   },
 
-  }
+  // }
 
   const config = {
     input: opts.entry,
@@ -104,7 +104,7 @@ function genConfig(name, isProdVar, custProps) {
           },
         }
       ),
-      scss(scssOpts),
+      // scss(scssOpts),
       typescript({
         tsconfig: 'tsconfig.json',
         experimentalDecorators: true,
