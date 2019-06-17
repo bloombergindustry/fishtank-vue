@@ -3,7 +3,7 @@ import { expect } from "chai"
 import { mount } from '@vue/test-utils'
 import {FishTankHighlight} from '@/index'
 
-describe('FishTankHighlightedText.vue', () => {
+describe('FishTankHighlight', () => {
   it('should wrap supplied term with highlights', () => {
     const wrapper = mount(FishTankHighlight, {
       attrs: {
