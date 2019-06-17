@@ -1,5 +1,11 @@
 @import "../../../node_modules/@fishtank/colors/dist/index";
 
+@custom-media --xs (min-width: 0px);
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 752px);
+@custom-media --lg (min-width: 1008px);
+@custom-media --xl (min-width: 1440px);
+
 .box {
   .accessibilityOutline:focus {
     box-shadow: 0 0 0 2px $color-selected;
@@ -65,7 +71,7 @@
   flex-direction: column-reverse;
 }
 
-@media (min-width:480px) {
+@media (--sm) {
   .smDisplayNone {
     display: none;
   }
@@ -112,7 +118,7 @@
   }
 }
 
-@media (min-width:752px) {
+@media (--md) {
   .mdDisplayNone {
     display: none;
   }
@@ -160,7 +166,7 @@
   }
 }
 
-@media (min-width: 1008px) {
+@media (--lg) {
   .lgDisplayNone {
     display: none;
   }
@@ -207,7 +213,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (--xl) {
   .xlDisplayNone {
     display: none;
   }
@@ -238,7 +244,7 @@
   /* Direction */
 
   .xlDirectionRow {
-    flex-direction: row; 
+    flex-direction: row;
   }
 
   .xlDirectionColumn {

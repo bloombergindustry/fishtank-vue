@@ -20,6 +20,7 @@ const scssImporter = require('./config/scss-importer').default
 import pack from "./package.json"
 import postcss from "postcss"
 import autoprefixer from 'autoprefixer'
+import postcssCustomMedia from "postcss-custom-media"
 
 const fs = require('fs')
 const projectName = 'fishtank-vue'
@@ -65,17 +66,17 @@ function genConfig(name, isProdVar, custProps) {
   }
   opts.dest =`dist/${projectName}.${name}${(custProps === 'true' ? ".vars":"")}${(isProdVar === null ? "":".min")}.js`
   opts.compileCustomProperties = custProps === 'true' ? [ atImport(importOptions), autoprefixer] : [atImport(),postcsscssvariables,autoprefixer]
-  
+
   const scssOpts = {
     importer: scssImporter({ aliasConfig }),
     output: function (styles, styleNodes) {
-      postcss([autoprefixer])
+      postcss([autoprefixer, postcssCustomMedia])
       .process(styles, {from:undefined})
       .then(results=>{
         fs.writeFileSync('dist/fishtank-vue.css', results)
       })
     },
-  
+
   }
 
   const config = {

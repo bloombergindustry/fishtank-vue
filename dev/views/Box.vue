@@ -3,23 +3,44 @@
     <fish-tank-text bold>
       Boxed used in laying out a component
     </fish-tank-text>
-    <box 
-      color="highlight2"
-      :sm-margin="6"
-      :md-margin="2"
-      :lg-margin="4"
-      :xl-margin="10">
-      <div>
+    <box color="highlight3">
+      <box
+        :margin-top=12
+        :xl-margin-bottom=12
+        :lg-margin-bottom=8
+        :md-margin-bottom=4
+        :sm-margin-bottom=8
+        :xs-margin-bottom=12
+      >
+        <fish-tank-text font-size="base-lg" bold>Margins on different screen sizes</fish-tank-text>
+      </box>
+    </box>
+
+    <box display="flex" md-direction="row" xs-direction="column">
+      <box color="highlight2" :md-column=3 :md-margin-right=1 :xs-margin-bottom=2>
         <fish-tank-text bold>
-          Custom Component
+          Sidear Component
+        </fish-tank-text>
+      </box>
+      <box
+        color="highlight1"
+        :md-column=9
+        :md-margin-left=1
+        :xs-margin-bottom=2
+        flex-grow
+        >
+        <fish-tank-text bold>
+          Main Component
         </fish-tank-text>
         <fish-tank-text>
-          More content here
+          Main Component Content
         </fish-tank-text>
-      </div>
+      </box>
+    </box>
 
+    <box display="flex">
       <box display="flex"
-           width="100%">
+            width="100%">
         <box flex="grow">
           Footer Module Content
         </box>
@@ -121,7 +142,7 @@
       </box>
       <box
         :column="4">
-        <fish-tank-text 
+        <fish-tank-text
           color="error">
           Column 3
         </fish-tank-text>
@@ -159,6 +180,6 @@ export default Vue.extend({
     border: 1px solid lightgray;
     padding: .5rem;
   }
-  
+
 </style>
 
