@@ -1,154 +1,136 @@
 <template>
-  <FishTankBox 
+  <fish-tank-box 
     type="section"
     color="highlight1"
     display="flex"
     direction="column"
     justify-content="start"
-    :padding="4"
->
-    <FishTankText
+    :padding="4">
+    <fish-tank-text
       size="headingMd"
       font="accent"
       :bold="true"
-      align="center"
-    > The Vertical FishTankTab Component</FishTankText>
+      align="center">
+      The Vertical FishTankTab Component
+    </fish-tank-text>
 
-    <FishTankText
-        class="margin-spacing"
-        size="headingSm"
-        font="primary"
-        :bold="true"
-        align="center"
-    > Center Positioned Tabs</FishTankText>
+    <fish-tank-text
+      class="margin-spacing"
+      size="headingSm"
+      font="primary"
+      :bold="true"
+      align="center">
+      Center Positioned Tabs
+    </fish-tank-text>
 
-    <FishTankBox 
+    <fish-tank-box 
       type="div"
       color="white"
-      :padding="6"
-    >
-
-      <FishTankVerticalTabs
+      :padding="6">
+      <fish-tank-vertical-tabs
         class="margin-spacing"
-        :items ="tabs"
+        :items="tabs"
         :active="activeDefaultTab1"
-        @change="activeDefaultTab1=$event.name"
-      >
+        @change="activeDefaultTab1=$event.name">
         <template :slot="tabs[0].name">
-            <CardV2
-              class="margin-side"
-              :heading="tabs[0].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[0].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[0].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[0].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
 
         <template :slot="tabs[1].name">
-     
-            <CardV2
-              class="margin-side"
-              :heading="tabs[1].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[1].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[1].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[1].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
 
         <template :slot="tabs[2].name">
-         
-            <CardV2
-              class="margin-side"
-              :heading="tabs[2].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[2].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[2].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[2].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
 
         <template :slot="tabs[3].name">
-    
-            <CardV2
-              class="margin-side"
-              :heading="tabs[3].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[3].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[3].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[3].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
 
         <template :slot="tabs[4].name">
-         
-            <CardV2
-              class="margin-side"
-              :heading="tabs[4].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[4].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[4].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[4].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
 
         <template :slot="tabs[5].name">
-         
-            <CardV2
-              class="margin-side"
-              :heading="tabs[5].name"
-            >
-              <FishTankText
-                class="padding-spacing"
-                size="baseMd"
-                font="primary"
-                :italic="true"
-                align="left"
-              >  This is the '{{tabs[5].name}}' content. You are able to see this text because this tab is currently active.
-              </FishTankText>
-            </CardV2>
+          <card-v2
+            class="margin-side"
+            :heading="tabs[5].name">
+            <fish-tank-text
+              class="padding-spacing"
+              size="baseMd"
+              font="primary"
+              :italic="true"
+              align="left">
+              This is the '{{ tabs[5].name }}' content. You are able to see this text because this tab is currently active.
+            </fish-tank-text>
+          </card-v2>
         </template>
+      </fish-tank-vertical-tabs>
 
-      </FishTankVerticalTabs>
-
-      <FishTankVerticalTabs
+      <fish-tank-vertical-tabs
         class="margin-spacing"
         :items="tabs"
         :divider="true"
         :active="activeDefaultTab2"
-        @change="test(activeDefaultTab2=$event.name)"
-      ></FishTankVerticalTabs>
-
-    </FishTankBox>
-
-  </FishTankBox>
-
+        @change="test(activeDefaultTab2=$event.name)" />
+    </fish-tank-box>
+  </fish-tank-box>
 </template>
 
 <script lang="ts">
@@ -198,7 +180,6 @@ export default Vue.extend({
 
     changeTab(itemName:string){
       this.$props.active = itemName
-      console.log("test")
     }
   }
   
