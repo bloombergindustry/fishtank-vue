@@ -14,11 +14,25 @@ import  FishTankBox   from './FishTankBox.vue'
 })
 
 export default class FishTankBadge extends Vue {
+    /**
+     * Boolean determining if the badge is removable.
+     */
     @Prop({default:false})
     removable:boolean;
+
+    /**
+     * String representing both the shade of text, and the remove icon if applicable.
+     * Available shades `light, dark, disabled`
+     */
     @Prop({default:'light'})
     textShade:String
     availableShades:["light","dark","disabled"]
+    
+    /**
+     * String representing the background color of the tag. 
+     * 
+     * Available themes `bgov, btax, notification-1, notification-2, notification-2, disabled` 
+     */
     @Prop({default:'notification-1'})
     theme:String;
     availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled"]
@@ -68,11 +82,17 @@ export default class FishTankBadge extends Vue {
     get interactive() {
         return this.removable ? "a--interactive" : "a--static"
     }
+
     get listeners(): Record<string, Function | Function[]> {
       return {
         ...this.$listeners,
         click: ($event: MouseEvent) => {
           if (this.removable) { 
+              /**
+              * Emits a click event when a tag is clicked and removable is true.
+              * 
+              * @event MouseEvent
+              */
               return this.$emit("click", $event);
           }
         }
@@ -101,6 +121,7 @@ export default class FishTankBadge extends Vue {
                     :theme="theme"
                     size="baseSm"
                     semi-bold>
+                    <!-- @slot Use this slot to pass in tag text -->
                     <slot />
                 </badge-text>
                 <close v-if="removable" :class="iconClass" />
