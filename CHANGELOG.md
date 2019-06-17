@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.4"></a>
+## [4.10.4](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.3...v4.10.4) (2019-06-17)
+
+
+### Bug Fixes
+
+* Updated rollup config script to use postcss custommedia post-processor ([de36d80](https://github.com/bloombergbna/fishtank-vue/commit/de36d80))
+
+
+
 <a name="4.10.3"></a>
 ## [4.10.3](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.2...v4.10.3) (2019-06-17)
 
