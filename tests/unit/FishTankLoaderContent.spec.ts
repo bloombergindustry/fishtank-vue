@@ -7,8 +7,8 @@ import {FishTankLoaderContent} from "@/index"
 
 import Vue from "vue"
 
-describe('FishTankLoaderContent', () => {
-  let propsData : any = {}
+describe('LoaderContent', () => {
+  let propsData : any = {}                                                                                                                                                                                                                                                                                                                    
   let slots : any = {}
 
   const mountInput = () => {
@@ -19,8 +19,7 @@ describe('FishTankLoaderContent', () => {
   }
 
   afterEach(() => {
-    propsData = {}
-    slots = {}
+    mountInput
   })
 
 })
