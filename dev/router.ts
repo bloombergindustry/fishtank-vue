@@ -119,6 +119,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/container-columns',
       component: () => import("./views/ContainerAndColumns.vue")
+    },
+    {
+      path: '/tooltips',
+      component: () => import("./views/Tooltip.vue")
     }
   ]
 })
