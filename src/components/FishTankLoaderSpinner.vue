@@ -1,9 +1,8 @@
 
 <template>
   <div 
-    :class="[gradientClass, spinnerSize, alignClass]" 
-    :aria-busy="`${loading}`"
-    class="spinner" 
+    :class="['spinner', gradientClass, spinnerSize, alignClass, {'pause-spinner': !loading}]" 
+    :aria-busy="`${loading}`" 
     role="alert">
     <svg 
       height="100" 
@@ -17,9 +16,11 @@
           y2="0%">
           <stop  
             class="stop-class-1" 
+            :style="{stopColor:getStop1}"
             offset="0%" />
           <stop 
-            class="stop-class-2" 
+            class="stop-class-2"
+            :style="{stopColor:getStop2}"
             offset="100%" />
         </linearGradient>
       </defs>
@@ -28,8 +29,8 @@
         cx="50" 
         cy="50" />
       <circle
-        :style="{strokeDasharray: `${strokeDashArray}`}"
-        :class="['spinner-gradient', {'pause-spinner': !loading}]"
+        :style="[{strokeDasharray: `${strokeDashArray}`}, {stroke: `${circleTheme}`}]"
+        :class="['spinner-gradient']"
         :r="radius" 
         cx="50"
         cy="50" 
@@ -41,7 +42,16 @@
 <script>
 import Vue from 'vue'
 import { a11y } from "../util/mixins"
-
+import colors from '@fishtank/colors/dist/index.common'
+const stops = {
+  'theme':['',''],
+  'bgov':[colors.colorBgovNavy,colors.colorBgovPurple],
+  'btax':[colors.colorBnaBlue,colors.colorBtaxBlue],
+  'blaw':[colors.colorBlawBlue,colors.colorBlawBlue],
+  'notification-1':[colors.colorNotification1,colors.colorNotification1],
+  'notification-2':[colors.colorNotification2,colors.colorNotification2],
+  'notification-3':[colors.colorNotification3,colors.colorNotification3],
+}
 export default Vue.extend({
   name: 'FishTankLoaderSpinner',
   mixins:[
@@ -87,7 +97,7 @@ export default Vue.extend({
     }
   },
   computed:{
-    gradientClass: function(){ return "spinner--" + this.theme + "-gradient"},
+    gradientClass: function(){ return `spinner--${this.theme}-gradient-${this.identifier}`},
     spinnerSize: function(){ return "spinner--" + this.size},
     alignClass: function() { return "spinner--align-" + this.align},
     strokeDashArray: function(){
@@ -106,8 +116,23 @@ export default Vue.extend({
         r = 30
       } 
       return r 
-    }
-    
+    },
+    identifier () {
+      return (Math.random() * 10000).toFixed(0).toString()
+    },
+    circleTheme () {
+      return `url(#spinner--${this.theme}-gradient-${this.identifier})`
+    },
+    getStop1 () {
+      if (this.theme === 'theme') return `var(--spinner-start-color, ${stops[this.theme][0]})`
+      else 
+        return `${stops[this.theme][0]}`
+    },
+    getStop2 () {
+      if (this.theme === 'theme') return `var(--spinner-stop-color, ${stops[this.theme][1]})`
+      else
+        return `${stops[this.theme][1]}`
+    } 
   },
   watch: {
     loading: function(isLoading) {
@@ -151,7 +176,7 @@ export default Vue.extend({
       stroke-linecap: round;
   }
 
-  .spinner .pause-spinner{
+  .spinner.pause-spinner{
       animation-play-state: paused;
   }
 
@@ -198,21 +223,21 @@ export default Vue.extend({
     }
   }
 
-  .spinner{
-    &.spinner--bgov-gradient{
-      circle.spinner-gradient{
-        stroke: url(#spinner--bgov-gradient);
-      }
-      linearGradient{
-        stop.stop-class-1{
-          stop-color: $color-bgov-navy;
-        }
-        stop.stop-class-2{
-          stop-color: $color-bgov-purple;
-        }
-      }
-    }
-  }
+  // .spinner{
+  //   &.spinner--bgov-gradient{
+  //     // circle.spinner-gradient{
+  //     //   stroke: url(#spinner--bgov-gradient);
+  //     // }
+  //     linearGradient{
+  //       stop.stop-class-1{
+  //         stop-color: $color-bgov-navy;
+  //       }
+  //       stop.stop-class-2{
+  //         stop-color: $color-bgov-purple;
+  //       }
+  //     }
+  //   }
+  // }
 
   .spinner{
     &.spinner--blaw-gradient{

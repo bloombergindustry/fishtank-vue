@@ -122,7 +122,6 @@ export default {
   },
   data () {
     return {
-      identifier: (Math.random() * 10000).toFixed(0).toString(),
       dataUrl: '',
       focused: false,
       focusedItem: -1,
@@ -137,7 +136,10 @@ export default {
     },
     items () {
       return this.fetchedData.data.items
-    }
+    },
+    identifier () {
+      return (Math.random() * 10000).toFixed(0).toString()
+    } 
   },
   watch: {
     query () {
