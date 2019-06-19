@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.5-prerelease"></a>
+## [4.10.5-prerelease](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.4...v4.10.5-prerelease) (2019-06-19)
+
+
+### Bug Fixes
+
+* refactored spinner to generate a unique ID per instance; with that change, had to move much of the SVG style functioality to be dynamically generated inline ([f1a8763](https://github.com/bloombergbna/fishtank-vue/commit/f1a8763))
+
+
+### Features
+
+* Refactored text component to align with bb-vue-components ([fa36c76](https://github.com/bloombergbna/fishtank-vue/commit/fa36c76))
+
+
+
 <a name="4.10.4"></a>
 ## [4.10.4](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.3...v4.10.4) (2019-06-17)
 
