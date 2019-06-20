@@ -45,7 +45,10 @@
       flex-direction="row"
       justify-content="between"
     >
-      <FishTankTooltip>
+      <FishTankTooltip
+        orientation="top"
+        placeholder="a top oriented Tooltip"
+      >
         <FishTankText color="link" semiBold
         > Top 
         </FishTankText>

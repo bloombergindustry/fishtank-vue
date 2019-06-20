@@ -1,6 +1,10 @@
 <template>
     <div>
-        <slot/>
+        <slot
+            @focus="showTooltip()"
+            
+        />
+        <div id="input-element"></div>
     </div>
 </template>
 
@@ -18,7 +22,24 @@ export default Vue.extend({
     components: {
         FishTankText
     },
-    props: {}
+    props: {
+        orientation: {
+            type: String,
+            required: true,
+            default: 'top'
+        },
+        placeholder: String
+    },
+    methods:{
+        showTooltip(){
+             
+            var popper = new Popper(this.document.querySelector('#input-element') , this.$props.placeholder,{
+                placement: this.$props.orientation,
+            })
+
+            return popper;
+        }
+    }
 })
 </script>
 
