@@ -31,8 +31,6 @@
       </FishTankText>
     </box>
 
-    <!-- <FishTankTooltip/> -->
-
     <br/>
     <br/>
     <br/>
@@ -49,27 +47,27 @@
         orientation="top"
         placeholder="a top oriented Tooltip"
       >
-        <FishTankText color="link" semiBold
+        <a href="#"><FishTankText color="link" semiBold
         > Top 
-        </FishTankText>
+        </FishTankText></a>
       </FishTankTooltip>
 
       <FishTankTooltip>
-        <FishTankText color="link" semiBold
+        <a href="#"><FishTankText color="link" semiBold
         > Left 
-        </FishTankText>
+        </FishTankText></a>
       </FishTankTooltip>
 
       <FishTankTooltip>
-        <FishTankText color="link" semiBold
+        <a href="#"><FishTankText color="link" semiBold
         > Right 
-        </FishTankText>
+        </FishTankText></a>
       </FishTankTooltip>
 
       <FishTankTooltip>
-        <FishTankText color="link" semiBold
+        <a href="#"><FishTankText color="link" semiBold
         > Bottom 
-        </FishTankText>
+        </FishTankText></a>
       </FishTankTooltip>
 
 
@@ -104,6 +102,10 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .title{
   text-align: center;
+}
+
+a{
+  text-decoration: none;
 }
 </style>
 

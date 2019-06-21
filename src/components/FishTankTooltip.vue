@@ -1,10 +1,11 @@
 <template>
-    <div>
-        <slot
-            @focus="showTooltip()"
-            
-        />
-        <div id="input-element"></div>
+    <div
+        class="query"
+        @mouseenter="showTooltip"
+        @mouseleave="showTooltip"
+    >
+        <slot/>
+        <div class="input"></div>
     </div>
 </template>
 
@@ -30,14 +31,32 @@ export default Vue.extend({
         },
         placeholder: String
     },
+    data(){
+        return{
+            focus: false,
+            element: Object,
+            reference: Object
+        }
+    },
     methods:{
         showTooltip(){
+            // element = document.querySelector('.input')
+            // reference = document.querySelector('.query')
              
-            var popper = new Popper(this.document.querySelector('#input-element') , this.$props.placeholder,{
-                placement: this.$props.orientation,
-            })
+            // var popper = new Popper(this.element, this.reference,{
+            //     placement: this.$props.orientation,
+            // })
 
-            return popper;
+            if(!this.focus){
+                this.focus = true
+                if(this.focus){
+                    console.log("true")
+                }
+            }else{
+                this.focus = false
+                console.log("false")
+            }
+            
         }
     }
 })
