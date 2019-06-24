@@ -1,19 +1,16 @@
 <template>
     <div
-        class="query"
-        @mouseenter="showTooltip"
-        @mouseleave="showTooltip"
+        class="popper"
+        @mouseenter="createPop"
+        @mouseleave="destroyPop"
     >
         <slot/>
-        <div class="input"></div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
 import Popper from 'popper.js'
-
 import {
     FishTankText
 } from '@/index'
@@ -26,20 +23,24 @@ export default Vue.extend({
     props: {
         orientation: {
             type: String,
-            required: true,
+            required: false,
             default: 'top'
         },
         placeholder: String
     },
     data(){
         return{
-            focus: false,
-            element: Object,
-            reference: Object
+            // focus: Boolean,
+            popObj: undefined,
+            inputEl: undefined,
+            slot: undefined
         }
     },
+    // destroyed(){
+    //     if(this.popObj!==undefined) this.destroyPop()
+    // },
     methods:{
-        showTooltip(){
+        createPop(){
             // element = document.querySelector('.input')
             // reference = document.querySelector('.query')
              
@@ -47,16 +48,27 @@ export default Vue.extend({
             //     placement: this.$props.orientation,
             // })
 
-            if(!this.focus){
-                this.focus = true
-                if(this.focus){
-                    console.log("true")
+           console.log("true")
+
+           this.$data.inputEl = document.querySelector('.popper')
+           this.$data.slot = document.querySelector('slot')
+        
+            this.$data.popObj = new Popper(this.$data.inputEl, this.$props.placeholder,{
+                placement: this.$props.orientation,
+                modifiers:{
+                    computeStyle:{
+                        gpuAcceleration:true
+                    }
                 }
-            }else{
-                this.focus = false
-                console.log("false")
-            }
-            
+            })
+
+            //    this.$data.popObj.show()
+        },
+        destroyPop(){
+            console.log("false")
+        //     this.$nextTick(function(){
+        //         if(this.popObj !== undefined) this.popObj.destroy()
+        //     })
         }
     }
 })
