@@ -135,9 +135,11 @@ export default class FishTankBadge extends Vue {
     @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
     @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
     @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
+    @import "../../node_modules/@fishtank/space/dist/index.custom-properties";
 
     // badge styes
     .badge {
+        margin:0px;
         position:relative;
         display: inline-block;
         border-radius: 6px;
@@ -158,13 +160,13 @@ export default class FishTankBadge extends Vue {
 
     .badge{
         &.badge-theme--grad-bgov-bluepurple {
-            background: linear-gradient(to right,  var(--badge-background-color,$color-bgov-navy) , var(--badge-background-color, $color-bgov-purple))
+            background: linear-gradient(to right,  $color-bgov-navy , $color-bgov-purple)
         }
     }
 
     .badge{
         &.badge-theme--grad-btax-blue {
-            background: linear-gradient(to right,  var(--badge-background-color,$color-bna-blue) , var(--badge-background-color, $color-btax-blue))
+            background: linear-gradient(to right,  $color-bna-blue ,  $color-btax-blue)
         }
     }
 

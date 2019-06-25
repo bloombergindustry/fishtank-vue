@@ -88,6 +88,7 @@ export default class FishTankNumberBadge extends Vue {
     @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
     @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
     @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
+    @import "../../node_modules/@fishtank/space/dist/index.custom-properties";
 
     .badge-area {
         position:relative;
@@ -123,6 +124,7 @@ export default class FishTankNumberBadge extends Vue {
         font-family: var(--font-primary);
         font-size: var(--fontsize-base-sm);
         font-weight: var(--fontweight-semi);
+        line-height: 1rem;
         float:right;
         text-align:center;
     }
@@ -130,13 +132,13 @@ export default class FishTankNumberBadge extends Vue {
     // badge colors
     .badge-chip{
         &.badge-chip--grad-bgov-bluepurple {
-            background: linear-gradient(to right,  var(--badge-background-color,$color-bgov-navy) , var(--badge-background-color, $color-bgov-purple))
+            background: linear-gradient(to right,  $color-bgov-navy , $color-bgov-purple)
         }
     }
 
     .badge-chip{
         &.badge-chip--grad-btax-blue {
-            background: linear-gradient(to right,  var(--badge-background-color,$color-bna-blue) , var(--badge-background-color, $color-btax-blue))
+            background: linear-gradient(to right, $color-bna-blue ,  $color-btax-blue)
         }
     }
 
