@@ -1,11 +1,16 @@
 <template>
     <div
-        class="popper"
-        @mouseenter="createPop"
-        @mouseleave="destroyPop"
+        class="content"
+        @mouseenter="focusToggle();createPop(); "
+        @mouseleave="focusToggle();destroyPop();"
     >
         <slot/>
-        <div class="content">{{placeholder}}</div>
+        <div 
+            :class="focus ? 'popper': 'popper-hide'"
+        >
+            <FishTankText>{{placeholder}}</FishTankText>
+            <div class="popper-arrow"></div>
+        </div>
     </div>
 </template>
 
@@ -27,31 +32,29 @@ export default Vue.extend({
     },
     data(){
         return{
-            // focus: Boolean,
+            focus: false,
             popObj: undefined,
             inputEl: undefined,
             content: undefined,
-            
-
         }
     },
-    // destroyed(){
-    //     if(this.popObj!==undefined) this.destroyPop()
-    // },
+    destroyed(){
+        if(this.$data.popObj!==undefined) this.destroyPop()
+    },
     methods:{
         createPop(){
-           console.log("true")
+           console.log(this.$data.focus)
 
-           this.$data.inputEl = document.querySelector('.popper')
-           this.$data.content = document.querySelector('.content')
+           this.$data.inputEl = document.querySelector('.content')
+           this.$data.content = document.querySelector('.popper')
            let popperLocation = this.$props.orientation
-           console.log(this.$props.placeholder)
+        //    console.log(this.$props.orientation)
         
             this.$data.popObj = new Popper(this.$data.inputEl, this.$data.content,{
                 placement: popperLocation,
                 modifiers:{
                     computeStyle:{
-                        // gpuAcceleration:true
+                        gpuAcceleration:true
                     },
                     offset:{
                         offset:4
@@ -62,10 +65,17 @@ export default Vue.extend({
             //    this.$data.popObj.show()
         },
         destroyPop(){
-            console.log("false")
-        //     this.$nextTick(function(){
-        //         if(this.popObj !== undefined) this.popObj.destroy()
-        //     })
+            console.log(this.$data.focus)
+                if(this.$data.popObj !== undefined) this.$data.popObj.destroy()
+
+        },
+        focusToggle(){
+            if(this.$data.focus){
+                this.$data.focus = false;
+            }
+            else if(!this.$data.focus){
+                this.$data.focus = true
+            }
         }
     }
 })
@@ -74,5 +84,20 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import '../styles/mixins';
 
+.popper-hide{
+    display: none;
+}
+
+.popper[x-placement="top"]{
+    background: $color-highlight-1;
+    padding: 4px;
+    text-align: center;
+    .popper-arrow{
+        border-width: 5px 5px 0px 5px;
+        border-style: solid;
+        background: $color-highlight-3;
+
+    }
+}
 </style>
 
