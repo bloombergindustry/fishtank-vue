@@ -5,6 +5,7 @@
         @mouseleave="destroyPop"
     >
         <slot/>
+        <div class="content">{{placeholder}}</div>
     </div>
 </template>
 
@@ -21,20 +22,16 @@ export default Vue.extend({
         FishTankText
     },
     props: {
-        
+        placeholder: String,
+        orientation: String
     },
     data(){
         return{
             // focus: Boolean,
             popObj: undefined,
             inputEl: undefined,
-            slot: undefined,
-            placeholder: String,
-            orientation: {
-                type: String,
-                required: false,
-                default: 'top'
-            },
+            content: undefined,
+            
 
         }
     },
@@ -46,13 +43,15 @@ export default Vue.extend({
            console.log("true")
 
            this.$data.inputEl = document.querySelector('.popper')
-           this.$data.slot = document.querySelector('slot')
+           this.$data.content = document.querySelector('.content')
+           let popperLocation = this.$props.orientation
+           console.log(this.$props.placeholder)
         
-            this.$data.popObj = new Popper(this.$data.inputEl, this.$data.placeholder,{
-                placement: this.$data.orientation,
+            this.$data.popObj = new Popper(this.$data.inputEl, this.$data.content,{
+                placement: popperLocation,
                 modifiers:{
                     computeStyle:{
-                        gpuAcceleration:true
+                        // gpuAcceleration:true
                     },
                     offset:{
                         offset:4

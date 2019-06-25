@@ -44,7 +44,7 @@
       justify-content="between"
     >
       <FishTankTooltip
-        orientation="top"
+        orientation='top'
         placeholder="a top oriented Tooltip"
       >
         <a href="#"><FishTankText color="link" semiBold
