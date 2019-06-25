@@ -21,19 +21,21 @@ export default Vue.extend({
         FishTankText
     },
     props: {
-        orientation: {
-            type: String,
-            required: false,
-            default: 'top'
-        },
-        placeholder: String
+        
     },
     data(){
         return{
             // focus: Boolean,
             popObj: undefined,
             inputEl: undefined,
-            slot: undefined
+            slot: undefined,
+            placeholder: String,
+            orientation: {
+                type: String,
+                required: false,
+                default: 'top'
+            },
+
         }
     },
     // destroyed(){
@@ -41,23 +43,19 @@ export default Vue.extend({
     // },
     methods:{
         createPop(){
-            // element = document.querySelector('.input')
-            // reference = document.querySelector('.query')
-             
-            // var popper = new Popper(this.element, this.reference,{
-            //     placement: this.$props.orientation,
-            // })
-
            console.log("true")
 
            this.$data.inputEl = document.querySelector('.popper')
            this.$data.slot = document.querySelector('slot')
         
-            this.$data.popObj = new Popper(this.$data.inputEl, this.$props.placeholder,{
-                placement: this.$props.orientation,
+            this.$data.popObj = new Popper(this.$data.inputEl, this.$data.placeholder,{
+                placement: this.$data.orientation,
                 modifiers:{
                     computeStyle:{
                         gpuAcceleration:true
+                    },
+                    offset:{
+                        offset:4
                     }
                 }
             })
@@ -75,6 +73,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/mixins';
 
 </style>
 
