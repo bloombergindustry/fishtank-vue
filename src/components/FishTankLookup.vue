@@ -14,8 +14,8 @@
         class="input-wrapper"
         role="combobox">
         <text-input 
-          ref="query"
           :id="id ? `${id}-input` : `${identifier}-input`"
+          ref="query"
           v-model="query"
           :label="label"
           :orientation="orientation"

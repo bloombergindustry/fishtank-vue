@@ -2,10 +2,10 @@
   <div>
     <autocomplete
       id="autocomplete_example"
+      v-model="selected"
       label="Autocomplete Label"
       orientation="ltr"
-      url="/some_autocomplete_endpoint"
-      v-model="selected" />
+      url="/some_autocomplete_endpoint" />
     <div v-if="selected">
       {{ selected.label }}
     </div>
@@ -13,7 +13,7 @@
 </template>
 <script>
 const moxios = require('moxios')
-import { FishTankLookup } from '@/index';
+import { FishTankLookup } from '@/index'
 export default {
   components:{
     autocomplete:FishTankLookup
