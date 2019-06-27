@@ -50,6 +50,11 @@ import {
 
 import Vue from 'vue'
 export default Vue.extend({
+  render(createElement) {
+    return createElement(
+        (this as any).tagElement, (this as any).boxProps, this.$slots.default
+      )
+  },
   name:"FishTankContainer",
   mixins:[
     boxMixin

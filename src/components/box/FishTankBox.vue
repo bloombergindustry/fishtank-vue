@@ -13,7 +13,7 @@ import {
   concat,
   toProps,
   arrayToProps
-} from '../util/style'
+} from '../../util/style'
 
 import {
   union,
@@ -22,11 +22,11 @@ import {
   toggle,
   mapping,
   rangeWithoutZero
-} from '../util/transform'
+} from '../../util/transform'
 
-import color  from '../util/colorsClassMapping'
+import color  from '../../util/colorsClassMapping'
 
-import { boxMixin } from "../util/mixins"
+import { boxMixin } from '../../util/mixins'
 const _ = require("lodash").noConflict()
 
 import {
@@ -41,7 +41,7 @@ import {
   Flex,
   Margin,
   Padding ,
-  Color } from "../util/types/boxTypes"
+  Color } from '../../util/types/boxTypes'
 
 let colorMappingFunc = (value:any) => {
   if (!value) return identity()
@@ -54,7 +54,7 @@ let colorMappingFunc = (value:any) => {
   return allColorMappings(mapColorNameToClass(value))
 }
 
-import Columns from '../util/boxColumns.js'
+import Columns from '../../util/boxColumns.js'
 
 const styles = {
   xsDisplayNone: "xsDisplayNone",
@@ -794,13 +794,13 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/mixins";
-@import "../styles/box/box-style.scss";
-@import "../styles/box/box-whitespaces";
-@import "../styles/box/box-layout";
-@import "../styles/box/box-column";
-@import "../styles/box/grid";
-@import "../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
+@import "../../styles/mixins";
+@import "../../styles/box/box-style.scss";
+@import "../../styles/box/box-whitespaces";
+@import "../../styles/box/box-layout";
+@import "../../styles/box/box-column";
+@import "../../styles/box/grid";
+@import "../../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
 input {
   width: 100%;
   height: $baseline * 10;

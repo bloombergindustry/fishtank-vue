@@ -1,12 +1,6 @@
 import { Column, IsBoxType } from "../types/boxTypes"
-import Vue from "vue"
 
-export default Vue.extend({
-  render(createElement) {
-    return createElement(
-        (this as any).tagElement, (this as any).boxProps, this.$slots.default
-      )
-  },
+export default {
   props:{
     tag:{
       default:'div',
@@ -103,4 +97,4 @@ export default Vue.extend({
       return  ((this as any).as === undefined ?  (this as any).tag : (this as any).as)
     }
   }
-})
+}

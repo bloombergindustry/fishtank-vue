@@ -9,7 +9,7 @@ import {
   concat,
   toProps,
   arrayToProps
-} from '../util/style'
+} from '../../util/style'
 
 import {
   union,
@@ -18,26 +18,20 @@ import {
   toggle,
   mapping,
   rangeWithoutZero
-} from '../util/transform'
+} from '../../util/transform'
 
-import Columns from '../util/boxColumns.js'
+import Columns from '../../util/boxColumns.js'
 
 const styles = {
-  xsDisplayBlock: "xsDisplayBlock",
+  // container:"layoutContainer",
+  fluid:"layoutFluid",
 }
 
 const props: any = {
-  column: bind(range("xsCol"), Columns),
-  xsColumn: bind(range("xsCol"), Columns),
-  smColumn: bind(range("smCol"), Columns),
-  mdColumn: bind(range("mdCol"), Columns),
-  lgColumn: bind(range("lgCol"), Columns),
-  xlColumn: bind(range("xlCol"), Columns),
-  display: mapping({
-    block: styles.xsDisplayBlock,
-  }),
+  // container:toggle(styles.container),
+  // fluid:toggle(styles.fluid),
 }
-import { boxMixin } from "../util/mixins"
+import { boxMixin } from '../../util/mixins'
 
 import {
   IsBoxType,
@@ -52,31 +46,26 @@ import {
   Margin,
   Padding,
   Color
-} from '../util/types/boxTypes'
+} from '../../util/types/boxTypes'
 
 import Vue from 'vue'
 export default Vue.extend({
-  name:"FishTankColumn",
   render(createElement) {
     return createElement(
         (this as any).tagElement, (this as any).boxProps, this.$slots.default
       )
   },
+  name:"FishTankContainer",
   mixins:[
     boxMixin
   ],
   props:{
-    fluid: Boolean,
-    display: {
-      type:String,
-      required:false,
-      validator: function(value: DisplayType){
-        return ["block"].indexOf(value) !== -1
-      },
-      description:'Column block display property',
-    },
+    fluid: Boolean
   },
   methods:{
+    isFluid(){
+      return this.$props.fluid ? ` ` :  ` ${this.$style.layoutFixed} `
+    },
   },
   computed:{
     moduleClassNames () {
@@ -95,8 +84,11 @@ export default Vue.extend({
         return (this as any).moduleClassNames[x]
       })
       return {
+        // class: boxProps.className,
         class: (modulesClasses.join(' ') 
-          +this.$style.layoutColumn
+          +( (this as any).isFluid())
+          + " "
+          +this.$style.layoutContainer
           ),
         style: boxProps.style,
       }
@@ -105,6 +97,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/box/column";
-@import "../styles/box/grid";
+@import "../../styles/box/container";
+
 </style>

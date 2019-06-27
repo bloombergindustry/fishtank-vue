@@ -95,7 +95,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Detachable from '@/util/detachable'
+import Detachable from '../util/detachable'
 import { Close24 } from '@fishtank/icons-vue'
 
 let overlayTimeout: null | number = null
