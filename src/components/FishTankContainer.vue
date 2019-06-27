@@ -31,7 +31,7 @@ const props: any = {
   // container:toggle(styles.container),
   // fluid:toggle(styles.fluid),
 }
-import { boxMixin } from "../util/mixins"
+import { boxMixin } from '../util/mixins'
 
 import {
   IsBoxType,

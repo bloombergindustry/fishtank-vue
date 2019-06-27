@@ -37,7 +37,7 @@ const props: any = {
     block: styles.xsDisplayBlock,
   }),
 }
-import { boxMixin } from "../util/mixins"
+import { boxMixin } from '../util/mixins'
 
 import {
   IsBoxType,

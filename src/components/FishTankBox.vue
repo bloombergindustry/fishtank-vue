@@ -26,7 +26,7 @@ import {
 
 import color  from '../util/colorsClassMapping'
 
-import { boxMixin } from "../util/mixins"
+import { boxMixin } from '../util/mixins'
 const _ = require("lodash").noConflict()
 
 import {
@@ -41,7 +41,7 @@ import {
   Flex,
   Margin,
   Padding ,
-  Color } from "../util/types/boxTypes"
+  Color } from '../util/types/boxTypes'
 
 let colorMappingFunc = (value:any) => {
   if (!value) return identity()
