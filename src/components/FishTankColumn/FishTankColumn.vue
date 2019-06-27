@@ -9,7 +9,7 @@ import {
   concat,
   toProps,
   arrayToProps
-} from '../util/style'
+} from '../../util/style'
 
 import {
   union,
@@ -18,9 +18,9 @@ import {
   toggle,
   mapping,
   rangeWithoutZero
-} from '../util/transform'
+} from '../../util/transform'
 
-import Columns from '../util/boxColumns.js'
+import Columns from '../../util/boxColumns.js'
 
 const styles = {
   xsDisplayBlock: "xsDisplayBlock",
@@ -37,7 +37,7 @@ const props: any = {
     block: styles.xsDisplayBlock,
   }),
 }
-import { boxMixin } from '../util/mixins'
+import { boxMixin } from '../../util/mixins'
 
 import {
   IsBoxType,
@@ -52,7 +52,7 @@ import {
   Margin,
   Padding,
   Color
-} from '../util/types/boxTypes'
+} from '../../util/types/boxTypes'
 
 import Vue from 'vue'
 export default Vue.extend({
@@ -105,6 +105,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../styles/box/column";
-@import "../styles/box/grid";
+@import "../../styles/box/column";
+@import "../../styles/box/grid";
 </style>

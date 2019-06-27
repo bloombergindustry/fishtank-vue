@@ -9,16 +9,16 @@
    mapClassName,
    concat,
    toProps
- } from '../util/style'
+ } from '../../util/style'
 
  import {
    mapping,
    toggle
- } from '../util/transform'
+ } from '../../util/transform'
  import ftColorsObj from '@fishtank/colors/dist/text.common.js'
  import {
    propToFishtankColorName
- } from '../util/mappers'
+ } from '../../util/mappers'
  import _ from 'lodash'
 
  const fontSizes = ['headingLg', 'headingMd', 'headingSm', 'baseLg', 'baseMd', 'baseSm']
@@ -173,10 +173,10 @@
  })
 </script>
 <style module lang="scss">
-  @import '../styles/mixins';
-  @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
-  @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
-  @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
+  @import '../../styles/mixins';
+  @import '../../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
+  @import '../../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
+  @import "../../../node_modules/@fishtank/type/dist/index.custom-properties";
 
   /* font family */
   .antialiased {

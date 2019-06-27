@@ -26,7 +26,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import radio from './FishTankRadio.vue' 
-import ftext from './FishTankText.vue' 
+import ftext from './FishTankText/FishTankText.vue' 
 import box from './FishTankBox.vue' 
 import { orientation } from "../util/mixins"
 /** Triggered when value is changed
