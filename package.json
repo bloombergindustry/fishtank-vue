@@ -23,7 +23,6 @@
     "test": "vue-cli-service test:unit --require tests/setup.js",
     "e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "prepublish": "yarn build",
     "release": "standard-version"
   },
   "publishConfig": {
