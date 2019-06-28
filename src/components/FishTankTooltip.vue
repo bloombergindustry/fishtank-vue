@@ -6,7 +6,9 @@
     >
         <slot/>
         <div 
-            :class="focus ? 'popper': 'popper-hide'"
+            class="popper-content"
+            :class="focus && orientation ? 'popper' : 'popper-hide' "
+            :x-placement="orientation"
         >
             <FishTankText>{{placeholder}}</FishTankText>
             <div class="popper-arrow"></div>
@@ -43,12 +45,10 @@ export default Vue.extend({
     },
     methods:{
         createPop(){
-           console.log(this.$data.focus)
-
            this.$data.inputEl = document.querySelector('.content')
            this.$data.content = document.querySelector('.popper')
            let popperLocation = this.$props.orientation
-        //    console.log(this.$props.orientation)
+           console.log(this.$props.orientation)
         
             this.$data.popObj = new Popper(this.$data.inputEl, this.$data.content,{
                 placement: popperLocation,
@@ -56,13 +56,13 @@ export default Vue.extend({
                     computeStyle:{
                         gpuAcceleration:true
                     },
-                    offset:{
-                        offset:4
-                    }
+                    // offset:{
+                    //     // offset:4
+                    // }
                 }
             })
 
-            //    this.$data.popObj.show()
+            console.log(this.$data.focus)
         },
         destroyPop(){
             console.log(this.$data.focus)
@@ -83,21 +83,26 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '../styles/mixins';
+.content{
+    position: relative;
+}
 
-.popper-hide{
+.popper-content{
     display: none;
-}
-
-.popper[x-placement="top"]{
-    background: $color-highlight-1;
     padding: 4px;
-    text-align: center;
-    .popper-arrow{
-        border-width: 5px 5px 0px 5px;
-        border-style: solid;
-        background: $color-highlight-3;
-
-    }
+    background: $color-gray-lighter;
+    border-radius: 2px;
 }
+
+
+.popper[x-placement^="top"]{
+    display: block;
+    padding: 4px;
+    position: absolute;
+    width: 120px;
+    top: -60px;
+    
+}
+
 </style>
 
