@@ -1,6 +1,4 @@
 <script lang="ts">
-// Trying to get the interface correct, I need to refactor once we get all the functionality
-// This is the interface I am trying to use https://pinterest.github.io/gestalt/#/Box
 import Vue from "vue"
 
 import {
@@ -761,6 +759,9 @@ export default Vue.extend({
       },
       description:'Box padding, applied horizontally',
     },
+    /**
+     * Box padding, applied vertically
+     */
     paddingY: {
       type:Number,
       default:null,
@@ -770,18 +771,27 @@ export default Vue.extend({
       },
       description:'Box padding, applied vertically',
     },
+    /**
+     * Box width property sets an boxes\'s width.
+     */
     width: {
       type: [ Number, String ],
       default:null,
       required:false,
       description:'Box width property sets an boxes\'s width.',
     },
+    /**
+     * Box flex-wrap property sets flex-wrap:wrap, setting flex items to wrap onto multiple lines.
+     */
     wrap:{
       type: Boolean,
       default:false,
       required:false,
       description:'Box flex-wrap property sets flex-wrap:wrap, setting flex items to wrap onto multiple lines.',
     },
+    /**
+     * Box position property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
+     */
     position: {
       type:String,
       default:null,
@@ -791,18 +801,27 @@ export default Vue.extend({
       },
       description:'Box position property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.',
     },
+    /**
+     * Box top position property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.
+     */
     top:{
       type: Boolean,
       default:false,
       required:false,
       description:'Box top position property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
+    /**
+     * Box bottom position  property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.
+     */
     bottom:{
       type: Boolean,
       default:false,
       required:false,
       description:'Box bottom position  property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
+    /**
+     * description:'Box left position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.
+     */
     left:{
       type: Boolean,
       default:false,
