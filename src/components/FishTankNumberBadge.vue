@@ -1,5 +1,5 @@
 <script lang="ts">
-import FishTankText from './FishTankText/FishTankText.vue'
+import FishTankText from './FishTankText.vue'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 

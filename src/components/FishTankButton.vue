@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from "vue"
-import FishTankText from './FishTankText/FishTankText.vue'
+import FishTankText from './FishTankText.vue'
 
 /** Event fired on click
  * @event click

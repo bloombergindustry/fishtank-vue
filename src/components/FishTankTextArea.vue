@@ -100,7 +100,7 @@ import {
   Warning24 as WarningIcon
   }  from "@fishtank/icons-vue"
 
-import FishTankText  from './FishTankText/FishTankText.vue';
+import FishTankText  from './FishTankText.vue';
 
 import {textInputMixin, orientation, a11y} from "../util/mixins"
 

@@ -44,7 +44,7 @@
 import Vue from "vue"
 import { CloseSml24 } from '@fishtank/icons-vue' 
 import { a11y } from "../util/mixins"
-import { default as FishTankText } from './FishTankText/FishTankText.vue'
+import { default as FishTankText } from './FishTankText.vue'
 
 export default Vue.extend({
   name:"FishTankTag",

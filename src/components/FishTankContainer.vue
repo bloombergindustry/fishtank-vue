@@ -9,7 +9,7 @@ import {
   concat,
   toProps,
   arrayToProps
-} from '../../util/style'
+} from '../util/style'
 
 import {
   union,
@@ -18,9 +18,9 @@ import {
   toggle,
   mapping,
   rangeWithoutZero
-} from '../../util/transform'
+} from '../util/transform'
 
-import Columns from '../../util/boxColumns.js'
+import Columns from '../util/boxColumns.js'
 
 const styles = {
   // container:"layoutContainer",
@@ -31,7 +31,7 @@ const props: any = {
   // container:toggle(styles.container),
   // fluid:toggle(styles.fluid),
 }
-import boxMixin from '../../util/mixins/boxMixin'
+import boxMixin from '../util/mixins/boxMixin'
 
 import {
   IsBoxType,
@@ -46,7 +46,7 @@ import {
   Margin,
   Padding,
   Color
-} from '../../util/types/boxTypes'
+} from '../util/types/boxTypes'
 
 import Vue from 'vue'
 export default Vue.extend({
@@ -115,6 +115,6 @@ export default Vue.extend({
 })
 </script>
 <style module lang="scss">
-@import "../../styles/box/container";
+@import "../styles/box/container";
 
 </style>

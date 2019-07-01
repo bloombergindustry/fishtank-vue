@@ -14,17 +14,17 @@ import Vue, {VNode} from 'vue'
     mapClassName,
     concat,
     toProps
-  } from '../../util/style'
+  } from '../util/style'
 
   import {
     mapping,
     toggle
-  } from '../../util/transform'
+  } from '../util/transform'
 
   import ftColorsObj from '@fishtank/colors/dist/heading.common.js'
   import {
     propToFishtankColorName
-  } from '../../util/mappers'
+  } from '../util/mappers'
 
   import _ from 'lodash'
 
@@ -152,9 +152,9 @@ import Vue, {VNode} from 'vue'
   })
 </script>
 <style module lang="scss">
-  @import '../../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-heading';
-  @import '../../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
-  @import "../../../node_modules/@fishtank/type/dist/index.custom-properties";
+  @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-heading';
+  @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
+  @import '../../node_modules/@fishtank/type/dist/index.custom-properties';
 
   /* font family */
   .antialiased {

@@ -1,5 +1,5 @@
 <script lang="ts">
-import FishTankText from "./FishTankText/FishTankText.vue";
+import FishTankText from "./FishTankText.vue";
 import FishTankBox from "./FishTankBox.vue";
 import { CaretDown24 } from "@fishtank/icons-vue";
 import { a11y } from "../util/mixins";
