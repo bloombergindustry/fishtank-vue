@@ -29,6 +29,7 @@
       <li><a href="#/select">Select</a></li>
       <li><a href="#/lookup">Lookup</a></li>
       <li><a href="#/container-columns">Containers and Columns</a></li>
+      <li><a href="#/tooltips">Tooltips</a></li>
     </ul>
   </section>
 </template>
