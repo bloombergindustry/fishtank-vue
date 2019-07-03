@@ -1,6 +1,99 @@
+<script lang="ts">
+
+  import { Component, Prop, Vue, Model, Emit } from 'vue-property-decorator'
+  import { 
+    CheckboxSelected24 as CheckboxSelected, 
+    CheckboxUnselected24 as CheckboxUnselected 
+  } from "@fishtank/icons-vue"
+  import FishTankText from './FishTankText.vue'
+  import { a11y } from "../util/mixins"
+
+  @Component({
+    components: {
+      CheckboxSelected:CheckboxSelected,
+      CheckboxUnselected:CheckboxUnselected,
+      FishTankText
+    },
+    mixins: [
+      a11y
+    ]
+  })
+
+export default class FishTankCheckboxV2 extends Vue {
+  /**
+   * Checkbox binding to a boolean or array
+   */
+  @Model('change', { type: [Boolean, Array] }) value!: boolean
+
+  /**
+   * Disable the checkbox
+   */
+  @Prop({
+    type:Boolean,
+    required:false,
+    default:false,
+  })
+  disabled:false
+  
+  /**
+   * Checkox label
+   */
+  @Prop({
+    type:String,
+    required: true,
+  })
+  label:String
+
+  /**
+   * Checkbox element ID
+   */
+  @Prop({
+    type:String,
+    default:null,
+    required:false,
+  })
+  id:null
+    
+  /**
+   * Legacy prop from original BLAW component
+   */
+  @Prop({})
+  slider: any
+  /**
+   * Legacy prop from original BLAW component
+   */
+  @Prop({})
+  switch: any
+
+  //data
+  isFocused=false
+  name="FishTankCheckbox"
+
+  // Component Methods
+  emitChange(){
+    /**
+    * Change event.
+    *
+    * @type {Boolean}
+    */
+    this.$emit('change', !(this as any).value)
+  }
+  // Computed Methods
+  keyId() {
+    return `checkbox-${(this as any)._uid}`
+  }
+  returnEnabledDisabled() {
+    return this.disabled ? "disabled" : "animationWrap__enabled"
+  }
+  isSwitch() {
+      return (this.switch !== undefined || this.slider !== undefined ? true : false)
+  }
+}
+</script>
+
 <template>
   <div 
-    :class="[isSwitch ? 'switch':'checkbox', {['disabled']:disabled},(value ? 'checked' : 'unchecked')]" >
+    :class="[isSwitch() ? 'switch':'checkbox', {['disabled']:disabled},('value' ? 'checked' : 'unchecked')]" >
     <label
       :for="(id !==null? id: null)"
       :class="['label']">
@@ -14,11 +107,12 @@
         @focus="isFocused = true"
         @blur="isFocused = false">
 
-      <template v-if="isSwitch">
+      <template v-if="isSwitch()"> 
         <div :class="['inputCheckboxWrap', 'a11y']">
           <div class="inputCheckboxTarget"/>
         </div>
         <div class="labelContent">
+          <!-- @slot Slot for passing custom label -->
           <slot v-if="$slots.default"/>
           <span v-else>
             {{ label }}
@@ -49,6 +143,7 @@
           </transition>
         </div>
         <div class="labelContent">
+          <!-- @slot Slot for passing custom label -->
           <slot v-if="$slots.default"/>
           <fish-tank-text
             v-else 
@@ -66,82 +161,6 @@
     </label>
   </div>
 </template>
-
-<script lang="ts">
-import Vue from "vue"
-
-import { 
-  CheckboxSelected24 as CheckboxSelected, 
-  CheckboxUnselected24 as CheckboxUnselected 
-} from "@fishtank/icons-vue"
-import FishTankText from './FishTankText.vue'
-import { a11y } from "../util/mixins"
-
-export default Vue.extend({
-  name:"FishTankCheckbox",
-  components: {
-    CheckboxSelected,
-    CheckboxUnselected,
-    FishTankText
-  },
-  mixins: [
-    a11y,
-  ],
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
-  props: {
-    disabled:{
-      type:Boolean,
-      required:false,
-      default:false,
-      description:`Disable the checkbox`
-    },
-    value: {
-      default:false,
-      type: [Boolean, Array],
-      description:`Checkbox binding to a boolean or array`
-    },
-    label: {
-      type: String,
-      required: true,
-      description:`Checkbox label`
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false,
-      description:`Checkbox element ID`
-    },
-    // Slider is a legacy prop from the original BLAW checkbox component
-    slider: Boolean,
-    switch: Boolean,
-  },
-  methods:{
-    emitChange(){
-      this.$emit('change', !(this as any).value)
-    }
-  },
-  data(){
-    return {
-      isFocused:false
-    }
-  },
-  computed: {
-    keyId(): string {
-      return `checkbox-${(this as any)._uid}`
-    },
-    returnEnabledDisabled(): string {
-    return this.disabled ? "disabled" : "animationWrap__enabled"
-    },
-    isSwitch(): boolean{
-      return (this.slider ? true :
-                this.switch ? true : false)
-    }
-  }
-})
-</script>
 
 <style lang="scss">
   @import "../../node_modules/@fishtank/colors/dist/index";
