@@ -1,32 +1,28 @@
 <template>
-    <div
-        class="content"
-        @mouseenter="focusToggle();createPop(); "
-        @mouseleave="focusToggle();destroyPop();"
-    >
-        <slot/>
-        <div 
-            class="popper-content"
-            :class="focus && orientation ? 'popper' : 'popper-hide' "
-            :x-placement="orientation"
-        >
-            <FishTankText>{{placeholder}}</FishTankText>
-            <div class="popper-arrow"></div>
-        </div>
+  <div
+    class="content"
+    @mouseenter="focusToggle();createPop(); "
+    @mouseleave="focusToggle();destroyPop();">
+    <slot/>
+    <div 
+      class="popper-content"
+      :class="focus && orientation ? 'popper' : 'popper-hide' "
+      :x-placement="orientation">
+      <ftext>{{placeholder}}</ftext>
+      <div class="popper-arrow"></div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Popper from 'popper.js'
-import {
-    FishTankText
-} from '@/index'
+import FishTankText from './FishTankText.vue'
 
 export default Vue.extend({
     name: 'FishTankTooltip',
     components: {
-        FishTankText
+        ftext: FishTankText
     },
     props: {
         placeholder: String,
