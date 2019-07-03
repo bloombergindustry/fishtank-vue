@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.8-prerelease"></a>
+## [4.10.8-prerelease](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.7...v4.10.8-prerelease) (2019-07-03)
+
+
+### Features
+
+* added basic files to start building tooltip component ([3c8e4d2](https://github.com/bloombergbna/fishtank-vue/commit/3c8e4d2))
+* Adding a Fish Tank table component ([0782aa2](https://github.com/bloombergbna/fishtank-vue/commit/0782aa2))
+* all my work on the tooltip component, what's left is changes to styles, functionlity minor changes to match what is needed for products, etc., ([dc22a8a](https://github.com/bloombergbna/fishtank-vue/commit/dc22a8a))
+* basic logic for tooltip component ([7640caa](https://github.com/bloombergbna/fishtank-vue/commit/7640caa))
+* changesto tooltip ([0950877](https://github.com/bloombergbna/fishtank-vue/commit/0950877))
+* minor changes ([2d64adc](https://github.com/bloombergbna/fishtank-vue/commit/2d64adc))
+* minor changes to tooltip ([4868387](https://github.com/bloombergbna/fishtank-vue/commit/4868387))
+* progress with popper.js tooltip rendering ([5a44292](https://github.com/bloombergbna/fishtank-vue/commit/5a44292))
+* restructured folders to better support integration with vue styleguidist ([cf78e34](https://github.com/bloombergbna/fishtank-vue/commit/cf78e34))
+* setup for tooltips component ([0ea8088](https://github.com/bloombergbna/fishtank-vue/commit/0ea8088))
+* updates to tooltip ([919f56e](https://github.com/bloombergbna/fishtank-vue/commit/919f56e))
+
+
+
 <a name="4.10.7"></a>
 ## [4.10.7](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.6...v4.10.7) (2019-06-26)
 
