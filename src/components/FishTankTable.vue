@@ -37,8 +37,8 @@
      */
     @Prop({default: {}, type:Object,})
     tableData:{
-      fields: () => Object[],
-      data: () => Object[]
+      fields: any[],
+      data: any[]
     }
     
     // Should add function here verifying that heading and fields array are correctly formatted
