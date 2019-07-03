@@ -84,7 +84,12 @@ export default new Router(<RouterOptions>{
     {
       path: '/tabs',
       component: () => import("./views/Tabs.vue")
-    },{
+    },
+    {
+      path: '/tables',
+      component: () => import("./views/Tables.vue")
+    },
+    {
       path: '/text',
       component: () => import("./views/Text.vue")
     },
