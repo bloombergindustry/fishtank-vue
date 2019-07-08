@@ -131,7 +131,7 @@ export default class FishTankBadge extends Vue {
 </template>
 
 <style lang="scss" scoped>
-    @import '../Styles/mixins';
+    @import '../styles/mixins';
     @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
     @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
     @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
