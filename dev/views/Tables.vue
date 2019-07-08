@@ -51,28 +51,30 @@
 </script>
 
 <template>
-    <div class = "content">
-      <card>
-        <heading level="1">
-          FishTankTable
-        </heading>
-        <div class ="scroll">
-        <ft-table :table-data = "tableData">
-          <template slot="check" scope="props">
+  <div class="content">
+    <card>
+      <heading level="1">
+        FishTankTable
+      </heading>
+      <div class="scroll">
+        <ft-table :table-data="tableData">
+          <template v-slot:check="props">
             <check
-              v-model = "selected[props.rowIndex]"
-              class = "check"
+              v-model="selected[props.rowIndex]"
+              class="check"
               value="selected[props.rowIndex]"
-              @change = "displaySelected(props.rowData , selected[props.rowIndex])" />
+              @change="displaySelected(props.rowData , selected[props.rowIndex])" />
           </template>
         </ft-table>
       </div>
-      </card>
-      <card>
-        <heading level="1">Selected Rows</heading>
-        <span> {{ displayData }} </span>
-      </card>
-    </div>
+    </card>
+    <card>
+      <heading level="1">
+        Selected Rows
+      </heading>
+      <span> {{ displayData }} </span>
+    </card>
+  </div>
 </template>
 
 <style lang="scss">

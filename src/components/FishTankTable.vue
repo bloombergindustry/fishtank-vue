@@ -79,18 +79,18 @@
 </script>
 
 <template>
-  <table class="table" :table-data="tableData">
+  <table 
+    class="table"
+    :table-data="tableData">
     <thead>
       <tr>
         <template v-for="(field, index) in tableData.fields" >
-          <template v-if= "isSpecialCell(field.name)">
+          <template v-if="isSpecialCell(field.name)">
             <th 
               v-if="getCellType(field)=='__slot'"   
               :class="[]" :key="index"> 
                <!-- @slot Slot for passing component to table header -->
-              <slot :name ="renderComponent(cell)" :row-data = "row" :row-index = "rowIndex" >
-
-              </slot>
+              <slot :name ="renderComponent(cell)" :row-data = "row" :row-index = "rowIndex" />
             </th>
             <!--supports additional special cell types, can add more cell types here-->
           </template>
