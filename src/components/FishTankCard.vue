@@ -25,6 +25,14 @@
 </template>
 
 <script lang="ts">
+/**
+ * FishTankCard V1
+ * @deprecated
+ * This component is being deprecated in favor of FishTankCardV2.
+ * It will be removed from the library in October of 2019.
+ * FishTankCardV2 offers a more standard and consistant API, and better code quality.
+ * Please begin using FishTankCardV2 to avoid any breaking changes.
+ */
 import Vue from 'vue'
 export default Vue.extend({
   props: {

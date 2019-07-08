@@ -57,8 +57,6 @@ export { default as FishTankBadge } from "./components/FishTankBadge.vue"
 export { default as FishTankNumberBadge } from "./components/FishTankNumberBadge.vue"
 export { default as FishTankTag } from "./components/FishTankTag.vue"
 export { default as FishTankPagination } from "./components/FishTankPagination.vue"
-// export { default as FishTankMultiSelectTag } from "./components/MultiSelectTag.vue"
-// Multi-select tag needs to be rebuilt
 export { default as FishTankLoaderSpinner } from "./components/FishTankLoaderSpinner.vue"
 export { default as FishTankButtonGroup } from "./components/FishTankButtonGroup.vue"
 export { default as FishTankButtonGroupButton } from "./components/FishTankButtonGroupButton.vue"

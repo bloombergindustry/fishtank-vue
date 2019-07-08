@@ -63,6 +63,14 @@ import FishTankText from './FishTankText.vue'
 import { a11y } from "../util/mixins"
 
 export default Vue.extend({
+  /**
+   * FishTankCheckbox V1
+   * @deprecated
+   * This component is being deprecated in favor of FishTankCheckboxV2.
+   * It will be removed from the library in October of 2019.
+   * FishTankCheckboxV2 offers a more standard and consistant API, and better code quality.
+   * Please begin using FishTankCheckboxV2 to avoid any breaking changes.
+   */
   name:"FishTankCheckbox",
   components: {
     CheckboxSelected,
@@ -99,6 +107,9 @@ export default Vue.extend({
       required:false,
       description:`Checkbox element ID`
     },
+  },
+  mounted(){
+    console.warn(`this`)
   },
   methods:{
     emitChange(){

@@ -109,7 +109,14 @@
 </template>
 
 <script lang="ts">
-
+/**
+ * FishTankTextInput V1
+ * @deprecated
+ * This component is being deprecated in favor of FishTankTextInputV2.
+ * It will be removed from the library in October of 2019.
+ * FishTankTextInputV2 offers a more standard and consistant API, and better code quality.
+ * Please begin using FishTankTextInputV2 to avoid any breaking changes.
+ */
 import Vue from "vue"
 import { 
   CloseSml24 as CloseIcon, 

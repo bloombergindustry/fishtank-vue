@@ -94,6 +94,14 @@
 </template>
 
 <script lang="ts">
+/**
+ * FishTankModal V1
+ * @deprecated
+ * This component is being deprecated in favor of FishTankModalV2.
+ * It will be removed from the library in October of 2019.
+ * FishTankModalV2 offers a more standard and consistant API, and better code quality.
+ * Please begin using FishTankModalV2 to avoid any breaking changes.
+ */
 import Vue from 'vue'
 import Detachable from '../util/detachable'
 import { Close24 } from '@fishtank/icons-vue'
