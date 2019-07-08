@@ -1,3 +1,61 @@
+<script lang="ts">
+/**
+ * @displayName Card V2
+ */
+import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
+ @Component({})
+export default class CardV2 extends Vue {
+  /**
+   * Card heading text
+   */
+  @Prop({
+    default:undefined, 
+    type:String, 
+    required:false
+  })
+  heading:undefined
+
+  /**
+   * Card displays a branded header strip or background color.
+   */
+  @Prop({
+    type: String,
+    required: false,
+    default: undefined
+  })
+  branded: undefined
+
+  /**
+   * Card displays a custom heading or background color.
+   */
+  @Prop({
+    type: String,
+    required: false,
+    default: undefined
+  })
+  customHeadingBg: undefined
+  /**
+   * Card displays a custom heading or background color.
+   */
+  @Prop({
+    type: String,
+    required: false,
+    default: undefined
+  })
+  customHeadingText: undefined
+
+  // Computed methods
+  returnBrandStripe() {
+    return `background-color: ${this.branded};`
+  }
+
+  returnHeaderStripe() {
+    return `background-color: ${this.customHeadingBg}; border: none; color:${this.customHeadingText};`
+  }
+}
+
+</script>
+
 <template>
   <div class="card">
     <div
@@ -26,45 +84,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  props: {
-    heading: {
-      type: String,
-      required: false,
-      default: undefined,
-      description:"Card heading text"
-    },
-    branded: {
-      type: String,
-      required: false,
-      default: undefined,
-      description:"Card displays a branded header strip or background color."
-    },
-    customHeadingBg: {
-      type: String,
-      required: false,
-      default: undefined,
-      description:"Card displays a custom heading or background color."
-    },
-    customHeadingText: {
-      type: String,
-      required: false,
-      default: undefined,
-      description:"Card displays a custom heading or background color."
-    },
-  },
-  methods: {
-    returnBrandStripe():string {
-      return `background-color: ${this.branded};`
-    },
-    returnHeaderStripe():string{
-      return `background-color: ${this.customHeadingBg}; border: none; color:${this.customHeadingText};`
-    }
-  }
-})
-</script>
 
 <style scoped lang="scss">
 @import '../styles/mixins';
