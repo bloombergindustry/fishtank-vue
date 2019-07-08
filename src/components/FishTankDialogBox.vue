@@ -6,9 +6,9 @@
     escapeable
     dialog
     @change="onChange">
-    <!-- @slot Slot for custim dialog-box content -->
+    <!-- @slot Slot for custom dialog-box content -->
     <slot />
-    <!-- @slot Slot for foter -->
+    <!-- @slot Slot for footer -->
     <slot
       slot="footer"
       name="footer" />
