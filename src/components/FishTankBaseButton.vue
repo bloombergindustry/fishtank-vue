@@ -9,45 +9,62 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import { a11y } from "../util/mixins"
 
-export default Vue.extend({
-  name: "BaseButton",
+@Component({
   mixins:[
     a11y
-  ],
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-      description:"Specify if button should be disabled"
-    },
-    block: {
-      type: Boolean,
-      default: false,
-      description: "Changes Button to full width block element"
-    },
-    name:{
-      type: String,
-      default:"",
-      required:false,
-      description: "Optional name of the button, which can be used with the form data."
-    }
-  },
-  computed: {
-    listeners(): Record<string, Function | Function[]> {
-      return {
-        ...this.$listeners,
-        click: ($event: MouseEvent) => {
-          if (this.disabled) return
-          this.$emit("click", $event)
-        }
-      }
-    },
-  }
+  ]
 })
+
+export default class FishTankBaseButton extends Vue {
+
+  /**
+   * Specify if button should be disabled
+   */
+  @Prop({
+    default: false,
+    type:Boolean
+  })
+  disabled:Boolean
+
+  /**
+   * Changes Button to full width block element
+   */
+  @Prop({
+    default:false,
+    type: Boolean
+  })
+  block:Boolean
+
+  /**
+   * Optional name of the button, which can be used with the form data.
+   */
+  @Prop({
+    type:String,
+    default:"",
+    required:false
+  })
+  name:String
+
+  // computed functions
+  listeners(): Record<string, Function | Function[]> {
+    return {
+      ...this.$listeners,
+      click: ($event: MouseEvent) => {
+        if (this.disabled) return
+        /**
+        * Mouse click event.
+        * @event click
+        * @type {Event}
+        */
+        this.$emit("click", $event)
+      }
+    }
+  }
+  // data
+}
 </script>
 
 <style module lang="scss">
