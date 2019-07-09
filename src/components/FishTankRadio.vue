@@ -33,102 +33,112 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue, Model, Inject } from 'vue-property-decorator'
 import { a11y } from "../util/mixins"
 interface RadioComponentGroup {
   register(cmp:any):void,
   unregister(cmp:any):void
 }
-export default Vue.extend({
-  name: "FishTankRadio",
-  introduction: "Radio Input Element",
-  description: "Radio Input Element",
+
+@Component({
   mixins: [
-    a11y,
-  ],
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props:{
-    value:{
-      type:[String,Boolean,Object,Number], 
-      default:null,
-      require:true,
-      description:"Radio Value"
-    },
-    disabled:{
-      type:Boolean,
-      default:null,
-      require:false,
-      description:"Radio is disabled"
-    },
-    modelValue: {
-      type:[String,Boolean,Object,Number],
-      default: "",
-      require:true
-    },
-    label:{
-      type:String,
-      default:null,
-      required:true,
-      description:"Radio label"
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false,
-      description:"Radio ID"
-    },
-    name:{
-      type:String,
-      default:"",
-      required:false,
-      description:"Radio name"
-    },
-    fishtankRadioGroupShared: {
-      type: Object as () => RadioComponentGroup,
-    }
-  },
-  data(){
-    return {
-      identifier: (Math.random() * 10000).toFixed(0).toString(),
-    }
-  },
-  inject:{
-    fishtankRadioGroupShared:{
-      default:{
-        register(){},
-        unregister(){}
-      },
-    }
-  },
+    a11y
+  ]
+})
+export default class FishTankRadio extends Vue {
+  introduction: "Radio Input Element"
+  description: "Radio Input Element"
+
+  @Model('change',{type:[String,Boolean,Object,Number], default: "", required:true}) modelValue:string
+  
+  /**
+   * Radio Value
+   */
+  @Prop({
+    type:[String,Boolean,Object,Number], 
+    default:null,
+    required:true
+  })
+  value:string
+  
+  /**
+   * Radio is disabled
+   */
+  @Prop({
+    type:Boolean,
+    default:null,
+    required:false
+  })
+  disabled:boolean
+   
+  /**
+   * Radio label
+   */
+  @Prop({
+    type:String,
+    default:null,
+    required:true,
+  })
+  label:string
+
+  /**
+   * Radio ID
+   */
+  @Prop({
+    type:String,
+    default:null,
+    required:false
+  })
+  id:string
+
+  /**
+   * Radio name
+   */
+  @Prop({
+    type:String,
+    default:"",
+    required:false
+  })
+  name:string
+
+  // @Prop({
+  //   type: Object as () => RadioComponentGroup,
+  // })
+  // fishtankRadioGroupShared:RadioComponentGroup
+
+  // Data
+  identifier =  (Math.random() * 10000).toFixed(0).toString()
+
+  @Inject({default: {register(){}, unregister(){}}}) fishtankRadioGroupShared:RadioComponentGroup
+  
+  // Lifecycle methods
   mounted(){
     this.fishtankRadioGroupShared.register(this)
-  },
+  }
+
   destroyed(){
     this.fishtankRadioGroupShared.unregister(this)
-  },
-  computed:{
-    shouldBeChecked():Boolean{
-      return this.value === this.modelValue
-    },
-    listeners(): Record<string, Function | Function[]> {
-      return {
-        ...this.$listeners,
-        change: ($event: MouseEvent) => {
-          if (this.disabled) return 
-          this.$emit("change", this.value)
-        }
+  }
+
+  // Computed Methods
+  get shouldBeChecked():Boolean{
+    return this.value === this.modelValue
+  }
+    get listeners(): Record<string, Function | Function[]> {
+    return {
+      ...this.$listeners,
+      change: ($event: MouseEvent) => {
+        if (this.disabled) return 
+        this.$emit("change", this.value)
       }
-    },
-  },
-  methods:{
-    setFocus(){
-      (this.$refs.input as HTMLFormElement).focus()
     }
   }
-})
+
+  // Component methods
+  setFocus(){
+    (this.$refs.input as HTMLFormElement).focus()
+  }
+}
 </script>
 <style lang="scss">
   @import '../styles/mixins';
