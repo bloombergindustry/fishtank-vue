@@ -3,7 +3,7 @@
     :class="{[$style.button] : true , [$style.buttonDisabled] : disabled , [$style.buttonBlock] : block}"
     :disabled="disabled"
     type="button"
-    v-on="listeners">
+    v-on="$listeners">
     <slot />
   </button>
 </template>
@@ -49,7 +49,7 @@ export default class FishTankBaseButton extends Vue {
   name:String
 
   // computed functions
-  listeners(): Record<string, Function | Function[]> {
+  get listeners(): Record<string, Function | Function[]> {
     return {
       ...this.$listeners,
       click: ($event: MouseEvent) => {

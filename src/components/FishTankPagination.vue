@@ -16,60 +16,58 @@
 </template>
 
 <script lang="ts">
-  import Vue, { VueConstructor } from 'vue';
+  import { Component, Prop, Vue, Model } from 'vue-property-decorator'
+  import { VueConstructor } from 'Vue';
   import * as VueJsPaginate from "vuejs-paginate"
   import {
     ChevronLeft24 as ChevronLeftIcon,
     ChevronRight24 as ChevronRightIcon,
   } from '@fishtank/icons-vue';
 
-  export default Vue.extend({
-    name: 'FT-Pagination',
-
-    description: 'FishTank Pagination',
-
-    model: {
-      event: 'paginate',
-      prop: 'pageNum'
-    },
-
-    components: {
+  @Component({
+    components:{
       'vue-paginate':VueJsPaginate,
       ChevronLeftIcon,
       ChevronRightIcon,
-    },
+    }
+  })
 
-    props: {
-      pageCount: {
-        type: Number,
-        required: true,
-        description: "Maximum pages to show at a time"
-      },
-      pageNum: {
-        type: Number,
-        required: false,
-        default: 0 as number
-      },
-      showLastPage: {
-        type: Boolean,
-        required: false,
-        default: true,
-        description: "Show the last available page"
-      },
-    },
+  export default class FishTankPagination extends Vue {
+    @Model('paginate', {type:Number,required:false, default: 0}) pageNum:Number
 
-    computed: {
-      breakViewClass(): string {
-        return this.showLastPage ? '' : 'break-out';
-      },
-    },
+    /**
+     * Maximum pages to show at a time
+     */
+    @Prop({
+      type:Number,
+      required:true,
+    })
+    pageCount:Number
 
-    methods: {
-      paginateSearch(pageNum: number): void {
-        this.$emit('paginate', pageNum);
-      },
-    },
-  });
+    /**
+     * Show the last available page.
+     */
+    @Prop({
+      type:Boolean,
+      required:false,
+      default: true,
+    })
+    showLastPage:Boolean
+
+    // Computed methods
+    get breakViewClass(): string {
+      return this.showLastPage ? '' : 'break-out';
+    }
+
+    // Component methods
+    paginateSearch(pageNum: number): void {
+      this.$emit('paginate', pageNum);
+    }
+
+    // Data
+    name: 'FT-Pagination'
+    description: 'FishTank Pagination'
+  }
 </script>
 
 <style lang="scss">
