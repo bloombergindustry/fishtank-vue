@@ -7,6 +7,7 @@ import FishTankText from "./FishTankText.vue";
 import FishTankBox from "./FishTankBox.vue";
 import { CaretDown24 } from "@fishtank/icons-vue";
 import { a11y } from "../util/mixins";
+
 import Popper from "popper.js";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mixin as clickaway } from 'vue-clickaway';
@@ -96,7 +97,7 @@ export default class FishTankSelect extends Vue {
   /**
    * Width
    */
-  @Prop({ default: 200 })
+  @Prop()
   width: number;
 
   //data
@@ -104,6 +105,16 @@ export default class FishTankSelect extends Vue {
   focusedItem = -1;
   popObj = undefined;
   inputEl = { type: HTMLElement };
+
+  data () {
+    return {
+      opened: false,
+      focusedItem: -1,
+      popObj: undefined,
+      inputEl: { type: HTMLElement },
+      anchorId: Math.random().toString(36)
+    }
+  }
 
   //computed methods
   get displayLabel() {
@@ -113,7 +124,19 @@ export default class FishTankSelect extends Vue {
   }
 
   get dropdownStyle() {
-    return this.$props.width + `px` || "200px";
+    let width = null
+    let wrapper = this.$refs.anchor
+    if (this.$props.width) {
+      width = `${this.$props.width}px`
+    } else if (wrapper) {
+      width = `${(wrapper as Element).clientWidth}px`
+    } else {
+      width = `200px`
+    }
+
+    return {
+      width
+    }
   }
 
   //lifecycle method
@@ -138,13 +161,11 @@ export default class FishTankSelect extends Vue {
     switch (e.key) {
       case "ArrowUp":
         e.preventDefault();
-        this.focusedItem--;
-        if (this.focusedItem < 0) this.focusedItem = items.length - 1;
+        this.focusedItem = (this.focusedItem - 1 + this.items.length) % this.items.length
         break;
       case "ArrowDown":
         e.preventDefault();
-        this.focusedItem++;
-        if (this.focusedItem >= items.length) this.focusedItem = 0;
+        this.focusedItem = (this.focusedItem + 1) % this.items.length
         break;
       case "Enter":
         if (this.focusedItem > -1) {
@@ -171,7 +192,7 @@ export default class FishTankSelect extends Vue {
   * Trigger the pop-up tooltip container of the dropdown
   */
   showPop() {
-    (this as any).inputEl = document.querySelector(`#${this.id}-button`);
+    (this as any).inputEl = this.$refs.anchor
     this.$nextTick(function() {
       (this as any).popObj = new Popper(
         (this as any).inputEl,
@@ -217,16 +238,17 @@ export default class FishTankSelect extends Vue {
   >
     <!-- @slot If a label is provided  -->
     <slot v-if="label">
-      <span :id="`${id}-label`" name="label">{{ label }}</span>
+      <span :id="`${anchorId}-label`" name="label">{{ label }}</span>
     </slot>
     <div class="position-wrap">
       <button
-        :id="`${id}-button`"
+        :id="anchorId"
+        ref="anchor"
         :class="['selected', 'a11y',(small ? 'small':null)]"
         :placeholder="!value"
         :aria-expanded="opened"
-        :aria-labelledby="`${id}-label ${id}-button`"
-        :aria-activedescendant="`${id}-option-${focusedItem}`"
+        :aria-labelledby="`${anchorId}-label ${anchorId}-button`"
+        :aria-activedescendant="`${anchorId}-option-${focusedItem}`"
         aria-haspopup="listbox"
         v-on-clickaway="closePopup"
         @keydown.tab="opened ? opened = false: null"
@@ -246,16 +268,16 @@ export default class FishTankSelect extends Vue {
       <div ref="itemsWrap" class="items-wrap">
         <div
           v-if="opened"
-          :id="`${id}-listbox`"
+          :id="`${anchorId}-listbox`"
           :class="['items', {'a11y-within': focusedItem > -1}]"
-          :aria-labelledby="`${id}-label`"
-          :style="{width:dropdownStyle}"
+          :aria-labelledby="`${anchorId}-label`"
+          :style="dropdownStyle"
           tabindex="-1"
           role="listbox"
         >
           <ftext
             v-for="(item, index) in items"
-            :id="`${id}-option-${index}`"
+            :id="`${anchorId}-option-${index}`"
             :key="index"
             :class="['list-item', 'list-item-text', {'focused': focusedItem===index}]"
             :aria-selected="focusedItem===index"
