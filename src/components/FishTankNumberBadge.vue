@@ -1,4 +1,8 @@
 <script lang="ts">
+/**
+ * Fish Tank Number Badge Component
+ * @displayName FIshTankBadge
+ */
 import FishTankText from './FishTankText.vue'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
@@ -11,11 +15,22 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class FishTankNumberBadge extends Vue {
     
     //properties
+    /**
+     * The value of the number badge
+     */
     @Prop({default:undefined, type:Number})
     value:Number;
+    
+    /**
+     * Text Shade
+     */
     @Prop({default:'light'})
     textShade:String
     availableShades:["light","dark","disabled"]
+
+     /**
+     * Number badge theme
+     */
     @Prop({default:'notification-1'})
     theme:String;
     required:false;

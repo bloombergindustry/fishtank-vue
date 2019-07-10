@@ -1,4 +1,8 @@
 <script lang="ts">
+/**
+ * Fish Tank Select Component
+ * @displayName FishTankSelect
+ */
 import FishTankText from "./FishTankText.vue";
 import FishTankBox from "./FishTankBox.vue";
 import { CaretDown24 } from "@fishtank/icons-vue";
@@ -112,11 +116,17 @@ export default class FishTankSelect extends Vue {
   }
 
   //lifecycle method
+  /**
+   * Calls the destroy method on the pop-up tool tip
+  */
   destroyed() {
     if (this.popObj !== undefined) this.destroyPop();
   }
 
   //component methods
+  /**
+  * Closes the dropdown
+  */
   closeDropdown(items: Array<String>, index: number) {
     if (items.length - 1 === index) {
       this.opened = false;
@@ -150,11 +160,15 @@ export default class FishTankSelect extends Vue {
         null;
     }
   }
-
+  /**
+  * Open the dropdown
+  */
   openItems() {
     if (this.opened === true) this.showPop();
   }
-
+  /**
+  * Trigger the pop-up tooltip container of the dropdown
+  */
   showPop() {
     (this as any).inputEl = document.querySelector(`#${this.id}-button`);
     this.$nextTick(function() {
@@ -172,7 +186,9 @@ export default class FishTankSelect extends Vue {
       );
     });
   }
-
+  /**
+  * Destroys instance of select popup
+  */
   destroyPop() {
     this.$nextTick(function() {
       if (this.popObj !== undefined) (this as any).popObj.destroy();
@@ -189,6 +205,7 @@ export default class FishTankSelect extends Vue {
     @mouseleave="opened=false; destroyPop()"
     @keydown="e => _handleKeydown(e, items)"
   >
+    <!-- @slot If a label is provided  -->
     <slot v-if="label">
       <span :id="`${id}-label`" name="label">{{ label }}</span>
     </slot>
