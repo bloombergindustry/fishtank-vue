@@ -41,148 +41,175 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Component, Prop, Model, Vue } from 'vue-property-decorator'
 import { CloseSml24 } from '@fishtank/icons-vue' 
 import { a11y } from "../util/mixins"
 import { default as FishTankText } from './FishTankText.vue'
 
-export default Vue.extend({
-  name:"FishTankTag",
-  introduction: "Component Introduction",
-  description: "Component description",
+@Component({
   components: {
     CloseSml24,
     fText:FishTankText
   },
   mixins:[
     a11y
-  ],
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props: {
-    disabled:{
-      type:Boolean,
-      required:false,
-      default:false,
-      description:"Disable tag",
-    },
-    value: {
-      default:null,
-      type: [String, Boolean, Object, Array, Number],
-    },
-    modelValue: {
-      type:[String, Boolean, Object, Array, Number],
-      default: false
-    },
-    label: {
-      type: String,
-      required: true,
-      description:"Tag label",
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false,
-      description:"Tag ID",
-    },
-    trueValue: {
-      default: true,
-      type:[String, Boolean, Object, Array, Number]
-    },
-    falseValue: {
-      default: false,
-      type:[String, Boolean, Object, Array, Number]
-    },
-    removable:{
-      type:Boolean,
-      required:false,
-      default:false,
-      description:"Removable style tag",
-    },
-    iconPosition:{
-      type: String,
-      default: 'right',
-      required:false
-    }
-  },
-  data(){
-    return {
-      checkProxy:false,
-      isFocused: false,
-
-    }
-  },
-  computed: {
-    listeners(): Record<string, Function | Function[]> {
-      return {
-        ...this.$listeners,
-        change: ($event: MouseEvent) => {
-          if (this.disabled) return 
-          this.updateInput($event)
-        }
-      }
-    },
-    checked: {
-      set:function(val:any){
-        this.checkProxy = val
-      },
-      get: function(): Record<string, boolean | number | Function | Function[]>{
-        return this.value
-      }
-    },
-    isChecked: function(){
-      if (this.modelValue instanceof Array) {
-        let res = false
-        if(this.modelValue.indexOf(this.value) >= 0) res = !res
-        return res
-      }
-      return this.modelValue === this.trueValue
-    },
-    hasIcon(): boolean {
-      if (this.removable || this.$slots.default) {
-        return true
-      } else {
-        return false
-      }
-    },
-    getStateColor():string{
-      if (!this.disabled){
-        if(this.isChecked){
-          return 'white'
-        } else { 
-          return 'gray'
-        }
-      } else {
-        if(this.isChecked){
-          return 'disabled'
-        } else { 
-          return 'disabled'
-        }
-      }
-    },
-  },
-  methods:{
-    updateInput(event:any) {
-      let isChecked = event.target.checked
-
-      if (this.modelValue instanceof Array) {
-        let newValue = [...this.modelValue]
-
-        if (isChecked) {
-          newValue.push(this.value)
-        } else {
-          newValue.splice(newValue.indexOf(this.value), 1)
-        }
-
-        this.$emit('change', newValue)
-      } else {
-        this.$emit('change', isChecked ? this.trueValue : this.falseValue)
-      }
-    },
-  }
+  ]
 })
+
+export default class FishTankTag extends Vue {
+
+  @Model('change', { type: [String, Boolean, Object, Array, Number] }) modelValue!: any
+
+
+  /**
+   * Disable tag
+   */
+  @Prop({
+    type:Boolean,
+    required:false,
+    default:false
+  })
+  disabled:boolean
+
+  @Prop({
+    default:null,
+    type: [String, Boolean, Object, Array, Number]
+  })
+  value:any
+  /**
+   * Tag label
+   */
+  @Prop({
+    type: String,
+    required: true,
+  })
+  label:string
+
+  /**
+   * Tag ID
+   */
+  @Prop({
+    type:String,
+    default:null,
+    required:false,
+  })
+  id:string
+
+  @Prop({
+    default:true,
+    type:[String, Boolean, Object, Array, Number]
+  })
+  trueValue:any
+
+  @Prop({
+    default: false,
+    type:[String, Boolean, Object, Array, Number]
+  })
+  falseValue:any
+
+  /**
+   * Removable style tag
+   */
+  @Prop({
+    type:Boolean,
+    required:false,
+    default:false
+  })
+  removable:boolean
+
+  @Prop({
+    type: String,
+    default: 'right',
+    required:false
+  })
+  iconPosition:string
+
+  get checked() {
+    return this.value
+  }
+  
+  set checked(val:any) {
+    this.checkProxy = val
+  }
+
+  get listeners(): Record<string, Function | Function[]> {
+    return {
+      ...this.$listeners,
+      change: ($event: MouseEvent) => {
+        if (this.disabled) return 
+        this.updateInput($event)
+      }
+    }
+  }
+
+  get isChecked(){
+    if (this.modelValue instanceof Array) {
+      let res = false
+      if(this.modelValue.indexOf(this.value) >= 0) res = !res
+      return res
+    }
+    return this.modelValue === this.trueValue
+  }
+
+  get hasIcon(): boolean {
+    if (this.removable || this.$slots.default) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  get getStateColor():string{
+    if (!this.disabled){
+      if(this.isChecked){
+        return 'white'
+      } else { 
+        return 'gray'
+      }
+    } else {
+      if(this.isChecked){
+        return 'disabled'
+      } else { 
+        return 'disabled'
+      }
+    }
+  }
+
+  // Component methods
+  updateInput(event:any) {
+    let isChecked = event.target.checked
+
+    if (this.modelValue instanceof Array) {
+      let newValue = [...this.modelValue]
+
+      if (isChecked) {
+        newValue.push(this.value)
+      } else {
+        newValue.splice(newValue.indexOf(this.value), 1)
+      }
+      /**
+      * Change event.
+      *
+      * @type {Any}
+      */
+      this.$emit('change', newValue)
+    } else {
+      /**
+      * Change event.
+      *
+      * @type {Any}
+      */
+      this.$emit('change', isChecked ? this.trueValue : this.falseValue)
+    }
+  }
+
+  // Data
+  name = "FishTankTag"
+  introduction = "Component Introduction"
+  description = "Component description"
+  checkProxy = false
+  isFocused = false
+}
 </script>
 
 <style lang="scss" scoped>
