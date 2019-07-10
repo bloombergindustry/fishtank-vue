@@ -51,6 +51,9 @@ export default Vue.extend({
       type: String,
       default:"standard"
     },
+    /**
+     * Button size
+     */
     small: {
       type:Boolean,
       default:false,
@@ -92,6 +95,7 @@ body.user-is-tabbing .a11y:focus {
     &.block {
       display: flex;
       justify-content: center;
+      width:100%;
     }
     &.large {
       padding: 6px 11px 10px 11px;
