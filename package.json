@@ -48,6 +48,7 @@
     "axios": "^0.18.1",
     "popper.js": "1.15.0",
     "tslib": ">= 1.9.0",
+    "vue-clickaway": "^2.2.2",
     "vue-content-loader": "^0.2.1",
     "vue-property-decorator": "7.2.0",
     "vue-runtime-helpers": "1.0.0",

@@ -4,3 +4,5 @@ declare module "*.vue" {
 }
 
 declare module '@fishtank/colors/dist/index.common';
+
+declare module 'vue-clickaway';
