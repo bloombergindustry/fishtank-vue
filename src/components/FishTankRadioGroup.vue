@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue, Model, Provide } from 'vue-property-decorator'
 import { a11y } from "../util/mixins"
 
 interface RadioComponent extends Vue{
@@ -17,8 +17,8 @@ interface RadioComponent extends Vue{
   modelValue?:[Object],
   setFocus(): void
 }
-export default Vue.extend ({
-  token:[
+@Component({
+    token:[
     `<fish-tank-radio-group>
       <FishTankRadio 
         v-model="val" 
@@ -34,68 +34,69 @@ export default Vue.extend ({
   ],
   mixins:[
     a11y
-  ],
-  model:{
-    prop: 'modelValue',
-    event:'change'
-  },
-  provide: function(){
-    const fishtankRadioGroupShared = {
-      register: this.register,
-      unregister: this.unregister
-    }
-    return {fishtankRadioGroupShared}
-  },
-  props:{
-    small:{
-      required:false,
-      default:false,
-      type: Boolean
-    },
-    modelValue: {
-      type:[String,Boolean,Object,Number],
-      default: "",
-      require:true
-    },
-    id:{
-      type:String,
-      default:null,
-      required:false
-    },
-  },
-  data(){
-    return {
-      isSmall:this.small,
-      isFocused:false,
-      registeredChildren:[]
-    }
-  },
-  computed:{
-    labelId(): string {
-      return `ft-radio-group-${(this as any)._uid}`
-    },
-  },
-  methods:{
-    focusRadio(){
-      let activeIndex = 0;
-      (this as any).registeredChildren.map((c:RadioComponent)=> {
-        if (c.value === c.modelValue) { 
-          c.setFocus() 
-          return
-        } else {
-       (this as any).registeredChildren[0].setFocus()
-        }
-      }) 
-    },
-    register(componentAsThis:any):void {
+  ]
+})
+export default class FishTankRadioGroup extends Vue {
+
+  @Model('change',{type:[String,Boolean,Object,Number], default: "", required:true}) modelValue:string
+
+  @Provide() fishtankRadioGroupShared = {
+    register : function(componentAsThis:any):void {
       (this as any).registeredChildren.push(componentAsThis);
     },
-    unregister(componentAsThis:any):void {
+    unregister : function(componentAsThis:any):void {
       let index = ((this as any).registeredChildren as any[]).indexOf(componentAsThis);
       if (index > -1) {
         (this as any).registeredChildren.splice(index, 1);
       }
-    },
+    }
   }
-})
+
+  @Prop({
+    required:false,
+    default:false,
+    type: Boolean
+  })
+  small:boolean
+
+  @Prop({
+    type:String,
+    default:null,
+    required:false
+  })
+  id:string
+
+  // Data
+  isSmall = this.small
+  isFocused = false
+  registeredChildren = []
+
+  // Computed functions
+  labelId(): string {
+    return `ft-radio-group-${(this as any)._uid}`
+  }
+
+  // Component methods
+  focusRadio(){
+    let activeIndex = 0;
+    (this as any).registeredChildren.map((c:RadioComponent)=> {
+      if (c.value === c.modelValue) { 
+        c.setFocus() 
+        return
+      } else {
+      (this as any).registeredChildren[0].setFocus()
+      }
+    }) 
+  }
+  // These funuctions are noe in the Provide decorator
+  // register(componentAsThis:any):void {
+  //   (this as any).registeredChildren.push(componentAsThis);
+  // }
+  // unregister(componentAsThis:any):void {
+  //   let index = ((this as any).registeredChildren as any[]).indexOf(componentAsThis);
+  //   if (index > -1) {
+  //     (this as any).registeredChildren.splice(index, 1);
+  //   }
+  // }
+}
 </script>
