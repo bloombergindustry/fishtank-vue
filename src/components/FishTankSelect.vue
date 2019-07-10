@@ -9,6 +9,7 @@ import { CaretDown24 } from "@fishtank/icons-vue";
 import { a11y } from "../util/mixins";
 import Popper from "popper.js";
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { mixin as clickaway } from 'vue-clickaway';
 
 /**
  * Change event.
@@ -38,7 +39,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
     box: FishTankBox,
     caretdown: CaretDown24
   },
-  mixins: [a11y],
+  mixins: [a11y, clickaway],
   model: {
     event: "change",
     prop: "value"
@@ -187,6 +188,16 @@ export default class FishTankSelect extends Vue {
     });
   }
   /**
+   * close pop
+   */
+  closePopup () {
+    if (this.popObj) {
+      (this as any).popObj.destroy();
+      (this as any).popObj = null;
+      this.opened = false;
+    }
+  }
+  /**
   * Destroys instance of select popup
   */
   destroyPop() {
@@ -202,7 +213,6 @@ export default class FishTankSelect extends Vue {
     :name="name"
     :orientation="orientation"
     class="select"
-    @mouseleave="opened=false; destroyPop()"
     @keydown="e => _handleKeydown(e, items)"
   >
     <!-- @slot If a label is provided  -->
@@ -218,6 +228,7 @@ export default class FishTankSelect extends Vue {
         :aria-labelledby="`${id}-label ${id}-button`"
         :aria-activedescendant="`${id}-option-${focusedItem}`"
         aria-haspopup="listbox"
+        v-on-clickaway="closePopup"
         @keydown.tab="opened ? opened = false: null"
         @keydown.esc="opened ? opened = false: null"
         @click="opened=!opened; openItems()"
@@ -252,7 +263,9 @@ export default class FishTankSelect extends Vue {
             role="option"
             @click.native="$emit('change', item.value); opened = false; destroyPop()"
             @blur="closeDropdown(items, index); destroyPop()"
-          >{{ item.label }}</ftext>
+          >
+            {{ item.label }}
+          </ftext>
         </div>
       </div>
     </div>
@@ -304,6 +317,7 @@ body.user-is-tabbing .a11y-within {
     display: block;
     padding: $baseline;
     color: $color-gray-dark;
+    &-text.focused,
     &:hover,
     &:focus {
       background-color: var(--hover-background-color, #e7f5fb);
