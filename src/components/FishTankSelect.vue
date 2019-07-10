@@ -20,16 +20,16 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 /**
  * Custom dropdown menu
  *
- * Style variables:
- * --border-color
- * --selector-height
- * --selector-width
- * --border-radius
- * --hover-background-color
- * --dropdown-background-color
- * --dropdown-icon-color
- * --text-color
- * --font-size
+ * CSS Custom Properties style variables:
+ *  --border-color
+ *  --selector-height
+ *  --selector-width
+ *  --border-radius
+ *  --hover-background-color
+ *  --dropdown-background-color
+ *  --dropdown-icon-color
+ *  --text-color
+ *  --font-size
  */
 
 @Component({
