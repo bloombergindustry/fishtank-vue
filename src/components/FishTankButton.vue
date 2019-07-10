@@ -17,11 +17,6 @@
 import Vue from "vue"
 import FishTankText from './FishTankText.vue'
 
-/** Event fired on click
- * @event click
- * @type {Event}
- */
-
 export default Vue.extend({
   name: "FishTankButton",
   components:{
@@ -66,6 +61,10 @@ export default Vue.extend({
         ...this.$listeners,
         click: ($event: MouseEvent) => {
           if (this.disabled) return
+          /** Event fired on click
+           * @event click
+           * @type {Event}
+           */
           this.$emit("click", $event)
         }
       }
