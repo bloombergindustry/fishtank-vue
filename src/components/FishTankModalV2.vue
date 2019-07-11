@@ -323,7 +323,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
         this.clearTimeout()
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.log(e)
+        console.error(e)
       }
     }, this.overlayTransitionDuration)
   }

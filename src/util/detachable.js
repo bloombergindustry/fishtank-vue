@@ -40,7 +40,7 @@ export default Vue.extend({
       this.$refs.content.parentNode.removeChild(this.$refs.content)
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.log(e)
+      console.error(e)
     }
   },
 
