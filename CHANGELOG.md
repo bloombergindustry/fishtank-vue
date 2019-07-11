@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.10.9"></a>
+## [4.10.9](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.8-prerelease...v4.10.9) (2019-07-11)
+
+
+### Features
+
+* refactored and added inline comments to CardV2 ([c01b077](https://github.com/bloombergbna/fishtank-vue/commit/c01b077))
+
+
+
 <a name="4.10.8-prerelease"></a>
 ## [4.10.8-prerelease](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.7...v4.10.8-prerelease) (2019-07-03)
 
