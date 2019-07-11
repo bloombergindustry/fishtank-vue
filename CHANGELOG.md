@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.9...v5.0.0) (2019-07-12)
 
-
+* BREAKING CHANGES: No longer distributing separate css files for components; removed functions to generate individual component css. File contents have been empty for some time now. This is a housekeeping breaking changed to no longer distribute these deprecated files
 
 <a name="4.10.9"></a>
 ## [4.10.9](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.8-prerelease...v4.10.9) (2019-07-11)
@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file. See [standa
 * Adding a Fish Tank table component ([0782aa2](https://github.com/bloombergbna/fishtank-vue/commit/0782aa2))
 * all my work on the tooltip component, what's left is changes to styles, functionlity minor changes to match what is needed for products, etc., ([dc22a8a](https://github.com/bloombergbna/fishtank-vue/commit/dc22a8a))
 * basic logic for tooltip component ([7640caa](https://github.com/bloombergbna/fishtank-vue/commit/7640caa))
-* changesto tooltip ([0950877](https://github.com/bloombergbna/fishtank-vue/commit/0950877))
+* changes to tooltip ([0950877](https://github.com/bloombergbna/fishtank-vue/commit/0950877))
 * minor changes ([2d64adc](https://github.com/bloombergbna/fishtank-vue/commit/2d64adc))
 * minor changes to tooltip ([4868387](https://github.com/bloombergbna/fishtank-vue/commit/4868387))
 * progress with popper.js tooltip rendering ([5a44292](https://github.com/bloombergbna/fishtank-vue/commit/5a44292))
