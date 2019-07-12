@@ -136,7 +136,12 @@ function genConfig(name, isProdVar, custProps) {
 
     // minify on production targets
     if (opts.env === "production") {
-      config.plugins.push(uglify({}, minify))
+      config.plugins.push(uglify({
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }, minify))
     }
   }
 

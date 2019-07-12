@@ -1,5 +1,5 @@
 <h2>What is it ?<h2>
-<p>Both function like a <pre><div></pre> as a container of HTML elements, but they have preconfigured settings to enable teams to easily align to the Fish Tank responsive grid.
+<p>Both function as containers of HTML elements, but they have preconfigured settings to enable teams to easily align to the Fish Tank responsive grid.
 
 <p>The Container component handles responsively resizing the entire block of page content to the correct width size at different breakpoints. Content within will snap between a 1,200px grid, a 960px grid, a 720px grid, and a fluid grid based on the viewport or designated area.</p>
 

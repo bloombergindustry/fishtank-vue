@@ -25,7 +25,7 @@ export { default as Modal } from "./components/FishTankModal.vue"
 export { default as ModalV2 } from "./components/FishTankModalV2.vue"
 export { default as DialogBox } from "./components/FishTankDialogBox.vue"
 
-//Todo - Remove exports above and retain only rebranded exports below
+// Todo - Remove exports above and retain only rebranded exports below
 export { default as FishTankSpinner } from "./components/FishTankLoaderSpinner.vue"
 export { default as FishTankBaseAlert } from "./components/BaseAlert.vue"
 export { default as FishTankAlertError } from "./components/AlertError.vue"
@@ -78,8 +78,4 @@ export { default as FishTankVerticalTabs} from "./components/FishTankVerticalTab
 export { default as FishTankContainer } from "./components/FishTankContainer.vue"
 export { default as FishTankColumn } from "./components/FishTankColumn.vue"
 export { default as FishTankHighlight } from "./components/FishTankHighlightedText.vue"
-<<<<<<< HEAD
 export { default as FishTankTooltip } from "./components/FishTankTooltip.vue"
-=======
-export { default as FishTankTooltip } from "./components/FishTankTooltip.vue"
->>>>>>> resync with dev branch
