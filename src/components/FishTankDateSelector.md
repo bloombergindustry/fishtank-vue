@@ -1,17 +1,17 @@
-DateSelector Example
+FishTankDateSelector Example
 ```js
 <template>
   <div>
-    <DateSelector v-model="value1" />
+    <FishTankDateSelector v-model="value1" />
     {{value1}}
     <hr />
-    <DateSelector v-model="value2" />
+    <FishTankDateSelector v-model="value2" />
     {{value2}}
     <hr />
-    <DateSelector v-model="value3" orientation="ttb" />
+    <FishTankDateSelector v-model="value3" orientation="ttb" />
     {{value3}}
     <hr />
-    <DateSelector v-model="value4" />
+    <FishTankDateSelector v-model="value4" />
     {{value4}}
   </div>
 </template>
@@ -19,7 +19,7 @@ DateSelector Example
 <script>
 
 export default {
-  components: {DateSelector},
+  components: {FishTankDateSelector},
   data () {
     return {
       value1: undefined,

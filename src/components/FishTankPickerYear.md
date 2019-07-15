@@ -1,16 +1,16 @@
-PickerYear Example
+FishTankPickerYear Example
 ```js
 <template>
   <div>
     <div>Hovered Example</div>
     <div style="position: relative">
-      <PickerYear :value="value1" v-show="!hide1" @selectYear="selectYear" />
+      <FishTankPickerYear :value="value1" v-show="!hide1" @selectYear="selectYear" />
       <button @click="hide1=!hide1">toggle</button>
       <div>{{value1}}</div>
     </div>
     <hr />
     <div>Inline Example</div>
-    <PickerYear :value="value2" inline :disabled-dates="disabled" @selectYear="selectYear" />
+    <FishTankPickerYear :value="value2" inline :disabled-dates="disabled" @selectYear="selectYear" />
     <div>{{value2}}</div>
     <hr />
     <div>events:</div>
@@ -21,7 +21,7 @@ PickerYear Example
 <script>
 
 export default {
-  components: {PickerYear},
+  components: {FishTankPickerYear},
   data () {
     return {
       disabled: {

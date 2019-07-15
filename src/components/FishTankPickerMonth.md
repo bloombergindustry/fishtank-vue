@@ -1,16 +1,16 @@
-PickerMonth Example
+FishTankPickerMonth Example
 ```js
 <template>
   <div>
     <div>Hovered Example</div>
     <div style="position: relative">
-      <PickerMonth v-model="value1" v-show="!hide1" @selectMonth="selectMonth" @showYearCalendar="events.push('showYearCalendar')" />
+      <FishTankPickerMonth v-model="value1" v-show="!hide1" @selectMonth="selectMonth" @showYearCalendar="events.push('showYearCalendar')" />
       <button @click="hide1=!hide1">toggle</button>
       <div>{{value1}}</div>
     </div>
     <hr />
     <div>Inline Example</div>
-    <PickerMonth v-model="value2" inline disable-year :disabled-dates="disabledDates" @selectMonth="selectMonth" />
+    <FishTankPickerMonth v-model="value2" inline disable-year :disabled-dates="disabledDates" @selectMonth="selectMonth" />
     <div>{{value2}}</div>
     <hr />
     <div>events:</div>
@@ -21,7 +21,7 @@ PickerMonth Example
 <script>
 
 export default {
-  components: {PickerMonth},
+  components: {FishTankPickerMonth},
   data () {
     return {
       disabledDates: {

@@ -1,11 +1,11 @@
-DatePicker Example
+FishTankDatePicker Example
 ```js
 <template>
   <div>
-    <DatePicker v-model="value1" inline />
+    <FishTankDatePicker v-model="value1" inline />
     {{value1}}
     <hr />
-    <DatePicker v-model="value2" open-on-focus />
+    <FishTankDatePicker v-model="value2" open-on-focus />
     {{value2}}
   </div>
 </template>
@@ -13,7 +13,7 @@ DatePicker Example
 <script>
 
 export default {
-  components: {DatePicker},
+  components: {FishTankDatePicker},
   data () {
     return {
       value1: null,

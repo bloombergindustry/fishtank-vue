@@ -1,7 +1,7 @@
 <template>
-  <div class="DatePicker">
+  <div class="FishTankDatePicker">
     <!-- Base input -->
-    <DateInput
+    <FishTankDateInput
       ref="input"
       :disabled="disabled"
       :format="format"
@@ -19,7 +19,7 @@
     />
 
     <!-- Day View -->
-    <PickerDay
+    <FishTankPickerDay
       v-show="activePicker === 'day'"
       ref="day"
       :disabledDates="disabledDates"
@@ -37,7 +37,7 @@
     />
 
     <!-- Month View -->
-    <PickerMonth
+    <FishTankPickerMonth
       v-show="activePicker === 'month'"
       ref="month"
       :disabledDates="disabledDates"
@@ -50,7 +50,7 @@
     />
 
     <!-- Year View -->
-    <PickerYear
+    <FishTankPickerYear
       v-if="activePicker === 'year'"
       :disabledDates="disabledDates"
       :inline="inline"
@@ -63,11 +63,11 @@
 </template>
 <script>
 import en from '../locale/translations/en'
-import DateInput from './DateInput.vue'
-import PickerDay from './PickerDay.vue'
-import PickerMonth from './PickerMonth.vue'
-import PickerYear from './PickerYear.vue'
-import { makeDateUtils } from '../utils/DateUtils'
+import FishTankDateInput from './FishTankDateInput.vue'
+import FishTankPickerDay from './FishTankPickerDay.vue'
+import FishTankPickerMonth from './FishTankPickerMonth.vue'
+import FishTankPickerYear from './FishTankPickerYear.vue'
+import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
 
 /**
  * A date picker with text or interactive calendar input. Accepts a variety of languages and text input formats
@@ -77,8 +77,8 @@ export default {
     prop: 'value',
     event: 'change'
   },
-  components: { DateInput, PickerDay, PickerMonth, PickerYear },
-  name: 'DatePicker',
+  components: { FishTankDateInput, FishTankPickerDay, FishTankPickerMonth, FishTankPickerYear },
+  name: 'FishTankDatePicker',
   props: {
     /**
     * Input id
@@ -86,7 +86,7 @@ export default {
     id: String,
 
     /**
-    * If true, disable Datepicker on screen
+    * If true, disable FishTankDatePicker on screen
     */
     disabled: Boolean,
 
@@ -193,7 +193,7 @@ export default {
     initialPageDate: Date,
 
     /**
-    * To show the datepicker always open
+    * To show the FishTankDatePicker always open
     */
     inline: Boolean,
 
@@ -236,7 +236,7 @@ export default {
     utc: Boolean,
 
     /**
-    * Date value of the datepicker
+    * Date value of the FishTankDatePicker
     */
     value: Date
   },
@@ -244,7 +244,7 @@ export default {
     return {
       activePicker: null,
       pageDate: this.initialPageDate || this.value || new Date(),
-      utils: makeDateUtils(this.utc)
+      utils: makeFishTankDateUtils(this.utc)
     }
   },
   watch: {

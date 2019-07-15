@@ -1,19 +1,19 @@
-DateInput Example
+FishTankDateInput Example
 ```js
 <template>
   <div>
-    <DateInput v-model="value1" @toggleCalendar="events.push('toggleCalendar')"/>
+    <FishTankDateInput v-model="value1" @toggleCalendar="events.push('toggleCalendar')"/>
     <div>{{value}}</div>
     <div v-for="(e, index) in events" :key="index">{{e}}</div>
     <hr />
-    <DateInput v-model="value2" hide-clear hide-calendar-toggle />
+    <FishTankDateInput v-model="value2" hide-clear hide-calendar-toggle />
   </div>
 </template>
 
 <script>
 
 export default {
-  components: {DateInput},
+  components: {FishTankDateInput},
   data () {
     return {
       events: [],

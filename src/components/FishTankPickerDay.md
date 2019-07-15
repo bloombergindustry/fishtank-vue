@@ -1,17 +1,17 @@
-PickerDay Example
+FishTankPickerDay Example
 ```js
 <template>
   <div>
     <div>Hovered Example</div>
     <div style="position: relative">
-      <PickerDay v-model="value1" v-show="!hide1" :disabled-dates="disabledDates" @change="hide1=true" />
+      <FishTankPickerDay v-model="value1" v-show="!hide1" :disabled-dates="disabledDates" @change="hide1=true" />
       <button @click="hide1=!hide1">toggle</button>
       <div>{{value1}}</div>
     </div>
     <hr />
 
     <div>Inline Example</div>
-    <PickerDay v-model="value2" float-highlight-end inline :highlighted="highlighted" @showMonthCalendar="events.push('showMonthCalendar')" />
+    <FishTankPickerDay v-model="value2" float-highlight-end inline :highlighted="highlighted" @showMonthCalendar="events.push('showMonthCalendar')" />
     <div>{{value2}}</div>
     <hr />
     <div>events:</div>
@@ -22,7 +22,7 @@ PickerDay Example
 <script>
 
 export default {
-  components: {PickerDay},
+  components: {FishTankPickerDay},
   data () {
     return {
       disabledDates: {

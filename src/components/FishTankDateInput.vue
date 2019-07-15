@@ -1,5 +1,5 @@
 <template>
-  <span class="DateInput" :disabled="disabled" :readonly="readonly" :hide-calendar-toggle="hideCalendarToggle" :hide-clear="hideClear">
+  <span class="FishTankDateInput" :disabled="disabled" :readonly="readonly" :hide-calendar-toggle="hideCalendarToggle" :hide-clear="hideClear">
     <!-- Calendar Button -->
     <FishtankIcon
       class="calendar-icon"
@@ -32,7 +32,7 @@
   </span>
 </template>
 <script>
-import { makeDateUtils } from '../utils/DateUtils'
+import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
 import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
 
 /**
@@ -40,7 +40,7 @@ import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
  */
 export default {
   components: { FishtankIcon },
-  name: 'DateInput',
+  name: 'FishTankDateInput',
   model: {
     prop: 'value',
     event: 'change'
@@ -128,7 +128,7 @@ export default {
     },
 
     _formatDate (d) {
-      return makeDateUtils(this.utc).formatDate(new Date(d), this.format)
+      return makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
     },
 
     _handleBlur (e) {
@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.DateInput {
+.FishTankDateInput {
   align-items: center;
   height: 100%;
   display: inline-flex;

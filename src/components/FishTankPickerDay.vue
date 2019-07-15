@@ -1,5 +1,5 @@
 <template>
-  <div class="PickerDay" :inline="inline" @mousedown.prevent @mouseleave="hoverDate = null">
+  <div class="FishTankPickerDay" :inline="inline" @mousedown.prevent @mouseleave="hoverDate = null">
     <header>
       <span class="prev double" :disabled="isPreviousYearDisabled" @click="_previousYear">
         <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
@@ -41,14 +41,14 @@
 <script>
 import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
 import en from '../locale/translations/en'
-import { makeDateUtils } from '../utils/DateUtils'
+import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
 
 /**
  * A date selector calendar that displays days in a given month
  */
 export default {
   components: { FishtankIcon },
-  name: 'PickerDay',
+  name: 'FishTankPickerDay',
   model: {
     prop: 'value',
     event: 'change'
@@ -175,7 +175,7 @@ export default {
     return {
       hoverDate: null,
       pageDate: this.initialPageDate || this.value || new Date(),
-      utils: makeDateUtils(this.utc)
+      utils: makeFishTankDateUtils(this.utc)
     }
   },
   computed: {
@@ -540,7 +540,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.PickerDay {
+.FishTankPickerDay {
   box-sizing: border-box;
   border: 1px solid #ccc;
   background-color: #f0f3f7;

@@ -1,34 +1,40 @@
 <template>
-  <div class="PickerYear" :inline="inline" @mousedown.prevent>
+  <div class="FishTankPickerMonth" :inline="inline" @mousedown.prevent>
     <header>
-      <span class="prev" :disabled="isPreviousDecadeDisabled" @click="_previousDecade">
+      <span class="prev" :disabled="isPreviousYearDisabled" @click="_previousYear">
         <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
       </span>
-      <span class="current-decade">{{getPageDecade}}</span>
-      <span class="next" :disabled="isNextDecadeDisabled" @click="_nextDecade">
+      <span class="current-year" :disabled="disableYear" @click="$emit('showYearCalendar')">{{pageYearName}}</span>
+      <span class="next" :disabled="isNextYearDisabled" @click="_nextYear">
         <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
       </span>
     </header>
 
-    <span v-for="(year, index) in years"
-      :class="{'cell year': true, 'selected': year.isSelected}"
-      :disabled="year.isDisabled"
+    <span v-for="(month, index) in months"
+      :class="{'cell month': true, 'selected': month.isSelected}"
+      :disabled="month.isDisabled"
       :key="index"
-      @click.stop="_selectYear(year)">{{year.label}}</span>
+      @click.stop="_selectMonth(month)">{{month.label}}</span>
   </div>
 </template>
+
 <script>
 import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
 import en from '../locale/translations/en'
-import { makeDateUtils } from '../utils/DateUtils'
+import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
 
 /**
- * A date selector calendar that displays years in a given decade
+ * A date selector calendar that displays months in a given year
  */
 export default {
-  name: 'PickerYear',
   components: { FishtankIcon },
+  name: 'FishTankPickerMonth',
   props: {
+    /**
+    * User specified function that determines if a given view (day, month, year) can be displayed
+    */
+    disableYear: Boolean,
+
     /**
     * Non-selectable dates, can be specified up to or from a date, over a range, by day,
     * by individual date, or by user-specified function
@@ -92,73 +98,75 @@ export default {
     */
     value: Date
   },
-  computed: {
-    /**
-     * @return {String}
-     */
-    getPageDecade () {
-      const decadeStart = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10
-      const decadeEnd = decadeStart + 9
-      const yearSuffix = this.translation.yearSuffix
-      return `${decadeStart} - ${decadeEnd}${yearSuffix}`
-    },
-
-    /**
-     * Is the previous decade disabled?
-     * @return {Boolean}
-     */
-    isPreviousDecadeDisabled () {
-      if (!this.disabledDates || !this.disabledDates.to) {
-        return false
-      }
-      const disabledYear = this.utils.getFullYear(this.disabledDates.to)
-      const lastYearInPreviousPage = Math.floor(this.utils.getFullYear(this.pageDate) / 10) * 10 - 1
-      return disabledYear > lastYearInPreviousPage
-    },
-
-    /**
-     * Is the next decade disabled?
-     * @return {Boolean}
-     */
-    isNextDecadeDisabled () {
-      if (!this.disabledDates || !this.disabledDates.from) {
-        return false
-      }
-      const disabledYear = this.utils.getFullYear(this.disabledDates.from)
-      const firstYearInNextPage = Math.ceil(this.utils.getFullYear(this.pageDate) / 10) * 10
-      return disabledYear < firstYearInNextPage
-    },
-
-    /**
-     * Generates year cells
-     * @return {Object[]}
-     */
-    years () {
-      const d = this.pageDate
-      let years = []
-      // set up a new date object to the beginning of the current 'page'7
-      let dObj = this.utc
-        ? new Date(Date.UTC(Math.floor(d.getUTCFullYear() / 10) * 10, d.getUTCMonth(), d.getUTCDate()))
-        : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes())
-      for (let i = 0; i < 10; i++) {
-        years.push({
-          label: this.utils.getFullYear(dObj),
-          timestamp: dObj.getTime(),
-          isSelected: this._isSelectedYear(dObj),
-          isDisabled: this._isDisabledYear(dObj)
-        })
-        this.utils.setFullYear(dObj, this.utils.getFullYear(dObj) + 1)
-      }
-      return years
-    }
-  },
   data () {
     return {
       pageDate: this.initialPageDate || this.value || new Date(),
-      utils: makeDateUtils(this.utc)
+      utils: makeFishTankDateUtils(this.utc)
+    }
+  },
+  computed: {
+    /**
+     * Is the next year disabled?
+     * @return {Boolean}
+     */
+    isNextYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(this.pageDate)
+    },
+
+    /**
+     * Is the previous year disabled?
+     * @return {Boolean}
+     */
+    isPreviousYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
+    },
+
+    /**
+     * @return {Object[]}
+     */
+    months () {
+      const d = this.pageDate
+      let months = []
+      // set up a new date object to the beginning of the current 'page'
+      let dObj = this.utc
+        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))
+        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes())
+      for (let i = 0; i < 12; i++) {
+        months.push({
+          label: this.utils.getMonthName(i, this.translation.months),
+          timestamp: dObj.getTime(),
+          isSelected: this._isSelectedMonth(dObj),
+          isDisabled: this._isDisabledMonth(dObj)
+        })
+        this.utils.setMonth(dObj, this.utils.getMonth(dObj) + 1)
+      }
+      return months
+    },
+
+    /**
+     * Get year name on current page.
+     * @return {String}
+     */
+    pageYearName () {
+      const yearSuffix = this.translation.yearSuffix
+      return `${this.utils.getFullYear(this.pageDate)}${yearSuffix}`
     }
   },
   methods: {
+    /**
+     * Sets current page date
+     * @param {Date} date
+     */
+    setPageDate (date) {
+      this.pageDate = date
+    },
+
     /**
      * Changes the year up or down
      * @param {Number} incrementBy
@@ -170,43 +178,30 @@ export default {
     },
 
     /**
-     * Decrements the decade
-     */
-    _previousDecade () {
-      if (this.isPreviousDecadeDisabled) {
-        return false
-      }
-      this._changeYear(-10)
-    },
-
-    /**
-     * Increments the decade
-     */
-    _nextDecade () {
-      if (this.isNextDecadeDisabled) {
-        return false
-      }
-      this._changeYear(10)
-    },
-
-    /**
-     * Whether a year is disabled
+     * Whether a month is disabled
      * @param {Date}
      * @return {Boolean}
      */
-    _isDisabledYear (date) {
+    _isDisabledMonth (date) {
       let disabledDates = false
+
       if (typeof this.disabledDates === 'undefined' || !this.disabledDates) {
         return false
       }
 
       if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to) {
-        if (this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)) {
+        if (
+          (this.utils.getMonth(date) < this.utils.getMonth(this.disabledDates.to) && this.utils.getFullYear(date) <= this.utils.getFullYear(this.disabledDates.to)) ||
+          this.utils.getFullYear(date) < this.utils.getFullYear(this.disabledDates.to)
+        ) {
           disabledDates = true
         }
       }
       if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from) {
-        if (this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)) {
+        if (
+          (this.utils.getMonth(date) > this.utils.getMonth(this.disabledDates.from) && this.utils.getFullYear(date) >= this.utils.getFullYear(this.disabledDates.from)) ||
+          this.utils.getFullYear(date) > this.utils.getFullYear(this.disabledDates.from)
+        ) {
           disabledDates = true
         }
       }
@@ -214,35 +209,54 @@ export default {
       if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
         disabledDates = true
       }
-
       return disabledDates
     },
 
     /**
-     * Whether the selected date is in this year
+     * Whether the selected date is in this month
      * @param {Date}
      * @return {Boolean}
      */
-    _isSelectedYear (date) {
-      return this.value && this.utils.getFullYear(this.value) === this.utils.getFullYear(date)
+    _isSelectedMonth (date) {
+      return (this.value &&
+        this.utils.getFullYear(this.value) === this.utils.getFullYear(date) &&
+        this.utils.getMonth(this.value) === this.utils.getMonth(date))
     },
 
     /**
-     * Sets current year
-     * @param {Date} year
+     * Increments the year
      */
-    _selectYear (year) {
-      if (year.isDisabled) {
+    _nextYear () {
+      if (!this.isNextYearDisabled) {
+        this._changeYear(1)
+      }
+    },
+
+    /**
+     * Decrements the year
+     */
+    _previousYear () {
+      if (!this.isPreviousYearDisabled) {
+        this._changeYear(-1)
+      }
+    },
+
+    /**
+     * Emits a selectMonth event
+     * @param {Object} month
+     */
+    _selectMonth (month) {
+      if (month.isDisabled) {
         return false
       }
-      this.$emit('selectYear', year)
+      this.$emit('selectMonth', month)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.PickerYear {
+.FishTankPickerMonth {
   box-sizing: border-box;
   border: 1px solid #ccc;
   background-color: #f0f3f7;
@@ -262,10 +276,13 @@ export default {
     display: flex;
     padding: 0 8px;
 
-    .current-decade {
+    .current-year {
       color: white;
+      cursor: pointer;
       flex-grow: 1;
       text-align: center;
+
+      &[disabled] { pointer-events: none; }
     }
 
     .prev, .next {
@@ -299,7 +316,12 @@ export default {
       cursor: default;
     }
   }
+  .cell:not(.blank):not([disabled]).day,
+  .cell:not(.blank):not([disabled]).month,
   .cell:not(.blank):not([disabled]).year { cursor: pointer; }
+  .cell.day.today { border: 1px solid var(--primary-color, #777C7F); }
+  .cell:not(.blank):not([disabled]).day:hover,
+  .cell:not(.blank):not([disabled]).month:hover,
   .cell:not(.blank):not([disabled]).year:hover { background-color: #0D9DDB; }
   .cell.selected { background-color: #0D9DDB; }
   .cell.selected:hover { background-color: #0D9DDB; }

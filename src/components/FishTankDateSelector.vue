@@ -1,5 +1,5 @@
 <template>
-  <div class="DateSelector" :orientation="orientation">
+  <div class="FishTankDateSelector" :orientation="orientation">
     <!-- Preset type -->
     <Dropdown
       v-model="value.preset"
@@ -11,7 +11,7 @@
 
     <div v-if="value.preset == 'single_date' || value.preset == 'date_range'" class="inputs">
       <!-- From/single date -->
-      <DatePicker
+      <FishTankDatePicker
         class="from-date"
         float-highlight-start
         hide-clear
@@ -24,7 +24,7 @@
       />
 
       <!-- To date -->
-      <DatePicker
+      <FishTankDatePicker
         v-if="value.preset == 'date_range'"
         class="to-date"
         float-highlight-end
@@ -42,15 +42,15 @@
 </template>
 
 <script>
-import DatePicker from './DatePicker'
+import FishTankDatePicker from './FishTankDatePicker'
 import Dropdown from '../../Dropdown'
 
 /**
  * A date selector with options for preset intervals or custom single date or date range
  */
 export default {
-  name: 'DateSelector',
-  components: { DatePicker, Dropdown },
+  name: 'FishTankDateSelector',
+  components: { FishTankDatePicker, Dropdown },
   model: {
     prop: 'value',
     event: 'change'
@@ -129,7 +129,7 @@ export default {
 
 <style scoped lang="scss">
   @import 'src/assets/fishtank';
-  .DateSelector {
+  .FishTankDateSelector {
     display: flex;
     font-family: $font-primary;
 
@@ -156,7 +156,7 @@ export default {
     .inputs {
       display: flex;
 
-      .DatePicker {
+      .FishTankDatePicker {
         padding-left: 10px;
         --font-family: $font-primary;
         --primary-color: #505558;
