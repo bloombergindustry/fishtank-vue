@@ -41,10 +41,9 @@ export default Vue.extend({
     },
     methods:{
         createPop(){
-           this.$data.inputEl = document.querySelector('.content')
-           this.$data.content = document.querySelector('.popper')
-           let popperLocation = this.$props.orientation
-           console.log(this.$props.orientation)
+            this.$data.inputEl = document.querySelector('.content')
+            this.$data.content = document.querySelector('.popper')
+            let popperLocation = this.$props.orientation
         
             this.$data.popObj = new Popper(this.$data.inputEl, this.$data.content,{
                 placement: popperLocation,
@@ -57,12 +56,9 @@ export default Vue.extend({
                     // }
                 }
             })
-
-            console.log(this.$data.focus)
         },
         destroyPop(){
-            console.log(this.$data.focus)
-                if(this.$data.popObj !== undefined) this.$data.popObj.destroy()
+            if(this.$data.popObj !== undefined) this.$data.popObj.destroy()
 
         },
         focusToggle(){

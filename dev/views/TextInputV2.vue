@@ -110,7 +110,6 @@ export default Vue.extend({
     },
     exampleSearchFunc(t:String){
       // eslint-disable-next-line no-console
-      console.log("search")
       this.$emit('input', t)
     }
   }

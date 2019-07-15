@@ -394,7 +394,6 @@ export default Vue.extend({
 
     changeTab(itemName:string){
       this.$props.active = itemName
-      console.log("test")
     }
   }
   

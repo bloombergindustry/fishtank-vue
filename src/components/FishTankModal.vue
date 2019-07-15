@@ -292,7 +292,7 @@ export default Vue.extend({
           this.clearTimeout()
         } catch (e) {
           // eslint-disable-next-line no-console
-          console.log(e)
+          console.error(e)
         }
       }, this.overlayTransitionDuration)
     },
