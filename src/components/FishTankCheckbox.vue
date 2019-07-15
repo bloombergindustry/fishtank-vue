@@ -108,9 +108,6 @@ export default Vue.extend({
       description:`Checkbox element ID`
     },
   },
-  mounted(){
-    console.warn(`this`)
-  },
   methods:{
     emitChange(){
       this.$emit('change', !(this as any).value)

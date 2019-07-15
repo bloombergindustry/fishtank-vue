@@ -48,6 +48,9 @@
                     <td>
                         <badge text-shade="disabled" theme="disabled" :removable ="false">Text Badge</badge>
                     </td>
+                    <td>
+                        <badge text-shade="dark" theme="neutral" :removable ="false">Text Badge</badge>
+                    </td>
                 </tr>
             </table>
 
@@ -76,6 +79,9 @@
                     </td>
                     <td>
                         <badge text-shade="disabled" theme="disabled" :removable ="true">Text Badge</badge>
+                    </td>
+                    <td>
+                        <badge text-shade="dark" theme="neutral" :removable ="true">Text Badge</badge>
                     </td>
                 </tr>
             </table>

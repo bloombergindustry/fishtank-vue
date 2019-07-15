@@ -78,6 +78,13 @@
                         </badge>
                     </td>
                     <td>
+                        <badge theme ="neutral" text-shade="dark" :value="1" >
+                            <template v-slot:content>
+                                <inbox />
+                            </template>
+                        </badge>
+                    </td>
+                    <td>
                         <badge theme ="disabled" text-shade="disabled" :value="0" >
                             <template v-slot:content>
                                 <inbox />

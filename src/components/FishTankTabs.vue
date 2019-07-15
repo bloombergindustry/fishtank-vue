@@ -125,11 +125,9 @@ export default Vue.extend({
           this.focus = true
         }
       }
-      //console.log('remove Focus ; focuse state : ' + this.focus)
     },
     addFocus(){
       this.focus = false
-      //console.log("add Focus ; focus state : " + this.focus)
     }
   }
   

@@ -16,28 +16,34 @@ export default class FishTankNumberBadge extends Vue {
     
     //properties
     /**
-     * The value of the number badge
+     * Value is the number displayed in the badge chip
      */
-    @Prop({default:undefined, type:Number})
-    value:Number;
-    
+    @Prop({
+      default:undefined, 
+      type:Number
+    })
+    value:Number
+
     /**
-     * Text Shade
+     * Text shade is the color of the number in the badge chip
      */
-    @Prop({default:'light'})
+    @Prop({
+      default:'light'
+    })
     textShade:String
     availableShades:["light","dark","disabled"]
 
-     /**
-     * Number badge theme
+    /**
+     * Sets a theme to the badge
      */
-    @Prop({default:'notification-1'})
+    @Prop({
+      default:'notification-1',
+      required:false
+    })
     theme:String;
-    required:false;
-    description:"Sets a theme to the badge"
-    availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled"]
+    availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled","neutral"]
     
-    // need to properly format for vue property decorator
+    // Computed properties
     get themeClass() {
         switch(this.theme) {
             case "bgov":
@@ -50,6 +56,8 @@ export default class FishTankNumberBadge extends Vue {
                 return "badge-chip--color-notification-2"
             case "notification-3":
                 return "badge-chip--color-notification-3"
+            case "neutral":
+                return "badge-chip--color-neutral"
             default:
                 return "badge-chip--color-notification-1"
         }
@@ -184,6 +192,13 @@ export default class FishTankNumberBadge extends Vue {
     .badge-chip{
         &.badge-chip--color-disabled {
             background: var(--badge-background-color, $color-disabled);
+        }
+    }
+
+    .badge-chip{
+        &.badge-chip--color-neutral {
+            background: var(--badge-background-color, $color-white);
+            border: 1px solid $color-disabled;
         }
     }
 
