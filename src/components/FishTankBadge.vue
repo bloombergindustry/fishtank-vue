@@ -31,11 +31,11 @@ export default class FishTankBadge extends Vue {
     /**
      * String representing the background color of the tag. 
      * 
-     * Available themes `bgov, btax, notification-1, notification-2, notification-2, disabled` 
+     * Available themes `bgov, btax, notification-1, notification-2, notification-2, disabled, neutral` 
      */
     @Prop({default:'notification-1'})
     theme:String;
-    availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled"]
+    availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled","neutral"]
 
     get themeClass() {
         switch(this.theme) {
@@ -49,6 +49,8 @@ export default class FishTankBadge extends Vue {
                 return "badge-theme--color-notification-2"
             case "notification-3":
                 return "badge-theme--color-notification-3"
+            case "neutral":
+                return "badge-theme--color-neutral"
             default:
                 return "badge-theme--color-notification-1"
         }
@@ -197,6 +199,13 @@ export default class FishTankBadge extends Vue {
     .badge{
         &.badge-theme--color-disabled {
             background: var(--badge-background-color, $color-disabled);
+        }
+    }
+
+    .badge{
+        &.badge-theme--color-neutral {
+            background: var(--badge-background-color, $color-white);
+            border: 1px solid var(--badge-background-color, $color-disabled);
         }
     }
 
