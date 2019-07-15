@@ -1,6 +1,6 @@
 {
   "name": "@fishtank/fishtank-vue",
-  "version": "5.0.0",
+  "version": "5.0.1-0",
   "private": false,
   "license": "Apache-2.0",
   "author": "Fish Tank Design System <agile_fishtank@bna.com>",
@@ -34,7 +34,6 @@
   "main": "dist/fishtank-vue.common.min.js",
   "module": "dist/fishtank-vue.esm.min.js",
   "typings": "dist/fishtank-vue.d.ts",
-  "styles": "dist/fishtank-vue.css",
   "peerDependencies": {
     "vue": "^2.5.17"
   },
