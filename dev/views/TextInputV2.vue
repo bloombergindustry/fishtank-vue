@@ -21,9 +21,23 @@
       @input="text = $event">
       <searchicon slot="leftIcon" />
       <ftext slot="rightIcon">
-        @bna.com
+        @bna.com <a href> this is a link too</a>
       </ftext>
     </inputtext>
+    <box :padding="3">
+      <inputtext
+        :value="text"
+        label="Text Input Type"
+        placeholder="Text Input Type"
+        type="text"
+        
+        @input="text = $event">
+        <searchicon slot="leftIcon" />
+        <ftext slot="rightIcon">
+          @bna.com <a href> this is a link too</a>
+        </ftext>
+      </inputtext>
+    </box>
 
     <inputtext
       class="custom"
@@ -84,7 +98,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { FishTankTextInputV2 , FishTankText} from '@/index'
+import { FishTankTextInputV2 , FishTankText, FishTankBox} from '@/index'
 import { Search24 } from '@fishtank/icons-vue'
 
 
@@ -92,7 +106,8 @@ export default Vue.extend({
   components:{
     inputtext:FishTankTextInputV2,
     searchicon: Search24,
-    ftext:FishTankText
+    ftext:FishTankText,
+    box: FishTankBox
   },
   data(){
     return {
