@@ -1,0 +1,633 @@
+<template>
+  <div class="PickerDay" :inline="inline" @mousedown.prevent @mouseleave="hoverDate = null">
+    <header>
+      <span class="prev double" :disabled="isPreviousYearDisabled" @click="_previousYear">
+        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+      </span>
+      <span class="prev" :disabled="isPreviousMonthDisabled" @click="_previousMonth">
+        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+      </span>
+      <span class="current-month" :disabled="disableMonth" @click="$emit('showMonthCalendar')">
+        {{currentMonthName}} {{currentYearName}}
+      </span>
+      <span class="next" :disabled="isNextMonthDisabled" @click="_nextMonth">
+        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+      </span>
+      <span class="next double" :disabled="isNextYearDisabled" @click="_nextYear">
+        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+      </span>
+    </header>
+
+    <div class="cells">
+      <span v-for="d in daysOfWeek" class="cell day-header" :key="d.timestamp">{{d}}</span>
+      <template v-if="blankDays > 0">
+        <span v-for="d in blankDays"  class="cell day blank" :key="d.timestamp" />
+      </template>
+      <span
+        v-for="(day, index) in days"
+        v-html="day.date"
+        :class="_dayClasses(day)"
+        :disabled="day.isDisabled"
+        :key="index"
+        @click="$emit('change', new Date(day.timestamp))"
+        @mouseover="_updateHoverDate(day)"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
+import en from '../locale/translations/en'
+import { makeDateUtils } from '../utils/DateUtils'
+
+/**
+ * A date selector calendar that displays days in a given month
+ */
+export default {
+  components: { FishtankIcon },
+  name: 'PickerDay',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
+  props: {
+    /**
+    * Disable month toggle
+    */
+    disableMonth: Boolean,
+
+    /**
+    * Non-selectable dates, can be specified up to or from a date, over a range, by day,
+    * by individual date, or by user-specified function
+    *
+    *disabledDates: {
+    *  to: new Date(2016, 0, 5), // Disable all dates up to specific date
+    *  from: new Date(2016, 0, 26), // Disable all dates after specific date
+    *  days: [6, 0], // Disable Saturday's and Sunday's
+    *  daysOfMonth: [29, 30, 31], // Disable 29th, 30th and 31st of each month
+    *  dates: [ // Disable an array of dates
+    *    new Date(2016, 9, 16),
+    *    new Date(2016, 9, 17),
+    *    new Date(2016, 9, 18)
+    *  ],
+    *  ranges: [{ // Disable dates in given ranges (exclusive).
+    *    from: new Date(2016, 11, 25),
+    *    to: new Date(2016, 11, 30)
+    *  }, {
+    *    from: new Date(2017, 1, 12),
+    *    to: new Date(2017, 2, 25)
+    *  }],
+    *  // a custom function that returns true if the date is disabled
+    *  // this can be used for wiring you own logic to disable a date if none
+    *  // of the above conditions serve your purpose
+    *  // this function should accept a date and return true if is disabled
+    *  customPredictor: function(date) {
+    *    // disables the date if it is a multiple of 5
+    *    if(date.getDate() % 5 == 0){
+    *      return true
+    *    }
+    *  }
+    *}
+    */
+    disabledDates: Object,
+
+    /**
+    * Highlight date range from cursor back to the "from" highlight date
+    * Useful for visualizing selection of the end of a date range
+    */
+    floatHighlightEnd: Boolean,
+
+    /**
+    * Highlight date range from cursor up to the "to" highlight date
+    * Useful for visualizing selection of the start of a date range
+    */
+    floatHighlightStart: Boolean,
+
+    /**
+    * Dates can be highlighted (e.g. for marking an appointment or date range)
+    * highlighted: {
+    *   to: new Date(2016, 0, 5), // Highlight all dates up to specific date
+    *   from: new Date(2016, 0, 26), // Highlight all dates after specific date
+    *   days: [6, 0], // Highlight Saturday's and Sunday's
+    *   daysOfMonth: [15, 20, 31], // Highlight 15th, 20th and 31st of each month
+    *   dates: [ // Highlight an array of dates
+    *     new Date(2016, 9, 16),
+    *     new Date(2016, 9, 17),
+    *     new Date(2016, 9, 18)
+    *   ],
+    *   // a custom function that returns true of the date is highlighted
+    *   // this can be used for wiring you own logic to highlight a date if none
+    *   // of the above conditions serve your purpose
+    *   // this function should accept a date and return true if is highlighted
+    *   customPredictor: function(date) {
+    *     // highlights the date if it is a multiple of 4
+    *     if(date.getDate() % 4 == 0){
+    *       return true
+    *     }
+    *   },
+    *  includeDisabled: true // Highlight disabled dates
+    * }
+    */
+    highlighted: Object,
+
+    /**
+     * Initial calendar date to open to
+     */
+    initialPageDate: Date,
+
+    /**
+     * Show the calendar inline
+     */
+    inline: Boolean,
+
+    /**
+    * Start the week on Monday
+    */
+    mondayFirst: Boolean,
+
+    /**
+    * Should we display full month names on calendar page header
+    */
+    showFullMonthName: Boolean,
+
+    /**
+    * Language to use for month name abbreviations
+    */
+    translation: {
+      type: Object,
+      default: () => en
+    },
+
+    /**
+    * Use UTC for time calculations
+    */
+    utc: Boolean,
+
+    /**
+    * The selected date
+    */
+    value: Date
+  },
+  data () {
+    return {
+      hoverDate: null,
+      pageDate: this.initialPageDate || this.value || new Date(),
+      utils: makeDateUtils(this.utc)
+    }
+  },
+  computed: {
+    /**
+     * Returns the day number of the week less one for the first of the current month
+     * Used to show amount of empty cells before the first in the day calendar layout
+     * @return {Number}
+     */
+    blankDays () {
+      const d = this.pageDate
+      let dObj = this.utc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes())
+      if (this.mondayFirst) {
+        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6
+      }
+      return this.utils.getDay(dObj)
+    },
+
+    /**
+     * Returns computed days for the current page date
+     * @return {Object[]}
+     */
+    days () {
+      const d = this.pageDate
+      let days = []
+      // set up a new date object to the beginning of the current 'page'
+      let dObj = this.utc
+        ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
+        : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes())
+      let daysInMonth = this.utils.daysInMonth(this.utils.getFullYear(dObj), this.utils.getMonth(dObj))
+      for (let i = 0; i < daysInMonth; i++) {
+        days.push({
+          date: this.utils.getDate(dObj),
+          timestamp: dObj.getTime(),
+          isSelected: this._isSelectedDate(dObj),
+          isDisabled: this._isDisabledDate(dObj),
+          isHighlighted: this._isHighlightedDate(dObj),
+          isHighlightStart: this._isHighlightStart(dObj),
+          isHighlightEnd: this._isHighlightEnd(dObj),
+          isToday: this.utils.compareDates(dObj, new Date()),
+          isWeekend: this.utils.getDay(dObj) === 0 || this.utils.getDay(dObj) === 6,
+          isSaturday: this.utils.getDay(dObj) === 6,
+          isSunday: this.utils.getDay(dObj) === 0
+        })
+        this.utils.setDate(dObj, this.utils.getDate(dObj) + 1)
+      }
+      return days
+    },
+
+    /**
+     * Returns an array of day names
+     * @return {String[]}
+     */
+    daysOfWeek () {
+      if (this.mondayFirst) {
+        const tempDays = this.translation.days.slice()
+        tempDays.push(tempDays.shift())
+        return tempDays
+      }
+      return this.translation.days
+    },
+
+    /**
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
+    currentMonthName () {
+      const monthName = this.showFullMonthName ? this.translation.months : this.translation.monthsAbbr
+      return this.utils.getMonthNameAbbr(this.utils.getMonth(this.pageDate), monthName)
+    },
+
+    /**
+     * Gets the name of the year that current page is on
+     * @return {Number}
+     */
+    currentYearName () {
+      const yearSuffix = this.translation.yearSuffix
+      return `${this.utils.getFullYear(this.pageDate)}${yearSuffix}`
+    },
+
+    /**
+     * Is the next month disabled?
+     * @return {Boolean}
+     */
+    isNextMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      let d = this.pageDate
+      return this.utils.getMonth(this.disabledDates.from) <= this.utils.getMonth(d) &&
+        this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(d)
+    },
+
+    /**
+     * Is the next year disabled?
+     * @return {Boolean}
+     */
+    isNextYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.from) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.from) <= this.utils.getFullYear(this.pageDate)
+    },
+
+    /**
+     * Is the previous month disabled?
+     * @return {Boolean}
+     */
+    isPreviousMonthDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return this.utils.getMonth(this.disabledDates.to) >= this.utils.getMonth(this.pageDate) &&
+        this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
+    },
+
+    /**
+     * Is the previous year disabled?
+     * @return {Boolean}
+     */
+    isPreviousYearDisabled () {
+      if (!this.disabledDates || !this.disabledDates.to) {
+        return false
+      }
+      return this.utils.getFullYear(this.disabledDates.to) >= this.utils.getFullYear(this.pageDate)
+    }
+  },
+  methods: {
+    /**
+     * Sets current page date
+     * @param {Date} date
+     */
+    setPageDate (date) {
+      this.pageDate = date
+    },
+
+    /**
+     * Change the page month
+     * @param {Number} incrementBy
+     */
+    _changeMonth (incrementBy) {
+      let date = this.pageDate
+      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy)
+      this.pageDate = new Date(date)
+    },
+
+    /**
+     * Change the page year
+     * @param {Number} incrementBy
+     */
+    _changeYear (incrementBy) {
+      let date = this.pageDate
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy)
+      this.pageDate = new Date(date)
+    },
+
+    /**
+     * Returns hash of classes to include on supplied day
+     * @param {Object} day
+     * @return {Object}
+     */
+    _dayClasses (day) {
+      return {
+        'cell day': true,
+        'selected': day.isSelected,
+        'highlighted': day.isHighlighted,
+        'today': day.isToday,
+        'weekend': day.isWeekend,
+        'sat': day.isSaturday,
+        'sun': day.isSunday,
+        'highlight-start': day.isHighlightStart,
+        'highlight-end': day.isHighlightEnd
+      }
+    },
+
+    /**
+     * Helper
+     * @param  {mixed}  prop
+     * @return {Boolean}
+     */
+    _isDefined (prop) {
+      return typeof prop !== 'undefined' && prop
+    },
+
+    /**
+     * Whether a day is disabled
+     * @param {Date}
+     * @return {Boolean}
+     */
+    _isDisabledDate (date) {
+      let disabledDates = false
+
+      if (typeof this.disabledDates === 'undefined' || !this.disabledDates) {
+        return false
+      }
+
+      if (typeof this.disabledDates.dates !== 'undefined') {
+        this.disabledDates.dates.forEach((d) => {
+          if (this.utils.compareDates(date, d)) {
+            disabledDates = true
+            return true
+          }
+        })
+      }
+      if (typeof this.disabledDates.to !== 'undefined' && this.disabledDates.to && date < this.disabledDates.to) {
+        disabledDates = true
+      }
+      if (typeof this.disabledDates.from !== 'undefined' && this.disabledDates.from && date > this.disabledDates.from) {
+        disabledDates = true
+      }
+      if (typeof this.disabledDates.ranges !== 'undefined') {
+        this.disabledDates.ranges.forEach((range) => {
+          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
+            if (date < range.to && date > range.from) {
+              disabledDates = true
+              return true
+            }
+          }
+        })
+      }
+      if (typeof this.disabledDates.days !== 'undefined' && this.disabledDates.days.indexOf(this.utils.getDay(date)) !== -1) {
+        disabledDates = true
+      }
+      if (typeof this.disabledDates.daysOfMonth !== 'undefined' && this.disabledDates.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1) {
+        disabledDates = true
+      }
+      if (typeof this.disabledDates.customPredictor === 'function' && this.disabledDates.customPredictor(date)) {
+        disabledDates = true
+      }
+      return disabledDates
+    },
+
+    /**
+     * Whether a day is highlighted and it is the end date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    _isHighlightEnd (date) {
+      return this._isHighlightedDate(date) &&
+        (this.highlighted.to instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.to) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.to) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.to) === this.utils.getDate(date))
+    },
+
+    /**
+     * Whether a day is highlighted and it is the first date
+     * in the highlighted range of dates
+     * @param {Date}
+     * @return {Boolean}
+     */
+    _isHighlightStart (date) {
+      return this._isHighlightedDate(date) &&
+        (this.highlighted.from instanceof Date) &&
+        (this.utils.getFullYear(this.highlighted.from) === this.utils.getFullYear(date)) &&
+        (this.utils.getMonth(this.highlighted.from) === this.utils.getMonth(date)) &&
+        (this.utils.getDate(this.highlighted.from) === this.utils.getDate(date))
+    },
+
+    /**
+     * Whether a day is highlighted (only if it is not disabled already except when highlighted.includeDisabled is true)
+     * @param {Date}
+     * @return {Boolean}
+     */
+    _isHighlightedDate (date) {
+      if (!(this.highlighted && this.highlighted.includeDisabled) && this._isDisabledDate(date)) {
+        return false
+      }
+
+      let highlighted = false
+
+      if (typeof this.highlighted === 'undefined') {
+        return false
+      }
+
+      if (typeof this.highlighted.dates !== 'undefined') {
+        this.highlighted.dates.forEach((d) => {
+          if (this.utils.compareDates(date, d)) {
+            highlighted = true
+            return true
+          }
+        })
+      }
+
+      if (this._isDefined(this.highlighted.from) && this._isDefined(this.highlighted.to)) {
+        highlighted = date >= this.highlighted.from && date <= this.highlighted.to
+      }
+
+      if (this._isDefined(this.highlighted.from) && this._isDefined(this.hoverDate) && this.floatHighlightEnd) {
+        highlighted = date >= this.highlighted.from && date <= this.hoverDate
+      }
+
+      if (this._isDefined(this.highlighted.to) && this._isDefined(this.hoverDate) && this.floatHighlightStart) {
+        highlighted = date >= this.hoverDate && date <= this.highlighted.to
+      }
+
+      if (typeof this.highlighted.days !== 'undefined' && this.highlighted.days.indexOf(this.utils.getDay(date)) !== -1) {
+        highlighted = true
+      }
+
+      if (typeof this.highlighted.customPredictor === 'function' && this.highlighted.customPredictor(date)) {
+        highlighted = true
+      }
+
+      return highlighted
+    },
+
+    /**
+     * Whether a day is selected
+     * @param {Date}
+     * @return {Boolean}
+     */
+    _isSelectedDate (dObj) {
+      return this.value && this.utils.compareDates(this.value, dObj)
+    },
+
+    /**
+     * Increment the current page month
+     */
+    _nextMonth () {
+      if (!this.isNextMonthDisabled) {
+        this._changeMonth(+1)
+      }
+    },
+    /**
+     * Increment the current page year
+     */
+    _nextYear () {
+      if (!this.isNextMonthDisabled) {
+        this._changeYear(+1)
+      }
+    },
+    /**
+     * Decrement the page month
+     */
+    _previousMonth () {
+      if (!this.isPreviousMonthDisabled) {
+        this._changeMonth(-1)
+      }
+    },
+
+    /**
+     * Decrement the current page year
+     */
+    _previousYear () {
+      if (!this.isPreviousMonthDisabled) {
+        this._changeYear(-1)
+      }
+    },
+
+    /**
+     * Sets hover date
+     * @param {Object} day
+     */
+    _updateHoverDate (day) {
+      this.hoverDate = new Date(day.timestamp)
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.PickerDay {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: #f0f3f7;
+  position: relative;
+  width: 300px;
+
+  &:not([inline]) {
+    position: absolute;
+    z-index: 100;
+  }
+
+  & * { box-sizing: border-box; }
+
+  header {
+    align-items: center;
+    background-color: #0D9DDB;
+    display: flex;
+    padding: 0 8px;
+
+    .current-month {
+      color: white;
+      cursor: pointer;
+      flex-grow: 1;
+      text-align: center;
+
+      &[disabled] { pointer-events: none; }
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      display: flex;
+      font-size: 36px;
+
+      &[disabled] {
+        pointer-events: none;
+        .FishtankIcon { opacity: 0.5; }
+      }
+
+      &.double :first-child { margin-right: -18px; }
+
+      .FishtankIcon { width: 24px; }
+    }
+  }
+
+  .cells {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .cell {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0 5px;
+    width: calc(100%/7);
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+
+    &[disabled] {
+      color: #ddd;
+      fill: #a3a3a3;
+      cursor: default;
+    }
+  }
+  .cell:not(.blank):not([disabled]).day,
+  .cell:not(.blank):not([disabled]).month,
+  .cell:not(.blank):not([disabled]).year { cursor: pointer; }
+  .cell.day.today { border: 1px solid var(--primary-color, #777C7F); }
+  .cell:not(.blank):not([disabled]).day:hover,
+  .cell:not(.blank):not([disabled]).month:hover,
+  .cell:not(.blank):not([disabled]).year:hover { background-color: #0D9DDB; }
+  .cell.selected { background-color: #0D9DDB; }
+  .cell.selected:hover { background-color: #0D9DDB; }
+  .cell.selected.highlighted,
+  .cell.highlighted.highlight-end,
+  .cell.highlighted.highlight-start { background-color: #0D9DDB; }
+  .cell.highlighted { background: #72c6ea; }
+  .cell.highlighted[disabled] { color: #a3a3a3; }
+  .cell.grey { color: #888; }
+  .cell.grey:hover { background: inherit; }
+  .cell.day-header {
+    font-size: 75%;
+    white-space: nowrap;
+    cursor: inherit;
+  }
+  .cell.day-header:hover { background: inherit; }
+}
+</style>
