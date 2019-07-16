@@ -139,7 +139,8 @@ function genConfig(name, isProdVar, custProps) {
       config.plugins.push(uglify({
         compress: {
           drop_console: true,
-          drop_debugger: true
+          drop_debugger: true,
+          pure_funcs:['console.warn']
         }
       }, minify))
     }
