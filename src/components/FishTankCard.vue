@@ -49,6 +49,10 @@ export default Vue.extend({
       description:"Card displays a branded header strip or background color."
     }
 
+  },
+  mounted(){
+    // eslint-disable-next-line no-console
+    console.warn('FishTankCard is being deprecated in favor of FishTankCardV2. FishTankCardV2 provides a more flexible structure to allow developers to more freely layout content, and define paddings and margins. Please migrate to FishTankCardV2.')
   }
 })
 </script>
