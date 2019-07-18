@@ -22,71 +22,68 @@
 </script>
 
 <template>
-    <div class = "content">
-        <heading level="1">
-            Text Badges 
-        </heading>
-        <card>
-            <table class = "tbl">
-                <tr>
-                    <td>
-                        <badge text-shade="light" theme="notification-1" :removable ="false">Text Badge</badge>
-                    <td>
-                        <badge text-shade="dark" theme="notification-2" :removable ="false">Text Badge</badge>
+  <div class = "content">
+    <heading level="1">
+      Text Badges 
+    </heading>
+    <card>
+      <table class = "tbl">
+        <tr>
+          <td>
+            <badge text-shade="light" theme="notification-1" :removable ="false">Text Badge</badge>
+          <td>
+            <badge text-shade="dark" theme="notification-2" :removable ="false">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="notification-3" :removable ="false">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="bgov" :removable ="false">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="btax" :removable ="false">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="disabled" theme="disabled" :removable ="false">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="dark" theme="neutral" :removable ="false">Text Badge</badge>
+          </td>
+        </tr>
+      </table>
+    </card>
 
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="notification-3" :removable ="false">Text Badge</badge>
-
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="bgov" :removable ="false">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="btax" :removable ="false">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="disabled" theme="disabled" :removable ="false">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="dark" theme="neutral" :removable ="false">Text Badge</badge>
-                    </td>
-                </tr>
-            </table>
-
-        </card>
-
-        <heading level="1">
-            Removable Text Badges
-        </heading>
-        <card>
-            <table class = "tbl">
-                <tr>
-                    <td>
-                        <badge text-shade="light" theme="notification-1" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="dark" theme="notification-2" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="notification-3" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="bgov" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="light" theme="btax" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="disabled" theme="disabled" :removable ="true">Text Badge</badge>
-                    </td>
-                    <td>
-                        <badge text-shade="dark" theme="neutral" :removable ="true">Text Badge</badge>
-                    </td>
-                </tr>
-            </table>
-        </card>
-    </div>
+    <heading level="1">
+      Removable Text Badges
+    </heading>
+    <card>
+      <table class = "tbl">
+        <tr>
+          <td>
+            <badge text-shade="light" theme="notification-1" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="dark" theme="notification-2" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="notification-3" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="bgov" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="light" theme="btax" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="disabled" theme="disabled" :removable ="true">Text Badge</badge>
+          </td>
+          <td>
+            <badge text-shade="dark" theme="neutral" :removable ="true">Text Badge</badge>
+          </td>
+        </tr>
+      </table>
+    </card>
+  </div>
 </template>
 
 <style lang="scss">
