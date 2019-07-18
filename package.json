@@ -39,7 +39,7 @@
     "vue": "^2.5.17"
   },
   "dependencies": {
-    "@fishtank/colors": "3.5.0",
+    "@fishtank/colors": "3.5.1",
     "@fishtank/icons": "3.13.0",
     "@fishtank/icons-vue": "3.13.0",
     "@fishtank/space": "1.3.0",
