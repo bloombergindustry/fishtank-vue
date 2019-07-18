@@ -11,19 +11,21 @@
   <iframe src="https://codesandbox.io/embed/vue-template-hdt25?fontsize=14" title="@fishtank/container & &fishtank/column" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
   ```jsx
-  <fish-tank-container as="header">
-    <fish-tank-column :xs-column="12" as="nav">
-      Navigation 
-    </fish-tank-column>
-  </fish-tank-container>
+  <div>
+    <fish-tank-container as="header">
+      <fish-tank-column :xs-column="12" as="nav">
+        Navigation 
+      </fish-tank-column>
+    </fish-tank-container>
 
-  <fish-tank-container>
-    <fish-tank-column :xs-column="12" :md-column="3" as="aside">
-      Sidebar 
-    </fish-tank-column>
-    <fish-tank-column :xs-column="12" :md-column="3" as="main">
-      Main Content 
-    </fish-tank-column>
-  </fish-tank-container>
+    <fish-tank-container>
+      <fish-tank-column :xs-column="12" :md-column="3" as="aside">
+        Sidebar 
+      </fish-tank-column>
+      <fish-tank-column :xs-column="12" :md-column="3" as="main">
+        Main Content 
+      </fish-tank-column>
+    </fish-tank-container>
+  </div>
   ```
 </div>

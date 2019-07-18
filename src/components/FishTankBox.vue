@@ -484,6 +484,9 @@ export default Vue.extend({
     boxMixin
   ],
   props:{
+    /**
+    * Box semantic element
+    */
     tag:{
       default:'div',
       required:false,
@@ -491,7 +494,6 @@ export default Vue.extend({
       validator: function (value: IsBoxType) {
         return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
       },
-      description:"Box semantic element"
     },
     as:{
       default:'div',
