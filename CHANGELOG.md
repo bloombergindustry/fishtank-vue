@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.1-1...v5.0.1) (2019-07-19)
+
+
+### Bug Fixes
+
+* fixed build errer in main scripts due to typo ([5d62dd8](https://github.com/bloombergbna/fishtank-vue/commit/5d62dd8))
+
+
+### Features
+
+* Added neutral badge option ([9fa029b](https://github.com/bloombergbna/fishtank-vue/commit/9fa029b))
+* Added neutral badge option ([6858383](https://github.com/bloombergbna/fishtank-vue/commit/6858383))
+
+
+
 <a name="5.0.1-1"></a>
 ## [5.0.1-1](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.0...v5.0.1-1) (2019-07-15)
 
