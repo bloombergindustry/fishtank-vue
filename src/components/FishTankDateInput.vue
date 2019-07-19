@@ -1,5 +1,5 @@
 <template>
-  <div class="inline">
+  <div class="date-container">
     <input type = "hidden" 
         @keyup="_handleKeyup"
         :hide-calendar-toggle="hideCalendarToggle"
@@ -56,16 +56,6 @@ export default {
   model: {
     prop: 'date',
     event: 'change',
-
-    // prop:'day',
-    // event: 'changeDay',
-
-    // prop:'month',
-    // event: 'changeMonth',
-
-    // prop:'year',
-    // event: 'changeYear'
-
   },
   props: {
      format: {
@@ -97,9 +87,6 @@ export default {
     }
   },
   computed: {
-    // date () {
-    //   return this._dateStringIsValid(this.fullDate) ? new Date(this.fullDate) : undefined
-    // },
     fullDate() {
       return (!!this.month && !!this.day && !!this.year) ? `${this.month}/${this.day}/${this.year}` : undefined
     }
@@ -169,7 +156,6 @@ export default {
     },
     _formatDate (d) {
       return makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
-      //this.date = makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
     },
     _handleKeyup (e) { 
       // Only change on Enter
@@ -197,8 +183,6 @@ export default {
 
 <style lang="scss" scoped>
 .FishTankDateInput {
-  //height: 100%;
-  //display: inline-flex;
   font-family: var(--font-family, 'Open Sans', arial, sans-serif);
   position: relative;
   &[disabled], &[readonly] { pointer-events: none; }
@@ -212,20 +196,20 @@ export default {
     .clear-icon { display: none; }
   }
 }
-.inline {
-  width:225px;
+.date-container {
+  //width:175px;
   display:inline-block;
   border: 1px solid var(--border-color, #C5CACD);
   border-radius: var(--border-radius, 2px);
   user-select: none;     
 }
 input {
+  display: inline-block;
   border: 1px solid var(--border-color, #C5CACD);
   border-radius: var(--border-radius, 2px);
   font-size: 14px;
-  height: 38px;
-  padding-left: 12px;
-  padding-right: 12px;
+  height: 34px;
+  padding:5px 5px;
   border: none;
   &::-webkit-input-placeholder { font-size: 14px; }
   &:-moz-placeholder { font-size: 14px; }
@@ -253,6 +237,6 @@ input {
    font-size: 14px;
 }
 .icon {
-  padding:12px;
+  padding:5px 5px;
 }
 </style>

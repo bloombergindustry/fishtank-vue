@@ -4,15 +4,10 @@
     <FishTankDateInput
       ref="input"
       :disabled="disabled"
-      :format="format"
       :hide-calendar-toggle="hideCalendarToggle"
       :hide-clear="hideClear"
-      :id="id"
       :name="name"
-      :placeholder="placeholder"
-      :required="required"
-      :utc="utc"
-      v-model="value"
+      :date="value"
       @change="$emit('change', $event)"
       @focus="activePicker = openOnFocus ? 'day' : activePicker"
       @toggleCalendar="activePicker = activePicker ? null : 'day'"
@@ -28,7 +23,7 @@
       :inline="inline"
       :mondayFirst="mondayFirst"
       :translation="translation"
-      :value="value"
+      :date="value"
       :utc="utc"
       :floatHighlightEnd="floatHighlightEnd"
       :floatHighlightStart="floatHighlightStart"
@@ -44,7 +39,7 @@
       :inline="inline"
       :translation="translation"
       :utc="utc"
-      :value="value"
+      :date="value"
       @selectMonth="_selectMonth"
       @showYearCalendar="activePicker = 'year'"
     />
@@ -56,7 +51,7 @@
       :inline="inline"
       :translation="translation"
       :utc="utc"
-      :value="value"
+      :date="value"
       @selectYear="_selectYear"
     />
   </div>
@@ -240,6 +235,10 @@ export default {
     */
     value: Date
   },
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   data () {
     return {
       activePicker: null,
@@ -266,7 +265,9 @@ export default {
     focus () {
       this.$refs.input.focus()
     },
-
+    _updateDate (newVal) {
+      console.log(newVal)
+    },
     /**
      * @param {Object} month
      * @type {Object}
