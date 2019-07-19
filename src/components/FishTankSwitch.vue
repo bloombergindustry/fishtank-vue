@@ -112,6 +112,10 @@ export default Vue.extend({
         this.$emit('change', isChecked ? this.trueValue : this.falseValue)
       }
     }
+  },
+  mounted(){
+    // eslint-disable-next-line no-console
+    console.warn('FishTankSwitch is being deprecated in favor of FishTankCheckboxSwitch. It combines checkbox and switch visual presentation on top of the same boolean functionality of a checkbox input element. It will be removed from the library in October 2019. Please migrate to FishTankCheckboxSwitch.')
   }
 })
 </script>

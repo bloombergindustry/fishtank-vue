@@ -12,7 +12,7 @@
  * FishTankButtonOutlineDark
  * @deprecated
  * This component is being deprecated in favor of FishTankButton.
- * It will be removed from the library in October of 2019.
+ * It will be removed from the library in October 2019.
  * FishTankButton offers a more standard and consistant API, and better code quality.
  * Please begin using FishTankButton to avoid any breaking changes.
  */
@@ -26,7 +26,7 @@ export default Vue.extend({
   },
   mounted () {
     // eslint-disable-next-line no-console
-    console.warn('FishTankButtonOutlineDark is being deprecated in favor of FishTankButton. It will be removed from the library in October of 2019. Please migrate to FishTankButton.')
+    console.warn('FishTankButtonOutlineDark is being deprecated in favor of FishTankButton. It will be removed from the library in October 2019. Please migrate to FishTankButton.')
   }
 })
 </script>

@@ -98,7 +98,7 @@
  * FishTankModal V1
  * @deprecated
  * This component is being deprecated in favor of FishTankModalV2.
- * It will be removed from the library in October of 2019.
+ * It will be removed from the library in October 2019.
  * FishTankModalV2 offers a more standard and consistant API, and better code quality.
  * Please begin using FishTankModalV2 to avoid any breaking changes.
  */
@@ -207,6 +207,7 @@ export default Vue.extend({
   },
   mounted() {
     this.updateState()
+    console.warn('FishTankModal is being deprecated in favor of FishTankModalV2. It will be removed from the library in October 2019. Please migrate to FishTankModalV2.')
   },
   methods: {
     close() {

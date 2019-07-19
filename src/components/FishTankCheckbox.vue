@@ -67,7 +67,7 @@ export default Vue.extend({
    * FishTankCheckbox V1
    * @deprecated
    * This component is being deprecated in favor of FishTankCheckboxV2.
-   * It will be removed from the library in October of 2019.
+   * It will be removed from the library in October 2019.
    * FishTankCheckboxV2 offers a more standard and consistant API, and better code quality.
    * Please begin using FishTankCheckboxV2 to avoid any breaking changes.
    */
@@ -125,6 +125,10 @@ export default Vue.extend({
     returnEnabledDisabled(): string {
     return this.disabled ? "disabled" : "animationWrap__enabled"
     }
+  },
+  mounted(){
+    // eslint-disable-next-line no-console
+    console.warn('FishTankCheckbox is being deprecated in favor of FishTankCheckboxSwitch. It combines checkbox and switch visual presentation on top of the same boolean functionality of a checkbox input element. It will be removed from the library in October 2019. Please migrate to FishTankCheckboxSwitch.')
   }
 })
 </script>

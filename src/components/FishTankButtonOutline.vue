@@ -12,7 +12,7 @@
  * FishTankButtonOutline
  * @deprecated
  * This component is being deprecated in favor of FishTankButton.
- * It will be removed from the library in October of 2019.
+ * It will be removed from the library in October 2019.
  * FishTankButton offers a more standard and consistant API, and better code quality.
  * Please begin using FishTankButton to avoid any breaking changes.
  */
