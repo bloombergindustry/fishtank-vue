@@ -1,60 +1,74 @@
 <template>
-  <span class="FishTankDateInput" :disabled="disabled" :readonly="readonly" :hide-calendar-toggle="hideCalendarToggle" :hide-clear="hideClear">
-    <!-- Calendar Button -->
-    <FishtankIcon
-      class="calendar-icon"
-      color="#505558"
-      height="24"
-      name="calendar_24"
-      width="24"
-      @click.native="$emit('toggleCalendar')"
-    />
-
-    <!-- Input -->
-    <input
-      v-model="formattedValue"
-      autocomplete="off"
-      ref="input"
-      type="text"
-      :id="id"
-      :disabled="disabled"
-      :name="name"
-      :placeholder="placeholder || format"
-      :readonly="readonly"
-      :required="required"
-      @blur="_handleBlur"
-      @focus="$emit('focus')"
-      @keyup="_handleKeyup"
-    />
-
-    <!-- Clear Button -->
-    <span v-if="formattedValue" class="clear-icon" @click="$emit('change', null)">&times;</span>
-  </span>
+  <div class="inline">
+    <input type = "hidden" 
+        @keyup="_handleKeyup"
+        :hide-calendar-toggle="hideCalendarToggle"
+        :hide-clear="hideClear"> 
+      <calendar v-if="!hideCalendarToggle" 
+                tabindex = "0" 
+                class="icon" 
+                v-on:click.self="$emit('toggleCalendar')" 
+                v-on:keyup.enter.native="$emit('toggleCalendar')" />
+      <input ref = "month" 
+            type="text" 
+            class="month" 
+            v-model = "month" 
+            placeholder="MM" 
+            maxlength = "2"
+            @keyup="_handleKeyup"/>
+      <span class="slash"> / </span>
+      <input ref = "day" 
+            type="text" 
+            class="day" 
+            v-model = "day" 
+            placeholder="DD" 
+            maxlength = "2"
+            @keyup="_handleKeyup"/>
+      <span class="slash"> / </span>
+      <input ref = "year" 
+            type="text" 
+            class="year" 
+            v-model = "year" 
+            placeholder="YYYY" 
+            maxlength = "4"
+          @keyup="_handleKeyup"/>
+      <close v-if="!hideClear" 
+            tabindex = "0" 
+            class="icon" 
+            @click="this.clearInput" />
+  </div>
 </template>
 <script>
-import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
-import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
+import{ 
+  Calendar24,
+  CloseSml24
+} from '@fishtank/icons-vue'
+import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 
 /**
  * A date input field. Validates input according to specified format
  */
 export default {
-  components: { FishtankIcon },
-  name: 'FishTankDateInput',
+  components: { 
+    calendar : Calendar24,
+    close : CloseSml24
+  },
   model: {
-    prop: 'value',
-    event: 'change'
+    prop: 'date',
+    event: 'change',
+
+    // prop:'day',
+    // event: 'changeDay',
+
+    // prop:'month',
+    // event: 'changeMonth',
+
+    // prop:'year',
+    // event: 'changeYear'
+
   },
   props: {
-    /**
-    * Input disabled state
-    */
-    disabled: Boolean,
-
-    /**
-    * Date format
-    */
-    format: {
+     format: {
       type: String,
       default: 'MM/DD/YYYY'
     },
@@ -70,83 +84,109 @@ export default {
     hideClear: Boolean,
 
     /**
-    * Id of input element (for labels etc)
-    */
-    id: String,
+     * Current Date
+     */
+    date: Date
 
-    /**
-    * Name of input element (for forms etc)
-    */
-    name: String,
-
-    /**
-    * Input placeholder
-    */
-    placeholder: String,
-
-    /**
-    * Input readonly state
-    */
-    readonly: Boolean,
-
-    /**
-    * Input required state
-    */
-    required: Boolean,
-
-    /**
-    * Use UTC for time calculations
-    */
-    utc: Boolean,
-
-    /**
-    * Current value
-    */
-    value: Date
   },
   data () {
     return {
-      formattedValue: this.value ? this._formatDate(this.value) : null
+      month: "",
+      day: "",
+      year: "",
+    }
+  },
+  computed: {
+    // date () {
+    //   return this._dateStringIsValid(this.fullDate) ? new Date(this.fullDate) : undefined
+    // },
+    fullDate() {
+      return (!!this.month && !!this.day && !!this.year) ? `${this.month}/${this.day}/${this.year}` : undefined
     }
   },
   watch: {
-    value (newValue) {
-      this.formattedValue = newValue ? this._formatDate(newValue) : null
+    month(newVal) {
+      let re = /[^0-9]/gi;
+      this.$set(this, 'month', newVal.replace(re, ''));
+    },
+    day(newVal) {
+      let re = /[^0-9]/gi;
+      this.$set(this, 'day', newVal.replace(re, ''));
+    },
+    year(newVal) {
+      let re = /[^0-9]/gi;
+      this.$set(this, 'year', newVal.replace(re, ''));
+    },
+    date(newVal) {
+      this.getParentDate()
     }
   },
-  methods: {
-    /**
-     * Sets focus on input element
-     */
-    focus () {
-      this.$refs.input.focus()
-    },
+  created() {
+    this.getParentDate()
+  }, 
+  updated() {
+    if(this.month.length === 2 && this.day.length === 0) {
+      this.$refs.day.focus()
+    }
+    if(this.$refs.month !== document.activeElement && this.month.length === 1) {
+      this.month = "0" + this.month
+    }
 
-    _dateStringIsValid (str) {
-      const ts = Date.parse(str)
-      return !isNaN(ts) && this._formatDate(ts) === str
-    },
+    if(this.day.length === 2 && this.year.length === 0) {
+      this.$refs.year.focus()
+    }
+    if(this.$refs.day !== document.activeElement && this.day.length === 1) {
+      this.day = "0" + this.day
+    }
 
-    _formatDate (d) {
-      return makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
-    },
-
-    _handleBlur (e) {
-      // Set the value if valid, clear otherwise
-      if (this._dateStringIsValid(e.target.value)) {
-        this.$emit('change', new Date(e.target.value))
+    if(this.month.length === 2 && this.day.length === 2 && this.year.length === 4) {
+      // Code being re-used here, consolidate with a function
+      if (this._dateStringIsValid(this.fullDate)) {
+        this.$emit('change', new Date(this.fullDate))
       } else {
         this.formattedValue = null
       }
+    }
+  },
+  methods: {
+    getParentDate() {
+      let dateArr = this._formatDate(this.date).split("/")
+      this.month = dateArr[0]
+      this.day = dateArr[1]
+      this.year = dateArr[2]
     },
-
-    _handleKeyup (e) {
+    clearInput() {
+      // unsafe mutation?
+      this.month = ""
+      this.day = ""
+      this.year = ""
+      //What should we do when the input is cleared ?  -- Need feedback here
+      this.$emit('change', new Date(""))
+    },
+    _dateStringIsValid (str) {
+       const ts = Date.parse(str)
+       return !isNaN(ts) && this._formatDate(ts) === str
+    },
+    _formatDate (d) {
+      return makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
+      //this.date = makeFishTankDateUtils(this.utc).formatDate(new Date(d), this.format)
+    },
+    _handleKeyup (e) { 
       // Only change on Enter
       if (e.key !== 'Enter') return
-
+      console.log("Enter Press Detected")
+      // Correcting possible invalid date formats
+      if(this.month.length === 1) {
+        this.month = "0" + this.month
+      }
+      if(this.day.length === 1) {
+        this.day = "0" + this.day
+      }
       // Set the value if valid, clear otherwise
-      if (this._dateStringIsValid(e.target.value)) {
-        this.$emit('change', new Date(e.target.value))
+      console.log(this.fullDate)
+      if (this._dateStringIsValid(this.fullDate)) {
+        console.log(new Date(this.fullDate))
+        this.$emit('change', new Date(this.fullDate))
       } else {
         this.formattedValue = null
       }
@@ -157,12 +197,10 @@ export default {
 
 <style lang="scss" scoped>
 .FishTankDateInput {
-  align-items: center;
-  height: 100%;
-  display: inline-flex;
+  //height: 100%;
+  //display: inline-flex;
   font-family: var(--font-family, 'Open Sans', arial, sans-serif);
   position: relative;
-
   &[disabled], &[readonly] { pointer-events: none; }
   &[disabled] { opacity: 0.5; }
   &[hide-calendar-toggle] {
@@ -173,35 +211,48 @@ export default {
     input { padding-right: 8px; }
     .clear-icon { display: none; }
   }
-
-  input {
-    border: 1px solid var(--border-color, #C5CACD);
-    border-radius: var(--border-radius, 2px);
-    font-size: 14px;
-    height: 38px;
-    padding-left: 30px;
-    padding-right: 20px;
-    width: 82px;
-
-    &::-webkit-input-placeholder { font-size: 12px; font-style: italic; }
-    &:-moz-placeholder { font-size: 12px; font-style: italic; }
-    &::-moz-placeholder { font-size: 12px; font-style: italic; }
-    &:-ms-input-placeholder { font-size: 12px; font-style: italic; }
-    &:focus { outline: none; }
-  }
-
-  .FishtankIcon {
-    cursor: pointer;
-    left: 5px;
-    position: absolute;
-    top: 9px;
-  }
-
-  .clear-icon {
-    cursor: pointer;
-    position: absolute;
-    right: 9px;
-    top: 13px;
-  }
+}
+.inline {
+  width:225px;
+  display:inline-block;
+  border: 1px solid var(--border-color, #C5CACD);
+  border-radius: var(--border-radius, 2px);
+  user-select: none;     
+}
+input {
+  border: 1px solid var(--border-color, #C5CACD);
+  border-radius: var(--border-radius, 2px);
+  font-size: 14px;
+  height: 38px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: none;
+  &::-webkit-input-placeholder { font-size: 14px; }
+  &:-moz-placeholder { font-size: 14px; }
+  &::-moz-placeholder { font-size: 14px; }
+  &:-ms-input-placeholder { font-size: 14px; }
+  &:focus { outline: none; }
+}
+.month {
+  padding-left:0px;
+  padding-right:0px;
+  width:25px;
+}
+.day {
+  padding-left:0px;
+  padding-right:0px;
+  width:25px
+}
+.year {
+  padding-left:0px;
+  padding-right:0px;
+  width:40px;
+}
+.slash {
+   font-family: var(--font-family, 'Open Sans', arial, sans-serif);
+   font-size: 14px;
+}
+.icon {
+  padding:12px;
 }
 </style>

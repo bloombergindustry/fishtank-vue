@@ -2,21 +2,21 @@
   <div class="FishTankPickerDay" :inline="inline" @mousedown.prevent @mouseleave="hoverDate = null">
     <header>
       <span class="prev double" :disabled="isPreviousYearDisabled" @click="_previousYear">
-        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
-        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+        <chevron-left24 />
+        <chevron-left24 />
       </span>
       <span class="prev" :disabled="isPreviousMonthDisabled" @click="_previousMonth">
-        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+        <chevron-left24 />
       </span>
       <span class="current-month" :disabled="disableMonth" @click="$emit('showMonthCalendar')">
         {{currentMonthName}} {{currentYearName}}
       </span>
       <span class="next" :disabled="isNextMonthDisabled" @click="_nextMonth">
-        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+        <chevron-right24 />
       </span>
       <span class="next double" :disabled="isNextYearDisabled" @click="_nextYear">
-        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
-        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+        <chevron-right24 />
+        <chevron-right24 />
       </span>
     </header>
 
@@ -39,15 +39,18 @@
 </template>
 
 <script>
-import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
+import{ 
+  ChevronLeft24,
+  ChevronRight24  
+} from '@fishtank/icons-vue'
 import en from '../locale/translations/en'
-import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
+import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 
 /**
  * A date selector calendar that displays days in a given month
  */
 export default {
-  components: { FishtankIcon },
+  components: { ChevronLeft24, ChevronRight24 },
   name: 'FishTankPickerDay',
   model: {
     prop: 'value',

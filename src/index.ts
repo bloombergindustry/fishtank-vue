@@ -80,7 +80,7 @@ export { default as FishTankColumn } from "./components/FishTankColumn.vue"
 export { default as FishTankHighlight } from "./components/FishTankHighlightedText.vue"
 export { default as FishTankTooltip } from "./components/FishTankTooltip.vue"
 export { default as FishTankPickerYear } from "./components/FishTankPickerYear.vue"
-export { default as FishTanPickerDay } from "./components/FishTankPickerDay.vue"
+export { default as FishTankPickerDay } from "./components/FishTankPickerDay.vue"
 export { default as FishTankPickerMonth } from "./components/FishTankPickerMonth.vue"
 export { default as FishTankDateInput } from './components/FishTankDateInput.vue'
 export { default as FishTankDatePicker } from './components/FishTankDatePicker.vue'

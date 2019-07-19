@@ -2,11 +2,11 @@
   <div class="FishTankPickerYear" :inline="inline" @mousedown.prevent>
     <header>
       <span class="prev" :disabled="isPreviousDecadeDisabled" @click="_previousDecade">
-        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+        <chevron-left24 />
       </span>
       <span class="current-decade">{{getPageDecade}}</span>
       <span class="next" :disabled="isNextDecadeDisabled" @click="_nextDecade">
-        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+        <chevron-right24 />
       </span>
     </header>
 
@@ -18,16 +18,19 @@
   </div>
 </template>
 <script>
-import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
+import{ 
+  ChevronLeft24,
+  ChevronRight24  
+} from '@fishtank/icons-vue'
 import en from '../locale/translations/en'
-import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
+import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 
 /**
  * A date selector calendar that displays years in a given decade
  */
 export default {
   name: 'FishTankPickerYear',
-  components: { FishtankIcon },
+  components: { ChevronLeft24, ChevronRight24 },
   props: {
     /**
     * Non-selectable dates, can be specified up to or from a date, over a range, by day,

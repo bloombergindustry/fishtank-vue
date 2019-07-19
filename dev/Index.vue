@@ -14,6 +14,7 @@
       <li><a href="#/checkboxesv2">CheckboxesV2</a></li>
       <li><a href="#/container-columns">Containers and Columns</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>
+      <li><a href="#/datepicker">Date Picker</a></li>
       <li><a href="#/heading">Heading</a></li>
       <li><a href="#/lookup">Lookup</a></li>
       <li><a href="#/modals">Modals</a></li>

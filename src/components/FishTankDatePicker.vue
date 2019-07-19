@@ -12,7 +12,7 @@
       :placeholder="placeholder"
       :required="required"
       :utc="utc"
-      :value="value"
+      v-model="value"
       @change="$emit('change', $event)"
       @focus="activePicker = openOnFocus ? 'day' : activePicker"
       @toggleCalendar="activePicker = activePicker ? null : 'day'"
@@ -67,7 +67,7 @@ import FishTankDateInput from './FishTankDateInput.vue'
 import FishTankPickerDay from './FishTankPickerDay.vue'
 import FishTankPickerMonth from './FishTankPickerMonth.vue'
 import FishTankPickerYear from './FishTankPickerYear.vue'
-import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
+import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 
 /**
  * A date picker with text or interactive calendar input. Accepts a variety of languages and text input formats

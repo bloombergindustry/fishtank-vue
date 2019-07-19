@@ -173,6 +173,7 @@ export default class TextInput extends Vue {
   }
 
   clearText() {
+    this.$emit('clear_input', null)
     this.updateValue(undefined)
     this.focusElement(this.$refs.input as HTMLInputElement)
   }

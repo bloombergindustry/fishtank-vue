@@ -43,14 +43,15 @@
 
 <script>
 import FishTankDatePicker from './FishTankDatePicker'
-import Dropdown from '../../Dropdown'
+//import Dropdown from '../../Dropdown'
+import FishTankSelect from './FishTankSelect.vue'
 
 /**
  * A date selector with options for preset intervals or custom single date or date range
  */
 export default {
   name: 'FishTankDateSelector',
-  components: { FishTankDatePicker, Dropdown },
+  components: { FishTankDatePicker, Dropdown:FishTankSelect },
   model: {
     prop: 'value',
     event: 'change'
@@ -128,7 +129,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import 'src/assets/fishtank';
+  @import '../styles/mixins';
+  @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
+  @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
+  @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
+  @import "../../node_modules/@fishtank/space/dist/index.custom-properties";
   .FishTankDateSelector {
     display: flex;
     font-family: $font-primary;

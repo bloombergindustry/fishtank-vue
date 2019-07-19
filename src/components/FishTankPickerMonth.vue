@@ -2,11 +2,11 @@
   <div class="FishTankPickerMonth" :inline="inline" @mousedown.prevent>
     <header>
       <span class="prev" :disabled="isPreviousYearDisabled" @click="_previousYear">
-        <FishtankIcon color="white" name="chevron-left_24" width="24" height="24" />
+        <chevron-left24 />
       </span>
       <span class="current-year" :disabled="disableYear" @click="$emit('showYearCalendar')">{{pageYearName}}</span>
       <span class="next" :disabled="isNextYearDisabled" @click="_nextYear">
-        <FishtankIcon color="white" name="chevron-right_24" width="24" height="24" />
+        <chevron-right24 />
       </span>
     </header>
 
@@ -19,15 +19,18 @@
 </template>
 
 <script>
-import FishtankIcon from 'components/fishtank/FishtankIcon.vue'
+import{ 
+  ChevronLeft24,
+  ChevronRight24  
+} from '@fishtank/icons-vue'
 import en from '../locale/translations/en'
-import { makeFishTankDateUtils } from '../utils/FishTankDateUtils'
+import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 
 /**
  * A date selector calendar that displays months in a given year
  */
 export default {
-  components: { FishtankIcon },
+  components: { ChevronLeft24, ChevronRight24 },
   name: 'FishTankPickerMonth',
   props: {
     /**
