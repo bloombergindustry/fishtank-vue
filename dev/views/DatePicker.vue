@@ -139,8 +139,8 @@ export default {
       events: [],
       value: undefined,
       value1: undefined,
-      value2: null,
-      value3: null,
+      value2: undefined,
+      value3: new Date(2019, 7, 24),
       value4: new Date(),
       value5: undefined,
       value6: {

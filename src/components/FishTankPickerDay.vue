@@ -52,10 +52,10 @@ import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
 export default {
   components: { ChevronLeft24, ChevronRight24 },
   name: 'FishTankPickerDay',
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
+  // model: {
+  //   prop: 'value',
+  //   event: 'change'
+  // },
   props: {
     /**
     * Disable month toggle
@@ -177,7 +177,7 @@ export default {
   data () {
     return {
       hoverDate: null,
-      pageDate: this.initialPageDate || this.value || new Date(),
+      pageDate: this.value || this.initialPageDate || new Date(),
       utils: makeFishTankDateUtils(this.utc)
     }
   },
@@ -494,6 +494,9 @@ export default {
      * @return {Boolean}
      */
     _isSelectedDate (dObj) {
+      console.log(this.value)
+      console.log(dObj)
+      console.log(this.value && this.utils.compareDates(this.value, dObj))
       return this.value && this.utils.compareDates(this.value, dObj)
     },
 

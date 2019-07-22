@@ -23,7 +23,7 @@
       :inline="inline"
       :mondayFirst="mondayFirst"
       :translation="translation"
-      :date="value"
+      :value="value"
       :utc="utc"
       :floatHighlightEnd="floatHighlightEnd"
       :floatHighlightStart="floatHighlightStart"
@@ -68,10 +68,10 @@ import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
  * A date picker with text or interactive calendar input. Accepts a variety of languages and text input formats
  */
 export default {
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
+  // model: {
+  //   prop: 'value',
+  //   event: 'change'
+  // },
   components: { FishTankDateInput, FishTankPickerDay, FishTankPickerMonth, FishTankPickerYear },
   name: 'FishTankDatePicker',
   props: {
@@ -247,7 +247,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    value (newValue) {
       this.activePicker = null
     }
   },
@@ -264,9 +264,6 @@ export default {
      */
     focus () {
       this.$refs.input.focus()
-    },
-    _updateDate (newVal) {
-      console.log(newVal)
     },
     /**
      * @param {Object} month
