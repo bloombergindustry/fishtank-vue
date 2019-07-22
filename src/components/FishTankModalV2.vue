@@ -1,102 +1,3 @@
-<template>
-  <div class="modal__entry-point">
-    <div
-      ref="content"
-      :class="classObj"
-      class="modal"
-    >
-      <div
-        v-if="escapeable"
-        class="modal__escapable-background"
-        @click="close"
-      />
-      <div 
-        :style="styles"
-        class="modal__container"
-      >
-        <div
-          class="modal__heading"
-        >
-          <div class="modal__heading-title-container">
-            <div
-              v-if="$slots.headingIcon"
-              class="modal__heading-icon-wrapper"
-              tabindex="-1"
-            >
-              <div 
-                class="modal__heading-icon" 
-                tabindex="-1">
-                <!-- @slot Slot for heading icon -->
-                <slot name="headingIcon"/>
-              </div>
-            </div>
-            <div
-              class="modal__heading-title"
-            >
-              <!-- @slot Slot for heading -->
-              <slot name="heading"/>
-            </div>
-          </div>
-          <div
-            v-if="$slots.headingExtra"
-            class="modal__heading-extra"
-          >
-            <!-- @slot Slot for extra heading -->
-            <slot 
-              name="headingExtra"/>
-          </div>
-          <div class="modal__close">
-            <span
-              v-if="!dialog"
-              class="modal__close-separator"
-            />
-            <div class="modal__close-icon-wrapper">
-              <Close24
-                tabindex="0"
-                aria-label="Close Modal"
-                class="modal__close-icon"
-                @click="close"
-                @keydown.enter="accessibilityClick"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="modal__body">
-          <!-- @slot Slot for modal body -->
-          <slot/>
-        </div>
-
-        <div
-          v-if="showFooter"
-          class="modal__footer"
-        >
-          <div
-            v-if="$slots.footer"
-            class="modal__footer-container"
-          >
-          <!-- @slot Slot for footer -->
-            <slot name="footer"/>
-          </div>
-          <div
-            v-else-if="$slots.footerLeft || $slots.footerRight"
-            class="modal__footer-container"
-          >
-            <div class="modal__footerLeft">
-              <!-- @slot Slot for footer left -->
-              <slot name="footerLeft"/>
-            </div>
-            <div class="modal__footerRight">
-              <!-- @slot Slot for footer right -->
-              <slot name="footerRight"/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { Component, Prop, Model, Vue, Watch } from 'vue-property-decorator'
 import Detachable from '../util/detachable'
@@ -167,6 +68,16 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   })
   width:string
 
+    /**
+   * Modal content overflow
+   */
+  @Prop({
+    type:String,
+    required: false,
+    default: undefined
+  })
+  overflow:string
+
   // Data
   overlayTransitionDuration = 650 // transition (500) + delay (150)
   isActive = false
@@ -227,6 +138,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     * @type {Boolean}
     */
     this.$emit('change', false)
+    this.$emit('close', {})
   }
   open() {
     /**
@@ -235,12 +147,14 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     * @type {Boolean}
     */
     this.$emit('change', true)
+    this.$emit('open', {})
   }
   show() {
     if (this.escapeable) {
       document.addEventListener('keyup', this.escapeListener)
     }
     this.isActive = true
+    this.open()
     this.genOverlay()
   }
   hide() {
@@ -251,6 +165,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     // Don't remove the overlay unless this modal is currently active
     if (this.isActive) {
       this.isActive = false
+      this.close()
       this.removeOverlay()
     }
   }
@@ -467,6 +382,106 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 
 </script>
 
+<template>
+  <div class="modal__entry-point">
+    <div
+      ref="content"
+      :class="classObj"
+      class="modal"
+    >
+      <div
+        v-if="escapeable"
+        class="modal__escapable-background"
+        @click="close"
+      />
+      <div 
+        :style="styles"
+        class="modal__container"
+      >
+        <div
+          class="modal__heading"
+        >
+          <div class="modal__heading-title-container">
+            <div
+              v-if="$slots.headingIcon"
+              class="modal__heading-icon-wrapper"
+              tabindex="-1"
+            >
+              <div 
+                class="modal__heading-icon" 
+                tabindex="-1">
+                <!-- @slot Slot for heading icon -->
+                <slot name="headingIcon"/>
+              </div>
+            </div>
+            <div
+              class="modal__heading-title"
+            >
+              <!-- @slot Slot for heading -->
+              <slot name="heading"/>
+            </div>
+          </div>
+          <div
+            v-if="$slots.headingExtra"
+            class="modal__heading-extra"
+          >
+            <!-- @slot Slot for extra heading -->
+            <slot 
+              name="headingExtra"/>
+          </div>
+          <div class="modal__close">
+            <span
+              v-if="!dialog"
+              class="modal__close-separator"
+            />
+            <div class="modal__close-icon-wrapper">
+              <Close24
+                tabindex="0"
+                aria-label="Close Modal"
+                class="modal__close-icon"
+                @click="close"
+                @keydown.enter="accessibilityClick"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div 
+          class="modal__body"
+          :style="overflow === undefined ? {'overflow-y':'auto'} : {'overflow-y':overflow} ">
+          <!-- @slot Slot for modal body -->
+          <slot/>
+        </div>
+
+        <div
+          v-if="showFooter"
+          class="modal__footer"
+        >
+          <div
+            v-if="$slots.footer"
+            class="modal__footer-container"
+          >
+          <!-- @slot Slot for footer -->
+            <slot name="footer"/>
+          </div>
+          <div
+            v-else-if="$slots.footerLeft || $slots.footerRight"
+            class="modal__footer-container"
+          >
+            <div class="modal__footerLeft">
+              <!-- @slot Slot for footer left -->
+              <slot name="footerLeft"/>
+            </div>
+            <div class="modal__footerRight">
+              <!-- @slot Slot for footer right -->
+              <slot name="footerRight"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 <style scoped lang="scss">
 
   @import '../styles/mixins';
@@ -602,8 +617,6 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 }
 
 .modal__body {
-  // padding: $baseline * 3;
-  overflow-y: auto;
   overflow-x: hidden;
 }
 
