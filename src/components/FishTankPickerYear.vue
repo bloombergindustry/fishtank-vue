@@ -1,20 +1,30 @@
 <template>
-  <div class="FishTankPickerYear" :inline="inline" @mousedown.prevent>
+  <div 
+    :inline="inline" 
+    class="FishTankPickerYear" 
+    @mousedown.prevent>
     <header>
-      <span class="prev" :disabled="isPreviousDecadeDisabled" @click="_previousDecade">
+      <span 
+        :disabled="isPreviousDecadeDisabled" 
+        class="prev" 
+        @click="_previousDecade">
         <chevron-left24 />
       </span>
-      <span class="current-decade">{{getPageDecade}}</span>
-      <span class="next" :disabled="isNextDecadeDisabled" @click="_nextDecade">
+      <span class="current-decade">{{ getPageDecade }}</span>
+      <span 
+        :disabled="isNextDecadeDisabled" 
+        class="next" 
+        @click="_nextDecade">
         <chevron-right24 />
       </span>
     </header>
 
-    <span v-for="(year, index) in years"
+    <span 
+      v-for="(year, index) in years"
       :class="{'cell year': true, 'selected': year.isSelected}"
       :disabled="year.isDisabled"
       :key="index"
-      @click.stop="_selectYear(year)">{{year.label}}</span>
+      @click.stop="_selectYear(year)">{{ year.label }}</span>
   </div>
 </template>
 <script>
@@ -95,6 +105,12 @@ export default {
     */
     value: Date
   },
+  data () {
+    return {
+      pageDate: this.initialPageDate || this.value || new Date(),
+      utils: makeFishTankDateUtils(this.utc)
+    }
+  },
   computed: {
     /**
      * @return {String}
@@ -153,12 +169,6 @@ export default {
         this.utils.setFullYear(dObj, this.utils.getFullYear(dObj) + 1)
       }
       return years
-    }
-  },
-  data () {
-    return {
-      pageDate: this.initialPageDate || this.value || new Date(),
-      utils: makeFishTankDateUtils(this.utc)
     }
   },
   methods: {

@@ -5,11 +5,11 @@
     @mouseleave="focusToggle();destroyPop();">
     <slot/>
     <div 
-      class="popper-content"
       :class="focus && orientation ? 'popper' : 'popper-hide' "
-      :x-placement="orientation">
-      <ftext>{{placeholder}}</ftext>
-      <div class="popper-arrow"></div>
+      :x-placement="orientation"
+      class="popper-content">
+      <ftext>{{ placeholder }}</ftext>
+      <div class="popper-arrow"/>
     </div>
   </div>
 </template>
@@ -63,7 +63,7 @@ export default Vue.extend({
         },
         focusToggle(){
             if(this.$data.focus){
-                this.$data.focus = false;
+                this.$data.focus = false
             }
             else if(!this.$data.focus){
                 this.$data.focus = true

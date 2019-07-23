@@ -9,6 +9,7 @@
       <div v-for="(e, index) in events" :key="index">{{e}}</div>
       <hr />
       <FishTankDateInput v-model="value2" hide-clear hide-calendar-toggle />
+      <div>{{value2}}</div>
     </div>
     <br />
     <br />

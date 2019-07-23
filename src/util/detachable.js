@@ -1,10 +1,6 @@
 import Vue from 'vue'
 export default Vue.extend({
-  name: 'detachable',
-
-  data: () => ({
-    hasDetached: false
-  }),
+  name: 'Detachable',
 
   props: {
     attach: {
@@ -15,6 +11,10 @@ export default Vue.extend({
       default: ''
     }
   },
+
+  data: () => ({
+    hasDetached: false
+  }),
 
   watch: {
     attach () {

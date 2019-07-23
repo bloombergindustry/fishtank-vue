@@ -1,20 +1,33 @@
 <template>
-  <div class="FishTankPickerMonth" :inline="inline" @mousedown.prevent>
+  <div 
+    :inline="inline" 
+    class="FishTankPickerMonth" 
+    @mousedown.prevent>
     <header>
-      <span class="prev" :disabled="isPreviousYearDisabled" @click="_previousYear">
+      <span 
+        :disabled="isPreviousYearDisabled" 
+        class="prev" 
+        @click="_previousYear">
         <chevron-left24 />
       </span>
-      <span class="current-year" :disabled="disableYear" @click="$emit('showYearCalendar')">{{pageYearName}}</span>
-      <span class="next" :disabled="isNextYearDisabled" @click="_nextYear">
+      <span 
+        :disabled="disableYear" 
+        class="current-year" 
+        @click="$emit('showYearCalendar')">{{ pageYearName }}</span>
+      <span 
+        :disabled="isNextYearDisabled" 
+        class="next" 
+        @click="_nextYear">
         <chevron-right24 />
       </span>
     </header>
 
-    <span v-for="(month, index) in months"
+    <span 
+      v-for="(month, index) in months"
       :class="{'cell month': true, 'selected': month.isSelected}"
       :disabled="month.isDisabled"
       :key="index"
-      @click.stop="_selectMonth(month)">{{month.label}}</span>
+      @click.stop="_selectMonth(month)">{{ month.label }}</span>
   </div>
 </template>
 
@@ -30,8 +43,8 @@ import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
  * A date selector calendar that displays months in a given year
  */
 export default {
-  components: { ChevronLeft24, ChevronRight24 },
   name: 'FishTankPickerMonth',
+  components: { ChevronLeft24, ChevronRight24 },
   props: {
     /**
     * User specified function that determines if a given view (day, month, year) can be displayed

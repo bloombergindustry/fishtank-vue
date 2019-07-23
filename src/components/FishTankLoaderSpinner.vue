@@ -15,12 +15,12 @@
           x2="100%" 
           y2="0%">
           <stop  
-            class="stop-class-1" 
-            :style="{stopColor:getStop1}"
+            :style="{stopColor:getStop1}" 
+            class="stop-class-1"
             offset="0%" />
           <stop 
-            class="stop-class-2"
             :style="{stopColor:getStop2}"
+            class="stop-class-2"
             offset="100%" />
         </linearGradient>
       </defs>

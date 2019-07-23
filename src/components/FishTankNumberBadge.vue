@@ -83,10 +83,10 @@ export default class FishTankNumberBadge extends Vue {
 <template>
   <div class="badge-area">
     <div 
-      class="badge-chip"
       :theme="theme"
       :textShade="textShade"
-      :class="[themeClass, textClass]">
+      :class="[themeClass, textClass]"
+      class="badge-chip">
       <div
         v-if="determineIndeterminate"
         class="inner-circle" />

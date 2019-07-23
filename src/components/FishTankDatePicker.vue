@@ -10,28 +10,26 @@
       :date="value"
       @change="$emit('change', $event)"
       @focus="activePicker = openOnFocus ? 'day' : activePicker"
-      @toggleCalendar="activePicker = activePicker ? null : 'day'"
-    />
+      @toggleCalendar="activePicker = activePicker ? null : 'day'"/>
 
     <!-- Day View -->
     <FishTankPickerDay
       v-show="activePicker === 'day'"
       ref="day"
-      :disabledDates="disabledDates"
-      :fullMonthName="fullMonthName"
+      :disabled-dates="disabledDates"
+      :full-month-name="fullMonthName"
       :highlighted="highlighted"
       :inline="inline"
-      :mondayFirst="mondayFirst"
+      :monday-first="mondayFirst"
       :translation="translation"
       :value="value"
       :utc="utc"
-      :floatHighlightEnd="floatHighlightEnd"
-      :floatHighlightStart="floatHighlightStart"
+      :float-highlight-end="floatHighlightEnd"
+      :float-highlight-start="floatHighlightStart"
       @change="$emit('change', $event)"
-      @showMonthCalendar="activePicker = 'month'"
-    />
+      @showMonthCalendar="activePicker = 'month'"/>
 
-    <!-- Month View
+      <!-- Month View
     <FishTankPickerMonth
       v-show="activePicker === 'month'"
       ref="month"
@@ -68,12 +66,16 @@ import { makeFishTankDateUtils } from '../util/FishTankDateUtils'
  * A date picker with text or interactive calendar input. Accepts a variety of languages and text input formats
  */
 export default {
+  name: 'FishTankDatePicker',
   // model: {
   //   prop: 'value',
   //   event: 'change'
   // },
   components: { FishTankDateInput, FishTankPickerDay, FishTankPickerMonth, FishTankPickerYear },
-  name: 'FishTankDatePicker',
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   props: {
     /**
     * Input id
@@ -234,10 +236,6 @@ export default {
     * Date value of the FishTankDatePicker
     */
     value: Date
-  },
-  model: {
-    prop: 'value',
-    event: 'change',
   },
   data () {
     return {

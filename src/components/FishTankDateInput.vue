@@ -1,59 +1,54 @@
 <template>
   <div
     :class="['date-container', {'is-focused':isFocused}]"
-    @keyup="_handleKeyup"
     :hide-calendar-toggle="hideCalendarToggle"
     :hide-clear="hideClear"
+    @keyup="_handleKeyup"
     @focus="isFocused=true"
-    @blur="isFocused=false"
-  >
+    @blur="isFocused=false">
     <div class="flex">
       <calendar
         v-if="!hideCalendarToggle"
         tabindex="0"
         class="icon"
-        v-on:click.self="$emit('toggleCalendar')"
-        v-on:keyup.enter.native="$emit('toggleCalendar')"
         role="button"
+        @click.self="$emit('toggleCalendar')"
+        @keyup.enter.native="$emit('toggleCalendar')"
         @focus="isFocused=true"
-        @blur="isFocused=false"
-      />
+        @blur="isFocused=false"/>
       <div class="date-fields">
         <input
           ref="month"
+          v-model="month"
           type="text"
           class="month"
-          v-model="month"
           placeholder="MM"
           maxlength="2"
           @keyup="_handleKeyup"
           @focus="isFocused=true"
-          @blur="isFocused=false"
-        />
+          @blur="isFocused=false">
         <div class="slash">/</div>
         <input
           ref="day"
+          v-model="day"
           type="text"
           class="day"
-          v-model="day"
           placeholder="DD"
           maxlength="2"
           @keyup="_handleKeyup"
           @focus="isFocused=true"
-          @blur="isFocused=false"
-        />
+          @blur="isFocused=false">
         <div class="slash">/</div>
         <input
           ref="year"
+          v-model="year"
           type="text"
           class="year"
-          v-model="year"
           placeholder="YYYY"
           maxlength="4"
           @keyup="_handleKeyup"
           @focus="isFocused=true"
-          @blur="isFocused=false"
-        />
+          @blur="isFocused=false">
       </div>
       <close
         v-if="!hideClear"
@@ -62,14 +57,13 @@
         role="button"
         @click="this.clearInput"
         @focus="isFocused=true"
-        @blur="isFocused=false"
-      />
+        @blur="isFocused=false"/>
     </div>
   </div>
 </template>
 <script>
-import { Calendar24, CloseSml24 } from "@fishtank/icons-vue";
-import { makeFishTankDateUtils } from "../util/FishTankDateUtils";
+import { Calendar24, CloseSml24 } from "@fishtank/icons-vue"
+import { makeFishTankDateUtils } from "../util/FishTankDateUtils"
 
 /**
  * A date input field. Validates input according to specified format
@@ -110,142 +104,141 @@ export default {
       day: "",
       year: "",
       isFocused: undefined
-    };
+    }
   },
   computed: {
     fullDate() {
       return !!this.month && !!this.day && !!this.year
         ? `${this.month}/${this.day}/${this.year}`
-        : undefined;
+        : undefined
     }
   },
   watch: {
     // Certainly a better way to do this, probably provide error state
     month(newVal) {
-      let re = /[^0-9]/gi;
-      this.$set(this, "month", newVal.replace(re, ""));
+      let re = /[^0-9]/gi
+      this.$set(this, "month", newVal.replace(re, ""))
       if (Number(this.month) > 12) {
-        this.month = "";
+        this.month = ""
       }
 
       if (
         this.$refs.month !== document.activeElement &&
         this.month.length === 1
       ) {
-        this.month = "0" + this.month;
+        this.month = "0" + this.month
       }
       if (this.$refs.day !== document.activeElement && this.day.length === 1) {
-        this.day = "0" + this.day;
+        this.day = "0" + this.day
       }
       if (this.month.length === 2 && this.day.length === 0) {
-        this.$refs.day.focus();
+        this.$refs.day.focus()
       }
       
     },
     day(newVal) {
-      let re = /[^0-9]/gi;
-      this.$set(this, "day", newVal.replace(re, ""));
+      let re = /[^0-9]/gi
+      this.$set(this, "day", newVal.replace(re, ""))
       if (Number(this.day) > 31) {
-        this.day = "";
+        this.day = ""
       }
 
       if (
         this.$refs.month !== document.activeElement &&
         this.month.length === 1
       ) {
-        this.month = "0" + this.month;
+        this.month = "0" + this.month
       }
       if (this.$refs.day !== document.activeElement && this.day.length === 1) {
-        this.day = "0" + this.day;
+        this.day = "0" + this.day
       }
       if (
         this.day.length === 2 &&
         this.month.length === 2 &&
         this.year.length === 0
       ) {
-        console.log("focusing year");
-        this.$refs.year.focus();
+        this.$refs.year.focus()
       }
+    },
+    year(newVal) {
+      let re = /[^0-9]/gi
+      this.$set(this, "year", newVal.replace(re, ""))
 
       if (
+        this.$refs.month !== document.activeElement &&
+        this.month.length === 1
+      ) {
+        this.month = "0" + this.month
+      }
+      if (this.$refs.day !== document.activeElement && this.day.length === 1) {
+        this.day = "0" + this.day
+      }
+    },
+    date(newVal) {
+      this.getParentDate()
+    }
+  },
+  created() {
+    this.getParentDate()
+  },
+  updated() {
+    if (
         this.month.length === 2 &&
         this.day.length === 2 &&
         this.year.length === 4 
       ) {
         // Code being re-used here, consolidate with a function
         if (this._dateStringIsValid(this.fullDate)) {
-          this.$emit("change", new Date(this.fullDate));
+          this.$emit("change", new Date(this.fullDate))
         } else {
-          this.formattedValue = null;
+          this.formattedValue = null
         }
       }
-    },
-    year(newVal) {
-      let re = /[^0-9]/gi;
-      this.$set(this, "year", newVal.replace(re, ""));
-
-      if (
-        this.$refs.month !== document.activeElement &&
-        this.month.length === 1
-      ) {
-        this.month = "0" + this.month;
-      }
-      if (this.$refs.day !== document.activeElement && this.day.length === 1) {
-        this.day = "0" + this.day;
-      }
-    },
-    date(newVal) {
-      this.getParentDate();
-    }
   },
-  created() {
-    this.getParentDate();
-  },
-  updated() {},
   methods: {
     getParentDate() {
-      let dateArr = this._formatDate(this.date).split("/");
-      this.month = dateArr[0];
-      this.day = dateArr[1];
-      this.year = dateArr[2];
+      let dateArr = this._formatDate(this.date).split("/")
+      this.month = dateArr[0]
+      this.day = dateArr[1]
+      this.year = dateArr[2]
     },
     clearInput() {
       // unsafe mutation?
-      this.month = "";
-      this.day = "";
-      this.year = "";
+      this.month = ""
+      this.day = ""
+      this.year = ""
       //What should we do when the input is cleared ?  -- Need feedback here
-      this.$emit("change", new Date(""));
+      this.$emit("change", new Date(""))
     },
     _dateStringIsValid(str) {
-      const ts = Date.parse(str);
-      return !isNaN(ts) && this._formatDate(ts) === str;
+      const ts = Date.parse(str)
+      return !isNaN(ts) && this._formatDate(ts) === str
     },
     _formatDate(d) {
       return makeFishTankDateUtils(this.utc).formatDate(
         new Date(d),
         this.format
-      );
+      )
     },
     _handleKeyup(e) {
       // Only change on Enter
-      if (e.key !== "Enter") return;
+      if (e.key !== "Enter") return
       // Correcting possible invalid date formats
       if (this.month.length === 1) {
-        this.month = "0" + this.month;
+        this.month = "0" + this.month
       }
       if (this.day.length === 1) {
-        this.day = "0" + this.day;
+        this.day = "0" + this.day
       }
       // Set the value if valid, clear otherwise
       if (this._dateStringIsValid(this.fullDate)) {
-        this.$emit("change", new Date(this.fullDate));
+        this.$emit("change", new Date(this.fullDate))
       } else {
-        this.formattedValue = null;
+        this.formattedValue = null
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

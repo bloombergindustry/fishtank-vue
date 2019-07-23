@@ -1,49 +1,69 @@
 <template>
-  <div class="FishTankPickerDay" :inline="inline" @mousedown.prevent @mouseleave="hoverDate = null">
+  <div 
+    :inline="inline" 
+    class="FishTankPickerDay" 
+    @mousedown.prevent 
+    @mouseleave="hoverDate = null">
     <header>
-      <span class="prev double" :disabled="isPreviousYearDisabled" @click="_previousYear">
+      <span 
+        :disabled="isPreviousYearDisabled" 
+        class="prev double" 
+        @click="_previousYear">
         <chevron-left24 />
         <chevron-left24 />
       </span>
-      <span class="prev" :disabled="isPreviousMonthDisabled" @click="_previousMonth">
+      <span 
+        :disabled="isPreviousMonthDisabled" 
+        class="prev" 
+        @click="_previousMonth">
         <chevron-left24 />
       </span>
       <span
-        class="current-month"
         :disabled="disableMonth"
-      >{{currentMonthName}} {{currentYearName}}</span>
-      <span class="next" :disabled="isNextMonthDisabled" @click="_nextMonth">
+        class="current-month">{{ currentMonthName }} {{ currentYearName }}</span>
+      <span 
+        :disabled="isNextMonthDisabled" 
+        class="next" 
+        @click="_nextMonth">
         <chevron-right24 />
       </span>
-      <span class="next double" :disabled="isNextYearDisabled" @click="_nextYear">
+      <span 
+        :disabled="isNextYearDisabled" 
+        class="next double" 
+        @click="_nextYear">
         <chevron-right24 />
         <chevron-right24 />
       </span>
     </header>
 
     <div class="cells">
-      <span v-for="d in daysOfWeek" class="cell day-header" :key="d.timestamp">{{d.toUpperCase()}}</span>
-      <hr />
+      <span 
+        v-for="d in daysOfWeek" 
+        :key="d.timestamp" 
+        class="cell day-header">{{ d.toUpperCase() }}</span>
+      <hr >
       <template v-if="blankDays > 0">
-        <span v-for="d in blankDays" class="cell day blank" :key="d.timestamp" />
+        <span 
+          v-for="d in blankDays" 
+          :key="d.timestamp" 
+          class="cell day blank" />
       </template>
       <span
         v-for="(day, index) in days"
-        v-html="day.date"
         :class="_dayClasses(day)"
         :disabled="day.isDisabled"
         :key="index"
         @click="$emit('change', new Date(day.timestamp))"
         @mouseover="_updateHoverDate(day)"
-      />
+        v-html="day.date"/>
     </div>
   </div>
 </template>
 
 <script>
-import { ChevronLeft24, ChevronRight24 } from "@fishtank/icons-vue";
-import en from "../locale/translations/en";
-import { makeFishTankDateUtils } from "../util/FishTankDateUtils";
+import { ChevronLeft24, ChevronRight24 } from "@fishtank/icons-vue"
+import en from "../locale/translations/en"
+import { makeFishTankDateUtils } from "../util/FishTankDateUtils"
 
 /**
  * A date selector calendar that displays days in a given month
@@ -51,8 +71,8 @@ import { makeFishTankDateUtils } from "../util/FishTankDateUtils";
  * NOTE: MONTH AND YEAR PICKER HAVE BEEN DISABLED
  */
 export default {
-  components: { ChevronLeft24, ChevronRight24 },
   name: "FishTankPickerDay",
+  components: { ChevronLeft24, ChevronRight24 },
   // model: {
   //   prop: 'value',
   //   event: 'change'
@@ -183,7 +203,7 @@ export default {
       hoverDate: null,
       pageDate: this.value || this.initialPageDate || new Date(),
       utils: makeFishTankDateUtils(this.utc)
-    };
+    }
   },
   computed: {
     /**
@@ -192,7 +212,7 @@ export default {
      * @return {Number}
      */
     blankDays() {
-      const d = this.pageDate;
+      const d = this.pageDate
       let dObj = this.utc
         ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
         : new Date(
@@ -201,11 +221,11 @@ export default {
             1,
             d.getHours(),
             d.getMinutes()
-          );
+          )
       if (this.mondayFirst) {
-        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6;
+        return this.utils.getDay(dObj) > 0 ? this.utils.getDay(dObj) - 1 : 6
       }
-      return this.utils.getDay(dObj);
+      return this.utils.getDay(dObj)
     },
 
     /**
@@ -213,8 +233,8 @@ export default {
      * @return {Object[]}
      */
     days() {
-      const d = this.pageDate;
-      let days = [];
+      const d = this.pageDate
+      let days = []
       // set up a new date object to the beginning of the current 'page'
       let dObj = this.utc
         ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
@@ -224,11 +244,11 @@ export default {
             1,
             d.getHours(),
             d.getMinutes()
-          );
+          )
       let daysInMonth = this.utils.daysInMonth(
         this.utils.getFullYear(dObj),
         this.utils.getMonth(dObj)
-      );
+      )
       for (let i = 0; i < daysInMonth; i++) {
         days.push({
           date: this.utils.getDate(dObj),
@@ -243,10 +263,10 @@ export default {
             this.utils.getDay(dObj) === 0 || this.utils.getDay(dObj) === 6,
           isSaturday: this.utils.getDay(dObj) === 6,
           isSunday: this.utils.getDay(dObj) === 0
-        });
-        this.utils.setDate(dObj, this.utils.getDate(dObj) + 1);
+        })
+        this.utils.setDate(dObj, this.utils.getDate(dObj) + 1)
       }
-      return days;
+      return days
     },
 
     /**
@@ -255,11 +275,11 @@ export default {
      */
     daysOfWeek() {
       if (this.mondayFirst) {
-        const tempDays = this.translation.days.slice();
-        tempDays.push(tempDays.shift());
-        return tempDays;
+        const tempDays = this.translation.days.slice()
+        tempDays.push(tempDays.shift())
+        return tempDays
       }
-      return this.translation.days;
+      return this.translation.days
     },
 
     /**
@@ -269,11 +289,11 @@ export default {
     currentMonthName() {
       const monthName = this.showFullMonthName
         ? this.translation.months
-        : this.translation.monthsAbbr;
+        : this.translation.monthsAbbr
       return this.utils.getMonthNameAbbr(
         this.utils.getMonth(this.pageDate),
         monthName
-      );
+      )
     },
 
     /**
@@ -281,8 +301,8 @@ export default {
      * @return {Number}
      */
     currentYearName() {
-      const yearSuffix = this.translation.yearSuffix;
-      return `${this.utils.getFullYear(this.pageDate)}${yearSuffix}`;
+      const yearSuffix = this.translation.yearSuffix
+      return `${this.utils.getFullYear(this.pageDate)}${yearSuffix}`
     },
 
     /**
@@ -291,15 +311,15 @@ export default {
      */
     isNextMonthDisabled() {
       if (!this.disabledDates || !this.disabledDates.from) {
-        return false;
+        return false
       }
-      let d = this.pageDate;
+      let d = this.pageDate
       return (
         this.utils.getMonth(this.disabledDates.from) <=
           this.utils.getMonth(d) &&
         this.utils.getFullYear(this.disabledDates.from) <=
           this.utils.getFullYear(d)
-      );
+      )
     },
 
     /**
@@ -308,12 +328,12 @@ export default {
      */
     isNextYearDisabled() {
       if (!this.disabledDates || !this.disabledDates.from) {
-        return false;
+        return false
       }
       return (
         this.utils.getFullYear(this.disabledDates.from) <=
         this.utils.getFullYear(this.pageDate)
-      );
+      )
     },
 
     /**
@@ -322,14 +342,14 @@ export default {
      */
     isPreviousMonthDisabled() {
       if (!this.disabledDates || !this.disabledDates.to) {
-        return false;
+        return false
       }
       return (
         this.utils.getMonth(this.disabledDates.to) >=
           this.utils.getMonth(this.pageDate) &&
         this.utils.getFullYear(this.disabledDates.to) >=
           this.utils.getFullYear(this.pageDate)
-      );
+      )
     },
 
     /**
@@ -338,12 +358,12 @@ export default {
      */
     isPreviousYearDisabled() {
       if (!this.disabledDates || !this.disabledDates.to) {
-        return false;
+        return false
       }
       return (
         this.utils.getFullYear(this.disabledDates.to) >=
         this.utils.getFullYear(this.pageDate)
-      );
+      )
     }
   },
   methods: {
@@ -352,7 +372,7 @@ export default {
      * @param {Date} date
      */
     setPageDate(date) {
-      this.pageDate = date;
+      this.pageDate = date
     },
 
     /**
@@ -360,9 +380,9 @@ export default {
      * @param {Number} incrementBy
      */
     _changeMonth(incrementBy) {
-      let date = this.pageDate;
-      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy);
-      this.pageDate = new Date(date);
+      let date = this.pageDate
+      this.utils.setMonth(date, this.utils.getMonth(date) + incrementBy)
+      this.pageDate = new Date(date)
     },
 
     /**
@@ -370,9 +390,9 @@ export default {
      * @param {Number} incrementBy
      */
     _changeYear(incrementBy) {
-      let date = this.pageDate;
-      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy);
-      this.pageDate = new Date(date);
+      let date = this.pageDate
+      this.utils.setFullYear(date, this.utils.getFullYear(date) + incrementBy)
+      this.pageDate = new Date(date)
     },
 
     /**
@@ -391,7 +411,7 @@ export default {
         sun: day.isSunday,
         "highlight-start": day.isHighlightStart,
         "highlight-end": day.isHighlightEnd
-      };
+      }
     },
 
     /**
@@ -400,7 +420,7 @@ export default {
      * @return {Boolean}
      */
     _isDefined(prop) {
-      return typeof prop !== "undefined" && prop;
+      return typeof prop !== "undefined" && prop
     },
 
     /**
@@ -409,33 +429,33 @@ export default {
      * @return {Boolean}
      */
     _isDisabledDate(date) {
-      let disabledDates = false;
+      let disabledDates = false
 
       if (typeof this.disabledDates === "undefined" || !this.disabledDates) {
-        return false;
+        return false
       }
 
       if (typeof this.disabledDates.dates !== "undefined") {
         this.disabledDates.dates.forEach(d => {
           if (this.utils.compareDates(date, d)) {
-            disabledDates = true;
-            return true;
+            disabledDates = true
+            return true
           }
-        });
+        })
       }
       if (
         typeof this.disabledDates.to !== "undefined" &&
         this.disabledDates.to &&
         date < this.disabledDates.to
       ) {
-        disabledDates = true;
+        disabledDates = true
       }
       if (
         typeof this.disabledDates.from !== "undefined" &&
         this.disabledDates.from &&
         date > this.disabledDates.from
       ) {
-        disabledDates = true;
+        disabledDates = true
       }
       if (typeof this.disabledDates.ranges !== "undefined") {
         this.disabledDates.ranges.forEach(range => {
@@ -446,31 +466,31 @@ export default {
             range.to
           ) {
             if (date < range.to && date > range.from) {
-              disabledDates = true;
-              return true;
+              disabledDates = true
+              return true
             }
           }
-        });
+        })
       }
       if (
         typeof this.disabledDates.days !== "undefined" &&
         this.disabledDates.days.indexOf(this.utils.getDay(date)) !== -1
       ) {
-        disabledDates = true;
+        disabledDates = true
       }
       if (
         typeof this.disabledDates.daysOfMonth !== "undefined" &&
         this.disabledDates.daysOfMonth.indexOf(this.utils.getDate(date)) !== -1
       ) {
-        disabledDates = true;
+        disabledDates = true
       }
       if (
         typeof this.disabledDates.customPredictor === "function" &&
         this.disabledDates.customPredictor(date)
       ) {
-        disabledDates = true;
+        disabledDates = true
       }
-      return disabledDates;
+      return disabledDates
     },
 
     /**
@@ -488,7 +508,7 @@ export default {
         this.utils.getMonth(this.highlighted.to) ===
           this.utils.getMonth(date) &&
         this.utils.getDate(this.highlighted.to) === this.utils.getDate(date)
-      );
+      )
     },
 
     /**
@@ -506,7 +526,7 @@ export default {
         this.utils.getMonth(this.highlighted.from) ===
           this.utils.getMonth(date) &&
         this.utils.getDate(this.highlighted.from) === this.utils.getDate(date)
-      );
+      )
     },
 
     /**
@@ -519,22 +539,22 @@ export default {
         !(this.highlighted && this.highlighted.includeDisabled) &&
         this._isDisabledDate(date)
       ) {
-        return false;
+        return false
       }
 
-      let highlighted = false;
+      let highlighted = false
 
       if (typeof this.highlighted === "undefined") {
-        return false;
+        return false
       }
 
       if (typeof this.highlighted.dates !== "undefined") {
         this.highlighted.dates.forEach(d => {
           if (this.utils.compareDates(date, d)) {
-            highlighted = true;
-            return true;
+            highlighted = true
+            return true
           }
-        });
+        })
       }
 
       if (
@@ -542,7 +562,7 @@ export default {
         this._isDefined(this.highlighted.to)
       ) {
         highlighted =
-          date >= this.highlighted.from && date <= this.highlighted.to;
+          date >= this.highlighted.from && date <= this.highlighted.to
       }
 
       if (
@@ -550,7 +570,7 @@ export default {
         this._isDefined(this.hoverDate) &&
         this.floatHighlightEnd
       ) {
-        highlighted = date >= this.highlighted.from && date <= this.hoverDate;
+        highlighted = date >= this.highlighted.from && date <= this.hoverDate
       }
 
       if (
@@ -558,24 +578,24 @@ export default {
         this._isDefined(this.hoverDate) &&
         this.floatHighlightStart
       ) {
-        highlighted = date >= this.hoverDate && date <= this.highlighted.to;
+        highlighted = date >= this.hoverDate && date <= this.highlighted.to
       }
 
       if (
         typeof this.highlighted.days !== "undefined" &&
         this.highlighted.days.indexOf(this.utils.getDay(date)) !== -1
       ) {
-        highlighted = true;
+        highlighted = true
       }
 
       if (
         typeof this.highlighted.customPredictor === "function" &&
         this.highlighted.customPredictor(date)
       ) {
-        highlighted = true;
+        highlighted = true
       }
 
-      return highlighted;
+      return highlighted
     },
 
     /**
@@ -584,7 +604,7 @@ export default {
      * @return {Boolean}
      */
     _isSelectedDate(dObj) {
-      return this.value && this.utils.compareDates(this.value, dObj);
+      return this.value && this.utils.compareDates(this.value, dObj)
     },
 
     /**
@@ -592,7 +612,7 @@ export default {
      */
     _nextMonth() {
       if (!this.isNextMonthDisabled) {
-        this._changeMonth(+1);
+        this._changeMonth(+1)
       }
     },
     /**
@@ -600,7 +620,7 @@ export default {
      */
     _nextYear() {
       if (!this.isNextMonthDisabled) {
-        this._changeYear(+1);
+        this._changeYear(+1)
       }
     },
     /**
@@ -608,7 +628,7 @@ export default {
      */
     _previousMonth() {
       if (!this.isPreviousMonthDisabled) {
-        this._changeMonth(-1);
+        this._changeMonth(-1)
       }
     },
 
@@ -617,7 +637,7 @@ export default {
      */
     _previousYear() {
       if (!this.isPreviousMonthDisabled) {
-        this._changeYear(-1);
+        this._changeYear(-1)
       }
     },
 
@@ -626,10 +646,10 @@ export default {
      * @param {Object} day
      */
     _updateHoverDate(day) {
-      this.hoverDate = new Date(day.timestamp);
+      this.hoverDate = new Date(day.timestamp)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

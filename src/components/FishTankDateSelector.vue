@@ -1,42 +1,43 @@
 <template>
-  <div class="FishTankDateSelector" :orientation="orientation">
+  <div 
+    :orientation="orientation" 
+    class="FishTankDateSelector">
     <!-- Preset type -->
     <Dropdown
       v-model="value.preset"
       :items="rangeTypeOptions"
       :label="label"
       :orientation="orientation"
-      @change="_handlePresetChange"
-    />
+      @change="_handlePresetChange"/>
 
-    <div v-if="value.preset == 'single_date' || value.preset == 'date_range'" class="inputs">
+    <div 
+      v-if="value.preset == 'single_date' || value.preset == 'date_range'" 
+      class="inputs">
       <!-- From/single date -->
       <FishTankDatePicker
+        ref="from"
+        :disabled-dates="{ from: value.to }"
+        :highlighted="{ from: value.from, to: value.to }"
+        :value="value.from"
         class="from-date"
         float-highlight-start
         hide-clear
         open-on-focus
-        ref='from'
-        :disabled-dates="{ from: value.to }"
-        :highlighted="{ from: value.from, to: value.to }"
-        :value="value.from"
-        @change="_handleFromChange"
-      />
+        @change="_handleFromChange"/>
 
       <!-- To date -->
       <FishTankDatePicker
         v-if="value.preset == 'date_range'"
+        ref="to"
+        :disabled-dates="{ to: value.from }"
+        :highlighted="{ from: value.from, to: value.to }"
+        :value="value.to"
         class="to-date"
         float-highlight-end
         hide-calendar-toggle
         hide-clear
         open-on-focus
-        ref='to'
-        :disabled-dates="{ to: value.from }"
-        :highlighted="{ from: value.from, to: value.to }"
-        :value="value.to"
-        @change="$emit('change', { from: value.from, to: $event, preset: value.preset })"
-      />
+        @change="$emit('change', { from: value.from, to: $event, preset: value.preset })"/>
     </div>
   </div>
 </template>
