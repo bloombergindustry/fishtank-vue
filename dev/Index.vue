@@ -27,17 +27,11 @@
       <li><a href="#/tabs">Tabs</a></li>
       <li><a href="#/tags">Tags</a></li>
       <li><a href="#/tables">Tables</a></li>
+      <li><a href="#/text">Text</a></li>
       <li><a href="#/textinput">Text Input</a></li>
       <li><a href="#/textinputv2">Text Input V2</a></li>
-      <li><a href="#/verticaltabs">VerticalTabs</a></li>
-      <li><a href="#/text">Text</a></li>
-      <li><a href="#/heading">Heading</a></li>
-      <li><a href="#/pagination">Pagination</a></li>
-      <li><a href="#/box">Box</a></li>
-      <li><a href="#/select">Select</a></li>
-      <li><a href="#/lookup">Lookup</a></li>
-      <li><a href="#/container-columns">Containers and Columns</a></li>
       <li><a href="#/tooltips">Tooltips</a></li>
+      <li><a href="#/verticaltabs">VerticalTabs</a></li>
     </ul>
     <p>
       For additional documentation and code examples, please visit the <a href="https://fishtank.bna.com">Fish Tank guide website</a>.
@@ -60,7 +54,7 @@ import {
  })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
   a {
     text-decoration: none;
@@ -71,8 +65,16 @@ import {
     color: var(--color-link-visited);
   }
 
+  a:hover {
+    color: var(--color-selected);
+  }
+
   section {
     margin-left: 25px;
+  }
+
+  li {
+    margin: 0 0 3px 0;
   }
 </style>
 
