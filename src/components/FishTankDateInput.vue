@@ -55,14 +55,15 @@
           @blur="isFocused=false"
         />
       </div>
-      <close 
-        v-if="!hideClear" 
-        tabindex="0" 
-        class="icon" 
+      <close
+        v-if="!hideClear"
+        tabindex="0"
+        class="icon"
         role="button"
-        @click="this.clearInput" 
+        @click="this.clearInput"
         @focus="isFocused=true"
-        @blur="isFocused=false" />
+        @blur="isFocused=false"
+      />
     </div>
   </div>
 </template>
@@ -126,6 +127,20 @@ export default {
       if (Number(this.month) > 12) {
         this.month = "";
       }
+
+      if (
+        this.$refs.month !== document.activeElement &&
+        this.month.length === 1
+      ) {
+        this.month = "0" + this.month;
+      }
+      if (this.$refs.day !== document.activeElement && this.day.length === 1) {
+        this.day = "0" + this.day;
+      }
+      if (this.month.length === 2 && this.day.length === 0) {
+        this.$refs.day.focus();
+      }
+      
     },
     day(newVal) {
       let re = /[^0-9]/gi;
@@ -133,10 +148,51 @@ export default {
       if (Number(this.day) > 31) {
         this.day = "";
       }
+
+      if (
+        this.$refs.month !== document.activeElement &&
+        this.month.length === 1
+      ) {
+        this.month = "0" + this.month;
+      }
+      if (this.$refs.day !== document.activeElement && this.day.length === 1) {
+        this.day = "0" + this.day;
+      }
+      if (
+        this.day.length === 2 &&
+        this.month.length === 2 &&
+        this.year.length === 0
+      ) {
+        console.log("focusing year");
+        this.$refs.year.focus();
+      }
+
+      if (
+        this.month.length === 2 &&
+        this.day.length === 2 &&
+        this.year.length === 4 
+      ) {
+        // Code being re-used here, consolidate with a function
+        if (this._dateStringIsValid(this.fullDate)) {
+          this.$emit("change", new Date(this.fullDate));
+        } else {
+          this.formattedValue = null;
+        }
+      }
     },
     year(newVal) {
       let re = /[^0-9]/gi;
       this.$set(this, "year", newVal.replace(re, ""));
+
+      if (
+        this.$refs.month !== document.activeElement &&
+        this.month.length === 1
+      ) {
+        this.month = "0" + this.month;
+      }
+      if (this.$refs.day !== document.activeElement && this.day.length === 1) {
+        this.day = "0" + this.day;
+      }
     },
     date(newVal) {
       this.getParentDate();
@@ -145,38 +201,7 @@ export default {
   created() {
     this.getParentDate();
   },
-  updated() {
-    if (this.month.length === 2 && this.day.length === 0) {
-      this.$refs.day.focus();
-    }
-    if (
-      this.$refs.month !== document.activeElement &&
-      this.month.length === 1
-    ) {
-      this.month = "0" + this.month;
-    }
-
-    if (this.day.length === 2 && this.year.length === 0 && 
-    this.$refs.year !== document.activeElement) {
-      this.$refs.year.focus();
-    }
-    if (this.$refs.day !== document.activeElement && this.day.length === 1) {
-      this.day = "0" + this.day;
-    }
-
-    if (
-      this.month.length === 2 &&
-      this.day.length === 2 &&
-      this.year.length === 4
-    ) {
-      // Code being re-used here, consolidate with a function
-      if (this._dateStringIsValid(this.fullDate)) {
-        this.$emit("change", new Date(this.fullDate));
-      } else {
-        this.formattedValue = null;
-      }
-    }
-  },
+  updated() {},
   methods: {
     getParentDate() {
       let dateArr = this._formatDate(this.date).split("/");
@@ -205,7 +230,6 @@ export default {
     _handleKeyup(e) {
       // Only change on Enter
       if (e.key !== "Enter") return;
-      console.log("Enter Press Detected");
       // Correcting possible invalid date formats
       if (this.month.length === 1) {
         this.month = "0" + this.month;
@@ -214,9 +238,7 @@ export default {
         this.day = "0" + this.day;
       }
       // Set the value if valid, clear otherwise
-      console.log(this.fullDate);
       if (this._dateStringIsValid(this.fullDate)) {
-        console.log(new Date(this.fullDate));
         this.$emit("change", new Date(this.fullDate));
       } else {
         this.formattedValue = null;
@@ -261,11 +283,11 @@ export default {
   border: 1px solid var(--color-gray-light);
   border-radius: var(--border-radius, 2px);
   user-select: none;
-  padding:1px;
+  padding: 1px;
   &:focus-within,
   &.is-focused {
     border: 2px solid var(--color-notification-3);
-    padding:0px;
+    padding: 0px;
   }
 }
 .date-fields {
@@ -325,7 +347,7 @@ input {
 .icon {
   display: inline-block;
   align-self: center;
-  outline:none;
+  outline: none;
   border-radius: var(--border-radius, 2px);
   &:active {
     background: var(--color-gray);
@@ -334,5 +356,4 @@ input {
     background: var(--color-secondary-darker);
   }
 }
-
 </style>

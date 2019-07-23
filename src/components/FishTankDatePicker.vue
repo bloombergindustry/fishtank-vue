@@ -31,7 +31,7 @@
       @showMonthCalendar="activePicker = 'month'"
     />
 
-    <!-- Month View -->
+    <!-- Month View
     <FishTankPickerMonth
       v-show="activePicker === 'month'"
       ref="month"
@@ -44,7 +44,7 @@
       @showYearCalendar="activePicker = 'year'"
     />
 
-    <!-- Year View -->
+    Year View 
     <FishTankPickerYear
       v-if="activePicker === 'year'"
       :disabledDates="disabledDates"
@@ -53,7 +53,7 @@
       :utc="utc"
       :date="value"
       @selectYear="_selectYear"
-    />
+    /> -->
   </div>
 </template>
 <script>
