@@ -4,61 +4,64 @@
     <h1>FishTankCards V1</h1>
     <br>
 
-    <Card>
+    <card>
       I am a plain card
-    </Card>
+    </card>
 
-    <Card 
-      heading="I am a card heading"
-    >
+    <card 
+      heading="I am a card heading">
       I am card content
-    </Card>
+    </card>
 
-    <Card>
+    <card>
       <div
         slot="heading"
         slot-scope="{ headerClass }"
         :class="headerClass"
-        class="custom-heading"
-      >
+        class="custom-heading">
         Heading with custom background
       </div>
       I am card content
-    </Card>
+    </card>
 
-    <Card 
-      branded="card-sample-brand-class"
-    >
+    <card 
+      branded="card-sample-brand-class">
       I am a branded card
-    </Card>
+    </card>
 
     <br>
     <h1>FishTankCards V2</h1>
+    <em>Card content padding provided by FishTankBox component</em>
     <br>
 
-    <CardV2>
-      I am a plain card
-    </CardV2>
+    <card-v2>
+      <box :padding="2">
+        I am a plain card
+      </box>
+    </card-v2>
 
-    <CardV2
-      :branded="brandedColor"
-    >
-      I am a branded plain card
-    </CardV2>
+    <card-v2
+      :branded="brandedColor">
+      <box :padding="2">
+        I am a branded plain card
+      </box>
+    </card-v2>
 
-    <CardV2 
-      heading="I am a card heading"
-    >
-      I am card content
-    </CardV2>
+    <card-v2 
+      heading="I am a card heading">
+      <box :padding="2">
+        I am card content
+      </box>
+    </card-v2>
 
-    <CardV2
+    <card-v2
       heading="Heading with custom background"
       :customHeadingBg="brandedColor"
       :customHeadingText="brandedColorText">
-      I am card content
-    </CardV2>
-
+      <box :padding="2">
+        I am card content
+      </box>
+    </card-v2>
   </div>
 </template>
 
@@ -66,7 +69,8 @@
 import Vue from 'vue'
 import { 
   Card,
-  CardV2 
+  CardV2,
+  FishTankBox 
 } from '@/index'
 import { mapClassName } from '@/util/style'
 
@@ -80,7 +84,8 @@ import{
 export default Vue.extend({
   components: {
     Card,
-    CardV2
+    CardV2,
+    box: FishTankBox
   },
   data(){
     return{

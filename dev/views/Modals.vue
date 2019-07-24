@@ -110,8 +110,7 @@
     <modal-v2
       v-model="modal4"
       width="80%"
-      fixed
-    > 
+      fixed> 
       <search32 slot="headingIcon"/>
 
       <template slot="heading"> 
@@ -160,7 +159,7 @@
 import Vue from 'vue'
 
 import { 
-  ModalV2, 
+  FishTankModalV2, 
   DialogBox, 
   ButtonPrimary, 
   ButtonSecondary, 
@@ -180,7 +179,7 @@ import {
 
 export default Vue.extend({
   components: {
-    ModalV2,
+    ModalV2:FishTankModalV2,
     DialogBox,
     ButtonPrimary,
     ButtonFeatureLabel,
@@ -203,7 +202,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    logger (msg:any):void {
+    logger (msg:string):void {
       console.log(msg)
     }
   }
