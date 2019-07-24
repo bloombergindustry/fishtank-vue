@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/bloombergbna/fishtank-vue/compare/v5.1.0...v5.2.0) (2019-07-24)
+
+
+### Bug Fixes
+
+* added export for FishTankModalV2 ([c41de81](https://github.com/bloombergbna/fishtank-vue/commit/c41de81))
+
+
+### Features
+
+* Added Overflow prop to modal, to set overflow-y property on modal body content; Added open and close event emitters to allow binding to Modal open and close. ([9366420](https://github.com/bloombergbna/fishtank-vue/commit/9366420))
+
+
+
 <a name="5.1.0"></a>
 # [5.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.1...v5.1.0) (2019-07-22)
 
