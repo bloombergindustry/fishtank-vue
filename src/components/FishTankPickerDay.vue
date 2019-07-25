@@ -5,8 +5,7 @@
         role="button"
         :disabled="isPreviousYearDisabled"
         class="prev double"
-        @click="_previousYear"
-      >
+        @click="_previousYear">
         <chevron-left24 />
         <chevron-left24 />
       </span>
@@ -15,8 +14,9 @@
       </span>
       <span
         :disabled="disableMonth"
-        class="current-month"
-      >{{ currentMonthName }} {{ currentYearName }}</span>
+        class="current-month">
+        {{ currentMonthName }} {{ currentYearName }}
+      </span>
       <span role="button" :disabled="isNextMonthDisabled" class="next" @click="_nextMonth">
         <chevron-right24 />
       </span>
@@ -33,16 +33,21 @@
       </template>
       <span
         v-for="(day, index) in days"
+        :key="index"
         :class="_dayClasses(day)"
         :disabled="day.isDisabled"
-        :key="index"
         @click="$emit('change', new Date(day.timestamp))"
-        @mouseover="_updateHoverDate(day)"
-        v-html="day.date"
-      />
+        @mouseover="_updateHoverDate(day)">
+        {{ day.date }}
+      </span>
     </div>
     <footer>
-      <span role="button" class="select-today" @click="$emit('change', new Date())">Today</span>
+      <span 
+        role="button" 
+        class="select-today" 
+        @click="$emit('change', new Date())">
+        Today
+      </span>
     </footer>
   </div>
 </template>
