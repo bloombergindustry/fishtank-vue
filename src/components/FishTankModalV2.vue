@@ -54,7 +54,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   @Prop({
     type:Boolean,
     required:false,
-    default:false,
+    default:true,
   })
   escapeable:boolean
 
@@ -171,8 +171,10 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
   updateState() {
     if (this.active) {
+      document.body.classList.add('modal-locked')
       this.show()
     } else {
+      document.body.classList.remove('modal-locked')
       this.hide()
     }
   }
@@ -225,6 +227,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
       return this.showScroll()
     }
 
+    document.body.classList.remove('modal-locked')
     overlay.classList.remove('overlay--active')
 
     overlayTimeout = window.setTimeout(() => {
@@ -659,20 +662,6 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
 }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background-color: rgba(black, 0.5)
-}
-
-.overlay--active {
-  display: block;
-}
 
 .modal__footerLeft{
   width: 50%;
@@ -689,4 +678,28 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   justify-content: flex-end;
   align-items: center;
 }
+
+</style>
+
+<style>
+  .modal-locked {
+    height: 100%;
+    overflow: hidden;
+  }
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(black, 0.5)
+}
+
+.overlay--active {
+  display: block;
+}
+
 </style>
