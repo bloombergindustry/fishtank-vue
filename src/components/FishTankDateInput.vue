@@ -55,6 +55,7 @@
         tabindex="0"
         class="icon"
         role="button"
+        @keyup.enter.native="clearInput"
         @click="this.clearInput"
         @focus="isFocused=true"
         @blur="isFocused=false"/>
@@ -342,8 +343,11 @@ input {
   align-self: center;
   outline: none;
   border-radius: var(--border-radius, 2px);
+  &:hover {
+    background: var(--color-gray-lightest);
+  }
   &:active {
-    background: var(--color-gray);
+    background: var(--color-secondary-darker);
   }
   &:focus {
     background: var(--color-secondary-darker);
