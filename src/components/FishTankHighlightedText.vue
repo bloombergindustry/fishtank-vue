@@ -1,7 +1,7 @@
 <template>
   <span 
     class="HighlightedText" 
-      v-html="_transformedContent" />
+    v-html="_transformedContent" />
 </template>
 
 <script>

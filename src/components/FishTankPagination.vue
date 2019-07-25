@@ -17,12 +17,12 @@
 
 <script lang="ts">
   import { Component, Prop, Vue, Model } from 'vue-property-decorator'
-  import { VueConstructor } from 'Vue';
+  import { VueConstructor } from 'Vue'
   import * as VueJsPaginate from "vuejs-paginate"
   import {
     ChevronLeft24 as ChevronLeftIcon,
     ChevronRight24 as ChevronRightIcon,
-  } from '@fishtank/icons-vue';
+  } from '@fishtank/icons-vue'
 
   @Component({
     components:{
@@ -56,12 +56,12 @@
 
     // Computed methods
     get breakViewClass(): string {
-      return this.showLastPage ? '' : 'break-out';
+      return this.showLastPage ? '' : 'break-out'
     }
 
     // Component methods
     paginateSearch(pageNum: number): void {
-      this.$emit('paginate', pageNum);
+      this.$emit('paginate', pageNum)
     }
 
     // Data

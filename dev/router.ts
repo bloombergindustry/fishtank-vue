@@ -128,6 +128,10 @@ export default new Router(<RouterOptions>{
     {
       path: '/tooltips',
       component: () => import("./views/Tooltip.vue")
+    },
+    {
+      path: '/datepicker',
+      component: () => import("./views/DatePicker.vue")
     }
   ]
 })

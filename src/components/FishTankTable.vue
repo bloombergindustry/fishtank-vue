@@ -65,7 +65,7 @@
         if(currField.name === cellName) {
           switch(currField.colAlignment) {
             case "right":
-              return "td--right";
+              return "td--right"
             case "center":
               return "td--center"
             default:
@@ -80,26 +80,31 @@
 
 <template>
   <table 
-    class="table"
-    :table-data="tableData">
+    :table-data="tableData"
+    class="table">
     <thead>
       <tr>
         <template v-for="(field, index) in tableData.fields" >
           <template v-if="isSpecialCell(field.name)">
             <th 
               v-if="getCellType(field)=='__slot'"   
-              :class="[]" :key="index"> 
-               <!-- @slot Slot for passing component to table header -->
-              <slot :name ="renderComponent(cell)" :row-data = "row" :row-index = "rowIndex" />
+              :class="[]" 
+              :key="index"> 
+              <!-- @slot Slot for passing component to table header -->
+              <slot 
+                :name ="renderComponent(cell)" 
+                :row-data = "row" 
+                :row-index = "rowIndex" />
             </th>
             <!--supports additional special cell types, can add more cell types here-->
           </template>
           <template v-else>
             <th
               :style="{width: field.width}"
-              :class="[]" :key="index">
+              :class="[]" 
+              :key="index">
               
-                {{ field.title.toUpperCase() }}
+              {{ field.title.toUpperCase() }}
 
             </th>
           </template>
@@ -116,19 +121,20 @@
                 :class="[getColAlign(name)]" 
                 :key="index">
                 <!-- @slot Slot for passing component to table body -->
-                <slot :name ="renderComponent(cell)" :row-data = "row" :row-index = "rowIndex" >
-
-                </slot>
+                <slot 
+                  :name ="renderComponent(cell)" 
+                  :row-data = "row" 
+                  :row-index = "rowIndex" />
               </td>
               <!--supports additional special cell types, can add more cell types here-->
             </template>
             <template v-else>
               <td
-              :style="{width: row.width}"
-              :class="[getColAlign(name)]"
-              :key="index">
+                :style="{width: row.width}"
+                :class="[getColAlign(name)]"
+                :key="index">
               
-              {{ cell }}
+                {{ cell }}
               
               </td>
             </template>

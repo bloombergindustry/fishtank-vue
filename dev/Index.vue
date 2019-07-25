@@ -14,6 +14,7 @@
       <li><a href="#/checkboxesv2">CheckboxesV2</a></li>
       <li><a href="#/container-columns">Containers and Columns</a></li>
       <li><a href="#/contentloaders">Content Loaders</a></li>
+      <li><a href="#/datepicker">Date Picker</a></li>
       <li><a href="#/heading">Heading</a></li>
       <li><a href="#/lookup">Lookup</a></li>
       <li><a href="#/modals">Modals</a></li>
@@ -53,7 +54,7 @@ import {
  })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
   a {
     text-decoration: none;
@@ -64,8 +65,16 @@ import {
     color: var(--color-link-visited);
   }
 
+  a:hover {
+    color: var(--color-selected);
+  }
+
   section {
     margin-left: 25px;
+  }
+
+  li {
+    margin: 0 0 3px 0;
   }
 </style>
 
