@@ -113,7 +113,7 @@
  * FishTankTextInput V1
  * @deprecated
  * This component is being deprecated in favor of FishTankTextInputV2.
- * It will be removed from the library in October of 2019.
+ * It will be removed from the library in October 2019.
  * FishTankTextInputV2 offers a more standard and consistant API, and better code quality.
  * Please begin using FishTankTextInputV2 to avoid any breaking changes.
  */
@@ -214,6 +214,9 @@ export default Vue.extend({
       scrollOn:false,
       trackFalseHeight:0
       }
+  },
+  mounted () {
+    console.warn('FishTankTextInput is being deprecated in favor of FishTankTextInputV2. It will be removed from the library in October 2019. Please migrate to FishTankTextInputV2.')
   },
   computed: {
     labelId(): string {

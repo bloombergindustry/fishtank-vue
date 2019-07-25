@@ -35,129 +35,125 @@
 </script>
 
 <template>
-    <div class = "content">
-        <heading level="1">
-            Number Badges
-        </heading>
-        <card>
-            <table class = "tbl">
-                <tr>
-                    <td>
-                        <badge theme ="bgov" :value="9" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="btax" :value="99">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-1" :value="999" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-2" text-shade="dark" :value="9999" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-3" :value="1" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="neutral" text-shade="dark" :value="1" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="disabled" text-shade="disabled" :value="0" >
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                </tr>
-            </table>
+  <div class = "content">
+    <heading level="1">
+      Number Badges
+    </heading>
+    <card>
+      <table class = "tbl">
+        <tr>
+          <td>
+            <badge theme ="bgov" :value="9" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="btax" :value="99">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-1" :value="999" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-2" text-shade="dark" :value="9999" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-3" :value="1" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="neutral" text-shade="dark" :value="1" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="disabled" text-shade="disabled" :value="0" >
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+        </tr>
+      </table>
+    </card>
 
-        </card>
-
-        <heading level="1">
-            Indeterminate Badges
-        </heading>
-        <card>
-            <table class = "tbl">
-                <tr>
-                    <td>
-                        <badge theme ="bgov">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="btax">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-1">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-2">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="notification-3">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                    <td>
-                        <badge theme ="disabled" text-shade="disabled">
-                            <template v-slot:content>
-                                <inbox />
-                            </template>
-                        </badge>
-                    </td>
-                </tr>
-            </table>
+    <heading level="1">
+      Indeterminate Badges
+    </heading>
+    <card>
+      <table class = "tbl">
+        <tr>
+          <td>
+            <badge theme ="bgov">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="btax">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-1">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-2">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="notification-3">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+          <td>
+            <badge theme ="disabled" text-shade="disabled">
+              <template v-slot:content>
+                <inbox />
+              </template>
+            </badge>
+          </td>
+        </tr>
+      </table>
             
-        </card>
-    </div>
+    </card>
+  </div>
 </template>
 
 <style lang="scss">
 
 .card {
     display:inline-block;
-}
-.tbl {
-    border-spacing:25px;
 }
 .content {
     margin: 50px;

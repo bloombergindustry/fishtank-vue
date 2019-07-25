@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.1...v5.1.0) (2019-07-22)
+
+
+### Features
+
+* Added Overflow prop to modal, to set overflow-y property on modal body content; Added open and close event emitters to allow binding to Modal open and close. ([f56959b](https://github.com/bloombergbna/fishtank-vue/commit/f56959b))
+* Renamed FishTankCheckboxV2 to FishTankCheckboxSwitch ([a4d8b0d](https://github.com/bloombergbna/fishtank-vue/commit/a4d8b0d))
+
+
+
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.1-1...v5.0.1) (2019-07-19)
+
+
+### Bug Fixes
+
+* fixed build errer in main scripts due to typo ([5d62dd8](https://github.com/bloombergbna/fishtank-vue/commit/5d62dd8))
+
+
+### Features
+
+* Added neutral badge option ([9fa029b](https://github.com/bloombergbna/fishtank-vue/commit/9fa029b))
+* Added neutral badge option ([6858383](https://github.com/bloombergbna/fishtank-vue/commit/6858383))
+
+
+
+<a name="5.0.1-1"></a>
+## [5.0.1-1](https://github.com/bloombergbna/fishtank-vue/compare/v5.0.0...v5.0.1-1) (2019-07-15)
+
+
+### Bug Fixes
+
+* fixed build errer in main scripts due to typo ([395c8ea](https://github.com/bloombergbna/fishtank-vue/commit/395c8ea))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/bloombergbna/fishtank-vue/compare/v4.10.9...v5.0.0) (2019-07-12)
 

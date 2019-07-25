@@ -116,6 +116,7 @@ export default class FishTankNumberBadge extends Vue {
     .badge-area {
         position:relative;
         display:inline-block;
+        margin-right:calc(var(--baseline)*3);
     }
 
     .badge-chip{

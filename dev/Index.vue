@@ -25,8 +25,8 @@
       <li><a href="#/spinnerloader">Spinner Loader</a></li>
       <li><a href="#/switches">Switches</a></li>
       <li><a href="#/tabs">Tabs</a></li>
-      <li><a href="#/tags">Tags</a></li>
       <li><a href="#/tables">Tables</a></li>
+      <li><a href="#/tags">Tags</a></li>
       <li><a href="#/text">Text</a></li>
       <li><a href="#/textinput">Text Input</a></li>
       <li><a href="#/textinputv2">Text Input V2</a></li>
