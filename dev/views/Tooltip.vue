@@ -26,6 +26,7 @@
             class="title">
             Hover over text to see Tooltips 
           </ftext>
+          <input type="text" v-model="update">
         </box>
 
         <br>
@@ -41,51 +42,51 @@
           justify-content="between">
           <tooltip
             orientation="top-start"
-            label="a top oriented Tooltip">
-            <a href>
-              <ftext 
-                color="link"
-                inline
-                semi-bold>
-                Top 
-              </ftext>
-            </a>
+            title="a top oriented Tooltip">
+            <ftext 
+              inline
+              semi-bold>
+              Top 
+            </ftext>
           </tooltip>
 
           <tooltip
             orientation="left-start"
-            label="a left oriented Tooltip">
-            <a href>
-              <ftext 
-                color="link" 
-                semi-bold>
-                Left 
-              </ftext>
-            </a>
+            title="A semantic title">
+            <ftext 
+              semi-bold>
+              Left 
+            </ftext>
+            <template v-slot:customContent>
+              <p>{{ update }}</p>
+              <div>
+                this is the custom content in the tool tip
+              </div>
+              <ul>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+              </ul>
+            </template>
           </tooltip>
-
+          
           <tooltip
             orientation="bottom-start"
-            label="a bottom oriented Tooltip">
-            <a href>
-              <ftext 
-                color="link" 
-                semi-bold>
-                Bottom 
-              </ftext>
-            </a>
+            title="a bottom oriented Tooltip">
+            <ftext 
+              semi-bold>
+              Bottom 
+            </ftext>
           </tooltip>
 
           <tooltip
             orientation="right-start"
-            label="a right oriented Tooltip">
-            <a href>
-              <ftext 
-                color="link"
-                semi-bold>
-                Right 
-              </ftext>
-            </a>
+            title="a right oriented Tooltip">
+            <ftext 
+              semi-bold>
+              Right 
+            </ftext>
           </tooltip>
         </box>
       </box>
@@ -115,7 +116,7 @@ export default Vue.extend({
   },
   data(){
     return {
-      
+      update:''
     }
   }
 })
