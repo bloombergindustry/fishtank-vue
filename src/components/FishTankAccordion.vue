@@ -1,7 +1,7 @@
 <template>
   <div
     
-    :class="[ disabled ? $style.accordionDisabled : $style.accordionContainer]"
+    :class="[ disabled ? $style.accordionDisabled : $style.accordionContainer, !flush ? $style.accordionMargin: null]"
     :id="( id !==null? id: labelId )"
     role="accordion"> 
     <div 
@@ -104,6 +104,14 @@
             fishtankAccordionGroupShared: {
                 type: Object as () => AccordionComponentGroup,
                 required: false
+            },
+            /**
+             * Remove margin and make header flush to the container
+             */
+            flush: {
+              default: false,
+              type: Boolean,
+              required: false
             }
         },
         inject:{
@@ -170,7 +178,10 @@
     .accordionContainer{
         display: flex;
         flex-direction: column;
-        margin: 12px;
+        // margin: 12px;
+    }
+    .accordionMargin {
+      margin: 12px;
     }
     .accordionWrapper{
       display: flex;
