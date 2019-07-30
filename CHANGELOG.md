@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.2"></a>
+## [5.2.2](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.1...v5.2.2) (2019-07-30)
+
+
+### Bug Fixes
+
+* fixed exports for Modals, cards and checkbox /switch components ([69d534f](https://github.com/bloombergbna/fishtank-vue/commit/69d534f))
+* fixed exports for Modals, cards and checkbox /switch components ([2ceb219](https://github.com/bloombergbna/fishtank-vue/commit/2ceb219))
+* fixed scrolling and overlay css issues ([94623b0](https://github.com/bloombergbna/fishtank-vue/commit/94623b0))
+
+
+### Features
+
+* Added date input/picker component ([da70bf8](https://github.com/bloombergbna/fishtank-vue/commit/da70bf8))
+* Adding BLAW Date Selector components ([17d9102](https://github.com/bloombergbna/fishtank-vue/commit/17d9102))
+
+
+
 <a name="5.2.1"></a>
 ## [5.2.1](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.0...v5.2.1) (2019-07-24)
 
