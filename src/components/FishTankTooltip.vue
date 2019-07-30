@@ -153,7 +153,7 @@ export default class FishTankTooltip extends Vue {
       </div>
     </div>
     <div
-      class="custom-content"
+      class="custom-content-container"
       :id="identifier">
       <slot name="customContent" />
     </div>
@@ -270,7 +270,7 @@ export default class FishTankTooltip extends Vue {
       margin-right: 0;
       transform: rotateZ(45deg);
   }
-  .tooltip-wrap .custom-content {
+  .tooltip-wrap .custom-content-container {
     display:none;
   }
   .tooltip-reference {

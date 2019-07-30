@@ -1,82 +1,74 @@
 <template>
-    <div>
-        <h1>Single Accordions [ Default ]</h1>
+  <div>
+    <h1>Single Accordions [ Default ]</h1>
 
-        <FishTankAccordion 
-            heading="Section Heading"
-        >
-            <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordion>
+    <fish-tank-accordion 
+      heading="Section Heading">
+      <fish-tank-loader-content theme="AlertList"/>
+    </fish-tank-accordion>
 
-        <FishTankAccordion 
-            heading="Another Section Heading"
-            subheading="A Sub-heading"
-        >
-            <FishTankButtonPrimary> Click Big </FishTankButtonPrimary>
-        </FishTankAccordion>
+    <fish-tank-accordion 
+      heading="Another Section Heading; Flush to the container"
+      subheading="A Sub-heading"
+      flush>
+      <fish-tank-button-primary> Click Big </fish-tank-button-primary>
+    </fish-tank-accordion>
 
-        <FishTankAccordion 
-            heading="Disabled Section Heading"
-            subheading="Disabled Sub-heading"
-            :disabled="disabledAccordion"
-        >
-            <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordion>
+    <fish-tank-accordion 
+      heading="Disabled Section Heading"
+      subheading="Disabled Sub-heading"
+      :disabled="disabledAccordion">
+      <fish-tank-loader-content theme="AlertList"/>
+    </fish-tank-accordion>
 
-        <br/>
+    <br/>
 
-        <h1> Single Accordion [ Small ]</h1>
+    <h1> Single Accordion [ Small ]</h1>
 
-        <br/>
+    <br/>
 
-        <FishTankAccordion
-            :small="true"
-            heading="Small Section Heading"
-        >
-            <FishTankButtonPrimary> Click </FishTankButtonPrimary>
-        </FishTankAccordion>
+    <fish-tank-accordion
+      :small="true"
+      heading="Small Section Heading">
+      <fish-tank-button-primary> Click </fish-tank-button-primary>
+    </fish-tank-accordion>
 
-        <FishTankAccordion
-            :small="true"
-            heading="Disabled Small Section Heading"
-            :disabled="disabledAccordion"
-        >
-            <FishTankLoaderContent theme="AlertList"/>
-        </FishTankAccordion>
+    <fish-tank-accordion
+      :small="true"
+      heading="Disabled Small Section Heading"
+      :disabled="disabledAccordion">
+      <fish-tank-loader-content theme="AlertList"/>
+    </fish-tank-accordion>
 
-        <br/>
+    <br/>
 
-        <h1>Accordion Group </h1>
+    <h1>Accordion Group </h1>
 
-        <br/>
+    <br/>
 
-        <FishTankAccordionGroup
-            :single="true"
-        >
+    <fish-tank-accordion-group
+      :single="true">
 
-            <FishTankAccordion 
-                heading="Group Section Heading"
-                subheading="Group Sub-heading"
-            >
-                <FishTankLoaderContent theme="AlertList"/>
-            </FishTankAccordion>
-            <FishTankAccordion 
-                heading="Another Group Section Heading"
-                subheading="Another Group Sub-heading"
-            >
-                <FishTankLoaderContent theme="MembersOfCongressList"/>
-            </FishTankAccordion>
+      <fish-tank-accordion 
+        heading="Group Section Heading"
+        subheading="Group Sub-heading">
+        <FishTankLoaderContent theme="AlertList"/>
+      </fish-tank-accordion>
+      <fish-tank-accordion 
+        heading="Another Group Section Heading"
+        subheading="Another Group Sub-heading">
+        <FishTankLoaderContent theme="MembersOfCongressList"/>
+      </fish-tank-accordion>
 
-            <FishTankAccordion 
-                heading="Yet Another Group Section Heading"
-                subheading="Yet Another Group Sub-heading"
-            >
-                <FishTankButtonPrimary> Click </FishTankButtonPrimary>
-            </FishTankAccordion>
+      <fish-tank-accordion 
+        heading="Yet Another Group Section Heading"
+        subheading="Yet Another Group Sub-heading">
+        <FishTankButtonPrimary> Click </FishTankButtonPrimary>
+      </fish-tank-accordion>
         
-        </FishTankAccordionGroup>
+    </fish-tank-accordion-group>
 
-    </div>
+  </div>
 </template>
 
 <script>
