@@ -3,7 +3,7 @@
     :orientation="orientation" 
     class="FishTankDateSelector">
     <!-- Preset type -->
-    <Dropdown
+    <dropdown
       v-model="value.preset"
       :items="rangeTypeOptions"
       :label="label"
@@ -14,7 +14,7 @@
       v-if="value.preset == 'single_date' || value.preset == 'date_range'" 
       class="inputs">
       <!-- From/single date -->
-      <FishTankDatePicker
+      <fish-tank-date-picker
         ref="from"
         :disabled-dates="{ from: value.to }"
         :highlighted="{ from: value.from, to: value.to }"
@@ -26,7 +26,7 @@
         @change="_handleFromChange"/>
 
       <!-- To date -->
-      <FishTankDatePicker
+      <fish-tank-date-picker
         v-if="value.preset == 'date_range'"
         ref="to"
         :disabled-dates="{ to: value.from }"
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import FishTankDatePicker from './FishTankDatePicker'
+import FishTankDatePicker from './FishTankDatePicker.vue'
 //import Dropdown from '../../Dropdown'
 import FishTankSelect from './FishTankSelect.vue'
 
