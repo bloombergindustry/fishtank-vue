@@ -61,7 +61,7 @@ export default class FishTankTooltip extends Vue {
   inputEl = undefined
   content = undefined
   
-  public createPop(): void {
+  createPop(): void {
     (this as any).inputEl = this.$refs.reference;
     this.$nextTick(function() {
       (this as any).popObj = new Tooltip(
@@ -172,12 +172,13 @@ export default class FishTankTooltip extends Vue {
    padding: $baseline * 2;
    margin-bottom: 10px;
    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+   border: 1px solid $color-gray-lighter;
   }
   .title .tooltip{
     background: var(--tooltip-background-color, $color-gray-lightest);
   }
   .custom-content .tooltip{
-    background: var(--tooltip-background-custom-color, $color-white);
+    background-color: var(--tooltip-background-custom-color, $color-white);
   }
   .tooltip .tooltip-arrow {
     width: 0;
@@ -190,22 +191,18 @@ export default class FishTankTooltip extends Vue {
   .tooltip .tooltip-arrow {
       border-color: #FFC107;
   }
-  .style5 .tooltip .tooltip-arrow {
-      border-color: #1E252B;
-  }
   .tooltip[x-placement^="top"] {
       margin-bottom: 5px;
   }
   .tooltip[x-placement^="top"] .tooltip-arrow {
       border-width: 5px 5px 5px 5px;
-      box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+      box-shadow: 1px 1px 0px 0 rgba(197, 202, 205, 1);
       bottom: -5px;
       left: calc(50% - 5px);
       margin-top: 0;
       margin-bottom: 0;
       transform: rotateZ(45deg);
   }
-  
   .title .tooltip[x-placement^="top"] .tooltip-arrow {
     border-left-color: transparent;
     border-right-color: var(--tool-tip-arrow, $color-gray-lightest);
@@ -231,6 +228,7 @@ export default class FishTankTooltip extends Vue {
       border-right-color: transparent;
       border-top-color:  var(--tool-tip-arrow, $color-gray-lightest);
       border-bottom-color: transparent;
+      box-shadow: -1px -1px 0px 0 rgba(197, 202, 205, 1);
       top: -5px;
       left: calc(50% - 5px);
       margin-top: 0;
@@ -248,6 +246,7 @@ export default class FishTankTooltip extends Vue {
       border-right-color: transparent;
       border-top-color: transparent;
       border-bottom-color: var(--tool-tip-arrow, $color-gray-lightest);
+      box-shadow: -1px 1px 0px 0px rgba(197, 202, 205, 1);
       left: -5px;
       top: calc(50% - 5px);
       margin-left: 0;
@@ -263,16 +262,22 @@ export default class FishTankTooltip extends Vue {
       border-right-color: var(--tool-tip-arrow, $color-gray-lightest);
       border-top-color: var(--tool-tip-arrow, $color-gray-lightest);
       border-bottom-color: transparent;
-      box-shadow: 5px -3px 3px 0 rgba(0, 0, 0, 0.4);
+      box-shadow: 1px -1px 1px 0 rgba(197, 202, 205, 1);
       right: -5px;
       top: calc(50% - 5px);
       margin-left: 0;
       margin-right: 0;
       transform: rotateZ(45deg);
   }
+
+  .custom-content .tooltip[x-placement^="left"] .tooltip-arrow {
+      border-right-color: var(--tool-tip-arrow, $color-white);
+      border-top-color: var(--tool-tip-arrow, $color-white);
+  }
   .tooltip-wrap .custom-content-container {
     display:none;
   }
+
   .tooltip-reference {
     outline:0;
     background-color: transparent;

@@ -25,50 +25,68 @@
  const align = ['left', 'right', 'center', 'justify']
 
  export default Vue.extend({
+   /**
+   * @display A component that provides block and inline text. It embeds the font-family and font face CSS, without requiring exernal stylesheets.
+   */
    name:"FishTankText",
    props: {
+     /**
+      * Text alignment
+      */
      align: {
        type: String,
        default: 'left',
        validator: function (value: string) {
          return align.indexOf(value) !== -1
        },
-       description:"Text alignment"
      },
+     /**
+     * Text color, based on the limited palette for body text
+     */
      color: {
        type: String,
        validator: function (value: string) {
          return propToFishtankColorName(value) in ftColorsObj
        },
        default: 'black',
-       description:"Font color"
      },
+     /**
+     * Text renders in an inline element (span); text is block level element by default
+     */
      inline: {
        type: Boolean,
        required: false,
        default: false,
-       description:"Text renders in an inline element (span)"
      },
+     /**
+     * Bold font weight
+     */
      bold: {
        type: Boolean,
        required: false,
        default: false,
-       description:"Bold font weight"
      },
+     /**
+     * Semi-bold font weight
+     */
      semiBold: {
        type: Boolean,
        required: false,
        default: false,
-       description:"Semi-bold font weight"
      },
+     /**
+     * Text size
+     */
      size: {
        type: String,
        default: 'baseLg',
        validator: function (value: string) {
          return fontSizes.indexOf(value) !== -1
        },
-       description:"Font size"
      },
+     /**
+     * Text Overflow
+     */
      overflow: {
        type: String,
        default: 'breakWord',
@@ -76,29 +94,37 @@
          return ['breakWord', 'normal'].indexOf(value) !== -1
        },
      },
+     /**
+     * Text, within a container of fixed size, overflows with ellipsis
+     */
      truncate: {
        type: Boolean,
        default: false,
-       description:"Text, within a container of fixed size, overflows with ellipsis"
      },
+     /**
+     * Text font style, either primary or accent
+     */
      font: {
        default: 'primary',
        type: String,
        validator: function (value: string) {
          return ['primary', 'accent'].indexOf(value) !== -1
        },
-       description:"Text font type"
      },
+     /**
+     * Text renders as italic
+     */
      italic: {
        default: false,
        type: Boolean,
-       description:"Text renders as italic"
      },
+     /**
+     * Uppercase text
+     */
      uppercase: {
        default: false,
        required: false,
        type: Boolean,
-       description:"Text renders as all uppercase"
      }
    },
    computed: {
