@@ -10,6 +10,7 @@
         :italic="italic"
         :align="align"
         :font="font"
+        :uppercase="uppercase"
       >
         Demo Text
       </fish-tank-text>
@@ -84,6 +85,9 @@
         <fish-tank-checkbox
           v-model="italic"
           label="Italic"/>
+        <fish-tank-checkbox
+          v-model="uppercase"
+          label="Uppercase"/>
       </div>
     </div>
     <br>
@@ -176,6 +180,7 @@ export default Vue.extend({
       italic: false,
       align: 'left',
       font:'primary',
+      uppercase: false,
       options: {
         colors
       }
