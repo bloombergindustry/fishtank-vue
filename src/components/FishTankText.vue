@@ -93,6 +93,12 @@
        default: false,
        type: Boolean,
        description:"Text renders as italic"
+     },
+     uppercase: {
+       default: false,
+       required: false,
+       type: Boolean,
+       description:"Text renders as all uppercase"
      }
    },
    computed: {
@@ -130,7 +136,8 @@
          overflow: mapping({
            normal: style.normal,
            breakWord: style.breakWord
-         })
+         }),
+         uppercase: toggle(style.uppercase)
        }
      },
      textProps(): { class: string, style: InlineStyle } {
@@ -261,4 +268,7 @@
     text-align: justify;
   }
 
+  .uppercase {
+    text-transform: uppercase;
+  }
 </style>
