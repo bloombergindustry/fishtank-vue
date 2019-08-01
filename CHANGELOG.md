@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.5"></a>
+## [5.2.5](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.4...v5.2.5) (2019-08-01)
+
+
+### Features
+
+* Added uppercase prop to FishTankText; WIP JSDoc notation. ([50b54d2](https://github.com/bloombergbna/fishtank-vue/commit/50b54d2))
+
+
+
 <a name="5.2.4"></a>
 ## [5.2.4](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.3...v5.2.4) (2019-07-30)
 
