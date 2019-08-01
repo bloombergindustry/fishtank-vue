@@ -76,6 +76,7 @@
      },
      /**
      * Text size
+     * `baseSM, baseMd, baseLg`
      */
      size: {
        type: String,
@@ -86,6 +87,7 @@
      },
      /**
      * Text Overflow
+     * ``breakword, normal`
      */
      overflow: {
        type: String,
@@ -103,6 +105,7 @@
      },
      /**
      * Text font style, either primary or accent
+     * `primary, accent`
      */
      font: {
        default: 'primary',
