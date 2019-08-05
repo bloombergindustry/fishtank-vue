@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.6"></a>
+## [5.2.6](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.5...v5.2.6) (2019-08-05)
+
+
+### Bug Fixes
+
+* Added placeholder fix for font faces not being loaded in component css; each component that uses font-primary/font-accent instead of the Text Component now loads the font CDN stylesheet. FishTankText and FishTankHeading now also load the CDNs, now fully self encased. ([c1ce29d](https://github.com/bloombergbna/fishtank-vue/commit/c1ce29d))
+
+
+
 <a name="5.2.5"></a>
 ## [5.2.5](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.4...v5.2.5) (2019-08-01)
 
