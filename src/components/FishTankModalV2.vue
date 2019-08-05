@@ -485,6 +485,12 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
+
 <style scoped lang="scss">
 
   @import '../styles/mixins';

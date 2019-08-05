@@ -121,6 +121,8 @@ export default Vue.extend({
 </script>
 <style lang="scss">
   @import '../styles/mixins';
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
   body.user-is-tabbing input:focus + .a11y {
     box-shadow: 0 0 0 2px $color-selected;
   }

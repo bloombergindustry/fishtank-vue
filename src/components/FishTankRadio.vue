@@ -142,6 +142,8 @@ export default class FishTankRadio extends Vue {
 </script>
 <style lang="scss">
   @import '../styles/mixins';
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
   body.user-is-tabbing .a11yInput:focus {
     & + .a11yIcon{
       box-shadow: 0 0 0 2px $color-selected;

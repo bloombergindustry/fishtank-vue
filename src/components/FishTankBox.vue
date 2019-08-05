@@ -911,27 +911,4 @@ export default Vue.extend({
 @import "../styles/box/box-column";
 @import "../styles/box/grid";
 @import "../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
-input {
-  width: 100%;
-  height: $baseline * 10;
-  padding: $baseline * 3;
-  padding-right: $baseline * 9;
-  box-sizing: border-box;
-  font-family: $font-primary;
-  border: $color-gray-lighter 1px solid;
-
-  @include font-base-md();
-
-  &:focus {
-    outline: $color-selected 2px solid;
-  }
-
-  &:disabled {
-    background-color: $color-secondary;
-    color: $color-gray-lighter;
-  }
-}
-textarea {
-  width: 100%;
-}
 </style>

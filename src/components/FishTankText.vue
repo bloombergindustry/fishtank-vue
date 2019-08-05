@@ -208,12 +208,16 @@
    }
  })
 </script>
+<style lang="scss">
+  /* Import global font CDN link */
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
 <style module lang="scss">
-  @import '../styles/mixins';
   @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
   @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
-
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
   /* font family */
   .antialiased {
     -moz-osx-font-smoothing: grayscale;
@@ -221,11 +225,11 @@
   }
 
   .primary {
-    font-family: $font-primary;
+    font-family: var(--font-primary);
   }
 
   .accent {
-    font-family: $font-accent;
+    font-family: var(--font-accent);
   }
 
   /* font weight */

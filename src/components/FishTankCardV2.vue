@@ -84,12 +84,14 @@ export default class CardV2 extends Vue {
   </div>
 </template>
 
-
-<style scoped lang="scss">
-@import '../styles/mixins';
-.card + .card {
-  margin-top: $baseline * 6;
-}
+<style lang="scss">
+  /* Import global font CDN link */
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import '../styles/mixins';
+  @import url($cdn-url);
+  .card + .card {
+    margin-top: $baseline * 6;
+  }
 </style>
 
 <style scoped lang="scss">

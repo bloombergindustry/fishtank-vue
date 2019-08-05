@@ -57,13 +57,21 @@ export default Vue.extend({
 })
 </script>
 
+
+<style lang="scss">
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
+
 <style scoped lang="scss">
 @import '../styles/mixins';
 .card + .card {
   margin-top: $baseline * 6;
 }
 </style>
+<style lang="scss">
 
+</style>
 <style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";

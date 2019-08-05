@@ -129,12 +129,18 @@ export default {
 }
 </script>
 
+<style lang="scss">
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
+
 <style scoped lang="scss">
   @import '../styles/mixins';
   @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-text';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
   @import "../../node_modules/@fishtank/type/dist/index.custom-properties";
   @import "../../node_modules/@fishtank/space/dist/index.custom-properties";
+
   .FishTankDateSelector {
     display: flex;
     font-family: $font-primary;

@@ -299,6 +299,11 @@ export default Vue.extend({
 })
 </script>
 
+<style lang="scss">
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
+
 <style scoped lang="scss">
   @import '../styles/mixins';
 

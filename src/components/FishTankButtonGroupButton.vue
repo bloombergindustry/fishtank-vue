@@ -124,6 +124,11 @@ export default Vue.extend({
 })
 </script>
 
+<style lang="scss">
+@import "../../node_modules/@fishtank/type/dist/index";
+@import url($cdn-url);
+</style>
+
 <style module lang="scss">
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";

@@ -164,13 +164,14 @@ export default class FishTankCheckboxV2 extends Vue {
 
 <style lang="scss">
   @import "../../node_modules/@fishtank/colors/dist/index";
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
   body.user-is-tabbing {
     .a11y:focus {
       box-shadow: 0 0 0 2px $color-selected;
     }
   }
 </style>
-
 
 <style scoped lang="scss">
   @import '../styles/mixins';

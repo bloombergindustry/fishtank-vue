@@ -428,10 +428,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-
   @import '../styles/mixins';
   @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
 
   $modal-border: 1px solid $color-gray-lighter;
 

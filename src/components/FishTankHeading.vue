@@ -151,6 +151,12 @@ import Vue, {VNode} from 'vue'
     }
   })
 </script>
+
+<style lang="scss">
+  @import '../../node_modules/@fishtank/type/dist/index.scss';
+  @import url($cdn-url);
+</style>
+
 <style module lang="scss">
   @import '../../node_modules/@fishtank/colors/dist/css-variable-stylesheet-heading';
   @import '../../node_modules/@fishtank/type/dist/css-variable-stylesheet';
