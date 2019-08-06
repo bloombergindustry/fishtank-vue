@@ -1,291 +1,155 @@
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+  import { Component, Prop, Vue } from 'vue-property-decorator'
+  type Orientation = "left" | "auto" | "auto-start" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left-start" | undefined;
+  import FishTankText from './FishTankText.vue'
+  import VTooltip from 'v-tooltip'
 
-import Popper from 'popper.js'
-import Tooltip from 'tooltip.js'
-import FishTankText from './FishTankText.vue'
-type Orientation = "left" | "auto" | "auto-start" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left-start" | undefined;
-
-@Component({
-  components: {
-      ftext: FishTankText
-    },
-})
-
-export default class FishTankTooltip extends Vue {
-
-  /** 
-  * Tooltip Content
-  * Either a string of text or html
-  */
-  @Prop({
-    type:String,
-    default:'',
-    required:false
-  })
-  title: String
-
-  /** 
-  * Tooltip Content Type
-  * Either a 'text' or 'html'
-  */
-  @Prop({
-    type:String,
-    default:'text',
-    required:false
-  })
-  contentType: String
-  
-  /** 
-     * Tooltip Orientation
-     * Uses Popper.js placement orientations (https://popper.js.org/popper-documentation.html#Popper.placements)
-     * - auto
-     * - top
-     * - bottom
-     * - right
-     * - left
-     *  You can use the following modifiers to better set position
-     * - start
-     * - end
-     * More varient located on Popper.js docs - (https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md)
-    */
-  @Prop({
-    type:String,
-    default:'auto',
-    required:false
-  })
-  orientation: String
-
-  focus = false
-  popObj = undefined
-  inputEl = undefined
-  content = undefined
-  
-  createPop(): void {
-    (this as any).inputEl = this.$refs.reference;
-    this.$nextTick(function() {
-      (this as any).popObj = new Tooltip(
-        (this as any).inputEl,{
-          title: this.getCustomContentHTML,
-          placement: this.orientation as Orientation,
-          html: true,
-          boundariesElement: 'viewport'
-        }
-      )
-    });
-  }
-
-  public disposePop (): void {
-    this.$nextTick(function() {
-      if((this as any).popObj !== undefined) (this as any).popObj.dispose()
-    })
-  }
-
-  public blurPop (): void {
-    this.$nextTick(function() {
-      if((this as any).popObj !== undefined) (this as any).popObj.dispose()
-    })
-  }
-
-  get identifier () {
-    return (Math.random() * 10000).toFixed(0).toString()
-  }
-
-  get listeners(): Record<string, Function | Function[]> {
-    return {
-      ...this.$listeners,
-      focus: ($event: FocusEvent) => {
-        console.log('focus');
-        this.createPop()
-        this.$nextTick(function(){
-          (this as any).popObj.show()
-        });
-        /**
-        * Emits a focus event when the tooltip container is focused.
-        * 
-        * @event FocusEvent
-        */
-        return this.$emit("focus", $event);
-      },
-      blur: ($event: FocusEvent) => {
-        console.log('blur');
-        this.disposePop()
-        /**
-        * Emits a blue event when the tooltip container is blurred.
-        * 
-        * @event FocusEvent
-        */
-        return this.$emit("blue", $event);
-      },
+  const tooltipOptions = {
+    popover: {
+      defaultBaseClass: 'ft-tooltip ft-popover',
+      defaultInnerClass: 'ft-tooltip-inner ft-popover-inner',
+      defaultArrowClass: 'ft-tooltip-arrow ft-popover-arrow',
     }
   }
 
-  get containsCustomContentHTML (): boolean {
-    return this.$slots.customContent !== undefined
-  }
+  Vue.use(VTooltip, tooltipOptions)
 
-  private getCustomContentHTML ():string {
-    let customContent = document.getElementById(this.identifier)
-    return ((customContent !== null && customContent.innerHTML.length) ? customContent.innerHTML.toString() : `${this.$props.title}`)
-  }
+  @Component({
+    components: {
+      VTooltip,
+      ftext: FishTankText
+    },
+  })
+  
+  export default class FishTankTooltip extends Vue {
+    @Prop({
+      type: Boolean,
+      required: false,
+      default: true
+    })
+    show: Boolean
 
-}
+    @Prop({
+      type: Number,
+      required: false,
+      default: 0
+    })
+    tooltipOffset: Number
+
+    @Prop({
+      type: String,
+      required: false,
+      default: "'bottom-start'"
+    })
+    orientation: String
+
+    @Prop({
+      type:Boolean,
+      required:false,
+      default:false
+    })
+    custom:Boolean
+
+    open = false
+    options = {
+      popoverInnerClass: this.custom ? 'custom' : null
+    }
+  }
 </script>
 
 <template>
-  <div
-    :class="['tooltip-wrap', (containsCustomContentHTML ? 'custom-content':'title')]"
-    @mouseenter="createPop()"
-    @mouseleave="disposePop()">
+  <v-popover
+    :trigger="'hover'"
+    :placement="orientation"
+    :offset="tooltipOffset"
+    :disabled="!show"
+    :open="open"
+    :popover-inner-class="this.custom ? 'ft-tooltip-inner ft-popover-inner ft-popover-inner-custom' : 'ft-tooltip-inner ft-popover-inner ft-popover-inner-normal'"
+    :popover-arrow-class="this.custom ? 'ft-tooltip-arrow ft-popover-arrow ft-popover-arrow-custom' : 'ft-tooltip-arrow ft-popover-arrow ft-popover-arrow-normal'"
+    class="clickable help">
     <button
-      class="tooltip-reference"
-      role="button"
-      :aria-label="title"
-      ref="reference"
-      v-on="listeners">
-      <slot/>
+      @focus="open = true" 
+      @blur="open = false"
+      @keyup.esc="open = false"
+      class="tooltip-target">
+      <slot name="target" />
     </button>
-    <div>
-      <div 
-        class="tooltip-content"
-        ref="tooltip"
-        v-if="focus">
-      </div>
-    </div>
-    <div
-      class="custom-content-container"
-      :id="identifier">
-      <slot name="customContent" />
-    </div>
-  </div>
+    <template slot="popover">
+      <slot />
+    </template>
+  </v-popover>
 </template>
 
-<style lang="scss" scoped>
-@import '../styles/mixins';
-.tooltip-wrap {
-  display: inline-block;
-}
-</style>
 <style lang="scss">
   @import '../styles/mixins';
-  .tooltip {
-   padding: $baseline * 2;
-   margin-bottom: 10px;
-   box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
-   border: 1px solid $color-gray-lighter;
+  .tooltip-target {
+    svg {
+      color: $color-link;
+    }
   }
-  .title .tooltip{
-    background: var(--tooltip-background-color, $color-gray-lightest);
-  }
-  .custom-content .tooltip{
-    background-color: var(--tooltip-background-custom-color, $color-white);
-  }
-  .tooltip .tooltip-arrow {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    margin: 5px;
-  }
+  .ft-tooltip {
+    display: block;
+    z-index: 1000;
+    .ft-popover-inner {
+      border: 1px solid $color-gray-lighter;
+      border-radius: $baseline*0.5;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3); // same as fishtank-card box-shadow
+    }
+    .ft-popover-inner-normal {
+      text-align: left;
+      color: $color-black;
+      font-size: $fontsize-base-md;
+      font-weight: $fontweight-regular;
+      line-height: 1.5;
+      padding: $baseline-2;
+      background-color: $color-background-darker;
+    }
+    .ft-popover-custom {
+      background-color: $color-white;
+    }
+    .ft-popover-arrow {
+      position: absolute;
+      height: $baseline*2;
+      width: $baseline*2;
+      transform: rotate(-45deg);
+      border-width: 1px;
+      border-style: solid;
+      z-index: 1001;
+    }
 
-  .tooltip .tooltip-arrow {
-      border-color: #FFC107;
-  }
-  .tooltip[x-placement^="top"] {
-      margin-bottom: 5px;
-  }
-  .tooltip[x-placement^="top"] .tooltip-arrow {
-      border-width: 5px 5px 5px 5px;
-      box-shadow: 1px 1px 0px 0 rgba(197, 202, 205, 1);
-      bottom: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-      transform: rotateZ(45deg);
-  }
-  .title .tooltip[x-placement^="top"] .tooltip-arrow {
-    border-left-color: transparent;
-    border-right-color: var(--tool-tip-arrow, $color-gray-lightest);
-    border-top-color: transparent;
-    border-bottom-color: var(--tool-tip-arrow, $color-gray-lightest);
-  }
+    .ft-popover-arrow-normal {
+      background-color: $color-background-darker;
+    }
 
-  .custom-content .tooltip[x-placement^="top"] .tooltip-arrow {
-    border-left-color: transparent;
-    border-right-color: var(--tool-tip-arrow, $color-white);
-    border-top-color: transparent;
-    border-bottom-color: var(--tool-tip-arrow, $color-white);
-  }
-  
-  .tooltip[x-placement^="bottom"] {
-      margin-top: 5px;
-      box-shadow: 4px 2px 3px 0 rgba(0, 0, 0, 0.4);
-      z-index:1;
-  }
-  .tooltip[x-placement^="bottom"] .tooltip-arrow {
-      border-width: 5px 5px 5px 5px;
-      border-left-color:  var(--tool-tip-arrow, $color-gray-lightest);
-      border-right-color: transparent;
-      border-top-color:  var(--tool-tip-arrow, $color-gray-lightest);
-      border-bottom-color: transparent;
-      box-shadow: -1px -1px 0px 0 rgba(197, 202, 205, 1);
-      top: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-      transform: rotateZ(45deg);
-      z-index:0;
-  }
-  .tooltip[x-placement^="right"]{
-      margin-left: 5px;
-      
-  }
-  .tooltip[x-placement^="right"] .tooltip-arrow {
-      border-width: 5px 5px 5px 5px;
-      border-left-color: var(--tool-tip-arrow, $color-gray-lightest);
-      border-right-color: transparent;
-      border-top-color: transparent;
-      border-bottom-color: var(--tool-tip-arrow, $color-gray-lightest);
-      box-shadow: -1px 1px 0px 0px rgba(197, 202, 205, 1);
-      left: -5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-      transform: rotateZ(45deg);
-  }
-  .tooltip[x-placement^="left"] {
-      margin-right: 5px;
-  }
-  .tooltip[x-placement^="left"] .tooltip-arrow {
-      border-width: 5px 5px 5px 5px;
-      border-left-color: transparent;
-      border-right-color: var(--tool-tip-arrow, $color-gray-lightest);
-      border-top-color: var(--tool-tip-arrow, $color-gray-lightest);
-      border-bottom-color: transparent;
-      box-shadow: 1px -1px 1px 0 rgba(197, 202, 205, 1);
-      right: -5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-      transform: rotateZ(45deg);
-  }
+    .ft-popover-arrow-custom {
+      background-color: $color-white
+    }
 
-  .custom-content .tooltip[x-placement^="left"] .tooltip-arrow {
-      border-right-color: var(--tool-tip-arrow, $color-white);
-      border-top-color: var(--tool-tip-arrow, $color-white);
-  }
-  .tooltip-wrap .custom-content-container {
-    display:none;
-  }
-
-  .tooltip-reference {
-    outline:0;
-    background-color: transparent;
-    border: 0;
-    &:focus {
-      box-shadow: 0 0 0 2px $color-selected;
+    &[x-placement^="top"] {
+      .ft-popover-arrow {
+        bottom: -$baseline;
+        border-color: transparent transparent $color-gray-lighter $color-gray-lighter;
+      }
+    }
+    &[x-placement^="bottom"] {
+      .ft-popover-arrow {
+        top: -$baseline;
+        border-color: $color-gray-lighter $color-gray-lighter transparent transparent;
+      }
+    }
+    &[x-placement^="left"] {
+      .ft-popover-arrow {
+        right: -$baseline;
+        border-color: transparent transparent $color-gray-lighter $color-gray-lighter;
+        transform: rotate(-135deg)
+      }
+    }
+    &[x-placement^="right"] {
+      .ft-popover-arrow {
+        left: -$baseline;
+        border-color: $color-gray-lighter $color-gray-lighter transparent transparent;
+        transform: rotate(-135deg)
+      }
     }
   }
 </style>
-
-

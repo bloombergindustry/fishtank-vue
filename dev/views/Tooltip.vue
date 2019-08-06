@@ -26,12 +26,7 @@
             class="title">
             Hover over text to see Tooltips 
           </ftext>
-          <input type="text" v-model="update">
         </box>
-
-        <br>
-        <br>
-        <br>
 
         <box
           type="div"
@@ -41,52 +36,66 @@
           flex-direction="row"
           justify-content="between">
           <tooltip
-            orientation="top-start"
-            title="a top oriented Tooltip">
-            <ftext 
-              inline
-              semi-bold>
-              Top 
-            </ftext>
-          </tooltip>
-
-          <tooltip
-            orientation="left-start"
-            title="A semantic title">
-            <ftext 
-              semi-bold>
-              Left 
-            </ftext>
-            <template v-slot:customContent>
-              <p>{{ update }}</p>
-              <div>
-                this is the custom content in the tool tip
-              </div>
-              <ul>
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
+            orientation="top"
+            title="a top oriented Tooltip"
+            :custom="true">
+            <template v-slot:target>
+              <ftext 
+                inline
+                semi-bold>
+                Top 
+              </ftext>
+            </template>
+            <template>
+              <box width="200px">
+                Popover
+              </box>
             </template>
           </tooltip>
-          
+
           <tooltip
-            orientation="bottom-start"
-            title="a bottom oriented Tooltip">
-            <ftext 
-              semi-bold>
-              Bottom 
-            </ftext>
+            orientation="bottom"
+            title="a top oriented Tooltip">
+            <template v-slot:target>
+              <ftext 
+                inline
+                semi-bold>
+                Bottom 
+              </ftext>
+            </template>
+            <template>
+                <p>Popover Content</p>
+            </template>
           </tooltip>
 
           <tooltip
-            orientation="right-start"
-            title="a right oriented Tooltip">
-            <ftext 
-              semi-bold>
-              Right 
-            </ftext>
+            orientation="left"
+            title="a top oriented Tooltip">
+            <template v-slot:target>
+              <ftext 
+                inline
+                semi-bold>
+                Left 
+              </ftext>
+            </template>
+            <template>
+              <p>Popover Content</p>
+            </template>
+          </tooltip>
+
+          <tooltip
+            orientation="right"
+            title="a top oriented Tooltip">
+            <template v-slot:target>
+              <ftext 
+                inline
+                semi-bold>
+                Right 
+              </ftext>
+            </template>
+            <template>
+              <p>Popover Content</p>
+            </template>
           </tooltip>
         </box>
       </box>
@@ -113,11 +122,6 @@ export default Vue.extend({
     tooltip:FishTankTooltip,
     container,
     column
-  },
-  data(){
-    return {
-      update:''
-    }
   }
 })
 </script>
