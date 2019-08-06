@@ -35,6 +35,7 @@
           :padding="6"
           flex-direction="row"
           justify-content="between">
+
           <tooltip
             orientation="top"
             title="a top oriented Tooltip"
@@ -48,7 +49,7 @@
             </template>
             <template>
               <box width="200px">
-                Popover
+                <p>Popover Top</p>
               </box>
             </template>
           </tooltip>
@@ -64,7 +65,7 @@
               </ftext>
             </template>
             <template>
-                <p>Popover Content</p>
+                <p>Popover bottom Content</p>
             </template>
           </tooltip>
 
@@ -79,7 +80,7 @@
               </ftext>
             </template>
             <template>
-              <p>Popover Content</p>
+              <p>Popover left Content</p>
             </template>
           </tooltip>
 
@@ -94,7 +95,7 @@
               </ftext>
             </template>
             <template>
-              <p>Popover Content</p>
+              <p>Popover right Content</p>
             </template>
           </tooltip>
         </box>

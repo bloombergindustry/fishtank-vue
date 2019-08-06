@@ -104,7 +104,7 @@
       padding: $baseline-2;
       background-color: $color-background-darker;
     }
-    .ft-popover-custom {
+    .ft-popover-inner-custom {
       background-color: $color-white;
     }
     .ft-popover-arrow {
