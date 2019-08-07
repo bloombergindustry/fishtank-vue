@@ -1,4 +1,8 @@
 <script lang="ts">
+/**
+ * Fish Tank text badge component
+ * @displayName FishTankBadge
+ */
 import FishTankText from './FishTankText.vue'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { CloseSml24 } from '@fishtank/icons-vue'

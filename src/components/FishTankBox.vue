@@ -634,7 +634,9 @@ export default Vue.extend({
       },
       description:'Box display property',
     },
-    // // @Prop()
+    /** 
+     * Box display property
+    */
     xlDisplay: {
       type:String,
       default:undefined,
@@ -642,10 +644,10 @@ export default Vue.extend({
       validator: function(value: DisplayType){
         return ["none", "flex", "block", "inlineBlock", "visuallyHidden"].indexOf(value) !== -1
       },
-      description:'Box display property',
     },
-    // DisplayType,
-    // // @Prop()
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     direction: {
       type:String,
       default:null,
@@ -653,8 +655,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     xsDirection: {
       type:String,
       default:null,
@@ -662,8 +666,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     smDirection: {
       type:String,
       default:null,
@@ -671,8 +677,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     mdDirection: {
       type:String,
       default:null,
@@ -680,8 +688,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     lgDirection: {
       type:String,
       default:null,
@@ -689,8 +699,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse
+     */
     xlDirection: {
       type:String,
       default:null,
@@ -698,8 +710,10 @@ export default Vue.extend({
       validator: function(value: Direction){
         return ["row" , "column", "rowReverse" , "columnReverse"].indexOf(value) !== -1
       },
-      description:'Box flex-direction property sets how flex items are placed in the Box defining the main axis; either row, rowReverse, column or columnReverse',
     },
+    /**
+     * Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.
+     */
     justifyContent: {
       type:String,
       default:null,
@@ -707,7 +721,6 @@ export default Vue.extend({
       validator: function(value: JustifyContent){
         return ["start" , "end" , "center" , "between" , "around"].indexOf(value) !== -1
       },
-      description:'Box flexbox justify-content property defines how the browser distributes space between and around content items along the main-axis of a Box, and the inline axis of a grid container.',
     },
     margin: marginValidator,
     marginStart: marginValidator,
@@ -751,7 +764,13 @@ export default Vue.extend({
     xlMarginRight: marginValidator,
     xlMarginBottom: marginValidator,
     xlMarginLeft: marginValidator,
+    /**
+     * Box padding, applied vertically on the X and Y axis
+     */
     padding: marginValidator,
+    /**
+     * Box padding, applied vertically on the X axis
+     */
     paddingX: {
       type:Number,
       default:null,
@@ -762,7 +781,7 @@ export default Vue.extend({
       description:'Box padding, applied horizontally',
     },
     /**
-     * Box padding, applied vertically
+     * Box padding, applied vertically on the Y axis
      */
     paddingY: {
       type:Number,
@@ -771,16 +790,14 @@ export default Vue.extend({
       validator: function(value: Padding){
         return (-1<value && 13>value)
       },
-      description:'Box padding, applied vertically',
     },
     /**
-     * Box width property sets an boxes\'s width.
+     * Box width property sets an boxes's width.
      */
     width: {
       type: [ Number, String ],
       default:null,
       required:false,
-      description:'Box width property sets an boxes\'s width.',
     },
     /**
      * Box flex-wrap property sets flex-wrap:wrap, setting flex items to wrap onto multiple lines.
@@ -789,7 +806,6 @@ export default Vue.extend({
       type: Boolean,
       default:false,
       required:false,
-      description:'Box flex-wrap property sets flex-wrap:wrap, setting flex items to wrap onto multiple lines.',
     },
     /**
      * Box position property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
@@ -801,7 +817,6 @@ export default Vue.extend({
       validator: function(value: Position){
         return ['absolute' , 'relative' , 'fixed'].indexOf(value) !== -1
       },
-      description:'Box position property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.',
     },
     /**
      * Box top position property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.
@@ -810,7 +825,6 @@ export default Vue.extend({
       type: Boolean,
       default:false,
       required:false,
-      description:'Box top position property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     /**
      * Box bottom position  property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.
@@ -819,35 +833,42 @@ export default Vue.extend({
       type: Boolean,
       default:false,
       required:false,
-      description:'Box bottom position  property participates in specifying a vertical position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
     /**
-     * description:'Box left position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.
+     * Box left position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.
      */
     left:{
       type: Boolean,
       default:false,
       required:false,
-      description:'Box left position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
+    /**
+     * Box right position \ property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.
+     */
     right:{
       type: Boolean,
       default:false,
       required:false,
-      description:'Box right position property participates in specifying a horizontal position of 0 of positioned element. It has no effect on non-positioned elements.',
     },
+    /**
+     * Box max-height property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.
+     */
     maxHeight: {
       type: [ Number, String ],
       default:null,
       required:false,
-      description:'Box max-height property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.',
     },
+    /**
+     * Box height property specifies the height of an element. By default, the property defines the height of the content area.
+     */
     height: {
       type: [ Number, String ],
       default:null,
       required:false,
-      description:'Box height property specifies the height of an element. By default, the property defines the height of the content area.',
     },
+    /**
+     * Box overflow property sets what to do when an element\'s content is too big to fit in its block formatting context.
+     */
     overflow: {
       type:String,
       default:null,
@@ -855,8 +876,10 @@ export default Vue.extend({
       validator: function(value: OverFlow){
         return ['visible' , 'hidden' , 'scroll' , 'scrollX' , 'scrollY' , 'auto'].indexOf(value) !== -1
       },
-      description:'Box overflow property sets what to do when an element\'s content is too big to fit in its block formatting context.',
     },
+    /**
+     * Box flexbox flex property; sets how a flex type Box will grow or shrink to fit the space available in its flex container.
+     */
     flex: {
       default:'shrink',
       type:String,
@@ -864,16 +887,14 @@ export default Vue.extend({
       validator: function (value: Flex) {
         return ['grow' , 'shrink' , 'none'].indexOf(value) !== -1
       },
-      description:'Box flexbox flex property; sets how a flex type Box will grow or shrink to fit the space available in its flex container.',
     },
+    /**
+     * Box background color property
+     */
     color: {
       type:String,
       required:false,
       default:null,
-      // validator: function (value: Color) {
-      //   return ['color', 'array', 'here'].indexOf(value) !== -1
-      // }
-      description:'Box background color property'
     },
   },
   computed: {

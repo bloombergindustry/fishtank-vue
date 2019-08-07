@@ -65,7 +65,7 @@
               </ftext>
             </template>
             <template>
-                <p>Popover bottom Content</p>
+              <p>Popover bottom Content</p>
             </template>
           </tooltip>
 

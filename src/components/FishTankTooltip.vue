@@ -1,4 +1,8 @@
 <script lang="ts">
+  /**
+   * Fish Tank Tooltip component
+   * @displayName FishTankTooltip
+   */
   import { Component, Prop, Vue } from 'vue-property-decorator'
   type Orientation = "left" | "auto" | "auto-start" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left-start" | undefined;
   import FishTankText from './FishTankText.vue'
