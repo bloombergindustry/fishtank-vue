@@ -13,13 +13,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
     }
 })
 export default class FishTankNumberBadge extends Vue {
-    
+
     //properties
     /**
      * Value is the number displayed in the badge chip
      */
     @Prop({
-      default:undefined, 
+      default:undefined,
       type:Number
     })
     value:Number
@@ -42,14 +42,14 @@ export default class FishTankNumberBadge extends Vue {
     })
     theme:String;
     availableThemes:["theme","bgov", "btax", "notification-1", "notification-2", "notification-3","disabled","neutral"]
-    
+
     // Computed properties
     get themeClass() {
         switch(this.theme) {
             case "bgov":
                 return "badge-chip--grad-bgov-bluepurple"
             case "btax":
-                return "badge-chip--grad-btax-blue"              
+                return "badge-chip--grad-btax-blue"
             case "disabled":
                 return "badge-chip--color-disabled"
             case "notification-2":
@@ -82,7 +82,7 @@ export default class FishTankNumberBadge extends Vue {
 
 <template>
   <div class="badge-area">
-    <div 
+    <div
       :theme="theme"
       :textShade="textShade"
       :class="[themeClass, textClass]"
@@ -138,7 +138,7 @@ export default class FishTankNumberBadge extends Vue {
         height:3px;
         width:3px;
         position: absolute;
-        background: var(--color-white);
+        background: var(--color-black);
     }
 
     .number{

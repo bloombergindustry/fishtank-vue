@@ -11,12 +11,12 @@
         FishTankNumberBadge
     } from "@/index";
 
-    import{ 
+    import{
         Inbox32,
         Email32,
         Like32,
         Twitter32
-        
+
     } from '@fishtank/icons-vue'
         @Component({
             components: {
@@ -145,7 +145,7 @@
           </td>
         </tr>
       </table>
-            
+
     </card>
   </div>
 </template>
