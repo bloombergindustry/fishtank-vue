@@ -138,7 +138,7 @@ export default class FishTankNumberBadge extends Vue {
         height:3px;
         width:3px;
         position: absolute;
-        background: var(--color-black);
+        background: var(--color-white);
     }
 
     .number{
