@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.7"></a>
+## [5.2.7](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.6...v5.2.7) (2019-08-08)
+
+
+### Features
+
+* Added Tooltip component. ([8a10662](https://github.com/bloombergbna/fishtank-vue/commit/8a10662))
+* Refactored FishTankTooltip, to align and extend an existing Popper.js based tooltip component. ([50c2290](https://github.com/bloombergbna/fishtank-vue/commit/50c2290))
+
+
+
 <a name="5.2.6"></a>
 ## [5.2.6](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.5...v5.2.6) (2019-08-05)
 
