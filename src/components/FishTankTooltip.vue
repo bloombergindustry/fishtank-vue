@@ -117,8 +117,11 @@
 <style lang="scss">
   @import '../styles/mixins';
   .tooltip-target {
-    svg {
-      color: $color-link;
+    background-color: transparent;
+    border: 0px;
+    outline: 0px;
+    &:focus, &:hover {
+      box-shadow: 0 0 0 2px var(--color-selected, $color-selected);
     }
   }
   .ft-tooltip {
