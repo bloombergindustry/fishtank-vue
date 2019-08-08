@@ -56,7 +56,8 @@
 
           <tooltip
             orientation="bottom"
-            title="a top oriented Tooltip">
+            title="a top oriented Tooltip"
+            use-click>
             <template v-slot:target>
               <ftext 
                 inline

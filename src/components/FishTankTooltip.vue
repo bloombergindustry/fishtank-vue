@@ -26,20 +26,28 @@
   })
   
   export default class FishTankTooltip extends Vue {
+
+    /**
+     * Show or hide the tooltip
+     */
     @Prop({
       type: Boolean,
       required: false,
       default: true
     })
     show: Boolean
-
+    /**
+     * Offset the position of the 
+     */
     @Prop({
       type: Number,
       required: false,
       default: 0
     })
     tooltipOffset: Number
-
+    /**
+     * Tooltip orientations. Choose from `left" | "auto" | "auto-start" | "auto-end" | "top-start" | "top" | "top-end" | "right-start" | "right" | "right-end" | "bottom-end" | "bottom" | "bottom-start" | "left-end" | "left-start"`
+     */
     @Prop({
       type: String,
       required: false,
@@ -47,6 +55,19 @@
     })
     orientation: String
 
+    /**
+     * Trigger tooltip using click, rather than hover
+     */
+    @Prop({
+      type: Boolean,
+      required: false,
+      default: false
+    })
+    useClick: Boolean
+
+    /**
+     * Use custom slot content and layout in the tooltip; We suggest using a FishTankBox to provide layout and padding on content in the slot.
+     */
     @Prop({
       type:Boolean,
       required:false,
@@ -58,12 +79,19 @@
     options = {
       popoverInnerClass: this.custom ? 'custom' : null
     }
+    overrideHover = false
+    openTooltip () {
+      this.open = true
+    }
+    closeTooltip () {
+      this.open = false
+    }
   }
 </script>
 
 <template>
   <v-popover
-    :trigger="'hover'"
+    :trigger="useClick === false ? 'hover': 'click'"
     :placement="orientation"
     :offset="tooltipOffset"
     :disabled="!show"
@@ -72,13 +100,15 @@
     :popover-arrow-class="this.custom ? 'ft-tooltip-arrow ft-popover-arrow ft-popover-arrow-custom' : 'ft-tooltip-arrow ft-popover-arrow ft-popover-arrow-normal'"
     class="clickable help">
     <button
-      @focus="open = true" 
+      class="tooltip-target"
+      @focus="useClick === false ? open = true: null" 
       @blur="open = false"
-      @keyup.esc="open = false"
-      class="tooltip-target">
+      @keyup.esc="open = false">
+      <!-- @slot Target element that on triggers the tooltip on hover or focus -->
       <slot name="target" />
     </button>
     <template slot="popover">
+      <!-- @slot Tooltip content -->
       <slot />
     </template>
   </v-popover>
