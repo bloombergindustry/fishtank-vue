@@ -74,31 +74,38 @@
       </fbutton>
     </box>
 
-    <!-- <box display="block" :margin="2" >
-      <fbutton 
-        :disabled="disabled" 
-        :small="small" 
-        role="theme">
-        Set Theme
-      </fbutton>
-    </box> -->
+    <box display="block" :margin="2">
+      <fab :options-available="false" background="blue" @click="handler">
+        <template v-slot:icon><up /></template>
+        <template v-slot:label>Top</template>
+      </fab>
+    </box>
   </section>
 </template>
-<script>
-import { FishTankButton, FishTankCheckboxV2, FishTankBox, FishTankText, FishTankHeading } from '@/index';
-
+<script lang="ts">
+import { FishTankButton, FishTankCheckboxV2, FishTankBox, FishTankText, FishTankHeading, 
+  FishTankButtonFAB, } from '@/index';
+import { ChevronUp24 } from '@fishtank/icons-vue';
 export default {
   components:{
     fbutton:FishTankButton,
     fcheck: FishTankCheckboxV2,
     box: FishTankBox,
     ft: FishTankText,
-    fh: FishTankHeading
+    fh: FishTankHeading,
+    fab: FishTankButtonFAB,
+    up: ChevronUp24
   },
   data(){
     return {
       disabled:false,
       small:false
+    }
+  },
+  methods:{
+    handler(){
+      // eslint-disable-next-line no-console
+      console.log('Click')
     }
   }
 }

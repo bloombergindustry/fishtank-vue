@@ -1,96 +1,128 @@
-<template>
-  <div class="button--fab-wrapper">
-    <fish-tank-base-button 
-      v-bind="$attrs"
-      :style="returnPrimaryFabColor"
-      class="button--fab" 
-      v-on="$listeners"> 
-      <slot name="mainIcon" /> 
-    </fish-tank-base-button>
-
-    <ul 
-      v-if="optionsAvailable">
-      <a 
-        :href="optionOneLink">
-        <li :style="returnSecondaryFabColor"> 
-          <slot name="option1" /> 
-        </li>
-      </a>
-
-      <a 
-        :href="optionTwoLink">
-        <li
-          :style="returnSecondaryFabColor">
-          <slot name="option2" /> 
-        </li>
-      </a>
-    </ul>
-  </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-</template>
-
 <script lang="ts">
-import Vue from "vue"
-import FishTankBaseButton from "./FishTankBaseButton.vue"
+/**
+ * @display Floating Action Button
+ * Button sits above content in a fixed position.
+ * Can take an icon or icon and label; Labels can only be ~2 characters long.
+ */
+import Vue from "vue";
+import FishTankText from './FishTankText.vue';
+const defaultColorStart = require("@fishtank/colors/dist/index.common").colorBgovNavy;
+const defaultColorEnd = require("@fishtank/colors/dist/index.common").colorBgovPurple;
+const colorWhite = require("@fishtank/colors/dist/index.common").colorWhite;
 
 export default Vue.extend({
-  name: "ButtonFAB",
-  components: {
-    FishTankBaseButton
+  components:{
+    ftext: FishTankText
   },
-  props:{
+  props: {
+    /**
+     * Show drawer containing child FAB buttons
+     */
     optionsAvailable: {
-      type: Boolean, 
-      required:true, 
-      default: false },
-
-    fabColorPrimaryStart :{
-      type: String, 
-      required:true, 
-      default: "#0018AB"},
-
-    fabColorPrimaryEnd :{
-      type: String, 
-      required:true, 
-      default: "#9933CC"},
-
-    fabColorSecondary :{
-      type: String, 
-      required:true, 
-      default: "#777C7F"},
-
-    optionOneLink :{
-      type: String, 
-      required:true, 
-      default:" "},
-
-    optionTwoLink :{
-      type: String, 
-      required:true, 
-      default:" "},
-
-    },   
-  computed:{
-    returnPrimaryFabColor(): string {
-      return `background-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0%, ${ this.fabColorPrimaryEnd } 100% ); 
-      border-image:  linear-gradient( 135deg, ${ this.fabColorPrimaryStart } 0% , ${ this.fabColorPrimaryEnd } 100% ) 1% ; `
+      type: Boolean,
+      required: false,
+      default: false
     },
-    returnSecondaryFabColor(): string {
-      return `background:  ${this.fabColorSecondary} ;`
+    /**
+     * FAB button background color.
+     */
+    background: {
+      type: String,
+      required: false,
+      default: "black"
     },
+    /**
+     * FAB button gradient start color.
+     */
+    colorStart: {
+      type: String,
+      required: false,
+      default: "black"
+    },
+    /**
+     * FAB button gradient end color.
+     */
+    colorEnd: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    /**
+     * FAB button icon and text color.
+     */
+    color:{
+      type: String,
+      required: false,
+      default: colorWhite
+    },
+    /**
+     * FAB button disabled.
+     */
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
-  methods:{
-  }
-})
-
+  computed: {
+    returnPrimaryFabColor(): string {
+      if (this.colorEnd === undefined) {
+        return `background-color: ${this.background || this.colorStart}`;
+      }
+      return `background-image:  linear-gradient( 135deg, ${this.colorStart} 0%, ${this.colorEnd} 100% ); 
+      border-image:  linear-gradient( 135deg, ${this.colorStart} 0% , ${this.colorEnd} 100% ) 1% ; `;
+    },
+    iconAndLabelSlots () {
+      return (this as any).$slots.icon && (this as any).$slots.label;
+    },
+    listeners(): Record<string, Function | Function[] | Boolean | undefined> {
+      return {
+        ...this.$listeners,
+        click: ($event: MouseEvent) => {
+          if (this.disabled) return;
+          /**
+           * Mouse click event.
+           * @event click
+           * @type {Event}
+           */
+          (this as any).$emit("click", $event);
+        }
+      };
+    }
+  },
+  methods: {}
+});
 </script>
 
-<style lang="scss">
+<template>
+  <div :class="['fab-wrapper', iconAndLabelSlots ? 'fab-icon-and-label' : 'fab-icon']">
+    <button
+      v-bind="$attrs"
+      :style="returnPrimaryFabColor"
+      :class="['fab']"
+      v-on="$listeners"
+    >
+      <div class="fab-icon">
+        <!-- @slot Icon slot; place an SVG icon here -->
+        <slot name="icon"/>
+      </div>
+      <div class="fab-label">
+        <ftext size="baseMd" color="white" uppercase semi-bold>
+          <!-- @slot Label slot; WARNING - FABs are intended for use with icons only. The space afforded for labels only account for approximately 3 characters. -->
+          <slot name="label"/>
+        </ftext>
+      </div>
+    </button>
 
-  @import '../styles/mixins';
-  @import "../../node_modules/@fishtank/colors/dist/index";
-  @import "../../node_modules/@fishtank/type/dist/index";
+  </div>
+</template>
 
-  .button--fab-wrapper{
+<style lang="scss" scoped>
+@import "../styles/mixins";
+@import "../../node_modules/@fishtank/colors/dist/index";
+@import "../../node_modules/@fishtank/type/dist/index";
+
+.fab-wrapper {
   position: fixed;
   right: 50px;
   bottom: 50px;
@@ -101,8 +133,7 @@ export default Vue.extend({
   border-color: $color-action;
   background-color: none;
   text-align: center;
-
-  .button--fab{
+  .fab {
     position: relative;
     z-index: 50;
     background-color: $color-black;
@@ -110,112 +141,24 @@ export default Vue.extend({
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    font-size: 6em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3);
-    transition: all .3s ease-in-out;
-  
-    &:hover{
-      transform: scale(1.25);
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    outline: transparent;
+    &> * {
+      color: white;
+    }
+    &:hover, &:focus {
+      box-shadow: 0 0 0 2px $color-selected;
+    }
+    &:active {
+      box-shadow: none;
     }
   }
-  
-  svg{
-    fill : $color-white;
-    path{
-      fill: $color-white;
-    }
-  }
-  
-  &:hover ul{
-    transition: 0.5s ease-in;
-    bottom: 50px;
-    opacity: 1;
-
-   li p{
-      right: 70px;
-      opacity: 1;
-      transition: 0.3s ease-in;
-   }
-   
-  }
-
-  p, a{
-    text-decoration: none;
-    color: $color-white;
-  }
-
-  ul{
-    opacity: 0;
-    list-style-type: none;
-    padding: 0px;
-    width: 100%;
-    position: absolute;
-    z-index: 49;
-    bottom: 0px;
-    margin-bottom: 0;
-    padding-bottom: 12px;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.15s ease-in-out;
-  }
-
-  li{
-    background: $color-gray;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-bottom: 12px;
-    position: relative;
-
-    font-size: 2em;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all .5s ease-in-out;
-
-    &:hover{
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      transform: scale(1.25);
-    }
-
-    svg{
-      align-self: center;
-    }
-
-    a{
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    p{
-      opacity: 0;
-      color: $color-black;
-      font-size: 0.5em;
-      position: absolute;
-      z-index: 499;
-      right: 0px;
-      top: -12px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      text-align: left;
-    }
+  .fab-icon > *{
+    color:$color-white;
   }
 }
 </style>
