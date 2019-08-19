@@ -1,0 +1,53 @@
+@import "../../../node_modules/@fishtank/colors/dist/index";
+
+.mobileListItem {
+  border-bottom: 1px solid $color-gray-lighter;
+  &:last-of-type {
+    border-bottom: 0px;
+  }
+}
+.chevronRight {
+    position:relative;
+    padding-right: 30px;
+    &:before {
+      right: 10px;
+      content:'';
+      position: absolute;
+      border-right-color: #C5CACD;
+      border-bottom-color: #C5CACD;
+      border-right: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
+      border-bottom: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
+      width: 14px;
+      height: 14px;
+      background-color: transparent;
+      z-index: 5;
+      transform: rotateZ(-45deg);
+    }
+}
+.chevronLeft {
+  position:relative;
+  padding-left: 30px;
+  &:before {
+    left: 10px;
+    content:'';
+    position: absolute;
+    border-right-color: #C5CACD;
+    border-bottom-color: #C5CACD;
+    border-right: 3px solid var(--list-item-chevron-color, $color-gray-lighter);
+    border-bottom: 3px solid var(--list-item-chevron-color, $color-gray-lighter);
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    z-index: 5;
+    transform: rotateZ(135deg);
+  }
+}
+.chevronTop:before{
+  top: 30px;
+}
+.chevronBottom:before{
+  bottom: 30px;
+}
+.chevronMiddle:before{
+  top: calc(50% - 7px);
+}

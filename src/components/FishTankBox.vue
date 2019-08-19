@@ -41,6 +41,9 @@ import {
   Padding ,
   Color } from '../util/types/boxTypes'
 
+type Chevron = "left" | "right" | string;
+type ChevronPosition = "top" | "middle" | "bottom" | string;
+
 let colorMappingFunc = (value:any) => {
   if (!value) return identity()
   let allColorMappings = mapping(color())
@@ -280,6 +283,15 @@ const lgMargin = union(lgMarginTop, lgMarginBottom, lgMarginLeft, lgMarginRight)
 const [xlMarginStart, xlMarginEnd, xlMarginTop, xlMarginRight, xlMarginBottom, xlMarginLeft] = marginTypes.map(([first, ...rest]) => `xl${_.toUpper(first)}${_.join(rest, '')}`).map((marginType: string) => bind(rangeWithoutZero(marginType), xlWhiteSpace))
 const xlMargin = union(xlMarginTop, xlMarginBottom, xlMarginLeft, xlMarginRight)
 
+const mobile = {
+  chevronLeft: 'chevronLeft',
+  chevronRight: 'chevronRight',
+  chevronTop: 'chevronTop',
+  chevronBottom: 'chevronBottom',
+  chevronMiddle: 'chevronMiddle',
+  mobileListItem: 'mobileListItem'
+}
+
 const marginValidator = {
   type:Number,
   default:null,
@@ -470,13 +482,23 @@ const props: any = {
   }),
   wrap: toggle(layout.flexWrap),
   width: (width:any) => fromInlineStyle({ width }),
-  color: colorMappingFunc
+  color: colorMappingFunc,
+  mobileListItem: toggle(mobile.mobileListItem),
+  chevron: mapping({
+    left: mobile.chevronLeft,
+    right: mobile.chevronRight
+  }),
+  chevronPosition: mapping({
+    top: mobile.chevronTop,
+    bottom: mobile.chevronBottom,
+    middle: mobile.chevronMiddle,
+  })
 }
 
 export default Vue.extend({
   render(createElement){
     return createElement(
-        (this as any).tagElement, (this as any).boxProps, this.$slots.default
+        (<any>this).tagElement, (<any>this).boxProps, this.$slots.default
       )
   },
   name:'FishTankBox',
@@ -487,7 +509,7 @@ export default Vue.extend({
     /**
     * Box semantic element
     */
-    tag:{
+    tag: {
       default:'div',
       required:false,
       type:String,
@@ -495,7 +517,10 @@ export default Vue.extend({
         return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
       },
     },
-    as:{
+     /**
+      * Box semantic element
+      */
+    as: {
       default:'div',
       required:false,
       type:String,
@@ -503,6 +528,27 @@ export default Vue.extend({
         return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
       },
       description:"Box semantic element"
+    },
+    mobileListItem:{
+      type: Boolean,
+      default: false,
+      required: false
+    },
+    chevron:{
+      type: String,
+      default: undefined,
+      required: false,
+      validator: function (value: Chevron) {
+        return ["left", "right"].indexOf(value) !== -1
+      },
+    },
+    chevronPosition:{
+      type: String,
+      default: 'middle',
+      required: false,
+      validator: function (value: ChevronPosition) {
+        return ["top", "bottom", 'middle'].indexOf(value) !== -1
+      },
     },
     column: {
       type:Number,
@@ -931,5 +977,6 @@ export default Vue.extend({
 @import "../styles/box/box-layout";
 @import "../styles/box/box-column";
 @import "../styles/box/grid";
+@import "../styles/box/mobile";
 @import "../../node_modules/@fishtank/colors/dist/css-variable-stylesheet";
 </style>
