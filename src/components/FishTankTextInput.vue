@@ -307,25 +307,6 @@ export default Vue.extend({
 <style scoped lang="scss">
   @import '../styles/mixins';
 
-  @mixin placeholder() {
-    &::-webkit-input-placeholder {
-      /* Chrome/Opera/Safari */
-      @content;
-    }
-    &::-moz-placeholder {
-      /* Firefox 19+ */
-      @content;
-    }
-    &:-ms-input-placeholder {
-      /* IE 10+ */
-      @content;
-    }
-    &:-moz-placeholder {
-      /* Firefox 18- */
-      @content;
-    }
-  }
-
   .input-element {
     width: 100%;
     height: $baseline * 10;

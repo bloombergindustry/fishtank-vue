@@ -192,24 +192,7 @@ export default class TextInput extends Vue {
 <style scoped lang="scss">
   @import '../styles/mixins';
   @import url($cdn-url);
-  @mixin placeholder() {
-    &::-webkit-input-placeholder {
-      /* Chrome/Opera/Safari */
-      @content;
-    }
-    &::-moz-placeholder {
-      /* Firefox 19+ */
-      @content;
-    }
-    &:-ms-input-placeholder {
-      /* IE 10+ */
-      @content;
-    }
-    &:-moz-placeholder {
-      /* Firefox 18- */
-      @content;
-    }
-  }
+  
   .input-wrapper {
     border: $color-gray-lighter 1px solid;
     border-radius: 2px;

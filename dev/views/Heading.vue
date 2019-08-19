@@ -6,7 +6,10 @@
         :color="textColor"
         :size="textSize"
         :align="align"
-        :font="font">Heading</fish-tank-heading>
+        :uppercase="uppercase"
+        :font="font">
+        Heading
+      </fish-tank-heading>
     </div>
 
     <div>
@@ -15,33 +18,50 @@
           <br>
           <fish-tank-text
             bold
-            italic >Level</fish-tank-text>
+            italic>
+            Level
+          </fish-tank-text>
           <select v-model="level">
-            <option v-for="op in 6" :key="op" :value="op">{{op}}</option>
+            <option 
+              v-for="op in 6" 
+              :key="op" 
+              :value="op">
+              {{ op }}
+            </option>
           </select>
         </div>
         <div>
           <br>
           <fish-tank-text
             bold
-            italic >Font</fish-tank-text>
+            italic>
+            Font
+          </fish-tank-text>
           <select v-model="font">
-            <option value="primary">primary</option>
-            <option value="accent">accent</option>
+            <option value="primary">
+              primary
+            </option>
+            <option value="accent">
+              accent
+            </option>
           </select>
         </div>
 
         <div>
           <br>
           <fish-tank-text
-          color="black"
+            color="black"
             bold
-            italic >Colors</fish-tank-text>
+            italic>
+            Colors
+          </fish-tank-text>
           <select v-model="textColor">
             <option
               v-for="(color, index) in options.colors"
-              :value="color"
-              :key="index">{{ color }}</option>
+              :key="index"
+              :value="color">
+              {{ color }}
+            </option>
           </select>
         </div>
       </label>
@@ -50,14 +70,28 @@
         <br>
         <fish-tank-text
           bold
-          italic >Font Size</fish-tank-text>
+          italic>
+          Font Size
+        </fish-tank-text>
         <select v-model="textSize">
-          <option value="headingLg">headingLg</option>
-          <option value="headingMd">headingMd</option>
-          <option value="headingSm">headingSm</option>
-          <option value="baseLg">baseLg</option>
-          <option value="baseMd">baseMd</option>
-          <option value="baseSm">baseSm</option>
+          <option value="headingLg">
+            headingLg
+          </option>
+          <option value="headingMd">
+            headingMd
+          </option>
+          <option value="headingSm">
+            headingSm
+          </option>
+          <option value="baseLg">
+            baseLg
+          </option>
+          <option value="baseMd">
+            baseMd
+          </option>
+          <option value="baseSm">
+            baseSm
+          </option>
         </select>
       </div>
 
@@ -65,10 +99,16 @@
         <br>
         <fish-tank-text
           bold
-          italic>Align</fish-tank-text>
+          italic>
+          Align
+        </fish-tank-text>
         <select v-model="align">
-          <option value="left">left</option>
-          <option value="center">center</option>
+          <option value="left">
+            left
+          </option>
+          <option value="center">
+            center
+          </option>
         </select>
       </div>
 
@@ -76,10 +116,13 @@
         <br>
         <fish-tank-checkbox
           v-model="bold"
-          label="Bold"/>
+          label="Bold" />
         <fish-tank-checkbox
           v-model="semiBold"
-          label="SemiBold"/>
+          label="SemiBold" />
+        <fish-tank-checkbox
+          v-model="uppercase"
+          label="Uppercase" />
       </div>
     </div>
     <br>
@@ -116,6 +159,7 @@ export default Vue.extend({
       italic: false,
       align: 'left',
       font:'primary',
+      uppercase: false,
       options: {
         colors
       }

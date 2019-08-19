@@ -34,22 +34,29 @@ import Vue, {VNode} from 'vue'
   export default Vue.extend({
     name:"FishTankHeading",
     props: {
+      /**
+       * Heading Semantic Level
+       */
       level:{
         type:String,
         default:'1',
         validator: function (value: string) {
           return (0<(parseInt(value) && 7>parseInt(value)))
         },
-        description:"Heading Semantic Level"
       },
+      /**
+       * Text alignment
+       */
       align: {
         type: String,
         default: 'left',
         validator: function (value: string) {
           return align.indexOf(value) !== -1
         },
-        description:"Text alignment"
       },
+      /**
+       * Font color
+       */
       color: {
         type: String,
         validator: function (value: string) {
@@ -58,36 +65,56 @@ import Vue, {VNode} from 'vue'
         default: 'black',
         description:"Text color"
       },
+      /**
+       * Bold font weight
+       */
       bold: {
         type: Boolean,
         required: false,
         default: false,
       },
+      /**
+       * Semi Bold font weight
+       */
       semiBold: {
         type: Boolean,
         required: false,
         default: false
       },
+      /**
+       * Heading text size
+       */
       size: {
         type: String,
         default: 'baseLg',
         validator: function (value: string) {
           return fontSizes.indexOf(value) !== -1
         },
-        description:"Heading text size"
       },
+      /**
+       * Text, within a container of fixed size, overflows with ellipsis
+       */
       truncate: {
         type: Boolean,
         default: false,
-        description:"Text, within a container of fixed size, overflows with ellipsis"
       },
+      /**
+       * Heading font type
+       */
       font: {
         default: 'primary',
         type: String,
         validator: function (value: string) {
           return ['primary', 'accent'].indexOf(value) !== -1
         },
-        description:"Heading font type"
+      },
+      /**
+       * Uppercase text
+       */
+      uppercase: {
+        default: false,
+        required: false,
+        type: Boolean,
       },
     },
     computed: {
@@ -101,6 +128,7 @@ import Vue, {VNode} from 'vue'
         return {
           color: (<any>this).colorMappingFunc,
           inline: toggle(style.inline),
+          uppercase: toggle(style.uppercase),
           semiBold: toggle(style.fontWeightSemiBold),
           bold: toggle(style.fontWeightBold),
           size: (<any>this).fontMappingFunc,
@@ -244,5 +272,8 @@ import Vue, {VNode} from 'vue'
   // .textJustify {
   //   text-align: justify;
   // }
+  .uppercase {
+    text-transform: uppercase;
+  }
 
 </style>
