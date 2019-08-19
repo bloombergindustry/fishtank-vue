@@ -34,7 +34,6 @@
   "main": "dist/fishtank-vue.common.min.js",
   "module": "dist/fishtank-vue.esm.min.js",
   "typings": "dist/fishtank-vue.d.ts",
-  "styles": "dist/fishtank-vue.css",
   "peerDependencies": {
     "vue": "^2.5.17"
   },
