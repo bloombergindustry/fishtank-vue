@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.9"></a>
+## [5.2.9](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.8...v5.2.9) (2019-08-19)
+
+
+### Features
+
+* added MobileListItem prop and styles to box component ([34f2eaf](https://github.com/bloombergbna/fishtank-vue/commit/34f2eaf))
+
+
+
 <a name="5.2.8"></a>
 ## [5.2.8](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.7...v5.2.8) (2019-08-14)
 
