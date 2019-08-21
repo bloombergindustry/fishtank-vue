@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.10"></a>
+## [5.2.10](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.9...v5.2.10) (2019-08-21)
+
+
+### Features
+
+* Fixed Chevron class name bug& and sibling selector bug for mobile list item styles in the box component. ([5dc151c](https://github.com/bloombergbna/fishtank-vue/commit/5dc151c))
+
+
+
 <a name="5.2.9"></a>
 ## [5.2.9](https://github.com/bloombergbna/fishtank-vue/compare/v5.2.8...v5.2.9) (2019-08-19)
 
