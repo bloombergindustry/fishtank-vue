@@ -525,7 +525,7 @@ export default Vue.extend({
       required:false,
       type:String,
       validator: function (value: IsBoxType) {
-        return ["div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
+        return ["a", "p", "li", "ul", "div", "span", "section", "article", "aside", "footer", "header", "details", "figcaption", "figure", "main", "nav", "summary", "time"].indexOf(value) !== -1
       },
       description:"Box semantic element"
     },
@@ -544,7 +544,7 @@ export default Vue.extend({
     },
     chevronPosition:{
       type: String,
-      default: 'middle',
+      default: undefined,
       required: false,
       validator: function (value: ChevronPosition) {
         return ["top", "bottom", 'middle'].indexOf(value) !== -1

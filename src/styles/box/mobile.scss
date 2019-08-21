@@ -1,10 +1,10 @@
 @import "../../../node_modules/@fishtank/colors/dist/index";
 
-.mobileListItem {
-  border-bottom: 1px solid $color-gray-lighter;
-  &:last-of-type {
-    border-bottom: 0px;
-  }
+.mobileListItem + .mobileListItem {
+  border-top: 1px solid $color-gray-lighter;
+}
+.lastMobileListItem{
+  border-bottom: 0px;
 }
 .chevronRight {
     position:relative;

@@ -181,8 +181,11 @@
       </box>
 
       <box 
+        as="a"
+        display="flex"
         mobile-list-item
         chevron="left"
+        chevron-position="middle"
         :padding="4">
         <fish-tank-text>
           This is a list element for a mobile app. This is a list element for a mobile app
