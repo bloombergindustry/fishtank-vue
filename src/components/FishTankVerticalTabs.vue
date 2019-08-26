@@ -49,7 +49,7 @@ import Vue from 'vue'
 import { a11y } from "../util/mixins"
 
 export default Vue.extend({
-  name: 'FishTankTabs',
+  name: 'FishTankVerticalTabs',
   components: {  },
   props: {
     /**

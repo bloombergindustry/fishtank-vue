@@ -1,5 +1,7 @@
 @import "../../../node_modules/@fishtank/colors/dist/index";
 
+$arrowsize: 14px;
+
 .mobileListItem + .mobileListItem {
   border-top: 1px solid $color-gray-lighter;
 }
@@ -17,8 +19,8 @@
       border-bottom-color: #C5CACD;
       border-right: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
       border-bottom: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
-      width: 14px;
-      height: 14px;
+      width: $arrowsize;
+      height: $arrowsize;
       background-color: transparent;
       z-index: 5;
       transform: rotateZ(-45deg);
@@ -33,20 +35,20 @@
     position: absolute;
     border-right-color: #C5CACD;
     border-bottom-color: #C5CACD;
-    border-right: 3px solid var(--list-item-chevron-color, $color-gray-lighter);
-    border-bottom: 3px solid var(--list-item-chevron-color, $color-gray-lighter);
-    width: 14px;
-    height: 14px;
+    border-right: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
+    border-bottom: 2px solid var(--list-item-chevron-color, $color-gray-lighter);
+    width: $arrowsize;
+    height: $arrowsize;
     background-color: transparent;
     z-index: 5;
     transform: rotateZ(135deg);
   }
 }
 .chevronTop:before{
-  top: 30px;
+  top: 5%;
 }
 .chevronBottom:before{
-  bottom: 30px;
+  bottom: 5%;
 }
 .chevronMiddle:before{
   top: calc(50% - 7px);
