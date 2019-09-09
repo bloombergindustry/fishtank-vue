@@ -1,74 +1,36 @@
-<template>
-  <data-fetcher 
-    :url="dataUrl" 
-    enable-cache>
-    <div 
-      slot-scope="{ loading, fetchedData: { data: { items } } }" 
-      :focused="focused" 
-      :name="name" 
-      :orientation="orientation" 
-      class="Autocomplete" 
-      @keydown="e => _handleKeydown(e, items)" >
-      <div 
-        :id="id ? `${id}-combobox` : `${identifier}-combobox`"
-        class="input-wrapper"
-        role="combobox">
-        <text-input 
-          ref="query"
-          :id="id ? `${id}-input` : `${identifier}-input`"
-          v-model="query"
-          :label="label"
-          :orientation="orientation"
-          :placeholder="placeholder" 
-          :aria-expanded="(focused && items ? true: false)" 
-          :aria-controls="`${id}-listbox`" 
-          :aria-activedescendant="`option-${focusedItem}`"
-          :aria-labelledby="label"
-          type="text"  
-          icon="search_24" 
-          aria-haspopup="listbox"
-          aria-autocomplete="list" 
-          @blur.stop="focused=false, destroyPop()" 
-          @focus.stop="focused=true, showPop()" />
-        <div
-          v-if="focused"
-          ref="items"
-          slot="below"
-          :id=" id ? `${id}-listbox` : `${identifier}-listbox`"
-          :style="{width:dropdownStyle}"
-          role="listbox"
-          class="items">
-          <hightlight
-            v-for="(item, index) in items"
-            :id="`option-${index}`"
-            :key="index"
-            :aria-labelledby="label"
-            :focused="focusedItem===index"
-            :class="['item', {'focused': focusedItem===index}]"
-            :content="item.label"
-            :term="query"
-            role="option"
-            @mousedown.native="() => _selectResult(item)"
-            @mouseover.native="focusedItem=index" />
-        </div>
-      </div>
-    </div>
-  </data-fetcher>
-</template>
+<script lang="ts">
+/**
+ * Fish Tank Multi-tiered Lookup Component
+ * @displayName FishTankLookup
+ */
+import { Component, Prop, Vue } from "vue-property-decorator"
+import TextInput from './FishTankTextInputV2.vue'
+import Node from './FishTankLookupNode.vue'
 
-<script>
-import DataFetcher from './BLAWDataFetcher.vue'
-import HighlightedText from './FishTankHighlightedText.vue'
-import TextInput from './FishTankTextInput.vue'
-import Popper from 'popper.js'
-/** Triggered when selecting a result
+import { mixin as clickaway } from 'vue-clickaway'
+import Popper from "popper.js"
+
+/**
+ * Focus event. Triggered on mouse of keyboard focus
+ *
+ * @event focus
+ * @type {string}
+ */
+
+/** Triggered when inputting text into the component
+ * @event input
+ * @type {Event}
+ */
+
+
+/** Triggered when selecting a result from the dropdown
  * @event change
  * @type {Event}
  */
 
 export default {
-  name: 'FishTankLookup',
-  components: { DataFetcher, hightlight: HighlightedText, TextInput },
+  name: 'Lookup',
+  components: { TextInput, Node },
   model: {
     prop: 'value',
     event: 'change'
@@ -78,6 +40,14 @@ export default {
      * Input element id
      */
     id: String,
+
+    /**
+     * the icon to display, the default is the magnifying glass
+     */
+    icon: {
+      type: String,
+      default: 'search_24'
+    },
 
     /**
      * Label to display with input box
@@ -103,149 +73,166 @@ export default {
     placeholder: String,
 
     /**
-     * Url to request items, will append ?query=...
+     * Array of autocomplete items
      */
-    url: String,
+    items: {
+      type: Array,
+      default: () => []
+    },
 
     /**
-     * Width of dropdown
+     * WIP rework of filterng functions
+     * This input will filter your results by a regex match on the query
+     * enable this if your autocomplete items should NOT be filterd by the query
+     * ie. search/autocomplete has given you your items and not all of them match the query string
      */
-    width: Number,
+    disableFiltering: {
+      type: Boolean,
+      default: false
+    },
 
+    /**
+      * Key name of children array */
+    children: {
+      type: String,
+      default:undefined
+    },
     /**
      * Current selected value
      * @param {Object} value - Value hash
-     * @param {Boolean} value.label - Display value
+     * @param {Boolean} value.text - Display value
      * @param {Boolean} value.value - Selected value
      */
     value: Object
   },
   data () {
     return {
-      dataUrl: '',
       focused: false,
+      opened: false,
       focusedItem: -1,
-      query: this.value ? this.value.label : '',
-      popObj:undefined,
-      inputEl:undefined,
+      popObj: undefined,
+      inputEl: { type: HTMLElement },
+      query:''
     }
   },
-  computed:{
-    dropdownStyle(){ 
-      return (this.$props.width +`px`) || '200px'
-    },
-    items () {
-      return this.fetchedData.data.items
-    },
-    identifier () {
-      return (Math.random() * 10000).toFixed(0).toString()
-    } 
-  },
-  watch: {
-    query () {
-      this.dataUrl = `${this.url}?query=${this.query}`
-
-      // Only fire the change if the value doesn't match to
-      // avoid dup event when selecting from dropdown
-      if (this.query && (!this.value || this.value.label !== this.query)) {
-        this.$emit('change', { label: this.query, value: null })
-      }
-    }
-  },
-  destroyed(){
-    if(this.popObj!==undefined) this.destroyPop()
+  computed: {
   },
   methods: {
+    destroyed() {
+      if (this.popObj !== undefined) this.destroyPop();
+    },
     /**
-     * Clears current value
-     */
-    clear () { this.query = '' },
-
-    _handleKeydown (e, items = []) {
-      switch (e.key) {
-        case 'ArrowUp':
-          e.preventDefault()
-          this.focusedItem--
-          if (this.focusedItem < 0) this.focusedItem = items.length - 1
-          break
-        case 'ArrowDown':
-          e.preventDefault()
-          this.focusedItem++
-          if (this.focusedItem >= items.length) this.focusedItem = 0
-          break
-        case 'Enter':
-          e.preventDefault()
-          this._selectResult(items[this.focusedItem] || { label: this.query, value: null })
-          break
-        default:
-          this.focused = true
+    * Closes the dropdown
+    */
+    closeDropdown(items: Array<String>, index: number) {
+      if (items.length - 1 === index) {
+        this.opened = false;
       }
     },
-    _selectResult (item) {
-      this.focused = false
-      this.$emit('change', item)
-      this.query = item.label
-      this.$nextTick(function(){
-        this.destroyPop()
-      })
-    },
-    showPop(){
-      // if (this.inputEl === undefined) this.inputEl = document.querySelector()
-      // this.inputEl = this.$refs.query
-      this.inputEl = document.querySelector('.input-element')
-      this.$nextTick(function(){
-        this.popObj = new Popper(this.inputEl,this.$refs.items ,{
-          placement:'bottom-start',
-          modifiers:{
-            computeStyle:{
-              gpuAcceleration:true,
-              // y:'left'
+    /**
+  * Open the dropdown
+  */
+  openItems() {
+    if (this.focused === true) this.showPop();
+  },
+  /**
+  * Trigger the pop-up tooltip container of the dropdown
+  */
+  showPop() {
+    (this as any).inputEl = this.$refs.anchor
+    this.$nextTick(function() {
+      (this as any).popObj = new Popper(
+        (this as any).inputEl,
+        (this as any).$refs.itemsWrap,
+        {
+          placement: "bottom-start",
+          modifiers: {
+            computeStyle: {
+              gpuAcceleration: true,
             },
-            offset: {
-              // enabled: true,
-              // offset: '0px, -100%'
-            }
+          },
+          onCreate: function(data){
+            console.log(data);
           }
-        })
-      })
-    },
-    destroyPop(){
-      this.$nextTick(function(){
-        if(this.popObj!==undefined) this.popObj.destroy()
-      })
+        }
+      );
+    });
+  },
+  /**
+   * close pop
+   */
+  closeItems () {
+    if (this.popObj) {
+      (this as any).popObj.destroy();
+      (this as any).popObj = null;
+      this.opened = false;
     }
+  },
+  /**
+  * Destroys instance of select popup
+  */
+  destroyPop() {
+    this.$nextTick(function() {
+      if (this.popObj !== undefined) (this as any).popObj.destroy();
+    });
+  }
   }
 }
 </script>
 
+<template>
+  <div 
+    class="ft-lookup input-wrapper" >
+    <text-input
+      class="ft-lookup-input"
+      :id="id"
+      v-model="query"
+      :icon="icon"
+      :label="label"
+      :orientation="orientation"
+      :placeholder="placeholder"
+      @focus="focused=true; openItems()"
+      @blur="focused=false; closeItems()" />
+    <div ref="anchor" />
+    <div
+      ref="itemsWrap" class="ft-lookup-popup-anchor">
+      <div 
+        v-if="focused && query.length"
+        class="items">
+        <div 
+          v-for="(item, index) in items"
+          :key="index">
+          <node :node="item" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 <style scoped lang="scss">
-@import '../styles/mixins';
-.Autocomplete {
-  font-family: 'Open Sans', sans-serif;
-  .input-wrapper {
-    .items {
-      z-index: 10;
-      background-color: #fff;
-      border: 1px solid $color-gray-lighter;
-      border-radius: 2px;
-      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
-      left:0;
-      margin-top:$baseline;
-      &:empty { display: none; }
-      .item {
-        display: block;
-        padding: $baseline *2;
-      }
-      .HighlightedText {
-        cursor: pointer;
-        font-size: var(--font-size, 14px);
-        line-height: 20px;
-      }
-      .focused {
-        background-color: #b9d1f3;
-        color: #225379;
-      }
-    }
-  }
+.ft-lookup {
+  position: relative;
 }
-</style>
+.ft-lookup-input{
+  display: block;
+}
+.items {
+  @import "../styles/mixins";
+  border: 1px solid $color-gray-lighter;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  background-color: $color-white;
+  min-width: 100%;
+  outline: 0;
+  margin-top: $baseline;
+  padding: $baseline;
+  color: $color-gray-dark;
+  max-height: 200px;
+  overflow: scroll;
+}
+.ft-lookup-popup-anchor{
+  width:calc(100% - 20px);
+  z-index:99;
+  position:relative;
+  margin-top:-24px;
+}
+ </style>
