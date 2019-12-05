@@ -2,11 +2,12 @@
 <template>
   <div 
     :class="['spinner', gradientClass, spinnerSize, alignClass, {'pause-spinner': !loading}]" 
-    :aria-busy="`${loading}`" 
+    :aria-busy="`${loading}`"
+    :style="{width: `${spinnerPixelSize}px`, height:`${spinnerPixelSize}px`}" 
     role="alert">
     <svg 
-      height="100" 
-      width="100">
+      :height="spinnerPixelSize" 
+      :width="spinnerPixelSize">
       <defs>
         <linearGradient 
           :id="gradientClass" 
@@ -26,14 +27,14 @@
       </defs>
       <circle 
         class="base" 
-        cx="50" 
-        cy="50" />
+        :cx="spinnerRadiusSize" 
+        :cy="spinnerRadiusSize" />
       <circle
         :style="[{strokeDasharray: `${strokeDashArray}`}, {stroke: `${circleTheme}`}]"
         :class="['spinner-gradient']"
         :r="radius" 
-        cx="50"
-        cy="50" 
+        :cx="spinnerRadiusSize" 
+        :cy="spinnerRadiusSize" 
         @stop-spinner="stopSpinner" />
     </svg>
   </div>
@@ -99,6 +100,13 @@ export default Vue.extend({
   computed:{
     gradientClass: function(){ return `spinner--${this.theme}-gradient-${this.identifier}`},
     spinnerSize: function(){ return "spinner--" + this.size},
+    spinnerPixelSize: function() { 
+      return this[`${this.size}Dash`]
+    },
+    spinnerRadiusSize: function() {
+      let num  = this[`${this.size}Dash`].toFixed()
+      return (num/2)
+    },
     alignClass: function() { return "spinner--align-" + this.align},
     strokeDashArray: function(){
       let countDown = this.size === 'small' ? this.smallDash : 
@@ -161,8 +169,8 @@ export default Vue.extend({
 <style lang="scss" scoped >
   @import '../styles/mixins';
   .spinner {
-    width:100px;
-    height: 100px;
+    // width:100px;
+    // height: 100px;
     transform: rotate(0deg);
     transform-origin: center center;
     animation: loading .75s linear infinite;
