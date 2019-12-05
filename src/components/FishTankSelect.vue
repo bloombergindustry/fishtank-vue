@@ -1,232 +1,247 @@
 <script lang="ts">
-/**
- * Fish Tank Select Component
- * @displayName FishTankSelect
- */
-import FishTankText from "./FishTankText.vue";
-import FishTankBox from "./FishTankBox.vue";
-import { CaretDown24 } from "@fishtank/icons-vue";
-import { a11y } from "../util/mixins";
-
-import Popper from "popper.js";
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { mixin as clickaway } from 'vue-clickaway';
-
-/**
- * Change event.
- *
- * @event change
- * @type {string}
- */
-
-/**
- * Custom dropdown menu
- *
- * CSS Custom Properties style variables:
- *  --border-color
- *  --selector-height
- *  --selector-width
- *  --border-radius
- *  --hover-background-color
- *  --dropdown-background-color
- *  --dropdown-icon-color
- *  --text-color
- *  --font-size
- */
-
-@Component({
-  components: {
-    ftext: FishTankText,
-    box: FishTankBox,
-    caretdown: CaretDown24
-  },
-  mixins: [a11y, clickaway],
-  model: {
-    event: "change",
-    prop: "value"
-  }
-})
-export default class FishTankSelect extends Vue {
   /**
-   * Array of dropdown items
+   * Fish Tank Select Component
+   * @displayName FishTankSelect
    */
-  @Prop({ default: () => [] })
-  items: Array<any>;
+  import FishTankText from "./FishTankText.vue";
+  import FishTankBox from "./FishTankBox.vue";
+  import { CaretDown24 } from "@fishtank/icons-vue";
+  import { a11y } from "../util/mixins";
+
+  import Popper from "popper.js";
+  import { Component, Prop, Vue } from "vue-property-decorator";
+  import { mixin as clickaway } from 'vue-clickaway';
 
   /**
-   * Select ID label
+   * Change event.
+   *
+   * @event change
+   * @type {string}
    */
-  @Prop({})
-  id: String;
 
   /**
-   * Input label
+   * Custom dropdown menu
+   *
+   * CSS Custom Properties style variables:
+   *  --border-color
+   *  --selector-height
+   *  --selector-width
+   *  --border-radius
+   *  --hover-background-color
+   *  --dropdown-background-color
+   *  --dropdown-icon-color
+   *  --text-color
+   *  --font-size
    */
-  @Prop({})
-  label: String;
 
-  /**
-   * Element name (for forms use)
-   */
-  @Prop({})
-  name: String;
-
-  /**
-   * Orientation of label/input, ie ttb/rtl/ltr
-   */
-  @Prop({ default: "ttb" })
-  orientation: String;
-
-  /**
-   * Placeholder text
-   */
-  @Prop({})
-  placeholder: String;
-
-  /**
-   * Current selected item value
-   */
-  @Prop({})
-  value: String | Number;
-
-  /**
-   * Small select
-   */
-  @Prop({})
-  small: boolean;
-  /**
-   * Width
-   */
-  @Prop()
-  width: number;
-
-  //data
-  opened = false;
-  focusedItem = -1;
-  popObj = undefined;
-  inputEl = { type: HTMLElement };
-
-  data () {
-    return {
-      opened: false,
-      focusedItem: -1,
-      popObj: undefined,
-      inputEl: { type: HTMLElement },
-      anchorId: Math.random().toString(36)
+  @Component({
+    components: {
+      ftext: FishTankText,
+      box: FishTankBox,
+      caretdown: CaretDown24
+    },
+    mixins: [a11y, clickaway],
+    model: {
+      event: "change",
+      prop: "value"
     }
-  }
+  })
+  export default class FishTankSelect extends Vue {
+    /**
+     * Array of dropdown items
+     */
+    @Prop({ default: () => [] })
+    items: Array<any>;
 
-  //computed methods
-  get displayLabel() {
-    return this.value
-      ? this.items.find(x => x.value === this.value).label
-      : this.placeholder;
-  }
+    /**
+     * Select ID label
+     */
+    @Prop({})
+    id: String;
 
-  get dropdownStyle() {
-    let width = null
-    let wrapper = this.$refs.anchor
-    if (this.$props.width) {
-      width = `${this.$props.width}px`
-    } else if (wrapper) {
-      width = `${(wrapper as Element).clientWidth}px`
-    } else {
-      width = `200px`
+    /**
+     * Input label
+     */
+    @Prop({})
+    label: String;
+
+    /**
+     * Element name (for forms use)
+     */
+    @Prop({})
+    name: String;
+
+    /**
+     * Orientation of label/input, ie ttb/rtl/ltr
+     */
+    @Prop({ default: "ttb" })
+    orientation: String;
+
+    /**
+     * Placeholder text
+     */
+    @Prop({})
+    placeholder: String;
+
+    /**
+     * Current selected item value
+     */
+    @Prop({})
+    value: String | Number;
+
+    /**
+     * Small select
+     */
+    @Prop({})
+    small: boolean;
+    /**
+     * Width
+     */
+    @Prop()
+    width: number;
+    /**
+     * maxHeight
+     */
+    @Prop()
+    maxHeight: number;
+
+    //data
+    opened = false;
+    focusedItem = -1;
+    popObj = undefined;
+    inputEl = { type: HTMLElement };
+
+    data () {
+      return {
+        opened: false,
+        focusedItem: -1,
+        popObj: undefined,
+        inputEl: { type: HTMLElement },
+        anchorId: Math.random().toString(36)
+      }
     }
 
-    return {
-      width
+    //computed methods
+    get displayLabel() {
+      return this.value
+           ? this.items.find(x => x.value === this.value).label
+           : this.placeholder;
     }
-  }
 
-  //lifecycle method
-  /**
-   * Calls the destroy method on the pop-up tool tip
-  */
-  destroyed() {
-    if (this.popObj !== undefined) this.destroyPop();
-  }
+    get dropdownStyle() {
+      let width = null
+      let wrapper = this.$refs.anchor
+      if (this.$props.width) {
+        width = `${this.$props.width}px`
+      } else if (wrapper) {
+        width = `${(wrapper as Element).clientWidth}px`
+      } else {
+        width = `200px`
+      }
 
-  //component methods
-  /**
-  * Closes the dropdown
-  */
-  closeDropdown(items: Array<String>, index: number) {
-    if (items.length - 1 === index) {
-      this.opened = false;
+      let maxHeight = null
+      if (this.$props.maxHeight) {
+        maxHeight = `${this.$props.maxHeight}px`
+      }
+      else {
+        maxHeight = `300px`
+      }
+
+      return {
+        width,
+        maxHeight: maxHeight,
+        overflowY: 'scroll'
+      }
     }
-  }
 
-  _handleKeydown(e: KeyboardEvent, items = []) {
-    switch (e.key) {
-      case "ArrowUp":
-        e.preventDefault();
-        this.focusedItem = (this.focusedItem - 1 + this.items.length) % this.items.length
-        break;
-      case "ArrowDown":
-        e.preventDefault();
-        this.focusedItem = (this.focusedItem + 1) % this.items.length
-        break;
-      case "Enter":
-        if (this.focusedItem > -1) {
-          /**
-           * An event that signals enter being pressed.
-           *
-           * @event change
-           * @type {object}
-           */
-          this.$emit("change", this.items[this.focusedItem].value);
-        }
-        break;
-      default:
-        null;
+    //lifecycle method
+    /**
+     * Calls the destroy method on the pop-up tool tip
+     */
+    destroyed() {
+      if (this.popObj !== undefined) this.destroyPop();
     }
-  }
-  /**
-  * Open the dropdown
-  */
-  openItems() {
-    if (this.opened === true) this.showPop();
-  }
-  /**
-  * Trigger the pop-up tooltip container of the dropdown
-  */
-  showPop() {
-    (this as any).inputEl = this.$refs.anchor
-    this.$nextTick(function() {
-      (this as any).popObj = new Popper(
-        (this as any).inputEl,
-        (this as any).$refs.itemsWrap,
-        {
-          placement: "bottom-start",
-          modifiers: {
-            computeStyle: {
-              gpuAcceleration: true
+
+    //component methods
+    /**
+     * Closes the dropdown
+     */
+    closeDropdown(items: Array<String>, index: number) {
+      if (items.length - 1 === index) {
+        this.opened = false;
+      }
+    }
+
+    _handleKeydown(e: KeyboardEvent, items = []) {
+      switch (e.key) {
+        case "ArrowUp":
+          e.preventDefault();
+          this.focusedItem = (this.focusedItem - 1 + this.items.length) % this.items.length
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          this.focusedItem = (this.focusedItem + 1) % this.items.length
+          break;
+        case "Enter":
+          if (this.focusedItem > -1) {
+            /**
+             * An event that signals enter being pressed.
+             *
+             * @event change
+             * @type {object}
+             */
+            this.$emit("change", this.items[this.focusedItem].value);
+          }
+          break;
+        default:
+          null;
+      }
+    }
+    /**
+     * Open the dropdown
+     */
+    openItems() {
+      if (this.opened === true) this.showPop();
+    }
+    /**
+     * Trigger the pop-up tooltip container of the dropdown
+     */
+    showPop() {
+      (this as any).inputEl = this.$refs.anchor
+      this.$nextTick(function() {
+        (this as any).popObj = new Popper(
+          (this as any).inputEl,
+          (this as any).$refs.itemsWrap,
+          {
+            placement: "bottom-start",
+            modifiers: {
+              computeStyle: {
+                gpuAcceleration: true
+              }
             }
           }
-        }
-      );
-    });
-  }
-  /**
-   * close pop
-   */
-  closePopup () {
-    if (this.popObj) {
-      (this as any).popObj.destroy();
-      (this as any).popObj = null;
-      this.opened = false;
+        );
+      });
+    }
+    /**
+     * close pop
+     */
+    closePopup () {
+      if (this.popObj) {
+        (this as any).popObj.destroy();
+        (this as any).popObj = null;
+        this.opened = false;
+      }
+    }
+    /**
+     * Destroys instance of select popup
+     */
+    destroyPop() {
+      this.$nextTick(function() {
+        if (this.popObj !== undefined) (this as any).popObj.destroy();
+      });
     }
   }
-  /**
-  * Destroys instance of select popup
-  */
-  destroyPop() {
-    this.$nextTick(function() {
-      if (this.popObj !== undefined) (this as any).popObj.destroy();
-    });
-  }
-}
 </script>
 
 <template>
