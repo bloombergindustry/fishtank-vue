@@ -90,7 +90,7 @@
     "jshint": "2.10.2",
     "lodash": ">=4.17.11",
     "moxios": "0.4.0",
-    "node-sass": "4.9.0",
+    "node-sass": "^4.13.0",
     "normalize-scss": "7.0.1",
     "postcss": "7.0.6",
     "postcss-css-variables": "0.11.0",
