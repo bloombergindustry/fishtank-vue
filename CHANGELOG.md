@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.7"></a>
+## [5.3.7](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.6...v5.3.7) (2019-12-06)
+
+
+
 <a name="5.3.6"></a>
 ## [5.3.6](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.5...v5.3.6) (2019-12-05)
 
