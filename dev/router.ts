@@ -86,6 +86,10 @@ export default new Router(<RouterOptions>{
       component: () => import("./views/Tabs.vue")
     },
     {
+      path: '/tabsv2',
+      component: () => import("./views/TabsV2.vue")
+    },
+    {
       path: '/tables',
       component: () => import("./views/Tables.vue")
     },

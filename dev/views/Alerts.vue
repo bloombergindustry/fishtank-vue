@@ -1,17 +1,17 @@
 <template>
   <div>
-    <box :marginBottom="2">
-      <fish-tank-base-alert heading="BBNA Alert"></fish-tank-base-alert>
+    <box :margin-bottom="2">
+      <fish-tank-base-alert heading="BBNA Alert" />
     </box>
-    <box :marginBottom="2">
-      <fish-tank-alert-success heading="Update Complete"></fish-tank-alert-success>
+    <box :margin-bottom="2">
+      <fish-tank-alert-success heading="Update Complete" />
     </box>
-    <box :marginBottom="2">
-      <fish-tank-alert-error heading="Update Did Not Complete"></fish-tank-alert-error>
+    <box :margin-bottom="2">
+      <fish-tank-alert-error heading="Update Did Not Complete" />
     </box>
     <box class="override">
-      <box :marginBottom="2">
-        <fish-tank-alert-info heading="Completed Tasks"></fish-tank-alert-info>
+      <box :margin-bottom="2">
+        <fish-tank-alert-info heading="Completed Tasks" />
       </box>
     </box>
   </div>

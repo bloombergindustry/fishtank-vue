@@ -29,7 +29,7 @@
       display="flex"
       direction="column"
       justify-content="center">
-      <fish-tank-tabs
+      <tabs
         class="margin-spacing"
         :items="tabs"
         :active="activeDefaultTab1"
@@ -123,8 +123,8 @@
             </fish-tank-text>
           </fish-tank-box>
         </template>
-      </fish-tank-tabs>
-      <fish-tank-tabs
+      </tabs>
+      <tabs
         class="margin-spacing"
         :items="tabs"
         :divider="true"
@@ -171,11 +171,11 @@
           display="flex"
           direction="column"
           align-items="start">
-          <fish-tank-tabs
+          <tabs
             class="margin-spacing"
             :items="tabs2" />
 
-          <fish-tank-tabs
+          <tabs
             class="margin-spacing"
             :items="tabs2"
             :divider="true" />
@@ -206,11 +206,11 @@
           display="flex"
           direction="column"
           align-items="end">
-          <fish-tank-tabs
+          <tabs
             class="margin-spacing"
             :items="tabs2" />
 
-          <fish-tank-tabs
+          <tabs
             class="margin-spacing"
             :items="tabs2"
             :divider="true" />
@@ -323,21 +323,14 @@ import Vue from 'vue'
 import { 
   FishTankBox,
   FishTankText,
-  FishTankTabs
+  FishTankTabsV2
 } from '@/index'
-
-
-import { 
-  Alert24
-  } from "@fishtank/icons-vue"
-
 
 export default Vue.extend({
   components: {
     FishTankBox,
     FishTankText,
-    FishTankTabs,
-    Alert24
+    tabs: FishTankTabsV2,
   },
 
   data(){
@@ -361,7 +354,7 @@ export default Vue.extend({
   },
   methods:{
     test(e:any){ //debugger function
-      console.log(e)
+      // console.log(e)
     },
 
     changeTab(itemName:string){

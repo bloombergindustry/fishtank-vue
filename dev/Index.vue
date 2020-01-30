@@ -25,6 +25,7 @@
       <li><a href="#/spinnerloader">Spinner Loader</a></li>
       <li><a href="#/switches">Switches</a></li>
       <li><a href="#/tabs">Tabs</a></li>
+      <li><a href="#/tabsv2">TabsV2</a></li>
       <li><a href="#/tables">Tables</a></li>
       <li><a href="#/tags">Tags</a></li>
       <li><a href="#/text">Text</a></li>

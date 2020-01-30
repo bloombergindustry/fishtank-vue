@@ -1,7 +1,7 @@
 <template>
   <div 
     :disabled="disabled" 
-    class="Tabs">
+    class="tabs">
     <div 
       :style="headerStyleObject" 
       :class="[divider ? 'seperator': 'no-seperator']"
@@ -11,7 +11,7 @@
         v-for="(item, index) in items" 
         :key="`${index}-title`" 
         :class="['title', focus ? 'no-focus' : 'focus']" 
-        :style="titleStyleObject" 
+        :style="[titleStyleObject, setIndividualTabWidth()]" 
         :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
@@ -46,7 +46,7 @@ import Vue from 'vue'
 import { a11y } from "../util/mixins"
 
 export default Vue.extend({
-  name: 'FishTankTabs',
+  name: 'FishTankTabsV2',
   components: {  },
   props: {
     /**
@@ -54,7 +54,7 @@ export default Vue.extend({
      */
     active: {
       type: String,
-      default: '',
+      default: ''
     },
 
     /**
@@ -83,7 +83,7 @@ export default Vue.extend({
     items: {
       type: Array,
       default: () => []
-    },
+    } ,
 
     /**
      * Render tab content hidden instead of conditionally
@@ -132,116 +132,26 @@ export default Vue.extend({
         }
       }
     },
+    setIndividualTabWidth(): any {
+      // return `{'width': ${100 / this.items.length}%}`
+      return {width: '100%'}
+    },
     addFocus(){
       this.focus = false
     }
-  }
-  
-
+  },
 })
 </script>
 
 <style scoped lang='scss'>
- @import '../styles/mixins';
-.Tabs .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 6px;
-  margin-bottom: var(--tab-header-margin-bottom, unset);
-}
-
-.seperator{
-  border-bottom: 1px solid var(--border-color, lightgray);
-}
-
-.no-seperator{
-  border-bottom: 1px solid transparent;
-}
-
-.focus:focus{
-  box-shadow: 0 0 0 2px #0D9DDB;
-  font-weight: 600;
-}
-.no-focus:focus{
-  outline: transparent;
-}
-
-.title {
-  align-self: center;
-  border-bottom: 3px solid var(--border-color, lightgray);
-  cursor: pointer;
-  display: flex;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 5px 4px;
-  width: var(--tab-title-width, unset);
-  color: var(--color-gray-dark);
-  transition: all .3s ease-in-out;
-
-  > span {
-    margin-left: var(--tab-title-span-margin-left, 5px);
-    margin-right: var(--tab-title-span-margin-right, unset);
+  @import '../styles/mixins';
+  .header {
+    display: flex;
+    margin: 0 auto;
   }
-
-  &:not(:last-child) {
-    margin-right: var(--tab-title-margin-right, 15px);
+  .title {
+    text-align: center;
   }
-
-  &:hover {
-    font-weight: 600;
-    color: var(--active-tab-title-color);
-    background-color: var(--active-tab-title-background-color);
-    pointer-events: var(--active-tab-title-pointer-events);
-    cursor: var(--active-tab-title-cursor);
-  }
-  &:active {
-    border-color: var(--active-color, #0D9DDB);
-    color: var(--active-tab-title-color);
-    background-color: var(--active-tab-title-background-color);
-    pointer-events: var(--active-tab-title-pointer-events);
-    cursor: var(--active-tab-title-cursor);
-  }
-  &[active] {
-    border-color: var(--active-color, #0D9DDB);
-    border-width: 4px;
-    color: var(--active-tab-title-color);
-    background-color: var(--active-tab-title-background-color);
-    pointer-events: var(--active-tab-title-pointer-events);
-    cursor: var(--active-tab-title-cursor);
-  }
-  &:disabled {
-    color: var(--disabled-tab-title-color);
-    background-color: var(--disabled-tab-title-background-color);
-    border-color: var(--disabled-tab-title-border-color);
-  }
-  &[hidden] { 
-    display: none; 
-  }
-  &:first-of-type {
-    border-radius: var(--tab-title-first-of-type-border-radius, unset);
-  }
-  &:last-of-type {
-    border-radius: var(--tab-title-last-of-type-border-radius, unset);
-  }
-  &:only-of-type {
-    border-radius: var(--tab-title-only-of-type-border-radius, unset);
-  }
-}
-
-.Tabs{
-  .body{
-    border: transparent;
-  }
-  .body .content {
-      &:hidden { display: none; }
-  }
-
-  &:disabled,[disabled] {
-    opacity: 0.25;
-    pointer-events: none;
-  }
-}
 </style>
 
 <style lang="scss">
