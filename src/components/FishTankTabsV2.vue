@@ -2,28 +2,29 @@
   <div 
     :disabled="disabled" 
     class="tabs">
-    <div 
-      :style="headerStyleObject" 
-      :class="[divider ? 'seperator': 'no-seperator']"
-      class="header"
-      role="menubar">
-      <div 
-        v-for="(item, index) in items" 
-        :key="`${index}-title`" 
-        :class="['title', focus ? 'no-focus' : 'focus']" 
-        :style="[titleStyleObject, setIndividualTabWidth()]" 
-        :active="item.name === active" 
-        :disabled="item.disabled" 
-        :hidden="item.hidden" 
-        tabindex="0"
-        role="menuitem"
-        @click="$emit('change', item); removeFocus()"
-        @keyup.13="$emit('change', item); addFocus()"
-        @keyup.9="addFocus(); ">
-        <slot 
-          :name="`${item.name}-title`">
-          <span>{{ item.label }}</span>
-        </slot>
+    <div class="header-wrapper">
+      <div
+        :style="[headerStyleObject, getHeaderWidth(headerWidth, items.length)]" 
+        :class="['header', align]"
+        role="menubar">
+        <div
+          v-for="(item, index) in items"
+          :key="`${index}-tab`"
+          :class="['tab', item.name === active ? '' : 'focus', tabSize]" 
+          :style="[tabStyleObject]" 
+          :active="item.name === active"
+          :disabled="item.disabled" 
+          :hidden="item.hidden" 
+          tabindex="0"
+          role="menuitem"
+          @click="$emit('change', item); removeFocus()"
+          @keyup.13="$emit('change', item); addFocus()"
+          @keyup.9="addFocus(); ">
+          <slot
+            :name="`${item.name}-tab`">
+            <p class="tab-label-text">{{ item.label }}</p>
+          </slot>
+        </div>
       </div>
     </div>
 
@@ -62,13 +63,32 @@ export default Vue.extend({
      */
     disabled: Boolean,
 
-    /**
-     * Disables seperator style line on tab component
-     */
-    divider: {
-      type: Boolean,
+    /*
+      align="right" or
+      align="left"
+    */
+    align: {
+      type: String,
       required: false,
-      default: false
+      default: 'center'
+    },
+
+    /*
+      header-width="50vw" or
+      header-width="40%" etc
+    */
+    headerWidth: {
+      type: String,
+      required: false,
+      default: ''
+    },
+
+    // default - height: 42px, border-top: 4px, font-size: 16px
+    // large   - height: 60px, boarder-top: 6px, font-size: 18px
+    tabSize: {
+      type: String,
+      required: false,
+      default: ''
     },
 
     /**
@@ -77,7 +97,7 @@ export default Vue.extend({
      * @param {Boolean} [items[].disabled] - Tab disabled state
      * @param {Boolean} [items[].hidden] - Tab hidden state
      * @param {String} [items[].label] - Tab label to display
-     * @param {String} [items[].name] - Tab name to use for defining slots, use '-title' suffix for title slot
+     * @param {String} [items[].name] - Tab name to use for defining slots, use '-tab' suffix for tab slot
      * @param {Boolean} [items[].renderHidden] - Render the content when hidden instead of omitting, for forms etc
      */
     items: {
@@ -103,11 +123,11 @@ export default Vue.extend({
         return {}
       }
     },
-   
+
     /**
-     * Custom styling of the tab title
+     * Custom styling of the tab
      */
-    titleStyleObject: {
+    tabStyleObject: {
       type: Object,
       default: function () {
         return {}
@@ -132,25 +152,98 @@ export default Vue.extend({
         }
       }
     },
-    setIndividualTabWidth(): any {
-      // return `{'width': ${100 / this.items.length}%}`
-      return {width: '100%'}
-    },
     addFocus(){
       this.focus = false
-    }
+    },
+    getHeaderWidth(headerWidth: string, itemLength: number): any {
+      // if header-with prop is passed, override the width to prop value
+      if (headerWidth) {
+        return { width: `${headerWidth}` }
+      }
+
+      // if more than 5 tabs, default header width to 100%
+      let tabCount = itemLength
+      if (tabCount >= 5) {
+        return { width: `100%` }
+      }
+
+      // otherwise, set header width to 20 * tabCount, and 
+      // (individual tab width to 20%)
+      return { width: `${ 20 * tabCount }%` }
+    },
   },
 })
 </script>
 
 <style scoped lang='scss'>
   @import '../styles/mixins';
+  .header-wrapper {
+    border-bottom: 1px solid $color-gray-light;
+  }
   .header {
     display: flex;
     margin: 0 auto;
+    &.left {
+      margin: 0;
+    }
+    &.right {
+      margin: 0 0 0 auto;
+    }
   }
-  .title {
+  .tab {
+    display: flex;
+    height: $baseline * 6;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    font-size: $fontsize-base-lg;
+    padding: $baseline * 2;
+    color: $color-gray-dark;
+    background-color: $color-gray-lightest;
+    border-top: 4px solid transparent;
+    border-right: 1px solid $color-gray-lighter;
+    border-collapse: collapse;
+
+    &.large {
+      height: $baseline * 10;
+      border-top-width: 6px;
+      font-size: 18px;
+    }
+
+    .tab-label-text {
+      margin: 0;
+    }
+    &:last-child {
+      border-right: none;
+    }
+
+    &[active] {
+      z-index: 1;
+      color: $color-black;
+      background-color: $color-background;
+      border-top-color: $color-selected-darkest;
+      font-weight: 600;
+      border-right: 1px solid $color-gray-light;
+
+      // hide bottom-bottom of header-wrapper
+      // and border of adjacent tab when the tab is active
+      margin-bottom: -1px;
+      margin-left: -1px;
+      border-bottom: 1px solid $color-background;
+      border-left: 1px solid $color-gray-light;
+    }
+    // Hide focus outline all time, 
+    // except when non-active the tab is focused by tab key.
+    &:focus {
+      outline: transparent
+    }
+    &.focus:focus{
+      z-index: 2;
+      box-shadow: 0 0 0 2px $color-selected;
+      transition-property: box-shadow;
+      transition-delay: 0.2s;
+    }
   }
 </style>
 
