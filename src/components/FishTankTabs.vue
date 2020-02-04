@@ -9,9 +9,9 @@
       role="menubar">
       <div 
         v-for="(item, index) in items" 
+        :key="`${index}-title`" 
         :class="['title', focus ? 'no-focus' : 'focus']" 
         :style="titleStyleObject" 
-        :key="`${index}-title`" 
         :active="item.name === active" 
         :disabled="item.disabled" 
         :hidden="item.hidden" 
@@ -35,7 +35,7 @@
         class="content">
         <slot 
           v-if="item.renderHidden || item.name===active" 
-          :name="item.name"/>
+          :name="item.name" />
       </div>
     </div>
   </div>
@@ -52,7 +52,10 @@ export default Vue.extend({
     /**
      * Active tab name
      */
-    active: String,
+    active: {
+      type: String,
+      default: '',
+    },
 
     /**
      * Disabled state of entire component
@@ -77,7 +80,10 @@ export default Vue.extend({
      * @param {String} [items[].name] - Tab name to use for defining slots, use '-title' suffix for title slot
      * @param {Boolean} [items[].renderHidden] - Render the content when hidden instead of omitting, for forms etc
      */
-    items: Array,
+    items: {
+      type: Array,
+      default: () => []
+    },
 
     /**
      * Render tab content hidden instead of conditionally
