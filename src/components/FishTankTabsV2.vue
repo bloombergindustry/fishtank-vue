@@ -10,9 +10,9 @@
         <div
           v-for="(item, index) in items"
           :key="`${index}-tab`"
-          :class="['tab', item.name === active ? '' : 'focus', tabSize]" 
+          :class="['tab', isActiveTab(item.name) ? '' : 'focus', tabSize]" 
           :style="[tabStyleObject]" 
-          :active="item.name === active"
+          :active="isActiveTab(item.name)"
           :disabled="item.disabled" 
           :hidden="item.hidden" 
           tabindex="0"
@@ -22,7 +22,12 @@
           @keyup.9="addFocus(); ">
           <slot
             :name="`${item.name}-tab`">
-            <p class="tab-label-text">{{ item.label }}</p>
+            <fish-tank-text
+              :bold="isActiveTab(item.name)"
+              :color="isActiveTab(item.name) ? 'black' : 'grayDark'"
+              size="baseLg">
+              {{ item.label }}
+            </fish-tank-text>
           </slot>
         </div>
       </div>
@@ -45,10 +50,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { a11y } from "../util/mixins"
+import { FishTankText } from "@/index"
 
 export default Vue.extend({
   name: 'FishTankTabsV2',
-  components: {  },
+  components: { 
+    FishTankText
+  },
   props: {
     /**
      * Active tab name
@@ -171,6 +179,9 @@ export default Vue.extend({
       // (individual tab width to 20%)
       return { width: `${ 20 * tabCount }%` }
     },
+    isActiveTab(tabName: string): boolean {
+      return tabName === this.active
+    }
   },
 })
 </script>
@@ -197,33 +208,32 @@ export default Vue.extend({
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: $fontsize-base-lg;
     padding: $baseline * 2;
-    color: $color-gray-dark;
     background-color: $color-gray-lightest;
     border-top: 4px solid transparent;
     border-right: 1px solid $color-gray-lighter;
     border-collapse: collapse;
 
+    &:hover {
+      background-color: $color-selected-lightest;
+    }
+
     &.large {
       height: $baseline * 10;
       border-top-width: 6px;
-      font-size: 18px;
+      div {
+        font-size: 18px;
+      }
     }
 
-    .tab-label-text {
-      margin: 0;
-    }
     &:last-child {
       border-right: none;
     }
 
     &[active] {
       z-index: 1;
-      color: $color-black;
       background-color: $color-background;
       border-top-color: $color-selected-darkest;
-      font-weight: 600;
       border-right: 1px solid $color-gray-light;
 
       // hide bottom-bottom of header-wrapper
