@@ -10,9 +10,9 @@
         <div
           v-for="(item, index) in items"
           :key="`${index}-tab`"
-          :class="['tab', isActiveTab(item.name) ? '' : 'focus', tabSize]" 
+          :class="['tab', item.name === active ? '' : 'focus', tabSize]" 
           :style="[tabStyleObject]" 
-          :active="isActiveTab(item.name)"
+          :active="item.name === active"
           :disabled="item.disabled" 
           :hidden="item.hidden" 
           tabindex="0"
@@ -23,8 +23,8 @@
           <slot
             :name="`${item.name}-tab`">
             <fish-tank-text
-              :bold="isActiveTab(item.name)"
-              :color="isActiveTab(item.name) ? 'black' : 'grayDark'"
+              :bold="item.name === active"
+              :color="item.name === active ? 'black' : 'grayDark'"
               size="baseLg">
               {{ item.label }}
             </fish-tank-text>
@@ -50,7 +50,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { a11y } from "../util/mixins"
-import { FishTankText } from "@/index"
+import FishTankText from "./FishTankText.vue"
 
 export default Vue.extend({
   name: 'FishTankTabsV2',
@@ -178,9 +178,6 @@ export default Vue.extend({
       // otherwise, set header width to 20 * tabCount, and 
       // (individual tab width to 20%)
       return { width: `${ 20 * tabCount }%` }
-    },
-    isActiveTab(tabName: string): boolean {
-      return tabName === this.active
     }
   },
 })
