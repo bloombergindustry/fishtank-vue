@@ -205,7 +205,7 @@ export default Vue.extend({
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: $baseline * 2;
+    padding: 6px 8px 8px 8px;
     background-color: $color-gray-lightest;
     border-top: 4px solid transparent;
     border-right: 1px solid $color-gray-lighter;
@@ -218,6 +218,7 @@ export default Vue.extend({
     &.large {
       height: $baseline * 10;
       border-top-width: 6px;
+      padding: 4px 8px 10px 8px;
       div {
         font-size: 18px;
       }
