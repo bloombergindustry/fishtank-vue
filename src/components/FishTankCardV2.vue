@@ -57,27 +57,27 @@ export default class CardV2 extends Vue {
 </script>
 
 <template>
-  <div class="card">
+  <div class="ft-card">
     <div
       v-if="branded"
       :style="returnBrandStripe()" 
-      class="branded brandStripe"/>
+      class="branded brandStripe" />
     <div 
-      class="container">
+      class="ft-card-container">
       <slot
         :headerClass=" heading"     
         name="heading" />
       <div 
         v-if="!$slots.heading && heading"
         :style="customHeadingBg ? returnHeaderStripe() :'' "
-        class="heading"
+        class="ft-card-heading"
         role="heading"
         aria-level="3">
         {{ heading }}
       </div>
 
       <div
-        class="body">
+        class="ft-card-body">
         <slot />
       </div>
     </div>
@@ -89,7 +89,7 @@ export default class CardV2 extends Vue {
   @import '../../node_modules/@fishtank/type/dist/index.scss';
   @import '../styles/mixins';
   @import url($cdn-url);
-  .card + .card {
+  .ft-card + .ft-card {
     margin-top: $baseline * 6;
   }
 </style>
@@ -97,7 +97,7 @@ export default class CardV2 extends Vue {
 <style scoped lang="scss">
   @import '../styles/mixins';
 
-  .container {
+  .ft-card-container {
     box-sizing: border-box;
     border-radius: 2px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
@@ -108,19 +108,19 @@ export default class CardV2 extends Vue {
     height: 4px;
   }
 
-  .brandStripe + .container {
+  .brandStripe + .ft-card-container {
     .card__heading {
       border-radius: 0;
     }
 
-    .body {
+    .ft-card-body {
       border-top: none;
       border-top-right-radius: 0;
       border-top-left-radius: 0;
     }
   }
 
-  .heading {
+  .ft-card-heading {
     border: 1px solid $color-gray-lighter;
     border-radius: 2px 2px 0 0;
     padding: $baseline * 3;
@@ -132,14 +132,14 @@ export default class CardV2 extends Vue {
     letter-spacing: $letterspacing-base-lg;
   } 
 
-  .body {
+  .ft-card-body {
     // padding: $baseline * 3;
     border-radius: 2px;
     background-color: $color-white;
     border: 1px solid $color-gray-lighter;
   }
 
-  .heading + .body {
+  .ft-card-heading + .ft-card-body {
     border-top: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
