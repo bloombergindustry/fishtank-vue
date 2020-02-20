@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.15"></a>
+## [5.3.15](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.14...v5.3.15) (2020-02-20)
+
+
+### Bug Fixes
+
+* renamed card, heading, and container class names. ([8afe6b0](https://github.com/bloombergbna/fishtank-vue/commit/8afe6b0))
+
+
+
 <a name="5.3.14"></a>
 ## [5.3.14](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.13...v5.3.14) (2020-02-07)
 
