@@ -4,17 +4,17 @@
   >
     <div
       v-if="label"
-      class="label-wrapper"
+      class="ft-textarea-label-wrapper"
     >
       <label
         :for="`textarea-${identifier}-id`"
-        class="label"
+        class="ft-textarea-label"
       >
         <ftext bold primary uppercase size="baseMd">
           {{ label }}
           <span
           v-if="required"
-          class="label-required"
+          class="ft-textarea-label-required"
         >
         *
         </span>
@@ -266,11 +266,11 @@ export default Vue.extend({
     }
   }
 
-  .label-required {
+  .ft-textarea-label-required {
     color: $color-error;
   }
 
-  .label-wrapper {
+  .ft-textarea-label-wrapper {
     position: relative;
     margin-bottom: $baseline;
   }
@@ -313,7 +313,7 @@ export default Vue.extend({
         font-weight: $fontweight-regular;
         font-family: $font-primary;
       }
-    .label {
+    .ft-textarea-label {
       color: $color-error;
     }
   }
@@ -350,7 +350,7 @@ export default Vue.extend({
   }
   .ltr, .rtl {
     display: flex;
-    .label-wrapper{
+    .ft-textarea-label-wrapper{
       padding: 8px 0px 0px 0px;
     }
     // flex: 1 0 auto;
