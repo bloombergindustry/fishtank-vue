@@ -5,7 +5,7 @@ import { Close24 } from '@fishtank/icons-vue'
 import { mixins } from 'vue-class-component';
 
 let overlayTimeout: null | number = null
-let overlay: null | HTMLElement = document.querySelector('.overlay')
+let overlay: null | HTMLElement = document.querySelector('.ft-overlay')
 
 @Component({
   components: {
@@ -101,9 +101,9 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
   get classObj() : Record<any, any> {
     let classObj : Record<string, boolean> = {
-      'modal--active': this.active,
-      'modal--fixed': this.fixed,
-      'modal--dialog': this.dialog,
+      'ft-modal--active': this.active,
+      'ft-modal--fixed': this.fixed,
+      'ft-modal--dialog': this.dialog,
     }
 
     // This is a bit of a hack, but since our rendered modal doesn't actually appear
@@ -112,7 +112,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     // custom classes from the top-level item onto the actual modal div.
     if (this.$el) {
       let parentClasses = this.$el.className.split(' ').forEach((classVal) => {
-        if(classVal !== "modal__entry-point") {
+        if(classVal !== "ft-modal__entry-point") {
           classObj[classVal] = true
         }
       })
@@ -171,10 +171,10 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
   updateState() {
     if (this.active) {
-      document.body.classList.add('modal-locked')
+      document.body.classList.add('ft-modal-locked')
       this.show()
     } else {
-      document.body.classList.remove('modal-locked')
+      document.body.classList.remove('ft-modal-locked')
       this.hide()
     }
   }
@@ -191,7 +191,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
       // not pretty
       if(overlay) {
         var len = overlay.classList.length
-        overlay.classList.add('overlay--active')
+        overlay.classList.add('ft-overlay--active')
         if(overlay.classList.length > len) {
           return true;
         } else {
@@ -201,12 +201,12 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     }
 
     if (!overlay) {
-      overlay = document.querySelector('.overlay') as HTMLElement | null
+      overlay = document.querySelector('.ft-overlay') as HTMLElement | null
     }
     if (!overlay) {
       overlay = document.createElement('div')
     }
-    overlay.className = 'overlay'
+    overlay.className = 'ft-overlay'
 
     this.hideScroll()
 
@@ -216,7 +216,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     overlay.clientHeight // Force repaint
     requestAnimationFrame(() => {
       if (!overlay) return
-      overlay.className += ' overlay--active'
+      overlay.className += ' ft-overlay--active'
     })
 
     return true
@@ -227,8 +227,8 @@ export default class FishTankModalV2 extends mixins(Detachable) {
       return this.showScroll()
     }
 
-    document.body.classList.remove('modal-locked')
-    overlay.classList.remove('overlay--active')
+    document.body.classList.remove('ft-modal-locked')
+    overlay.classList.remove('ft-overlay--active')
 
     overlayTimeout = window.setTimeout(() => {
       // IE11 Fix
@@ -259,7 +259,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
 
   showScroll () {
-    document.documentElement.classList.remove('overflow-y-hidden')
+    document.documentElement.classList.remove('ft-overflow-y-hidden')
     window.removeEventListener('wheel', this.scrollListener)
     window.removeEventListener('keydown', this.scrollListener)
   }
@@ -386,39 +386,39 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 </script>
 
 <template>
-  <div class="modal__entry-point">
+  <div class="ft-modal__entry-point">
     <div
       ref="content"
       :class="classObj"
-      class="modal"
+      class="ft-modal"
     >
       <div
         v-if="escapeable"
-        class="modal__escapable-background"
+        class="ft-modal__escapable-background"
         @click="close"
       />
       <div 
         :style="styles"
-        class="modal__container"
+        class="ft-modal__container"
       >
         <div
-          class="modal__heading"
+          class="ft-modal__heading"
         >
-          <div class="modal__heading-title-container">
+          <div class="ft-modal__heading-title-container">
             <div
               v-if="$slots.headingIcon"
-              class="modal__heading-icon-wrapper"
+              class="ft-modal__heading-icon-wrapper"
               tabindex="-1"
             >
               <div 
-                class="modal__heading-icon" 
+                class="ft-modal__heading-icon" 
                 tabindex="-1">
                 <!-- @slot Slot for heading icon -->
                 <slot name="headingIcon"/>
               </div>
             </div>
             <div
-              class="modal__heading-title"
+              class="ft-modal__heading-title"
             >
               <!-- @slot Slot for heading -->
               <slot name="heading"/>
@@ -426,22 +426,22 @@ export default class FishTankModalV2 extends mixins(Detachable) {
           </div>
           <div
             v-if="$slots.headingExtra"
-            class="modal__heading-extra"
+            class="ft-modal__heading-extra"
           >
             <!-- @slot Slot for extra heading -->
             <slot 
               name="headingExtra"/>
           </div>
-          <div class="modal__close">
+          <div class="ft-modal__close">
             <span
               v-if="!dialog"
-              class="modal__close-separator"
+              class="ft-modal__close-separator"
             />
-            <div class="modal__close-icon-wrapper">
+            <div class="ft-modal__close-icon-wrapper">
               <Close24
                 tabindex="0"
                 aria-label="Close Modal"
-                class="modal__close-icon"
+                class="ft-modal__close-icon"
                 @click="close"
                 @keydown.enter="accessibilityClick"
               />
@@ -450,7 +450,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
         </div>
 
         <div 
-          class="modal__body"
+          class="ft-modal__body"
           :style="overflow === undefined ? {'overflow-y':'auto'} : {'overflow-y':overflow} ">
           <!-- @slot Slot for modal body -->
           <slot/>
@@ -458,24 +458,24 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 
         <div
           v-if="showFooter"
-          class="modal__footer"
+          class="ft-modal__footer"
         >
           <div
             v-if="$slots.footer"
-            class="modal__footer-container"
+            class="ft-modal__footer-container"
           >
           <!-- @slot Slot for footer -->
             <slot name="footer"/>
           </div>
           <div
             v-else-if="$slots.footerLeft || $slots.footerRight"
-            class="modal__footer-container"
+            class="ft-modal__footer-container"
           >
-            <div class="modal__footerLeft">
+            <div class="ft-modal__footerLeft">
               <!-- @slot Slot for footer left -->
               <slot name="footerLeft"/>
             </div>
-            <div class="modal__footerRight">
+            <div class="ft-modal__footerRight">
               <!-- @slot Slot for footer right -->
               <slot name="footerRight"/>
             </div>
@@ -500,7 +500,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   $modal-border: 1px solid $color-gray-lighter;
 
 
-.modal {
+.ft-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -512,7 +512,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   align-items: center;
 }
 
-.modal__escapable-background {
+.ft-modal__escapable-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -521,7 +521,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   cursor: pointer;
 }
 
-.modal__container {
+.ft-modal__container {
   position: relative;
 	box-sizing: border-box;
   border: $modal-border;
@@ -537,17 +537,17 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   z-index: 1002;
 }
 
-.modal--active {
+.ft-modal--active {
   display: flex;
 }
 
-.modal--fixed {
-  .modal__container {
+.ft-modal--fixed {
+  .ft-modal__container {
     height: 100%;
   }
 }
 
-.modal__heading {
+.ft-modal__heading {
   padding: $baseline * 3;
   background-color: $color-gray-lightest;
   box-sizing: border-box;
@@ -565,37 +565,37 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   white-space: nowrap;
 }
 
-.modal__heading,
-.modal__footer {
+.ft-modal__heading,
+.ft-modal__footer {
   box-sizing: border-box;
 }
 
-.modal__footer {
+.ft-modal__footer {
   // padding: $baseline * 3;
   padding: 0px;
   white-space: nowrap;
 }
 
-.modal__footer-container {
+.ft-modal__footer-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.modal__heading-title-container {
+.ft-modal__heading-title-container {
   display: flex;
   align-items: center;
 }
 
-.modal__heading-icon {
+.ft-modal__heading-icon {
   display: flex;
 }
 
-.modal__heading-icon-wrapper  + .modal__heading-title {
+.ft-modal__heading-icon-wrapper  + .ft-modal__heading-title {
   margin-left: 8px;
 }
 
-.modal__heading-extra {
+.ft-modal__heading-extra {
   flex: 0 100%;
   display: flex;
   justify-content: flex-end;
@@ -603,47 +603,47 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   margin-right: 12px;
 }
 
-.modal__close {
+.ft-modal__close {
   display: flex;
   align-items: center;
   margin-left: 12px;
 }
 
-.modal__close-separator {
+.ft-modal__close-separator {
   display: inline-block;
   width: 1px;
   height: 32px;
   background-color: $color-gray-lighter;
 }
 
-.modal__close-icon-wrapper {
+.ft-modal__close-icon-wrapper {
   padding-left: 12px;
   display: flex;
 }
 
-.modal__close-icon {
+.ft-modal__close-icon {
   cursor: pointer;
 }
 
-.modal__body {
+.ft-modal__body {
   overflow-x: hidden;
 }
 
-.modal--fixed {
-  .modal__footer {
+.ft-modal--fixed {
+  .ft-modal__footer {
     // padding: $baseline * 3;
     background-color: $color-gray-lightest;
     border-top: $modal-border;
     border-radius: 0 0 2px 2px;
   }
 
-  .modal__body {
+  .ft-modal__body {
     flex: 1 100%;
   }
 }
 
-.modal--dialog {
-  .modal__heading {
+.ft-modal--dialog {
+  .ft-modal__heading {
     background-color: transparent;
     padding-left: 0;
     padding-right: 0;
@@ -652,24 +652,24 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 }
 
 @include breakpoint-sm-or-lesser {
-  .modal__container {
+  .ft-modal__container {
     height: 100%;
     max-height: 100%;
   }
 
-  .modal__body {
+  .ft-modal__body {
     flex: 1 100%;
   }
 
-  .modal--fixed {
-    .modal__footer {
+  .ft-modal--fixed {
+    .ft-modal__footer {
       // padding-bottom: $baseline * 3;
     }
   }
 }
 
 
-.modal__footerLeft{
+.ft-modal__footerLeft{
   width: 50%;
   display: flex;
   flex-direction: row;
@@ -677,7 +677,7 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   align-items: center;
 }
 
-.modal__footerRight{
+.ft-modal__footerRight{
   width: 50%;
   display: flex;
   flex-direction: row;
@@ -688,12 +688,12 @@ export default class FishTankModalV2 extends mixins(Detachable) {
 </style>
 
 <style>
-  .modal-locked {
+  .ft-modal-locked {
     height: 100%;
     overflow: hidden;
   }
 
-.overlay {
+.ft-overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -701,10 +701,10 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   right: 0;
   bottom: 0;
   z-index: 999;
-  background-color: rgba(black, 0.5)
+  background-color: rgba(0,0,0, 0.5)
 }
 
-.overlay--active {
+.ft-overlay--active {
   display: block;
 }
 
