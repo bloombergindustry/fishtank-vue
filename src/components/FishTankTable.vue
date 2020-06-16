@@ -13,7 +13,7 @@
    * How To Use:
    * FishTankTable accepts a property called table-data.  table-data is an object which has two members, fields and data...i.e
    * tableData = {
-   *    fields: [{title: "This is the First Column", name: "firstColumn", colAlignment:"right"},
+   *    fields: [{title: "This is the First Column", name: "firstColumn", colAlignment:"right", colVAlignment:"top"},
    *             {title: "Second Column", name: "secondColumn", width:"250px"}]
    * 
    *    data: [{firstColumn: "Cell 1", secondColumn: "Cell 2"},
@@ -74,6 +74,32 @@
         }
       }
     }
+
+    getColVerticalAlign(cellName : String) {
+      for( let currField of this.tableData.fields) {
+        if(currField.name === cellName) {
+          switch(currField.colVAlignment) {
+            // length and percentage not currently supported
+            case "sub":
+              return "td--sub"
+            case "super":
+              return "td--super"
+            case "text-top":
+              return "td--text-top"
+            case "text-bottom":
+              return "td--text-bottom"
+            case "middle":
+              return "td--middle"
+            case "top":
+              return "td--top"
+            case "bottom":
+              return "td--bottom"
+            default:
+              return "baseline"
+          }
+        }
+      }
+    }
   }
 
 </script>
@@ -84,28 +110,26 @@
     class="table">
     <thead>
       <tr>
-        <template v-for="(field, index) in tableData.fields" >
+        <template v-for="(field, index) in tableData.fields">
           <template v-if="isSpecialCell(field.name)">
             <th 
-              v-if="getCellType(field)=='__slot'"   
-              :class="[]" 
-              :key="index"> 
+              v-if="getCellType(field)=='__slot'"
+              :key="index"
+              :class="[]">
               <!-- @slot Slot for passing component to table header -->
               <slot 
-                :name ="renderComponent(cell)" 
-                :row-data = "row" 
-                :row-index = "rowIndex" />
+                :name="renderComponent(cell)"
+                :row-data="row"
+                :row-index="rowIndex" />
             </th>
             <!--supports additional special cell types, can add more cell types here-->
           </template>
           <template v-else>
             <th
-              :style="{width: field.width}"
-              :class="[]" 
-              :key="index">
-              
+              :key="index"
+              :class="[]"
+              :style="{width: field.width}">
               {{ field.title.toUpperCase() }}
-
             </th>
           </template>
         </template>
@@ -115,27 +139,25 @@
       <template v-for="(row,rowIndex) in tableData.data">
         <tr :key="rowIndex">
           <template v-for="(cell,name,index) in row">
-            <template v-if= "isSpecialCell(cell)">
+            <template v-if="isSpecialCell(cell)">
               <td 
                 v-if="getCellType(cell)=='__slot'" 
-                :class="[getColAlign(name)]" 
-                :key="index">
+                :key="index"
+                :class="[getColAlign(name), getColVerticalAlign(name)]">
                 <!-- @slot Slot for passing component to table body -->
                 <slot 
-                  :name ="renderComponent(cell)" 
-                  :row-data = "row" 
-                  :row-index = "rowIndex" />
+                  :name="renderComponent(cell)"
+                  :row-data="row"
+                  :row-index="rowIndex" />
               </td>
               <!--supports additional special cell types, can add more cell types here-->
             </template>
             <template v-else>
               <td
-                :style="{width: row.width}"
-                :class="[getColAlign(name)]"
-                :key="index">
-              
+                :key="index"
+                :class="[getColAlign(name), getColVerticalAlign(name)]"
+                :style="{width: row.width}">
                 {{ cell }}
-              
               </td>
             </template>
           </template>
@@ -166,23 +188,37 @@
     color: $color-black;
     font-size: var(--fontsize-base-md);
     font-weight: var(--fontweight-regular);
-  }
 
-  td{
     &.td--left {
       text-align:left;
     }
-  }
 
-  td {
     &.td--right {
       text-align:right;
     }
-  }
 
-  td {
     &.td--center {
       text-align:center;
+    }
+
+    &.td--sub {
+      vertical-align: 'sub'
+    }
+
+    &.td--super {
+      vertical-align: 'super'
+    }
+
+    &.td--text-top {
+      vertical-align: 'text-top'
+    }
+
+    &.td--text-bottom {
+      vertical-align: 'text-bottom'
+    }
+
+    &.td--middle {
+      vertical-align: 'middle'
     }
   }
 
