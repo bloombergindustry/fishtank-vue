@@ -95,7 +95,7 @@
             case "bottom":
               return "td--bottom"
             default:
-              return "baseline"
+              return "td--baseline"
           }
         }
       }
@@ -201,24 +201,32 @@
       text-align:center;
     }
 
-    &.td--sub {
-      vertical-align: 'sub'
-    }
-
-    &.td--super {
-      vertical-align: 'super'
-    }
-
-    &.td--text-top {
-      vertical-align: 'text-top'
-    }
-
-    &.td--text-bottom {
-      vertical-align: 'text-bottom'
+    &.td--baseline {
+      vertical-align: baseline
     }
 
     &.td--middle {
-      vertical-align: 'middle'
+      vertical-align: middle
+    }
+
+    &.td--sub {
+      vertical-align: sub
+    }
+
+    &.td--super {
+      vertical-align: super
+    }
+
+    &.td--text-top {
+      vertical-align: text-top
+    }
+
+    &.td--text-bottom {
+      vertical-align: text-bottom
+    }
+
+    &.td--top {
+      vertical-align: top
     }
   }
 
