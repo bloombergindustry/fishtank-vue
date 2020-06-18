@@ -11,14 +11,12 @@ All notable changes to this project will be documented in this file. See [standa
 * Added modalLocked prop to ModalV2 ([4c6f747](https://github.com/bloombergbna/fishtank-vue/commit/4c6f747))
 
 
-
-<a name="5.4.0"></a>
-# [5.4.0](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.18...v5.4.0) (2020-06-22)
-
-
 ### Features
 
 * Added modalLocked prop to ModalV2 ([4c6f747](https://github.com/bloombergbna/fishtank-vue/commit/4c6f747))
+
+<a name="5.3.22"></a>
+## [5.3.22](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.21...v5.3.22) (2020-06-18)
 
 
 
