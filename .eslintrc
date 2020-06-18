@@ -9,7 +9,7 @@
     "@vue/typescript"
   ], 
   "rules": {
-    "prettier/prettier": ["warning", {
+    "prettier/prettier": [1, {
       "semi": false
     }],
     "semi": ["warn", "never"],
