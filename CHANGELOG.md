@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.4.0"></a>
+# [5.4.0](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.18...v5.4.0) (2020-06-22)
+
+
+### Features
+
+* Added modalLocked prop to ModalV2 ([4c6f747](https://github.com/bloombergbna/fishtank-vue/commit/4c6f747))
+
+
+
 <a name="5.3.21"></a>
 ## [5.3.21](https://github.com/bloombergbna/fishtank-vue/compare/v5.3.20...v5.3.21) (2020-06-17)
 
