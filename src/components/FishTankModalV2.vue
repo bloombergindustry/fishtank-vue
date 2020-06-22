@@ -78,6 +78,16 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   })
   overflow:string
 
+  /**
+   * Modal content overflow
+   */
+  @Prop({
+    type:Boolean,
+    required: false,
+    default: true
+  })
+  modalLocked:boolean
+
   // Data
   overlayTransitionDuration = 650 // transition (500) + delay (150)
   isActive = false
@@ -171,10 +181,14 @@ export default class FishTankModalV2 extends mixins(Detachable) {
   }
   updateState() {
     if (this.active) {
-      document.body.classList.add('ft-modal-locked')
+      if (this.modalLocked === true){
+        document.body.classList.add('ft-modal-locked')
+      }
       this.show()
     } else {
-      document.body.classList.remove('ft-modal-locked')
+      if (this.modalLocked === true){
+        document.body.classList.remove('ft-modal-locked')
+      }
       this.hide()
     }
   }
@@ -226,8 +240,9 @@ export default class FishTankModalV2 extends mixins(Detachable) {
     if (!overlay) {
       return this.showScroll()
     }
-
-    document.body.classList.remove('ft-modal-locked')
+    if(document.body.classList.contains('ft-modal-locked')){
+      document.body.classList.remove('ft-modal-locked')
+    }
     overlay.classList.remove('ft-overlay--active')
 
     overlayTimeout = window.setTimeout(() => {

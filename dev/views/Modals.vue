@@ -208,7 +208,7 @@
       </template>
     </modal-v2>
 
-    <modal-v2 v-model="modal4" width="80%" fixed>
+    <modal-v2 v-model="modal4" width="80%" fixed :modal-locked="false">
       <search32 slot="headingIcon" />
 
       <template slot="heading">
